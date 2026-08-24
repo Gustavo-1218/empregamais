@@ -47,7 +47,7 @@
     </header>
 
 
-  
+
     <main class="pagina">
 
         <section class="introducao">
@@ -84,16 +84,13 @@
         </section>
 
 
-        
+
 
         <section class="mapa-container">
 
-            
 
-            <iframe
-                src="https://www.google.com/maps/embed"
-                loading="lazy"
-                allowfullscreen>
+
+            <iframe src="https://www.google.com/maps/embed" loading="lazy" allowfullscreen>
             </iframe>
 
         </section>
@@ -107,56 +104,59 @@
             <div class="lista-empresas">
 
 
-                
 
                 <div class="empresa">
 
                     <div class="icone">
-                        &lt;/&gt;
+                        🛒
                     </div>
 
                     <div class="empresa-info">
 
-                        <h3>Tech Solutions</h3>
+                        <h3>Atacarejo Bom Preço</h3>
 
                         <p>
-                            Av. Sen. Salgado Filho, 3000<br>
-                            Lagoa Nova, Natal - RN
+                            R. Pedro Vasconcelos, 39<br>
+                            Chácaras de Extremoz, Extremoz - RN
                         </p>
 
                     </div>
 
-                    <a href="#" class="ver-mapa">
+                    <button class="ver-mapa"
+                        data-endereco="Atacarejo Bom Preço, R. Pedro Vasconcelos, 39 - Chácaras de Extremoz, Extremoz - RN, 59575-000, Brasil">
+
                         ◉ Ver no mapa
                         <span>→</span>
-                    </a>
+
+                    </button>
 
                 </div>
 
-
                 <!-- EMPRESA 2 -->
-
                 <div class="empresa">
 
                     <div class="icone">
-                        ◇
+                        🍣
                     </div>
 
                     <div class="empresa-info">
 
-                        <h3>Verde Vida</h3>
+                        <h3>Sushi Suki</h3>
 
                         <p>
-                            R. Jaguarari, 2000<br>
-                            Lagoa Nova, Natal - RN
+                            R. Pinho, N° 393<br>
+                            Village de Extremoz, Extremoz - RN
                         </p>
 
                     </div>
 
-                    <a href="#" class="ver-mapa">
+                    <button class="ver-mapa"
+                        data-endereco="Sushi Suki - Culinária Oriental Extremoz, R. Pinho, N° 393 - Village de Extremoz, Extremoz - RN, 59575-000, Brasil">
+
                         ◉ Ver no mapa
                         <span>→</span>
-                    </a>
+
+                    </button>
 
                 </div>
 
@@ -171,54 +171,89 @@
 
                     <div class="empresa-info">
 
-                        <h3>Comércio Forte</h3>
+                        <h3>Supermercado Surreal</h3>
 
                         <p>
-                            Av. Hermes da Fonseca, 1500<br>
-                            Tirol, Natal - RN
+                            R. do Futebol, 989<br>
+                            Central Parque Clube, Extremoz - RN
                         </p>
 
                     </div>
 
-                    <a href="#" class="ver-mapa">
+                    <button class="ver-mapa"
+                        data-endereco="Supermercado Surreal, R. do Futebol, 989 - Central Parque Clube, Extremoz - RN, 59575-000, Brasil">
+
                         ◉ Ver no mapa
                         <span>→</span>
-                    </a>
+
+                    </button>
 
                 </div>
-
 
                 <!-- EMPRESA 4 -->
 
                 <div class="empresa">
 
                     <div class="icone">
-                        ⌂
+                        🛍️
                     </div>
 
                     <div class="empresa-info">
 
-                        <h3>atacarejo</h3>
+                        <h3>Potiguar Supermercado</h3>
 
                         <p>
-                            R. Raimundo Chaves, 2182<br>
-                            Candelária, Natal - RN
+                            R. Pedro Vasconcelos, 309 A<br>
+                            Centro, Extremoz - RN
                         </p>
 
                     </div>
 
-                    <a href="#" class="ver-mapa">
+                    <a class="ver-mapa"
+                        data-endereco="Potiguar Supermercado - Filial 6, R. Pedro Vasconcelos, 309 A - Centro, Extremoz - RN, 59575-000, Brasil">
+
                         ◉ Ver no mapa
                         <span>→</span>
-                    </a>
+
+                </a>
 
                 </div>
-
             </div>
 
         </section>
 
     </main>
 
+
+    <script>
+
+    const botoesMapa = document.querySelectorAll(".ver-mapa");
+
+    const mapa = document.querySelector(
+        ".mapa-container iframe"
+    );
+
+
+    botoesMapa.forEach(botao => {
+
+        botao.addEventListener("click", function(event) {
+
+            event.preventDefault();
+
+            const endereco = this.dataset.endereco;
+
+
+            mapa.src =
+                "https://www.google.com/maps?q=" +
+                encodeURIComponent(endereco) +
+                "&output=embed";
+
+        });
+
+    });
+
+</script> 
+
 </body>
+
 </html>
