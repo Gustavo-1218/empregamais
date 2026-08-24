@@ -1,0 +1,585 @@
+/* ============================= */
+/* CONFIGURAÇÕES GERAIS */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #030712;
+    color: white;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.cabecalho {
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 42px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo span {
+    font-size: 30px;
+    font-weight: bold;
+
+    background: linear-gradient(
+        90deg,
+        #1683ff,
+        #9b3dff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.logo strong {
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.logo b {
+    color: #1683ff;
+}
+
+
+/* MENU */
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.menu a {
+    position: relative;
+
+    color: #ddd;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    padding: 30px 0;
+}
+
+.menu a:hover {
+    color: white;
+}
+
+.menu a.ativo {
+    color: white;
+}
+
+.menu a.ativo::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #1683ff,
+        #a33cff
+    );
+}
+
+
+/* AÇÕES */
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.entrar {
+    color: #ddd;
+    text-decoration: none;
+
+    padding: 10px 16px;
+}
+
+.cadastrar {
+    color: white;
+    text-decoration: none;
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    background: linear-gradient(
+        90deg,
+        #1683ff,
+        #7b2cff
+    );
+
+    box-shadow:
+        0 0 18px rgba(80, 70, 255, 0.25);
+}
+
+
+/* ============================= */
+/* PÁGINA */
+/* ============================= */
+
+.pagina {
+    width: 100%;
+    max-width: 1450px;
+
+    margin: 0 auto;
+
+    padding: 45px 42px;
+}
+
+
+/* ============================= */
+/* PARTE SUPERIOR */
+/* ============================= */
+
+.introducao {
+    width: 38%;
+
+    min-height: 480px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-right: 45px;
+}
+
+
+/* TÍTULO PEQUENO */
+
+.pequeno-titulo {
+    color: #668cff;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 22px;
+}
+
+
+/* TÍTULO */
+
+.introducao h1 {
+    font-size: 52px;
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+.introducao h1 strong {
+    display: block;
+
+    background: linear-gradient(
+        90deg,
+        #1683ff,
+        #a33cff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* LINHA */
+
+.linha {
+    width: 60px;
+    height: 3px;
+
+    margin-bottom: 28px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #1683ff,
+        #a33cff
+    );
+}
+
+
+/* TEXTO */
+
+.introducao p {
+    max-width: 480px;
+
+    color: #9ca3b3;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+/* ============================= */
+/* BOTÕES */
+/* ============================= */
+
+.botoes {
+    display: flex;
+    gap: 15px;
+}
+
+.botoes button {
+    height: 52px;
+
+    padding: 0 25px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+/* PRINCIPAL */
+
+.botao-principal {
+    border: none;
+
+    color: white;
+
+    background: linear-gradient(
+        90deg,
+        #1683ff,
+        #782cff
+    );
+
+    box-shadow:
+        0 0 20px rgba(52, 84, 255, 0.3);
+}
+
+.botao-principal:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 30px rgba(52, 84, 255, 0.5);
+}
+
+
+/* SECUNDÁRIO */
+
+.botao-secundario {
+    color: white;
+
+    background: transparent;
+
+    border: 1px solid #3a4050;
+}
+
+.botao-secundario:hover {
+    border-color: #1683ff;
+}
+
+
+/* ============================= */
+/* MAPA + INTRODUÇÃO */
+/* ============================= */
+
+/*
+   Coloca a introdução e o mapa lado a lado.
+*/
+
+.pagina::before {
+    content: "";
+}
+
+
+/* Criamos o posicionamento usando
+   o conteúdo principal */
+
+.introducao,
+.mapa-container {
+    display: inline-flex;
+
+    vertical-align: top;
+}
+
+
+/* MAPA */
+
+.mapa-container {
+    width: 61%;
+    height: 480px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(80, 120, 255, 0.35);
+
+    background: #080d18;
+
+    box-shadow:
+        0 0 35px rgba(22, 131, 255, 0.08);
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+
+    display: block;
+}
+
+
+
+.empresas {
+    width: 100%;
+
+    margin-top: 38px;
+}
+
+.empresas h2 {
+    font-size: 22px;
+
+    font-weight: 500;
+
+    margin-bottom: 18px;
+}
+
+
+
+.lista-empresas {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+.empresa {
+    min-height: 165px;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    border: 1px solid #202838;
+
+    background: rgba(5, 10, 23, 0.75);
+
+    display: flex;
+    flex-direction: column;
+
+    transition: 0.3s;
+}
+
+.empresa:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(105, 80, 255, 0.6);
+
+    box-shadow:
+        0 0 20px rgba(70, 60, 255, 0.08);
+}
+
+
+
+
+.icone {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    border-radius: 9px;
+
+    border: 1px solid rgba(100, 70, 255, 0.35);
+
+    color: #934cff;
+
+    background: rgba(80, 50, 255, 0.06);
+
+    font-size: 20px;
+}
+
+
+
+
+.empresa-info h3 {
+    font-size: 16px;
+
+    margin-bottom: 7px;
+}
+
+
+
+
+.empresa-info p {
+    color: #8f96a6;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* LINK */
+
+.ver-mapa {
+    margin-top: auto;
+
+    padding-top: 14px;
+
+    color: #8d63ff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.ver-mapa:hover {
+    color: #b79cff;
+}
+
+
+
+@media (max-width: 1000px) {
+
+    .cabecalho {
+        padding: 0 25px;
+    }
+
+    .menu {
+        gap: 15px;
+    }
+
+    .menu a {
+        font-size: 13px;
+    }
+
+    .pagina {
+        padding: 35px 25px;
+    }
+
+    .introducao {
+        width: 40%;
+    }
+
+    .introducao h1 {
+        font-size: 40px;
+    }
+
+    .mapa-container {
+        width: 59%;
+        height: 430px;
+    }
+
+    .lista-empresas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+
+@media (max-width: 750px) {
+
+    .cabecalho {
+        height: auto;
+
+        padding: 20px;
+
+        flex-wrap: wrap;
+
+        gap: 20px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .pagina {
+        padding: 30px 20px;
+    }
+
+    .introducao,
+    .mapa-container {
+        display: flex;
+
+        width: 100%;
+    }
+
+    .introducao {
+        min-height: auto;
+
+        padding-right: 0;
+
+        margin-bottom: 25px;
+    }
+
+    .introducao h1 {
+        font-size: 36px;
+    }
+
+    .mapa-container {
+        height: 350px;
+    }
+
+    .lista-empresas {
+        grid-template-columns: 1fr;
+    }
+}
