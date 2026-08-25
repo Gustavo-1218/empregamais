@@ -24,7 +24,23 @@ body {
     background-color: #030719;
 }
 
+.login {
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
 
+.login:hover {
+    transform: translateY(-10px) scale(1.02);
+
+    border-color: #00c8ff;
+
+    box-shadow:
+        0 0 8px #8a12b9,
+        0 0 20px rgba(90, 6, 158, 0.7),
+        0 0 40px rgba(117, 23, 224, 0.5),
+        0 0 70px rgba(195, 47, 240, 0.3);
+}
 
 
 .container {
