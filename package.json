@@ -1,0 +1,16 @@
+{
+  "name": "site-com-banco",
+  "version": "1.0.0",
+  "description": "Exemplo de integração de um site (HTML/CSS/JS) com um banco MySQL no Aiven, usando Node.js.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "db:setup": "node executar-schema.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.2",
+    "mysql2": "^3.24.2"
+  }
+}

@@ -1,0 +1,7 @@
+# dependencias
+node_modules/
+
+# dados sigilosos - NUNCA subir para o GitHub
+.env
+ca.pem
+*.pem
