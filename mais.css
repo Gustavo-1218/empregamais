@@ -1,158 +1,193 @@
-body{
-    background-color:#060B1F;
-}
-nav{
-    display:flex;
-    justify-content: space-between;
-    flex-grow: 1;
-    align-items: center;
-}
-p{   
-    margin: 30px;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    font-size: 15px;
-}
-h1{
-    font-family: 'Poppins', sans-serif;
-    font-size: 40px;
-    margin: 30px;
-    color: white;
-}
-span{
-    color: transparent;
-    background: linear-gradient(90deg, #2563FF, #8B5CF6);
-    background-clip: text;
- 
-}
-h2{
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    color: white;
-    margin: 10px;
-}
-header{
-    display: flex;
-    margin: 0px;
-    font-family: 'Poppins', sans-serif;
-}
-#lista{
-    display: flex;
-    padding: 20px;
-    list-style: none;
-    gap: 30px;
-}
-.item a{
-    padding: 12px 20px 5px;
-    color: white;
-    text-decoration: none;
-    transition: .4s;
-    margin: 0%;
-    display: inline-block;
-}
-.item a:hover{
-    color: #2563FF;
-    transform: scale(1.2);
-}
-.azul{
-    color: white;
-    background: linear-gradient(90deg, #2563FF, #8B5CF6);
-    cursor: pointer;
-    border-radius:5px;
-    transition: .4s;
-    border:none;
-    font-size: 15px;
-    padding: 5px;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    
-}
-.azul:hover{
-    background: #2563FF;
-    transform: scale(1.05);
-}
-.entrar{
-    background-color: #060B1F;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0 0 30px rgba(59,130,246,.25)  ;
-    border: solid rgba(59,130,246,.25);
-    cursor: pointer;
-    border-radius:5px;
-    transition: .4s;
-    font-size: 17px;
-    padding: 5px;
-    color: white;
+* {
+ família-da-fonte: 'Poppins' , sem serifa ;
+ }
+ corpo {
+ cor de fundo: #060B1F ;
+ }
+ nav {
+ justify-content: espaço-entre ;
+ exibição: flexível ;
+ flex-grow: 1 ;
+ alinhar-itens: centro ;
+ }
+ .para {
+ cor: branca ;
+ tamanho da fonte: 12 px ;
+ margem: 15 px ;
+ }
+ p {
+ preenchimento: 0 % ;
+ margem: 0 px ;
+ cor: branca ;
+ tamanho da fonte: 15 px ;
+ }
+ h1 {
+ tamanho da fonte: 40 px ;
+ margem: 30 px ;
+ cor: branca ;
+ }
+ span {
+ cor: transparente ;
+ fundo: gradiente-linear ( 90 graus , #2563FF , #8B5CF6 );
+ background-clip: texto ;
+ }
+ h2 {
+ exibição: flexível ;
+ cor: branca ;
+ }
+ h6 {
+ exibição: flexível ;
+ cor: branca ;
+ margem: 0 px 20 px 5 px ;
+ }
+ cabeçalho {
+ exibição: flexível ;
+ margem: 0 px ;
+ }
+ #logotipo {
+ largura: 170 px ;
+ margem: 0 px ;
+ exibição: flexível ;
+ flex-direction: coluna ;
 
-}
-.entrar:hover{
-    background: #2563FF;
-    transform: scale(1.05);
-}
-#principal{
-    padding: 30px;
-}
-.barra{
-    justify-content: space-between;
- background-color: rgba(59,130,246,.25);
-    display: flex;
-    border-radius: 7px;
-    width: 500px;
-    height: 10px;
-    padding: 20px;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(10, 14, 238, );
-}
-select{
-    background:transparent;
-    outline: none;
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    color: white;
-}
-input{
-    background: transparent;
-    color: white;
-    outline: none;
-    border: none;
-    background: transparent;
-}
-.btn{
-    cursor: pointer;
-    color: white;
-    background: linear-gradient(90deg, #2563FF, #8B5CF6);
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    transition: .2s;
-    font-family: 'Poppins', sans-serif;
-}
-.btn:hover{
-    background: #2563FF;
-    transform: scale(1.05);
-}
-.hero{
-    margin: 30px;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(59,130,246,.25);
-    border: solid   rgba(59,130,246,.25);
-}
-.fadback{
-    font-size: 20px;
-    border-radius: 20px;
-    margin: 30px;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    border: solid   rgba(59,130,246,.25);
-    box-shadow: 0 0 30px rgba(59,130,246,.25);
-}
-i{ 
-    font-size:30px ;
-    color: #2563FF;
-}
+ }
+ #lista {
+ exibição: flexível ;
+ preenchimento: 20 px ;
+ estilo da lista: nenhum ;
+ espaçamento: 30 px ;
+ }
+ .item a {
+ preenchimento: 12 px 20 px 5 px ;
+ cor: branca ;
+ decoração de texto: nenhuma ;
+ transição: 0,4 s ;
+ margem: 0 % ;
+ exibição: inline-block ;
+ }
+ .item a :hover {
+ cor: #2563FF ;
+ transformar: escala ( 1.2 );
+ }
+ .azul {
+ cor: branca ;
+ fundo: gradiente-linear ( 90 graus , #2563FF , #8B5CF6 );
+ cursor: ponteiro ;
+ raio da borda: 5 px ;
+ transição: 0,4 s ;
+ borda: nenhuma ;
+ tamanho da fonte: 15 px ;
+ preenchimento: 5 px ;
+ margem: 0 ;
+ }
+ .azul :hover {
+ fundo: #2563FF ;
+ transformar: escala ( 1.05 );
+ }
+ .entrar {
+ cor de fundo: #060B1F ;
+ box-shadow: 0 0 30 px rgba ( 59 , 130 , 246 , .25 ) ;
+ borda: sólida rgba ( 59 , 130 , 246 , .25 );
+ cursor: ponteiro ;
+ raio da borda: 5 px ;
+ transição: 0,4 s ;
+ tamanho da fonte: 17 px ;
+ preenchimento: 5 px ;
+ cor: branca ;
 
+ }
+ .entrar :hover {
+ fundo: #2563FF ;
+ transformar: escala ( 1.05 );
+ }
+ #principal {
+ preenchimento: 30 px ;
+ }
+ .barra {
+ justify-content: espaço-entre ;
+ cor de fundo: rgba ( 59 , 130 , 246 , .25 );
+ exibição: flexível ;
+ raio da borda: 7 px ;
+ largura: 500 px ;
+ altura: 10 px ;
+ preenchimento: 20 px ;
+ alinhar-itens: centro ;
+ box-shadow: 0 4 px 12 px rgba ( 10 , 14 , 238 , );
+ }
+ selecionar {
+ fundo: transparente ;
+ esboço: nenhum ;
+ borda: nenhuma ;
+ cor: branca ;
+ }
+ entrada {
+ fundo: transparente ;
+ cor: branca ;
+ esboço: nenhum ;
+ borda: nenhuma ;
+ fundo: transparente ;
+ }
+ .btn {
+ cursor: ponteiro ;
+ cor: branca ;
+ fundo: gradiente-linear ( 90 graus , #2563FF , #8B5CF6 );
+ raio da borda: 5 px ;
+ borda: nenhuma ;
+ tamanho da fonte: 16 px ;
+ transição: 0,2 s ;
+ }
+ .btn :hover {
+ fundo: #2563FF ;
+ transformar: escala ( 1.05 );
+ }
+ .herói {
+ margem: 5 px ;
+ exibição: flexível ;
+ flex-direction: coluna ;
+ preenchimento: 30 px ;
+ raio da borda: 10 px ;
+ box-shadow: 0 0 30 px rgba ( 59 , 130 , 246 , .25 );
+ borda: sólida rgba ( 59 , 130 , 246 , .25 );
+ }
+ .fadback {
+ margem: 5 px ;
+ espaçamento: 30 px ;
+ raio da borda: 20 px ;
+ exibição: flexível ;
+ justificar-conteúdo: centralizado ;
+ borda: sólida rgba ( 59 , 130 , 246 , .25 );
+ box-shadow: 0 0 30 px rgba ( 59 , 130 , 246 , .25 );
+ }
+ eu {
+ preenchimento: 0 % ;
+ margem: 20 px ;
+ raio da borda: 5 px ;
+ tamanho da fonte: 30 px ;
+ cor: #2563FF ;
+ }
+ .import {
+ cor: branca ;
+ tamanho da fonte: 13 px ;
+ preenchimento: 0 % ;
+ }
+ .destaque {
+ exibição: flexível ;
+ flex-direction: coluna ;
+ preenchimento: 0 % ;
+
+ }
+ .cards {
+ exibição: flexível ;
+ alinhar-itens: centro ;
+ }
+ .card {
+ borda: sólida rgba ( 59 , 130 , 246 , .25 );
+ raio da borda: 10 px ;
+ margem: 5 px ;
+ cursor: ponteiro ;
+ transição: 0,4 s ;
+ }
+ .card :hover {
+ transformar: escala ( 1.05 );
+ }
 
