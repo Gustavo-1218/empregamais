@@ -685,36 +685,62 @@ h1 span {
 }
 
 
-/* =========================================================
+
+   /* =========================================================
    RESPONSIVIDADE — CELULAR
    ========================================================= */
 
 @media (max-width: 600px) {
 
-    /* ================= HEADER ================= */
+    /* =====================================================
+       CONFIGURAÇÃO GERAL
+       ===================================================== */
 
-    .header {
+    html,
+    body {
         width: 100%;
-        padding: 18px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        min-height: 100%;
+        overflow-x: hidden;
     }
+
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
 
     .logoalta {
         width: 100%;
+        position: relative;
+        z-index: 20;
+    }
+
+    .header {
+        width: 100%;
+        height: 75px;
+
         display: flex;
-        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 24px;
+
+        background: transparent;
     }
 
     .logo img {
-        width: 160px;
-        max-width: 100%;
+        width: 150px;
         height: auto;
     }
 
 
-    /* ================= HERO ================= */
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .hero {
         width: 100%;
@@ -723,60 +749,91 @@ h1 span {
         display: flex;
         flex-direction: column;
 
-        padding: 35px 20px 50px;
+        padding: 35px 20px 60px;
 
-        gap: 35px;
+        gap: 45px;
     }
 
 
-    /* ================= CONTEÚDO ================= */
+    /* =====================================================
+       CONTEÚDO PRINCIPAL
+       ===================================================== */
 
     .hero-content {
         width: 100%;
-        max-width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         text-align: center;
     }
 
 
-    /* TAG */
+    /* =====================================================
+       TAG
+       ===================================================== */
 
     .tag {
+        width: 100%;
+        max-width: 350px;
+
+        min-height: 50px;
+
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
 
-        font-size: 10px;
-        letter-spacing: 1px;
+        gap: 10px;
 
-        gap: 6px;
+        padding: 0 15px;
+
+        border-radius: 30px;
+
+        font-size: 13px;
+        letter-spacing: 2px;
     }
 
 
-    /* TÍTULO */
+    /* =====================================================
+       TÍTULO
+       ===================================================== */
 
     .hero-content h1 {
-        font-size: 38px;
-        line-height: 1.12;
+        width: 100%;
 
-        margin-top: 18px;
+        margin-top: 32px;
+        margin-bottom: 22px;
+
+        font-size: clamp(38px, 11vw, 55px);
+
+        line-height: 0.98;
+        letter-spacing: -2px;
+
+        text-align: center;
     }
 
 
-    /* TEXTO */
+    /* =====================================================
+       DESCRIÇÃO
+       ===================================================== */
 
     .description {
         width: 100%;
         max-width: 360px;
 
-        margin: 18px auto 0;
+        margin: 0 auto 28px;
 
-        font-size: 14px;
-        line-height: 1.6;
+        font-size: 18px;
+        line-height: 1.55;
+
+        text-align: center;
     }
 
 
-    /* ================= BOTÕES ================= */
+    /* =====================================================
+       BOTÕES
+       ===================================================== */
 
     .buttons {
         width: 100%;
@@ -784,24 +841,35 @@ h1 span {
         display: flex;
         flex-direction: column;
 
-        align-items: center;
-
-        gap: 10px;
-
-        margin-top: 25px;
+        gap: 15px;
     }
 
     .button {
         width: 100%;
-        max-width: 320px;
+        min-height: 62px;
 
+        display: flex;
+        align-items: center;
         justify-content: center;
 
-        text-align: center;
+        border-radius: 20px;
+
+        font-size: 19px;
+        font-weight: 700;
+    }
+
+    .button.primary {
+        gap: 20px;
+    }
+
+    .button.primary span {
+        font-size: 30px;
     }
 
 
-    /* ================= CARDS ================= */
+    /* =====================================================
+       CARDS
+       ===================================================== */
 
     .cards {
         width: 100%;
@@ -809,55 +877,126 @@ h1 span {
         display: flex;
         flex-direction: column;
 
-        gap: 12px;
+        gap: 16px;
 
-        margin-top: 30px;
+        margin-top: 8px;
     }
+
 
     .card {
         width: 100%;
+        min-height: 145px;
 
-        display: flex;
+        display: grid;
+        grid-template-columns: 90px 1fr 25px;
+
         align-items: center;
 
         gap: 15px;
 
-        padding: 17px;
+        padding: 20px;
 
         text-align: left;
+
+        border-radius: 20px;
     }
+
+
+    /* Ícone do card */
 
     .card-icon {
-        flex-shrink: 0;
+        width: 72px;
+        height: 72px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
     }
 
+    .card-icon svg {
+        width: 35px;
+        height: 35px;
+    }
+
+
+    /* Texto */
+
     .card h3 {
-        font-size: 16px;
+        margin: 0 0 8px;
+
+        font-size: 22px;
     }
 
     .card p {
-        font-size: 12px;
+        margin: 0;
+
+        font-size: 15px;
         line-height: 1.45;
     }
 
 
-    /* ================= DIAGRAMA ================= */
+    /* Linha decorativa */
 
-    .network {
-        width: 100%;
-        max-width: 380px;
+    .card-line {
+        display: block;
 
-        height: 380px;
+        width: 45px;
+        height: 3px;
 
-        margin: 0 auto;
-
-        position: relative;
-
-        transform: none;
+        margin-top: 12px;
     }
 
 
-    /* ================= ÓRBITAS ================= */
+    /* =====================================================
+       DIAGRAMA / NETWORK
+       ===================================================== */
+
+    /*
+       No celular não vamos colocar o diagrama gigante
+       do desktop imediatamente depois dos cards.
+
+       Ele será reorganizado para ocupar pouco espaço.
+    */
+
+    .network {
+        width: 100%;
+        height: 390px;
+
+        position: relative;
+
+        margin-top: 5px;
+
+        transform: scale(0.85);
+        transform-origin: center;
+    }
+
+
+    /* Título visual acima do diagrama */
+
+    .network::before {
+        content: "✦  CONECTANDO TUDO  ✦";
+
+        position: absolute;
+
+        top: -15px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        white-space: nowrap;
+
+        font-size: 12px;
+        letter-spacing: 3px;
+
+        opacity: 0.8;
+    }
+
+
+    /* =====================================================
+       ÓRBITAS
+       ===================================================== */
 
     .orbit-big {
         width: 280px;
@@ -880,98 +1019,146 @@ h1 span {
     }
 
 
-    /* ================= CENTRO ================= */
+    /* =====================================================
+       CENTRO
+       ===================================================== */
 
     .center {
+        width: 105px;
+        height: 105px;
+
         left: 50%;
         top: 50%;
 
         transform: translate(-50%, -50%);
     }
 
+    .center-logo img {
+        width: 65px;
+    }
 
-    /* ================= ITENS DO DIAGRAMA ================= */
+
+    /* =====================================================
+       ITENS DO NETWORK
+       ===================================================== */
+
+    .network-item {
+        min-width: 100px;
+
+        padding: 8px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 7px;
+    }
+
+    .network-icon {
+        width: 58px;
+        height: 58px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+    }
+
+    .network-icon svg {
+        width: 27px;
+        height: 27px;
+    }
+
+    .network-item strong {
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       POSIÇÃO DOS NÓS
+       ===================================================== */
 
     .talentos-item {
-        left: 8%;
-        top: 15%;
+        position: absolute;
+
+        left: 5%;
+        top: 80px;
     }
 
     .empresas-item {
-        right: 8%;
-        top: 15%;
+        position: absolute;
+
+        right: 5%;
+        top: 80px;
     }
 
     .oportunidades-item {
+        position: absolute;
+
         left: 50%;
-        bottom: 5%;
+        bottom: 5px;
 
         transform: translateX(-50%);
     }
 
 
-    /* ================= TEXTO DOS ITENS ================= */
+    /* =====================================================
+       LINHAS
+       ===================================================== */
 
-    .network-item strong {
-        font-size: 11px;
-        white-space: nowrap;
+    .line {
+        transform-origin: center;
     }
 
 
-    /* ================= ÍCONES ================= */
+    /* =====================================================
+       AJUSTES PARA CELULARES PEQUENOS
+       ===================================================== */
 
-    .network-icon {
-        width: 42px;
-        height: 42px;
-    }
+    @media (max-width: 380px) {
 
-}
+        .hero {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
 
+        .hero-content h1 {
+            font-size: 36px;
+        }
 
-/* =========================================================
-   CELULARES PEQUENOS
-   ========================================================= */
+        .description {
+            font-size: 16px;
+        }
 
-@media (max-width: 380px) {
+        .button {
+            min-height: 58px;
+            font-size: 17px;
+        }
 
-    .hero {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+        .card {
+            grid-template-columns: 70px 1fr;
 
-    .hero-content h1 {
-        font-size: 32px;
-    }
+            padding: 18px;
+        }
 
-    .description {
-        font-size: 13px;
-    }
+        .card-icon {
+            width: 60px;
+            height: 60px;
+        }
 
-    .card {
-        padding: 14px;
-    }
+        .card h3 {
+            font-size: 20px;
+        }
 
-    .card h3 {
-        font-size: 15px;
-    }
+        .card p {
+            font-size: 14px;
+        }
 
-    .card p {
-        font-size: 11px;
-    }
-
-    .network {
-        height: 330px;
-    }
-
-    .orbit-big {
-        width: 240px;
-        height: 240px;
-    }
-
-    .orbit-small {
-        width: 150px;
-        height: 150px;
+        .network {
+            transform: scale(0.75);
+        }
     }
 
 }
-
