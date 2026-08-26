@@ -1,488 +1,251 @@
 * {
- família-da-fonte: 'Poppins' , sem serifa ;
- }
- corpo {
- cor de fundo: #060B1F ;
- }
- nav {
- justify-content: espaço-entre ;
- exibição: flexível ;
- flex-grow: 1 ;
- alinhar-itens: centro ;
- }
- .para {
- cor: branca ;
- tamanho da fonte: 12 px ;
- margem: 15 px ;
- }
- p {
- preenchimento: 0 % ;
- margem: 0 px ;
- cor: branca ;
- tamanho da fonte: 15 px ;
- }
- h1 {
- tamanho da fonte: 40 px ;
- margem: 30 px ;
- cor: branca ;
- }
- span {
- cor: transparente ;
- fundo: gradiente-linear ( 90 graus , #2563FF , #8B5CF6 );
- background-clip: texto ;
- }
- h2 {
- exibição: flexível ;
- cor: branca ;
- }
- h6 {
- exibição: flexível ;
- cor: branca ;
- margem: 0 px 20 px 5 px ;
- }
- cabeçalho {
- exibição: flexível ;
- margem: 0 px ;
- }
- #logotipo {
- largura: 170 px ;
- margem: 0 px ;
- exibição: flexível ;
- flex-direction: coluna ;
+    font-family: 'Poppins', sans-serif;
+}
 
- }
- #lista {
- exibição: flexível ;
- preenchimento: 20 px ;
- estilo da lista: nenhum ;
- espaçamento: 30 px ;
- }
- .item a {
- preenchimento: 12 px 20 px 5 px ;
- cor: branca ;
- decoração de texto: nenhuma ;
- transição: 0,4 s ;
- margem: 0 % ;
- exibição: inline-block ;
- }
- .item a :hover {
- cor: #2563FF ;
- transformar: escala ( 1.2 );
- }
- .azul {
- cor: branca ;
- fundo: gradiente-linear ( 90 graus , #2563FF , #8B5CF6 );
- cursor: ponteiro ;
- raio da borda: 5 px ;
- transição: 0,4 s ;
- borda: nenhuma ;
- tamanho da fonte: 15 px ;
- preenchimento: 5 px ;
- margem: 0 ;
- }
- .azul :hover {
- fundo: #2563FF ;
- transformar: escala ( 1.05 );
- }
- .entrar {
- cor de fundo: #060B1F ;
- box-shadow: 0 0 30 px rgba ( 59 , 130 , 246 , .25 ) ;
- borda: sólida rgba ( 59 , 130 , 246 , .25 );
- cursor: ponteiro ;
- raio da borda: 5 px ;
- transição: 0,4 s ;
- tamanho da fonte: 17 px ;
- preenchimento: 5 px ;
- cor: branca ;
-
- }
- .entrar :hover {
- fundo: #2563FF ;
- transformar: escala ( 1.05 );
- }
- #principal {
- preenchimento: 30 px ;
- }
- .barra {
- justify-content: espaço-entre ;
- cor de fundo: rgba ( 59 , 130 , 246 , .25 );
- exibição: flexível ;
- raio da borda: 7 px ;
- largura: 500 px ;
- altura: 10 px ;
- preenchimento: 20 px ;
- alinhar-itens: centro ;
- box-shadow: 0 4 px 12 px rgba ( 10 , 14 , 238 , );
- }
- selecionar {
- fundo: transparente ;
- esboço: nenhum ;
- borda: nenhuma ;
- cor: branca ;
- }
- entrada {
- fundo: transparente ;
- cor: branca ;
- esboço: nenhum ;
- borda: nenhuma ;
- fundo: transparente ;
- }
- .btn {
- cursor: ponteiro ;
- cor: branca ;
- fundo: gradiente-linear ( 90 graus , #2563FF , #8B5CF6 );
- raio da borda: 5 px ;
- borda: nenhuma ;
- tamanho da fonte: 16 px ;
- transição: 0,2 s ;
- }
- .btn :hover {
- fundo: #2563FF ;
- transformar: escala ( 1.05 );
- }
- .herói {
- margem: 5 px ;
- exibição: flexível ;
- flex-direction: coluna ;
- preenchimento: 30 px ;
- raio da borda: 10 px ;
- box-shadow: 0 0 30 px rgba ( 59 , 130 , 246 , .25 );
- borda: sólida rgba ( 59 , 130 , 246 , .25 );
- }
- .fadback {
- margem: 5 px ;
- espaçamento: 30 px ;
- raio da borda: 20 px ;
- exibição: flexível ;
- justificar-conteúdo: centralizado ;
- borda: sólida rgba ( 59 , 130 , 246 , .25 );
- box-shadow: 0 0 30 px rgba ( 59 , 130 , 246 , .25 );
- }
- eu {
- preenchimento: 0 % ;
- margem: 20 px ;
- raio da borda: 5 px ;
- tamanho da fonte: 30 px ;
- cor: #2563FF ;
- }
- .import {
- cor: branca ;
- tamanho da fonte: 13 px ;
- preenchimento: 0 % ;
- }
- .destaque {
- exibição: flexível ;
- flex-direction: coluna ;
- preenchimento: 0 % ;
-
- }
- .cards {
- exibição: flexível ;
- alinhar-itens: centro ;
- }
- .card {
- borda: sólida rgba ( 59 , 130 , 246 , .25 );
- raio da borda: 10 px ;
- margem: 5 px ;
- cursor: ponteiro ;
- transição: 0,4 s ;
- }
- .card :hover {
- transformar: escala ( 1.05 );
- }
-
-
-
-/* =========================================================
-   RESPONSIVIDADE — CELULAR
-
-   Apenas reorganiza e dimensiona os elementos.
-========================================================= */
-
-@media (max-width: 768px) {
-
-    /* ================= HEADER ================= */
-
-    header {
-        width: 100%;
-        padding: 15px 20px;
-    }
-
-    #logo {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 15px;
-    }
-
-    #logo img {
-        max-width: 140px;
-        height: auto;
-    }
-
-    header nav {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    #lista {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        gap: 18px;
-
-        overflow-x: auto;
-        white-space: nowrap;
-
-        padding-bottom: 5px;
-
-        scrollbar-width: none;
-    }
-
-    #lista::-webkit-scrollbar {
-        display: none;
-    }
-
-    .item {
-        flex-shrink: 0;
-    }
-
-    .item a {
-        font-size: 13px;
-    }
-
-    .entrar,
-    .azul {
-        width: 100%;
-        max-width: 100%;
-        height: 45px;
-    }
-
-
-    /* ================= HERO ================= */
-
-    .hero {
-        width: 100%;
-        padding: 35px 20px 25px;
-
-        display: flex;
-        flex-direction: column;
-    }
-
-    #principal {
-        width: 100%;
-        text-align: center;
-    }
-
-    #principal h1 {
-        font-size: clamp(32px, 9vw, 45px);
-        line-height: 1.08;
-
-        margin-bottom: 18px;
-    }
-
-    #principal p {
-        font-size: 14px;
-        line-height: 1.6;
-
-        width: 100%;
-    }
-
-
-    /* ================= BUSCA ================= */
-
-    .barra {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 10px;
-
-        margin-top: 25px;
-    }
-
-    #carga,
-    .barra select,
-    .barra .btn {
-        width: 100%;
-        height: 50px;
-    }
-
-
-    /* ================= DESTAQUES ================= */
-
-    .fadback {
-        width: 100%;
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 10px;
-
-        padding: 10px 20px 25px;
-    }
-
-    .destaque {
-        width: 100%;
-        min-height: 120px;
-
-        padding: 15px 10px;
-
-        text-align: center;
-    }
-
-    .destaque i {
-        font-size: 20px;
-    }
-
-    .import {
-        font-size: 11px;
-    }
-
-    .para {
-        font-size: 9px;
-        line-height: 1.4;
-    }
-
-
-    /* ================= CARDS ================= */
-
-    .ocards {
-        width: 100%;
-        padding: 10px 20px 40px;
-    }
-
-    .cards {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 12px;
-    }
-
-    .card {
-        width: 100%;
-        min-height: 135px;
-
-        padding: 20px;
-    }
-
-    .card h6 {
-        font-size: 16px;
-    }
-
-    .card p {
-        font-size: 12px;
-        line-height: 1.5;
-    }
-
+body {
+    background-color: #060B1F;
+    margin: 0;
 }
 
 
-/* =========================================================
-   CELULARES PEQUENOS
-========================================================= */
+/* CABEÇALHO */
 
-@media (max-width: 480px) {
+header {
+    display: flex;
+    margin: 0;
+    align-items: center;
+}
 
-    header {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+nav {
+    justify-content: space-between;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
 
-    #logo img {
-        max-width: 125px;
-    }
+#logo {
+    width: 170px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
 
-    #lista {
-        gap: 15px;
-    }
+#lista {
+    display: flex;
+    padding: 20px;
+    list-style: none;
+    gap: 30px;
+}
 
-    .item a {
-        font-size: 12px;
-    }
+.item a {
+    padding: 12px 20px 5px;
+    color: white;
+    text-decoration: none;
+    transition: 0.4s;
+    margin: 0;
+    display: inline-block;
+}
 
-
-    /* HERO */
-
-    .hero {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    #principal h1 {
-        font-size: 34px;
-        line-height: 1.05;
-    }
-
-    #principal p {
-        font-size: 13px;
-    }
-
-
-    /* BUSCA */
-
-    .barra {
-        margin-top: 22px;
-    }
-
-    #carga,
-    .barra select,
-    .barra .btn {
-        height: 48px;
-    }
+.item a:hover {
+    color: #2563FF;
+    transform: scale(1.2);
+}
 
 
-    /* DESTAQUES */
+/* BOTÕES */
 
-    .fadback {
-        padding-left: 15px;
-        padding-right: 15px;
+.azul {
+    color: white;
+    background: linear-gradient(90deg, #2563FF, #8B5CF6);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.4s;
+    border: none;
+    font-size: 15px;
+    padding: 5px;
+    margin: 0;
+}
 
-        gap: 8px;
-    }
+.azul:hover {
+    background: #2563FF;
+    transform: scale(1.05);
+}
 
-    .destaque {
-        min-height: 110px;
-        padding: 12px 7px;
-    }
+.entrar {
+    background-color: #060B1F;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.4s;
+    font-size: 17px;
+    padding: 5px;
+    color: white;
+}
 
-    .destaque i {
-        font-size: 18px;
-        margin-bottom: 7px;
-    }
-
-    .import {
-        font-size: 10px;
-    }
-
-    .para {
-        font-size: 8px;
-    }
+.entrar:hover {
+    background: #2563FF;
+    transform: scale(1.05);
+}
 
 
-    /* CARDS */
+/* TEXTOS */
 
-    .ocards {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+#principal {
+    padding: 30px;
+}
 
-    .card {
-        min-height: 125px;
-        padding: 17px;
-    }
+p {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 15px;
+}
 
-    .card h6 {
-        font-size: 15px;
-    }
+.para {
+    color: white;
+    font-size: 12px;
+    margin: 15px;
+}
 
-    .card p {
-        font-size: 11px;
-    }
+h1 {
+    font-size: 40px;
+    margin: 30px;
+    color: white;
+}
 
+h2 {
+    display: flex;
+    color: white;
+}
+
+h6 {
+    display: flex;
+    color: white;
+    margin: 0 20px 5px;
+}
+
+span {
+    color: transparent;
+    background: linear-gradient(90deg, #2563FF, #8B5CF6);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.import {
+    color: white;
+    font-size: 13px;
+    padding: 0;
+}
+
+
+/* ÁREA DE BUSCA */
+
+.barra {
+    justify-content: space-between;
+    background-color: rgba(59, 130, 246, 0.25);
+    display: flex;
+    border-radius: 7px;
+    width: 500px;
+    height: 10px;
+    padding: 20px;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(10, 14, 238, 0.25);
+}
+
+select {
+    background: transparent;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+input {
+    background: transparent;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn {
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(90deg, #2563FF, #8B5CF6);
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #2563FF;
+    transform: scale(1.05);
+}
+
+
+/* HERO */
+
+.hero {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+
+/* DESTAQUES */
+
+.fadback {
+    margin: 5px;
+    gap: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
+}
+
+i {
+    padding: 0;
+    margin: 20px;
+    border-radius: 5px;
+    font-size: 30px;
+    color: #2563FF;
+}
+
+.destaque {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.ocards {
+    margin-top: 20px;
 }
