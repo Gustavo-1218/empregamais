@@ -249,3 +249,298 @@ i {
 .ocards {
     margin-top: 20px;
 }
+
+
+/* =========================================================
+   RESPONSIVIDADE — CELULAR
+   Não altera o estilo original do site.
+   Apenas reorganiza e dimensiona os elementos.
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ================= HEADER ================= */
+
+    header {
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    #logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    #logo img {
+        max-width: 140px;
+        height: auto;
+    }
+
+    header nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #lista {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 18px;
+
+        overflow-x: auto;
+        white-space: nowrap;
+
+        padding-bottom: 5px;
+
+        scrollbar-width: none;
+    }
+
+    #lista::-webkit-scrollbar {
+        display: none;
+    }
+
+    .item {
+        flex-shrink: 0;
+    }
+
+    .item a {
+        font-size: 13px;
+    }
+
+    .entrar,
+    .azul {
+        width: 100%;
+        max-width: 100%;
+        height: 45px;
+    }
+
+
+    /* ================= HERO ================= */
+
+    .hero {
+        width: 100%;
+        padding: 35px 20px 25px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    #principal {
+        width: 100%;
+        text-align: center;
+    }
+
+    #principal h1 {
+        font-size: clamp(32px, 9vw, 45px);
+        line-height: 1.08;
+
+        margin-bottom: 18px;
+    }
+
+    #principal p {
+        font-size: 14px;
+        line-height: 1.6;
+
+        width: 100%;
+    }
+
+
+    /* ================= BUSCA ================= */
+
+    .barra {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+
+        margin-top: 25px;
+    }
+
+    #carga,
+    .barra select,
+    .barra .btn {
+        width: 100%;
+        height: 50px;
+    }
+
+
+    /* ================= DESTAQUES ================= */
+
+    .fadback {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+
+        padding: 10px 20px 25px;
+    }
+
+    .destaque {
+        width: 100%;
+        min-height: 120px;
+
+        padding: 15px 10px;
+
+        text-align: center;
+    }
+
+    .destaque i {
+        font-size: 20px;
+    }
+
+    .import {
+        font-size: 11px;
+    }
+
+    .para {
+        font-size: 9px;
+        line-height: 1.4;
+    }
+
+
+    /* ================= CARDS ================= */
+
+    .ocards {
+        width: 100%;
+        padding: 10px 20px 40px;
+    }
+
+    .cards {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .card {
+        width: 100%;
+        min-height: 135px;
+
+        padding: 20px;
+    }
+
+    .card h6 {
+        font-size: 16px;
+    }
+
+    .card p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #logo img {
+        max-width: 125px;
+    }
+
+    #lista {
+        gap: 15px;
+    }
+
+    .item a {
+        font-size: 12px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #principal h1 {
+        font-size: 34px;
+        line-height: 1.05;
+    }
+
+    #principal p {
+        font-size: 13px;
+    }
+
+
+    /* BUSCA */
+
+    .barra {
+        margin-top: 22px;
+    }
+
+    #carga,
+    .barra select,
+    .barra .btn {
+        height: 48px;
+    }
+
+
+    /* DESTAQUES */
+
+    .fadback {
+        padding-left: 15px;
+        padding-right: 15px;
+
+        gap: 8px;
+    }
+
+    .destaque {
+        min-height: 110px;
+        padding: 12px 7px;
+    }
+
+    .destaque i {
+        font-size: 18px;
+        margin-bottom: 7px;
+    }
+
+    .import {
+        font-size: 10px;
+    }
+
+    .para {
+        font-size: 8px;
+    }
+
+
+    /* CARDS */
+
+    .ocards {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .card {
+        min-height: 125px;
+        padding: 17px;
+    }
+
+    .card h6 {
+        font-size: 15px;
+    }
+
+    .card p {
+        font-size: 11px;
+    }
+
+}
