@@ -1,69 +1,546 @@
-<main class="perfil-container">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <section class="perfil-card">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <h2>Meu Perfil</h2>
+    <title>Emprega Mais - Meu Perfil</title>
 
-        <div class="foto-perfil">
-            <img src="img/perfil.png" alt="Foto de Perfil">
+    <style>
+    
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <img src="logo site.png" alt="Emprega Mais">
+
+            <span>
+                EMPREGA <strong>MAIS</strong>
+            </span>
+
         </div>
 
-        <form>
 
-            <div class="campo">
-                <label>Nome Completo</label>
-                <input type="text" placeholder="***************">
+        <nav class="menu">
+
+            <a href="#">Início</a>
+            <a href="#">Vagas</a>
+            <a href="#">Empresas</a>
+            <a href="#">Oportunidades</a>
+            <a href="#">Sobre nós</a>
+            <a href="#">Contato</a>
+
+        </nav>
+
+
+        <div class="acoes-header">
+
+            <a href="#" class="sair">
+                ○ Sair
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="perfil-container">
+
+
+        <!-- =================================================
+             MENU LATERAL
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- PERFIL -->
+
+            <div class="perfil-resumo">
+
+                <div class="avatar">
+
+                    <span>👤</span>
+
+                </div>
+
+                <h2 id="nome-sidebar">
+                    Nome do candidato
+                </h2>
+
+                <p id="usuario-sidebar">
+                    @usuario
+                </p>
+
             </div>
 
-            <div class="campo">
-                <label>Nome de Usuário</label>
-                <input type="text" placeholder="***********">
+
+            <!-- MENU DO PERFIL -->
+
+            <nav class="perfil-menu">
+
+                <a href="#" class="ativo">
+
+                    <span>👤</span>
+
+                    Meu perfil
+
+                </a>
+
+
+                <a href="#">
+
+                    <span>💼</span>
+
+                    Vagas
+
+                </a>
+
+
+                <a href="#">
+
+                    <span>📋</span>
+
+                    Minhas candidaturas
+
+                </a>
+
+
+                <a href="#">
+
+                    <span>♡</span>
+
+                    Favoritos
+
+                </a>
+
+
+                <a href="#">
+
+                    <span>💬</span>
+
+                    Mensagens
+
+                </a>
+
+
+                <a href="#">
+
+                    <span>⚙</span>
+
+                    Configurações
+
+                </a>
+
+            </nav>
+
+
+            <!-- AJUDA -->
+
+            <div class="ajuda">
+
+                <strong>
+                    Precisa de ajuda?
+                </strong>
+
+                <p>
+                    Fale com nosso suporte
+                </p>
+
+                <span>
+                    →
+                </span>
+
             </div>
 
-            <div class="campo">
-                <label>E-mail</label>
-                <input type="email" placeholder="***************">
+        </aside>
+
+
+
+        <!-- =================================================
+             ÁREA DO PERFIL
+        ================================================== -->
+
+        <section class="perfil-conteudo">
+
+
+            <!-- TÍTULO -->
+
+            <div class="perfil-titulo">
+
+                <div>
+
+                    <h1>
+                        Meu perfil
+                    </h1>
+
+                    <p>
+                        Consulte suas informações pessoais e seu currículo.
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="campo">
-                <label>CPF</label>
-                <input type="text" placeholder="***********">
+
+
+            <!-- =================================================
+                 INFORMAÇÕES PESSOAIS
+            ================================================== -->
+
+            <section class="bloco">
+
+                <div class="bloco-titulo">
+
+                    <span class="icone-titulo">
+                        👤
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Informações pessoais
+                        </h2>
+
+                        <p>
+                            Dados cadastrados na Emprega Mais
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="informacoes">
+
+
+                    <!-- ID -->
+
+                    <div class="informacao">
+
+                        <span class="icone">
+                            🆔
+                        </span>
+
+                        <div>
+
+                            <span class="rotulo">
+                                ID
+                            </span>
+
+                            <strong id="id-candidato">
+                                #000001
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- NOME -->
+
+                    <div class="informacao">
+
+                        <span class="icone">
+                            👤
+                        </span>
+
+                        <div>
+
+                            <span class="rotulo">
+                                Nome completo
+                            </span>
+
+                            <strong id="nome-candidato">
+                                Nome do candidato
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="informacao">
+
+                        <span class="icone">
+                            ✉
+                        </span>
+
+                        <div>
+
+                            <span class="rotulo">
+                                E-mail
+                            </span>
+
+                            <strong id="email-candidato">
+                                candidato@email.com
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CPF -->
+
+                    <div class="informacao">
+
+                        <span class="icone">
+                            🪪
+                        </span>
+
+                        <div>
+
+                            <span class="rotulo">
+                                CPF
+                            </span>
+
+                            <strong id="cpf-candidato">
+                                ***.***.***-**
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROFISSÃO -->
+
+                    <div class="informacao">
+
+                        <span class="icone">
+                            💼
+                        </span>
+
+                        <div>
+
+                            <span class="rotulo">
+                                Profissão
+                            </span>
+
+                            <strong id="profissao-candidato">
+                                Profissão do candidato
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CELULAR -->
+
+                    <div class="informacao">
+
+                        <span class="icone">
+                            📱
+                        </span>
+
+                        <div>
+
+                            <span class="rotulo">
+                                Número de celular
+                            </span>
+
+                            <strong id="celular-candidato">
+                                (84) 99999-9999
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CURRÍCULO
+            ================================================== -->
+
+            <section class="bloco curriculo">
+
+
+                <div class="bloco-titulo">
+
+                    <span class="icone-titulo">
+                        📄
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Meu currículo
+                        </h2>
+
+                        <p>
+                            Adicione ou substitua seu currículo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CURRÍCULO EXISTENTE -->
+
+                <div class="arquivo-curriculo" id="arquivo-curriculo">
+
+
+                    <div class="arquivo-info">
+
+                        <div class="icone-pdf">
+                            PDF
+                        </div>
+
+
+                        <div>
+
+                            <strong id="nome-curriculo">
+                                Curriculo_Candidato.pdf
+                            </strong>
+
+                            <p id="detalhes-curriculo">
+                                PDF • 1,2 MB • Enviado recentemente
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="acoes-curriculo">
+
+
+                        <!-- VISUALIZAR -->
+
+                        <a href="#" 
+                           id="visualizar-curriculo"
+                           class="botao-visualizar">
+
+                            👁 Visualizar
+
+                        </a>
+
+
+                        <!-- SUBSTITUIR -->
+
+                        <label for="curriculo-upload"
+                               class="botao-substituir">
+
+                            ↥ Substituir arquivo
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="curriculo-upload"
+                            name="curriculo"
+                            accept=".pdf"
+                            hidden>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ÁREA CASO NÃO TENHA CURRÍCULO
+                ================================================== -->
+
+                <div class="sem-curriculo" id="sem-curriculo">
+
+                    <div class="icone-documento">
+                        📄
+                    </div>
+
+                    <h3>
+                        Você ainda não adicionou um currículo
+                    </h3>
+
+                    <p>
+                        Adicione seu currículo em PDF para aumentar
+                        suas oportunidades.
+                    </p>
+
+
+                    <label for="curriculo-upload-vazio"
+                           class="botao-adicionar">
+
+                        + Adicionar currículo
+
+                    </label>
+
+                    <input
+                        type="file"
+                        id="curriculo-upload-vazio"
+                        name="curriculo"
+                        accept=".pdf"
+                        hidden>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 AVISO DE SEGURANÇA
+            ================================================== -->
+
+            <div class="seguranca">
+
+                <span class="seguranca-icone">
+                    🛡
+                </span>
+
+                <div>
+
+                    <strong>
+                        Suas informações estão seguras
+                    </strong>
+
+                    <p>
+                        Seus dados pessoais são protegidos
+                        e utilizados somente para o funcionamento
+                        da plataforma.
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="campo">
-                <label>Telefone</label>
-                <input type="tel" placeholder="***********">
-            </div>
 
-            <div class="campo">
-                <label>Data de Nascimento</label>
-                <input type="date">
-            </div>
+        </section>
 
-            <div class="campo">
-                <label>Endereço</label>
-                <input type="text" placeholder="************************">
-            </div>
+    </main>
 
-            <div class="campo">
-                <label>Cidade</label>
-                <input type="text" placeholder="***********">
-            </div>
 
-            <div class="campo">
-                <label>Estado</label>
-                <input type="text" placeholder="**">
-            </div>
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
-            <div class="campo">
-                <label>Currículo (PDF)</label>
-                <input type="file" accept=".pdf">
-            </div>
+    <script src="perfil.js"></script>
 
-            <button type="submit">Salvar Alterações</button>
+</body>
 
-        </form>
-
-    </section>
-
-</main>
+</html>
