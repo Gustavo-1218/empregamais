@@ -1,0 +1,542 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Poppins", Arial, sans-serif;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(80, 70, 180, 0.16), transparent 30%),
+        radial-gradient(circle at 80% 60%, rgba(40, 120, 220, 0.10), transparent 30%),
+        #030719;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.cabecalho {
+    width: 100%;
+    height: 85px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(150, 140, 255, 0.12);
+    background: rgba(3, 7, 25, 0.75);
+    backdrop-filter: blur(14px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    width: 145px;
+    display: block;
+}
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    list-style: none;
+}
+
+.menu li a {
+    color: #a9acbf;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.menu li a:hover,
+.menu li a.ativo {
+    color: #ffffff;
+}
+
+.menu li a.ativo {
+    text-shadow: 0 0 12px rgba(120, 90, 255, 0.7);
+}
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.entrar,
+.cadastro {
+    padding: 10px 20px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.entrar {
+    color: #c3c5d5;
+    border: 1px solid rgba(150, 150, 190, 0.2);
+}
+
+.entrar:hover {
+    border-color: rgba(130, 100, 255, 0.5);
+    color: #ffffff;
+}
+
+.cadastro {
+    background: linear-gradient(90deg, #168cff, #704cff, #9d3cff);
+    box-shadow: 0 0 18px rgba(90, 80, 255, 0.25);
+}
+
+.cadastro:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 15px rgba(50, 130, 255, 0.45),
+        0 0 25px rgba(130, 60, 255, 0.35);
+}
+
+.menu-mobile {
+    display: none;
+    width: 42px;
+    height: 42px;
+    padding: 9px;
+    border: 1px solid rgba(150, 140, 255, 0.2);
+    border-radius: 9px;
+    background: rgba(20, 20, 45, 0.7);
+    cursor: pointer;
+}
+
+.menu-mobile span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 5px 0;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+main {
+    width: 100%;
+}
+
+.introducao {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 95px 25px 70px;
+    text-align: center;
+}
+
+.etiqueta {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #8e82ff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.introducao h1 {
+    font-size: clamp(35px, 5vw, 58px);
+    line-height: 1.12;
+    font-weight: 600;
+    letter-spacing: -1.5px;
+}
+
+.introducao h1 span {
+    display: block;
+    background: linear-gradient(90deg, #168cff, #8b4cff, #b45cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.introducao p {
+    max-width: 650px;
+    margin: 22px auto 0;
+    color: #999caf;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.quem-somos {
+    width: 88%;
+    max-width: 1150px;
+    margin: 0 auto 110px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.imagem-destaque {
+    display: flex;
+    justify-content: center;
+}
+
+.moldura {
+    width: min(100%, 430px);
+    aspect-ratio: 4 / 5;
+    padding: 8px;
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(22, 140, 255, 0.7),
+        rgba(112, 76, 255, 0.7),
+        rgba(170, 70, 255, 0.5)
+    );
+    box-shadow:
+        0 0 35px rgba(70, 90, 255, 0.15),
+        0 20px 70px rgba(0, 0, 0, 0.3);
+}
+
+.moldura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    background: #0c1028;
+}
+
+.texto-quem-somos .etiqueta {
+    margin-bottom: 12px;
+}
+
+.texto-quem-somos h2 {
+    font-size: 31px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.texto-quem-somos p {
+    max-width: 580px;
+    margin-bottom: 15px;
+    color: #9296a9;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.equipe {
+    width: 88%;
+    max-width: 1150px;
+    margin: 0 auto 120px;
+}
+
+.titulo-equipe {
+    margin-bottom: 45px;
+}
+
+.titulo-equipe h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.titulo-equipe p {
+    color: #8f93a7;
+    font-size: 13px;
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.pessoa {
+    position: relative;
+    min-height: 330px;
+    padding: 18px;
+    border: 1px solid rgba(140, 140, 190, 0.13);
+    border-radius: 18px;
+    background: rgba(13, 17, 40, 0.65);
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.pessoa::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -80px;
+    right: -70px;
+    border-radius: 50%;
+    filter: blur(45px);
+    opacity: 0.25;
+    transition: 0.4s;
+}
+
+.pessoa-azul::before {
+    background: #168cff;
+}
+
+.pessoa-roxa::before {
+    background: #8b4cff;
+}
+
+.pessoa-ciano::before {
+    background: #24b9ff;
+}
+
+.pessoa-violeta::before {
+    background: #b04cff;
+}
+
+.pessoa:hover {
+    transform: translateY(-7px);
+    border-color: rgba(130, 100, 255, 0.4);
+}
+
+.pessoa:hover::before {
+    opacity: 0.55;
+}
+
+.foto-pessoa {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 13px;
+    overflow: hidden;
+    background: #10152f;
+}
+
+.foto-pessoa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.9);
+    transition: 0.5s ease;
+}
+
+.pessoa:hover .foto-pessoa img {
+    transform: scale(1.05);
+}
+
+.informacoes-pessoa {
+    padding: 17px 4px 5px;
+}
+
+.informacoes-pessoa h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.informacoes-pessoa span,
+.descricao-pessoa span {
+    color: #85899d;
+    font-size: 11px;
+}
+
+.descricao-pessoa {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    padding: 18px;
+    border-radius: 13px;
+    background: rgba(7, 10, 28, 0.94);
+    border: 1px solid rgba(140, 120, 255, 0.22);
+    backdrop-filter: blur(12px);
+    transform: translateY(120%);
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+.pessoa:hover .descricao-pessoa {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.descricao-pessoa h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.descricao-pessoa p {
+    color: #a1a5b7;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.rodape {
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid rgba(150, 140, 255, 0.1);
+    background: rgba(2, 5, 20, 0.7);
+}
+
+.logo-rodape img {
+    width: 120px;
+}
+
+.rodape p {
+    color: #686c7d;
+    font-size: 10px;
+}
+
+@media (max-width: 900px) {
+
+    .cabecalho {
+        height: 72px;
+        padding: 0 5%;
+    }
+
+    .menu,
+    .acoes {
+        display: none;
+    }
+
+    .menu-mobile {
+        display: block;
+    }
+
+    .introducao {
+        padding-top: 70px;
+    }
+
+    .quem-somos {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        width: 90%;
+    }
+
+    .imagem-destaque {
+        order: 1;
+    }
+
+    .texto-quem-somos {
+        order: 2;
+    }
+
+    .moldura {
+        max-width: 380px;
+    }
+
+    .equipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .logo img {
+        width: 125px;
+    }
+
+    .introducao {
+        padding: 60px 20px 55px;
+    }
+
+    .introducao h1 {
+        font-size: 34px;
+    }
+
+    .introducao p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .quem-somos,
+    .equipe {
+        width: 90%;
+    }
+
+    .quem-somos {
+        margin-bottom: 80px;
+        gap: 35px;
+    }
+
+    .texto-quem-somos h2 {
+        font-size: 26px;
+    }
+
+    .texto-quem-somos p {
+        font-size: 12px;
+    }
+
+    .titulo-equipe {
+        margin-bottom: 30px;
+    }
+
+    .titulo-equipe h2 {
+        font-size: 26px;
+    }
+
+    .equipe-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+
+    .pessoa {
+        min-height: 250px;
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    .foto-pessoa {
+        border-radius: 10px;
+    }
+
+    .informacoes-pessoa {
+        padding: 10px 2px;
+    }
+
+    .informacoes-pessoa h3 {
+        font-size: 12px;
+    }
+
+    .informacoes-pessoa span {
+        font-size: 9px;
+    }
+
+    .descricao-pessoa {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        padding: 12px;
+    }
+
+    .descricao-pessoa h3 {
+        font-size: 12px;
+    }
+
+    .descricao-pessoa p {
+        font-size: 9px;
+    }
+
+    .descricao-pessoa span {
+        font-size: 9px;
+    }
+
+    .rodape {
+        padding: 30px 15px;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .introducao h1 {
+        font-size: 29px;
+    }
+
+    .equipe-grid {
+        gap: 10px;
+    }
+
+    .pessoa {
+        min-height: 225px;
+    }
+
+}

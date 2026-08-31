@@ -1,0 +1,1233 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Poppins", Arial, sans-serif;
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 20% 40%,
+            rgba(73, 70, 160, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 60%,
+            rgba(46, 112, 255, 0.12),
+            transparent 35%
+        ),
+        #050817;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.cabecalho-principal {
+    width: 100%;
+    height: 82px;
+
+    padding: 0 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    background: rgba(5, 8, 23, 0.82);
+
+    backdrop-filter: blur(15px);
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* LOGO */
+
+.logo-site {
+    display: flex;
+    align-items: center;
+}
+
+.logo-site img {
+    width: 155px;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================================
+   MENU DESKTOP
+========================================================= */
+
+.menu-principal {
+    display: flex;
+    align-items: center;
+}
+
+.lista-menu {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    list-style: none;
+}
+
+.item-menu a {
+    position: relative;
+
+    color: #aeb3c7;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+.item-menu a:hover {
+    color: #ffffff;
+}
+
+
+/* ITEM ATIVO */
+
+.item-menu.menu-ativo a {
+    color: #ffffff;
+}
+
+.item-menu.menu-ativo a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -10px;
+
+    width: 100%;
+    height: 2px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #168cff,
+        #8b3dff
+    );
+
+    box-shadow:
+        0 0 8px rgba(90, 90, 255, 0.8);
+}
+
+
+/* =========================================================
+   AÇÕES DO USUÁRIO
+========================================================= */
+
+.acoes-usuario {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.botao-entrar,
+.botao-cadastro {
+    padding: 10px 18px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.botao-entrar {
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.botao-entrar:hover {
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.botao-cadastro {
+    color: #ffffff;
+
+    background: linear-gradient(
+        90deg,
+        #168cff,
+        #704cff,
+        #9d3cff
+    );
+
+    box-shadow:
+        0 0 15px rgba(86, 93, 255, 0.25);
+}
+
+.botao-cadastro:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 20px rgba(86, 93, 255, 0.5);
+}
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+.botao-menu-mobile {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 9px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    cursor: pointer;
+}
+
+.botao-menu-mobile span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    margin: 5px 0;
+
+    border-radius: 5px;
+
+    background: #ffffff;
+}
+
+.menu-mobile {
+    display: none;
+}
+
+
+/* =========================================================
+   INTRODUÇÃO
+========================================================= */
+
+.pagina-vagas {
+    width: 100%;
+}
+
+.introducao-vagas {
+    width: 100%;
+
+    padding: 45px 5% 35px;
+}
+
+.titulo-pagina-vagas {
+    max-width: 800px;
+}
+
+.etiqueta-vagas,
+.etiqueta-lista {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: #8d8aff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.titulo-pagina-vagas h1 {
+    font-size: clamp(28px, 3vw, 42px);
+
+    line-height: 1.15;
+
+    margin-bottom: 12px;
+}
+
+.titulo-pagina-vagas p {
+    color: #9298ad;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.area-vagas {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 650px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   RADAR — LADO ESQUERDO
+========================================================= */
+
+.area-radar {
+    min-width: 0;
+
+    padding: 35px 5% 45px;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(36, 94, 180, 0.08),
+            transparent 55%
+        );
+}
+
+
+/* CABEÇALHO RADAR */
+
+.cabecalho-radar {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 25px;
+}
+
+.icone-radar {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #55a9ff;
+
+    font-size: 20px;
+
+    background: rgba(40, 130, 255, 0.1);
+
+    border: 1px solid rgba(70, 150, 255, 0.25);
+
+    box-shadow:
+        0 0 15px rgba(50, 130, 255, 0.12);
+}
+
+.texto-cabecalho-radar h2 {
+    font-size: 17px;
+}
+
+.texto-cabecalho-radar p {
+    margin-top: 3px;
+
+    color: #737b94;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RADAR
+========================================================= */
+
+.radar-oportunidades {
+    width: min(520px, 90%);
+
+    aspect-ratio: 1 / 1;
+
+    margin: 20px auto 30px;
+
+    position: relative;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(21, 96, 177, 0.12),
+            rgba(5, 20, 45, 0.22) 55%,
+            rgba(3, 10, 25, 0.4)
+        );
+
+    border: 1px solid rgba(63, 149, 255, 0.25);
+
+    box-shadow:
+        inset 0 0 45px rgba(30, 120, 255, 0.08),
+        0 0 30px rgba(20, 100, 255, 0.08);
+}
+
+
+/* CÍRCULOS */
+
+.circulo-radar {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(65, 151, 255, 0.22);
+}
+
+.circulo-radar-externo {
+    width: 88%;
+    height: 88%;
+}
+
+.circulo-radar-medio {
+    width: 61%;
+    height: 61%;
+}
+
+.circulo-radar-interno {
+    width: 34%;
+    height: 34%;
+}
+
+
+/* =========================================================
+   LINHAS DO RADAR
+========================================================= */
+
+.linha-radar {
+    position: absolute;
+
+    background: rgba(67, 149, 255, 0.15);
+}
+
+.linha-radar-horizontal {
+    width: 100%;
+    height: 1px;
+
+    top: 50%;
+    left: 0;
+}
+
+.linha-radar-vertical {
+    width: 1px;
+    height: 100%;
+
+    top: 0;
+    left: 50%;
+}
+
+
+/* =========================================================
+   VARREDURA
+========================================================= */
+
+.varredura-radar {
+    position: absolute;
+
+    width: 50%;
+    height: 50%;
+
+    top: 0;
+    left: 50%;
+
+    transform-origin: bottom left;
+
+    background: linear-gradient(
+        135deg,
+        rgba(45, 157, 255, 0.22),
+        rgba(45, 157, 255, 0)
+    );
+
+    clip-path: polygon(
+        0 100%,
+        100% 0,
+        0 0
+    );
+
+    animation: varredura 4s linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes varredura {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   LOCALIZAÇÃO DO USUÁRIO
+========================================================= */
+
+.localizacao-usuario {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 10;
+}
+
+.ponto-central {
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+
+    background: #319cff;
+
+    border: 3px solid #ffffff;
+
+    box-shadow:
+        0 0 10px #319cff,
+        0 0 25px rgba(49, 156, 255, 0.8);
+
+    animation: pulsarUsuario 2s infinite;
+}
+
+@keyframes pulsarUsuario {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 8px #319cff,
+            0 0 20px rgba(49, 156, 255, 0.5);
+    }
+
+    50% {
+        box-shadow:
+            0 0 12px #319cff,
+            0 0 35px rgba(49, 156, 255, 0.9);
+    }
+
+}
+
+.texto-localizacao {
+    margin-top: 7px;
+
+    color: #73baff;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PONTOS DAS OPORTUNIDADES
+========================================================= */
+
+.ponto-oportunidade {
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    padding: 0;
+
+    border: 2px solid #ffffff;
+
+    border-radius: 50%;
+
+    background: #8d4dff;
+
+    box-shadow:
+        0 0 8px #8d4dff,
+        0 0 20px rgba(141, 77, 255, 0.7);
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition: 0.3s ease;
+}
+
+.ponto-oportunidade:hover {
+    transform: scale(1.5);
+
+    box-shadow:
+        0 0 12px #8d4dff,
+        0 0 30px rgba(141, 77, 255, 0.9);
+}
+
+
+/* POSIÇÃO DOS PONTOS */
+
+.ponto-vaga-1 {
+    top: 22%;
+    left: 70%;
+}
+
+.ponto-vaga-2 {
+    top: 68%;
+    left: 78%;
+}
+
+.ponto-vaga-3 {
+    top: 76%;
+    left: 28%;
+}
+
+.ponto-vaga-4 {
+    top: 25%;
+    left: 25%;
+}
+
+
+/* BRILHO */
+
+.brilho-ponto {
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: 50%;
+
+    background: rgba(155, 90, 255, 0.25);
+
+    animation: pulsarPonto 2s infinite;
+}
+
+@keyframes pulsarPonto {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================================
+   LEGENDA
+========================================================= */
+
+.legenda-radar {
+    display: flex;
+    justify-content: center;
+
+    gap: 25px;
+
+    color: #737b94;
+
+    font-size: 10px;
+}
+
+.item-legenda {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.indicador-usuario,
+.indicador-oportunidade {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+}
+
+.indicador-usuario {
+    background: #319cff;
+
+    box-shadow: 0 0 7px #319cff;
+}
+
+.indicador-oportunidade {
+    background: #8d4dff;
+
+    box-shadow: 0 0 7px #8d4dff;
+}
+
+
+/* =========================================================
+   LISTA DE VAGAS — LADO DIREITO
+========================================================= */
+
+.area-lista-vagas {
+    min-width: 0;
+
+    padding: 35px 5% 45px;
+
+    overflow: hidden;
+}
+
+
+/* CABEÇALHO */
+
+.cabecalho-lista-vagas {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.cabecalho-lista-vagas h2 {
+    margin-bottom: 4px;
+
+    font-size: 22px;
+}
+
+.cabecalho-lista-vagas p {
+    color: #737b94;
+
+    font-size: 10px;
+}
+
+
+/* CONTADOR */
+
+.contador-vagas {
+    min-width: 65px;
+
+    padding: 9px 13px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contador-vagas strong {
+    color: #8d8aff;
+
+    font-size: 20px;
+    line-height: 1;
+}
+
+.contador-vagas span {
+    margin-top: 4px;
+
+    color: #6e7489;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   LISTA
+========================================================= */
+
+.lista-oportunidades {
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+/* =========================================================
+   CARTÕES
+========================================================= */
+
+.cartao-oportunidade {
+    width: 100%;
+
+    padding: 18px 20px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: 0.3s ease;
+
+    cursor: pointer;
+}
+
+.cartao-oportunidade:hover {
+    transform: translateX(4px);
+
+    border-color: rgba(107, 101, 255, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(92, 85, 190, 0.12),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        0 0 20px rgba(80, 80, 200, 0.08);
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CARTÃO
+========================================================= */
+
+.cabecalho-cartao-vaga {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 13px;
+}
+
+.identificacao-empresa {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.icone-empresa {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    background: linear-gradient(
+        135deg,
+        #168cff,
+        #704cff
+    );
+
+    box-shadow:
+        0 0 12px rgba(70, 100, 255, 0.2);
+}
+
+.dados-empresa {
+    display: flex;
+    flex-direction: column;
+}
+
+.nome-empresa {
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.local-empresa {
+    margin-top: 2px;
+
+    color: #6f768c;
+
+    font-size: 9px;
+}
+
+.tipo-vaga {
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    color: #77d7aa;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    background: rgba(72, 202, 137, 0.08);
+
+    border: 1px solid rgba(72, 202, 137, 0.15);
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DA VAGA
+========================================================= */
+
+.informacoes-oportunidade h3 {
+    margin-bottom: 5px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+.informacoes-oportunidade p {
+    max-width: 700px;
+
+    color: #858ca1;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   DETALHES
+========================================================= */
+
+.detalhes-oportunidade {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 13px;
+}
+
+.detalhe-oportunidade {
+    color: #777e93;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   RODAPÉ DO CARTÃO
+========================================================= */
+
+.rodape-cartao-vaga {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 15px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.data-vaga {
+    color: #62697c;
+
+    font-size: 8px;
+}
+
+.botao-ver-vaga {
+    padding: 7px 12px;
+
+    border: none;
+    border-radius: 7px;
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 600;
+
+    background: rgba(93, 80, 220, 0.14);
+
+    border: 1px solid rgba(110, 100, 255, 0.18);
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.botao-ver-vaga:hover {
+    background: rgba(104, 91, 240, 0.28);
+
+    border-color: rgba(130, 120, 255, 0.4);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .lista-menu {
+        gap: 18px;
+    }
+
+    .area-vagas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .area-radar,
+    .area-lista-vagas {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — CELULAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* HEADER */
+
+    .cabecalho-principal {
+        height: 70px;
+
+        padding: 0 20px;
+    }
+
+    .logo-site img {
+        width: 125px;
+    }
+
+    .menu-principal,
+    .acoes-usuario {
+        display: none;
+    }
+
+    .botao-menu-mobile {
+        display: block;
+    }
+
+
+    /* MENU MOBILE */
+
+    .menu-mobile {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+
+        background: rgba(5, 8, 23, 0.97);
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+        backdrop-filter: blur(15px);
+
+        z-index: 99;
+    }
+
+    .lista-menu-mobile {
+        display: flex;
+        flex-direction: column;
+
+        gap: 18px;
+
+        list-style: none;
+    }
+
+    .lista-menu-mobile a {
+        color: #c3c7d5;
+
+        text-decoration: none;
+
+        font-size: 14px;
+    }
+
+    .acoes-mobile {
+        display: flex;
+
+        gap: 10px;
+
+        margin-top: 20px;
+    }
+
+    .acoes-mobile a {
+        flex: 1;
+
+        padding: 11px;
+
+        text-align: center;
+
+        border-radius: 8px;
+
+        color: #ffffff;
+
+        text-decoration: none;
+
+        font-size: 11px;
+
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+
+    /* INTRODUÇÃO */
+
+    .introducao-vagas {
+        padding: 30px 20px 25px;
+    }
+
+    .titulo-pagina-vagas h1 {
+        font-size: 27px;
+    }
+
+    .titulo-pagina-vagas p {
+        font-size: 11px;
+    }
+
+
+    /* ÁREA */
+
+    .area-vagas {
+        display: flex;
+        flex-direction: column;
+
+        min-height: auto;
+    }
+
+
+    /* RADAR */
+
+    .area-radar {
+        width: 100%;
+
+        padding: 25px 20px 35px;
+
+        border-right: none;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .cabecalho-radar {
+        margin-bottom: 18px;
+    }
+
+    .radar-oportunidades {
+        width: min(380px, 90vw);
+
+        margin: 15px auto 25px;
+    }
+
+
+    /* LISTA */
+
+    .area-lista-vagas {
+        width: 100%;
+
+        padding: 30px 20px 40px;
+    }
+
+    .cabecalho-lista-vagas {
+        margin-bottom: 20px;
+    }
+
+    .cabecalho-lista-vagas h2 {
+        font-size: 19px;
+    }
+
+
+    /* CARTÕES */
+
+    .cartao-oportunidade {
+        padding: 16px;
+    }
+
+    .informacoes-oportunidade h3 {
+        font-size: 14px;
+    }
+
+    .informacoes-oportunidade p {
+        font-size: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .logo-site img {
+        width: 110px;
+    }
+
+    .radar-oportunidades {
+        width: 90vw;
+    }
+
+    .legenda-radar {
+        gap: 15px;
+
+        font-size: 9px;
+    }
+
+    .rodape-cartao-vaga {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .botao-ver-vaga {
+        width: 100%;
+    }
+
+}
+

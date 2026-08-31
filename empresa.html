@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Emprega Mais - Vagas</title>
+
+    <link rel="stylesheet" href="empresastl.css">
+
+</head>
+
+<body>
+
+    <header class="cabecalho-principal">
+
+        <div class="logo-site">
+
+            <a href="index.html">
+
+                <img
+                    src="logo site.png"
+                    alt="Logo Emprega Mais"
+                >
+
+            </a>
+
+        </div>
+
+
+        <nav class="menu-principal">
+
+            <ul class="lista-menu">
+
+                <li class="item-menu">
+                    <a href="index.html">
+                        Início
+                    </a>
+                </li>
+
+                <li class="item-menu menu-ativo">
+                    <a href="vagas.html">
+                        Vagas
+                    </a>
+                </li>
+
+                <li class="item-menu">
+                    <a href="#">
+                        Cursos
+                    </a>
+                </li>
+
+                <li class="item-menu">
+                    <a href="#">
+                        Dicas
+                    </a>
+                </li>
+
+                <li class="item-menu">
+                    <a href="#">
+                        Empresas
+                    </a>
+                </li>
+
+                <li class="item-menu">
+                    <a href="#">
+                        Sobre nós
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="acoes-usuario">
+
+            <a
+                href="digital.html"
+                class="botao-entrar"
+            >
+                Entrar
+            </a>
+
+            <a
+                href="cadastro.html"
+                class="botao-cadastro"
+            >
+                Cadastre-se
+            </a>
+
+        </div>
+
+
+        <button
+            class="botao-menu-mobile"
+            id="botao-menu-mobile"
+            aria-label="Abrir menu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+    <nav
+        class="menu-mobile"
+        id="menu-mobile"
+    >
+
+        <ul class="lista-menu-mobile">
+
+            <li>
+                <a href="index.html">
+                    Início
+                </a>
+            </li>
+
+            <li>
+                <a href="vagas.html">
+                    Vagas
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Cursos
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Dicas
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Empresas
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Sobre nós
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="acoes-mobile">
+
+            <a href="digital.html">
+                Entrar
+            </a>
+
+            <a href="cadastro.html">
+                Cadastre-se
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="pagina-vagas">
+
+
+        <section class="introducao-vagas">
+
+            <div class="titulo-pagina-vagas">
+
+                <span class="etiqueta-vagas">
+                    OPORTUNIDADES
+                </span>
+
+                <h1>
+                    Encontre sua próxima oportunidade.
+                </h1>
+
+                <p>
+                    Explore as vagas disponíveis e descubra
+                    oportunidades próximas a você.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="area-vagas">
+
+
+            <section class="area-radar">
+
+                <div class="cabecalho-radar">
+
+                    <div class="icone-radar">
+                        ◉
+                    </div>
+
+                    <div class="texto-cabecalho-radar">
+
+                        <h2>
+                            Radar de oportunidades
+                        </h2>
+
+                        <p>
+                            Vagas encontradas próximas a você
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="radar-oportunidades"
+                    id="radar-oportunidades"
+                >
+
+                    <div
+                        class="circulo-radar circulo-radar-externo"
+                    ></div>
+
+                    <div
+                        class="circulo-radar circulo-radar-medio"
+                    ></div>
+
+                    <div
+                        class="circulo-radar circulo-radar-interno"
+                    ></div>
+
+
+                    <div
+                        class="linha-radar linha-radar-horizontal"
+                    ></div>
+
+                    <div
+                        class="linha-radar linha-radar-vertical"
+                    ></div>
+
+
+                    <div
+                        class="varredura-radar"
+                        id="varredura-radar"
+                    ></div>
+
+
+                    <div
+                        class="localizacao-usuario"
+                        id="localizacao-usuario"
+                    >
+
+                        <span class="ponto-central"></span>
+
+                        <span class="texto-localizacao">
+                            Você
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="ponto-oportunidade ponto-vaga-1"
+                        id="ponto-vaga-1"
+                        data-vaga="vaga-1"
+                        aria-label="Ver vaga de Empacotador"
+                    >
+
+                        <span class="brilho-ponto"></span>
+
+                    </button>
+
+
+                    <button
+                        class="ponto-oportunidade ponto-vaga-2"
+                        id="ponto-vaga-2"
+                        data-vaga="vaga-2"
+                        aria-label="Ver vaga de Atendente"
+                    >
+
+                        <span class="brilho-ponto"></span>
+
+                    </button>
+
+
+                    <button
+                        class="ponto-oportunidade ponto-vaga-3"
+                        id="ponto-vaga-3"
+                        data-vaga="vaga-3"
+                        aria-label="Ver vaga de Operador de caixa"
+                    >
+
+                        <span class="brilho-ponto"></span>
+
+                    </button>
+
+
+                    <button
+                        class="ponto-oportunidade ponto-vaga-4"
+                        id="ponto-vaga-4"
+                        data-vaga="vaga-4"
+                        aria-label="Ver vaga de Auxiliar de estoque"
+                    >
+
+                        <span class="brilho-ponto"></span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="legenda-radar">
+
+                    <div class="item-legenda">
+
+                        <span class="indicador-usuario"></span>
+
+                        <span>
+                            Sua localização
+                        </span>
+
+                    </div>
+
+
+                    <div class="item-legenda">
+
+                        <span class="indicador-oportunidade"></span>
+
+                        <span>
+                            Oportunidade
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="area-lista-vagas">
+
+
+                <div class="cabecalho-lista-vagas">
+
+                    <div>
+
+                        <span class="etiqueta-lista">
+                            ENCONTRADAS
+                        </span>
+
+                        <h2>
+                            Vagas disponíveis
+                        </h2>
+
+                        <p>
+                            Confira as oportunidades disponíveis
+                            na sua região.
+                        </p>
+
+                    </div>
+
+
+                    <div class="contador-vagas">
+
+                        <strong>
+                            04
+                        </strong>
+
+                        <span>
+                            vagas
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="lista-oportunidades"
+                    id="lista-oportunidades"
+                >
+
+
+                    <article
+                        class="cartao-oportunidade"
+                        id="vaga-1"
+                        data-ponto="ponto-vaga-1"
+                    >
+
+                        <div class="cabecalho-cartao-vaga">
+
+                            <div class="identificacao-empresa">
+
+                                <div class="icone-empresa">
+                                    A
+                                </div>
+
+                                <div class="dados-empresa">
+
+                                    <span class="nome-empresa">
+                                        Atacarejo Bom Preço
+                                    </span>
+
+                                    <span class="local-empresa">
+                                        Extremoz - RN
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <span class="tipo-vaga">
+                                CLT
+                            </span>
+
+                        </div>
+
+
+                        <div class="informacoes-oportunidade">
+
+                            <h3>
+                                Empacotador
+                            </h3>
+
+                            <p>
+                                Auxiliar no atendimento aos clientes,
+                                organização das compras e embalagem
+                                dos produtos.
+                            </p>
+
+                        </div>
+
+
+                        <div class="detalhes-oportunidade">
+
+                            <span class="detalhe-oportunidade">
+                                📍 12 km de você
+                            </span>
+
+                            <span class="detalhe-oportunidade">
+                                🕐 Tempo integral
+                            </span>
+
+                        </div>
+
+
+                        <div class="rodape-cartao-vaga">
+
+                            <span class="data-vaga">
+                                Publicada recentemente
+                            </span>
+
+                            <button
+                                class="botao-ver-vaga"
+                                data-vaga="vaga-1"
+                            >
+                                Ver oportunidade →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="cartao-oportunidade"
+                        id="vaga-2"
+                        data-ponto="ponto-vaga-2"
+                    >
+
+                        <div class="cabecalho-cartao-vaga">
+
+                            <div class="identificacao-empresa">
+
+                                <div class="icone-empresa">
+                                    S
+                                </div>
+
+                                <div class="dados-empresa">
+
+                                    <span class="nome-empresa">
+                                        Sushi Suki
+                                    </span>
+
+                                    <span class="local-empresa">
+                                        Extremoz - RN
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <span class="tipo-vaga">
+                                CLT
+                            </span>
+
+                        </div>
+
+
+                        <div class="informacoes-oportunidade">
+
+                            <h3>
+                                Atendente
+                            </h3>
+
+                            <p>
+                                Atendimento ao público,
+                                organização do ambiente e auxílio
+                                nas atividades do estabelecimento.
+                            </p>
+
+                        </div>
+
+
+                        <div class="detalhes-oportunidade">
+
+                            <span class="detalhe-oportunidade">
+                                📍 8 km de você
+                            </span>
+
+                            <span class="detalhe-oportunidade">
+                                🕐 Tempo integral
+                            </span>
+
+                        </div>
+
+
+                        <div class="rodape-cartao-vaga">
+
+                            <span class="data-vaga">
+                                Publicada recentemente
+                            </span>
+
+                            <button
+                                class="botao-ver-vaga"
+                                data-vaga="vaga-2"
+                            >
+                                Ver oportunidade →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="cartao-oportunidade"
+                        id="vaga-3"
+                        data-ponto="ponto-vaga-3"
+                    >
+
+                        <div class="cabecalho-cartao-vaga">
+
+                            <div class="identificacao-empresa">
+
+                                <div class="icone-empresa">
+                                    S
+                                </div>
+
+                                <div class="dados-empresa">
+
+                                    <span class="nome-empresa">
+                                        Supermercado Surreal
+                                    </span>
+
+                                    <span class="local-empresa">
+                                        Extremoz - RN
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <span class="tipo-vaga">
+                                CLT
+                            </span>
+
+                        </div>
+
+
+                        <div class="informacoes-oportunidade">
+
+                            <h3>
+                                Operador de caixa
+                            </h3>
+
+                            <p>
+                                Atendimento aos clientes,
+                                operação do caixa e organização
+                                do estabelecimento.
+                            </p>
+
+                        </div>
+
+
+                        <div class="detalhes-oportunidade">
+
+                            <span class="detalhe-oportunidade">
+                                📍 15 km de você
+                            </span>
+
+                            <span class="detalhe-oportunidade">
+                                🕐 Tempo integral
+                            </span>
+
+                        </div>
+
+
+                        <div class="rodape-cartao-vaga">
+
+                            <span class="data-vaga">
+                                Publicada recentemente
+                            </span>
+
+                            <button
+                                class="botao-ver-vaga"
+                                data-vaga="vaga-3"
+                            >
+                                Ver oportunidade →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="cartao-oportunidade"
+                        id="vaga-4"
+                        data-ponto="ponto-vaga-4"
+                    >
+
+                        <div class="cabecalho-cartao-vaga">
+
+                            <div class="identificacao-empresa">
+
+                                <div class="icone-empresa">
+                                    A
+                                </div>
+
+                                <div class="dados-empresa">
+
+                                    <span class="nome-empresa">
+                                        Atacadão
+                                    </span>
+
+                                    <span class="local-empresa">
+                                        Natal - RN
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <span class="tipo-vaga">
+                                CLT
+                            </span>
+
+                        </div>
+
+
+                        <div class="informacoes-oportunidade">
+
+                            <h3>
+                                Auxiliar de estoque
+                            </h3>
+
+                            <p>
+                                Organização de mercadorias,
+                                conferência de produtos e auxílio
+                                no controle de estoque.
+                            </p>
+
+                        </div>
+
+
+                        <div class="detalhes-oportunidade">
+
+                            <span class="detalhe-oportunidade">
+                                📍 18 km de você
+                            </span>
+
+                            <span class="detalhe-oportunidade">
+                                🕐 Tempo integral
+                            </span>
+
+                        </div>
+
+
+                        <div class="rodape-cartao-vaga">
+
+                            <span class="data-vaga">
+                                Publicada recentemente
+                            </span>
+
+                            <button
+                                class="botao-ver-vaga"
+                                data-vaga="vaga-4"
+                            >
+                                Ver oportunidade →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+    </footer>
+
+
+</body>
+
+</html>
