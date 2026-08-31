@@ -4,6 +4,21 @@
     box-sizing: border-box;
 }
 
+
+.hero{
+    
+ 
+
+
+    background-image: url("fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: #553ce0;
+}
+
+}
 html {
     scroll-behavior: smooth;
 }
@@ -308,6 +323,18 @@ main {
 }
 
 
+body{
+ 
+
+
+    background-image: url("fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: #553ce0;
+}
+
 /* ================================
    CARD INDIVIDUAL
 ================================ */
@@ -330,7 +357,7 @@ main {
 
     background: linear-gradient(
         145deg,
-        rgba(14, 27, 62, 0.95),
+        rgba(0, 248, 54, 0.95),
         rgba(7, 14, 35, 0.95)
     );
 
@@ -352,10 +379,10 @@ main {
     left: 0;
 
     background: linear-gradient(
-        90deg,
+        9deg,
         transparent,
-        #3287ff,
-        #8b42ff,
+        #03dd28,
+        #026930,
         transparent
     );
 
@@ -406,7 +433,7 @@ main {
 .destaque:hover .icone-destaque {
     transform: scale(1.06);
 
-    background: rgba(62, 91, 255, 0.16);
+    background: rgba(8, 177, 255, 0.16);
 
     box-shadow:
         0 0 18px rgba(48, 120, 255, 0.2);
@@ -485,7 +512,7 @@ main {
 }
 
 .destaque-emprego .icone-destaque {
-    color: #2487ff;
+    color: #6000fa;
 }
 
 .destaque-empresa {
