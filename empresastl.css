@@ -11,22 +11,25 @@ html {
 
 body {
     min-height: 100vh;
-    font-family: "Poppins", Arial, sans-serif;
-    color: #ffffff;
+    overflow-x: hidden;
+
+    color: #fff;
 
     background:
-        radial-gradient(
-            circle at 20% 40%,
-            rgba(73, 70, 160, 0.18),
-            transparent 35%
+        linear-gradient(
+            rgba(2, 6, 17, .35),
+            rgba(2, 6, 17, .35)
         ),
-        radial-gradient(
-            circle at 80% 60%,
-            rgba(46, 112, 255, 0.12),
-            transparent 35%
-        ),
-        #050817;
+        url("plano\ de\ fundo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 
 
 /* =========================================================
