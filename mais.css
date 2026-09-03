@@ -5,19 +5,6 @@
 }
 
 
-.hero{
-    
- 
-
-
-    background-image: url("fundo.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    background-color: #553ce0;
-}
-
 }
 html {
     scroll-behavior: smooth;
@@ -323,17 +310,6 @@ main {
 }
 
 
-body{
- 
-
-
-    background-image: url("fundo.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    background-color: #553ce0;
-}
 
 /* ================================
    CARD INDIVIDUAL
