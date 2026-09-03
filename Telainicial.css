@@ -1,5 +1,11 @@
 
 
+CSS
+
+
+
+/* configuração geral */
+
 * {
     margin: 0;
     padding: 0;
@@ -17,47 +23,64 @@ body {
     color: #fff;
 
     background:
-        radial-gradient(
-            circle at 72% 48%,
-            rgba(20, 72, 170, .10),
-            transparent 32%
+        linear-gradient(
+            rgba(2, 6, 17, .35),
+            rgba(2, 6, 17, .35)
         ),
-        #020611;
+        url("plano\ de\ fundo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     font-family: Arial, Helvetica, sans-serif;
 }
 
-button,
-a {
-    font-family: inherit;
+/* ========================================
+   LOGO MOBILE
+======================================== */
+
+.logo-mobile {
+    display: none;
 }
 
 
 /* ========================================
-   2. HEADER / LOGO
+   CELULAR
 ======================================== */
 
-.header {
-    padding: 40px 3.2vw;
+@media (max-width: 600px) {
+
+    /* Esconde as órbitas e a ilustração */
+    .network {
+        display: none;
+    }
+
+    /* Mostra a logo no topo */
+    .logo-mobile {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    
+    }
+
+    .logo-mobile img {
+        width: 180px;
+        height: auto;
+        display: block;
+    }
+
 }
 
-.logo {
-    display: inline-block;
-}
 
-.logo img {
-    display: block;
-
-    width: 215px;
-    max-height: 55px;
-
-    object-fit: contain;
-}
-
-
-/* ========================================
-   3. HERO
-======================================== */
+/* hero */
 
 .hero {
     width: min(1380px, 93vw);
@@ -66,7 +89,7 @@ a {
     margin: 10px auto 0;
 
     display: grid;
-    grid-template-columns: 48% 52%;
+    grid-template-columns: 47% 53%;
     align-items: center;
 }
 
@@ -75,9 +98,7 @@ a {
 }
 
 
-/* ========================================
-   4. TAG
-======================================== */
+/* tag */
 
 .tag {
     display: inline-flex;
@@ -102,9 +123,7 @@ a {
 }
 
 
-/* ========================================
-   5. TÍTULO / DESCRIÇÃO
-======================================== */
+/* titulo */
 
 h1 {
     margin-top: 28px;
@@ -140,9 +159,7 @@ h1 span {
 }
 
 
-/* ========================================
-   6. BOTÕES
-======================================== */
+/* botoes */
 
 .buttons {
     display: flex;
@@ -204,9 +221,7 @@ h1 span {
 }
 
 
-/* ========================================
-   7. CARDS
-======================================== */
+/* cards */
 
 .cards {
     display: flex;
@@ -240,16 +255,58 @@ h1 span {
 
     background: rgba(7, 14, 32, .74);
 
-    transition: .25s ease;
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
 }
+
+
+/* destaque do card */
 
 .card:hover,
 .card.active {
-    transform: translateY(-5px);
+    transform: translateY(-7px) scale(1.02);
 
-    border-color: rgba(40, 130, 255, .55);
-    background: rgba(10, 22, 49, .9);
+    border-color: rgba(40, 130, 255, .75);
+
+    background: rgba(10, 22, 49, .95);
+
+    box-shadow:
+        0 15px 40px rgba(20, 100, 255, .16);
 }
+
+
+/* destaque específico: talentos */
+
+.card[data-node="talentos"].active {
+    border-color: rgba(0, 229, 193, .8);
+
+    box-shadow:
+        0 15px 40px rgba(0, 229, 193, .15);
+}
+
+
+/* destaque específico: empresas */
+
+.card[data-node="empresas"].active {
+    border-color: rgba(37, 140, 255, .8);
+
+    box-shadow:
+        0 15px 40px rgba(37, 140, 255, .18);
+}
+
+
+/* destaque específico: oportunidades */
+
+.card[data-node="oportunidades"].active {
+    border-color: rgba(147, 53, 255, .8);
+
+    box-shadow:
+        0 15px 40px rgba(147, 53, 255, .18);
+}
+
 
 .card-icon {
     width: 57px;
@@ -262,7 +319,19 @@ h1 span {
 
     border: 1px solid;
     border-radius: 50%;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
+
+
+/* ícone também recebe um pequeno destaque */
+
+.card.active .card-icon {
+    transform: scale(1.08);
+}
+
 
 .card-icon svg {
     width: 31px;
@@ -284,12 +353,13 @@ h1 span {
 }
 
 
-/* OPORTUNIDADES - NOVO CARD */
+/* oportunidades */
 
 .card-icon.oportunidades {
     color: #9335ff;
     border-color: rgba(147, 53, 255, .45);
 }
+
 
 .card h3 {
     margin: 7px 0 9px;
@@ -306,7 +376,6 @@ h1 span {
     line-height: 1.55;
 
     flex-grow: 1;
-
 }
 
 .card-line {
@@ -318,7 +387,19 @@ h1 span {
     margin-top: 10px;
 
     background: #00d9b7;
+
+    transition:
+        width .3s ease,
+        box-shadow .3s ease;
 }
+
+
+/* linha aumenta quando o card estiver ativo */
+
+.card.active .card-line {
+    width: 55px;
+}
+
 
 .card:nth-child(2) .card-line {
     background: #258cff;
@@ -329,21 +410,21 @@ h1 span {
 }
 
 
-/* ========================================
-   8. DIAGRAMA DA DIREITA
-======================================== */
+/* diagrama da direita */
 
 .network {
     position: relative;
 
     width: 100%;
-    height: 670px;
+    height: 679px;
+
+    text-align: center;
+
+    transform: translate(150px);
 }
 
 
-/* ========================================
-   9. ÓRBITAS
-======================================== */
+/* orbitas */
 
 .orbit {
     position: absolute;
@@ -357,8 +438,8 @@ h1 span {
 }
 
 .orbit-big {
-    width: 490px;
-    height: 490px;
+    width: 486px;
+    height: 479px;
 
     border: 1px solid rgba(38, 100, 194, .25);
 }
@@ -371,9 +452,7 @@ h1 span {
 }
 
 
-/* ========================================
-   10. LINHAS
-======================================== */
+/* linhas */
 
 .line {
     position: absolute;
@@ -382,14 +461,16 @@ h1 span {
 
     pointer-events: none;
 
-    transition: .3s;
+    transition:
+        opacity .3s ease,
+        filter .3s ease;
 }
 
 .line-talentos {
     width: 170px;
 
-    left: 16%;
-    top: 47%;
+    left: 13%;
+    top: 48%;
 
     background: linear-gradient(
         90deg,
@@ -401,8 +482,8 @@ h1 span {
 .line-empresas {
     width: 170px;
 
-    left: 60%;
-    top: 47%;
+    left: 63%;
+    top: 48%;
 
     background: linear-gradient(
         90deg,
@@ -413,10 +494,10 @@ h1 span {
 
 .line-oportunidades {
     width: 2px;
-    height: 120px;
+    height: 125px;
 
     left: 50%;
-    top: 69%;
+    top: 59%;
 
     background: linear-gradient(
         #7c2cff,
@@ -425,9 +506,7 @@ h1 span {
 }
 
 
-/* ========================================
-   11. PONTOS
-======================================== */
+/* pontos */
 
 .dot {
     position: absolute;
@@ -483,9 +562,7 @@ h1 span {
 }
 
 
-/* ========================================
-   12. CENTRO
-======================================== */
+/* centro */
 
 .center {
     position: absolute;
@@ -493,8 +570,8 @@ h1 span {
     left: 50%;
     top: 48%;
 
-    width: 245px;
-    height: 245px;
+    width: 240px;
+    height: 240px;
 
     transform: translate(-50%, -50%);
 
@@ -526,23 +603,14 @@ h1 span {
 }
 
 .center-logo img {
-    width: 310px;
-    max-height: 210px;
+    width: 190px;
+    max-height: 250px;
 
     object-fit: contain;
 }
 
-.center > span {
-    margin-top: 10px;
 
-    font-size: 16px;
-    font-weight: 800;
-}
-
-
-/* ========================================
-   13. ITENS DA NETWORK
-======================================== */
+/* network */
 
 .network-item {
     position: absolute;
@@ -580,7 +648,16 @@ h1 span {
     border-radius: 50%;
 
     background: rgba(3, 10, 25, .85);
+
+    transition:
+        box-shadow .3s ease,
+        background .3s ease;
 }
+
+.network-item:hover .network-icon {
+    background: rgba(8, 20, 48, .95);
+}
+
 
 .network-icon svg {
     width: 54px;
@@ -592,12 +669,10 @@ h1 span {
 }
 
 
-/* ========================================
-   14. POSIÇÃO DOS ITENS DA NETWORK
-======================================== */
+/* posição dos itens */
 
 .talentos-item {
-    left: 8%;
+    left: 7%;
     top: 38%;
 
     color: #00e5c1;
@@ -607,363 +682,4 @@ h1 span {
     border-color: #00e5c1;
 
     box-shadow:
-        0 0 30px rgba(0, 229, 193, .07);
-}
-
-.empresas-item {
-    right: 7%;
-    top: 38%;
-
-    color: #258cff;
-}
-
-.empresas-item .network-icon {
-    border-color: #258cff;
-
-    box-shadow:
-        0 0 30px rgba(37, 140, 255, .08);
-}
-
-.oportunidades-item {
-    left: 50%;
-    top: 71%;
-
-    transform: translateX(-50%);
-
-    color: #9335ff;
-}
-
-.oportunidades-item .network-icon {
-    border-color: #9335ff;
-
-    box-shadow:
-        0 0 30px rgba(147, 53, 255, .08);
-}
-
-.oportunidades-item:hover,
-.oportunidades-item.active {
-    transform: translateX(-50%) scale(1.08);
-}
-
-
-/* ========================================
-   15. INFORMAÇÕES DA NETWORK
-======================================== */
-
-.network-info {
-    position: absolute;
-
-    left: 50%;
-    bottom: 15px;
-
-    transform: translateX(-50%);
-
-    text-align: center;
-}
-
-.network-info span {
-    display: block;
-
-    color: #7f8ca8;
-
-    font-size: 11px;
-    letter-spacing: 2px;
-}
-
-.network-info h3 {
-    margin-top: 5px;
-
-    font-size: 15px;
-}
-
-.network-info p {
-    margin-top: 5px;
-
-    color: #778197;
-
-    font-size: 12px;
-}
-
-
-
-   
-      /* =========================================================
-   RESPONSIVIDADE — CELULAR
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    /* =========================
-       CONFIGURAÇÃO GERAL
-       ========================= */
-
-    body {
-        width: 100%;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
-
-    .hero {
-        width: 100%;
-        min-height: auto;
-        padding: 30px 20px 50px;
-        display: flex;
-        flex-direction: column;
-    }
-
-
-    /* =========================
-       CONTEÚDO PRINCIPAL
-       ========================= */
-
-    .hero-content {
-        width: 100%;
-        max-width: 100%;
-        text-align: left;
-    }
-
-
-    /* =========================
-       TAG
-       ========================= */
-
-    .tag {
-        width: 100%;
-        justify-content: flex-start;
-        text-align: left;
-
-        padding: 14px 18px;
-
-        font-size: 13px;
-        letter-spacing: 2px;
-
-        margin-bottom: 35px;
-    }
-
-
-    /* =========================
-       TÍTULO
-       ========================= */
-
-    .hero-content h1 {
-        width: 100%;
-
-        text-align: left;
-
-        font-size: clamp(42px, 11vw, 58px);
-        line-height: 0.98;
-
-        margin: 0 0 25px;
-    }
-
-
-    /* =========================
-       DESCRIÇÃO
-       ========================= */
-
-    .description {
-        width: 100%;
-
-        text-align: left;
-
-        font-size: 18px;
-        line-height: 1.55;
-
-        margin-bottom: 30px;
-
-        color: #a9adbf;
-    }
-
-
-    /* =========================
-       BOTÕES
-       ========================= */
-
-    .buttons {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 12px;
-
-        margin-bottom: 28px;
-    }
-
-
-    .button {
-        width: 100%;
-        min-height: 62px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 18px;
-        font-weight: 600;
-
-        border-radius: 18px;
-    }
-
-
-    /* =========================
-       CARDS
-       ========================= */
-
-    .cards {
-
-        width: 100%;
-
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 10px;
-
-        margin-top: 5px;
-    }
-
-
-    .card {
-
-        width: 100%;
-
-        min-height: 125px;
-
-        padding: 14px 8px;
-
-        display: flex;
-        flex-direction: column;
-
-        align-items: center;
-        justify-content: center;
-
-        text-align: center;
-
-        border-radius: 18px;
-    }
-
-
-    /* Ícone menor */
-
-    .card-icon {
-
-        width: 46px;
-        height: 46px;
-
-        margin-bottom: 9px;
-    }
-
-
-    .card-icon svg {
-
-        width: 24px;
-        height: 24px;
-    }
-
-
-    /* Título */
-
-    .card h3 {
-
-        font-size: 15px;
-
-        margin-bottom: 0;
-    }
-
-
-    /* Esconde a descrição para economizar espaço */
-
-    .card p {
-
-        display: none;
-    }
-
-
-    /* Linha inferior */
-
-    .card-line {
-
-        width: 28px;
-
-        margin-top: 8px;
-    }
-
-
-    /* =========================
-       NETWORK / LOGO
-       ========================= */
-
-    .network {
-
-        width: 100%;
-
-        min-height: 300px;
-
-        margin-top: 40px;
-
-        position: relative;
-
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-    }
-
-
-    /*
-       O diagrama completo não precisa aparecer
-       imediatamente no celular.
-    */
-
-    .orbit,
-    .line,
-    .network-item {
-
-        display: none;
-    }
-
-
-    /* =========================
-       LOGO CENTRAL
-       ========================= */
-
-    .center {
-
-        position: relative;
-
-        width: 120px;
-        height: 120px;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 50%;
-
-        margin: 0 auto;
-    }
-
-
-    .center-logo {
-
-        width: 80px;
-        height: 80px;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-    }
-
-
-    .center-logo img {
-
-        width: 100%;
-        height: auto;
-
-        object-fit: contain;
-    }
-
-}
+        0 0 30px rgba(0, 229, 193, .
