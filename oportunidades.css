@@ -1,0 +1,939 @@
+/* =========================================================
+   CONFIGURAÇÃO GERAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background: #02051c;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   FUNDO DA PÁGINA
+========================================================= */
+
+
+.pagina {
+    min-height: 100vh;
+
+    background-image: url(fundo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    position: relative;
+}
+
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    width: min(1420px, 92%);
+
+    margin: auto;
+
+    padding-top: 30px;
+    padding-bottom: 50px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   VOLTAR PARA DICAS
+========================================================= */
+
+.voltar {
+    display: inline-block;
+
+    color: #00eaff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    margin-bottom: 35px;
+
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    color: white;
+
+    transform: translateX(-5px);
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.cabecalho {
+    width: 55%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.titulo-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   ÍCONE DA LUPA PEQUENA
+========================================================= */
+
+.icone-titulo {
+    width: 105px;
+    height: 105px;
+
+    border: 2px solid #00cfff;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 0 12px rgba(0, 217, 255, 0.25),
+        inset 0 0 15px rgba(0, 217, 255, 0.05);
+
+}
+
+.icone-titulo span {
+    font-size: 90px;
+
+    line-height: 1;
+
+    color: #00eaff;
+
+    transform: rotate(-20deg);
+
+    text-shadow:
+        0 0 8px #00eaff,
+        0 0 18px #006eff;
+}
+
+
+/* =========================================================
+   TÍTULO PRINCIPAL
+========================================================= */
+
+.titulo h1 {
+    font-size: clamp(48px, 5vw, 70px);
+
+    line-height: 0.95;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+.titulo h1 span {
+    display: block;
+
+    color: #00d9ff;
+
+    background: linear-gradient(
+        90deg,
+        #00eaff,
+        #00bfff,
+        #a735ff
+    );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================================
+   DESCRIÇÃO
+========================================================= */
+
+.descricao {
+    margin-top: 30px;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    color: #e7e9f5;
+}
+
+
+/* =========================================================
+   LINHA DO TÍTULO
+========================================================= */
+
+.cabecalho::after {
+    content: "";
+
+    display: block;
+
+    width: 80%;
+
+    height: 3px;
+
+    margin-top: 25px;
+
+    background: linear-gradient(
+        90deg,
+        #00eaff,
+        #a53cff
+    );
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 8px rgba(0, 217, 255, 0.5);
+}
+
+
+/* =========================================================
+   DESTAQUE
+========================================================= */
+
+.destaque {
+    width: 100%;
+
+    min-height: 80px;
+
+    margin-top: 25px;
+
+    border: 1px solid #008bd8;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px 20px;
+
+    background: rgba(0, 22, 60, 0.45);
+
+    box-shadow:
+        inset 0 0 20px rgba(0, 130, 255, 0.05);
+}
+
+.estrela {
+    font-size: 48px;
+
+    color: #00eaff;
+
+    text-shadow:
+        0 0 10px #00eaff;
+}
+
+.destaque p {
+    color: #00eaff;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   LUPA GIGANTE
+========================================================= */
+
+.lupa-gigante {
+    position: absolute;
+
+    top: 65px;
+
+    right: 0;
+
+    width: 45%;
+
+    height: 350px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 1;
+}
+
+.lupa-gigante img {
+    width: 100%;
+
+    max-width: 560px;
+
+    max-height: 400px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 28px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card {
+    min-height: 405px;
+
+    position: relative;
+
+    padding: 21px;
+
+    border: 1px solid #0088d4;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(3, 23, 65, 0.75),
+            rgba(2, 9, 35, 0.85)
+        );
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   EFEITO AO PASSAR O MOUSE
+========================================================= */
+
+.card:hover {
+    transform: translateY(-7px);
+
+    border-color: #00eaff;
+
+    box-shadow:
+        0 0 20px rgba(0, 209, 255, 0.18),
+        inset 0 0 25px rgba(0, 209, 255, 0.04);
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.numero {
+    width: 56px;
+    height: 56px;
+
+    border: 1px solid #009fe8;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #00d9ff;
+
+    margin-bottom: 12px;
+
+    background: rgba(0, 70, 130, 0.15);
+}
+
+
+/* =========================================================
+   ÍCONE DOS CARDS
+========================================================= */
+
+.icone-card {
+    position: absolute;
+
+    top: 25px;
+
+    right: 25px;
+
+    width: 80px;
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.icone-card img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   TÍTULO DOS CARDS
+========================================================= */
+
+.card h2 {
+    font-size: 21px;
+
+    line-height: 1.25;
+
+    margin-top: 18px;
+
+    margin-bottom: 12px;
+
+    color: white;
+}
+
+
+/* =========================================================
+   TEXTO DOS CARDS
+========================================================= */
+
+.card p {
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    color: #e2e5ef;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+========================================================= */
+
+.subtitulo {
+    display: block;
+
+    color: #00eaff;
+
+    font-size: 15px;
+
+    margin: 8px 0;
+}
+
+
+/* =========================================================
+   LISTAS
+========================================================= */
+
+.card ul {
+    padding-left: 23px;
+
+    margin-top: 8px;
+}
+
+.card li {
+    color: #e7e9f2;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+.card li::marker {
+    color: #00eaff;
+}
+
+
+/* =========================================================
+   CHECK LIST
+========================================================= */
+
+.check-list {
+    list-style: none;
+
+    padding-left: 0 !important;
+}
+
+.check-list li {
+    color: #e6e9f5;
+
+    line-height: 1.6;
+}
+
+.check-list li::first-letter {
+    color: #00eaff;
+}
+
+
+/* =========================================================
+   CAIXA DE INFORMAÇÃO
+========================================================= */
+
+.caixa-info {
+    border: 1px solid #008fdb;
+
+    border-radius: 8px;
+
+    padding: 10px;
+
+    margin-top: 15px;
+
+    color: #00eaff;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    background: rgba(0, 90, 160, 0.10);
+}
+
+
+/* =========================================================
+   EXEMPLO DE LOCALIZAÇÃO
+========================================================= */
+
+.exemplo {
+    border: 1px solid #008fdb;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+
+    background: rgba(0, 90, 160, 0.08);
+}
+
+.icone-exemplo {
+    font-size: 27px;
+
+    color: #00eaff;
+}
+
+.final-card {
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   BOTÃO SECUNDÁRIO
+========================================================= */
+
+.botao-secundario {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    border: 1px solid #00bfe8;
+
+    border-radius: 8px;
+
+    background: rgba(0, 100, 180, 0.10);
+
+    color: #00eaff;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.botao-secundario:hover {
+    background: #00bfe8;
+
+    color: #001329;
+
+    box-shadow:
+        0 0 15px rgba(0, 217, 255, 0.35);
+}
+
+
+/* =========================================================
+   CARD 06
+========================================================= */
+
+.card-perigo {
+    border-color: #8e32d8;
+}
+
+.card-perigo:hover {
+    border-color: #c03cff;
+
+    box-shadow:
+        0 0 20px rgba(190, 50, 255, 0.18);
+}
+
+.card-perigo .numero {
+    color: #b53cff;
+
+    border-color: #9b31d8;
+}
+
+
+/* =========================================================
+   ALERTA
+========================================================= */
+
+.alerta {
+    margin-top: 15px;
+
+    border: 1px solid #a633e4;
+
+    border-radius: 9px;
+
+    padding: 13px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    background: rgba(120, 20, 180, 0.08);
+}
+
+.alerta strong {
+    color: #c03cff;
+
+    font-size: 16px;
+}
+
+.alerta span {
+    color: #e8ddf3;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   CHAMADA FINAL
+========================================================= */
+
+.chamada {
+    min-height: 125px;
+
+    margin-top: 20px;
+
+    border: 1px solid #008bd8;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 27, 72, 0.8),
+            rgba(3, 18, 54, 0.7)
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 20px 40px;
+}
+
+
+/* =========================================================
+   TROFÉU
+========================================================= */
+
+.trofeu {
+    font-size: 58px;
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(0, 255, 220, 0.5)
+        );
+}
+
+
+/* =========================================================
+   TEXTO DA CHAMADA
+========================================================= */
+
+.chamada-texto {
+    flex: 1;
+}
+
+.chamada-texto h2 {
+    font-size: 23px;
+
+    margin-bottom: 6px;
+}
+
+.chamada-texto p {
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    color: #dce2f1;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.botao-principal {
+    min-width: 290px;
+
+    padding: 18px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #0ed1ef;
+
+    color: #001529;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    transition: 0.3s;
+}
+
+.botao-principal:hover {
+    transform: scale(1.04);
+
+    background: #24e0fa;
+
+    box-shadow:
+        0 0 25px rgba(0, 221, 255, 0.35);
+}
+
+.lupa-botao {
+    font-size: 27px;
+}
+
+
+/* =========================================================
+   DICA EXTRA
+========================================================= */
+
+.dica-extra {
+    min-height: 100px;
+
+    margin-top: 20px;
+
+    border: 1px solid #4b3695;
+
+    border-radius: 16px;
+
+    padding: 18px 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    background:
+        rgba(3, 12, 40, 0.75);
+}
+
+
+/* =========================================================
+   LÂMPADA
+========================================================= */
+
+.lampada {
+    font-size: 45px;
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(255, 211, 0, 0.4)
+        );
+}
+
+
+/* =========================================================
+   DICA EXTRA TEXTO
+========================================================= */
+
+.dica-extra h2 {
+    font-size: 21px;
+
+    margin-bottom: 3px;
+}
+
+.dica-extra p {
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    color: #e0e3ee;
+}
+
+
+/* =========================================================
+   ESTRELA FINAL
+========================================================= */
+
+.estrela-final {
+    margin-left: auto;
+
+    font-size: 55px;
+
+    color: #ffd000;
+
+    text-shadow:
+        0 0 10px #ffd000;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .cabecalho {
+        width: 65%;
+    }
+
+    .lupa-gigante {
+        opacity: 0.65;
+
+        width: 40%;
+    }
+
+    .cards {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .chamada {
+        flex-wrap: wrap;
+    }
+
+    .botao-principal {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   TABLET E CELULAR
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        width: 90%;
+        padding-top: 25px;
+    }
+
+    .cabecalho {
+        width: 100%;
+    }
+
+    /* ESCONDE A LUPA GRANDE */
+    .lupa-gigante {
+        display: none;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .chamada {
+        padding: 25px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dica-extra {
+        padding: 25px;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .estrela-final {
+        margin-left: 0;
+    }
+}
