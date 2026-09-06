@@ -100,39 +100,25 @@ a {
    BOTÃO VOLTAR
 ========================================================= */
 
+
 .voltar {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
+    display: inline-block;
 
     color: #00eaff;
 
-    font-size: 20px;
+    text-decoration: none;
 
-    margin-bottom: 25px;
+    font-size: 18px;
+
+    margin-bottom: 15px;
 
     transition: .3s;
-
 }
-
-
-.voltar span {
-
-    font-size: 30px;
-
-}
-
 
 .voltar:hover {
+    color: #ffffff;
 
-    transform: translateX(-5px);
-
-    text-shadow:
-        0 0 10px #00eaff;
-
+    transform: translateX(-4px);
 }
 
 
