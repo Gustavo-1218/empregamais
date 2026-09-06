@@ -1,8 +1,15 @@
-.cabecalho-principal *,
-.menu-mobile * {
-    box-sizing: border-box;
-}
+.cabecalho-principal {
+    width: 100%;
+    height: 130px;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 38px;
+
+    
+}
 
 /* =========================
    CABEÇALHO
