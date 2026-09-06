@@ -1350,6 +1350,21 @@ button {
         1px solid rgba(0, 220, 255, 0.14);
 }
 
+.perguntas {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    padding:
+        15px 27px;
+
+    border-top:
+        1px solid rgba(0, 220, 255, 0.14);
+}
+
 .pergunta {
 
     padding:
@@ -1633,5 +1648,3 @@ button {
         padding-right: 18px;
     }
 }
-
-    
