@@ -1,10 +1,6 @@
-
-
-CSS
-
-
-
-/* configuração geral */
+/* ========================================
+   CONFIGURAÇÃO GERAL
+======================================== */
 
 * {
     margin: 0;
@@ -37,6 +33,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 /* ========================================
    LOGO MOBILE
 ======================================== */
@@ -47,40 +44,8 @@ body {
 
 
 /* ========================================
-   CELULAR
+   HERO
 ======================================== */
-
-@media (max-width: 600px) {
-
-    /* Esconde as órbitas e a ilustração */
-    .network {
-        display: none;
-    }
-
-    /* Mostra a logo no topo */
-    .logo-mobile {
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    width: 100%;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-bottom: 10px;
-    
-    }
-
-    .logo-mobile img {
-        width: 180px;
-        height: auto;
-        display: block;
-    }
-
-}
-
-
-/* hero */
 
 .hero {
     width: min(1380px, 93vw);
@@ -93,12 +58,15 @@ body {
     align-items: center;
 }
 
+
 .hero-content {
     padding-bottom: 60px;
 }
 
 
-/* tag */
+/* ========================================
+   TAG
+======================================== */
 
 .tag {
     display: inline-flex;
@@ -123,7 +91,9 @@ body {
 }
 
 
-/* titulo */
+/* ========================================
+   TÍTULO
+======================================== */
 
 h1 {
     margin-top: 28px;
@@ -148,6 +118,11 @@ h1 span {
     color: transparent;
 }
 
+
+/* ========================================
+   DESCRIÇÃO
+======================================== */
+
 .description {
     max-width: 535px;
     margin-top: 30px;
@@ -159,7 +134,9 @@ h1 span {
 }
 
 
-/* botoes */
+/* ========================================
+   BOTÕES
+======================================== */
 
 .buttons {
     display: flex;
@@ -221,7 +198,9 @@ h1 span {
 }
 
 
-/* cards */
+/* ========================================
+   CARDS
+======================================== */
 
 .cards {
     display: flex;
@@ -263,7 +242,9 @@ h1 span {
 }
 
 
-/* destaque do card */
+/* ========================================
+   DESTAQUE DO CARD
+======================================== */
 
 .card:hover,
 .card.active {
@@ -277,18 +258,12 @@ h1 span {
         0 15px 40px rgba(20, 100, 255, .16);
 }
 
-
-/* destaque específico: talentos */
-
 .card[data-node="talentos"].active {
     border-color: rgba(0, 229, 193, .8);
 
     box-shadow:
         0 15px 40px rgba(0, 229, 193, .15);
 }
-
-
-/* destaque específico: empresas */
 
 .card[data-node="empresas"].active {
     border-color: rgba(37, 140, 255, .8);
@@ -297,9 +272,6 @@ h1 span {
         0 15px 40px rgba(37, 140, 255, .18);
 }
 
-
-/* destaque específico: oportunidades */
-
 .card[data-node="oportunidades"].active {
     border-color: rgba(147, 53, 255, .8);
 
@@ -307,6 +279,10 @@ h1 span {
         0 15px 40px rgba(147, 53, 255, .18);
 }
 
+
+/* ========================================
+   ÍCONES DOS CARDS
+======================================== */
 
 .card-icon {
     width: 57px;
@@ -325,13 +301,9 @@ h1 span {
         box-shadow .3s ease;
 }
 
-
-/* ícone também recebe um pequeno destaque */
-
 .card.active .card-icon {
     transform: scale(1.08);
 }
-
 
 .card-icon svg {
     width: 31px;
@@ -352,14 +324,15 @@ h1 span {
     border-color: rgba(37, 140, 255, .45);
 }
 
-
-/* oportunidades */
-
 .card-icon.oportunidades {
     color: #9335ff;
     border-color: rgba(147, 53, 255, .45);
 }
 
+
+/* ========================================
+   TEXTO DOS CARDS
+======================================== */
 
 .card h3 {
     margin: 7px 0 9px;
@@ -393,13 +366,9 @@ h1 span {
         box-shadow .3s ease;
 }
 
-
-/* linha aumenta quando o card estiver ativo */
-
 .card.active .card-line {
     width: 55px;
 }
-
 
 .card:nth-child(2) .card-line {
     background: #258cff;
@@ -410,7 +379,9 @@ h1 span {
 }
 
 
-/* diagrama da direita */
+/* ========================================
+   DIAGRAMA DA DIREITA
+======================================== */
 
 .network {
     position: relative;
@@ -420,11 +391,16 @@ h1 span {
 
     text-align: center;
 
-    transform: translate(150px);
+    /* ALTERAÇÃO:
+       antes estava translate(150px)
+       agora fica centralizado */
+    transform: translateX(0);
 }
 
 
-/* orbitas */
+/* ========================================
+   ÓRBITAS
+======================================== */
 
 .orbit {
     position: absolute;
@@ -452,7 +428,9 @@ h1 span {
 }
 
 
-/* linhas */
+/* ========================================
+   LINHAS
+======================================== */
 
 .line {
     position: absolute;
@@ -506,7 +484,9 @@ h1 span {
 }
 
 
-/* pontos */
+/* ========================================
+   PONTOS
+======================================== */
 
 .dot {
     position: absolute;
@@ -562,7 +542,9 @@ h1 span {
 }
 
 
-/* centro */
+/* ========================================
+   CENTRO
+======================================== */
 
 .center {
     position: absolute;
@@ -610,7 +592,9 @@ h1 span {
 }
 
 
-/* network */
+/* ========================================
+   NETWORK
+======================================== */
 
 .network-item {
     position: absolute;
@@ -658,7 +642,6 @@ h1 span {
     background: rgba(8, 20, 48, .95);
 }
 
-
 .network-icon svg {
     width: 54px;
     height: 54px;
@@ -669,7 +652,9 @@ h1 span {
 }
 
 
-/* posição dos itens */
+/* ========================================
+   POSIÇÃO DOS ITENS
+======================================== */
 
 .talentos-item {
     left: 7%;
@@ -682,4 +667,355 @@ h1 span {
     border-color: #00e5c1;
 
     box-shadow:
-        0 0 30px rgba(0, 229, 193, .
+        0 0 30px rgba(0, 229, 193, .07);
+}
+
+.empresas-item {
+    right: 7%;
+    top: 38%;
+
+    color: #258cff;
+}
+
+.empresas-item .network-icon {
+    border-color: #258cff;
+
+    box-shadow:
+        0 0 30px rgba(37, 140, 255, .08);
+}
+
+.oportunidades-item {
+    left: 50%;
+    top: 76%;
+
+    transform: translateX(-50%);
+
+    color: #9335ff;
+}
+
+.oportunidades-item .network-icon {
+    border-color: #9335ff;
+
+    box-shadow:
+        0 0 30px rgba(147, 53, 255, .08);
+}
+
+.oportunidades-item:hover,
+.oportunidades-item.active {
+    transform: translateX(-50%) scale(1.08);
+}
+
+
+/* ========================================
+   INFORMAÇÕES DA NETWORK
+======================================== */
+
+.network-info {
+    position: absolute;
+
+    left: 50%;
+    bottom: 15px;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+}
+
+.network-info span {
+    display: block;
+
+    color: #7f8ca8;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.network-info h3 {
+    margin-top: 5px;
+
+    font-size: 15px;
+}
+
+.network-info p {
+    margin-top: 5px;
+
+    color: #778197;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+
+/* ========================================
+   NOTEBOOKS / COMPUTADORES MÉDIOS
+======================================== */
+
+@media (min-width: 1101px) and (max-width: 1600px) {
+
+    .hero {
+        width: min(1250px, 92vw);
+
+        grid-template-columns: 50% 50%;
+    }
+
+    /*
+       IMPORTANTE:
+       não desloca mais o network para a direita.
+       Isso impede as orbs de ficarem fora da tela.
+    */
+
+    .network {
+        width: 100%;
+        transform: translateX(0);
+    }
+
+    .card {
+        width: 100%;
+    }
+
+}
+
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media (max-width: 1100px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+
+        padding-top: 50px;
+        padding-bottom: 80px;
+    }
+
+
+    .hero-content {
+        padding-bottom: 50px;
+    }
+
+
+    h1 {
+        font-size: clamp(55px, 9vw, 80px);
+    }
+
+
+    .cards {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+
+    .card {
+        min-width: 0;
+        height: 200px;
+    }
+
+
+    .network {
+        width: 100%;
+        height: 650px;
+
+        transform: none;
+    }
+
+}
+
+
+/* ========================================
+   TABLETS MENORES
+======================================== */
+
+@media (max-width: 850px) {
+
+    .hero {
+        width: 90vw;
+    }
+
+
+    .cards {
+        flex-wrap: wrap;
+    }
+
+
+    .card {
+        flex: 1 1 45%;
+    }
+
+
+    /*
+       No tablet continua com o comportamento
+       que você já tinha configurado.
+    */
+
+    .network {
+        display: none;
+    }
+
+}
+
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        background-position: center;
+    }
+
+
+    .hero {
+        width: 90vw;
+
+        display: block;
+
+        margin-top: 0;
+
+        padding-top: 35px;
+        padding-bottom: 60px;
+    }
+
+
+    .tag {
+        font-size: 11px;
+
+        padding: 8px 13px;
+    }
+
+
+    h1 {
+        margin-top: 22px;
+
+        font-size: clamp(45px, 13vw, 65px);
+
+        line-height: .95;
+
+        letter-spacing: -2px;
+    }
+
+
+    .description {
+        margin-top: 22px;
+
+        font-size: 16px;
+
+        line-height: 1.6;
+    }
+
+
+    .buttons {
+        flex-direction: column;
+
+        gap: 12px;
+
+        margin-top: 30px;
+    }
+
+
+    .button {
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 17px 20px;
+    }
+
+
+    .cards {
+        flex-direction: column;
+
+        gap: 15px;
+
+        margin-top: 35px;
+    }
+
+
+    .card {
+        width: 100%;
+        max-width: none;
+
+        height: auto;
+        min-height: 180px;
+    }
+
+
+    .network {
+        margin-top: 30px;
+
+        width: 100%;
+        height: 470px;
+
+        transform: scale(.62);
+        transform-origin: center top;
+    }
+
+
+    .network-info {
+        display: none;
+    }
+
+}
+
+
+/* ========================================
+   CELULARES PEQUENOS
+======================================== */
+
+@media (max-width: 400px) {
+
+    .hero {
+        width: 92vw;
+    }
+
+
+    h1 {
+        font-size: 44px;
+    }
+
+
+    .description {
+        font-size: 15px;
+    }
+
+
+    .network {
+        transform: scale(.52);
+
+        height: 410px;
+    }
+
+}
+
+
+/* ========================================
+   CELULAR
+   Esconde a área das órbitas
+======================================== */
+
+@media (max-width: 600px) {
+
+    .network {
+        display: none;
+    }
+
+}
+
+
+/* ========================================
+   SOMENTE NO COMPUTADOR
+======================================== */
+
+@media (max-width: 600px) {
+
+    .network {
+        display: none;
+    }
+
+}
