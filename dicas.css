@@ -3,8 +3,7 @@
 ========================================= */
 
 
-main {
-    padding-top: 40px;
+
 }
 
 * {
@@ -257,7 +256,7 @@ body {
 .lampadahero {
     position: absolute;
 
-    top: 160px;
+    top: 40px;
     right: 200px;
 
     width: 420px;
