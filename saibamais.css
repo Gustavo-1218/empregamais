@@ -1,0 +1,1003 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: white;
+
+    /* FUNDO DA PÁGINA INTEIRA */
+    background:
+        url("plano de fundo.png") center top / cover no-repeat fixed,
+        #020611;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.pagina {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero-saiba {
+    width: min(1350px, 92%);
+    min-height: 720px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 60px;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.texto-hero {
+    max-width: 650px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 9px 16px;
+
+    border: 1px solid rgba(130, 110, 255, 0.35);
+
+    border-radius: 50px;
+
+    background: rgba(45, 40, 110, 0.25);
+
+    color: #aaa3ff;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 25px;
+}
+
+.tag span {
+    font-size: 16px;
+}
+
+.texto-hero h1 {
+    font-size: clamp(45px, 5vw, 76px);
+
+    line-height: 1.02;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 28px;
+}
+
+.texto-hero h1 span {
+    display: block;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #aaa0ff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.texto-hero p {
+    color: #a8adbf;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    max-width: 570px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.botoes-hero {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 32px;
+
+    flex-wrap: wrap;
+}
+
+.botao-principal,
+.botao-secundario {
+    padding: 15px 23px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.botao-principal {
+    background: #635bff;
+
+    box-shadow:
+        0 10px 35px rgba(99, 91, 255, 0.25);
+}
+
+.botao-principal:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 40px rgba(99, 91, 255, 0.40);
+}
+
+.botao-secundario {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: #d9dbea;
+}
+
+.botao-secundario:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================
+   IMAGEM PRINCIPAL
+========================= */
+
+.imagem-principal {
+    position: relative;
+
+    min-height: 620px;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    /*
+       O FUNDO FOI RETIRADO DAQUI.
+       Agora ele fica no body,
+       ocupando a página inteira.
+    */
+
+    background: transparent;
+}
+
+
+/* =========================
+   MULHER
+========================= */
+
+.mulher {
+    position: relative;
+
+    z-index: 2;
+
+    /*
+       Aumentei de 560px para 650px
+       para deixar a mulher um pouco maior.
+    */
+    width: min(100%, 650px);
+
+    max-height: 720px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 25px 50px rgba(0, 0, 0, 0.45)
+        );
+
+    transition: transform 0.2s ease;
+}
+
+
+/* =========================
+   CARTÃO FLUTUANTE
+========================= */
+
+.cartao-flutuante {
+    position: absolute;
+
+    right: 2%;
+    bottom: 18%;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 17px;
+
+    border-radius: 14px;
+
+    background: rgba(11, 13, 31, 0.90);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.icone-flutuante {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #655cff;
+
+    font-size: 18px;
+}
+
+.cartao-flutuante strong {
+    display: block;
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+}
+
+.cartao-flutuante small {
+    color: #9297aa;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.titulo-secao {
+    max-width: 700px;
+
+    margin-bottom: 55px;
+}
+
+.titulo-secao > span {
+    color: #817aff;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.titulo-secao h2 {
+    font-size: clamp(32px, 4vw, 52px);
+
+    line-height: 1.1;
+
+    margin-top: 13px;
+
+    letter-spacing: -1.5px;
+}
+
+.titulo-secao h2 strong {
+    display: block;
+
+    color: #817aff;
+}
+
+.centralizado {
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+}
+
+
+/* =========================
+   BENEFÍCIOS
+========================= */
+
+.beneficios {
+    width: min(1200px, 92%);
+
+    margin: 80px auto 140px;
+}
+
+.beneficios-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.beneficio {
+    padding: 30px 24px;
+
+    min-height: 250px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 27, 57, 0.85),
+            rgba(8, 10, 25, 0.75)
+        );
+
+    transition: 0.3s;
+}
+
+.beneficio:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(110, 101, 255, 0.35);
+}
+
+.icone-beneficio {
+    width: auto;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: 24px;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+
+/* =========================
+   IMAGEM DOS ÍCONES
+========================= */
+
+.icone-beneficio img {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+.beneficio h3 {
+    font-size: 18px;
+
+    margin-bottom: 12px;
+}
+
+.beneficio p {
+    color: #9196aa;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   QUEM É
+========================= */
+
+.quem-e {
+    width: min(1200px, 92%);
+
+    margin: 0 auto 140px;
+}
+
+.cards-publico {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.card-publico {
+    min-height: 490px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            #12172e,
+            #080b19
+        );
+
+    display: grid;
+
+    grid-template-columns: 190px 1fr;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+.card-empresa {
+    background:
+        linear-gradient(
+            145deg,
+            #17152e,
+            #09091a
+        );
+}
+
+
+/* =========================
+   QUADRADO DA IMAGEM
+========================= */
+
+.imagem-card-area {
+    display: flex;
+
+    justify-content: center;
+}
+
+.quadrado-imagem {
+    width: 180px;
+    height: 230px;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(96, 85, 255, 0.25),
+            rgba(17, 20, 42, 0.80)
+        );
+
+    border:
+        1px solid rgba(140, 130, 255, 0.20);
+}
+
+.quadrado-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================
+   CONTEÚDO CARD
+========================= */
+
+.numero-card {
+    display: inline-block;
+
+    color: #7169ff;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.conteudo-card h3 {
+    font-size: 29px;
+
+    margin-bottom: 14px;
+}
+
+.conteudo-card p {
+    color: #9499ad;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    margin-bottom: 22px;
+}
+
+.conteudo-card ul {
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.conteudo-card li {
+    color: #c7c9d5;
+
+    font-size: 13px;
+}
+
+.conteudo-card li span {
+    color: #7770ff;
+
+    margin-right: 7px;
+}
+
+.botao-card {
+    border: none;
+
+    padding: 12px 16px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    background: rgba(103, 94, 255, 0.12);
+
+    border:
+        1px solid rgba(103, 94, 255, 0.25);
+
+    color: #aaa4ff;
+
+    transition: 0.3s;
+}
+
+.botao-card:hover {
+    background: #655cff;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   COMO FUNCIONA
+========================= */
+
+.como-funciona {
+    width: min(1100px, 92%);
+
+    margin: 0 auto 140px;
+}
+
+.passos {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+}
+
+.passo {
+    width: 250px;
+
+    text-align: center;
+}
+
+.numero-passo {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(100, 91, 255, 0.12);
+
+    border:
+        1px solid rgba(110, 100, 255, 0.35);
+
+    color: #817aff;
+
+    font-weight: bold;
+}
+
+.passo h3 {
+    font-size: 17px;
+
+    margin-bottom: 10px;
+}
+
+.passo p {
+    color: #858a9e;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.linha-passo {
+    width: 100px;
+
+    height: 1px;
+
+    margin-top: 32px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(120, 110, 255, 0.45),
+            transparent
+        );
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    width: min(1200px, 92%);
+
+    margin: 0 auto 80px;
+}
+
+.final-caixa {
+    text-align: center;
+
+    padding: 90px 30px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid rgba(110, 100, 255, 0.18);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(92, 82, 255, 0.16),
+            transparent 55%
+        ),
+        #090c1c;
+}
+
+.final-caixa > span {
+    display: block;
+
+    color: #7770ff;
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.final-caixa h2 {
+    max-width: 700px;
+
+    margin: 0 auto 18px;
+
+    font-size: clamp(30px, 4vw, 52px);
+
+    line-height: 1.1;
+}
+
+.final-caixa h2 strong {
+    color: #817aff;
+
+    display: block;
+}
+
+.final-caixa p {
+    color: #8e93a6;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+.beneficio,
+.passo {
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.beneficio.apareceu,
+.passo.apareceu {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVO - TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .hero-saiba {
+        grid-template-columns: 1fr;
+
+        padding-top: 70px;
+
+        text-align: center;
+    }
+
+    .texto-hero {
+        margin: 0 auto;
+    }
+
+    .texto-hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .botoes-hero {
+        justify-content: center;
+    }
+
+    .imagem-principal {
+        min-height: 550px;
+
+        background: transparent;
+    }
+
+    .mulher {
+        width: min(100%, 600px);
+        max-height: 680px;
+    }
+
+    .beneficios-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .card-publico {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .imagem-card-area {
+        margin-bottom: 5px;
+    }
+
+    .conteudo-card ul {
+        align-items: center;
+    }
+
+    .cards-publico {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 650px) {
+
+    body {
+        background:
+            url("plano de fundo.png") center top / auto 100% no-repeat,
+            #020611;
+        background-attachment: scroll;
+    }
+
+    .hero-saiba {
+        width: 90%;
+
+        min-height: auto;
+
+        padding-top: 50px;
+
+        gap: 35px;
+    }
+
+    .texto-hero h1 {
+        font-size: 43px;
+
+        letter-spacing: -2px;
+    }
+
+    .texto-hero p {
+        font-size: 15px;
+    }
+
+    .imagem-principal {
+        min-height: 430px;
+
+        background: transparent;
+    }
+
+    .mulher {
+        /*
+           Mulher um pouco maior no celular
+        */
+        max-height: 500px;
+
+        width: min(100%, 430px);
+    }
+
+    .cartao-flutuante {
+        right: 0;
+
+        bottom: 10%;
+
+        transform: scale(0.85);
+    }
+
+    .beneficios {
+        margin-top: 80px;
+    }
+
+    .beneficios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .beneficio {
+        min-height: auto;
+    }
+
+    .card-publico {
+        padding: 25px;
+
+        min-height: auto;
+    }
+
+    .quadrado-imagem {
+        width: 160px;
+        height: 205px;
+    }
+
+    .conteudo-card h3 {
+        font-size: 25px;
+    }
+
+    .passos {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 30px;
+    }
+
+    .linha-passo {
+        width: 1px;
+
+        height: 50px;
+
+        margin: 0;
+    }
+
+    .final-caixa {
+        padding: 60px 20px;
+    }
+}
+
+
+/* =========================
+   CELULAR PEQUENO
+========================= */
+
+@media (max-width: 400px) {
+
+    .texto-hero h1 {
+        font-size: 36px;
+    }
+
+    .tag {
+        font-size: 10px;
+    }
+
+    .botoes-hero {
+        flex-direction: column;
+    }
+
+    .botao-principal,
+    .botao-secundario {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .imagem-principal {
+        min-height: 370px;
+
+        background: transparent;
+    }
+
+    .mulher {
+        max-height: 420px;
+
+        width: 100%;
+    }
+
+    .cartao-flutuante {
+        display: none;
+    }
+
+    .card-publico {
+        padding: 20px;
+    }
+
+}
