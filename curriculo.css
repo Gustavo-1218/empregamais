@@ -1,0 +1,910 @@
+/* =====================================================
+   CONFIGURAÇÃO GERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #ffffff;
+
+    background: #02051d;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   FUNDO
+===================================================== */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(0, 87, 255, 0.13),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(91, 0, 255, 0.13),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(0, 183, 255, 0.08),
+            transparent 30%
+        ),
+
+        #02051d;
+}
+
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
+
+.background::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            #ffffff 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle,
+            #6e55ff 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle,
+            #00d9ff 1px,
+            transparent 1px
+        );
+
+    background-size:
+        190px 190px,
+        260px 260px,
+        330px 330px;
+
+    background-position:
+        20px 30px,
+        80px 120px,
+        140px 60px;
+
+    opacity: .45;
+}
+
+
+
+/* =====================================================
+   PÁGINA
+===================================================== */
+
+.pagina {
+    width: min(1380px, 94%);
+
+    margin: auto;
+
+    padding: 25px 0;
+}
+
+
+/* =====================================================
+   VOLTAR
+===================================================== */
+
+.voltar {
+    display: inline-block;
+
+    color: #00eaff;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+
+    transition: .3s;
+}
+
+.voltar:hover {
+    color: #ffffff;
+
+    transform: translateX(-4px);
+}
+
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL
+===================================================== */
+
+.conteudo {
+    display: grid;
+
+    grid-template-columns: 430px 1fr;
+
+    gap: 35px;
+
+    align-items: start;
+}
+
+
+/* =====================================================
+   INTRODUÇÃO
+===================================================== */
+
+.introducao {
+    padding: 5px 10px 0;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-curriculo {
+    width: 230px;
+
+    height: 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 18px;
+}
+
+.logo-curriculo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.introducao h1 {
+    font-size: 55px;
+
+    line-height: 1.02;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    text-align: center;
+}
+
+.introducao h1 span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00eaff,
+            #536cff,
+            #a52cff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =====================================================
+   LINHA
+===================================================== */
+
+.linha {
+    height: 3px;
+
+    width: 100%;
+
+    margin: 18px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00eaff,
+            #963cff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px rgba(0, 210, 255, .5);
+}
+
+
+/* =====================================================
+   SUBTÍTULO
+===================================================== */
+
+.subtitulo {
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    color: #e6e8f5;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   MENSAGEM
+===================================================== */
+
+.mensagem {
+    display: flex;
+
+    gap: 15px;
+
+    align-items: flex-start;
+
+    padding: 15px;
+
+    border: 1px solid #00d5ff;
+
+    border-radius: 12px;
+
+    background: rgba(0, 30, 65, .35);
+
+    box-shadow:
+        inset 0 0 20px rgba(0, 145, 255, .05),
+        0 0 10px rgba(0, 145, 255, .08);
+}
+
+.mensagem .estrela {
+    color: #00efff;
+
+    font-size: 40px;
+
+    line-height: 1;
+}
+
+.mensagem p {
+    color: #00eaff;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   GRID DOS CARDS
+===================================================== */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    align-items: stretch;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+    min-height: 330px;
+
+    padding: 24px 20px;
+
+    display: flex;
+
+    gap: 18px;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 22, 48, .95),
+            rgba(3, 11, 32, .9)
+        );
+
+    border: 1px solid rgba(0, 200, 255, .7);
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 150, 255, .03);
+
+    transition:
+        transform .3s,
+        box-shadow .3s,
+        border-color .3s;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 10px 35px rgba(0, 150, 255, .16),
+        inset 0 0 30px rgba(0, 150, 255, .06);
+}
+
+
+/* =====================================================
+   CARD ROXO
+===================================================== */
+
+.card.roxo {
+    border-color: rgba(166, 38, 255, .85);
+}
+
+.card.roxo:hover {
+    box-shadow:
+        0 10px 35px rgba(155, 35, 255, .18);
+}
+
+
+/* =====================================================
+   ÍCONES DOS CARDS
+===================================================== */
+
+.card-icone {
+    flex: 0 0 73px;
+
+    width: 73px;
+
+    height: 73px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 115, 255, .25),
+            rgba(0, 25, 70, .4)
+        );
+
+    border: 1px solid rgba(0, 210, 255, .8);
+
+    box-shadow:
+        inset 0 0 20px rgba(0, 140, 255, .08);
+}
+
+.card.roxo .card-icone {
+    border-color: rgba(171, 60, 255, .8);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(120, 20, 255, .2),
+            rgba(30, 0, 70, .4)
+        );
+}
+
+.card-icone svg {
+    width: 48px;
+
+    height: 48px;
+
+    fill: none;
+
+    stroke: #00dfff;
+
+    stroke-width: 2.5;
+
+    filter:
+        drop-shadow(0 0 5px #008cff);
+}
+
+.card.roxo .card-icone svg {
+    stroke: #d477ff;
+
+    filter:
+        drop-shadow(0 0 5px #9c24ff);
+}
+
+
+/* =====================================================
+   TEXTO DOS CARDS
+===================================================== */
+
+.card h2 {
+    font-size: 20px;
+
+    line-height: 1.45;
+
+    margin: 5px 0 10px;
+
+    color: #ffffff;
+}
+
+.card p {
+    color: #f0f2fa;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+}
+
+
+/* =====================================================
+   DICA PDF
+===================================================== */
+
+.dica-pdf {
+    margin-top: 25px;
+
+    padding: 18px 25px 20px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(155, 43, 255, .8);
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(8, 9, 46, .9),
+            rgba(5, 9, 40, .85)
+        );
+
+    display: flex;
+
+    gap: 20px;
+
+    box-shadow:
+        inset 0 0 30px rgba(110, 20, 255, .04);
+}
+
+
+/* =====================================================
+   LÂMPADA
+===================================================== */
+
+.lampada {
+    flex: 0 0 55px;
+}
+
+.lampada svg {
+    width: 55px;
+
+    height: 55px;
+
+    fill: none;
+
+    stroke: #ffd21c;
+
+    stroke-width: 3;
+
+    filter:
+        drop-shadow(0 0 6px #ffb300);
+}
+
+
+/* =====================================================
+   CONTEÚDO PDF
+===================================================== */
+
+.pdf-conteudo {
+    width: 100%;
+}
+
+.pdf-conteudo h2 {
+    font-size: 20px;
+
+    margin: 2px 0 8px;
+}
+
+.pdf-conteudo > p {
+    font-size: 14px;
+
+    color: #f1f2f7;
+
+    margin-bottom: 8px;
+}
+
+.aplicativos-titulo {
+    color: #ca54ff;
+
+    font-size: 15px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =====================================================
+   APLICATIVOS
+===================================================== */
+
+.aplicativos {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+    min-height: 150px;
+
+    position: relative;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(255, 255, 255, .2);
+
+    background: rgba(4, 13, 38, .65);
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    display: block;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+
+/* =====================================================
+   HOVER DOS APLICATIVOS
+===================================================== */
+
+.app:hover {
+    transform: translateY(-5px);
+
+    background: rgba(12, 23, 55, .9);
+
+    border-color: rgba(0, 220, 255, .6);
+
+    box-shadow:
+        0 8px 25px rgba(0, 140, 255, .18);
+}
+
+
+/* =====================================================
+   LOGO DOS APLICATIVOS
+===================================================== */
+
+.app-logo {
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    float: left;
+
+    margin-right: 10px;
+
+    margin-bottom: 8px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, .3);
+
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   IMAGEM REAL DO APLICATIVO
+===================================================== */
+
+.app-logo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+.app-info {
+    min-height: 68px;
+}
+
+.app-info h3 {
+    font-size: 15px;
+
+    margin: 3px 0 5px;
+
+    color: #ffffff;
+}
+
+.app-info p {
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    color: #f0f0f6;
+
+    margin: 0;
+}
+
+
+/* =====================================================
+   RODAPÉ DO APP
+===================================================== */
+
+.app-bottom {
+    clear: both;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 12px;
+
+    font-size: 11px;
+}
+
+.app-bottom span {
+    color: #00dfff;
+}
+
+.app:nth-child(2) .app-bottom span {
+    color: #35df50;
+}
+
+.app:nth-child(3) .app-bottom span {
+    color: #bd54ff;
+}
+
+.app-bottom strong {
+    color: #ffd31c;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+footer {
+    margin-top: 13px;
+
+    min-height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    padding: 10px 20px;
+
+    border: 1px solid rgba(151, 37, 255, .8);
+
+    border-radius: 12px;
+
+    background: rgba(8, 5, 40, .65);
+}
+
+.coracao {
+    font-size: 31px;
+
+    color: #e353ff;
+
+    filter:
+        drop-shadow(0 0 5px #b62cff);
+}
+
+footer p {
+    font-size: 15px;
+
+    color: #e8e9f5;
+}
+
+footer p span {
+    color: #bd4fff;
+}
+
+
+/* =====================================================
+   ANIMAÇÃO
+===================================================== */
+
+@keyframes brilho {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 12px #008cff,
+            inset 0 0 25px rgba(0, 150, 255, .25);
+    }
+
+    50% {
+        box-shadow:
+            0 0 28px #008cff,
+            inset 0 0 35px rgba(0, 150, 255, .35);
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    .conteudo {
+        grid-template-columns: 330px 1fr;
+    }
+
+    .introducao h1 {
+        font-size: 45px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        min-height: 280px;
+    }
+
+    .aplicativos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .pagina {
+        width: 92%;
+    }
+
+    .conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .introducao {
+        text-align: center;
+    }
+
+    .mensagem {
+        text-align: left;
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+        min-height: 280px;
+    }
+
+    .aplicativos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 550px) {
+
+    .pagina {
+        padding-top: 20px;
+    }
+
+    .logo-curriculo {
+        width: 200px;
+
+        height: 150px;
+    }
+
+    .introducao h1 {
+        font-size: 40px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: auto;
+    }
+
+    .aplicativos {
+        grid-template-columns: 1fr;
+    }
+
+    .dica-pdf {
+        flex-direction: column;
+    }
+
+    .lampada {
+        margin: auto;
+    }
+
+    footer {
+        text-align: center;
+    }
+}
