@@ -1,0 +1,687 @@
+/* =========================================
+   CONFIGURAÇÃO GERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #ffffff;
+
+    background: #020611;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   IMAGEM DE FUNDO
+========================================= */
+
+.fundo-site {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("fundo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+.navbar {
+    width: calc(100% - 32px);
+    max-width: 1500px;
+
+    min-height: 95px;
+
+    margin: 12px auto;
+
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    border: 1px solid rgba(0, 136, 255, 0.25);
+
+    border-radius: 18px;
+
+    background: rgba(2, 7, 22, 0.72);
+
+    backdrop-filter: blur(14px);
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 145px;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================
+   ABA ATIVA
+========================================= */
+
+.menu-item.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 8px;
+
+    width: 100%;
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: #00d9ff;
+
+    box-shadow:
+        0 0 12px rgba(0, 217, 255, 0.8);
+}
+
+
+/* =========================================
+   BOTÃO ENTRAR
+========================================= */
+
+.btn-login {
+    min-width: 155px;
+    height: 56px;
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #078cff,
+            #7520ed
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+    flex-shrink: 0;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 30px rgba(55, 79, 255, 0.35);
+}
+
+.btn-login span {
+    font-size: 24px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    width: min(1350px, 90vw);
+
+    min-height: 440px;
+
+    margin: 40px auto 0;
+
+    display: grid;
+
+    grid-template-columns: 48% 52%;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   TEXTO HERO
+========================================= */
+
+.hero-text {
+    padding-left: 10px;
+}
+
+.hero-text h1 {
+    max-width: 650px;
+
+    margin-bottom: 25px;
+
+    font-size: clamp(52px, 5vw, 76px);
+
+    line-height: 0.98;
+
+    letter-spacing: -2px;
+
+    font-weight: 700;
+}
+
+.hero-text h1 strong {
+    background:
+        linear-gradient(
+            90deg,
+            #008cff,
+            #7922ed
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero-text p {
+    max-width: 520px;
+
+    color: #bac4d6;
+
+    font-size: 19px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   LÂMPADA
+========================================= */
+
+.lampadahero {
+    position: absolute;
+
+    top: 40px;
+    right: 200px;
+
+    width: 420px;
+    height: 420px;
+
+    z-index: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.lampadahero img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================
+   SEÇÃO DICAS
+========================================= */
+
+.tips-section {
+    width: min(1350px, 90vw);
+
+    margin: 10px auto 70px;
+}
+
+
+/* =========================================
+   TÍTULO DA SEÇÃO
+========================================= */
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+.section-title span {
+    color: #00e2d8;
+
+    font-size: 25px;
+}
+
+.section-title h2 {
+    font-size: 24px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.tips-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 17px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.tip-card {
+    min-height: 330px;
+
+    padding: 23px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(2, 10, 29, 0.82);
+
+    border: 1px solid rgba(95, 120, 180, 0.25);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+.tip-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(0, 150, 255, 0.65);
+
+    background:
+        rgba(4, 17, 45, 0.9);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 75, 255, 0.12);
+}
+
+
+/* =========================================
+   CARD CYAN
+========================================= */
+
+.tip-card.cyan:hover {
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 255, 230, 0.25),
+
+        0 0 30px
+        rgba(0, 255, 230, 0.20);
+
+    border-color: #00e5d5;
+}
+
+
+/* =========================================
+   CARD AZUL
+========================================= */
+
+.tip-card.blue:hover {
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 140, 255, 0.25),
+
+        0 0 30px
+        rgba(0, 140, 255, 0.20);
+
+    border-color: #008cff;
+}
+
+
+/* =========================================
+   CARD ROXO
+========================================= */
+
+.tip-card.purple:hover {
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        0 10px 30px
+        rgba(150, 30, 255, 0.30),
+
+        0 0 30px
+        rgba(150, 30, 255, 0.20);
+
+    border-color: #9227ff;
+}
+
+
+/* =========================================
+   NÚMERO
+========================================= */
+
+.number {
+    display: block;
+
+    font-size: 28px;
+
+    margin-bottom: 18px;
+}
+
+.cyan .number {
+    color: #00e3d7;
+}
+
+.blue .number {
+    color: #008cff;
+}
+
+.purple .number {
+    color: #9b2cff;
+}
+
+
+/* =========================================
+   ÍCONE
+========================================= */
+
+.tip-icon {
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 35px;
+
+    background:
+        rgba(0, 8, 25, 0.8);
+}
+
+.tip-icon img {
+    width: 110px;
+    height: 110px;
+
+    object-fit: contain;
+}
+
+.cyan .tip-icon {
+    color: #00e3d7;
+
+    border: 1px solid #00e3d7;
+}
+
+.blue .tip-icon {
+    color: #008cff;
+
+    border: 1px solid #008cff;
+}
+
+.purple .tip-icon {
+    color: #9b2cff;
+
+    border: 1px solid #9b2cff;
+}
+
+
+/* =========================================
+   TEXTO DOS CARDS
+========================================= */
+
+.tip-card h3 {
+    margin-bottom: 14px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+.tip-card p {
+    min-height: 72px;
+
+    color: #aebbd0;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   LINK
+========================================= */
+
+.tip-link {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+.cyan .tip-link {
+    color: #00e3d7;
+}
+
+.blue .tip-link {
+    color: #008cff;
+}
+
+.purple .tip-link {
+    color: #9b2cff;
+}
+
+.tip-link span {
+    font-size: 21px;
+
+    transition: 0.3s;
+}
+
+.tip-link:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1150px) {
+
+    .hero-text h1 {
+        font-size: 55px;
+    }
+
+    .tips-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+}
+
+
+/* =========================================
+   TABLET MENOR
+========================================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        min-height: auto;
+
+        padding: 17px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        margin-top: 45px;
+    }
+
+    .hero-text {
+        padding: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .hero-text p {
+        margin: 0 auto;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        width: 90vw;
+
+        margin-top: 35px;
+    }
+
+    .hero-text h1 {
+        font-size:
+            clamp(40px, 12vw, 55px);
+
+        letter-spacing: -1px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .tips-section {
+        width: 90vw;
+
+        margin-top: -15px;
+    }
+
+    .section-title h2 {
+        font-size: 21px;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .tip-card {
+        min-height: 300px;
+    }
+}
+
+
+/* =========================================
+   ESCONDER LÂMPADA NO CELULAR
+========================================= */
+
+@media (max-width: 900px) {
+
+    .lampadahero {
+        display: none;
+    }
+
+}
