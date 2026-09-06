@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXT WORK - NEXT IA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="next-ia.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- CABEÇALHO -->
+
+    <header class="cabecalho-principal">
+
+
+        <a href="#" class="logo-site">
+
+            <img
+                src="logo.png"
+                alt="Logo NEXT WORK"
+            >
+
+        </a>
+
+
+        <nav class="menu-principal">
+
+            <ul class="lista-menu">
+
+                <li>
+                    <a href="#">
+                        Início
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Vagas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Cursos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Dicas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Empresas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Sobre nós
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="ativo">
+                        NEXT IA
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="acoes-usuario">
+
+            <button class="botao-entrar">
+                Entrar
+            </button>
+
+            <button class="botao-cadastro">
+                Cadastre-se
+            </button>
+
+        </div>
+
+
+        <button
+            class="botao-menu-mobile"
+            id="botao-menu-mobile"
+            aria-label="Abrir menu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+    </header>
+
+
+
+    <!-- MENU MOBILE -->
+
+    <nav
+        class="menu-mobile"
+        id="menu-mobile"
+    >
+
+        <ul>
+
+            <li>
+                <a href="#">
+                    Início
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Vagas
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Cursos
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Dicas
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Empresas
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Sobre nós
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="ativo">
+                    NEXT IA
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="acoes-mobile">
+
+            <button>
+                Entrar
+            </button>
+
+            <button class="cadastro-mobile">
+                Cadastre-se
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <main class="pagina-ia">
+
+
+        <!-- INTRODUÇÃO -->
+
+        <section class="introducao-ia">
+
+            <div class="etiqueta-ia">
+                INTELIGÊNCIA NEXT
+            </div>
+
+
+            <h1>
+
+                Conheça a
+                <span>NEXT IA</span>
+
+            </h1>
+
+
+            <p>
+
+                Encontre candidatos e empresas de forma simples,
+                rápida e inteligente através de conexões profissionais.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ÁREA PRINCIPAL -->
+
+        <section class="central-conexoes">
+
+
+            <!-- LADO ESQUERDO -->
+
+            <section class="painel-conexoes">
+
+
+                <div class="cabecalho-conexoes">
+
+
+                    <div class="titulo-conexoes">
+
+                        <h2>
+                            Conexões
+                        </h2>
+
+                        <span class="status-conexoes">
+                            ● 12 conexões
+                        </span>
+
+                    </div>
+
+
+                    <div class="alternador">
+
+
+                        <button
+                            class="botao-alternador ativo"
+                            data-tipo="candidatos"
+                            id="botao-candidatos"
+                        >
+
+                            Candidatos
+
+                        </button>
+
+
+                        <button
+                            class="botao-alternador"
+                            data-tipo="empresas"
+                            id="botao-empresas"
+                        >
+
+                            Empresas
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- FILTROS -->
+
+                <div class="filtros">
+
+
+                    <div class="campo-pesquisa">
+
+                        <span>
+                            ⌕
+                        </span>
+
+                        <input
+                            type="text"
+                            id="pesquisa"
+                            placeholder="Buscar por nome, área ou habilidade..."
+                        >
+
+                    </div>
+
+
+                    <select
+                        class="filtro-area"
+                        id="filtro-area"
+                    >
+
+                        <option value="todas">
+                            Todas as áreas
+                        </option>
+
+                        <option value="tecnologia">
+                            Tecnologia
+                        </option>
+
+                        <option value="administracao">
+                            Administração
+                        </option>
+
+                        <option value="design">
+                            Design
+                        </option>
+
+                        <option value="marketing">
+                            Marketing
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+
+                <!-- LISTA DE CANDIDATOS / EMPRESAS -->
+
+                <div
+                    class="lista-conexoes"
+                    id="lista-conexoes"
+                >
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- LADO DIREITO - NEXT IA -->
+
+            <section class="painel-ia">
+
+
+                <!-- CABEÇALHO DA IA -->
+
+                <div class="cabecalho-ia">
+
+
+                    <div class="icone-ia">
+
+                        🤖
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            NEXT IA
+                        </h2>
+
+                        <p>
+                            Seu assistente de conexões
+                        </p>
+
+                    </div>
+
+
+                    <div class="status-ia">
+
+                        Ativa
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- CHAT -->
+
+                <div
+                    class="chat"
+                    id="chat"
+                >
+
+
+                    <div class="mensagem">
+
+
+                        <div class="mini-ia">
+
+                            ✦
+
+                        </div>
+
+
+                        <div class="bolha">
+
+                            Olá! Eu sou a
+                            <strong>NEXT IA</strong>.
+
+                            <br>
+
+                            Posso ajudar você a encontrar
+                            candidatos e empresas através
+                            das conexões disponíveis.
+
+                            <br><br>
+
+                            Escolha uma das perguntas abaixo
+                            para começar.
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PERGUNTAS PRONTAS -->
+
+                <div class="perguntas">
+
+
+                    <button
+                        class="pergunta"
+                        data-pergunta="html"
+                    >
+
+                        👤 Quem sabe HTML?
+
+                    </button>
+
+
+                    <button
+                        class="pergunta"
+                        data-pergunta="tecnologia"
+                    >
+
+                        💻 Empresas de tecnologia
+
+                    </button>
+
+
+                    <button
+                        class="pergunta"
+                        data-pergunta="natal"
+                    >
+
+                        📍 Quem está em Natal?
+
+                    </button>
+
+
+                    <button
+                        class="pergunta"
+                        data-pergunta="administracao"
+                    >
+
+                        📊 Pessoas de administração
+
+                    </button>
+
+
+                    <button
+                        class="pergunta"
+                        data-pergunta="design"
+                    >
+
+                        🎨 Quem trabalha com design?
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- RODAPÉ -->
+
+                <div class="rodape-ia">
+
+                    <div class="aviso-simulacao">
+
+                        NEXT IA • Sistema de demonstração
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <script src="next-ia.js"></script>
+
+</body>
+
+</html>
