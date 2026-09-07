@@ -58,31 +58,64 @@ body {
 
 
 /* =========================================================
-   VOLTAR PARA DICAS
+   BOTÃO VOLTAR
 ========================================================= */
 
 .voltar {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 
-    color: #00eaff;
+    padding: 10px 18px;
 
-    text-decoration: none;
+    color: #dbe5ff;
+    background: rgba(5, 10, 35, 0.75);
+
+    border: 1px solid rgba(0, 190, 255, 0.35);
+    border-radius: 10px;
 
     font-size: 16px;
-
-    font-weight: bold;
+    font-weight: 500;
 
     margin-bottom: 35px;
 
-    transition: 0.3s;
+    backdrop-filter: blur(10px);
+
+    transition: all 0.3s ease;
 }
+
+
+/* SETA */
+
+.voltar span {
+    font-size: 20px;
+    color: #00eaff;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* PASSANDO O MOUSE */
 
 .voltar:hover {
-    color: white;
+    color: #ffffff;
 
-    transform: translateX(-5px);
+    border-color: #00eaff;
+
+    background: rgba(0, 20, 50, 0.9);
+
+    box-shadow:
+        0 0 15px rgba(0, 234, 255, 0.18);
+
+    transform: translateX(-3px);
 }
 
+
+/* ANIMAÇÃO DA SETA */
+
+.voltar:hover span {
+    transform: translateX(-4px);
+}
 
 /* =========================================================
    CABEÇALHO
