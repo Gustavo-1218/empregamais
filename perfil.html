@@ -2,112 +2,139 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Emprega Mais - Meu Perfil</title>
+    <title>NEXT WORK - Meu Perfil</title>
 
-    
+    <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="perfil.css">
-<link rel="stylesheet" href="menu.css">
+
 </head>
+
 
 <body>
 
-    <header>
+    <!-- MENU PRINCIPAL -->
+    <div id="menu"></div>
 
- <div id="menu"></div>
-      
-    </header>
-
-
-    
 
     <main class="perfil-container">
 
 
-      
+        <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
 
         <aside class="sidebar">
 
 
-            <!-- PERFIL -->
+            <!-- RESUMO DO PERFIL -->
 
             <div class="perfil-resumo">
 
                 <div class="avatar">
 
-                    <span>👤</span>
+                    <span class="avatar-cabeca"></span>
+                    <span class="avatar-corpo"></span>
 
                 </div>
 
-                <h2 id="nome-sidebar">
-                    Nome do candidato
+
+                <h2>
+                    Complete seu perfil
                 </h2>
 
-                <p id="usuario-sidebar">
-                    @usuario
+
+                <p class="porcentagem-sidebar">
+                    <span id="porcentagem-sidebar">25%</span>
+                    completo
                 </p>
+
+
+                <!-- BARRA DE PROGRESSO -->
+
+                <div class="barra-progresso">
+
+                    <div
+                        class="barra-progresso-preenchida"
+                        id="barra-progresso">
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <!-- MENU DO PERFIL -->
+            <!-- MENU INTERNO DO PERFIL -->
 
             <nav class="perfil-menu">
 
+
                 <a href="#" class="ativo">
 
-                    <span>👤</span>
+                    <span class="icone-menu">♙</span>
 
-                    Meu perfil
-
-                </a>
-
-
-                <a href="#">
-
-                    <span>💼</span>
-
-                    Vagas
+                    Informações pessoais
 
                 </a>
 
 
                 <a href="#">
 
-                    <span>📋</span>
+                    <span class="icone-menu">♢</span>
 
-                    Minhas candidaturas
-
-                </a>
-
-
-                <a href="#">
-
-                    <span>♡</span>
-
-                    Favoritos
+                    Formação
 
                 </a>
 
 
                 <a href="#">
 
-                    <span>💬</span>
+                    <span class="icone-menu">▣</span>
 
-                    Mensagens
+                    Experiências
 
                 </a>
 
 
                 <a href="#">
 
-                    <span>⚙</span>
+                    <span class="icone-menu">☆</span>
 
-                    Configurações
+                    Habilidades
 
                 </a>
+
+
+                <a href="#">
+
+                    <span class="icone-menu">▤</span>
+
+                    Cursos e certificações
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="icone-menu">♡</span>
+
+                    Preferências
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="icone-menu">▤</span>
+
+                    Resumo
+
+                </a>
+
 
             </nav>
 
@@ -117,26 +144,27 @@
             <div class="ajuda">
 
                 <strong>
-                    Precisa de ajuda?
+                    Dúvidas?
                 </strong>
 
                 <p>
-                    Fale com nosso suporte
+                    Veja dicas de como preencher seu perfil da melhor forma.
                 </p>
 
-                <span>
-                    →
-                </span>
+                <a href="dicas.html">
+                    Ver dicas →
+                </a>
 
             </div>
+
 
         </aside>
 
 
 
-        <!-- =================================================
-             ÁREA DO PERFIL
-        ================================================== -->
+        <!-- =====================================================
+             CONTEÚDO PRINCIPAL
+        ====================================================== -->
 
         <section class="perfil-conteudo">
 
@@ -148,30 +176,45 @@
                 <div>
 
                     <h1>
-                        Meu perfil
+                        Complete seu perfil
                     </h1>
 
                     <p>
-                        Consulte suas informações pessoais e seu currículo.
+                        Preencha suas informações para aumentar suas chances
+                        de ser encontrado por empresas e oportunidades ideais para você.
                     </p>
 
                 </div>
+
+
+                <a
+                    href="usuario.html"
+                    class="botao-ver-perfil">
+
+                    Ver meu perfil
+
+                    <span>◉</span>
+
+                </a>
 
             </div>
 
 
 
             <!-- =================================================
-                 INFORMAÇÕES PESSOAIS
+                 BLOCO PRINCIPAL
             ================================================== -->
 
-            <section class="bloco">
+            <section class="bloco informacoes-bloco">
+
+
+                <!-- CABEÇALHO -->
 
                 <div class="bloco-titulo">
 
-                    <span class="icone-titulo">
-                        👤
-                    </span>
+                    <div class="icone-titulo">
+                        ♙
+                    </div>
 
                     <div>
 
@@ -180,7 +223,7 @@
                         </h2>
 
                         <p>
-                            Dados cadastrados na Emprega Mais
+                            Conte um pouco sobre você.
                         </p>
 
                     </div>
@@ -188,148 +231,223 @@
                 </div>
 
 
-                <div class="informacoes">
+
+                <div class="area-informacoes">
 
 
-                    <!-- ID -->
+                    <!-- =================================================
+                         DADOS
+                    ================================================== -->
 
-                    <div class="informacao">
-
-                        <span class="icone">
-                            🆔
-                        </span>
-
-                        <div>
-
-                            <span class="rotulo">
-                                ID
-                            </span>
-
-                            <strong id="id-candidato">
-                                #000001
-                            </strong>
-
-                        </div>
-
-                    </div>
+                    <div class="dados-pessoais">
 
 
-                    <!-- NOME -->
+                        <!-- NOME -->
 
-                    <div class="informacao">
-
-                        <span class="icone">
-                            👤
-                        </span>
-
-                        <div>
+                        <div class="campo">
 
                             <span class="rotulo">
                                 Nome completo
                             </span>
 
-                            <strong id="nome-candidato">
-                                Nome do candidato
-                            </strong>
+                            <div class="valor-campo">
+
+                                <span id="nome-candidato">
+                                    Nome do candidato
+                                </span>
+
+                            </div>
 
                         </div>
 
-                    </div>
+
+                        <!-- ID -->
+
+                        <div class="campo">
+
+                            <span class="rotulo">
+                                ID
+                            </span>
+
+                            <div class="valor-campo">
+
+                                <span id="id-candidato">
+                                    #000001
+                                </span>
+
+                            </div>
+
+                        </div>
 
 
-                    <!-- EMAIL -->
+                        <!-- EMAIL -->
 
-                    <div class="informacao">
-
-                        <span class="icone">
-                            ✉
-                        </span>
-
-                        <div>
+                        <div class="campo">
 
                             <span class="rotulo">
                                 E-mail
                             </span>
 
-                            <strong id="email-candidato">
-                                candidato@email.com
-                            </strong>
+                            <div class="valor-campo">
+
+                                <span id="email-candidato">
+                                    candidato@email.com
+                                </span>
+
+                            </div>
 
                         </div>
 
-                    </div>
+
+                        <!-- CELULAR -->
+
+                        <div class="campo">
+
+                            <span class="rotulo">
+                                Telefone
+                            </span>
+
+                            <div class="valor-campo">
+
+                                <span id="celular-candidato">
+                                    (84) 99999-9999
+                                </span>
+
+                            </div>
+
+                        </div>
 
 
-                    <!-- CPF -->
+                        <!-- CPF -->
 
-                    <div class="informacao">
-
-                        <span class="icone">
-                            🪪
-                        </span>
-
-                        <div>
+                        <div class="campo">
 
                             <span class="rotulo">
                                 CPF
                             </span>
 
-                            <strong id="cpf-candidato">
-                                ***.***.***-**
-                            </strong>
+                            <div class="valor-campo">
+
+                                <span id="cpf-candidato">
+                                    ***.***.***-**
+                                </span>
+
+                            </div>
 
                         </div>
 
-                    </div>
 
+                        <!-- PROFISSÃO -->
 
-                    <!-- PROFISSÃO -->
-
-                    <div class="informacao">
-
-                        <span class="icone">
-                            💼
-                        </span>
-
-                        <div>
+                        <div class="campo">
 
                             <span class="rotulo">
                                 Profissão
+
                             </span>
 
-                            <strong id="profissao-candidato">
-                                Profissão do candidato
-                            </strong>
+                            <div class="valor-campo">
+
+                                <span id="profissao-candidato">
+                                    Profissão do candidato
+                                </span>
+
+                            </div>
 
                         </div>
+
 
                     </div>
 
 
-                    <!-- CELULAR -->
 
-                    <div class="informacao">
+                    <!-- =================================================
+                         GRÁFICO DE PROGRESSO
+                    ================================================== -->
 
-                        <span class="icone">
-                            📱
-                        </span>
+                    <div class="painel-progresso">
 
-                        <div>
 
-                            <span class="rotulo">
-                                Número de celular
-                            </span>
+                        <div class="grafico-progresso">
 
-                            <strong id="celular-candidato">
-                                (84) 99999-9999
-                            </strong>
+                            <div class="grafico-brilho"></div>
+
+                            <div class="grafico-interno">
+
+                                <strong id="porcentagem-grafico">
+                                    25%
+                                </strong>
+
+                            </div>
 
                         </div>
+
+
+                        <span class="texto-progresso">
+                            Perfil completo
+                        </span>
+
+
+                        <!-- DICA -->
+
+                        <div class="dica">
+
+                            <div class="dica-titulo">
+
+                                <span>
+                                    ♧
+                                </span>
+
+                                <strong>
+                                    Dica
+                                </strong>
+
+                            </div>
+
+
+                            <p>
+                                Quanto mais completo seu perfil,
+                                maiores são suas chances de encontrar
+                                oportunidades!
+                            </p>
+
+                        </div>
+
 
                     </div>
 
 
                 </div>
+
+
+
+                <!-- LINHA INFERIOR -->
+
+                <div class="acoes-perfil">
+
+                    <button
+                        type="button"
+                        class="botao-cancelar">
+
+                        Cancelar
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="botao-continuar">
+
+                        Salvar e continuar
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
 
             </section>
 
@@ -344,9 +462,9 @@
 
                 <div class="bloco-titulo">
 
-                    <span class="icone-titulo">
-                        📄
-                    </span>
+                    <div class="icone-titulo">
+                        ▤
+                    </div>
 
                     <div>
 
@@ -363,12 +481,14 @@
                 </div>
 
 
-                <!-- CURRÍCULO EXISTENTE -->
 
-                <div class="arquivo-curriculo" id="arquivo-curriculo">
+                <div
+                    class="arquivo-curriculo"
+                    id="arquivo-curriculo">
 
 
                     <div class="arquivo-info">
+
 
                         <div class="icone-pdf">
                             PDF
@@ -390,74 +510,36 @@
                     </div>
 
 
+
                     <div class="acoes-curriculo">
 
 
-                        <!-- VISUALIZAR -->
-
-                        <a href="#" 
-                           id="visualizar-curriculo"
-                           class="botao-visualizar">
+                        <a
+                            href="#"
+                            id="visualizar-curriculo"
+                            class="botao-visualizar">
 
                             👁 Visualizar
 
                         </a>
 
 
-                        <!-- SUBSTITUIR -->
-
-                        <label for="curriculo-upload"
-                               class="botao-substituir">
+                        <label
+                            for="curriculo-upload"
+                            class="botao-substituir">
 
                             ↥ Substituir arquivo
 
                         </label>
 
+
                         <input
                             type="file"
                             id="curriculo-upload"
-                            name="curriculo"
                             accept=".pdf"
                             hidden>
 
                     </div>
-
-                </div>
-
-
-                <!-- =================================================
-                     ÁREA CASO NÃO TENHA CURRÍCULO
-                ================================================== -->
-
-                <div class="sem-curriculo" id="sem-curriculo">
-
-                    <div class="icone-documento">
-                        📄
-                    </div>
-
-                    <h3>
-                        Você ainda não adicionou um currículo
-                    </h3>
-
-                    <p>
-                        Adicione seu currículo em PDF para aumentar
-                        suas oportunidades.
-                    </p>
-
-
-                    <label for="curriculo-upload-vazio"
-                           class="botao-adicionar">
-
-                        + Adicionar currículo
-
-                    </label>
-
-                    <input
-                        type="file"
-                        id="curriculo-upload-vazio"
-                        name="curriculo"
-                        accept=".pdf"
-                        hidden>
 
                 </div>
 
@@ -467,25 +549,25 @@
 
 
             <!-- =================================================
-                 AVISO DE SEGURANÇA
+                 SEGURANÇA
             ================================================== -->
 
             <div class="seguranca">
 
                 <span class="seguranca-icone">
-                    🛡
+                    ♢
                 </span>
+
 
                 <div>
 
                     <strong>
-                        Suas informações estão seguras
+                        Seus dados estão seguros
                     </strong>
 
                     <p>
-                        Seus dados pessoais são protegidos
-                        e utilizados somente para o funcionamento
-                        da plataforma.
+                        Suas informações são protegidas e utilizadas
+                        apenas para melhorar sua experiência na plataforma.
                     </p>
 
                 </div>
@@ -498,12 +580,9 @@
     </main>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
 
     <script src="perfil.js"></script>
-<script src="menu.js"></script>
+    <script src="menu.js"></script>
 
 </body>
 
