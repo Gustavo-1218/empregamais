@@ -45,21 +45,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-/* =========================
+/* =========================================================
    MENU MOBILE
-   ========================= */
+   ========================================================= */
 
 function ativarMenuMobile() {
 
     const botao =
-        document.getElementById(
-            "botao-menu-mobile"
-        );
+        document.getElementById("botao-menu-mobile");
 
     const menu =
-        document.getElementById(
-            "menu-mobile"
-        );
+        document.getElementById("menu-mobile");
 
 
     if (!botao || !menu) {
@@ -67,41 +63,82 @@ function ativarMenuMobile() {
     }
 
 
-    botao.addEventListener(
-        "click",
-        function () {
+    botao.addEventListener("click", function () {
 
-            const estaAberto =
-                menu.classList.toggle("aberto");
+        const estaAberto =
+            menu.classList.toggle("aberto");
 
+
+        botao.setAttribute(
+            "aria-expanded",
+            estaAberto
+        );
+
+
+        if (estaAberto) {
 
             botao.setAttribute(
-                "aria-expanded",
-                estaAberto
+                "aria-label",
+                "Fechar menu"
+            );
+
+        } else {
+
+            botao.setAttribute(
+                "aria-label",
+                "Abrir menu"
             );
 
         }
-    );
+
+    });
+
+
+    /* Fecha o menu quando clicar em um link */
+
+    const links =
+        menu.querySelectorAll("a");
+
+
+    links.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                menu.classList.remove("aberto");
+
+                botao.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                botao.setAttribute(
+                    "aria-label",
+                    "Abrir menu"
+                );
+
+            }
+        );
+
+    });
 
 }
 
 
-/* =========================
-   IDENTIFICAR PÁGINA ATUAL
-   ========================= */
+/* =========================================================
+   MARCAR PÁGINA ATUAL
+   ========================================================= */
 
 function marcarPaginaAtual() {
 
     let paginaAtual =
         window.location.pathname
-        .split("/")
-        .pop();
+            .split("/")
+            .pop();
 
 
-    /*
-       Quando o endereço termina apenas
-       com uma barra, consideramos index.html.
-    */
+    /* Caso esteja na página inicial */
 
     if (
         paginaAtual === "" ||
@@ -113,7 +150,7 @@ function marcarPaginaAtual() {
     }
 
 
-    /* MENU DESKTOP */
+    /* Links do desktop */
 
     const linksDesktop =
         document.querySelectorAll(
@@ -121,49 +158,45 @@ function marcarPaginaAtual() {
         );
 
 
-    linksDesktop.forEach(
-        function (link) {
+    linksDesktop.forEach(function (link) {
 
-            const endereco =
-                link.getAttribute("href");
+        const endereco =
+            link.getAttribute("href");
 
 
-            if (
-                endereco === paginaAtual
-            ) {
+        if (
+            endereco === paginaAtual
+        ) {
 
-                link.classList.add("ativo");
-
-            }
+            link.classList.add("ativo");
 
         }
-    );
+
+    });
 
 
-    /* MENU MOBILE */
+    /* Links do mobile */
 
     const linksMobile =
         document.querySelectorAll(
-            ".menu-mobile a"
+            ".menu-mobile ul a"
         );
 
 
-    linksMobile.forEach(
-        function (link) {
+    linksMobile.forEach(function (link) {
 
-            const endereco =
-                link.getAttribute("href");
+        const endereco =
+            link.getAttribute("href");
 
 
-            if (
-                endereco === paginaAtual
-            ) {
+        if (
+            endereco === paginaAtual
+        ) {
 
-                link.classList.add("ativo");
-
-            }
+            link.classList.add("ativo");
 
         }
-    );
+
+    });
 
 }
