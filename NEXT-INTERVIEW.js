@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const alternativas = document.querySelectorAll(".alternativa");
-    const chat = document.querySelector(".chat-mensagens");
-    const resultado = document.getElementById("resultado-interview");
+    const chat = document.querySelector(".chat-entrevista");
+    const areaDinamica = document.getElementById("area-dinamica-chat");
+    const botaoContinuar = document.getElementById("botao-continuar");
+    const textoStatus = document.getElementById("texto-status");
 
+    const contadorPerguntas = document.getElementById("contador-perguntas");
+    const progressoPreenchido = document.getElementById("progresso-preenchido");
+
+    const resultado = document.getElementById("resultado-interview");
     const porcentagemFinal = document.getElementById("porcentagem-final");
     const descricaoPerfil = document.getElementById("descricao-perfil");
     const listaCaracteristicas = document.getElementById("lista-caracteristicas-final");
@@ -18,13 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
         aprendizado: 0
     };
 
-    let perguntaAtual = 0;
-
-    /*
-    ==========================================
-    PERGUNTAS DA ENTREVISTA
-    ==========================================
-    */
+    const nomesCaracteristicas = {
+        comunicacao: "Comunicação",
+        proatividade: "Proatividade",
+        estrategia: "Estratégia",
+        adaptacao: "Adaptação",
+        colaboracao: "Colaboração",
+        aprendizado: "Aprendizado"
+    };
 
     const perguntas = [
         {
@@ -37,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         estrategia: 8
                     }
                 },
-
                 B: {
                     texto: "Conversaria com a equipe para entender como dividir a tarefa.",
                     pontos: {
@@ -45,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         comunicacao: 8
                     }
                 },
-
                 C: {
                     texto: "Analisaria a situação e mudaria minha estratégia.",
                     pontos: {
@@ -55,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         },
-
         {
             texto: "Durante um projeto, alguém da equipe apresenta uma ideia completamente diferente da sua. Como você reage?",
             respostas: {
@@ -66,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         comunicacao: 8
                     }
                 },
-
                 B: {
                     texto: "Defendo minha ideia, mas estou disposto a comparar as duas.",
                     pontos: {
@@ -74,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         comunicacao: 6
                     }
                 },
-
                 C: {
                     texto: "Prefiro experimentar a nova ideia para descobrir se funciona.",
                     pontos: {
@@ -84,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         },
-
         {
             texto: "Você percebe que não sabe fazer uma parte importante da tarefa. O que faria?",
             respostas: {
@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         proatividade: 6
                     }
                 },
-
                 B: {
                     texto: "Pediria ajuda para alguém que já domina aquela tarefa.",
                     pontos: {
@@ -103,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         aprendizado: 8
                     }
                 },
-
                 C: {
                     texto: "Tentaria resolver sozinho antes de procurar ajuda.",
                     pontos: {
@@ -113,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         },
-
         {
             texto: "Em uma reunião, você percebe que sua ideia não está sendo compreendida. O que você faria?",
             respostas: {
@@ -124,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         adaptacao: 6
                     }
                 },
-
                 B: {
                     texto: "Mostraria exemplos para tornar a ideia mais clara.",
                     pontos: {
@@ -132,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         estrategia: 8
                     }
                 },
-
                 C: {
                     texto: "Deixaria a equipe discutir e apresentaria minha ideia depois.",
                     pontos: {
@@ -142,7 +137,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         },
-
         {
             texto: "Você recebe uma crítica sobre algo que fez. Qual seria sua reação?",
             respostas: {
@@ -153,7 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         adaptacao: 8
                     }
                 },
-
                 B: {
                     texto: "Conversaria com a pessoa para entender melhor o ponto de vista.",
                     pontos: {
@@ -161,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         colaboracao: 8
                     }
                 },
-
                 C: {
                     texto: "Analisaria a crítica e decidiria o que realmente faz sentido.",
                     pontos: {
@@ -171,7 +163,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         },
-
         {
             texto: "Se você pudesse escolher uma característica para levar para qualquer trabalho, qual escolheria?",
             respostas: {
@@ -182,7 +173,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         estrategia: 6
                     }
                 },
-
                 B: {
                     texto: "Facilidade para trabalhar com outras pessoas.",
                     pontos: {
@@ -190,7 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         comunicacao: 8
                     }
                 },
-
                 C: {
                     texto: "Capacidade de aprender e evoluir constantemente.",
                     pontos: {
@@ -202,102 +191,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     ];
 
-
-    /*
-    ==========================================
-    ATUALIZAR BARRAS
-    ==========================================
-    */
-
-    function atualizarCaracteristicas() {
-
-        document.querySelectorAll(".caracteristica").forEach(function (elemento) {
-
-            const nome = elemento.dataset.caracteristica;
-
-            if (!nome || caracteristicas[nome] === undefined) {
-                return;
-            }
-
-            const valor = Math.min(caracteristicas[nome], 100);
-
-            const numero = elemento.querySelector(".valor-caracteristica");
-            const barra = elemento.querySelector(".preenchimento-caracteristica");
-
-            if (numero) {
-                numero.textContent = valor;
-            }
-
-            if (barra) {
-                barra.style.width = valor + "%";
-            }
-
-        });
-    }
-
-
-    /*
-    ==========================================
-    ADICIONAR MENSAGEM DA IA
-    ==========================================
-    */
-
-    function adicionarMensagemIA(texto) {
-
-        const mensagem = document.createElement("div");
-
-        mensagem.className = "mensagem mensagem-ia";
-
-        mensagem.innerHTML = `
-            <div class="avatar-mensagem">
-                <i class="fa-solid fa-sparkles"></i>
-            </div>
-
-            <div class="conteudo-mensagem">
-                <span class="nome-mensagem">NEXT IA</span>
-                <p>${texto}</p>
-            </div>
-        `;
-
-        chat.appendChild(mensagem);
-
-        rolarChat();
-    }
-
-
-    /*
-    ==========================================
-    ADICIONAR MENSAGEM DO USUÁRIO
-    ==========================================
-    */
-
-    function adicionarMensagemUsuario(texto) {
-
-        const mensagem = document.createElement("div");
-
-        mensagem.className = "mensagem mensagem-usuario";
-
-        mensagem.innerHTML = `
-            <div class="conteudo-mensagem">
-                <span class="nome-mensagem">VOCÊ</span>
-                <p>${texto}</p>
-            </div>
-        `;
-
-        chat.appendChild(mensagem);
-
-        rolarChat();
-    }
-
-
-    /*
-    ==========================================
-    ROLAR CHAT
-    ==========================================
-    */
+    let perguntaAtual = 0;
+    let respostaSelecionada = null;
 
     function rolarChat() {
-
         if (chat) {
             chat.scrollTo({
                 top: chat.scrollHeight,
@@ -306,12 +203,172 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function atualizarProgresso() {
+        const total = perguntas.length;
+        const respondidas = perguntaAtual;
 
-    /*
-    ==========================================
-    MOSTRAR PRÓXIMA PERGUNTA
-    ==========================================
-    */
+        if (contadorPerguntas) {
+            contadorPerguntas.textContent = respondidas + " / " + total;
+        }
+
+        if (progressoPreenchido) {
+            progressoPreenchido.style.width = ((respondidas / total) * 100) + "%";
+        }
+
+        document.querySelectorAll(".etapa").forEach(function (etapa, indice) {
+            etapa.classList.remove("ativa");
+            etapa.classList.remove("concluida");
+
+            if (indice < respondidas) {
+                etapa.classList.add("concluida");
+            }
+
+            if (indice === respondidas && respondidas < total) {
+                etapa.classList.add("ativa");
+            }
+        });
+    }
+
+    function atualizarCaracteristicas() {
+        document.querySelectorAll(".caracteristica").forEach(function (elemento) {
+
+            const nome = elemento.dataset.caracteristica;
+
+            if (!nome || caracteristicas[nome] === undefined) {
+                return;
+            }
+
+            const valor = Math.min(caracteristicas[nome] * 3, 100);
+
+            const numero = elemento.querySelector(".valor-caracteristica");
+            const barra = elemento.querySelector(".preenchimento-caracteristica");
+
+            if (numero) {
+                numero.textContent = Math.round(valor);
+            }
+
+            if (barra) {
+                barra.style.width = valor + "%";
+            }
+        });
+    }
+
+    function adicionarMensagemIA(texto) {
+        const mensagem = document.createElement("div");
+
+        mensagem.className = "mensagem mensagem-ia";
+
+        const avatar = document.createElement("div");
+        avatar.className = "avatar-mensagem";
+
+        const icone = document.createElement("i");
+        icone.className = "fa-solid fa-sparkles";
+
+        avatar.appendChild(icone);
+
+        const conteudo = document.createElement("div");
+        conteudo.className = "conteudo-mensagem";
+
+        const nome = document.createElement("span");
+        nome.className = "nome-mensagem";
+        nome.textContent = "NEXT IA";
+
+        const balao = document.createElement("div");
+        balao.className = "balao-mensagem";
+
+        const textoMensagem = document.createElement("p");
+        textoMensagem.textContent = texto;
+
+        const horario = document.createElement("span");
+        horario.className = "horario-mensagem";
+        horario.textContent = "Agora";
+
+        balao.appendChild(textoMensagem);
+        balao.appendChild(horario);
+
+        conteudo.appendChild(nome);
+        conteudo.appendChild(balao);
+
+        mensagem.appendChild(avatar);
+        mensagem.appendChild(conteudo);
+
+        areaDinamica.appendChild(mensagem);
+
+        rolarChat();
+    }
+
+    function adicionarMensagemUsuario(texto) {
+        const mensagem = document.createElement("div");
+
+        mensagem.className = "mensagem mensagem-usuario";
+
+        const conteudo = document.createElement("div");
+        conteudo.className = "conteudo-mensagem";
+
+        const nome = document.createElement("span");
+        nome.className = "nome-mensagem";
+        nome.textContent = "VOCÊ";
+
+        const balao = document.createElement("div");
+        balao.className = "balao-mensagem";
+
+        const textoMensagem = document.createElement("p");
+        textoMensagem.textContent = texto;
+
+        const horario = document.createElement("span");
+        horario.className = "horario-mensagem";
+        horario.textContent = "Agora";
+
+        balao.appendChild(textoMensagem);
+        balao.appendChild(horario);
+
+        conteudo.appendChild(nome);
+        conteudo.appendChild(balao);
+
+        mensagem.appendChild(conteudo);
+
+        areaDinamica.appendChild(mensagem);
+
+        rolarChat();
+    }
+
+    function criarAlternativas(pergunta) {
+        const container = document.createElement("div");
+
+        container.className = "alternativas-entrevista";
+
+        Object.keys(pergunta.respostas).forEach(function (letra) {
+
+            const resposta = pergunta.respostas[letra];
+
+            const botao = document.createElement("button");
+
+            botao.type = "button";
+            botao.className = "alternativa";
+            botao.dataset.resposta = letra;
+
+            const letraElemento = document.createElement("span");
+            letraElemento.className = "letra-alternativa";
+            letraElemento.textContent = letra;
+
+            const textoElemento = document.createElement("span");
+            textoElemento.className = "texto-alternativa";
+            textoElemento.textContent = resposta.texto;
+
+            botao.appendChild(letraElemento);
+            botao.appendChild(textoElemento);
+
+            botao.addEventListener("click", function () {
+                selecionarResposta(botao, letra);
+            });
+
+            container.appendChild(botao);
+        });
+
+        areaDinamica.appendChild(container);
+
+        rolarChat();
+    }
 
     function mostrarPergunta() {
 
@@ -320,150 +377,127 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        respostaSelecionada = null;
+
+        if (botaoContinuar) {
+            botaoContinuar.disabled = true;
+        }
+
+        if (textoStatus) {
+            textoStatus.textContent = "Escolha uma alternativa para continuar.";
+        }
+
         const pergunta = perguntas[perguntaAtual];
 
         setTimeout(function () {
 
             adicionarMensagemIA(pergunta.texto);
 
-            atualizarAlternativas(pergunta);
+            criarAlternativas(pergunta);
+
+            atualizarProgresso();
 
         }, 500);
     }
 
+    function selecionarResposta(botaoSelecionado, letra) {
 
-    /*
-    ==========================================
-    ATUALIZAR BOTÕES
-    ==========================================
-    */
+        if (respostaSelecionada !== null) {
+            return;
+        }
 
-    function atualizarAlternativas(pergunta) {
+        respostaSelecionada = letra;
 
-        alternativas.forEach(function (botao) {
+        const botoes = areaDinamica.querySelectorAll(".alternativa");
 
-            const letra = botao.dataset.resposta;
+        botoes.forEach(function (botao) {
+            botao.disabled = true;
 
-            if (!pergunta.respostas[letra]) {
-                botao.style.display = "none";
-                return;
+            if (botao !== botaoSelecionado) {
+                botao.style.opacity = "0.45";
             }
-
-            botao.style.display = "flex";
-
-            const texto = botao.querySelector(".texto-alternativa");
-
-            if (texto) {
-                texto.textContent = pergunta.respostas[letra].texto;
-            }
-
-            botao.disabled = false;
         });
+
+        botaoSelecionado.style.opacity = "1";
+
+        const pergunta = perguntas[perguntaAtual];
+        const resposta = pergunta.respostas[letra];
+
+        Object.keys(resposta.pontos).forEach(function (caracteristica) {
+            caracteristicas[caracteristica] += resposta.pontos[caracteristica];
+        });
+
+        adicionarMensagemUsuario(resposta.texto);
+
+        atualizarCaracteristicas();
+
+        if (textoStatus) {
+            textoStatus.textContent = "Resposta registrada. Clique em continuar.";
+        }
+
+        if (botaoContinuar) {
+            botaoContinuar.disabled = false;
+        }
+
+        rolarChat();
     }
 
+    function continuarEntrevista() {
 
-    /*
-    ==========================================
-    CLIQUE NAS ALTERNATIVAS
-    ==========================================
-    */
+        if (respostaSelecionada === null) {
+            return;
+        }
 
-    alternativas.forEach(function (botao) {
+        const alternativasAtuais = areaDinamica.querySelectorAll(".alternativas-entrevista");
 
-        botao.addEventListener("click", function () {
-
-            if (botao.disabled) {
-                return;
-            }
-
-            const letra = botao.dataset.resposta;
-            const pergunta = perguntas[perguntaAtual];
-            const resposta = pergunta.respostas[letra];
-
-            if (!resposta) {
-                return;
-            }
-
-            /*
-            Impede clicar várias vezes
-            */
-
-            alternativas.forEach(function (item) {
-                item.disabled = true;
-            });
-
-            /*
-            Mostra resposta do usuário
-            */
-
-            adicionarMensagemUsuario(resposta.texto);
-
-            /*
-            Soma os pontos
-            */
-
-            Object.keys(resposta.pontos).forEach(function (caracteristica) {
-
-                caracteristicas[caracteristica] += resposta.pontos[caracteristica];
-
-            });
-
-            atualizarCaracteristicas();
-
-            perguntaAtual++;
-
-            /*
-            Esconde as alternativas por enquanto
-            */
-
-            alternativas.forEach(function (item) {
-                item.style.opacity = "0.4";
-            });
-
-            setTimeout(function () {
-
-                alternativas.forEach(function (item) {
-                    item.style.opacity = "1";
-                });
-
-                mostrarPergunta();
-
-            }, 900);
-
+        alternativasAtuais.forEach(function (elemento) {
+            elemento.remove();
         });
 
-    });
+        perguntaAtual++;
 
+        respostaSelecionada = null;
 
-    /*
-    ==========================================
-    CALCULAR RESULTADO
-    ==========================================
-    */
+        atualizarProgresso();
+
+        if (perguntaAtual < perguntas.length) {
+
+            if (textoStatus) {
+                textoStatus.textContent = "Preparando próxima pergunta...";
+            }
+
+            if (botaoContinuar) {
+                botaoContinuar.disabled = true;
+            }
+
+            mostrarPergunta();
+
+        } else {
+
+            if (botaoContinuar) {
+                botaoContinuar.disabled = true;
+            }
+
+            finalizarEntrevista();
+        }
+    }
 
     function finalizarEntrevista() {
 
-        alternativas.forEach(function (botao) {
-            botao.style.display = "none";
-        });
+        if (textoStatus) {
+            textoStatus.textContent = "Entrevista concluída.";
+        }
+
+        atualizarProgresso();
 
         adicionarMensagemIA(
             "Entrevista concluída. Vou analisar suas escolhas e montar seu perfil profissional."
         );
 
         setTimeout(function () {
-
             gerarResultado();
-
         }, 1500);
     }
-
-
-    /*
-    ==========================================
-    GERAR RESULTADO
-    ==========================================
-    */
 
     function gerarResultado() {
 
@@ -473,179 +507,122 @@ document.addEventListener("DOMContentLoaded", function () {
             soma += caracteristicas[chave];
         });
 
-        const quantidade = Object.keys(caracteristicas).length;
+        const pontuacaoMaxima = perguntas.length * 20;
 
-        /*
-        Cada característica pode chegar a aproximadamente 30+
-        Normalizamos para uma porcentagem.
-        */
-
-        let porcentagem = Math.round(
-            (soma / (perguntas.length * 10)) * 100
-        );
+        let porcentagem = Math.round((soma / pontuacaoMaxima) * 100);
 
         porcentagem = Math.max(0, Math.min(porcentagem, 100));
 
-
-        /*
-        Descobrir características mais fortes
-        */
-
-        const ranking = Object.entries(caracteristicas)
-            .sort(function (a, b) {
-                return b[1] - a[1];
-            });
-
+        const ranking = Object.entries(caracteristicas).sort(function (a, b) {
+            return b[1] - a[1];
+        });
 
         const principais = ranking.slice(0, 3);
 
-
-        /*
-        Perfil
-        */
+        const principal = principais[0][0];
 
         let perfil = "";
 
-        const principal = principais[0][0];
-
         if (principal === "comunicacao") {
-
-            perfil =
-                "Seu perfil demonstra facilidade para se comunicar, expressar ideias e construir conexões com outras pessoas.";
-
-        } else if (principal === "proatividade") {
-
-            perfil =
-                "Você demonstra iniciativa e disposição para transformar ideias em ações, assumindo responsabilidades quando necessário.";
-
-        } else if (principal === "estrategia") {
-
-            perfil =
-                "Seu perfil apresenta uma forte tendência para análise, planejamento e tomada de decisões.";
-
-        } else if (principal === "adaptacao") {
-
-            perfil =
-                "Você demonstra facilidade para lidar com mudanças e encontrar novos caminhos diante de situações inesperadas.";
-
-        } else if (principal === "colaboracao") {
-
-            perfil =
-                "Seu perfil se destaca pela capacidade de trabalhar em equipe, ouvir diferentes perspectivas e construir soluções em conjunto.";
-
-        } else if (principal === "aprendizado") {
-
-            perfil =
-                "Você demonstra curiosidade, vontade de aprender e capacidade de transformar novas experiências em evolução.";
-
+            perfil = "Seu perfil demonstra facilidade para se comunicar, expressar ideias e construir conexões com outras pessoas.";
         }
 
+        if (principal === "proatividade") {
+            perfil = "Você demonstra iniciativa e disposição para transformar ideias em ações, assumindo responsabilidades quando necessário.";
+        }
 
-        /*
-        Lista visual de características
-        */
+        if (principal === "estrategia") {
+            perfil = "Seu perfil apresenta uma forte tendência para análise, planejamento e tomada de decisões.";
+        }
 
-        listaCaracteristicas.innerHTML = "";
+        if (principal === "adaptacao") {
+            perfil = "Você demonstra facilidade para lidar com mudanças e encontrar novos caminhos diante de situações inesperadas.";
+        }
 
-        principais.forEach(function (item) {
+        if (principal === "colaboracao") {
+            perfil = "Seu perfil se destaca pela capacidade de trabalhar em equipe, ouvir diferentes perspectivas e construir soluções em conjunto.";
+        }
 
-            const nome = item[0];
-            const valor = Math.min(item[1] * 3, 100);
+        if (principal === "aprendizado") {
+            perfil = "Você demonstra curiosidade, vontade de aprender e capacidade de transformar novas experiências em evolução.";
+        }
 
-            const nomes = {
-                comunicacao: "Comunicação",
-                proatividade: "Proatividade",
-                estrategia: "Estratégia",
-                adaptacao: "Adaptação",
-                colaboracao: "Colaboração",
-                aprendizado: "Aprendizado"
-            };
+        if (listaCaracteristicas) {
+            listaCaracteristicas.innerHTML = "";
 
-            const elemento = document.createElement("span");
+            principais.forEach(function (item) {
 
-            elemento.className = "caracteristica-final";
+                const nome = item[0];
 
-            elemento.innerHTML = `
-                <i class="fa-solid fa-check"></i>
-                ${nomes[nome]}
-            `;
+                const elemento = document.createElement("span");
 
-            listaCaracteristicas.appendChild(elemento);
+                elemento.className = "caracteristica-final";
 
-        });
+                const icone = document.createElement("i");
+                icone.className = "fa-solid fa-check";
 
+                const texto = document.createTextNode(
+                    " " + nomesCaracteristicas[nome]
+                );
 
-        /*
-        Frases finais diferentes
-        */
+                elemento.appendChild(icone);
+                elemento.appendChild(texto);
+
+                listaCaracteristicas.appendChild(elemento);
+            });
+        }
 
         let frase = "";
 
         if (porcentagem >= 85) {
-
-            frase =
-                "Seu perfil demonstra um alto potencial de compatibilidade. Você mostra iniciativa, capacidade de evolução e disposição para enfrentar novos desafios.";
-
+            frase = "Seu perfil demonstra um alto potencial de compatibilidade. Você mostra iniciativa, capacidade de evolução e disposição para enfrentar novos desafios.";
         } else if (porcentagem >= 70) {
-
-            frase =
-                "Você apresenta um perfil consistente, com características que podem contribuir bastante para diferentes ambientes profissionais.";
-
+            frase = "Você apresenta um perfil consistente, com características que podem contribuir bastante para diferentes ambientes profissionais.";
         } else if (porcentagem >= 55) {
-
-            frase =
-                "Seu perfil mostra boas características profissionais e espaço para continuar desenvolvendo novas habilidades.";
-
+            frase = "Seu perfil mostra boas características profissionais e espaço para continuar desenvolvendo novas habilidades.";
         } else {
-
-            frase =
-                "Cada experiência é uma oportunidade de evolução. Seu perfil ainda pode desenvolver novas habilidades e descobrir novos caminhos.";
-
+            frase = "Cada experiência é uma oportunidade de evolução. Seu perfil ainda pode desenvolver novas habilidades e descobrir novos caminhos.";
         }
 
+        if (porcentagemFinal) {
+            porcentagemFinal.textContent = porcentagem + "%";
+        }
 
-        /*
-        Colocar informações na tela
-        */
+        if (descricaoPerfil) {
+            descricaoPerfil.textContent = perfil;
+        }
 
-        porcentagemFinal.textContent = porcentagem + "%";
+        if (fraseFinal) {
+            fraseFinal.textContent = frase;
+        }
 
-        descricaoPerfil.textContent = perfil;
+        if (resultado) {
+            resultado.hidden = false;
 
-        fraseFinal.textContent = frase;
+            resultado.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
 
-
-        /*
-        Mostrar resultado
-        */
-
-        resultado.hidden = false;
-
-        resultado.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
+        if (textoStatus) {
+            textoStatus.textContent = "Análise concluída.";
+        }
     }
 
+    if (botaoContinuar) {
+        botaoContinuar.disabled = true;
 
-    /*
-    ==========================================
-    INICIALIZAÇÃO
-    ==========================================
-    */
+        botaoContinuar.addEventListener("click", function () {
+            continuarEntrevista();
+        });
+    }
 
     atualizarCaracteristicas();
-
-    /*
-    Pequeno atraso para parecer que a IA está
-    iniciando a entrevista.
-    */
+    atualizarProgresso();
 
     setTimeout(function () {
-
         mostrarPergunta();
-
     }, 1000);
 
 });
