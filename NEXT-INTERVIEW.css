@@ -1510,3 +1510,39 @@ body {
     font-size: 17px;
 }
 
+/* =========================================================
+   PERFIL IDENTIFICADO
+========================================================= */
+
+.perfil-identificado {
+    max-width: 850px;
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    border: 1px solid rgba(54, 99, 203, 0.3);
+
+    border-radius: 17px;
+
+    background: rgba(5, 14, 36, 0.6);
+}
+
+
+.perfil-identificado h3 {
+    margin-bottom: 8px;
+
+    color: #e8eeff;
+
+    font-size: 16px;
+}
+
+
+.perfil-identificado > p {
+    color: #8297c3;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
