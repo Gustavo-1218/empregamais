@@ -1816,5 +1816,245 @@ body {
 
 }
 
+/* =========================================================
+   MOBILE MENOR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero-interview {
+        margin-top: 25px;
+    }
+
+
+    .hero-interview-conteudo {
+        gap: 15px;
+    }
+
+
+    .icone-hero-interview {
+        width: 62px;
+        height: 62px;
+
+        border-radius: 15px;
+    }
+
+
+    .icone-hero-interview i {
+        font-size: 25px;
+    }
+
+
+    .mini-titulo {
+        font-size: 8px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .textos-hero-interview h1 {
+        font-size: 35px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .textos-hero-interview h2 {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+
+    .textos-hero-interview p {
+        font-size: 10px;
+
+        line-height: 1.6;
+    }
+
+
+    .container-entrevista {
+        min-height: 600px;
+
+        border-radius: 14px;
+    }
+
+
+    .cabecalho-entrevista {
+        padding: 0 15px;
+    }
+
+
+    .numero-entrevista {
+        display: none;
+    }
+
+
+    .status-entrevista {
+        gap: 7px;
+    }
+
+
+    .chat-entrevista {
+        padding: 20px 14px 15px;
+    }
+
+
+    .mensagem {
+        gap: 9px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .avatar-mensagem {
+        width: 37px;
+        height: 37px;
+    }
+
+
+    .avatar-mensagem i {
+        font-size: 14px;
+    }
+
+
+    .conteudo-mensagem {
+        max-width: 78%;
+    }
+
+
+    .nome-mensagem {
+        font-size: 9px;
+    }
+
+
+    .balão-mensagem {
+        padding: 12px 13px 20px;
+    }
+
+
+    .balão-mensagem p {
+        font-size: 10px;
+
+        line-height: 1.65;
+    }
+
+
+    .alternativas-entrevista {
+        width: calc(100% - 46px);
+
+        margin-left: 46px;
+
+        gap: 7px;
+    }
+
+
+    .alternativa {
+        min-height: 44px;
+
+        padding: 6px 9px;
+
+        gap: 9px;
+    }
+
+
+    .letra-alternativa {
+        width: 27px;
+        height: 27px;
+
+        border-radius: 7px;
+
+        font-size: 10px;
+    }
+
+
+    .texto-alternativa {
+        font-size: 9px;
+    }
+
+
+    .rodape-chat {
+        padding: 9px 12px;
+    }
+
+
+    .campo-status {
+        height: 42px;
+    }
+
+
+    .botao-continuar {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .resultado-interview {
+        padding: 30px 18px;
+
+        border-radius: 18px;
+    }
+
+
+    .resultado-conteudo h2 {
+        font-size: 27px;
+    }
+
+
+    .resultado-porcentagem {
+        flex-direction: column;
+    }
+
+
+    .resultado-porcentagem > div:last-child {
+        text-align: center;
+    }
+
+
+    .rodape-principal {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MUITO PEQUENO
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .textos-hero-interview h1 {
+        font-size: 30px;
+    }
+
+
+    .icone-hero-interview {
+        width: 55px;
+        height: 55px;
+    }
+
+
+    .alternativas-entrevista {
+        width: calc(100% - 40px);
+
+        margin-left: 40px;
+    }
+
+
+    .texto-alternativa {
+        font-size: 8.5px;
+    }
+
+
+    .painel-progresso {
+        padding: 17px;
+    }
+
+}
 
 
