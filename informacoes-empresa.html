@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXT WORK - Informações da Empresa</title>
+
+    <link rel="stylesheet" href="informacoes-empresa.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= MENU LATERAL ================= -->
+        <aside class="sidebar">
+
+            <div>
+
+                <!-- LOGO -->
+                <div class="company-logo-wrap">
+
+                    <img
+                        src="imagens/logo-empresa.png"
+                        alt="Logo da empresa"
+                        class="company-logo"
+                        id="companyLogo"
+                    >
+
+                    <input
+                        type="file"
+                        id="logoUpload"
+                        accept="image/*"
+                        hidden
+                    >
+
+                    <button
+                        class="change-logo-btn"
+                        id="changeLogoBtn"
+                        type="button"
+                    >
+                        Alterar foto
+                    </button>
+
+                </div>
+
+
+                <!-- MENU -->
+                <nav class="side-nav">
+
+                    <a
+                        class="nav-item"
+                        href="empresaperfil.html"
+                    >
+
+                        <img
+                            src="casa.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Início</span>
+
+                    </a>
+
+
+                    <!-- ATIVO -->
+                    <a
+                        class="nav-item active"
+                        href="informacoes-empresa.html"
+                    >
+
+                        <img
+                            src="empresa .png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Informações da empresa</span>
+
+                    </a>
+
+
+                    <a
+                        class="nav-item"
+                        href="publicar-vaga.html"
+                    >
+
+                        <img
+                            src="mais.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Publicar e criar vaga</span>
+
+                    </a>
+
+
+                    <a
+                        class="nav-item"
+                        href="minhas-vagas.html"
+                    >
+
+                        <img
+                            src="paper.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Minhas vagas</span>
+
+                    </a>
+
+
+                    <a
+                        class="nav-item"
+                        href="candidatos.html"
+                    >
+
+                        <img
+                            src="pesso.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Ver candidatos</span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- ALTERNAR PERFIL -->
+            <a
+                class="switch-profile"
+                href="perfil-candidato.html"
+            >
+
+                <img
+                    src="persons.png"
+                    alt=""
+                    class="switch-profile-icon"
+                >
+
+                <span>
+                    Alternar para perfil<br>
+                    de candidato
+                </span>
+
+                <b>›</b>
+
+            </a>
+
+        </aside>
+
+
+
+        <!-- ================= CONTEÚDO ================= -->
+        <main class="main">
+
+
+            <!-- TÍTULO -->
+            <div class="page-header">
+
+                <div>
+
+                    <p class="breadcrumb">
+                        Empresa / Informações
+                    </p>
+
+                    <h1>
+                        Informações da empresa
+                    </h1>
+
+                    <p>
+                        Gerencie e mantenha os dados da sua empresa atualizados.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= PERFIL ================= -->
+            <section class="company-card" id="companyInfo">
+
+
+                <!-- ================= VISUALIZAÇÃO ================= -->
+                <div class="view-mode">
+
+
+                    <!-- CABEÇALHO DA EMPRESA -->
+                    <div class="company-header">
+
+                        <div class="company-main-logo">
+
+                            <img
+                                src="imagens/logo-empresa.png"
+                                alt="Logo da empresa"
+                                id="mainCompanyLogo"
+                            >
+
+                        </div>
+
+
+                        <div class="company-header-text">
+
+                            <h2 id="companyName">
+                                Tech Solutions Ltda
+                            </h2>
+
+                            <p id="companyDescription">
+                                Inovação e tecnologia para um futuro melhor.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="line"></div>
+
+
+
+                    <!-- SOBRE -->
+                    <section class="info-section">
+
+                        <div class="section-title">
+
+                            <img
+                                src="empresa .png"
+                                alt=""
+                            >
+
+                            <div>
+
+                                <h3>
+                                    Sobre a empresa
+                                </h3>
+
+                                <p>
+                                    Conte um pouco mais sobre sua empresa.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <p
+                            class="about-text"
+                            id="aboutText"
+                        >
+
+                            A Tech Solutions é uma empresa de tecnologia
+                            que desenvolve soluções inovadoras para empresas
+                            de todos os portes.
+
+                        </p>
+
+                    </section>
+
+
+
+                    <!-- DADOS -->
+                    <section class="info-section">
+
+                        <h3 class="information-title">
+                            Dados da empresa
+                        </h3>
+
+
+                        <div class="information-grid">
+
+
+                            <div class="info-box">
+
+                                <span>
+                                    Nome da empresa
+                                </span>
+
+                                <strong id="infoCompanyName">
+                                    Tech Solutions Ltda
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <span>
+                                    CNPJ
+                                </span>
+
+                                <strong id="companyCnpj">
+                                    12.345.678/0001-90
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <span>
+                                    E-mail
+                                </span>
+
+                                <strong id="companyEmail">
+                                    contato@techsolutions.com
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <span>
+                                    Telefone
+                                </span>
+
+                                <strong id="companyPhone">
+                                    (11) 98765-4321
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <span>
+                                    Localização
+                                </span>
+
+                                <strong id="companyLocation">
+                                    São Paulo, SP
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <span>
+                                    Segmento
+                                </span>
+
+                                <strong id="companySector">
+                                    Tecnologia
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <span>
+                                    Site
+                                </span>
+
+                                <strong id="companyWebsite">
+                                    www.techsolutions.com
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- BOTÃO -->
+                    <div class="page-actions">
+
+                        <button
+                            class="btn-edit"
+                            id="editBtn"
+                        >
+                            Editar informações
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= MODO EDIÇÃO ================= -->
+                <div class="edit-mode">
+
+
+                    <!-- FOTO -->
+                    <section class="edit-logo-section">
+
+                        <div class="edit-logo">
+
+                            <img
+                                src="imagens/logo-empresa.png"
+                                alt=""
+                                id="editCompanyLogo"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Logo da empresa
+                            </h3>
+
+                            <p>
+                                Escolha uma imagem para representar sua empresa.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- SOBRE -->
+                    <section class="form-section">
+
+                        <h3>
+                            Sobre a empresa
+                        </h3>
+
+                        <label>
+
+                            Descrição da empresa
+
+                            <textarea
+                                id="editAboutText"
+                            ></textarea>
+
+                        </label>
+
+                    </section>
+
+
+
+                    <!-- INFORMAÇÕES -->
+                    <section class="form-section">
+
+                        <h3>
+                            Dados da empresa
+                        </h3>
+
+
+                        <div class="form-grid">
+
+
+                            <label>
+
+                                Nome da empresa
+
+                                <input
+                                    type="text"
+                                    id="editCompanyName"
+                                >
+
+                            </label>
+
+
+                            <label>
+
+                                CNPJ
+
+                                <input
+                                    type="text"
+                                    id="editCompanyCnpj"
+                                >
+
+                            </label>
+
+
+                            <label>
+
+                                E-mail
+
+                                <input
+                                    type="email"
+                                    id="editCompanyEmail"
+                                >
+
+                            </label>
+
+
+                            <label>
+
+                                Telefone
+
+                                <input
+                                    type="text"
+                                    id="editCompanyPhone"
+                                >
+
+                            </label>
+
+
+                            <label>
+
+                                Localização
+
+                                <input
+                                    type="text"
+                                    id="editCompanyLocation"
+                                >
+
+                            </label>
+
+
+                            <label>
+
+                                Segmento
+
+                                <input
+                                    type="text"
+                                    id="editCompanySector"
+                                >
+
+                            </label>
+
+
+                            <label class="full-width">
+
+                                Site
+
+                                <input
+                                    type="text"
+                                    id="editCompanyWebsite"
+                                >
+
+                            </label>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- BOTÕES -->
+                    <div class="edit-actions">
+
+                        <button
+                            class="btn-save"
+                            id="saveBtn"
+                        >
+                            Salvar alterações
+                        </button>
+
+
+                        <button
+                            class="btn-cancel"
+                            id="cancelBtn"
+                        >
+                            Cancelar
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="informacoes-empresa.js"></script>
+
+</body>
+
+</html>

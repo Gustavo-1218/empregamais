@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NEXT WORK - Minhas Vagas</title>
+
+    <link
+        rel="stylesheet"
+        href="minhas-vagas.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="app">
+
+
+        <!-- ================= MENU LATERAL ================= -->
+
+        <aside class="sidebar">
+
+
+            <div>
+
+
+                <!-- LOGO -->
+
+                <div class="company-logo-wrap">
+
+                    <img
+                        src="imagens/logo-empresa.png"
+                        alt="Logo da empresa"
+                        class="company-logo"
+                        id="companyLogo"
+                    >
+
+                </div>
+
+
+
+                <!-- MENU -->
+
+                <nav class="side-nav">
+
+
+                    <a
+                        class="nav-item"
+                        href="empresaperfil.html"
+                    >
+
+                        <img
+                            src="casa.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Início</span>
+
+                    </a>
+
+
+
+                    <a
+                        class="nav-item"
+                        href="informacoes-empresa.html"
+                    >
+
+                        <img
+                            src="empresa .png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>
+                            Informações da empresa
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        class="nav-item"
+                        href="publicar-vaga.html"
+                    >
+
+                        <img
+                            src="mais.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>
+                            Publicar e criar vaga
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- ATIVO -->
+
+                    <a
+                        class="nav-item active"
+                        href="minhas-vagas.html"
+                    >
+
+                        <img
+                            src="paper.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>
+                            Minhas vagas
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        class="nav-item"
+                        href="candidatos.html"
+                    >
+
+                        <img
+                            src="pesso.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>
+                            Ver candidatos
+                        </span>
+
+                    </a>
+
+
+                </nav>
+
+
+            </div>
+
+
+
+            <!-- ALTERNAR PERFIL -->
+
+            <a
+                class="switch-profile"
+                href="perfil-candidato.html"
+            >
+
+                <img
+                    src="persons.png"
+                    alt=""
+                    class="switch-profile-icon"
+                >
+
+                <span>
+
+                    Alternar para perfil
+
+                    <br>
+
+                    de candidato
+
+                </span>
+
+
+                <b>›</b>
+
+
+            </a>
+
+
+        </aside>
+
+
+
+        <!-- ================= CONTEÚDO ================= -->
+
+        <main class="main">
+
+
+            <!-- ================= CABEÇALHO ================= -->
+
+            <div class="page-header">
+
+
+                <div>
+
+
+                    <p class="breadcrumb">
+
+                        Empresa / Minhas vagas
+
+                    </p>
+
+
+                    <h1>
+
+                        Minhas vagas
+
+                    </h1>
+
+
+                    <p>
+
+                        Gerencie todas as vagas publicadas pela sua empresa.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <a
+                    href="publicar-vaga.html"
+                    class="btn-new-job"
+                >
+
+                    <span>+</span>
+
+                    Publicar nova vaga
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- ================= BUSCA ================= -->
+
+            <section class="search-section">
+
+
+                <div class="search-box">
+
+
+                    <span class="search-icon">
+
+                        🔍
+
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Buscar por vaga..."
+                    >
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ================= CONTADOR ================= -->
+
+            <div class="jobs-info">
+
+
+                <p id="jobsCount">
+
+                    0 vagas encontradas
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- ================= LISTA DE VAGAS ================= -->
+
+            <section
+                class="jobs-list"
+                id="jobsList"
+            >
+
+
+                <!-- AS VAGAS SERÃO CRIADAS PELO JAVASCRIPT -->
+
+
+            </section>
+
+
+
+            <!-- ================= VAGA NÃO ENCONTRADA ================= -->
+
+            <div
+                class="not-found"
+                id="notFound"
+            >
+
+
+                <div class="not-found-icon">
+
+                    🔍
+
+                </div>
+
+
+                <h2>
+
+                    Vaga não encontrada
+
+                </h2>
+
+
+                <p>
+
+                    Não encontramos nenhuma vaga com esse nome.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- ================= SEM VAGAS ================= -->
+
+            <div
+                class="empty-jobs"
+                id="emptyJobs"
+            >
+
+
+                <div class="empty-icon">
+
+                    💼
+
+                </div>
+
+
+                <h2>
+
+                    Você ainda não publicou nenhuma vaga
+
+                </h2>
+
+
+                <p>
+
+                    Comece agora e encontre os melhores candidatos
+                    para a sua empresa.
+
+                </p>
+
+
+                <a
+                    href="publicar-vaga.html"
+                    class="btn-empty"
+                >
+
+                    + Publicar minha primeira vaga
+
+                </a>
+
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <script src="minhas-vagas.js"></script>
+
+
+</body>
+
+</html>

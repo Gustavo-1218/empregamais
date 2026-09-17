@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NEXT WORK - Ver candidatos</title>
+
+    <link
+        rel="stylesheet"
+        href="candidatos.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="app">
+
+
+        <!-- ================= MENU LATERAL ================= -->
+
+        <aside class="sidebar">
+
+
+            <div>
+
+
+                <!-- ================= LOGO ================= -->
+
+                <div class="company-logo-wrap">
+
+                    <img
+                        src="imagens/logo-empresa.png"
+                        alt="Logo da empresa"
+                        class="company-logo"
+                        id="companyLogo"
+                    >
+
+                </div>
+
+
+
+                <!-- ================= MENU ================= -->
+
+                <nav class="side-nav">
+
+
+                    <a
+                        class="nav-item"
+                        href="empresaperfil.html"
+                    >
+
+                        <img
+                            src="casa.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>
+                            Início
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        class="nav-item"
+                        href="informacoes-empresa.html"
+                    >
+
+                        <img
+                            src="empresa .png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>
+                            Informações da empresa
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        class="nav-item"
+                        href="publicar-vaga.html"
+                    >
+
+                        <img
+                            src="mais.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>
+                            Publicar e criar vaga
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        class="nav-item"
+                        href="minhas-vagas.html"
+                    >
+
+                        <img
+                            src="paper.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>
+                            Minhas vagas
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- ATIVO -->
+
+                    <a
+                        class="nav-item active"
+                        href="candidatos.html"
+                    >
+
+                        <img
+                            src="pesso.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>
+                            Ver candidatos
+                        </span>
+
+                    </a>
+
+
+                </nav>
+
+
+            </div>
+
+
+
+            <!-- ================= ALTERNAR PERFIL ================= -->
+
+            <a
+                class="switch-profile"
+                href="perfil-candidato.html"
+            >
+
+                <img
+                    src="persons.png"
+                    alt=""
+                    class="switch-profile-icon"
+                >
+
+                <span>
+
+                    Alternar para perfil
+
+                    <br>
+
+                    de candidato
+
+                </span>
+
+
+                <b>›</b>
+
+
+            </a>
+
+
+        </aside>
+
+
+
+        <!-- ================= CONTEÚDO ================= -->
+
+        <main class="main">
+
+
+            <!-- ================= CABEÇALHO ================= -->
+
+            <div class="page-header">
+
+
+                <div>
+
+
+                    <p class="breadcrumb">
+
+                        Empresa / Candidatos
+
+                    </p>
+
+
+                    <h1>
+
+                        Ver candidatos
+
+                    </h1>
+
+
+                    <p>
+
+                        Acompanhe e gerencie os candidatos que se
+                        inscreveram nas vagas da sua empresa.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= ESTATÍSTICAS ================= -->
+
+            <section class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <span class="stat-label">
+
+                        Total de candidatos
+
+                    </span>
+
+                    <strong
+                        class="stat-number"
+                        id="totalCandidates"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <span class="stat-label">
+
+                        Em análise
+
+                    </span>
+
+                    <strong
+                        class="stat-number cyan"
+                        id="analysisCandidates"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <span class="stat-label">
+
+                        Em entrevista
+
+                    </span>
+
+                    <strong
+                        class="stat-number purple"
+                        id="interviewCandidates"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <span class="stat-label">
+
+                        Concluídos
+
+                    </span>
+
+                    <strong
+                        class="stat-number green"
+                        id="completedCandidates"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ================= BUSCA ================= -->
+
+            <section class="search-section">
+
+
+                <div class="search-box">
+
+
+                    <span class="search-icon">
+
+                        🔍
+
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Buscar candidato..."
+                    >
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ================= CONTADOR ================= -->
+
+            <div class="candidates-info">
+
+                <p id="candidatesCount">
+
+                    0 candidatos encontrados
+
+                </p>
+
+            </div>
+
+
+
+            <!-- ================= LISTA ================= -->
+
+            <section
+                class="candidates-list"
+                id="candidatesList"
+            >
+                <a
+                    href="perfil-candidatohenry.html"
+                    class="candidate-card"
+                    data-status="analysis"
+                >
+
+
+                    <div class="candidate-main">
+
+
+                        <!-- FOTO -->
+
+                        <div class="candidate-photo">
+
+                            <img
+                                src="imagens/maria.jpg"
+                                alt="Henry Gabrield"
+                            >
+
+                        </div>
+
+
+
+                        <!-- INFORMAÇÕES -->
+
+                        <div class="candidate-info">
+
+
+                            <h2 class="candidate-name">
+
+                                Henry Gabriel Silva De Azevedo
+
+                            </h2>
+
+
+                            <p class="candidate-profession">
+
+                                Jovem Aprendiz – Suporte de Informática e Tecnologia
+
+                            </p>
+
+
+                            <p class="candidate-job">
+
+                                Candidatou-se para:
+                                Jovem Aprendiz – Suporte de Informática e Tecnologia
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <!-- STATUS -->
+
+                        <span class="candidate-status status-analysis">
+
+                            Em análise
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="candidate-line"></div>
+
+
+
+                    <!-- DETALHES -->
+
+                    <div class="candidate-details">
+
+
+                        <div class="candidate-detail">
+
+                            📍
+
+                            <strong>
+                                Localização:
+                            </strong>
+
+                            Natal, RN
+
+                        </div>
+
+
+                        <div class="candidate-detail">
+
+                            📅
+
+                            <strong>
+                                Candidatura:
+                            </strong>
+
+                            10 de Setembro
+
+                        </div>
+
+
+                    </div>
+
+
+                </a>
+
+
+
+                <!-- =====================================================
+                     GUSTAVO
+                ====================================================== -->
+
+                <a
+                    href="perfil-gustavo.html"
+                    class="candidate-card"
+                    data-status="interview"
+                >
+
+
+                    <div class="candidate-main">
+
+
+                        <!-- FOTO -->
+
+                        <div class="candidate-photo">
+
+                            <img
+                                src="imagens/joao.jpg"
+                                alt="Gustavo Fabregas"
+                            >
+
+                        </div>
+
+
+
+                        <div class="candidate-info">
+
+
+                            <h2 class="candidate-name">
+
+                               Gustavo Fabregas de Lemos Mesquita
+
+                            </h2>
+
+
+                            <p class="candidate-profession">
+
+                                Arquiteto de Software / Software Architect
+
+                            </p>
+
+
+                            <p class="candidate-job">
+
+                                Candidatou-se para:
+                                Arquiteto de Software / Software Architect
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <span class="candidate-status status-interview">
+
+                            Em entrevista
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="candidate-line"></div>
+
+
+
+                    <div class="candidate-details">
+
+
+                        <div class="candidate-detail">
+
+                            📍
+
+                            <strong>
+                                Localização:
+                            </strong>
+
+                            Natal - RN
+
+                        </div>
+
+
+                        <div class="candidate-detail">
+
+                            📅
+
+                            <strong>
+                                Candidatura:
+                            </strong>
+
+                            07 de Setembro
+
+                        </div>
+
+
+                    </div>
+
+
+                </a>
+
+
+
+                <!-- =====================================================
+                    MARIA EDUARDA
+                ====================================================== -->
+
+                <a
+                    href="perfil-candidato-empresamaria.html"
+                    class="candidate-card"
+                    data-status="completed"
+                >
+
+
+                    <div class="candidate-main">
+
+
+                        <div class="candidate-photo">
+
+                            <img
+                                src="imagens/ana.jpg"
+                                alt="Maria Eduarda Santana Santos"
+                            >
+
+                        </div>
+
+
+
+                        <div class="candidate-info">
+
+
+                            <h2 class="candidate-name">
+
+                                Maria Eduarda Santana Santos
+
+                            </h2>
+
+
+                            <p class="candidate-profession">
+
+                                 Analista de Recursos Humanos Júnior
+
+                            </p>
+
+
+                            <p class="candidate-job">
+
+                                Candidatou-se para:
+                                 Analista de Recursos Humanos Júnior
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <span class="candidate-status status-completed">
+
+                            Concluído
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="candidate-line"></div>
+
+
+
+                    <div class="candidate-details">
+
+
+                        <div class="candidate-detail">
+
+                            📍
+
+                            <strong>
+                                Localização:
+                            </strong>
+
+                            Natal, RN
+
+                        </div>
+
+
+                        <div class="candidate-detail">
+
+                            📅
+
+                            <strong>
+                                Candidatura:
+                            </strong>
+
+                            09 de setembro
+
+                        </div>
+
+
+                    </div>
+
+
+                </a>
+
+
+
+                <!-- =====================================================
+                     JOSUE ALMEIDA 
+                ====================================================== -->
+
+                <a
+                    href="curriculojosue.html"
+                    class="candidate-card"
+                    data-status="interview"
+                >
+
+
+                    <div class="candidate-main">
+
+
+                        <div class="candidate-photo">
+
+                            <img
+                                src="imagens/lucas.jpg"
+                                alt="josue almeida"
+                            >
+
+                        </div>
+
+
+
+                        <div class="candidate-info">
+
+
+                            <h2 class="candidate-name">
+
+                                Josué Almeida De Souza Silva
+
+                            </h2>
+
+
+                            <p class="candidate-profession">
+
+                                Eletricista, Instalações e Manutenção Elétrica
+
+                            </p>
+
+
+                            <p class="candidate-job">
+
+                                Candidatou-se para:
+                                Eletricista, Instalações e Manutenção Elétrica
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <span class="candidate-status status-interview">
+
+                            Em entrevista
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="candidate-line"></div>
+
+
+
+                    <div class="candidate-details">
+
+
+                        <div class="candidate-detail">
+
+                            📍
+
+                            <strong>
+                                Localização:
+                            </strong>
+
+                            Natal, RN
+
+                        </div>
+
+
+                        <div class="candidate-detail">
+
+                            📅
+
+                            <strong>
+                                Candidatura:
+                            </strong>
+
+                            14 de setembro
+
+                        </div>
+
+
+                    </div>
+
+
+                </a>
+
+
+
+                <!-- =====================================================
+                     IZABELY LIMA
+                ====================================================== -->
+
+                <a
+                    href="curriculoizabely.html"
+                    class="candidate-card"
+                    data-status="rejected"
+                >
+
+
+                    <div class="candidate-main">
+
+
+                        <div class="candidate-photo">
+
+                            <img
+                                src="imagens/beatriz.jpg"
+                                alt="Izabely lima"
+                            >
+
+                        </div>
+
+
+
+                        <div class="candidate-info">
+
+
+                            <h2 class="candidate-name">
+
+                                Izabely Lima Marques
+
+                            </h2>
+
+
+                            <p class="candidate-profession">
+
+                                Gestora de Projetos de Tecnologia
+
+                            </p>
+
+
+                            <p class="candidate-job">
+
+                                Candidatou-se para:
+                                Gestora de Projetos de Tecnologia
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <span class="candidate-status status-new">
+
+                            Novo
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="candidate-line"></div>
+
+
+
+                    <div class="candidate-details">
+
+
+                        <div class="candidate-detail">
+
+                            📍
+
+                            <strong>
+                                Localização:
+                            </strong>
+
+                            Natal, RN
+
+                        </div>
+
+
+                        <div class="candidate-detail">
+
+                            📅
+
+                            <strong>
+                                Candidatura:
+                            </strong>
+
+                            03 de Outubro
+
+                        </div>
+
+
+                    </div>
+
+
+                </a>
+
+
+
+                <!-- =====================================================
+                     JULYA MIZRAIM 
+                ====================================================== -->
+
+                <a
+                    href="curriculojulya.html"
+                    class="candidate-card"
+                    data-status="completed"
+                >
+
+
+                    <div class="candidate-main">
+
+
+                        <div class="candidate-photo">
+
+                            <img
+                                src="imagens/gabriel.jpg"
+                                alt="Julya Mizraim"
+                            >
+
+                        </div>
+
+
+
+                        <div class="candidate-info">
+
+
+                            <h2 class="candidate-name">
+
+                                Julya Mizraim De Silva Araújo
+
+                            </h2>
+
+
+                            <p class="candidate-profession">
+
+                                Gestão de Operações
+
+                            </p>
+
+
+                            <p class="candidate-job">
+
+                                Candidatou-se para:
+                                Gestão de Operações
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <span class="candidate-status status-completed">
+
+                            Concluído
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="candidate-line"></div>
+
+
+
+                    <div class="candidate-details">
+
+
+                        <div class="candidate-detail">
+
+                            📍
+
+                            <strong>
+                                Localização:
+                            </strong>
+
+                            Natal, RN
+
+                        </div>
+
+
+                        <div class="candidate-detail">
+
+                            📅
+
+                            <strong>
+                                Candidatura:
+                            </strong>
+
+                            20 de Setembro
+
+                        </div>
+
+
+                    </div>
+
+
+                </a>
+
+
+
+                <!-- =====================================================
+                     GABRIELLY SOPHIA
+                ====================================================== -->
+
+                <a
+                    href="curriculogabrielly.html"
+                    class="candidate-card"
+                    data-status="new"
+                >
+
+
+                    <div class="candidate-main">
+
+
+                        <div class="candidate-photo">
+
+                            <img
+                                src="imagens/juliana.jpg"
+                                alt="Gabrielly Sophia"
+                            >
+
+                        </div>
+
+
+
+                        <div class="candidate-info">
+
+
+                            <h2 class="candidate-name">
+
+                                Gabrielly Sophia Andrade Portela
+
+                            </h2>
+
+
+                            <p class="candidate-profession">
+
+                                Consultoria Estratégica
+
+                            </p>
+
+
+                            <p class="candidate-job">
+
+                                Candidatou-se para:
+                                Consultoria Estratégica
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <span class="candidate-status status-new">
+
+                            Novo
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="candidate-line"></div>
+
+
+
+                    <div class="candidate-details">
+
+
+                        <div class="candidate-detail">
+
+                            📍
+
+                            <strong>
+                                Localização:
+                            </strong>
+
+                            Natal, RN
+
+                        </div>
+
+
+                        <div class="candidate-detail">
+
+                            📅
+
+                            <strong>
+                                Candidatura:
+                            </strong>
+
+                            01 de Outubro
+
+                        </div>
+
+
+                    </div>
+
+
+                </a>
+
+
+            </section>
+
+
+
+            <!-- ================= NÃO ENCONTRADO ================= -->
+
+            <div
+                class="not-found"
+                id="notFound"
+            >
+
+
+                <div class="not-found-icon">
+
+                    🔍
+
+                </div>
+
+
+                <h2>
+
+                    Candidato não encontrado
+
+                </h2>
+
+
+                <p>
+
+                    Não encontramos nenhum candidato com essa busca.
+
+                </p>
+
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <script src="candidatos.js"></script>
+
+
+</body>
+
+</html>

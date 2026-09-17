@@ -1,0 +1,963 @@
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+:root {
+
+    --bg: #020611;
+
+    --card: rgba(5, 13, 37, 0.94);
+
+    --line: rgba(65, 105, 200, 0.28);
+
+    --cyan: #00eaff;
+
+    --text: #edf3ff;
+
+    --muted: #aebbd6;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(58, 20, 150, 0.18),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 90%,
+            rgba(0, 160, 255, 0.12),
+            transparent 30%
+        ),
+
+        #020611;
+
+    color: var(--text);
+
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+
+    width: min(1450px, 94vw);
+
+    margin: 42px auto;
+
+    display: grid;
+
+    grid-template-columns: 315px 1fr;
+
+    gap: 48px;
+
+    align-items: start;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+
+    width: 315px;
+
+    min-height: 780px;
+
+    padding: 24px;
+
+    border: 1px solid rgba(80, 125, 220, 0.22);
+
+    border-radius: 18px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(4, 12, 32, 0.94),
+            rgba(3, 7, 23, 0.92)
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.company-logo-wrap {
+
+    width: 130px;
+
+    height: 130px;
+
+    margin: 0 auto 35px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--cyan);
+
+    overflow: hidden;
+
+    box-shadow:
+
+        0 0 15px rgba(0, 234, 255, 0.30),
+
+        0 0 35px rgba(90, 35, 255, 0.20);
+
+}
+
+
+.company-logo {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.side-nav {
+
+    margin-top: 25px;
+
+}
+
+
+.nav-item {
+
+    min-height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 0 12px;
+
+    margin-bottom: 4px;
+
+    color: #c5cde2;
+
+    text-decoration: none;
+
+    border-left: 2px solid transparent;
+
+    border-radius: 4px;
+
+}
+
+
+.nav-item:hover {
+
+    color: white;
+
+    background: rgba(50, 80, 180, 0.10);
+
+}
+
+
+.nav-item.active {
+
+    color: white;
+
+    border-left-color: var(--cyan);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0, 234, 255, 0.09),
+            rgba(72, 30, 180, 0.08),
+            transparent
+        );
+
+}
+
+
+.menu-icon {
+
+    width: 24px;
+
+    height: 24px;
+
+    object-fit: contain;
+
+}
+
+
+.nav-item.active .menu-icon {
+
+    filter:
+
+        brightness(1.5)
+
+        drop-shadow(0 0 5px #00eaff);
+
+}
+
+
+/* =========================================================
+   ALTERNAR PERFIL
+========================================================= */
+
+.switch-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 13px;
+
+    border: 1px solid rgba(80, 140, 255, 0.55);
+
+    border-radius: 12px;
+
+    color: var(--cyan);
+
+    text-decoration: none;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(36, 16, 66, 0.85),
+            rgba(9, 23, 43, 0.90)
+        );
+
+}
+
+
+.switch-profile-icon {
+
+    width: 32px;
+
+    height: 32px;
+
+    object-fit: contain;
+
+}
+
+
+.switch-profile b {
+
+    margin-left: auto;
+
+    font-size: 25px;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.breadcrumb {
+
+    color: var(--cyan);
+
+    font-size: 13px;
+
+    margin: 0 0 10px;
+
+}
+
+
+.page-header h1 {
+
+    margin: 0 0 8px;
+
+    font-size: 32px;
+
+}
+
+
+.page-header p:last-child {
+
+    color: var(--muted);
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   BOTÃO NOVA VAGA
+========================================================= */
+
+.btn-new-job {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 14px 20px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #7212dc,
+            #244cff
+        );
+
+    border: 1px solid rgba(0, 234, 255, 0.45);
+
+    transition: 0.2s;
+
+}
+
+
+.btn-new-job span {
+
+    font-size: 22px;
+
+}
+
+
+.btn-new-job:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+
+        0 8px 25px rgba(67, 55, 255, 0.30);
+
+}
+
+
+/* =========================================================
+   BUSCA
+========================================================= */
+
+.search-section {
+
+    margin-bottom: 20px;
+
+}
+
+
+.search-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 18px;
+
+    height: 56px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(65, 105, 200, 0.30);
+
+    background:
+
+        rgba(7, 16, 42, 0.75);
+
+}
+
+
+.search-icon {
+
+    font-size: 19px;
+
+    opacity: 0.7;
+
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 15px;
+
+}
+
+
+.search-box input::placeholder {
+
+    color: #75819c;
+
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+.jobs-info {
+
+    margin-bottom: 18px;
+
+}
+
+
+.jobs-info p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   LISTA DE VAGAS
+========================================================= */
+
+.jobs-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+
+/* =========================================================
+   CARD DA VAGA
+========================================================= */
+
+.job-card {
+
+    padding: 24px;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(65, 105, 200, 0.28);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(6, 16, 43, 0.95),
+            rgba(4, 9, 29, 0.92)
+        );
+
+    transition: 0.2s;
+
+}
+
+
+.job-card:hover {
+
+    border-color: rgba(0, 234, 255, 0.45);
+
+    transform: translateY(-2px);
+
+}
+
+
+.job-card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+}
+
+
+.job-title {
+
+    margin: 0 0 9px;
+
+    font-size: 21px;
+
+}
+
+
+.job-company {
+
+    color: var(--muted);
+
+    margin: 0;
+
+    font-size: 14px;
+
+}
+
+
+/* STATUS */
+
+.job-status {
+
+    padding: 7px 13px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+}
+
+
+.status-active {
+
+    color: #3dffb2;
+
+    background: rgba(0, 255, 160, 0.10);
+
+    border: 1px solid rgba(0, 255, 160, 0.25);
+
+}
+
+
+/* LINHA */
+
+.job-line {
+
+    height: 1px;
+
+    background: rgba(65, 105, 200, 0.22);
+
+    margin: 20px 0;
+
+}
+
+
+/* INFORMAÇÕES */
+
+.job-details {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px 28px;
+
+}
+
+
+.job-detail {
+
+    color: #b8c5dc;
+
+    font-size: 14px;
+
+}
+
+
+.job-detail strong {
+
+    color: white;
+
+    font-weight: 500;
+
+}
+
+
+/* RODAPÉ */
+
+.job-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 22px;
+
+}
+
+
+.job-date {
+
+    color: #7e8aa3;
+
+    font-size: 13px;
+
+}
+
+
+.job-candidates {
+
+    color: var(--cyan);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   VAGA NÃO ENCONTRADA
+========================================================= */
+
+.not-found {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 65px 20px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(65, 105, 200, 0.25);
+
+    background: rgba(5, 13, 37, 0.75);
+
+}
+
+
+.not-found-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.not-found h2 {
+
+    margin: 0 0 10px;
+
+    font-size: 22px;
+
+}
+
+
+.not-found p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================================
+   SEM VAGAS
+========================================================= */
+
+.empty-jobs {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 70px 25px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(65, 105, 200, 0.25);
+
+    background: rgba(5, 13, 37, 0.75);
+
+}
+
+
+.empty-icon {
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.empty-jobs h2 {
+
+    margin: 0 0 12px;
+
+    font-size: 22px;
+
+}
+
+
+.empty-jobs p {
+
+    max-width: 500px;
+
+    margin: 0 auto 25px;
+
+    color: var(--muted);
+
+    line-height: 1.6;
+
+}
+
+
+.btn-empty {
+
+    display: inline-block;
+
+    padding: 14px 20px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #7212dc,
+            #244cff
+        );
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .app {
+
+        grid-template-columns: 1fr;
+
+        width: 94vw;
+
+    }
+
+
+    .sidebar {
+
+        width: 100%;
+
+        min-height: auto;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .page-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .btn-new-job {
+
+        width: 100%;
+
+    }
+
+
+    .job-card-top {
+
+        flex-direction: column;
+
+    }
+
+
+    .job-footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+    }
+
+}
+/* ========================================================= 
+   AÇÕES DA VAGA
+========================================================= */
+
+.job-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.btn-delete-job {
+
+    padding: 10px 16px;
+
+    border: 1px solid rgba(255, 80, 100, 0.45);
+
+    border-radius: 8px;
+
+    background: rgba(255, 60, 80, 0.08);
+
+    color: #ff7180;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.btn-delete-job:hover {
+
+    background: rgba(255, 60, 80, 0.18);
+
+    border-color: #ff5265;
+
+    transform: translateY(-1px);
+
+}
+
+
+.btn-delete-job:active {
+
+    transform: translateY(0);
+
+}
+
+
+@media (max-width: 650px) {
+
+    .job-actions {
+
+        width: 100%;
+
+    }
+
+
+    .btn-delete-job {
+
+        width: 100%;
+
+    }
+
+}
+
+/* =========================================================
+   VAGA EXPIRADA
+========================================================= */
+
+.status-expired {
+
+    color: #ff7b7b;
+
+    background:
+        rgba(
+            255,
+            80,
+            80,
+            0.10
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            80,
+            80,
+            0.25
+        );
+
+}

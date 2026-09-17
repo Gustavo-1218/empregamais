@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXT WORK - Perfil da Empresa</title>
+
+    <link rel="stylesheet" href="empresaperfil.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= MENU LATERAL ================= -->
+        <aside class="sidebar">
+
+            <!-- PARTE DE CIMA -->
+            <div>
+
+                <!-- LOGO DA EMPRESA -->
+                <div class="company-logo-wrap">
+
+                    <img
+                        src="imagens/logo-empresa.png"
+                        alt="Logo da empresa"
+                        class="company-logo"
+                        id="companyLogo"
+                    >
+
+                    <!-- INPUT PARA ESCOLHER A FOTO -->
+                    <input
+                        type="file"
+                        id="logoUpload"
+                        accept="image/*"
+                        hidden
+                    >
+
+                    <!-- BOTÃO PARA TROCAR A FOTO -->
+                    <button
+                        class="change-logo-btn"
+                        id="changeLogoBtn"
+                        type="button"
+                        title="Alterar logo"
+                    >
+                        Alterar foto
+                    </button>
+
+                </div>
+
+
+                <!-- MENU -->
+                <nav class="side-nav">
+
+                    <!-- INÍCIO -->
+                    <a class="nav-item active" href="#inicio">
+
+                        <img
+                            src="casa.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Início</span>
+
+                    </a>
+
+
+                    <!-- INFORMAÇÕES -->
+                    <a class="nav-item" href="informacoes-empresa.html">
+
+                        <img
+                            src="empresa .png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Informações da empresa</span>
+
+                    </a>
+
+
+                    <!-- PUBLICAR VAGA -->
+                    <a class="nav-item" href="publicar-vaga.html">
+
+                        <img
+                            src="mais.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Publicar e criar vaga</span>
+
+                    </a>
+
+
+                    <!-- MINHAS VAGAS -->
+                    <a class="nav-item" href="minhas-vagas.html">
+
+                        <img
+                            src="paper.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Minhas vagas</span>
+
+                    </a>
+
+
+                    <!-- VER CANDIDATOS -->
+                    <a class="nav-item" href="candidatos.html">
+
+                        <img
+                            src="pesso.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Ver candidatos</span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- ================= BOTÃO LÁ EMBAIXO ================= -->
+            <a
+                class="switch-profile"
+                href="perfil-candidato.html"
+            >
+
+                <img
+                    src="persons.png"
+                    alt=""
+                    class="switch-profile-icon"
+                >
+
+                <span>
+                    Alternar para perfil<br>
+                    de candidato
+                </span>
+
+                <b>›</b>
+
+            </a>
+
+        </aside>
+
+
+
+        <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+        <main class="main" id="inicio">
+
+
+            <!-- ================= PERFIL DA EMPRESA ================= -->
+            <section class="hero-card" id="heroInfo">
+
+                <div class="hero-company">
+
+                    <!-- LOGO PRINCIPAL -->
+                    <div class="hero-logo">
+
+                        <img
+                            src="imagens/logo-empresa.png"
+                            alt="Logo da empresa"
+                            id="heroLogo"
+                        >
+
+                    </div>
+
+
+                    <div class="hero-text">
+
+                        <!-- VISUALIZAÇÃO -->
+                        <div class="view-mode">
+
+                            <h1 id="heroName">
+                                Tech Solutions Ltda
+                            </h1>
+
+                            <p id="heroDescription">
+                                Inovação e tecnologia para um futuro melhor.
+                            </p>
+
+
+                            <div class="hero-meta">
+
+                                <span>
+                                    Localização:
+                                    <strong id="heroLocation">
+                                        São Paulo, SP
+                                    </strong>
+                                </span>
+
+                                <span>
+                                    Segmento:
+                                    <strong id="heroSector">
+                                        Tecnologia
+                                    </strong>
+                                </span>
+
+                                <span>
+                                    Site:
+                                    <strong id="heroWebsite">
+                                        www.techsolutions.com
+                                    </strong>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MODO DE EDIÇÃO -->
+                        <div class="edit-mode">
+
+                            <div class="edit-grid">
+
+                                <label>
+                                    Nome da empresa
+                                    <input type="text" id="editHeroName">
+                                </label>
+
+                                <label>
+                                    Segmento
+                                    <input type="text" id="editHeroSector">
+                                </label>
+
+                                <label>
+                                    Localização
+                                    <input type="text" id="editHeroLocation">
+                                </label>
+
+                                <label>
+                                    Site
+                                    <input type="text" id="editHeroWebsite">
+                                </label>
+
+                            </div>
+
+                            <label>
+                                Descrição
+                                <input type="text" id="editHeroDescription">
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÕES -->
+                <div class="hero-actions">
+
+                    <button
+                        class="btn-outline edit-btn"
+                        data-target="heroInfo"
+                    >
+                        Editar informações
+                    </button>
+
+
+                    <div class="editing-actions">
+
+                        <button
+                            class="btn-save save-btn"
+                            data-target="heroInfo"
+                        >
+                            Salvar
+                        </button>
+
+                        <button
+                            class="btn-cancel cancel-btn"
+                            data-target="heroInfo"
+                        >
+                            Cancelar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= CARDS ================= -->
+            <section class="stats">
+
+                <article class="stat-card">
+
+                    <!-- ================= CARDS ================= -->
+
+<section class="stats">
+
+
+    <!-- TOTAL DE VAGAS -->
+
+    <article class="stat-card">
+
+        <div class="stat-icon">
+
+            <img
+                src="bolsa.png"
+                alt=""
+            >
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Total de vagas
+            </span>
+
+            <strong id="totalJobs">
+
+                0
+
+            </strong>
+
+        </div>
+
+
+        <b class="arrow">
+
+            ›
+
+        </b>
+
+
+    </article>
+
+
+
+    <!-- CANDIDATOS RECEBIDOS -->
+
+    <article class="stat-card">
+
+        <div class="stat-icon purple">
+
+            <img
+                src="pess.png"
+                alt=""
+            >
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Candidatos recebidos
+            </span>
+
+            <strong>
+
+                7
+
+            </strong>
+
+        </div>
+
+
+        <b class="arrow">
+
+            ›
+
+        </b>
+
+
+    </article>
+
+
+
+    <!-- VAGAS ATIVAS -->
+
+    <article class="stat-card">
+
+        <div class="stat-icon">
+
+            <img
+                src="papelazu.png"
+                alt=""
+            >
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Vagas ativas
+            </span>
+
+            <strong id="activeJobs">
+
+                0
+
+            </strong>
+
+        </div>
+
+
+        <b class="arrow">
+
+            ›
+
+        </b>
+
+
+    </article>
+
+
+
+    <!-- VAGAS EXPIRADAS -->
+
+    <article class="stat-card">
+
+        <div class="stat-icon purple">
+
+            <img
+                src="temp.png"
+                alt=""
+            >
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Vagas expiradas
+            </span>
+
+            <strong id="expiredJobs">
+
+                0
+
+            </strong>
+
+        </div>
+
+
+        <b class="arrow">
+
+            ›
+
+        </b>
+
+
+    </article>
+
+
+</section>
+                </article>
+
+            </section>
+
+
+
+            <!-- ================= GRID CENTRAL ================= -->
+            <div class="content-grid">
+
+
+                <!-- ================= SOBRE A EMPRESA ================= -->
+                <section class="panel about-panel" id="companyInfo">
+
+                    <div class="panel-title">
+
+                        <span class="panel-icon">
+                            <img src="empresa .png" alt="">
+                        </span>
+
+                        <div>
+                            <h2>Sobre a empresa</h2>
+
+                            <p>
+                                Mantenha as informações da empresa
+                                sempre atualizadas.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- VISUALIZAÇÃO -->
+                    <div class="company-view view-mode">
+
+                        <p class="about-text" id="aboutText">
+                            A Tech Solutions é uma empresa de tecnologia
+                            que desenvolve soluções inovadoras para empresas
+                            de todos os portes.
+                        </p>
+
+
+                        <div class="info-list">
+
+                            <div>
+                                <span>Nome da empresa</span>
+                                <strong id="companyName">Tech Solutions Ltda</strong>
+                            </div>
+
+                            <div>
+                                <span>CNPJ</span>
+                                <strong id="companyCnpj">12.345.678/0001-90</strong>
+                            </div>
+
+                            <div>
+                                <span>E-mail</span>
+                                <strong id="companyEmail">contato@techsolutions.com</strong>
+                            </div>
+
+                            <div>
+                                <span>Telefone</span>
+                                <strong id="companyPhone">(11) 98765-4321</strong>
+                            </div>
+
+                            <div>
+                                <span>Localização</span>
+                                <strong id="companyLocation">São Paulo, SP</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EDIÇÃO -->
+                    <div class="company-edit edit-mode">
+
+                        <label>
+                            Sobre a empresa
+                            <textarea id="editAboutText"></textarea>
+                        </label>
+
+
+                        <div class="form-grid">
+
+                            <label>
+                                Nome da empresa
+                                <input type="text" id="editCompanyName">
+                            </label>
+
+                            <label>
+                                CNPJ
+                                <input type="text" id="editCompanyCnpj">
+                            </label>
+
+                            <label>
+                                E-mail
+                                <input type="email" id="editCompanyEmail">
+                            </label>
+
+                            <label>
+                                Telefone
+                                <input type="text" id="editCompanyPhone">
+                            </label>
+
+                            <label>
+                                Localização
+                                <input type="text" id="editCompanyLocation">
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOTÕES -->
+                    <div class="panel-actions">
+
+                        <button
+                            class="btn-outline edit-btn"
+                            data-target="companyInfo"
+                        >
+                            Editar informações
+                        </button>
+
+
+                        <div class="editing-actions">
+
+                            <button
+                                class="btn-save save-btn"
+                                data-target="companyInfo"
+                            >
+                                Salvar
+                            </button>
+
+                            <button
+                                class="btn-cancel cancel-btn"
+                                data-target="companyInfo"
+                            >
+                                Cancelar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ================= ÚLTIMAS VAGAS ================= -->
+                <section class="panel jobs-panel" id="publicar">
+
+                    <div class="section-head">
+
+                        <div class="panel-title small">
+
+                            <span class="panel-icon">
+                                <img src="bolsa.png" alt="">
+                            </span>
+
+                            <h2>Últimas vagas publicadas</h2>
+
+                        </div>
+
+
+                        <a class="see-all" href="minhas-vagas.html">
+                            Ver todos <b>→</b>
+                        </a>
+
+                    </div>
+
+                    <div class="job-list" id="latestJobs">
+
+    <!-- As últimas vagas serão adicionadas pelo JavaScript -->
+
+                    </div> 
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+
+            <!-- ================= CANDIDATOS RECENTES ================= -->
+            <section class="panel candidates-panel">
+
+                <div class="section-head">
+
+                    <div class="panel-title small">
+
+                        <span class="panel-icon">
+                            <img
+                                src="persons.png"
+                                alt=""
+                            >
+                        </span>
+
+                        <h2>Candidatos recentes</h2>
+
+                    </div>
+
+
+                    <a class="see-all" href="candidatos.html">
+                        Ver todos <b>→</b>
+                    </a>
+
+                </div>
+
+
+                <div class="candidate-table">
+
+                    <div class="table-header">
+                        <span>Nome</span>
+                        <span>Vaga de interesse</span>
+                        <span>Data de candidatura</span>
+                        <span>Status</span>
+                        <span></span>
+                    </div>
+
+                    <div class="candidate-row">
+                        <span class="candidate-name">
+                            <div class="candidate-avatar">
+                                <img src="imagens/candidato1.jpg" alt="">
+                            </div>
+                            Henry Gabriel Silva De Azevedo
+                        </span>
+
+                        <span>Jovem Aprendiz – Suporte de Informática e Tecnologia</span>
+                        <span>10/09/2026</span>
+                        <span class="status analysis">Em análise</span>
+                    </div>
+
+
+                    <div class="candidate-row">
+                        <span class="candidate-name">
+                            <div class="candidate-avatar">
+                                <img src="imagens/candidato2.jpg" alt="">
+                            </div>
+                            Izabely Lima Marques
+                        </span>
+
+                        <span>Gestora de Projetos de Tecnologia</span>
+                        <span>03/10/2026</span>
+                        <span class="status new">Novo</span>
+                    </div>
+
+
+                    <div class="candidate-row">
+                        <span class="candidate-name">
+                            <div class="candidate-avatar">
+                                <img src="imagens/candidato3.jpg" alt="">
+                            </div>
+                            Gustavo Fabregas De Lemos Mesquita
+                        </span>
+
+                        <span>Arquiteto de Software / Software Architect</span>
+                        <span>07/09/2026</span>
+                        <span class="status interview">Entrevista</span>
+                    </div>
+
+
+                    <div class="candidate-row">
+                        <span class="candidate-name">
+                            <div class="candidate-avatar">
+                                <img src="imagens/candidato4.jpg" alt="">
+                            </div>
+                            Maria Eduarda Santana Santos
+                        </span>
+
+                        <span>Analista de Recursos Humanos Júnior</span>
+                        <span>09/09/2026</span>
+                        <span class="status new">Concluído</span>
+                    </div>
+
+
+                    <div class="candidate-row">
+                        <span class="candidate-name">
+                            <div class="candidate-avatar">
+                                <img src="imagens/candidato5.jpg" alt="">
+                            </div>
+                            Julya Mizraim Silva Araújo
+                        </span>
+
+                        <span>Gestão de Operações</span>
+                        <span>20/09/2026</span>
+                        <span class="status new">Concluído</span>
+                    </div>
+
+
+                    <div class="candidate-row">
+                        <span class="candidate-name">
+                            <div class="candidate-avatar">
+                                <img src="imagens/candidato6.jpg" alt="">
+                            </div>
+                            Josué Almeida De Souza Silva
+                        </span>
+
+                        <span>Eletricista, Instalações e Manutenção Elétrica</span>
+                        <span>14/09/2026</span>
+                        <span class="status interview">Entrevista</span>
+                    </div>
+
+
+                    <div class="candidate-row">
+                        <span class="candidate-name">
+                            <div class="candidate-avatar">
+                                <img src="imagens/candidato7.jpg" alt="">
+                            </div>
+                            Gabrielly Sophia Andrade Portela
+                        </span>
+
+                        <span>Consultoria Estratégica</span>
+                        <span>01/10/2026</span>
+                        <span class="status new">Novo</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="empresaperfil.js"></script>
+
+</body>
+
+</html>

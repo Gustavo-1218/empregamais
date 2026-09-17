@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXT WORK - Publicar e criar vaga</title>
+
+    <link rel="stylesheet" href="publicar-vaga.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+
+        <!-- ================= MENU LATERAL ================= -->
+
+        <aside class="sidebar">
+
+            <div>
+
+
+                <!-- LOGO -->
+
+                <div class="company-logo-wrap">
+
+                    <img
+                        src="imagens/logo-empresa.png"
+                        alt="Logo da empresa"
+                        class="company-logo"
+                        id="companyLogo"
+                    >
+
+                    <input
+                        type="file"
+                        id="logoUpload"
+                        accept="image/*"
+                        hidden
+                    >
+
+                    <button
+                        class="change-logo-btn"
+                        id="changeLogoBtn"
+                        type="button"
+                    >
+                        Alterar foto
+                    </button>
+
+                </div>
+
+
+                <!-- MENU -->
+
+                <nav class="side-nav">
+
+
+                    <a
+                        class="nav-item"
+                        href="empresaperfil.html"
+                    >
+
+                        <img
+                            src="casa.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Início</span>
+
+                    </a>
+
+
+                    <a
+                        class="nav-item"
+                        href="informacoes-empresa.html"
+                    >
+
+                        <img
+                            src="empresa .png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Informações da empresa</span>
+
+                    </a>
+
+
+                    <a
+                        class="nav-item active"
+                        href="publicar-vaga.html"
+                    >
+
+                        <img
+                            src="mais.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Publicar e criar vaga</span>
+
+                    </a>
+
+
+                    <a
+                        class="nav-item"
+                        href="minhas-vagas.html"
+                    >
+
+                        <img
+                            src="paper.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Minhas vagas</span>
+
+                    </a>
+
+
+                    <a
+                        class="nav-item"
+                        href="candidatos.html"
+                    >
+
+                        <img
+                            src="pesso.png"
+                            alt=""
+                            class="menu-icon"
+                        >
+
+                        <span>Ver candidatos</span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- ALTERNAR PERFIL -->
+
+            <a
+                class="switch-profile"
+                href="perfil-candidato.html"
+            >
+
+                <img
+                    src="persons.png"
+                    alt=""
+                    class="switch-profile-icon"
+                >
+
+                <span>
+                    Alternar para perfil<br>
+                    de candidato
+                </span>
+
+                <b>›</b>
+
+            </a>
+
+        </aside>
+
+
+
+        <!-- ================= CONTEÚDO ================= -->
+
+        <main class="main">
+
+
+            <!-- HEADER -->
+
+            <div class="page-header">
+
+                <p class="breadcrumb">
+                    Empresa / Vagas / Criar vaga
+                </p>
+
+                <h1>
+                    Publicar e criar vaga
+                </h1>
+
+                <p>
+                    Preencha as informações para criar uma nova oportunidade.
+                </p>
+
+            </div>
+
+
+
+            <!-- ================= ETAPAS ================= -->
+
+            <div class="steps">
+
+
+                <div class="step active" id="stepIndicator1">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Dados da vaga
+                        </strong>
+
+                        <span>
+                            Informações principais
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <div class="step" id="stepIndicator2">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Requisitos
+                        </strong>
+
+                        <span>
+                            Perfil procurado
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <div class="step" id="stepIndicator3">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Revisar
+                        </strong>
+
+                        <span>
+                            Publicar vaga
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= ÁREA PRINCIPAL ================= -->
+
+            <div class="content-layout">
+
+
+                <!-- ================= FORMULÁRIO ================= -->
+
+                <section class="form-card">
+
+
+                    <!-- ================= ETAPA 1 ================= -->
+
+                    <div
+                        class="form-step active-step"
+                        id="formStep1"
+                    >
+
+                        <div class="card-header">
+
+                            <h2>
+                                Dados da vaga
+                            </h2>
+
+                            <p>
+                                Informe os dados principais da oportunidade.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- CARGO -->
+
+                            <label class="full-width">
+
+                                Título da vaga
+
+                                <input
+                                    type="text"
+                                    id="jobTitle"
+                                    placeholder="Ex: Desenvolvedor Front-end"
+                                >
+
+                            </label>
+
+
+                            <!-- LOCALIZAÇÃO -->
+
+                            <label>
+
+                                Localização
+
+                                <input
+                                    type="text"
+                                    id="jobLocation"
+                                    placeholder="Ex: São Paulo, SP"
+                                >
+
+                            </label>
+
+
+                            <!-- MODALIDADE -->
+
+                            <label>
+
+                                Modalidade
+
+                                <select id="jobType">
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option value="Presencial">
+                                        Presencial
+                                    </option>
+
+                                    <option value="Remoto">
+                                        Remoto
+                                    </option>
+
+                                    <option value="Híbrido">
+                                        Híbrido
+                                    </option>
+
+                                </select>
+
+                            </label>
+
+
+                            <!-- TIPO DE CONTRATO -->
+
+                            <label>
+
+                                Tipo de contrato
+
+                                <select id="jobContract">
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option value="CLT">
+                                        CLT
+                                    </option>
+
+                                    <option value="PJ">
+                                        PJ
+                                    </option>
+
+                                    <option value="Estágio">
+                                        Estágio
+                                    </option>
+
+                                    <option value="Freelancer">
+                                        Freelancer
+                                    </option>
+
+                                    <option value="Temporário">
+                                        Temporário
+                                    </option>
+
+                                </select>
+
+                            </label>
+
+
+                            <!-- SALÁRIO -->
+
+                            <label>
+
+                                Faixa salarial
+
+                                <input
+                                    type="text"
+                                    id="jobSalary"
+                                    placeholder="Ex: R$ 3.000 - R$ 5.000"
+                                >
+
+                            </label>
+
+
+                            <!-- ÁREA -->
+
+                            <label>
+
+                                Área
+
+                                <input
+                                    type="text"
+                                    id="jobArea"
+                                    placeholder="Ex: Tecnologia"
+                                >
+
+                            </label>
+
+
+                            <!-- DESCRIÇÃO -->
+
+                            <label class="full-width">
+
+                                Descrição da vaga
+
+                                <textarea
+                                    id="jobDescription"
+                                    placeholder="Descreva as principais informações e responsabilidades da vaga..."
+                                ></textarea>
+
+                            </label>
+
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <div></div>
+
+                            <button
+                                class="btn-primary"
+                                id="nextStep1"
+                                type="button"
+                            >
+                                Próximo passo
+                                <span>›</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================= ETAPA 2 ================= -->
+
+                    <div
+                        class="form-step"
+                        id="formStep2"
+                    >
+
+                        <div class="card-header">
+
+                            <h2>
+                                Requisitos da vaga
+                            </h2>
+
+                            <p>
+                                Informe o perfil e os conhecimentos procurados.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- EXPERIÊNCIA -->
+
+                            <label>
+
+                                Nível de experiência
+
+                                <select id="jobExperience">
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option value="Sem experiência">
+                                        Sem experiência
+                                    </option>
+
+                                    <option value="Júnior">
+                                        Júnior
+                                    </option>
+
+                                    <option value="Pleno">
+                                        Pleno
+                                    </option>
+
+                                    <option value="Sênior">
+                                        Sênior
+                                    </option>
+
+                                </select>
+
+                            </label>
+
+
+                            <!-- ESCOLARIDADE -->
+
+                            <label>
+
+                                Escolaridade
+
+                                <select id="jobEducation">
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option value="Ensino Fundamental">
+                                        Ensino Fundamental
+                                    </option>
+
+                                    <option value="Ensino Médio">
+                                        Ensino Médio
+                                    </option>
+
+                                    <option value="Curso Técnico">
+                                        Curso Técnico
+                                    </option>
+
+                                    <option value="Ensino Superior">
+                                        Ensino Superior
+                                    </option>
+
+                                    <option value="Pós-graduação">
+                                        Pós-graduação
+                                    </option>
+
+                                </select>
+
+                            </label>
+
+
+                            <!-- HABILIDADES -->
+
+                            <label class="full-width">
+
+                                Habilidades e conhecimentos
+
+                                <textarea
+                                    id="jobSkills"
+                                    placeholder="Ex: HTML, CSS, JavaScript, trabalho em equipe..."
+                                ></textarea>
+
+                            </label>
+
+
+                            <!-- REQUISITOS -->
+
+                            <label class="full-width">
+
+                                Requisitos adicionais
+
+                                <textarea
+                                    id="jobRequirements"
+                                    placeholder="Informe outros requisitos importantes para esta vaga..."
+                                ></textarea>
+
+                            </label>
+
+
+                            <!-- BENEFÍCIOS -->
+
+                            <label class="full-width">
+
+                                Benefícios
+
+                                <textarea
+                                    id="jobBenefits"
+                                    placeholder="Ex: Vale transporte, vale alimentação, plano de saúde..."
+                                ></textarea>
+
+                            </label>
+
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                class="btn-secondary"
+                                id="backStep1"
+                                type="button"
+                            >
+                                ‹ Voltar
+                            </button>
+
+
+                            <button
+                                class="btn-primary"
+                                id="nextStep2"
+                                type="button"
+                            >
+                                Revisar vaga
+                                <span>›</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================= ETAPA 3 ================= -->
+
+                    <div
+                        class="form-step"
+                        id="formStep3"
+                    >
+
+                        <div class="card-header">
+
+                            <h2>
+                                Revisar e publicar
+                            </h2>
+
+                            <p>
+                                Confira todas as informações antes de publicar.
+                            </p>
+
+                        </div>
+
+
+                        <div class="review-content">
+
+
+                            <div class="review-section">
+
+                                <h3>
+                                    Dados da vaga
+                                </h3>
+
+
+                                <div class="review-grid">
+
+                                    <div>
+
+                                        <span>Cargo</span>
+
+                                        <strong id="reviewTitle">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <span>Localização</span>
+
+                                        <strong id="reviewLocation">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <span>Modalidade</span>
+
+                                        <strong id="reviewType">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <span>Contrato</span>
+
+                                        <strong id="reviewContract">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <span>Salário</span>
+
+                                        <strong id="reviewSalary">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <span>Área</span>
+
+                                        <strong id="reviewArea">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="review-text">
+
+                                    <span>
+                                        Descrição
+                                    </span>
+
+                                    <p id="reviewDescription">
+                                        —
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="review-section">
+
+                                <h3>
+                                    Requisitos
+                                </h3>
+
+
+                                <div class="review-grid">
+
+                                    <div>
+
+                                        <span>Experiência</span>
+
+                                        <strong id="reviewExperience">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <span>Escolaridade</span>
+
+                                        <strong id="reviewEducation">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="review-text">
+
+                                    <span>
+                                        Habilidades
+                                    </span>
+
+                                    <p id="reviewSkills">
+                                        —
+                                    </p>
+
+                                </div>
+
+
+                                <div class="review-text">
+
+                                    <span>
+                                        Requisitos adicionais
+                                    </span>
+
+                                    <p id="reviewRequirements">
+                                        —
+                                    </p>
+
+                                </div>
+
+
+                                <div class="review-text">
+
+                                    <span>
+                                        Benefícios
+                                    </span>
+
+                                    <p id="reviewBenefits">
+                                        —
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                class="btn-secondary"
+                                id="backStep2"
+                                type="button"
+                            >
+                                ‹ Voltar
+                            </button>
+
+
+                            <button
+                                class="btn-publish"
+                                id="publishJob"
+                                type="button"
+                            >
+                                Publicar vaga
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ================= PRÉVIA ================= -->
+
+                <aside class="preview-column">
+
+                    <div class="preview-title">
+
+                        <h3>
+                            Prévia da vaga
+                        </h3>
+
+                        <p>
+                            Veja como sua vaga aparecerá.
+                        </p>
+
+                    </div>
+
+
+                    <div class="job-preview">
+
+
+                        <div class="preview-company">
+
+                            <img
+                                src="imagens/logo-empresa.png"
+                                id="previewCompanyLogo"
+                                alt=""
+                            >
+
+                            <div>
+
+                                <span>
+                                    Vaga publicada por
+                                </span>
+
+                                <strong id="previewCompanyName">
+                                    Sua empresa
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="preview-line"></div>
+
+
+                        <h2 id="previewTitle">
+                            Título da vaga
+                        </h2>
+
+
+                        <div class="preview-tags">
+
+                            <span id="previewLocation">
+                                Localização
+                            </span>
+
+                            <span id="previewType">
+                                Modalidade
+                            </span>
+
+                        </div>
+
+
+                        <div class="preview-info">
+
+                            <div>
+
+                                <span>
+                                    Tipo de contrato
+                                </span>
+
+                                <strong id="previewContract">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Faixa salarial
+                                </span>
+
+                                <strong id="previewSalary">
+                                    —
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="preview-description">
+
+                            <span>
+                                Sobre a vaga
+                            </span>
+
+                            <p id="previewDescription">
+                                As informações da vaga aparecerão aqui conforme você preencher o formulário.
+                            </p>
+
+                        </div>
+
+
+                        <div class="preview-footer">
+
+                            <span>
+                                NEXT WORK
+                            </span>
+
+                            <small>
+                                Nova oportunidade
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- MENSAGEM DE SUCESSO -->
+
+    <div
+        class="success-message"
+        id="successMessage"
+    >
+
+        <div class="success-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Vaga publicada!
+            </h2>
+
+            <p>
+                Sua oportunidade foi criada com sucesso.
+            </p>
+
+            <button
+                id="closeSuccess"
+            >
+                Continuar
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="publicar-vaga.js"></script>
+
+</body>
+
+</html>
