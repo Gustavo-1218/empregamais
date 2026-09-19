@@ -1,312 +1,405 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const editForm = document.getElementById("editForm");
-    const photoInput = document.getElementById("photoInput");
-    const changePhotoBtn = document.getElementById("changePhotoBtn");
 
-    const STORAGE_KEY = "nextWorkCandidato";
+    const PROFILE_KEY = "nextwork_candidate_profile";
+    const PHOTO_KEY = "nextwork_candidate_photo";
 
-    const dadosPadrao = {
-        name: "Gustavo Henrique",
-        email: "gustavo@email.com",
+    const defaultProfile = {
+        name: "João da Silva",
+        email: "candidato@email.com",
         phone: "(84) 99999-9999",
-        cpf: "000.000.000-00",
+        cpf: "***.***.***-**",
         profession: "Desenvolvedor Web",
         location: "Natal, RN",
-        about: "Estudante interessado em tecnologia, desenvolvimento web e novas oportunidades profissionais.",
+        about: "Sou estudante interessado em tecnologia, desenvolvimento web e novas oportunidades profissionais. Busco uma oportunidade para desenvolver minhas habilidades e contribuir com novos projetos."
+    };
+
+    const elements = {
+        modal: document.getElementById("editModal"),
+        form: document.getElementById("editForm"),
+
+        sideName: document.getElementById("sideName"),
+        sideProfession: document.getElementById("sideProfession"),
+
+        name: document.getElementById("name"),
+        email: document.getElementById("email"),
+        phone: document.getElementById("phone"),
+        cpf: document.getElementById("cpf"),
+        profession: document.getElementById("profession"),
+        location: document.getElementById("location"),
+        about: document.getElementById("aboutText"),
+
+        editName: document.getElementById("editName"),
+        editEmail: document.getElementById("editEmail"),
+        editPhone: document.getElementById("editPhone"),
+        editCpf: document.getElementById("editCpf"),
+        editProfession: document.getElementById("editProfession"),
+        editLocation: document.getElementById("editLocation"),
+        editAbout: document.getElementById("editAbout"),
+
+        profilePercent: document.getElementById("profilePercent"),
+        progressBar: document.getElementById("progressBar"),
+
+        changePhotoBtn: document.getElementById("changePhotoBtn"),
+        photoInput: document.getElementById("photoInput"),
+        photoCircle: document.getElementById("photoCircle")
+    };
+
+    let state = {
+        profile: {},
         photo: ""
     };
 
-    function carregarDados() {
-        const dadosSalvos = localStorage.getItem(STORAGE_KEY);
+    function loadProfile() {
+        const saved = localStorage.getItem(PROFILE_KEY);
 
-        if (!dadosSalvos) {
-            return { ...dadosPadrao };
+        if (!saved) {
+            state.profile = { ...defaultProfile };
+            return;
         }
 
         try {
-            return {
-                ...dadosPadrao,
-                ...JSON.parse(dadosSalvos)
+            state.profile = {
+                ...defaultProfile,
+                ...JSON.parse(saved)
             };
         } catch {
-            return { ...dadosPadrao };
+            state.profile = { ...defaultProfile };
         }
     }
 
-    function salvarDados(dados) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(dados));
-    }
-
-    function atualizarPerfil() {
-        const dados = carregarDados();
-
-        const elementos = {
-            sideName: document.getElementById("sideName"),
-            sideProfession: document.getElementById("sideProfession"),
-            name: document.getElementById("name"),
-            email: document.getElementById("email"),
-            phone: document.getElementById("phone"),
-            cpf: document.getElementById("cpf"),
-            profession: document.getElementById("profession"),
-            location: document.getElementById("location"),
-            aboutText: document.getElementById("aboutText")
-        };
-
-        if (elementos.sideName) {
-            elementos.sideName.textContent = dados.name;
-        }
-
-        if (elementos.sideProfession) {
-            elementos.sideProfession.textContent = dados.profession;
-        }
-
-        if (elementos.name) {
-            elementos.name.textContent = dados.name;
-        }
-
-        if (elementos.email) {
-            elementos.email.textContent = dados.email;
-        }
-
-        if (elementos.phone) {
-            elementos.phone.textContent = dados.phone;
-        }
-
-        if (elementos.cpf) {
-            elementos.cpf.textContent = dados.cpf;
-        }
-
-        if (elementos.profession) {
-            elementos.profession.textContent = dados.profession;
-        }
-
-        if (elementos.location) {
-            elementos.location.textContent = dados.location;
-        }
-
-        if (elementos.aboutText) {
-            elementos.aboutText.textContent = dados.about;
-        }
-
-        atualizarFoto(dados.photo);
-        atualizarProgresso(dados);
-    }
-
-    function atualizarFoto(photo) {
-        const imagens = document.querySelectorAll(
-            ".profile-photo, .profile-avatar, #profilePhoto"
+    function saveProfile() {
+        localStorage.setItem(
+            PROFILE_KEY,
+            JSON.stringify(state.profile)
         );
-
-        imagens.forEach(img => {
-            if (img.tagName === "IMG" && photo) {
-                img.src = photo;
-            }
-        });
     }
 
-    function atualizarProgresso(dados) {
-        const campos = [
-            dados.name,
-            dados.email,
-            dados.phone,
-            dados.cpf,
-            dados.profession,
-            dados.location,
-            dados.about
+    function loadPhoto() {
+        state.photo = localStorage.getItem(PHOTO_KEY) || "";
+    }
+
+    function setText(element, value) {
+        if (element) {
+            element.textContent = value;
+        }
+    }
+
+    function updateProfileScreen() {
+        const profile = state.profile;
+
+        setText(elements.sideName, profile.name);
+        setText(elements.sideProfession, profile.profession);
+
+        setText(elements.name, profile.name);
+        setText(elements.email, profile.email);
+        setText(elements.phone, profile.phone);
+        setText(elements.cpf, profile.cpf);
+        setText(elements.profession, profile.profession);
+        setText(elements.location, profile.location);
+        setText(elements.about, profile.about);
+
+        updateCompletion();
+    }
+
+    function updateCompletion() {
+        const profile = state.profile;
+
+        const fields = [
+            profile.name,
+            profile.email,
+            profile.phone,
+            profile.cpf,
+            profile.profession,
+            profile.location,
+            profile.about
         ];
 
-        const preenchidos = campos.filter(
-            campo => campo && campo.trim() !== ""
+        const filled = fields.filter(
+            value =>
+                typeof value === "string" &&
+                value.trim() !== ""
         ).length;
 
-        const porcentagem = Math.round(
-            (preenchidos / campos.length) * 100
+        const percentage = Math.round(
+            (filled / fields.length) * 100
         );
 
-        const profilePercent = document.getElementById("profilePercent");
-        const progressBar = document.getElementById("progressBar");
+        setText(
+            elements.profilePercent,
+            `${percentage}%`
+        );
 
-        if (profilePercent) {
-            profilePercent.textContent = `${porcentagem}%`;
-        }
-
-        if (progressBar) {
-            progressBar.style.width = `${porcentagem}%`;
+        if (elements.progressBar) {
+            elements.progressBar.style.width =
+                `${percentage}%`;
         }
     }
 
-    window.abrirEdicao = function () {
-        const modal = document.getElementById("editModal");
+    function fillEditForm() {
+        const profile = state.profile;
 
-        if (!modal) {
+        if (elements.editName) {
+            elements.editName.value = profile.name;
+        }
+
+        if (elements.editEmail) {
+            elements.editEmail.value = profile.email;
+        }
+
+        if (elements.editPhone) {
+            elements.editPhone.value = profile.phone;
+        }
+
+        if (elements.editCpf) {
+            elements.editCpf.value = profile.cpf;
+        }
+
+        if (elements.editProfession) {
+            elements.editProfession.value =
+                profile.profession;
+        }
+
+        if (elements.editLocation) {
+            elements.editLocation.value =
+                profile.location;
+        }
+
+        if (elements.editAbout) {
+            elements.editAbout.value = profile.about;
+        }
+    }
+
+    function openEditModal() {
+        if (!elements.modal) {
             return;
         }
 
-        const dados = carregarDados();
+        fillEditForm();
 
-        const fields = {
-            editName: dados.name,
-            editEmail: dados.email,
-            editPhone: dados.phone,
-            editCpf: dados.cpf,
-            editProfession: dados.profession,
-            editLocation: dados.location,
-            editAbout: dados.about
+        elements.modal.classList.add("active");
+
+        document.body.classList.add("modal-open");
+    }
+
+    function closeEditModal() {
+        if (!elements.modal) {
+            return;
+        }
+
+        elements.modal.classList.remove("active");
+
+        document.body.classList.remove("modal-open");
+    }
+
+    function saveEditedProfile() {
+        state.profile = {
+            name: elements.editName
+                ? elements.editName.value.trim()
+                : state.profile.name,
+
+            email: elements.editEmail
+                ? elements.editEmail.value.trim()
+                : state.profile.email,
+
+            phone: elements.editPhone
+                ? elements.editPhone.value.trim()
+                : state.profile.phone,
+
+            cpf: elements.editCpf
+                ? elements.editCpf.value.trim()
+                : state.profile.cpf,
+
+            profession: elements.editProfession
+                ? elements.editProfession.value.trim()
+                : state.profile.profession,
+
+            location: elements.editLocation
+                ? elements.editLocation.value.trim()
+                : state.profile.location,
+
+            about: elements.editAbout
+                ? elements.editAbout.value.trim()
+                : state.profile.about
         };
 
-        Object.entries(fields).forEach(([id, value]) => {
-            const input = document.getElementById(id);
+        saveProfile();
+        updateProfileScreen();
+        closeEditModal();
 
-            if (input) {
-                input.value = value;
-            }
-        });
+        showMessage(
+            "Perfil atualizado com sucesso!"
+        );
+    }
 
-        modal.classList.add("active");
-        document.body.classList.add("modal-open");
-    };
+    function openCompanyProfile() {
+        window.location.href =
+            "empresaperfil.html";
+    }
 
-    window.fecharEdicao = function () {
-        const modal = document.getElementById("editModal");
-
-        if (!modal) {
+    function updatePhoto() {
+        if (!elements.photoCircle) {
             return;
         }
 
-        modal.classList.remove("active");
-        document.body.classList.remove("modal-open");
-    };
+        if (state.photo) {
+            elements.photoCircle.innerHTML = "";
 
-    if (editForm) {
-        editForm.addEventListener("submit", event => {
-            event.preventDefault();
+            const image =
+                document.createElement("img");
 
-            const dados = carregarDados();
+            image.src = state.photo;
+            image.alt = "Foto do candidato";
 
-            dados.name =
-                document.getElementById("editName")?.value.trim() ||
-                dados.name;
+            image.style.width = "100%";
+            image.style.height = "100%";
+            image.style.objectFit = "cover";
+            image.style.borderRadius = "50%";
 
-            dados.email =
-                document.getElementById("editEmail")?.value.trim() ||
-                dados.email;
-
-            dados.phone =
-                document.getElementById("editPhone")?.value.trim() ||
-                dados.phone;
-
-            dados.cpf =
-                document.getElementById("editCpf")?.value.trim() ||
-                dados.cpf;
-
-            dados.profession =
-                document.getElementById("editProfession")?.value.trim() ||
-                dados.profession;
-
-            dados.location =
-                document.getElementById("editLocation")?.value.trim() ||
-                dados.location;
-
-            dados.about =
-                document.getElementById("editAbout")?.value.trim() ||
-                dados.about;
-
-            salvarDados(dados);
-            atualizarPerfil();
-            fecharEdicao();
-            mostrarMensagem("Perfil atualizado com sucesso!");
-        });
-    }
-
-    if (changePhotoBtn && photoInput) {
-        changePhotoBtn.addEventListener("click", () => {
-            photoInput.click();
-        });
-    }
-
-    if (photoInput) {
-        photoInput.addEventListener("change", event => {
-            const arquivo = event.target.files[0];
-
-            if (!arquivo) {
-                return;
-            }
-
-            if (!arquivo.type.startsWith("image/")) {
-                mostrarMensagem("Selecione uma imagem válida.");
-                return;
-            }
-
-            const leitor = new FileReader();
-
-            leitor.onload = event => {
-                const dados = carregarDados();
-
-                dados.photo = event.target.result;
-
-                salvarDados(dados);
-                atualizarFoto(dados.photo);
-                mostrarMensagem("Foto atualizada com sucesso!");
-            };
-
-            leitor.readAsDataURL(arquivo);
-        });
-    }
-
-    window.alternarParaEmpresa = function () {
-        window.location.href = "empresaperfil.html";
-    };
-
-    function mostrarMensagem(texto) {
-        let mensagem = document.getElementById("successMessage");
-
-        if (!mensagem) {
-            mensagem = document.createElement("div");
-            mensagem.id = "successMessage";
-
-            mensagem.style.position = "fixed";
-            mensagem.style.bottom = "25px";
-            mensagem.style.right = "25px";
-            mensagem.style.padding = "14px 20px";
-            mensagem.style.borderRadius = "12px";
-            mensagem.style.background = "#151525";
-            mensagem.style.color = "#ffffff";
-            mensagem.style.border = "1px solid #5865f2";
-            mensagem.style.boxShadow = "0 0 20px rgba(88,101,242,.35)";
-            mensagem.style.zIndex = "99999";
-            mensagem.style.fontFamily = "Poppins, sans-serif";
-            mensagem.style.transition = "opacity .3s ease";
-
-            document.body.appendChild(mensagem);
+            elements.photoCircle.appendChild(image);
+        } else {
+            elements.photoCircle.textContent = "♙";
         }
-
-        mensagem.textContent = texto;
-        mensagem.style.opacity = "1";
-
-        clearTimeout(mensagem.timer);
-
-        mensagem.timer = setTimeout(() => {
-            mensagem.style.opacity = "0";
-        }, 2500);
     }
 
-    document.addEventListener("click", event => {
-        const modal = document.getElementById("editModal");
-
-        if (!modal) {
+    function savePhoto(file) {
+        if (!file) {
             return;
         }
 
-        if (event.target === modal) {
-            fecharEdicao();
+        if (!file.type.startsWith("image/")) {
+            showMessage(
+                "Selecione uma imagem válida."
+            );
+            return;
         }
-    });
 
-    document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
-            fecharEdicao();
+        const reader = new FileReader();
+
+        reader.onload = event => {
+            state.photo = event.target.result;
+
+            localStorage.setItem(
+                PHOTO_KEY,
+                state.photo
+            );
+
+            updatePhoto();
+
+            showMessage(
+                "Foto atualizada com sucesso!"
+            );
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    function showMessage(message) {
+        let messageElement =
+            document.getElementById(
+                "profileMessage"
+            );
+
+        if (!messageElement) {
+            messageElement =
+                document.createElement("div");
+
+            messageElement.id =
+                "profileMessage";
+
+            document.body.appendChild(
+                messageElement
+            );
         }
-    });
 
-    atualizarPerfil();
+        messageElement.textContent =
+            message;
+
+        messageElement.classList.add("show");
+
+        clearTimeout(
+            messageElement.messageTimer
+        );
+
+        messageElement.messageTimer =
+            setTimeout(() => {
+                messageElement.classList.remove(
+                    "show"
+                );
+            }, 2500);
+    }
+
+    if (elements.form) {
+        elements.form.addEventListener(
+            "submit",
+            event => {
+                event.preventDefault();
+
+                saveEditedProfile();
+            }
+        );
+    }
+
+    if (elements.changePhotoBtn) {
+        elements.changePhotoBtn.addEventListener(
+            "click",
+            () => {
+                if (elements.photoInput) {
+                    elements.photoInput.click();
+                }
+            }
+        );
+    }
+
+    if (elements.photoInput) {
+        elements.photoInput.addEventListener(
+            "change",
+            event => {
+                const file =
+                    event.target.files[0];
+
+                savePhoto(file);
+
+                event.target.value = "";
+            }
+        );
+    }
+
+    if (elements.modal) {
+        elements.modal.addEventListener(
+            "click",
+            event => {
+                if (
+                    event.target ===
+                    elements.modal
+                ) {
+                    closeEditModal();
+                }
+            }
+        );
+    }
+
+    document.addEventListener(
+        "keydown",
+        event => {
+            if (event.key === "Escape") {
+                closeEditModal();
+            }
+        }
+    );
+
+    window.abrirEdicao =
+        openEditModal;
+
+    window.fecharEdicao =
+        closeEditModal;
+
+    window.alternarParaEmpresa =
+        openCompanyProfile;
+
+    loadProfile();
+    loadPhoto();
+
+    updateProfileScreen();
+    updatePhoto();
+
 });
