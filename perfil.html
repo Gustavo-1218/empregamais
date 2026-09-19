@@ -5,446 +5,392 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>NEXT WORK - Meu Perfil</title>
+    <title>NEXT WORK - Perfil do Candidato</title>
 
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="perfil.css">
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="perfil.css">
 
 </head>
 
 
 <body>
 
-    <!-- MENU PRINCIPAL -->
-    <div id="menu"></div>
+
+    <!-- =====================================================
+         NAVBAR SUPERIOR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="logo-area">
+
+            <div class="logo-symbol">
+                NW
+            </div>
+
+            <div class="logo-text">
+                <strong>NEXT</strong>
+                <span>WORK</span>
+            </div>
+
+        </div>
 
 
-    <main class="perfil-container">
+        <nav class="main-nav">
+
+            <a href="index.html">Início</a>
+
+            <a href="vagas.html">Vagas</a>
+
+            <a href="nextia.html">NEXT IA</a>
+
+            <a href="nextinterview.html">
+                NEXT INTERVIEW
+            </a>
+
+            <a href="dicas.html">Dicas</a>
+
+            <a href="empresas.html">Empresas</a>
+
+            <a href="sobre.html">Sobre nós</a>
+
+        </nav>
 
 
-        <!-- =====================================================
+        <div class="navbar-actions">
+
+            <a href="login.html"
+                class="login-button">
+
+                Entrar
+
+            </a>
+
+            <div class="profile-glow">
+
+                <span>♙</span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         LAYOUT
+    ====================================================== -->
+
+    <div class="page-layout">
+
+
+        <!-- =================================================
              SIDEBAR
-        ====================================================== -->
+        ================================================== -->
 
         <aside class="sidebar">
 
 
-            <!-- RESUMO DO PERFIL -->
+            <div class="profile-photo">
 
-            <div class="perfil-resumo">
+                <div class="photo-circle">
 
-                <div class="avatar">
-
-                    <span class="avatar-cabeca"></span>
-                    <span class="avatar-corpo"></span>
+                    <span>♙</span>
 
                 </div>
 
+                <button class="change-photo">
+                    Alterar foto
+                </button>
 
-                <h2>
-                    Complete seu perfil
-                </h2>
+            </div>
 
 
-                <p class="porcentagem-sidebar">
-                    <span id="porcentagem-sidebar">25%</span>
-                    completo
+            <div class="sidebar-profile">
+
+                <h3 id="sideName">
+                    João da Silva
+                </h3>
+
+                <p id="sideProfession">
+                    Desenvolvedor Web
                 </p>
 
+            </div>
 
-                <!-- BARRA DE PROGRESSO -->
 
-                <div class="barra-progresso">
+            <div class="sidebar-menu">
 
-                    <div
-                        class="barra-progresso-preenchida"
-                        id="barra-progresso">
+
+                <a href="perfil.html"
+                    class="sidebar-link active">
+
+                    <span>⌂</span>
+
+                    <div>
+                        <strong>Meu perfil</strong>
+                        <small>Visão geral</small>
                     </div>
 
+                </a>
+
+
+                <a href="minhas-candidaturas.html"
+                    class="sidebar-link">
+
+                    <span>▣</span>
+
+                    <div>
+                        <strong>Minhas candidaturas</strong>
+                        <small>Acompanhe suas vagas</small>
+                    </div>
+
+                </a>
+
+
+                <a href="habilidades.html"
+                    class="sidebar-link">
+
+                    <span>☆</span>
+
+                    <div>
+                        <strong>Habilidades</strong>
+                        <small>Suas competências</small>
+                    </div>
+
+                </a>
+
+
+                <a href="cursos.html"
+                    class="sidebar-link">
+
+                    <span>▤</span>
+
+                    <div>
+                        <strong>Cursos e certificações</strong>
+                        <small>Formação complementar</small>
+                    </div>
+
+                </a>
+
+
+                <a href="preferencias.html"
+                    class="sidebar-link">
+
+                    <span>♡</span>
+
+                    <div>
+                        <strong>Preferências</strong>
+                        <small>Oportunidades ideais</small>
+                    </div>
+
+                </a>
+
+
+            </div>
+
+
+            <!-- TROCA PARA EMPRESA -->
+
+            <button
+                class="switch-profile"
+                onclick="alternarParaEmpresa()">
+
+                <div class="switch-icon">
+                    ⇄
                 </div>
 
-            </div>
+                <div class="switch-text">
 
+                    <strong>
+                        Alternar para
+                        perfil de empresa
+                    </strong>
 
-            <!-- MENU INTERNO DO PERFIL -->
+                    <small>
+                        Acessar área empresarial
+                    </small>
 
-            <nav class="perfil-menu">
+                </div>
 
+                <span class="switch-arrow">
+                    ›
+                </span>
 
-                <a href="#" class="ativo">
-
-                    <span class="icone-menu">♙</span>
-
-                    Informações pessoais
-
-                </a>
-
-
-                <a href="#">
-
-                    <span class="icone-menu">♢</span>
-
-                    Formação
-
-                </a>
-
-
-                <a href="#">
-
-                    <span class="icone-menu">▣</span>
-
-                    Experiências
-
-                </a>
-
-
-                <a href="#">
-
-                    <span class="icone-menu">☆</span>
-
-                    Habilidades
-
-                </a>
-
-
-                <a href="#">
-
-                    <span class="icone-menu">▤</span>
-
-                    Cursos e certificações
-
-                </a>
-
-
-                <a href="#">
-
-                    <span class="icone-menu">♡</span>
-
-                    Preferências
-
-                </a>
-
-
-                <a href="#">
-
-                    <span class="icone-menu">▤</span>
-
-                    Resumo
-
-                </a>
-
-
-            </nav>
-
-
-            <!-- AJUDA -->
-
-            <div class="ajuda">
-
-                <strong>
-                    Dúvidas?
-                </strong>
-
-                <p>
-                    Veja dicas de como preencher seu perfil da melhor forma.
-                </p>
-
-                <a href="dicas.html">
-                    Ver dicas →
-                </a>
-
-            </div>
+            </button>
 
 
         </aside>
 
 
 
-        <!-- =====================================================
+        <!-- =================================================
              CONTEÚDO PRINCIPAL
-        ====================================================== -->
+        ================================================== -->
 
-        <section class="perfil-conteudo">
+        <main class="main-content">
 
 
-            <!-- TÍTULO -->
+            <!-- CABEÇALHO -->
 
-            <div class="perfil-titulo">
+            <div class="page-header">
 
                 <div>
 
+                    <span class="page-label">
+                        ÁREA DO CANDIDATO
+                    </span>
+
                     <h1>
-                        Complete seu perfil
+                        Meu perfil
                     </h1>
 
                     <p>
-                        Preencha suas informações para aumentar suas chances
-                        de ser encontrado por empresas e oportunidades ideais para você.
+                        Gerencie suas informações e aumente
+                        suas chances de encontrar oportunidades.
                     </p>
 
                 </div>
 
 
-                <a
-                    href="usuario.html"
-                    class="botao-ver-perfil">
+                <button
+                    class="edit-profile-button"
+                    onclick="abrirEdicao()">
 
-                    Ver meu perfil
+                    <span>✎</span>
 
-                    <span>◉</span>
+                    Editar perfil
 
-                </a>
+                </button>
 
             </div>
 
 
 
             <!-- =================================================
-                 BLOCO PRINCIPAL
+                 CARDS DE RESUMO
             ================================================== -->
 
-            <section class="bloco informacoes-bloco">
+            <section class="stats-grid">
 
 
-                <!-- CABEÇALHO -->
+                <div class="stat-card">
 
-                <div class="bloco-titulo">
-
-                    <div class="icone-titulo">
+                    <div class="stat-icon cyan">
                         ♙
                     </div>
 
-                    <div>
+                    <div class="stat-info">
 
-                        <h2>
-                            Informações pessoais
-                        </h2>
-
-                        <p>
-                            Conte um pouco sobre você.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="area-informacoes">
-
-
-                    <!-- =================================================
-                         DADOS
-                    ================================================== -->
-
-                    <div class="dados-pessoais">
-
-
-                        <!-- NOME -->
-
-                        <div class="campo">
-
-                            <span class="rotulo">
-                                Nome completo
-                            </span>
-
-                            <div class="valor-campo">
-
-                                <span id="nome-candidato">
-                                    Nome do candidato
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- ID -->
-
-                        <div class="campo">
-
-                            <span class="rotulo">
-                                ID
-                            </span>
-
-                            <div class="valor-campo">
-
-                                <span id="id-candidato">
-                                    #000001
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- EMAIL -->
-
-                        <div class="campo">
-
-                            <span class="rotulo">
-                                E-mail
-                            </span>
-
-                            <div class="valor-campo">
-
-                                <span id="email-candidato">
-                                    candidato@email.com
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- CELULAR -->
-
-                        <div class="campo">
-
-                            <span class="rotulo">
-                                Telefone
-                            </span>
-
-                            <div class="valor-campo">
-
-                                <span id="celular-candidato">
-                                    (84) 99999-9999
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- CPF -->
-
-                        <div class="campo">
-
-                            <span class="rotulo">
-                                CPF
-                            </span>
-
-                            <div class="valor-campo">
-
-                                <span id="cpf-candidato">
-                                    ***.***.***-**
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- PROFISSÃO -->
-
-                        <div class="campo">
-
-                            <span class="rotulo">
-                                Profissão
-
-                            </span>
-
-                            <div class="valor-campo">
-
-                                <span id="profissao-candidato">
-                                    Profissão do candidato
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-
-
-                    <!-- =================================================
-                         GRÁFICO DE PROGRESSO
-                    ================================================== -->
-
-                    <div class="painel-progresso">
-
-
-                        <div class="grafico-progresso">
-
-                            <div class="grafico-brilho"></div>
-
-                            <div class="grafico-interno">
-
-                                <strong id="porcentagem-grafico">
-                                    25%
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <span class="texto-progresso">
+                        <span>
                             Perfil completo
                         </span>
 
-
-                        <!-- DICA -->
-
-                        <div class="dica">
-
-                            <div class="dica-titulo">
-
-                                <span>
-                                    ♧
-                                </span>
-
-                                <strong>
-                                    Dica
-                                </strong>
-
-                            </div>
-
-
-                            <p>
-                                Quanto mais completo seu perfil,
-                                maiores são suas chances de encontrar
-                                oportunidades!
-                            </p>
-
-                        </div>
-
+                        <strong id="profilePercent">
+                            25%
+                        </strong>
 
                     </div>
 
+                    <div class="mini-progress">
+
+                        <div id="progressBar">
+                        </div>
+
+                    </div>
 
                 </div>
 
 
 
-                <!-- LINHA INFERIOR -->
+                <div class="stat-card">
 
-                <div class="acoes-perfil">
+                    <div class="stat-icon purple">
+                        ▣
+                    </div>
 
-                    <button
-                        type="button"
-                        class="botao-cancelar">
-
-                        Cancelar
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="botao-continuar">
-
-                        Salvar e continuar
+                    <div class="stat-info">
 
                         <span>
-                            →
+                            Candidaturas
                         </span>
 
-                    </button>
+                        <strong>
+                            3
+                        </strong>
+
+                    </div>
+
+                    <span class="stat-arrow">
+                        ›
+                    </span>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ☆
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Habilidades
+                        </span>
+
+                        <strong>
+                            6
+                        </strong>
+
+                    </div>
+
+                    <span class="stat-arrow">
+                        ›
+                    </span>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ◇
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Cursos
+                        </span>
+
+                        <strong>
+                            2
+                        </strong>
+
+                    </div>
+
+                    <span class="stat-arrow">
+                        ›
+                    </span>
 
                 </div>
 
@@ -454,55 +400,28 @@
 
 
             <!-- =================================================
-                 CURRÍCULO
+                 INFORMAÇÕES PESSOAIS
             ================================================== -->
 
-            <section class="bloco curriculo">
+            <section class="content-card">
 
 
-                <div class="bloco-titulo">
+                <div class="card-header">
 
-                    <div class="icone-titulo">
-                        ▤
-                    </div>
+                    <div class="card-title">
 
-                    <div>
-
-                        <h2>
-                            Meu currículo
-                        </h2>
-
-                        <p>
-                            Adicione ou substitua seu currículo.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div
-                    class="arquivo-curriculo"
-                    id="arquivo-curriculo">
-
-
-                    <div class="arquivo-info">
-
-
-                        <div class="icone-pdf">
-                            PDF
+                        <div class="title-icon">
+                            ♙
                         </div>
-
 
                         <div>
 
-                            <strong id="nome-curriculo">
-                                Curriculo_Candidato.pdf
-                            </strong>
+                            <h2>
+                                Informações pessoais
+                            </h2>
 
-                            <p id="detalhes-curriculo">
-                                PDF • 1,2 MB • Enviado recentemente
+                            <p>
+                                Mantenha seus dados sempre atualizados.
                             </p>
 
                         </div>
@@ -510,36 +429,379 @@
                     </div>
 
 
+                    <button
+                        class="small-edit"
+                        onclick="abrirEdicao()">
 
-                    <div class="acoes-curriculo">
+                        Editar informações
 
+                    </button>
 
-                        <a
-                            href="#"
-                            id="visualizar-curriculo"
-                            class="botao-visualizar">
-
-                            👁 Visualizar
-
-                        </a>
+                </div>
 
 
-                        <label
-                            for="curriculo-upload"
-                            class="botao-substituir">
 
-                            ↥ Substituir arquivo
-
-                        </label>
+                <div class="information-grid">
 
 
-                        <input
-                            type="file"
-                            id="curriculo-upload"
-                            accept=".pdf"
-                            hidden>
+                    <div class="information-item">
+
+                        <span>
+                            Nome completo
+                        </span>
+
+                        <strong id="name">
+                            João da Silva
+                        </strong>
 
                     </div>
+
+
+                    <div class="information-item">
+
+                        <span>
+                            E-mail
+                        </span>
+
+                        <strong id="email">
+                            candidato@email.com
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>
+                            Telefone
+                        </span>
+
+                        <strong id="phone">
+                            (84) 99999-9999
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>
+                            CPF
+                        </span>
+
+                        <strong id="cpf">
+                            ***.***.***-**
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>
+                            Profissão
+                        </span>
+
+                        <strong id="profession">
+                            Desenvolvedor Web
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>
+                            Localização
+                        </span>
+
+                        <strong id="location">
+                            Natal, RN
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SOBRE O CANDIDATO
+            ================================================== -->
+
+            <section class="content-card">
+
+
+                <div class="card-header">
+
+                    <div class="card-title">
+
+                        <div class="title-icon purple-border">
+                            ◇
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Sobre mim
+                            </h2>
+
+                            <p>
+                                Apresente-se para as empresas.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="small-edit"
+                        onclick="abrirEdicao()">
+
+                        Editar
+
+                    </button>
+
+                </div>
+
+
+                <div class="about-text"
+                    id="aboutText">
+
+                    Sou estudante interessado em tecnologia,
+                    desenvolvimento web e novas oportunidades
+                    profissionais. Busco uma oportunidade para
+                    desenvolver minhas habilidades e contribuir
+                    com novos projetos.
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CURRÍCULO PDF
+            ================================================== -->
+
+            <section class="content-card curriculum-card">
+
+
+                <div class="card-header">
+
+                    <div class="card-title">
+
+                        <div class="title-icon">
+                            ▤
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Meu currículo
+                            </h2>
+
+                            <p>
+                                Visualize ou baixe seu currículo.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="pdf-container">
+
+
+                    <div class="pdf-file">
+
+
+                        <div class="pdf-icon">
+                            PDF
+                        </div>
+
+
+                        <div class="pdf-information">
+
+                            <strong>
+                                Curriculo_Candidato.pdf
+                            </strong>
+
+                            <span>
+                                Documento profissional
+                            </span>
+
+                            <small>
+                                Arquivo armazenado no NEXT WORK
+                            </small>
+
+                        </div>
+
+
+                        <div class="pdf-actions">
+
+                            <a
+                                href="Curriculo_Candidato.pdf"
+                                target="_blank"
+                                class="pdf-view">
+
+                                👁 Visualizar
+
+                            </a>
+
+
+                            <a
+                                href="Curriculo_Candidato.pdf"
+                                download
+                                class="pdf-download">
+
+                                ↓ Baixar PDF
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="pdf-preview">
+
+                        <iframe
+                            src="Curriculo_Candidato.pdf"
+                            title="Visualização do currículo">
+
+                        </iframe>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 MINHAS CANDIDATURAS
+            ================================================== -->
+
+            <section class="content-card">
+
+
+                <div class="card-header">
+
+                    <div class="card-title">
+
+                        <div class="title-icon purple-border">
+                            ♧
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Minhas candidaturas
+                            </h2>
+
+                            <p>
+                                Acompanhe o andamento das suas oportunidades.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="minhas-candidaturas.html"
+                        class="see-all">
+
+                        Ver todas →
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="application-row">
+
+
+                    <div class="company-mini-icon">
+                        TS
+                    </div>
+
+
+                    <div class="application-info">
+
+                        <strong>
+                            Jovem Aprendiz - Suporte de Informática
+                        </strong>
+
+                        <span>
+                            Tech Solutions Ltda
+                        </span>
+
+                    </div>
+
+
+                    <div class="application-date">
+
+                        10/09/2026
+
+                    </div>
+
+
+                    <span class="status analyzing">
+                        Em análise
+                    </span>
+
+
+                </div>
+
+
+
+                <div class="application-row">
+
+
+                    <div class="company-mini-icon purple-bg">
+                        ED
+                    </div>
+
+
+                    <div class="application-info">
+
+                        <strong>
+                            Desenvolvedor Júnior
+                        </strong>
+
+                        <span>
+                            Empresa Digital
+                        </span>
+
+                    </div>
+
+
+                    <div class="application-date">
+
+                        08/09/2026
+
+                    </div>
+
+
+                    <span class="status waiting">
+                        Aguardando
+                    </span>
+
 
                 </div>
 
@@ -552,12 +814,11 @@
                  SEGURANÇA
             ================================================== -->
 
-            <div class="seguranca">
+            <section class="security-card">
 
-                <span class="seguranca-icone">
-                    ♢
-                </span>
-
+                <div class="security-icon">
+                    ◇
+                </div>
 
                 <div>
 
@@ -572,18 +833,194 @@
 
                 </div>
 
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL DE EDIÇÃO
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="editModal">
+
+
+        <div class="edit-modal">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span>
+                        EDITAR PERFIL
+                    </span>
+
+                    <h2>
+                        Atualize suas informações
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="close-modal"
+                    onclick="fecharEdicao()">
+
+                    ×
+
+                </button>
+
             </div>
 
 
-        </section>
 
-    </main>
+            <form
+                id="editForm">
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Nome completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="editEmail"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Telefone
+                        </label>
+
+                        <input
+type="tel"
+                            id="editPhone">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            CPF
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editCpf">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Profissão
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editProfession">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Localização
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editLocation">
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Sobre você
+                        </label>
+
+                        <textarea
+                            id="editAbout"
+                            rows="5"></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="modal-buttons">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        onclick="fecharEdicao()">
+
+                        Cancelar
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="save-button">
+
+                        Salvar alterações
+                        →
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
 
 
 
     <script src="perfil.js"></script>
-    <script src="menu.js"></script>
 
 </body>
 
 </html>
+                    
