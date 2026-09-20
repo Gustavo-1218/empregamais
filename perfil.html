@@ -8,15 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="perfil.css">
-
-<link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="menu.css">
 </head>
 
 <body>
 
 <header>
-        <div id="menu"></div>
-    
+    <div id="menu"></div>
 </header>
 
 <div class="page-layout">
@@ -244,25 +242,52 @@
                 <div class="pdf-icon">PDF</div>
 
                 <div class="pdf-information">
-                    <strong>Curriculo_Candidato.pdf</strong>
+                    <strong id="pdfFileName">Curriculo_Candidato.pdf</strong>
                     <span>Documento profissional</span>
                     <small>Arquivo armazenado no NEXT WORK</small>
                 </div>
 
                 <div class="pdf-actions">
-                    <a href="Curriculo_Candidato.pdf" target="_blank" class="pdf-view">
+
+                    <button type="button" class="pdf-upload" id="pdfUploadBtn">
+                        📤 Enviar novo PDF
+                    </button>
+
+                    <input
+                        type="file"
+                        id="pdfInput"
+                        accept="application/pdf,.pdf"
+                        hidden
+                    >
+
+                    <a
+                        href="Curriculo_Candidato.pdf"
+                        target="_blank"
+                        class="pdf-view"
+                        id="pdfView"
+                    >
                         👁 Visualizar
                     </a>
 
-                    <a href="Curriculo_Candidato.pdf" download class="pdf-download">
+                    <a
+                        href="Curriculo_Candidato.pdf"
+                        download="Curriculo_Candidato.pdf"
+                        class="pdf-download"
+                        id="pdfDownload"
+                    >
                         ↓ Baixar PDF
                     </a>
+
                 </div>
 
             </div>
 
             <div class="pdf-preview">
-                <iframe src="Curriculo_Candidato.pdf" title="Currículo"></iframe>
+                <iframe
+                    id="pdfPreview"
+                    src="Curriculo_Candidato.pdf"
+                    title="Currículo"
+                ></iframe>
             </div>
 
         </section>
