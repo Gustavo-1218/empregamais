@@ -943,3 +943,34 @@ textarea {
         padding: 17px;
     }
 }
+
+.pdf-upload {
+    border: 1px solid rgba(64, 205, 255, .35);
+    background: rgba(20, 130, 210, .10);
+    color: #55d9ff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.pdf-upload:hover {
+    background: rgba(20, 150, 240, .18);
+    border-color: rgba(64, 205, 255, .65);
+    transform: translateY(-1px);
+}
+
+.pdf-upload:active {
+    transform: translateY(0);
+}
+
+.pdf-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
