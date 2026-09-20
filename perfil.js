@@ -16,10 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const elements = {
         modal: document.getElementById("editModal"),
         form: document.getElementById("editForm"),
-
         sideName: document.getElementById("sideName"),
         sideProfession: document.getElementById("sideProfession"),
-
         name: document.getElementById("name"),
         email: document.getElementById("email"),
         phone: document.getElementById("phone"),
@@ -27,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
         profession: document.getElementById("profession"),
         location: document.getElementById("location"),
         about: document.getElementById("aboutText"),
-
         editName: document.getElementById("editName"),
         editEmail: document.getElementById("editEmail"),
         editPhone: document.getElementById("editPhone"),
@@ -35,10 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
         editProfession: document.getElementById("editProfession"),
         editLocation: document.getElementById("editLocation"),
         editAbout: document.getElementById("editAbout"),
-
         profilePercent: document.getElementById("profilePercent"),
         progressBar: document.getElementById("progressBar"),
-
         changePhotoBtn: document.getElementById("changePhotoBtn"),
         photoInput: document.getElementById("photoInput"),
         photoCircle: document.getElementById("photoCircle")
@@ -89,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setText(elements.sideName, profile.name);
         setText(elements.sideProfession, profile.profession);
-
         setText(elements.name, profile.name);
         setText(elements.email, profile.email);
         setText(elements.phone, profile.phone);
@@ -114,10 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
             profile.about
         ];
 
-        const filled = fields.filter(
-            value =>
-                typeof value === "string" &&
-                value.trim() !== ""
+        const filled = fields.filter(value =>
+            typeof value === "string" &&
+            value.trim() !== ""
         ).length;
 
         const percentage = Math.round(
@@ -130,8 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         if (elements.progressBar) {
-            elements.progressBar.style.width =
-                `${percentage}%`;
+            elements.progressBar.style.width = `${percentage}%`;
         }
     }
 
@@ -155,13 +147,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (elements.editProfession) {
-            elements.editProfession.value =
-                profile.profession;
+            elements.editProfession.value = profile.profession;
         }
 
         if (elements.editLocation) {
-            elements.editLocation.value =
-                profile.location;
+            elements.editLocation.value = profile.location;
         }
 
         if (elements.editAbout) {
@@ -175,9 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         fillEditForm();
-
-        elements.modal.classList.add("active");
-
+        elements.modal.classList.add("open");
         document.body.classList.add("modal-open");
     }
 
@@ -186,54 +174,29 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        elements.modal.classList.remove("active");
-
+        elements.modal.classList.remove("open");
         document.body.classList.remove("modal-open");
     }
 
     function saveEditedProfile() {
         state.profile = {
-            name: elements.editName
-                ? elements.editName.value.trim()
-                : state.profile.name,
-
-            email: elements.editEmail
-                ? elements.editEmail.value.trim()
-                : state.profile.email,
-
-            phone: elements.editPhone
-                ? elements.editPhone.value.trim()
-                : state.profile.phone,
-
-            cpf: elements.editCpf
-                ? elements.editCpf.value.trim()
-                : state.profile.cpf,
-
-            profession: elements.editProfession
-                ? elements.editProfession.value.trim()
-                : state.profile.profession,
-
-            location: elements.editLocation
-                ? elements.editLocation.value.trim()
-                : state.profile.location,
-
-            about: elements.editAbout
-                ? elements.editAbout.value.trim()
-                : state.profile.about
+            name: elements.editName.value.trim(),
+            email: elements.editEmail.value.trim(),
+            phone: elements.editPhone.value.trim(),
+            cpf: elements.editCpf.value.trim(),
+            profession: elements.editProfession.value.trim(),
+            location: elements.editLocation.value.trim(),
+            about: elements.editAbout.value.trim()
         };
 
         saveProfile();
         updateProfileScreen();
         closeEditModal();
-
-        showMessage(
-            "Perfil atualizado com sucesso!"
-        );
+        showMessage("Perfil atualizado com sucesso!");
     }
 
     function openCompanyProfile() {
-        window.location.href =
-            "empresaperfil.html";
+        window.location.href = "empresaperfil.html";
     }
 
     function updatePhoto() {
@@ -244,16 +207,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (state.photo) {
             elements.photoCircle.innerHTML = "";
 
-            const image =
-                document.createElement("img");
+            const image = document.createElement("img");
 
             image.src = state.photo;
             image.alt = "Foto do candidato";
-
-            image.style.width = "100%";
-            image.style.height = "100%";
-            image.style.objectFit = "cover";
-            image.style.borderRadius = "50%";
 
             elements.photoCircle.appendChild(image);
         } else {
@@ -267,9 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!file.type.startsWith("image/")) {
-            showMessage(
-                "Selecione uma imagem válida."
-            );
+            showMessage("Selecione uma imagem válida.");
             return;
         }
 
@@ -284,10 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             updatePhoto();
-
-            showMessage(
-                "Foto atualizada com sucesso!"
-            );
+            showMessage("Foto atualizada com sucesso!");
         };
 
         reader.readAsDataURL(file);
@@ -295,110 +247,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showMessage(message) {
         let messageElement =
-            document.getElementById(
-                "profileMessage"
-            );
+            document.getElementById("profileMessage");
 
         if (!messageElement) {
             messageElement =
                 document.createElement("div");
 
-            messageElement.id =
-                "profileMessage";
-
-            document.body.appendChild(
-                messageElement
-            );
+            messageElement.id = "profileMessage";
+            document.body.appendChild(messageElement);
         }
 
-        messageElement.textContent =
-            message;
-
+        messageElement.textContent = message;
         messageElement.classList.add("show");
 
-        clearTimeout(
-            messageElement.messageTimer
-        );
+        clearTimeout(messageElement.messageTimer);
 
-        messageElement.messageTimer =
-            setTimeout(() => {
-                messageElement.classList.remove(
-                    "show"
-                );
-            }, 2500);
+        messageElement.messageTimer = setTimeout(() => {
+            messageElement.classList.remove("show");
+        }, 2500);
     }
 
     if (elements.form) {
-        elements.form.addEventListener(
-            "submit",
-            event => {
-                event.preventDefault();
-
-                saveEditedProfile();
-            }
-        );
+        elements.form.addEventListener("submit", event => {
+            event.preventDefault();
+            saveEditedProfile();
+        });
     }
 
     if (elements.changePhotoBtn) {
-        elements.changePhotoBtn.addEventListener(
-            "click",
-            () => {
-                if (elements.photoInput) {
-                    elements.photoInput.click();
-                }
+        elements.changePhotoBtn.addEventListener("click", () => {
+            if (elements.photoInput) {
+                elements.photoInput.click();
             }
-        );
+        });
     }
 
     if (elements.photoInput) {
-        elements.photoInput.addEventListener(
-            "change",
-            event => {
-                const file =
-                    event.target.files[0];
+        elements.photoInput.addEventListener("change", event => {
+            const file = event.target.files[0];
 
-                savePhoto(file);
+            savePhoto(file);
 
-                event.target.value = "";
-            }
-        );
+            event.target.value = "";
+        });
     }
 
     if (elements.modal) {
-        elements.modal.addEventListener(
-            "click",
-            event => {
-                if (
-                    event.target ===
-                    elements.modal
-                ) {
-                    closeEditModal();
-                }
-            }
-        );
-    }
-
-    document.addEventListener(
-        "keydown",
-        event => {
-            if (event.key === "Escape") {
+        elements.modal.addEventListener("click", event => {
+            if (event.target === elements.modal) {
                 closeEditModal();
             }
+        });
+    }
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            closeEditModal();
         }
-    );
+    });
 
-    window.abrirEdicao =
-        openEditModal;
-
-    window.fecharEdicao =
-        closeEditModal;
-
-    window.alternarParaEmpresa =
-        openCompanyProfile;
+    window.abrirEdicao = openEditModal;
+    window.fecharEdicao = closeEditModal;
+    window.alternarParaEmpresa = openCompanyProfile;
 
     loadProfile();
     loadPhoto();
-
     updateProfileScreen();
     updatePhoto();
 
