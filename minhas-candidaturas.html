@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXT WORK - Minhas candidaturas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="minhas-candidaturas.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+
+<header>
+    <div id="menu"></div>
+</header>
+
+<div class="page-layout">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="profile-photo">
+                <div class="photo-circle" id="photoCircle">♙</div>
+
+                <button type="button" class="change-photo" id="changePhotoBtn">
+                    Alterar foto
+                </button>
+
+                <input type="file" id="photoInput" accept="image/*" hidden>
+            </div>
+
+            <div class="sidebar-profile">
+                <h3 id="sideName">João da Silva</h3>
+                <p id="sideProfession">Desenvolvedor Web</p>
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="perfil.html" class="sidebar-link">
+                    <span class="menu-icon">⌂</span>
+
+                    <div>
+                        <strong>Meu perfil</strong>
+                        <small>Visão geral</small>
+                    </div>
+                </a>
+
+                <a href="minhas-candidaturas.html" class="sidebar-link active">
+                    <span class="menu-icon">▣</span>
+
+                    <div>
+                        <strong>Minhas candidaturas</strong>
+                        <small>Acompanhe suas vagas</small>
+                    </div>
+                </a>
+
+                <a href="habilidades.html" class="sidebar-link">
+                    <span class="menu-icon">☆</span>
+
+                    <div>
+                        <strong>Habilidades</strong>
+                        <small>Suas competências</small>
+                    </div>
+                </a>
+
+                <a href="cursos.html" class="sidebar-link">
+                    <span class="menu-icon">▤</span>
+
+                    <div>
+                        <strong>Cursos e certificações</strong>
+                        <small>Formação complementar</small>
+                    </div>
+                </a>
+
+                <a href="preferencias.html" class="sidebar-link">
+                    <span class="menu-icon">♡</span>
+
+                    <div>
+                        <strong>Preferências</strong>
+                        <small>Oportunidades ideais</small>
+                    </div>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <button type="button" class="switch-profile" onclick="alternarParaEmpresa()">
+
+            <span class="switch-icon">⇄</span>
+
+            <span class="switch-text">
+                <strong>Alternar para<br>perfil de empresa</strong>
+                <small>Acessar área empresarial</small>
+            </span>
+
+            <span class="switch-arrow">›</span>
+
+        </button>
+
+    </aside>
+
+    <main class="main-content">
+
+        <section class="page-header">
+
+            <div>
+
+                <span class="page-label">ÁREA DO CANDIDATO</span>
+
+                <h1>Minhas candidaturas</h1>
+
+                <p>
+                    Acompanhe suas candidaturas e veja o andamento de cada oportunidade.
+                </p>
+
+            </div>
+
+            <a href="vagas.html" class="find-jobs-button">
+                🔎 Encontrar vagas
+            </a>
+
+        </section>
+
+        <section class="stats-grid">
+
+            <article class="stat-card">
+
+                <div class="stat-icon cyan">▣</div>
+
+                <div class="stat-info">
+                    <span>Total de candidaturas</span>
+                    <strong id="totalApplications">3</strong>
+                </div>
+
+            </article>
+
+            <article class="stat-card">
+
+                <div class="stat-icon purple">◌</div>
+
+                <div class="stat-info">
+                    <span>Em análise</span>
+                    <strong id="analysisApplications">1</strong>
+                </div>
+
+            </article>
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">◷</div>
+
+                <div class="stat-info">
+                    <span>Aguardando</span>
+                    <strong id="waitingApplications">1</strong>
+                </div>
+
+            </article>
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">✓</div>
+
+                <div class="stat-info">
+                    <span>Encerradas</span>
+                    <strong id="finishedApplications">1</strong>
+                </div>
+
+            </article>
+
+        </section>
+
+        <section class="content-card">
+
+            <div class="card-header">
+
+                <div class="card-title">
+
+                    <div class="title-icon">▣</div>
+
+                    <div>
+                        <h2>Suas candidaturas</h2>
+                        <p>Veja todas as oportunidades para as quais você se candidatou.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="filter-area">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Buscar por vaga ou empresa..."
+                    >
+
+                </div>
+
+                <div class="filter-buttons">
+
+                    <button class="filter-button active" data-filter="all">
+                        Todas
+                    </button>
+
+                    <button class="filter-button" data-filter="analysis">
+                        Em análise
+                    </button>
+
+                    <button class="filter-button" data-filter="waiting">
+                        Aguardando
+                    </button>
+
+                    <button class="filter-button" data-filter="finished">
+                        Encerradas
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="applications-container" id="applicationsContainer">
+
+                <article
+                    class="application-card"
+                    data-status="analysis"
+                    data-search="jovem aprendiz suporte informática tech solutions"
+                >
+
+                    <div class="application-top">
+
+                        <div class="company-icon">
+                            TS
+                        </div>
+
+                        <div class="application-main">
+
+                            <div class="application-title-row">
+
+                                <div>
+                                    <h3>Jovem Aprendiz - Suporte de Informática</h3>
+                                    <span>Tech Solutions Ltda</span>
+                                </div>
+
+                                <span class="status status-analysis">
+                                    Em análise
+                                </span>
+
+                            </div>
+
+                            <div class="application-details">
+
+                                <span>⌖ Natal, RN</span>
+                                <span>▣ Tecnologia</span>
+                                <span>◷ 10/09/2026</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="application-bottom">
+
+                        <span class="application-message">
+                            Sua candidatura está sendo analisada pela empresa.
+                        </span>
+
+                        <button
+                            type="button"
+                            class="view-application"
+                            data-title="Jovem Aprendiz - Suporte de Informática"
+                            data-company="Tech Solutions Ltda"
+                            data-status="Em análise"
+                        >
+                            Ver candidatura →
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <article
+                    class="application-card"
+                    data-status="waiting"
+                    data-search="desenvolvedor junior empresa digital"
+                >
+
+                    <div class="application-top">
+
+                        <div class="company-icon purple">
+                            ED
+                        </div>
+
+                        <div class="application-main">
+
+                            <div class="application-title-row">
+
+                                <div>
+                                    <h3>Desenvolvedor Júnior</h3>
+                                    <span>Empresa Digital</span>
+                                </div>
+
+                                <span class="status status-waiting">
+                                    Aguardando
+                                </span>
+
+                            </div>
+
+                            <div class="application-details">
+
+                                <span>⌖ Natal, RN</span>
+                                <span>▣ Desenvolvimento</span>
+                                <span>◷ 08/09/2026</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="application-bottom">
+
+                        <span class="application-message">
+                            A empresa ainda não atualizou o andamento.
+                        </span>
+
+                        <button
+                            type="button"
+                            class="view-application"
+                            data-title="Desenvolvedor Júnior"
+                            data-company="Empresa Digital"
+                            data-status="Aguardando"
+                        >
+                            Ver candidatura →
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <article
+                    class="application-card"
+                    data-status="finished"
+                    data-search="assistente administrativo nova soluções"
+                >
+
+                    <div class="application-top">
+
+                        <div class="company-icon green">
+                            NS
+                        </div>
+
+                        <div class="application-main">
+
+                            <div class="application-title-row">
+
+                                <div>
+                                    <h3>Assistente Administrativo</h3>
+                                    <span>Nova Soluções</span>
+                                </div>
+
+                                <span class="status status-finished">
+                                    Encerrada
+                                </span>
+
+                            </div>
+
+                            <div class="application-details">
+
+                                <span>⌖ Extremoz, RN</span>
+                                <span>▣ Administrativo</span>
+                                <span>◷ 02/09/2026</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="application-bottom">
+
+                        <span class="application-message">
+                            O processo seletivo desta oportunidade foi encerrado.
+                        </span>
+
+                        <button
+                            type="button"
+                            class="view-application"
+                            data-title="Assistente Administrativo"
+                            data-company="Nova Soluções"
+                            data-status="Encerrada"
+                        >
+                            Ver candidatura →
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <div class="empty-state" id="emptyState">
+
+                    <div class="empty-icon">⌕</div>
+
+                    <h3>Nenhuma candidatura encontrada</h3>
+
+                    <p>
+                        Não encontramos nenhuma candidatura com esses critérios.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="content-card opportunity-card">
+
+            <div class="opportunity-icon">✦</div>
+
+            <div>
+
+                <span class="page-label">NOVAS OPORTUNIDADES</span>
+
+                <h2>Continue procurando seu próximo passo</h2>
+
+                <p>
+                    Novas empresas e oportunidades podem surgir todos os dias.
+                    Explore as vagas disponíveis no NEXT WORK.
+                </p>
+
+            </div>
+
+            <a href="vagas.html" class="opportunity-button">
+                Explorar vagas →
+            </a>
+
+        </section>
+
+        <section class="security-card">
+
+            <div class="security-icon">◇</div>
+
+            <div>
+                <strong>Seus dados estão seguros</strong>
+
+                <p>
+                    Suas candidaturas são utilizadas para acompanhar sua jornada profissional dentro do NEXT WORK.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div class="application-modal" id="applicationModal">
+
+    <div class="application-modal-content">
+
+        <button
+            type="button"
+            class="close-application-modal"
+            id="closeApplicationModal"
+        >
+            ×
+        </button>
+
+        <span class="page-label">CANDIDATURA</span>
+
+        <div class="modal-company-icon" id="modalCompanyIcon">
+            TS
+        </div>
+
+        <h2 id="modalTitle">Jovem Aprendiz - Suporte de Informática</h2>
+
+        <p id="modalCompany">Tech Solutions Ltda</p>
+
+        <div class="modal-status" id="modalStatus">
+            Em análise
+        </div>
+
+        <div class="modal-information">
+
+            <div>
+                <span>Status atual</span>
+                <strong id="modalStatusText">Em análise</strong>
+            </div>
+
+            <div>
+                <span>Próximo passo</span>
+                <strong>Aguardar retorno da empresa</strong>
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            class="close-modal-button"
+            id="closeModalButton"
+        >
+            Fechar
+        </button>
+
+    </div>
+
+</div>
+
+<script src="minhas-candidaturas.js"></script>
+<script src="menu.js"></script>
+
+</body>
+</html>
