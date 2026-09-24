@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Next Work - Login</title>
+
+    <link rel="stylesheet" href="loginpage.css">
+</head>
+
+<body>
+
+    <main class="pagina-login">
+
+        <!-- ==============================
+             LADO ESQUERDO
+        =============================== -->
+
+        <section class="lado-esquerdo">
+
+            <div class="logo-principal">
+                <img src="nova logo.png" alt="Logo Next Work">
+            </div>
+
+            <div class="conteudo-esquerdo">
+
+                <span class="etiqueta">
+                    BEM-VINDO À NEXT WORK
+                </span>
+
+                <h1>
+                    Seu próximo passo
+                    <span>começa aqui.</span>
+                </h1>
+
+                <p>
+                    Conecte-se à sua conta e continue sua jornada
+                    em busca de novas oportunidades, talentos e
+                    possibilidades profissionais.
+                </p>
+
+                <div class="card-oportunidades">
+
+                    <div class="espaco-icone">
+                        <span>✦</span>
+                    </div>
+
+                    <div class="linha-card"></div>
+
+                    <div class="texto-card">
+
+                        <h3>
+                            Grandes oportunidades
+                            <br>
+                            te esperam!
+                        </h3>
+
+                        <p>
+                            Seja um talento em busca do seu futuro
+                            ou uma empresa em busca dos melhores
+                            profissionais.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             LADO DIREITO
+        =============================== -->
+
+        <section class="lado-direito">
+
+            <div class="card-login">
+
+                <div class="logo-card">
+                    <img src="next work.png" alt="Next Work">
+                </div>
+
+
+                <div class="titulo-card">
+
+                    <span class="etiqueta">
+                        ACESSAR CONTA
+                    </span>
+
+                    <h2>
+                        Bem-vindo de volta!
+                    </h2>
+
+                    <p>
+                        Entre com seus dados para continuar.
+                    </p>
+
+                </div>
+
+
+                <!-- ==============================
+                     FORMULÁRIO DE LOGIN
+                =============================== -->
+
+                <form id="formLogin">
+
+                    <div class="campo">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="icone">
+                                ✉
+                            </span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Digite seu e-mail"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <div class="linha-senha">
+
+                            <label for="senha">
+                                Senha
+                            </label>
+
+                            <button
+                                type="button"
+                                id="esqueciSenha"
+                                class="link-senha"
+                            >
+                                Esqueceu a senha?
+                            </button>
+
+                        </div>
+
+
+                        <div class="input-box">
+
+                            <span class="icone">
+                                🔒
+                            </span>
+
+                            <input
+                                type="password"
+                                id="senha"
+                                placeholder="Digite sua senha"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="mostrarSenha"
+                                class="mostrar-senha"
+                                aria-label="Mostrar senha"
+                            >
+                                ◉
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LEMBRAR DE MIM -->
+
+                    <label class="lembrar">
+
+                        <input
+                            type="checkbox"
+                            id="lembrar"
+                        >
+
+                        <span class="checkbox-personalizado"></span>
+
+                        <span>
+                            Lembrar de mim
+                        </span>
+
+                    </label>
+
+
+                    <!-- BOTÃO ENTRAR -->
+
+                    <button
+                        type="submit"
+                        class="btn-entrar"
+                    >
+
+                        <span>
+                            Entrar
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </button>
+
+                </form>
+
+
+                <!-- ==============================
+                     DIVISOR
+                =============================== -->
+
+                <div class="divisor">
+
+                    <span></span>
+
+                    <p>
+                        ou
+                    </p>
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- ==============================
+                     GOOGLE
+                =============================== -->
+
+                <button
+                    type="button"
+                    id="btnGoogle"
+                    class="btn-google"
+                >
+
+                    <span class="google-logo">
+                        G
+                    </span>
+
+                    <span>
+                        Entrar com o Google
+                    </span>
+
+                </button>
+
+
+                <!-- MENSAGEM DO GOOGLE -->
+
+                <div
+                    id="mensagemGoogle"
+                    class="mensagem"
+                ></div>
+
+
+                <!-- ==============================
+                     CADASTRO
+                =============================== -->
+
+                <div class="cadastro">
+
+                    <p>
+                        Ainda não possui uma conta?
+                    </p>
+
+                    <a href="cadastroo.html">
+                        Criar minha conta
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MENSAGENS GERAIS DO LOGIN -->
+
+    <div
+        id="mensagem"
+        class="mensagem"
+    ></div>
+
+
+    <script src="loginpage.js"></script>
+
+</body>
+
+</html>
