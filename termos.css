@@ -1,0 +1,555 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(2, 6, 17, 0.82),
+            rgba(2, 6, 17, 0.94)
+        ),
+        url("fundo azul.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   PÁGINA
+===================================================== */
+
+.pagina-politica {
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+}
+
+
+/* =====================================================
+   CONTAINER PRINCIPAL
+===================================================== */
+
+.container-politica {
+
+    width: 100%;
+    max-width: 950px;
+
+    padding: 45px;
+
+    background:
+        rgba(4, 12, 30, 0.91);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.50);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.cabecalho-politica {
+
+    position: relative;
+
+    text-align: center;
+
+    padding-bottom: 30px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+/* =====================================================
+   BOTÃO VOLTAR
+===================================================== */
+
+.voltar {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 9px 15px;
+
+    border-radius: 9px;
+
+    color: #9fcaff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    border:
+        1px solid
+        rgba(80, 150, 255, 0.25);
+
+    background:
+        rgba(20, 60, 120, 0.20);
+
+    transition:
+        0.3s ease;
+}
+
+
+.voltar:hover {
+
+    color: white;
+
+    background:
+        rgba(30, 100, 200, 0.30);
+
+    border-color:
+        rgba(80, 150, 255, 0.55);
+
+    transform:
+        translateX(-3px);
+
+}
+
+
+/* =====================================================
+   ETIQUETA
+===================================================== */
+
+.etiqueta {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    padding: 7px 13px;
+
+    border-radius: 8px;
+
+    color: #8bc8ff;
+
+    background:
+        rgba(20, 120, 255, 0.10);
+
+    border:
+        1px solid
+        rgba(60, 150, 255, 0.25);
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.cabecalho-politica h1 {
+
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    margin-bottom: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #76c8ff,
+            #9c7cff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+/* =====================================================
+   SUBTÍTULO
+===================================================== */
+
+.subtitulo {
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #9daec7;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.conteudo-politica {
+
+    width: 100%;
+
+    padding-top: 30px;
+
+}
+
+
+/* =====================================================
+   BLOCOS
+===================================================== */
+
+.bloco-politica {
+
+    width: 100%;
+
+    padding: 25px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+}
+
+
+.bloco-politica:last-child {
+
+    border-bottom: none;
+
+}
+
+
+/* =====================================================
+   TÍTULOS DOS BLOCOS
+===================================================== */
+
+.bloco-politica h2 {
+
+    margin-bottom: 12px;
+
+    color: #78c7ff;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   TEXTOS
+===================================================== */
+
+.bloco-politica p {
+
+    margin-bottom: 10px;
+
+    color: #c5cfdf;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+.bloco-politica p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+.rodape-politica {
+
+    margin-top: 20px;
+
+    padding-top: 25px;
+
+    text-align: center;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+/* =====================================================
+   LINKS DO RODAPÉ
+===================================================== */
+
+.links-politica {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 15px;
+
+}
+
+
+.links-politica a {
+
+    color: #8ebfff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition:
+        0.3s ease;
+
+}
+
+
+.links-politica a:hover {
+
+    color: white;
+
+    text-decoration: underline;
+
+}
+
+
+.links-politica span {
+
+    color: #58667c;
+
+}
+
+
+/* =====================================================
+   TEXTO DO RODAPÉ
+===================================================== */
+
+.rodape-politica p {
+
+    margin-bottom: 7px;
+
+    color: #91a0b7;
+
+    font-size: 13px;
+
+}
+
+
+.rodape-politica small {
+
+    color: #59677d;
+
+    font-size: 11px;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .pagina-politica {
+
+        padding: 30px 15px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .container-politica {
+
+        padding: 35px 28px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .cabecalho-politica h1 {
+
+        font-size: 32px;
+
+        padding-top: 45px;
+
+    }
+
+
+    .voltar {
+
+        position: relative;
+
+        left: auto;
+        top: auto;
+
+        display: inline-flex;
+
+        margin-bottom: 20px;
+
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .pagina-politica {
+
+        padding: 20px 12px;
+
+    }
+
+
+    .container-politica {
+
+        padding: 28px 20px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .cabecalho-politica {
+
+        padding-bottom: 25px;
+
+    }
+
+
+    .cabecalho-politica h1 {
+
+        font-size: 27px;
+
+        line-height: 1.2;
+
+    }
+
+
+    .subtitulo {
+
+        font-size: 13px;
+
+        line-height: 1.6;
+
+    }
+
+
+    .conteudo-politica {
+
+        padding-top: 15px;
+
+    }
+
+
+    .bloco-politica {
+
+        padding: 21px 0;
+
+    }
+
+
+    .bloco-politica h2 {
+
+        font-size: 17px;
+
+    }
+
+
+    .bloco-politica p {
+
+        font-size: 13px;
+
+        line-height: 1.7;
+
+        text-align: left;
+
+    }
+
+
+    .links-politica {
+
+        gap: 7px;
+
+    }
+
+
+    .links-politica a {
+
+        font-size: 12px;
+
+    }
+
+}
