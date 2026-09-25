@@ -9,24 +9,28 @@
    ========================================================= */
 
 :root {
-    --fundo: #020713;
-    --fundo-secundario: #050b1d;
+    --fundo: #020817;
+    --fundo-secundario: #061329;
 
     --azul: #00c8ff;
-    --azul-forte: #238cff;
-    --roxo: #8d5cff;
+    --azul-forte: #1684ff;
+    --azul-eletrico: #008cff;
+
+    --roxo: #9b55ff;
+    --verde: #00e6a8;
+    --laranja: #ff9d24;
 
     --texto: #ffffff;
-    --texto-suave: #aab5cc;
-    --texto-fraco: #68738c;
+    --texto-suave: #aab8d0;
+    --texto-fraco: #687791;
 
-    --borda: rgba(255, 255, 255, 0.09);
-    --vidro: rgba(7, 15, 34, 0.68);
+    --borda: rgba(70, 142, 255, 0.18);
+    --vidro: rgba(5, 18, 42, 0.78);
 
-    --sombra-azul: rgba(0, 174, 255, 0.20);
-    --sombra-roxa: rgba(141, 92, 255, 0.20);
+    --sombra-azul: rgba(0, 132, 255, 0.24);
+    --sombra-roxa: rgba(155, 85, 255, 0.20);
 
-    --raio: 22px;
+    --raio: 17px;
 
     --transicao: 0.35s ease;
 }
@@ -44,18 +48,24 @@ html {
 
 body {
     margin: 0;
+
     background:
         radial-gradient(
-            circle at 15% 20%,
-            rgba(0, 136, 255, 0.07),
+            circle at 12% 28%,
+            rgba(0, 116, 255, 0.08),
             transparent 30%
         ),
         radial-gradient(
-            circle at 85% 60%,
-            rgba(141, 92, 255, 0.06),
+            circle at 88% 55%,
+            rgba(70, 78, 255, 0.055),
             transparent 32%
         ),
-        var(--fundo);
+        linear-gradient(
+            180deg,
+            #020817 0%,
+            #030b1b 48%,
+            #020817 100%
+        );
 
     color: var(--texto);
 
@@ -77,7 +87,12 @@ body::before {
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(0, 195, 255, 0.035),
+            rgba(0, 180, 255, 0.035),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(76, 91, 255, 0.025),
             transparent 35%
         );
 
@@ -87,12 +102,14 @@ body::before {
 
 main {
     position: relative;
+
     width: 100%;
 }
 
 
 a {
     color: inherit;
+
     text-decoration: none;
 }
 
@@ -114,6 +131,7 @@ select {
     min-height: 720px;
 
     display: flex;
+
     align-items: center;
 
     overflow: hidden;
@@ -130,8 +148,6 @@ select {
     border-bottom: 1px solid rgba(0, 195, 255, 0.08);
 }
 
-
-/* Brilho azul no fundo */
 
 .hero::before {
     content: "";
@@ -154,8 +170,6 @@ select {
 }
 
 
-/* Brilho roxo no fundo */
-
 .hero::after {
     content: "";
 
@@ -176,8 +190,6 @@ select {
     pointer-events: none;
 }
 
-
-/* Camadas de luz usadas pelo JS */
 
 .hero-camada-luz {
     position: absolute;
@@ -233,7 +245,9 @@ select {
 
     display: grid;
 
-    grid-template-columns: minmax(0, 1.05fr) minmax(430px, 0.95fr);
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(430px, 0.95fr);
 
     align-items: center;
 
@@ -357,6 +371,7 @@ select {
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     color: transparent;
@@ -402,7 +417,10 @@ select {
 
     display: grid;
 
-    grid-template-columns: 1.25fr 0.85fr auto;
+    grid-template-columns:
+        1.25fr
+        0.85fr
+        auto;
 
     align-items: stretch;
 
@@ -862,11 +880,13 @@ select {
     0%,
     100% {
         opacity: 0.45;
+
         transform: scale(1);
     }
 
     50% {
         opacity: 1;
+
         transform: scale(1.7);
     }
 }
@@ -883,7 +903,7 @@ select {
 
     margin: 0 auto;
 
-    padding: 115px 0;
+    padding: 78px 0;
 }
 
 
@@ -898,7 +918,7 @@ select {
     left: -250px;
     top: 20%;
 
-    background: rgba(0, 145, 255, 0.045);
+    background: rgba(0, 145, 255, 0.055);
 
     filter: blur(100px);
 
@@ -925,7 +945,7 @@ select {
 
     gap: 30px;
 
-    margin-bottom: 45px;
+    margin-bottom: 30px;
 }
 
 
@@ -934,7 +954,7 @@ select {
 
     max-width: 780px;
 
-    margin: 0 auto 55px;
+    margin: 0 auto 38px;
 
     text-align: center;
 }
@@ -943,7 +963,7 @@ select {
 .etiqueta-secao {
     display: inline-block;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 
     color: #43d8ff;
 
@@ -960,7 +980,7 @@ select {
 
     color: #f5f8ff;
 
-    font-size: clamp(30px, 3.2vw, 45px);
+    font-size: clamp(29px, 3.2vw, 42px);
 
     line-height: 1.15;
 
@@ -969,11 +989,11 @@ select {
 
 
 .cabecalho-secao p {
-    margin: 12px 0 0;
+    margin: 9px 0 0;
 
     color: var(--texto-suave);
 
-    font-size: 13px;
+    font-size: 12px;
 
     line-height: 1.7;
 }
@@ -984,13 +1004,13 @@ select {
 
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 
     flex-shrink: 0;
 
-    color: #7bdfff;
+    color: #62cfff;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: 600;
 
@@ -1008,7 +1028,7 @@ select {
 
 
 .link-ver-todos i {
-    font-size: 11px;
+    font-size: 10px;
 }
 
 
@@ -1023,7 +1043,7 @@ select {
 
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 
     gap: 18px;
 }
@@ -1036,25 +1056,27 @@ select {
 .card-vaga {
     position: relative;
 
-    min-height: 315px;
+    min-height: 235px;
 
-    padding: 24px;
+    padding: 19px;
 
     overflow: hidden;
 
-    border: 1px solid rgba(255, 255, 255, 0.075);
+    border: 1px solid rgba(0, 126, 255, 0.28);
 
     border-radius: var(--raio);
 
     background:
         linear-gradient(
             145deg,
-            rgba(11, 24, 52, 0.78),
-            rgba(5, 11, 28, 0.82)
+            rgba(7, 25, 57, 0.92),
+            rgba(3, 13, 32, 0.94)
         );
 
     box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.20);
+        0 18px 45px rgba(0, 0, 0, 0.28),
+        0 0 15px rgba(0, 116, 255, 0.13),
+        inset 0 0 22px rgba(0, 116, 255, 0.035);
 
     backdrop-filter: blur(15px);
 
@@ -1072,17 +1094,17 @@ select {
 
     position: absolute;
 
-    width: 180px;
-    height: 180px;
+    width: 210px;
+    height: 210px;
 
-    top: -100px;
-    right: -80px;
+    top: -120px;
+    right: -90px;
 
     border-radius: 50%;
 
-    background: rgba(0, 174, 255, 0.08);
+    background: rgba(0, 132, 255, 0.13);
 
-    filter: blur(30px);
+    filter: blur(45px);
 
     transition:
         transform 0.5s ease,
@@ -1090,21 +1112,39 @@ select {
 }
 
 
-.card-vaga:hover {
-    transform: translateY(-10px);
+.card-vaga::after {
+    content: "";
 
-    border-color: rgba(0, 195, 255, 0.22);
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
 
     box-shadow:
-        0 30px 70px rgba(0, 0, 0, 0.35),
-        0 0 35px rgba(0, 165, 255, 0.08);
+        inset 0 0 25px rgba(0, 123, 255, 0.035);
+}
+
+
+.card-vaga:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(0, 157, 255, 0.58);
+
+    box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.38),
+        0 0 12px rgba(0, 140, 255, 0.30),
+        0 0 30px rgba(0, 119, 255, 0.17),
+        inset 0 0 25px rgba(0, 119, 255, 0.055);
 }
 
 
 .card-vaga:hover::before {
-    transform: scale(1.5);
+    transform: scale(1.4);
 
-    background: rgba(0, 174, 255, 0.13);
+    background: rgba(0, 151, 255, 0.18);
 }
 
 
@@ -1156,13 +1196,13 @@ select {
 
     justify-content: space-between;
 
-    margin-bottom: 25px;
+    margin-bottom: 17px;
 }
 
 
 .icone-vaga {
-    width: 58px;
-    height: 58px;
+    width: 50px;
+    height: 50px;
 
     display: flex;
 
@@ -1172,19 +1212,20 @@ select {
 
     overflow: hidden;
 
-    border: 1px solid rgba(0, 195, 255, 0.13);
+    border: 1px solid rgba(0, 174, 255, 0.24);
 
-    border-radius: 16px;
+    border-radius: 14px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(0, 174, 255, 0.11),
-            rgba(141, 92, 255, 0.08)
+            rgba(0, 139, 255, 0.13),
+            rgba(44, 83, 255, 0.08)
         );
 
     box-shadow:
-        0 0 25px rgba(0, 174, 255, 0.06);
+        0 0 17px rgba(0, 139, 255, 0.13),
+        inset 0 0 15px rgba(0, 139, 255, 0.045);
 
     transition:
         transform 0.4s ease,
@@ -1196,7 +1237,8 @@ select {
     transform: translateY(-3px) rotate(-2deg);
 
     box-shadow:
-        0 0 30px rgba(0, 174, 255, 0.14);
+        0 0 25px rgba(0, 150, 255, 0.22),
+        inset 0 0 18px rgba(0, 150, 255, 0.06);
 }
 
 
@@ -1209,17 +1251,17 @@ select {
 
 
 .tipo-vaga {
-    padding: 6px 9px;
+    padding: 5px 8px;
 
-    border: 1px solid rgba(76, 219, 255, 0.12);
+    border: 1px solid rgba(76, 219, 255, 0.16);
 
     border-radius: 100px;
 
     color: #70dfff;
 
-    background: rgba(0, 180, 255, 0.045);
+    background: rgba(0, 180, 255, 0.055);
 
-    font-size: 8px;
+    font-size: 7px;
 
     font-weight: 700;
 
@@ -1232,13 +1274,13 @@ select {
 
     z-index: 2;
 
-    margin: 0 0 7px;
+    margin: 0 0 5px;
 
     color: #f2f6ff;
 
-    font-size: 17px;
+    font-size: 15px;
 
-    line-height: 1.35;
+    line-height: 1.3;
 
     font-weight: 600;
 }
@@ -1249,11 +1291,11 @@ select {
 
     z-index: 2;
 
-    margin: 0 0 18px;
+    margin: 0 0 13px;
 
     color: #78869f;
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 
@@ -1266,20 +1308,20 @@ select {
 
     align-items: center;
 
-    gap: 8px;
+    gap: 7px;
 
-    margin-bottom: 18px;
+    margin-bottom: 13px;
 
     color: #a5b0c4;
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 
 .informacao-vaga i {
     color: #49d9ff;
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 
@@ -1292,20 +1334,23 @@ select {
 
     flex-wrap: wrap;
 
-    gap: 6px;
+    gap: 5px;
 }
 
 
 .habilidades-vaga span {
-    padding: 5px 8px;
+    padding: 4px 7px;
 
-    border-radius: 7px;
+    border: 1px solid rgba(34, 113, 213, 0.10);
 
-    background: rgba(255, 255, 255, 0.045);
+    border-radius: 6px;
 
-    color: #8d9ab1;
+    background:
+        rgba(15, 69, 139, 0.25);
 
-    font-size: 8px;
+    color: #91b1dc;
+
+    font-size: 7px;
 }
 
 
@@ -1314,9 +1359,9 @@ select {
 
     z-index: 3;
 
-    left: 24px;
-    right: 24px;
-    bottom: 20px;
+    left: 19px;
+    right: 19px;
+    bottom: 16px;
 
     display: flex;
 
@@ -1324,13 +1369,14 @@ select {
 
     justify-content: space-between;
 
-    padding-top: 15px;
+    padding-top: 11px;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(66, 133, 221, 0.12);
 
     color: #65dcff;
 
-    font-size: 10px;
+    
+    font-size: 9px;
 
     font-weight: 600;
 
@@ -1352,8 +1398,6 @@ select {
 .link-vaga:hover i {
     transform: translateX(5px);
 }
-
-
 
 
 
