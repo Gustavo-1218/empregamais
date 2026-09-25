@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    >
+    <title>NEXT WORK - Início</title>
+
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="mais.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet"
-    >
-
-    <title>NEXT WORK</title>
-
-    <link rel="stylesheet" href="mais.css">
-    <link rel="stylesheet" href="menu.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -36,12 +24,16 @@
 
         <section class="hero">
 
+            <div class="hero-camada-luz hero-luz-azul"></div>
+            <div class="hero-camada-luz hero-luz-roxa"></div>
+
             <div class="hero-conteudo">
 
                 <div class="hero-texto">
 
                     <span class="hero-etiqueta">
-                        ✦ CONECTANDO PESSOAS
+                        <span class="ponto-etiqueta"></span>
+                        CONECTANDO PESSOAS
                     </span>
 
                     <h1>
@@ -58,31 +50,24 @@
                     <div class="barra-busca">
 
                         <div class="campo-busca campo-palavra-chave">
-
                             <i class="fa-solid fa-magnifying-glass"></i>
-
                             <input
                                 type="text"
                                 id="campo-busca"
-                                placeholder="Cargo, palavra-chave ou empresa"
+                                placeholder="Cargo, profissão ou palavra-chave"
+                                autocomplete="off"
                             >
-
                         </div>
 
                         <div class="campo-busca campo-localizacao">
-
                             <i class="fa-solid fa-location-dot"></i>
 
                             <select id="campo-localizacao">
-
-                                <option value="">Localização</option>
+                                <option value="">Todas as localidades</option>
                                 <option value="Natal - RN">Natal - RN</option>
                                 <option value="Extremoz - RN">Extremoz - RN</option>
-                                <option value="São Gonçalo - RN">São Gonçalo - RN</option>
                                 <option value="Remoto">Remoto</option>
-
                             </select>
-
                         </div>
 
                         <button class="botao-busca" id="botao-busca">
@@ -93,27 +78,47 @@
                     </div>
 
                     <div class="indicador-oportunidades">
-
                         <span class="indicador-ponto"></span>
-
-                        <strong id="total-oportunidades">
-                            +10.000
-                        </strong>
-
-                        oportunidades disponíveis em diversas áreas.
-
+                        <strong id="total-oportunidades">+10.000</strong>
+                        <span>oportunidades disponíveis em diversas áreas.</span>
                     </div>
 
                 </div>
 
                 <div class="hero-visual">
 
-                    <!-- IMAGEM: coloque aqui o PNG/JPG principal do HERO -->
+                    <div class="elemento-flutuante elemento-vagas">
+                        <span class="elemento-flutuante-icone">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </span>
+
+                        <div>
+                            <strong>Novas oportunidades</strong>
+                            <span>Encontre seu próximo passo</span>
+                        </div>
+                    </div>
+
+                    <div class="elemento-flutuante elemento-conexao">
+                        <span class="elemento-flutuante-icone">
+                            <i class="fa-solid fa-link"></i>
+                        </span>
+
+                        <div>
+                            <strong>Conexão realizada</strong>
+                            <span>Talento + oportunidade</span>
+                        </div>
+                    </div>
+
+                    <!-- IMAGEM PRINCIPAL DO HERO -->
                     <img
                         src=""
                         alt="Profissionais conectados a oportunidades"
                         class="imagem-hero"
                     >
+
+                    <div class="hero-ponto-decorativo hero-ponto-1"></div>
+                    <div class="hero-ponto-decorativo hero-ponto-2"></div>
+                    <div class="hero-ponto-decorativo hero-ponto-3"></div>
 
                 </div>
 
@@ -121,24 +126,19 @@
 
         </section>
 
+
         <section class="secao vagas-destaque">
 
             <div class="cabecalho-secao">
 
                 <div>
+                    <span class="etiqueta-secao">OPORTUNIDADES</span>
 
-                    <span class="etiqueta-secao">
-                        OPORTUNIDADES
-                    </span>
-
-                    <h2>
-                        Vagas em <span>destaque</span>
-                    </h2>
+                    <h2>Vagas em destaque</h2>
 
                     <p>
                         Confira algumas oportunidades disponíveis no momento.
                     </p>
-
                 </div>
 
                 <a href="vagas.html" class="link-ver-todos">
@@ -148,199 +148,183 @@
 
             </div>
 
+
             <div class="grade-vagas" id="grade-vagas">
 
                 <article class="card-vaga">
+
+                    <div class="efeito-card"></div>
 
                     <div class="topo-card-vaga">
 
                         <div class="icone-vaga">
 
-                            <!-- IMAGEM: coloque aqui o PNG/JPG do ícone desta vaga -->
-                            <img src="" alt="Ícone da vaga">
+                            <!-- IMAGEM DO ÍCONE DA VAGA -->
+                            <img
+                                src=""
+                                alt="Ícone da vaga"
+                            >
 
                         </div>
 
-                        <span class="tipo-vaga">
-                            A combinar
-                        </span>
+                        <span class="tipo-vaga">A COMBINAR</span>
 
                     </div>
 
-                    <h3>
-                        Desenvolvedor Front-End
-                    </h3>
+                    <h3>Desenvolvedor Front-End</h3>
 
                     <p class="empresa-vaga">
                         Tech Solutions
                     </p>
 
                     <div class="informacao-vaga">
-
-                        <span>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Natal - RN
-                        </span>
-
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Natal - RN</span>
                     </div>
 
                     <div class="habilidades-vaga">
-
                         <span>HTML</span>
                         <span>CSS</span>
                         <span>JavaScript</span>
-
                     </div>
 
-                    <a href="#" class="link-vaga">
-                        Ver vaga
+                    <a href="vagas.html" class="link-vaga">
+                        <span>Ver vaga</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
 
                 </article>
 
+
                 <article class="card-vaga">
+
+                    <div class="efeito-card"></div>
 
                     <div class="topo-card-vaga">
 
                         <div class="icone-vaga">
 
-                            <!-- IMAGEM: coloque aqui o PNG/JPG do ícone desta vaga -->
-                            <img src="" alt="Ícone da vaga">
+                            <!-- IMAGEM DO ÍCONE DA VAGA -->
+                            <img
+                                src=""
+                                alt="Ícone da vaga"
+                            >
 
                         </div>
 
-                        <span class="tipo-vaga">
-                            Remoto
-                        </span>
+                        <span class="tipo-vaga">REMOTO</span>
 
                     </div>
 
-                    <h3>
-                        Analista de Marketing
-                    </h3>
+                    <h3>Analista de Marketing</h3>
 
                     <p class="empresa-vaga">
                         Agência Criativa
                     </p>
 
                     <div class="informacao-vaga">
-
-                        <span>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Remoto
-                        </span>
-
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Remoto</span>
                     </div>
 
                     <div class="habilidades-vaga">
-
                         <span>Marketing</span>
                         <span>Comunicação</span>
                         <span>SEO</span>
-
                     </div>
 
-                    <a href="#" class="link-vaga">
-                        Ver vaga
+                    <a href="vagas.html" class="link-vaga">
+                        <span>Ver vaga</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
 
                 </article>
 
+
                 <article class="card-vaga">
+
+                    <div class="efeito-card"></div>
 
                     <div class="topo-card-vaga">
 
                         <div class="icone-vaga">
 
-                            <!-- IMAGEM: coloque aqui o PNG/JPG do ícone desta vaga -->
-                            <img src="" alt="Ícone da vaga">
+                            <!-- IMAGEM DO ÍCONE DA VAGA -->
+                            <img
+                                src=""
+                                alt="Ícone da vaga"
+                            >
 
                         </div>
 
-                        <span class="tipo-vaga">
-                            Presencial
-                        </span>
+                        <span class="tipo-vaga">PRESENCIAL</span>
 
                     </div>
 
-                    <h3>
-                        Assistente Administrativo
-                    </h3>
+                    <h3>Assistente Administrativo</h3>
 
                     <p class="empresa-vaga">
                         Empresa Parceira
                     </p>
 
                     <div class="informacao-vaga">
-
-                        <span>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Extremoz - RN
-                        </span>
-
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Extremoz - RN</span>
                     </div>
 
                     <div class="habilidades-vaga">
-
                         <span>Office</span>
                         <span>Organização</span>
                         <span>Atendimento</span>
-
                     </div>
 
-                    <a href="#" class="link-vaga">
-                        Ver vaga
+                    <a href="vagas.html" class="link-vaga">
+                        <span>Ver vaga</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
 
                 </article>
 
+
                 <article class="card-vaga">
+
+                    <div class="efeito-card"></div>
 
                     <div class="topo-card-vaga">
 
                         <div class="icone-vaga">
 
-                            <!-- IMAGEM: coloque aqui o PNG/JPG do ícone desta vaga -->
-                            <img src="" alt="Ícone da vaga">
+                            <!-- IMAGEM DO ÍCONE DA VAGA -->
+                            <img
+                                src=""
+                                alt="Ícone da vaga"
+                            >
 
                         </div>
 
-                        <span class="tipo-vaga">
-                            A combinar
-                        </span>
+                        <span class="tipo-vaga">A COMBINAR</span>
 
                     </div>
 
-                    <h3>
-                        Designer Gráfico
-                    </h3>
+                    <h3>Designer Gráfico</h3>
 
                     <p class="empresa-vaga">
                         Studio Criativo
                     </p>
 
                     <div class="informacao-vaga">
-
-                        <span>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Natal - RN
-                        </span>
-
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Natal - RN</span>
                     </div>
 
                     <div class="habilidades-vaga">
-
                         <span>Photoshop</span>
                         <span>Illustrator</span>
                         <span>Design</span>
-
                     </div>
 
-                    <a href="#" class="link-vaga">
-                        Ver vaga
+                    <a href="vagas.html" class="link-vaga">
+                        <span>Ver vaga</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
 
@@ -350,132 +334,137 @@
 
         </section>
 
+
         <section class="secao encontre">
 
             <div class="cabecalho-secao cabecalho-centralizado">
 
-                <span class="etiqueta-secao">
-                    NEXT WORK
-                </span>
+                <span class="etiqueta-secao">ENCONTRE O QUE PRECISA</span>
 
-                <h2>
-                    Encontre o que <span>você precisa</span>
-                </h2>
+                <h2>Um próximo passo começa com uma conexão.</h2>
 
                 <p>
-                    Escolha como você quer se conectar com as oportunidades.
+                    Encontre oportunidades, profissionais, empresas e serviços
+                    dentro da NEXT WORK.
                 </p>
 
             </div>
 
+
             <div class="grade-destaques">
 
-                <a href="vagas.html" class="card-destaque destaque-emprego">
+                <a href="vagas.html" class="card-destaque verde">
+
+                    <div class="efeito-card"></div>
 
                     <div class="icone-destaque">
 
-                        <!-- IMAGEM: coloque aqui o PNG/JPG do ícone de emprego -->
-                        <img src="" alt="Ícone de emprego">
+                        <!-- IMAGEM DO ÍCONE -->
+                        <img
+                            src=""
+                            alt="Ícone para buscar emprego"
+                        >
 
                     </div>
 
                     <div class="conteudo-destaque">
-
-                        <h3>
-                            Estou buscando <span>emprego</span>
-                        </h3>
+                        <h3>Estou buscando emprego</h3>
 
                         <p>
-                            Encontre vagas e construa sua carreira.
+                            Encontre vagas e oportunidades que combinam com você.
                         </p>
-
                     </div>
 
-                    <div class="seta-destaque">
+                    <span class="seta-destaque">
                         <i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    </span>
 
                 </a>
 
-                <a href="empresa.html" class="card-destaque destaque-empresa">
+
+                <a href="empresa.html" class="card-destaque azul">
+
+                    <div class="efeito-card"></div>
 
                     <div class="icone-destaque">
 
-                        <!-- IMAGEM: coloque aqui o PNG/JPG do ícone de empresa -->
-                        <img src="" alt="Ícone de empresa">
+                        <!-- IMAGEM DO ÍCONE -->
+                        <img
+                            src=""
+                            alt="Ícone para empresas"
+                        >
 
                     </div>
 
                     <div class="conteudo-destaque">
-
-                        <h3>
-                            Sou uma <span>empresa</span>
-                        </h3>
+                        <h3>Sou uma empresa</h3>
 
                         <p>
-                            Encontre profissionais para sua equipe.
+                            Encontre talentos e encontre profissionais para sua equipe.
                         </p>
-
                     </div>
 
-                    <div class="seta-destaque">
+                    <span class="seta-destaque">
                         <i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    </span>
 
                 </a>
 
-                <a href="#" class="card-destaque destaque-servicos">
+
+                <a href="#" class="card-destaque laranja">
+
+                    <div class="efeito-card"></div>
 
                     <div class="icone-destaque">
 
-                        <!-- IMAGEM: coloque aqui o PNG/JPG do ícone de serviços -->
-                        <img src="" alt="Ícone de serviços">
+                        <!-- IMAGEM DO ÍCONE -->
+                        <img
+                            src=""
+                            alt="Ícone para oferecer serviços"
+                        >
 
                     </div>
 
                     <div class="conteudo-destaque">
-
-                        <h3>
-                            Ofereço serviços e
-                            <span>conquisto clientes</span>
-                        </h3>
+                        <h3>Ofereço serviços</h3>
 
                         <p>
-                            Mostre seu talento e encontre novos clientes.
+                            Apresente suas habilidades e conquiste novos clientes.
                         </p>
-
                     </div>
 
-                    <div class="seta-destaque">
+                    <span class="seta-destaque">
                         <i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    </span>
 
                 </a>
 
-                <a href="#" class="card-destaque destaque-servico">
+
+                <a href="#" class="card-destaque roxo">
+
+                    <div class="efeito-card"></div>
 
                     <div class="icone-destaque">
 
-                        <!-- IMAGEM: coloque aqui o PNG/JPG do ícone de serviço -->
-                        <img src="" alt="Ícone de serviço">
+                        <!-- IMAGEM DO ÍCONE -->
+                        <img
+                            src=""
+                            alt="Ícone para contratar serviços"
+                        >
 
                     </div>
 
                     <div class="conteudo-destaque">
-
-                        <h3>
-                            Preciso de um <span>serviço</span>
-                        </h3>
+                        <h3>Preciso de um serviço</h3>
 
                         <p>
-                            Encontre profissionais para realizar seu projeto.
+                            Encontre profissionais para aquilo que você precisa.
                         </p>
-
                     </div>
 
-                    <div class="seta-destaque">
+                    <span class="seta-destaque">
                         <i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    </span>
 
                 </a>
 
@@ -483,32 +472,28 @@
 
         </section>
 
+
         <section class="secao profissionais-destaque">
 
             <div class="cabecalho-secao">
 
                 <div>
+                    <span class="etiqueta-secao">TALENTOS</span>
 
-                    <span class="etiqueta-secao">
-                        TALENTOS
-                    </span>
-
-                    <h2>
-                        Profissionais em <span>destaque</span>
-                    </h2>
+                    <h2>Profissionais em destaque</h2>
 
                     <p>
-                        Conheça alguns talentos disponíveis na plataforma.
+                        Conheça alguns dos profissionais disponíveis na plataforma.
                     </p>
-
                 </div>
 
                 <a href="candidatos.html" class="link-ver-todos">
-                    Ver todos os profissionais
+                    Ver profissionais
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
 
             </div>
+
 
             <div class="grade-profissionais" id="grade-profissionais">
 
@@ -516,32 +501,31 @@
 
                     <div class="foto-profissional">
 
-                        <!-- IMAGEM: coloque aqui a foto do profissional -->
-                        <img src="" alt="Foto de Ana Beatriz">
+                        <!-- FOTO DO PROFISSIONAL -->
+                        <img
+                            src=""
+                            alt="Foto de Ana Beatriz"
+                        >
 
                     </div>
 
                     <div class="dados-profissional">
 
-                        <h3>
-                            Ana Beatriz
-                        </h3>
+                        <h3>Ana Beatriz</h3>
 
                         <p class="profissao">
                             Designer
                         </p>
 
-                        <span class="local-profissional">
+                        <div class="local-profissional">
                             <i class="fa-solid fa-location-dot"></i>
-                            Natal - RN
-                        </span>
+                            <span>Natal - RN</span>
+                        </div>
 
                         <div class="habilidades-profissional">
-
                             <span>UI/UX</span>
                             <span>Figma</span>
                             <span>Photoshop</span>
-
                         </div>
 
                         <a href="#" class="link-perfil">
@@ -553,36 +537,36 @@
 
                 </article>
 
+
                 <article class="card-profissional">
 
                     <div class="foto-profissional">
 
-                        <!-- IMAGEM: coloque aqui a foto do profissional -->
-                        <img src="" alt="Foto de João Victor">
+                        <!-- FOTO DO PROFISSIONAL -->
+                        <img
+                            src=""
+                            alt="Foto de João Victor"
+                        >
 
                     </div>
 
                     <div class="dados-profissional">
 
-                        <h3>
-                            João Victor
-                        </h3>
+                        <h3>João Victor</h3>
 
                         <p class="profissao">
                             Desenvolvedor Full Stack
                         </p>
 
-                        <span class="local-profissional">
+                        <div class="local-profissional">
                             <i class="fa-solid fa-location-dot"></i>
-                            Natal - RN
-                        </span>
+                            <span>Natal - RN</span>
+                        </div>
 
                         <div class="habilidades-profissional">
-
                             <span>JavaScript</span>
                             <span>React</span>
                             <span>Node.js</span>
-
                         </div>
 
                         <a href="#" class="link-perfil">
@@ -594,36 +578,36 @@
 
                 </article>
 
+
                 <article class="card-profissional">
 
                     <div class="foto-profissional">
 
-                        <!-- IMAGEM: coloque aqui a foto do profissional -->
-                        <img src="" alt="Foto de Moriana Alves">
+                        <!-- FOTO DO PROFISSIONAL -->
+                        <img
+                            src=""
+                            alt="Foto de Moriana Alves"
+                        >
 
                     </div>
 
                     <div class="dados-profissional">
 
-                        <h3>
-                            Moriana Alves
-                        </h3>
+                        <h3>Moriana Alves</h3>
 
                         <p class="profissao">
                             Assistente Virtual
                         </p>
 
-                        <span class="local-profissional">
+                        <div class="local-profissional">
                             <i class="fa-solid fa-location-dot"></i>
-                            Natal - RN
-                        </span>
+                            <span>Natal - RN</span>
+                        </div>
 
                         <div class="habilidades-profissional">
-
                             <span>Administração</span>
                             <span>Office</span>
                             <span>Comunicação</span>
-
                         </div>
 
                         <a href="#" class="link-perfil">
@@ -635,39 +619,39 @@
 
                 </article>
 
+
                 <article class="card-profissional">
 
                     <div class="foto-profissional">
 
-                        <!-- IMAGEM: coloque aqui a foto do profissional -->
-                        <img src="" alt="Foto de Lucas Ferreira">
+                        <!-- FOTO DO PROFISSIONAL -->
+                        <img
+                            src=""
+                            alt="Foto de Lucas Ferreira"
+                        >
 
                     </div>
 
                     <div class="dados-profissional">
 
-                        <h3>
-                            Lucas Ferreira
-                        </h3>
+                        <h3>Lucas Ferreira</h3>
 
                         <p class="profissao">
                             Analista de Dados
                         </p>
 
-                        <span class="local-profissional">
+                        <div class="local-profissional">
                             <i class="fa-solid fa-location-dot"></i>
-                            Natal - RN
-                        </span>
+                            <span>Natal - RN</span>
+                        </div>
 
                         <div class="habilidades-profissional">
-
                             <span>Python</span>
                             <span>SQL</span>
                             <span>Power BI</span>
-
                         </div>
 
-                        <a href="#" class="link-perfil">
+                            <a href="#" class="link-perfil">
                             Ver perfil
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
@@ -682,45 +666,69 @@
 
     </main>
 
+
     <footer class="rodape">
 
         <div class="rodape-conteudo">
 
             <div class="rodape-marca">
 
-                <h2>
+                <h3>
                     NEXT <span>WORK</span>
-                </h2>
+                </h3>
 
                 <p>
-                    Seu próximo passo começa aqui.
+                    Conectando talentos, empresas e oportunidades
+                    para transformar o próximo passo em realidade.
                 </p>
 
             </div>
 
+
             <div class="rodape-links">
 
-                <a href="index.html">Início</a>
-                <a href="vagas.html">Vagas</a>
+                <div>
+                    <h4>Navegação</h4>
 
-<a href="empresa.html">Empresas</a>
-                <a href="dicas.html">Dicas</a>
-                <a href="sobre.html">Sobre nós</a>
+                    <a href="index.html">Início</a>
+                    <a href="vagas.html">Vagas</a>
+                    <a href="empresa.html">Empresas</a>
+                    <a href="mappa.html">Mapa</a>
+                </div>
+
+
+                <div>
+                    <h4>Recursos</h4>
+
+                    <a href="NEXT-IA.html">NEXT IA</a>
+                    <a href="NEXT-INTERVIEW.html">NEXT INTERVIEW</a>
+                    <a href="dicas.html">Dicas</a>
+                    <a href="usuario.html">Perfil</a>
+                </div>
+
+
+                <div>
+                    <h4>NEXT WORK</h4>
+
+                    <a href="sobre.html">Sobre nós</a>
+                    <a href="#">Contato</a>
+                    <a href="#">Ajuda</a>
+                </div>
 
             </div>
 
         </div>
 
+
         <div class="rodape-final">
-            © 2026 NEXT WORK. Todos os direitos reservados.
+            © 2026 NEXT WORK. Conectando talentos e oportunidades.
         </div>
 
     </footer>
+
 
     <script src="menu.js"></script>
     <script src="mais.js"></script>
 
 </body>
-
 </html>
-               
