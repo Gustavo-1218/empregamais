@@ -2201,4 +2201,27 @@ main {
         0 0 20px rgba(0, 221, 255, .25),
         0 0 50px rgba(0, 140, 255, .12);
 }
+
+
+
+
+/* Corrige a sobreposição das linhas do radar */
+.radar-linha {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.radar-circulo {
+    z-index: 1;
+}
+
+.radar-ponto {
+    z-index: 5;
+}
+
+.radar-varredura {
+    z-index: 3;
+    pointer-events: none;
+}
  
