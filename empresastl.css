@@ -1,340 +1,264 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
 
-    color: #fff;
+    /*
+       Mesmo background utilizado na página inicial.
+
+       A diferença é que aqui ele pertence ao BODY inteiro,
+       então acompanha toda a página.
+    */
+
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(0, 140, 255, 0.07),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 55%,
+            rgba(141, 92, 255, 0.06),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 45% 90%,
+            rgba(0, 200, 255, 0.045),
+            transparent 28%
+        ),
+
+        #010611;
+}
+
+
+button,
+a {
+    font-family: inherit;
+}
+
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
+main {
+    width: min(1500px, 92%);
+    margin: 0 auto;
+    padding: 80px 0 100px;
+}
+
+
+/* =========================================================
+   INTRODUÇÃO DO RADAR
+   ========================================================= */
+
+.radar-introducao {
+    max-width: 850px;
+    margin-bottom: 42px;
+}
+
+
+.radar-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 15px;
+
+    border: 1px solid rgba(0, 207, 255, 0.18);
+    border-radius: 999px;
+
+    background: rgba(0, 153, 255, 0.05);
+
+    color: #00cfff;
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+}
+
+
+.radar-etiqueta-ponto {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #00d9ff;
+
+    box-shadow:
+        0 0 8px #00d9ff,
+        0 0 18px rgba(0, 217, 255, 0.6);
+}
+
+
+.radar-introducao h1 {
+    margin-top: 20px;
+
+    font-size: clamp(36px, 4.5vw, 64px);
+    line-height: 1.08;
+    font-weight: 700;
+
+    letter-spacing: -2px;
+}
+
+
+.radar-introducao h1 span {
+    color: #00cfff;
+
+    text-shadow:
+        0 0 25px rgba(0, 207, 255, 0.18);
+}
+
+
+.radar-introducao p {
+    max-width: 680px;
+
+    margin-top: 18px;
+
+    color: rgba(220, 231, 245, 0.65);
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   PAINEL PRINCIPAL
+   ========================================================= */
+
+.radar-painel {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.65fr)
+        minmax(330px, 0.75fr);
+
+    gap: 22px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL DO RADAR
+   ========================================================= */
+
+.radar-area {
+    position: relative;
+
+    min-height: 650px;
+
+    padding: 28px;
+
+    border: 1px solid rgba(105, 163, 255, 0.12);
+    border-radius: 28px;
 
     background:
         linear-gradient(
-            rgba(2, 6, 17, .35),
-            rgba(2, 6, 17, .35)
-        ),
-        url("plano\ de\ fundo.png");
+            145deg,
+            rgba(7, 20, 43, 0.92),
+            rgba(2, 9, 23, 0.96)
+        );
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.25),
+        inset 0 0 45px rgba(0, 125, 255, 0.025);
 
-    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
 
+/*
+   Pequeno brilho ambiental dentro do painel.
+*/
 
-/* =========================================================
-   CABEÇALHO
-========================================================= */
-
-.cabecalho-principal {
-    width: 100%;
-    height: 82px;
-
-    padding: 0 5%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-    background: rgba(5, 8, 23, 0.82);
-
-    backdrop-filter: blur(15px);
-
-    position: relative;
-    z-index: 100;
-}
-
-
-/* LOGO */
-
-.logo-site {
-    display: flex;
-    align-items: center;
-}
-
-.logo-site img {
-    width: 155px;
-    height: auto;
-
-    display: block;
-}
-
-
-/* =========================================================
-   MENU DESKTOP
-========================================================= */
-
-.menu-principal {
-    display: flex;
-    align-items: center;
-}
-
-.lista-menu {
-    display: flex;
-    align-items: center;
-
-    gap: 30px;
-
-    list-style: none;
-}
-
-.item-menu a {
-    position: relative;
-
-    color: #aeb3c7;
-
-    text-decoration: none;
-
-    font-size: 13px;
-    font-weight: 500;
-
-    transition: 0.3s ease;
-}
-
-.item-menu a:hover {
-    color: #ffffff;
-}
-
-
-/* ITEM ATIVO */
-
-.item-menu.menu-ativo a {
-    color: #ffffff;
-}
-
-.item-menu.menu-ativo a::after {
+.radar-area::before {
     content: "";
 
     position: absolute;
 
-    left: 0;
-    bottom: -10px;
+    width: 400px;
+    height: 400px;
 
-    width: 100%;
-    height: 2px;
+    top: -220px;
+    left: -180px;
 
-    border-radius: 10px;
+    border-radius: 50%;
 
-    background: linear-gradient(
-        90deg,
-        #168cff,
-        #8b3dff
-    );
+    background: rgba(0, 150, 255, 0.08);
 
-    box-shadow:
-        0 0 8px rgba(90, 90, 255, 0.8);
+    filter: blur(80px);
+
+    pointer-events: none;
 }
 
 
-/* =========================================================
-   AÇÕES DO USUÁRIO
-========================================================= */
+.radar-cabecalho {
+    position: relative;
+    z-index: 5;
 
-.acoes-usuario {
     display: flex;
     align-items: center;
-
-    gap: 12px;
+    gap: 15px;
 }
 
-.botao-entrar,
-.botao-cadastro {
-    padding: 10px 18px;
 
-    border-radius: 9px;
+.radar-cabecalho h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
 
-    text-decoration: none;
+
+.radar-cabecalho p {
+    margin-top: 3px;
+
+    color: rgba(210, 225, 245, 0.48);
 
     font-size: 12px;
-    font-weight: 600;
-
-    transition: 0.3s ease;
-}
-
-.botao-entrar {
-    color: #ffffff;
-
-    border: 1px solid rgba(255, 255, 255, 0.15);
-
-    background: rgba(255, 255, 255, 0.04);
-}
-
-.botao-entrar:hover {
-    background: rgba(255, 255, 255, 0.09);
-}
-
-.botao-cadastro {
-    color: #ffffff;
-
-    background: linear-gradient(
-        90deg,
-        #168cff,
-        #704cff,
-        #9d3cff
-    );
-
-    box-shadow:
-        0 0 15px rgba(86, 93, 255, 0.25);
-}
-
-.botao-cadastro:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 0 20px rgba(86, 93, 255, 0.5);
 }
 
 
 /* =========================================================
-   MENU MOBILE
-========================================================= */
+   ÍCONES CIRCULARES
+   ========================================================= */
 
-.botao-menu-mobile {
-    display: none;
+.icone-circular {
+    width: 46px;
+    height: 46px;
 
-    width: 42px;
-    height: 42px;
-
-    padding: 9px;
-
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 9px;
-
-    background: rgba(255, 255, 255, 0.04);
-
-    cursor: pointer;
-}
-
-.botao-menu-mobile span {
-    display: block;
-
-    width: 100%;
-    height: 2px;
-
-    margin: 5px 0;
-
-    border-radius: 5px;
-
-    background: #ffffff;
-}
-
-.menu-mobile {
-    display: none;
-}
-
-
-/* =========================================================
-   INTRODUÇÃO
-========================================================= */
-
-.pagina-vagas {
-    width: 100%;
-}
-
-.introducao-vagas {
-    width: 100%;
-
-    padding: 45px 5% 35px;
-}
-
-.titulo-pagina-vagas {
-    max-width: 800px;
-}
-
-.etiqueta-vagas,
-.etiqueta-lista {
-    display: inline-block;
-
-    margin-bottom: 10px;
-
-    color: #8d8aff;
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: 2px;
-}
-
-.titulo-pagina-vagas h1 {
-    font-size: clamp(28px, 3vw, 42px);
-
-    line-height: 1.15;
-
-    margin-bottom: 12px;
-}
-
-.titulo-pagina-vagas p {
-    color: #9298ad;
-
-    font-size: 13px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   ÁREA PRINCIPAL
-========================================================= */
-
-.area-vagas {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    min-height: 650px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-
-/* =========================================================
-   RADAR — LADO ESQUERDO
-========================================================= */
-
-.area-radar {
-    min-width: 0;
-
-    padding: 35px 5% 45px;
-
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(36, 94, 180, 0.08),
-            transparent 55%
-        );
-}
-
-
-/* CABEÇALHO RADAR */
-
-.cabecalho-radar {
-    display: flex;
-    align-items: center;
-
-    gap: 13px;
-
-    margin-bottom: 25px;
-}
-
-.icone-radar {
-    width: 42px;
-    height: 42px;
+    flex-shrink: 0;
 
     display: flex;
     align-items: center;
@@ -342,155 +266,172 @@ body {
 
     border-radius: 50%;
 
-    color: #55a9ff;
+    border: 1px solid rgba(0, 196, 255, 0.28);
 
-    font-size: 20px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 204, 255, 0.15),
+            rgba(0, 100, 180, 0.04)
+        );
 
-    background: rgba(40, 130, 255, 0.1);
-
-    border: 1px solid rgba(70, 150, 255, 0.25);
+    color: #00d5ff;
 
     box-shadow:
-        0 0 15px rgba(50, 130, 255, 0.12);
+        0 0 18px rgba(0, 180, 255, 0.12),
+        inset 0 0 15px rgba(0, 180, 255, 0.06);
 }
 
-.texto-cabecalho-radar h2 {
+
+.icone-circular i {
     font-size: 17px;
-}
-
-.texto-cabecalho-radar p {
-    margin-top: 3px;
-
-    color: #737b94;
-
-    font-size: 10px;
 }
 
 
 /* =========================================================
    RADAR
-========================================================= */
+   ========================================================= */
 
-.radar-oportunidades {
-    width: min(520px, 90%);
-
-    aspect-ratio: 1 / 1;
-
-    margin: 20px auto 30px;
-
+.radar {
     position: relative;
 
-    border-radius: 50%;
+    width: min(580px, 90%);
+    aspect-ratio: 1 / 1;
 
-    overflow: hidden;
+    margin: 32px auto 20px;
+
+    border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(21, 96, 177, 0.12),
-            rgba(5, 20, 45, 0.22) 55%,
-            rgba(3, 10, 25, 0.4)
+            rgba(0, 190, 255, 0.055) 0%,
+            rgba(0, 110, 190, 0.025) 40%,
+            rgba(0, 20, 45, 0.03) 70%,
+            transparent 100%
         );
 
-    border: 1px solid rgba(63, 149, 255, 0.25);
+    border: 1px solid rgba(0, 185, 255, 0.20);
 
     box-shadow:
-        inset 0 0 45px rgba(30, 120, 255, 0.08),
-        0 0 30px rgba(20, 100, 255, 0.08);
+        0 0 35px rgba(0, 180, 255, 0.07),
+        inset 0 0 55px rgba(0, 180, 255, 0.035);
+
+    overflow: hidden;
 }
 
 
-/* CÍRCULOS */
+/* =========================================================
+   CÍRCULOS DO RADAR
+   ========================================================= */
 
-.circulo-radar {
+.radar-circulo {
     position: absolute;
 
-    top: 50%;
     left: 50%;
+    top: 50%;
 
     transform: translate(-50%, -50%);
 
     border-radius: 50%;
 
-    border: 1px solid rgba(65, 151, 255, 0.22);
+    border: 1px solid rgba(0, 205, 255, 0.16);
+
+    pointer-events: none;
 }
 
-.circulo-radar-externo {
-    width: 88%;
-    height: 88%;
+
+.radar-circulo-1 {
+    width: 25%;
+    height: 25%;
 }
 
-.circulo-radar-medio {
-    width: 61%;
-    height: 61%;
+
+.radar-circulo-2 {
+    width: 48%;
+    height: 48%;
 }
 
-.circulo-radar-interno {
-    width: 34%;
-    height: 34%;
+
+.radar-circulo-3 {
+    width: 72%;
+    height: 72%;
+}
+
+
+.radar-circulo-4 {
+    width: 94%;
+    height: 94%;
 }
 
 
 /* =========================================================
    LINHAS DO RADAR
-========================================================= */
+   ========================================================= */
 
-.linha-radar {
+.radar-linha {
     position: absolute;
 
-    background: rgba(67, 149, 255, 0.15);
+    background: rgba(0, 205, 255, 0.10);
+
+    pointer-events: none;
 }
 
-.linha-radar-horizontal {
+
+.radar-linha-horizontal {
     width: 100%;
     height: 1px;
 
-    top: 50%;
     left: 0;
+    top: 50%;
 }
 
-.linha-radar-vertical {
+
+.radar-linha-vertical {
     width: 1px;
     height: 100%;
 
-    top: 0;
     left: 50%;
+    top: 0;
 }
 
 
 /* =========================================================
-   VARREDURA
-========================================================= */
+   VARREDURA DO RADAR
+   ========================================================= */
 
-.varredura-radar {
+.radar-varredura {
     position: absolute;
 
     width: 50%;
     height: 50%;
 
-    top: 0;
     left: 50%;
+    top: 50%;
 
-    transform-origin: bottom left;
+    transform-origin: 0 0;
 
-    background: linear-gradient(
-        135deg,
-        rgba(45, 157, 255, 0.22),
-        rgba(45, 157, 255, 0)
-    );
+    background:
+        conic-gradient(
+            from 0deg,
+            rgba(0, 225, 255, 0.30),
+            rgba(0, 225, 255, 0.04),
+            transparent 65%
+        );
 
     clip-path: polygon(
-        0 100%,
+        0 0,
         100% 0,
-        0 0
+        100% 100%
     );
 
-    animation: varredura 4s linear infinite;
+    animation: radarVarredura 4s linear infinite;
 
     pointer-events: none;
 }
 
-@keyframes varredura {
+
+@keyframes radarVarredura {
 
     from {
         transform: rotate(0deg);
@@ -504,220 +445,724 @@ body {
 
 
 /* =========================================================
-   LOCALIZAÇÃO DO USUÁRIO
-========================================================= */
+   PONTOS DO RADAR
+   ========================================================= */
 
-.localizacao-usuario {
+.radar-ponto {
     position: absolute;
 
-    top: 50%;
-    left: 50%;
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
 
     transform: translate(-50%, -50%);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    z-index: 4;
+}
+
+
+.radar-ponto:hover {
+    transform: translate(-50%, -50%) scale(1.25);
+}
+
+
+/* =========================================================
+   PONTO DO USUÁRIO
+   ========================================================= */
+
+.ponto-voce {
+    left: 50%;
+    top: 50%;
+
+    width: 54px;
+    height: 54px;
+
+    background: rgba(0, 170, 255, 0.12);
+
+    border: 1px solid rgba(0, 205, 255, 0.55);
+
+    box-shadow:
+        0 0 18px rgba(0, 205, 255, 0.35),
+        0 0 45px rgba(0, 150, 255, 0.15);
 
     z-index: 10;
 }
 
-.ponto-central {
-    width: 17px;
-    height: 17px;
+
+.ponto-voce .ponto-icone {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border-radius: 50%;
 
-    background: #319cff;
+    background: #00bfff;
 
-    border: 3px solid #ffffff;
+    color: #00101b;
 
     box-shadow:
-        0 0 10px #319cff,
-        0 0 25px rgba(49, 156, 255, 0.8);
-
-    animation: pulsarUsuario 2s infinite;
+        0 0 12px rgba(0, 200, 255, 0.9);
 }
 
-@keyframes pulsarUsuario {
 
-    0%,
-    100% {
-        box-shadow:
-            0 0 8px #319cff,
-            0 0 20px rgba(49, 156, 255, 0.5);
-    }
+.ponto-voce span {
+    position: absolute;
 
-    50% {
-        box-shadow:
-            0 0 12px #319cff,
-            0 0 35px rgba(49, 156, 255, 0.9);
-    }
+    top: 58px;
 
-}
+    color: #00d5ff;
 
-.texto-localizacao {
-    margin-top: 7px;
-
-    color: #73baff;
-
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 600;
 }
 
 
 /* =========================================================
-   PONTOS DAS OPORTUNIDADES
-========================================================= */
+   CORES DOS DIFERENTES TIPOS DE PONTO
+   ========================================================= */
 
-.ponto-oportunidade {
-    position: absolute;
+.ponto-vaga {
+    background: rgba(0, 180, 255, 0.15);
 
-    width: 14px;
-    height: 14px;
-
-    padding: 0;
-
-    border: 2px solid #ffffff;
-
-    border-radius: 50%;
-
-    background: #8d4dff;
+    border: 1px solid rgba(0, 200, 255, 0.60);
 
     box-shadow:
-        0 0 8px #8d4dff,
-        0 0 20px rgba(141, 77, 255, 0.7);
-
-    cursor: pointer;
-
-    z-index: 20;
-
-    transition: 0.3s ease;
+        0 0 12px rgba(0, 200, 255, 0.40);
 }
 
-.ponto-oportunidade:hover {
-    transform: scale(1.5);
+
+.ponto-empresa {
+    background: rgba(141, 92, 255, 0.15);
+
+    border: 1px solid rgba(141, 92, 255, 0.65);
 
     box-shadow:
-        0 0 12px #8d4dff,
-        0 0 30px rgba(141, 77, 255, 0.9);
+        0 0 12px rgba(141, 92, 255, 0.40);
 }
 
 
-/* POSIÇÃO DOS PONTOS */
+.ponto-profissional {
+    background: rgba(0, 255, 190, 0.12);
 
-.ponto-vaga-1 {
-    top: 22%;
-    left: 70%;
+    border: 1px solid rgba(0, 255, 190, 0.60);
+
+    box-shadow:
+        0 0 12px rgba(0, 255, 190, 0.35);
 }
 
-.ponto-vaga-2 {
-    top: 68%;
-    left: 78%;
+
+.ponto-servico {
+    background: rgba(255, 166, 0, 0.12);
+
+    border: 1px solid rgba(255, 166, 0, 0.65);
+
+    box-shadow:
+        0 0 12px rgba(255, 166, 0, 0.35);
 }
 
-.ponto-vaga-3 {
-    top: 76%;
-    left: 28%;
+
+/* =========================================================
+   POSIÇÃO DOS PONTOS
+   ========================================================= */
+
+.ponto-1 {
+    left: 31%;
+    top: 27%;
 }
 
-.ponto-vaga-4 {
-    top: 25%;
+
+.ponto-2 {
+    left: 68%;
+    top: 32%;
+}
+
+
+.ponto-3 {
+    left: 77%;
+    top: 57%;
+}
+
+
+.ponto-4 {
     left: 25%;
+    top: 67%;
 }
 
 
-/* BRILHO */
-
-.brilho-ponto {
-    position: absolute;
-
-    inset: -5px;
-
-    border-radius: 50%;
-
-    background: rgba(155, 90, 255, 0.25);
-
-    animation: pulsarPonto 2s infinite;
+.ponto-5 {
+    left: 59%;
+    top: 73%;
 }
 
-@keyframes pulsarPonto {
 
-    0%,
-    100% {
-        transform: scale(0.8);
-        opacity: 0.3;
-    }
+.ponto-6 {
+    left: 38%;
+    top: 42%;
+}
 
-    50% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
 
+.ponto-7 {
+    left: 78%;
+    top: 27%;
+}
+
+
+.ponto-8 {
+    left: 22%;
+    top: 43%;
 }
 
 
 /* =========================================================
    LEGENDA
-========================================================= */
+   ========================================================= */
 
-.legenda-radar {
+.radar-legenda {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
 
-    gap: 25px;
-
-    color: #737b94;
-
-    font-size: 10px;
+    margin-top: 8px;
 }
 
-.item-legenda {
+
+.legenda-item {
     display: flex;
     align-items: center;
-
     gap: 7px;
+
+    color: rgba(220, 230, 245, 0.58);
+
+    font-size: 11px;
 }
 
-.indicador-usuario,
-.indicador-oportunidade {
+
+.legenda-ponto {
     width: 7px;
     height: 7px;
 
     border-radius: 50%;
 }
 
-.indicador-usuario {
-    background: #319cff;
 
-    box-shadow: 0 0 7px #319cff;
+.legenda-vaga .legenda-ponto {
+    background: #00cfff;
+    box-shadow: 0 0 8px #00cfff;
 }
 
-.indicador-oportunidade {
-    background: #8d4dff;
 
-    box-shadow: 0 0 7px #8d4dff;
+.legenda-empresa .legenda-ponto {
+    background: #8d5cff;
+    box-shadow: 0 0 8px #8d5cff;
+}
+
+
+.legenda-profissional .legenda-ponto {
+    background: #00ffbe;
+    box-shadow: 0 0 8px #00ffbe;
+}
+
+
+.legenda-servico .legenda-ponto {
+    background: #ffa600;
+    box-shadow: 0 0 8px #ffa600;
 }
 
 
 /* =========================================================
-   LISTA DE VAGAS — LADO DIREITO
-========================================================= */
+   RODAPÉ DO RADAR
+   ========================================================= */
 
-.area-lista-vagas {
-    min-width: 0;
+.radar-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    padding: 35px 5% 45px;
+    margin-top: 24px;
+
+    color: rgba(220, 230, 245, 0.48);
+
+    font-size: 11px;
+}
+
+
+.radar-rodape > span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+.status-online {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #00ff9d;
+
+    box-shadow:
+        0 0 8px #00ff9d;
+}
+
+
+.botao-mapa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(0, 190, 255, 0.18);
+
+    background: rgba(0, 160, 255, 0.05);
+
+    color: #00cfff;
+
+    font-size: 11px;
+
+    transition: 0.25s ease;
+}
+
+
+.botao-mapa:hover {
+    border-color: rgba(0, 210, 255, 0.45);
+
+    background: rgba(0, 180, 255, 0.10);
+
+    box-shadow:
+        0 0 18px rgba(0, 190, 255, 0.12);
+}
+
+
+/* =========================================================
+   PAINEL LATERAL
+   ========================================================= */
+
+.radar-informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.painel-bloco {
+    padding: 22px;
+
+    border: 1px solid rgba(105, 163, 255, 0.11);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 20, 43, 0.90),
+            rgba(3, 10, 25, 0.96)
+        );
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 130, 255, 0.02);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.painel-bloco:hover {
+    border-color: rgba(0, 180, 255, 0.20);
+
+    box-shadow:
+        0 0 30px rgba(0, 130, 255, 0.05);
+}
+
+
+/* =========================================================
+   TÍTULOS DOS PAINÉIS
+   ========================================================= */
+
+.painel-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.painel-titulo h3 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.painel-titulo p {
+    margin-top: 3px;
+
+    color: rgba(210, 225, 245, 0.45);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+.filtros {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+
+.filtro {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: rgba(220, 230, 245, 0.55);
+
+    font-size: 10px;
+
+    transition: 0.25s ease;
+}
+
+
+.filtro-icone {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(0, 180, 255, 0.06);
+
+    color: #00cfff;
+}
+
+
+.filtro:hover,
+.filtro.ativo {
+    color: #ffffff;
+
+    border-color: rgba(0, 190, 255, 0.30);
+
+    background: rgba(0, 170, 255, 0.07);
+
+    box-shadow:
+        0 0 15px rgba(0, 180, 255, 0.08);
+}
+
+
+/* =========================================================
+   REGIÃO
+   ========================================================= */
+
+.regiao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+
+.regiao-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.regiao-conteudo > div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.regiao-conteudo span {
+    color: rgba(220, 230, 245, 0.42);
+
+    font-size: 9px;
+}
+
+
+.regiao-conteudo strong {
+    margin-top: 2px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+}
+
+
+.botao-alterar {
+    padding: 7px 10px;
+
+    border: 1px solid rgba(0, 190, 255, 0.18);
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #00cfff;
+
+    font-size: 9px;
+
+    transition: 0.25s ease;
+}
+
+
+.botao-alterar:hover {
+    background: rgba(0, 190, 255, 0.08);
+}
+
+
+/* =========================================================
+   CONEXÕES
+   ========================================================= */
+
+.conexoes-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 17px;
+}
+
+
+.conexao-card {
+    position: relative;
+
+    padding: 13px;
+
+    border-radius: 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.055);
+
+    background: rgba(255, 255, 255, 0.018);
 
     overflow: hidden;
 }
 
 
-/* CABEÇALHO */
+.conexao-card::after {
+    content: "";
 
-.cabecalho-lista-vagas {
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    right: -35px;
+    bottom: -35px;
+
+    border-radius: 50%;
+
+    filter: blur(25px);
+
+    opacity: 0.10;
+}
+
+
+.conexao-icone {
+    width: 27px;
+    height: 27px;
+
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 8px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 190, 255, 0.08);
+
+    color: #00cfff;
+}
+
+
+.conexao-card strong {
+    display: block;
+
+    font-size: 19px;
+    line-height: 1;
+}
+
+
+.conexao-card span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: rgba(220, 230, 245, 0.42);
+
+    font-size: 9px;
+}
+
+
+.conexao-vagas {
+    border-color: rgba(0, 190, 255, 0.13);
+}
+
+
+.conexao-empresas {
+    border-color: rgba(141, 92, 255, 0.13);
+}
+
+
+.conexao-empresas .conexao-icone {
+    color: #9d78ff;
+
+    background: rgba(141, 92, 255, 0.08);
+}
+
+
+.conexao-profissionais {
+    border-color: rgba(0, 255, 190, 0.12);
+}
+
+
+.conexao-profissionais .conexao-icone {
+    color: #00e8b0;
+
+    background: rgba(0, 255, 190, 0.07);
+}
+
+
+.conexao-servicos {
+    border-color: rgba(255, 166, 0, 0.13);
+}
+
+
+.conexao-servicos .conexao-icone {
+    color: #ffa600;
+
+    background: rgba(255, 166, 0, 0.07);
+}
+
+
+/* =========================================================
+   BOTÃO EXPLORAR
+   ========================================================= */
+
+.painel-explorar {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(0, 195, 255, 0.20);
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(0, 180, 255, 0.08),
+            rgba(80, 80, 255, 0.04)
+        );
+
+    color: #ffffff;
+
+    text-align: left;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.painel-explorar:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(0, 210, 255, 0.42);
+
+    box-shadow:
+        0 0 25px rgba(0, 180, 255, 0.10);
+}
+
+
+.explorar-texto {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+}
+
+
+.explorar-texto strong {
+    font-size: 11px;
+}
+
+
+.explorar-texto small {
+    margin-top: 2px;
+
+    color: rgba(220, 230, 245, 0.43);
+
+    font-size: 8px;
+}
+
+
+.painel-explorar > i {
+    color: #00cfff;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   SEÇÕES DE RESULTADOS
+   ========================================================= */
+
+.resultados {
+    margin-top: 80px;
+}
+
+
+.secao-cabecalho {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
 
     gap: 20px;
@@ -725,131 +1170,114 @@ body {
     margin-bottom: 25px;
 }
 
-.cabecalho-lista-vagas h2 {
-    margin-bottom: 4px;
 
-    font-size: 22px;
-}
-
-.cabecalho-lista-vagas p {
-    color: #737b94;
-
-    font-size: 10px;
-}
-
-
-/* CONTADOR */
-
-.contador-vagas {
-    min-width: 65px;
-
-    padding: 9px 13px;
-
+.secao-titulo {
     display: flex;
-    flex-direction: column;
     align-items: center;
-
-    border-radius: 10px;
-
-    background: rgba(255, 255, 255, 0.035);
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.contador-vagas strong {
-    color: #8d8aff;
-
-    font-size: 20px;
-    line-height: 1;
-}
-
-.contador-vagas span {
-    margin-top: 4px;
-
-    color: #6e7489;
-
-    font-size: 8px;
-}
-
-
-/* =========================================================
-   LISTA
-========================================================= */
-
-.lista-oportunidades {
-    display: flex;
-    flex-direction: column;
-
     gap: 13px;
 }
 
 
-/* =========================================================
-   CARTÕES
-========================================================= */
-
-.cartao-oportunidade {
-    width: 100%;
-
-    padding: 18px 20px;
-
-    border-radius: 14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.055),
-            rgba(255, 255, 255, 0.018)
-        );
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-
-    transition: 0.3s ease;
-
-    cursor: pointer;
+.secao-titulo h2 {
+    font-size: 22px;
+    font-weight: 600;
 }
 
-.cartao-oportunidade:hover {
-    transform: translateX(4px);
 
-    border-color: rgba(107, 101, 255, 0.45);
+.secao-titulo p {
+    margin-top: 3px;
+
+    color: rgba(220, 230, 245, 0.45);
+
+    font-size: 11px;
+}
+
+
+.ver-todos {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #00cfff;
+
+    font-size: 11px;
+
+    transition: 0.25s ease;
+}
+
+
+.ver-todos:hover {
+    gap: 12px;
+
+    text-shadow:
+        0 0 12px rgba(0, 207, 255, 0.4);
+}
+
+
+/* =========================================================
+   CARDS DE VAGAS
+   ========================================================= */
+
+.cards-vagas {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+.card-vaga {
+    position: relative;
+
+    min-height: 230px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(0, 180, 255, 0.15);
 
     background:
         linear-gradient(
-            135deg,
-            rgba(92, 85, 190, 0.12),
-            rgba(255, 255, 255, 0.025)
+            145deg,
+            rgba(8, 20, 43, 0.90),
+            rgba(3, 10, 25, 0.96)
         );
 
     box-shadow:
-        0 0 20px rgba(80, 80, 200, 0.08);
+        0 0 25px rgba(0, 160, 255, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
-/* =========================================================
-   CABEÇALHO DO CARTÃO
-========================================================= */
+.card-vaga:hover {
+    transform: translateY(-6px);
 
-.cabecalho-cartao-vaga {
+    border-color: rgba(0, 200, 255, 0.40);
+
+    box-shadow:
+        0 10px 40px rgba(0, 130, 255, 0.12),
+        0 0 25px rgba(0, 180, 255, 0.08);
+}
+
+
+.card-vaga-topo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
-    gap: 15px;
-
-    margin-bottom: 13px;
+    gap: 9px;
 }
 
-.identificacao-empresa {
-    display: flex;
-    align-items: center;
 
-    gap: 11px;
-}
-
-.icone-empresa {
-    width: 38px;
-    height: 38px;
+.card-empresa-icone {
+    width: 36px;
+    height: 36px;
 
     display: flex;
     align-items: center;
@@ -857,172 +1285,469 @@ body {
 
     flex-shrink: 0;
 
-    border-radius: 9px;
+    border-radius: 11px;
 
-    color: #ffffff;
+    background: rgba(0, 180, 255, 0.08);
 
-    font-size: 15px;
-    font-weight: 700;
+    border: 1px solid rgba(0, 190, 255, 0.16);
 
-    background: linear-gradient(
-        135deg,
-        #168cff,
-        #704cff
-    );
+    color: #00cfff;
+}
+
+
+.card-vaga-topo > span {
+    flex: 1;
+
+    color: rgba(220, 230, 245, 0.55);
+
+    font-size: 9px;
+}
+
+
+.favorito {
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+    align-items: center;
+        justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: rgba(220, 230, 245, 0.45);
+
+    transition: 0.25s ease;
+}
+
+
+.favorito:hover {
+    color: #00cfff;
+
+    background: rgba(0, 190, 255, 0.08);
 
     box-shadow:
-        0 0 12px rgba(70, 100, 255, 0.2);
+        0 0 12px rgba(0, 190, 255, 0.12);
 }
 
-.dados-empresa {
-    display: flex;
-    flex-direction: column;
-}
 
-.nome-empresa {
-    color: #ffffff;
+.card-vaga h3 {
+    margin-top: 20px;
 
-    font-size: 12px;
+    font-size: 17px;
+    line-height: 1.3;
     font-weight: 600;
 }
 
-.local-empresa {
-    margin-top: 2px;
 
-    color: #6f768c;
+.card-informacoes {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-top: 14px;
+}
+
+
+.card-informacoes span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: rgba(220, 230, 245, 0.48);
 
     font-size: 9px;
 }
 
-.tipo-vaga {
-    padding: 5px 9px;
 
-    border-radius: 6px;
+.card-informacoes i {
+    width: 12px;
 
-    color: #77d7aa;
+    color: #00cfff;
 
-    font-size: 8px;
-    font-weight: 700;
-
-    background: rgba(72, 202, 137, 0.08);
-
-    border: 1px solid rgba(72, 202, 137, 0.15);
+    text-align: center;
 }
 
 
-/* =========================================================
-   INFORMAÇÕES DA VAGA
-========================================================= */
-
-.informacoes-oportunidade h3 {
-    margin-bottom: 5px;
-
-    color: #ffffff;
-
-    font-size: 15px;
-}
-
-.informacoes-oportunidade p {
-    max-width: 700px;
-
-    color: #858ca1;
-
-    font-size: 9px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   DETALHES
-========================================================= */
-
-.detalhes-oportunidade {
+.card-tags {
     display: flex;
     flex-wrap: wrap;
 
-    gap: 15px;
+    gap: 6px;
 
-    margin-top: 13px;
-}
-
-.detalhe-oportunidade {
-    color: #777e93;
-
-    font-size: 9px;
+    margin-top: 17px;
 }
 
 
-/* =========================================================
-   RODAPÉ DO CARTÃO
-========================================================= */
+.card-tags span {
+    padding: 5px 8px;
 
-.rodape-cartao-vaga {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    border-radius: 6px;
 
-    gap: 15px;
+    background: rgba(0, 180, 255, 0.06);
 
-    margin-top: 15px;
+    border: 1px solid rgba(0, 190, 255, 0.10);
 
-    padding-top: 12px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.data-vaga {
-    color: #62697c;
+    color: rgba(220, 240, 255, 0.58);
 
     font-size: 8px;
 }
 
-.botao-ver-vaga {
-    padding: 7px 12px;
 
-    border: none;
-    border-radius: 7px;
+.botao-card {
+    position: absolute;
 
-    color: #ffffff;
+    right: 20px;
+    bottom: 18px;
 
-    font-family: inherit;
-    font-size: 9px;
-    font-weight: 600;
+    width: 31px;
+    height: 31px;
 
-    background: rgba(93, 80, 220, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    border: 1px solid rgba(110, 100, 255, 0.18);
+    border-radius: 9px;
 
-    cursor: pointer;
+    background: rgba(0, 180, 255, 0.08);
 
-    transition: 0.3s ease;
+    border: 1px solid rgba(0, 190, 255, 0.15);
+
+    color: #00cfff;
+
+    transition: 0.25s ease;
 }
 
-.botao-ver-vaga:hover {
-    background: rgba(104, 91, 240, 0.28);
 
-    border-color: rgba(130, 120, 255, 0.4);
+.botao-card:hover {
+    transform: translateX(3px);
+
+    background: rgba(0, 190, 255, 0.14);
+
+    border-color: rgba(0, 210, 255, 0.35);
+
+    box-shadow:
+        0 0 15px rgba(0, 190, 255, 0.12);
+}
+
+
+/* =========================================================
+   CARDS DE PROFISSIONAIS
+   ========================================================= */
+
+.cards-profissionais {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+.card-profissional {
+    position: relative;
+
+    min-height: 250px;
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(0, 150, 255, 0.14);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 20, 43, 0.90),
+            rgba(3, 10, 25, 0.96)
+        );
+
+    box-shadow:
+        0 0 25px rgba(0, 130, 255, 0.06);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.card-profissional:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(0, 190, 255, 0.38);
+
+    box-shadow:
+        0 12px 40px rgba(0, 130, 255, 0.12),
+        0 0 25px rgba(0, 180, 255, 0.08);
+}
+
+
+.card-profissional::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -80px;
+    right: -60px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 180, 255, 0.08);
+
+    filter: blur(45px);
+
+    pointer-events: none;
+}
+
+
+.profissional-foto {
+    position: relative;
+
+    width: 70px;
+    height: 70px;
+
+    margin-bottom: 14px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid rgba(0, 190, 255, 0.35);
+
+    box-shadow:
+        0 0 18px rgba(0, 180, 255, 0.12);
+}
+
+
+.card-profissional h3 {
+    position: relative;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.card-profissional > p {
+    position: relative;
+
+    margin-top: 4px;
+
+    color: #00cfff;
+
+    font-size: 10px;
+}
+
+
+.profissional-localizacao {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 10px;
+
+    color: rgba(220, 230, 245, 0.45);
+
+    font-size: 9px;
+}
+
+
+.profissional-localizacao i {
+    color: #00cfff;
+}
+
+
+.profissional-tags {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 14px;
+}
+
+
+.profissional-tags span {
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    background: rgba(0, 180, 255, 0.055);
+
+    border: 1px solid rgba(0, 190, 255, 0.10);
+
+    color: rgba(220, 240, 255, 0.55);
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   SEÇÃO FINAL
+   ========================================================= */
+
+.radar-final {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 35px;
+
+    margin-top: 90px;
+    padding: 42px 35px;
+
+    border-radius: 25px;
+
+    border: 1px solid rgba(0, 180, 255, 0.12);
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 180, 255, 0.08),
+            transparent 55%
+        ),
+        rgba(3, 11, 27, 0.75);
+
+    overflow: hidden;
+}
+
+
+.radar-final::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    left: 50%;
+    top: -230px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(0, 180, 255, 0.10);
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+
+.radar-final-logo {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.radar-final-logo span {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 200, 255, 0.16),
+            rgba(110, 70, 255, 0.12)
+        );
+
+    border: 1px solid rgba(0, 200, 255, 0.22);
+
+    color: #00d5ff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    box-shadow:
+        0 0 22px rgba(0, 190, 255, 0.10);
+}
+
+
+.radar-final-logo small {
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+}
+
+
+.radar-final-texto {
+    position: relative;
+}
+
+
+.radar-final-texto h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
+.radar-final-texto p {
+    margin-top: 5px;
+
+    color: rgba(220, 230, 245, 0.45);
+
+    font-size: 11px;
 }
 
 
 /* =========================================================
    RESPONSIVIDADE — TABLET
-========================================================= */
+   ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
-    .lista-menu {
-        gap: 18px;
+    main {
+        width: 94%;
     }
 
-    .area-vagas {
-        grid-template-columns: 1fr 1fr;
+
+    .radar-painel {
+        grid-template-columns: 1fr;
     }
 
-    .area-radar,
-    .area-lista-vagas {
-        padding-left: 4%;
-        padding-right: 4%;
+
+    .radar-area {
+        min-height: 620px;
+    }
+
+
+    .radar {
+        width: min(560px, 82%);
+    }
+
+
+    .cards-vagas,
+    .cards-profissionais {
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
@@ -1030,207 +1755,164 @@ body {
 
 /* =========================================================
    RESPONSIVIDADE — CELULAR
-========================================================= */
+   ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
 
-    /* HEADER */
+    main {
+        width: 92%;
 
-    .cabecalho-principal {
-        height: 70px;
-
-        padding: 0 20px;
-    }
-
-    .logo-site img {
-        width: 125px;
-    }
-
-    .menu-principal,
-    .acoes-usuario {
-        display: none;
-    }
-
-    .botao-menu-mobile {
-        display: block;
+        padding-top: 50px;
+        padding-bottom: 70px;
     }
 
 
-    /* MENU MOBILE */
+    .radar-introducao {
+        margin-bottom: 30px;
+    }
 
-    .menu-mobile {
-        position: absolute;
 
-        top: 70px;
-        left: 0;
+    .radar-introducao h1 {
+        font-size: 38px;
 
-        width: 100%;
+        letter-spacing: -1.5px;
+    }
+
+
+    .radar-introducao p {
+        font-size: 13px;
+    }
+
+
+    .radar-area {
+        min-height: auto;
 
         padding: 20px;
 
-        background: rgba(5, 8, 23, 0.97);
-
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-        backdrop-filter: blur(15px);
-
-        z-index: 99;
+        border-radius: 22px;
     }
 
-    .lista-menu-mobile {
-        display: flex;
+
+    .radar-cabecalho h2 {
+        font-size: 17px;
+    }
+
+
+    .radar {
+        width: 100%;
+
+        margin-top: 28px;
+    }
+
+
+    .radar-legenda {
+        gap: 12px 16px;
+    }
+
+
+    .radar-rodape {
         flex-direction: column;
 
-        gap: 18px;
+        align-items: stretch;
 
-        list-style: none;
+        gap: 14px;
     }
 
-    .lista-menu-mobile a {
-        color: #c3c7d5;
 
-        text-decoration: none;
-
-        font-size: 14px;
+    .botao-mapa {
+        justify-content: center;
     }
 
-    .acoes-mobile {
-        display: flex;
 
-        gap: 10px;
-
-        margin-top: 20px;
+    .painel-bloco {
+        padding: 18px;
     }
 
-    .acoes-mobile a {
-        flex: 1;
 
-        padding: 11px;
+    .secao-cabecalho {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .cards-vagas,
+    .cards-profissionais {
+        grid-template-columns: 1fr;
+    }
+
+
+    .radar-final {
+        flex-direction: column;
 
         text-align: center;
 
-        border-radius: 8px;
+        gap: 20px;
 
-        color: #ffffff;
-
-        text-decoration: none;
-
-        font-size: 11px;
-
-        background: rgba(255, 255, 255, 0.06);
-    }
-
-
-    /* INTRODUÇÃO */
-
-    .introducao-vagas {
-        padding: 30px 20px 25px;
-    }
-
-    .titulo-pagina-vagas h1 {
-        font-size: 27px;
-    }
-
-    .titulo-pagina-vagas p {
-        font-size: 11px;
-    }
-
-
-    /* ÁREA */
-
-    .area-vagas {
-        display: flex;
-        flex-direction: column;
-
-        min-height: auto;
-    }
-
-
-    /* RADAR */
-
-    .area-radar {
-        width: 100%;
-
-        padding: 25px 20px 35px;
-
-        border-right: none;
-
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .cabecalho-radar {
-        margin-bottom: 18px;
-    }
-
-    .radar-oportunidades {
-        width: min(380px, 90vw);
-
-        margin: 15px auto 25px;
-    }
-
-
-    /* LISTA */
-
-    .area-lista-vagas {
-        width: 100%;
-
-        padding: 30px 20px 40px;
-    }
-
-    .cabecalho-lista-vagas {
-        margin-bottom: 20px;
-    }
-
-    .cabecalho-lista-vagas h2 {
-        font-size: 19px;
-    }
-
-
-    /* CARTÕES */
-
-    .cartao-oportunidade {
-        padding: 16px;
-    }
-
-    .informacoes-oportunidade h3 {
-        font-size: 14px;
-    }
-
-    .informacoes-oportunidade p {
-        font-size: 9px;
+        padding: 32px 22px;
     }
 
 }
 
 
 /* =========================================================
-   CELULARES PEQUENOS
-========================================================= */
+   RESPONSIVIDADE — CELULARES PEQUENOS
+   ========================================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
 
-    .logo-site img {
-        width: 110px;
+    .radar-introducao h1 {
+        font-size: 32px;
     }
 
-    .radar-oportunidades {
-        width: 90vw;
-    }
 
-    .legenda-radar {
-        gap: 15px;
-
+    .radar-etiqueta {
         font-size: 9px;
     }
 
-    .rodape-cartao-vaga {
-        align-items: flex-start;
-        flex-direction: column;
+
+    .radar-area {
+        padding: 16px;
     }
 
-    .botao-ver-vaga {
+
+    .radar {
         width: 100%;
     }
 
-}
 
+    .radar-ponto {
+        width: 29px;
+        height: 29px;
+    }
+
+
+    .ponto-voce {
+        width: 46px;
+        height: 46px;
+    }
+
+
+    .ponto-voce .ponto-icone {
+        width: 27px;
+        height: 27px;
+    }
+
+
+    .ponto-voce span {
+        top: 50px;
+    }
+
+
+    .secao-titulo h2 {
+        font-size: 18px;
+    }
+
+
+    .card-vaga {
+        min-height: 220px;
+    }
+
+}
