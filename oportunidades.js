@@ -29,7 +29,7 @@ cards.forEach(card => {
 
 function abrirCurriculo() {
 
-    window.location.href = "#";
+    window.location.href = "perfil.html";
     
 }
 
@@ -40,17 +40,8 @@ function abrirCurriculo() {
 
 function procurarOportunidades() {
 
-    /*
-        AQUI VOCÊ PODE COLOCAR A PÁGINA
-        DE PESQUISA DE VAGAS.
-
-        Exemplo:
-
-        window.location.href = "oportunidades.html";
-    */
-
     alert(
-        "Aqui você pode colocar a página de oportunidades!"
+        window.location.href = "empresa.html";
     );
 }
 
