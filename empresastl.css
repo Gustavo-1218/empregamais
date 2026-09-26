@@ -1956,4 +1956,249 @@ main {
     min-height: 205px;
     padding: 15px;
 }
+
+
+
+.radar-ponto:not(.ponto-voce) {
+    animation: pontoPulso 2.2s ease-in-out infinite;
+}
+
+.radar-ponto:nth-of-type(3) {
+    animation-delay: .2s;
+}
+
+.radar-ponto:nth-of-type(4) {
+    animation-delay: .5s;
+}
+
+.radar-ponto:nth-of-type(5) {
+    animation-delay: .8s;
+}
+
+.radar-ponto:nth-of-type(6) {
+    animation-delay: 1.1s;
+}
+
+.radar-ponto:nth-of-type(7) {
+    animation-delay: 1.4s;
+}
+
+.radar-ponto:nth-of-type(8) {
+    animation-delay: 1.7s;
+}
+
+@keyframes pontoPulso {
+
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+        filter: brightness(1.7);
+    }
+
+}
+
+
+.radar-circulo {
+    animation: circuloBrilho 4s ease-in-out infinite;
+}
+
+.radar-circulo-2 {
+    animation-delay: .8s;
+}
+
+.radar-circulo-3 {
+    animation-delay: 1.6s;
+}
+
+.radar-circulo-4 {
+    animation-delay: 2.4s;
+}
+
+@keyframes circuloBrilho {
+
+    0%, 100% {
+        opacity: .35;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: .7;
+        filter: brightness(1.5);
+    }
+
+}
+
+
+.radar {
+    position: relative;
+    overflow: hidden;
+}
+
+.radar::before {
+    content: "";
+    position: absolute;
+    inset: 8%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(0, 221, 255, .08),
+        transparent 65%
+    );
+    animation: radarRespirar 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes radarRespirar {
+
+    0%, 100% {
+        transform: scale(.95);
+        opacity: .4;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: .9;
+    }
+
+}
+
+
+.radar-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 260px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+
+    background: rgba(3, 12, 29, .96);
+    border: 1px solid rgba(0, 221, 255, .45);
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 20px rgba(0, 221, 255, .18),
+        0 0 60px rgba(0, 100, 255, .12);
+
+    backdrop-filter: blur(12px);
+
+    animation: popupEntrada .25s ease;
+}
+
+@keyframes popupEntrada {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, -46%) scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+}
+
+
+.radar-popup-fechar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .06);
+    color: #fff;
+
+    cursor: pointer;
+}
+
+
+.radar-popup-icone {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    border-radius: 50%;
+
+    color: #00ddff;
+    background: rgba(0, 221, 255, .08);
+
+    box-shadow: 0 0 18px rgba(0, 221, 255, .18);
+}
+
+
+.radar-popup span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #00ddff;
+}
+
+
+.radar-popup h3 {
+    margin: 5px 0 8px;
+    font-size: 17px;
+}
+
+
+.radar-popup p {
+    margin: 0 0 15px;
+    color: rgba(255, 255, 255, .65);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+.radar-popup-botao {
+    width: 100%;
+    padding: 9px 12px;
+
+    border: 1px solid rgba(0, 221, 255, .25);
+    border-radius: 9px;
+
+    background: rgba(0, 221, 255, .07);
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.radar-popup-botao:hover {
+    background: rgba(0, 221, 255, .16);
+    box-shadow: 0 0 15px rgba(0, 221, 255, .15);
+}
+
+
+.card-vaga {
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.card-vaga.vaga-selecionada {
+    transform: translateY(-5px);
+
+    border-color: rgba(0, 221, 255, .8);
+
+    box-shadow:
+        0 0 20px rgba(0, 221, 255, .25),
+        0 0 50px rgba(0, 140, 255, .12);
+}
  
