@@ -1,14 +1,4 @@
-/* =========================================================
-   NEXT WORK — JAVASCRIPT DO RADAR
-   ========================================================= */
-
-
-/* =========================================================
-   DADOS DAS VAGAS
-   ========================================================= */
-
 const vagas = [
-
     {
         titulo: "Desenvolvedor Front-End",
         empresa: "Tech Solutions",
@@ -16,7 +6,6 @@ const vagas = [
         distancia: "2,4 km",
         requisitos: ["HTML", "CSS", "JavaScript"]
     },
-
     {
         titulo: "Analista de Marketing",
         empresa: "Agência Criativa",
@@ -24,7 +13,6 @@ const vagas = [
         distancia: "0,8 km",
         requisitos: ["Marketing", "Comunicação", "SEO"]
     },
-
     {
         titulo: "Assistente Administrativo",
         empresa: "Empresa Parceira",
@@ -32,7 +20,6 @@ const vagas = [
         distancia: "3,1 km",
         requisitos: ["Office", "Organização", "Atendimento"]
     },
-
     {
         titulo: "Designer Gráfico",
         empresa: "Studio Criativo",
@@ -40,193 +27,96 @@ const vagas = [
         distancia: "4,7 km",
         requisitos: ["Photoshop", "Illustrator", "Design"]
     }
-
 ];
 
-
-/* =========================================================
-   QUANDO A PÁGINA CARREGAR
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
-
     ativarFiltros();
-
     ativarPontosRadar();
-
     ativarBotoesVagas();
-
-    ativarCriarVaga();
-
     ativarFavoritos();
-
+    ativarCriarVaga();
     ativarPesquisa();
-
 });
 
-
-/* =========================================================
-   FILTROS DO RADAR
-   ========================================================= */
-
 function ativarFiltros() {
-
-    const filtros =
-        document.querySelectorAll(".filtro");
+    const filtros = document.querySelectorAll(".filtro");
 
     filtros.forEach(function (filtro) {
-
         filtro.addEventListener("click", function () {
-
             filtro.classList.toggle("ativo");
 
-            const tipo =
-                filtro.dataset.filtro;
-
-            const pontos =
-                document.querySelectorAll(
-                    `.radar-ponto[data-tipo="${tipo}"]`
-                );
+            const tipo = filtro.dataset.filtro;
+            const pontos = document.querySelectorAll(
+                `.radar-ponto[data-tipo="${tipo}"]`
+            );
 
             pontos.forEach(function (ponto) {
-
                 if (filtro.classList.contains("ativo")) {
-
                     ponto.style.opacity = "1";
                     ponto.style.pointerEvents = "auto";
-
                 } else {
-
-                    ponto.style.opacity = "0.1";
+                    ponto.style.opacity = "0.15";
                     ponto.style.pointerEvents = "none";
-
                 }
-
             });
-
         });
-
     });
-
 }
 
-
-/* =========================================================
-   PONTOS DO RADAR
-   ========================================================= */
-
 function ativarPontosRadar() {
-
-    const pontos =
-        document.querySelectorAll(".radar-ponto");
+    const pontos = document.querySelectorAll(".radar-ponto");
 
     pontos.forEach(function (ponto) {
-
         if (ponto.classList.contains("ponto-voce")) {
             return;
         }
 
         ponto.addEventListener("click", function () {
-
-            const tipo =
-                ponto.dataset.tipo;
+            const tipo = ponto.dataset.tipo;
 
             if (tipo === "vaga") {
-
-                const pontosVagas =
-                    document.querySelectorAll(
-                        ".ponto-vaga"
-                    );
-
-                const indice =
-                    Array.from(pontosVagas)
-                        .indexOf(ponto);
+                const pontosVagas = document.querySelectorAll(".ponto-vaga");
+                const indice = Array.from(pontosVagas).indexOf(ponto);
 
                 if (vagas[indice]) {
-
-                    mostrarVaga(
-                        vagas[indice]
-                    );
-
+                    mostrarVaga(vagas[indice]);
                 }
-
-            }
-
-            if (tipo === "profissional") {
-
-                mostrarMensagem(
-                    "Profissional selecionado."
-                );
-
             }
 
             if (tipo === "empresa") {
+                mostrarMensagem("Empresa selecionada.");
+            }
 
-                mostrarMensagem(
-                    "Empresa selecionada."
-                );
-
+            if (tipo === "profissional") {
+                mostrarMensagem("Profissional selecionado.");
             }
 
             if (tipo === "servico") {
-
-                mostrarMensagem(
-                    "Serviço selecionado."
-                );
-
+                mostrarMensagem("Serviço selecionado.");
             }
-
         });
-
     });
-
 }
-
-
-/* =========================================================
-   BOTÕES DOS CARDS DE VAGAS
-   ========================================================= */
 
 function ativarBotoesVagas() {
-
-    const botoes =
-        document.querySelectorAll(".botao-card");
+    const botoes = document.querySelectorAll(".botao-card");
 
     botoes.forEach(function (botao, indice) {
-
         botao.addEventListener("click", function () {
-
             if (vagas[indice]) {
-
-                mostrarVaga(
-                    vagas[indice]
-                );
-
+                mostrarVaga(vagas[indice]);
             }
-
         });
-
     });
-
 }
 
-
-/* =========================================================
-   MOSTRAR DETALHES DA VAGA
-   ========================================================= */
-
 function mostrarVaga(vaga) {
+    const modal = document.createElement("div");
 
-    const modal =
-        document.createElement("div");
-
-    modal.className =
-        "nextwork-modal";
+    modal.className = "nextwork-modal";
 
     modal.innerHTML = `
-
         <div class="modal-conteudo">
-
             <button class="modal-fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -235,13 +125,9 @@ function mostrarVaga(vaga) {
                 <i class="fa-solid fa-briefcase"></i>
             </div>
 
-            <span class="modal-empresa">
-                ${vaga.empresa}
-            </span>
+            <span class="modal-empresa">${vaga.empresa}</span>
 
-            <h2>
-                ${vaga.titulo}
-            </h2>
+            <h2>${vaga.titulo}</h2>
 
             <p class="modal-local">
                 <i class="fa-solid fa-location-dot"></i>
@@ -254,114 +140,66 @@ function mostrarVaga(vaga) {
             </p>
 
             <div class="modal-tags">
-
                 ${vaga.requisitos.map(function (item) {
-
                     return `<span>${item}</span>`;
-
                 }).join("")}
-
             </div>
 
             <button class="modal-principal">
                 Quero conhecer esta oportunidade
             </button>
-
         </div>
-
     `;
 
     document.body.appendChild(modal);
 
+    modal.querySelector(".modal-fechar").addEventListener("click", function () {
+        modal.remove();
+    });
 
-    /* Fechar pelo X */
-
-    modal.querySelector(
-        ".modal-fechar"
-    ).addEventListener(
-        "click",
-        function () {
-
+    modal.addEventListener("click", function (evento) {
+        if (evento.target === modal) {
             modal.remove();
-
         }
-    );
-
-
-    /* Fechar clicando fora */
-
-    modal.addEventListener(
-        "click",
-        function (evento) {
-
-            if (
-                evento.target === modal
-            ) {
-
-                modal.remove();
-
-            }
-
-        }
-    );
-
+    });
 }
 
+function ativarFavoritos() {
+    const botoes = document.querySelectorAll(".favorito");
 
-/* =========================================================
-   CRIAR NOVA VAGA
-   ========================================================= */
+    botoes.forEach(function (botao) {
+        botao.addEventListener("click", function () {
+            botao.classList.toggle("favoritado");
+
+            const icone = botao.querySelector("i");
+
+            if (icone) {
+                icone.classList.toggle("fa-regular");
+                icone.classList.toggle("fa-solid");
+            }
+        });
+    });
+}
 
 function ativarCriarVaga() {
+    const botao = document.querySelector(".botao-criar-vaga");
 
-    const botao =
-        document.createElement("button");
-
-    botao.className =
-        "botao-criar-vaga";
-
-    botao.innerHTML = `
-        <i class="fa-solid fa-plus"></i>
-        Criar nova vaga
-    `;
-
-    botao.addEventListener(
-        "click",
-        abrirFormularioVaga
-    );
-
-
-    const secao =
-        document.querySelector(".resultados");
-
-    if (secao) {
-
-        secao.insertBefore(
-            botao,
-            secao.firstChild
-        );
-
+    if (!botao) {
+        return;
     }
 
+    botao.addEventListener("click", function () {
+        abrirFormularioVaga();
+    });
 }
 
-
-/* =========================================================
-   FORMULÁRIO PARA CRIAR VAGA
-   ========================================================= */
-
 function abrirFormularioVaga() {
+    const modal = document.createElement("div");
 
-    const modal =
-        document.createElement("div");
-
-    modal.className =
-        "nextwork-modal";
+    modal.className = "nextwork-modal";
 
     modal.innerHTML = `
-
         <div class="modal-conteudo">
-
             <button class="modal-fechar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -370,16 +208,9 @@ function abrirFormularioVaga() {
                 <i class="fa-solid fa-plus"></i>
             </div>
 
-            <h2>
-                Criar nova vaga
-            </h2>
-
-            <p class="modal-descricao">
-                Preencha as informações da oportunidade.
-            </p>
+            <h2>Criar nova vaga</h2>
 
             <form id="formulario-vaga">
-
                 <input
                     type="text"
                     id="titulo-vaga"
@@ -404,169 +235,87 @@ function abrirFormularioVaga() {
                 <input
                     type="text"
                     id="requisitos-vaga"
-                    placeholder="Requisitos separados por vírgula"
+                    placeholder="HTML, CSS, JavaScript"
                     required
                 >
 
-                <button
-                    type="submit"
-                    class="modal-principal"
-                >
+                <button type="submit" class="modal-principal">
                     Publicar vaga
                 </button>
-
             </form>
-
         </div>
-
     `;
 
     document.body.appendChild(modal);
 
+    modal.querySelector(".modal-fechar").addEventListener("click", function () {
+        modal.remove();
+    });
 
-    /* Fechar modal */
-
-    modal.querySelector(
-        ".modal-fechar"
-    ).addEventListener(
-        "click",
-        function () {
-
+    modal.addEventListener("click", function (evento) {
+        if (evento.target === modal) {
             modal.remove();
-
         }
-    );
+    });
 
-
-    /* Enviar formulário */
-
-    document.querySelector(
-        "#formulario-vaga"
-    ).addEventListener(
-        "submit",
-        function (evento) {
-
-            evento.preventDefault();
-
-            criarVaga();
-
-        }
-    );
-
+    document.querySelector("#formulario-vaga").addEventListener("submit", function (evento) {
+        evento.preventDefault();
+        criarVaga(modal);
+    });
 }
 
-
-/* =========================================================
-   CRIAR A VAGA
-   ========================================================= */
-
-function criarVaga() {
-
-    const titulo =
-        document.querySelector(
-            "#titulo-vaga"
-        ).value;
-
-    const empresa =
-        document.querySelector(
-            "#empresa-vaga"
-        ).value;
-
-    const local =
-        document.querySelector(
-            "#local-vaga"
-        ).value;
-
-    const requisitos =
-        document.querySelector(
-            "#requisitos-vaga"
-        ).value;
-
+function criarVaga(modal) {
+    const titulo = document.querySelector("#titulo-vaga").value;
+    const empresa = document.querySelector("#empresa-vaga").value;
+    const local = document.querySelector("#local-vaga").value;
+    const requisitosTexto = document.querySelector("#requisitos-vaga").value;
 
     const novaVaga = {
-
         titulo: titulo,
-
         empresa: empresa,
-
         local: local,
-
         distancia: "Nova",
-
-        requisitos:
-            requisitos
-                .split(",")
-                .map(function (item) {
-
-                    return item.trim();
-
-                })
-
+        requisitos: requisitosTexto.split(",").map(function (item) {
+            return item.trim();
+        })
     };
-
 
     vagas.push(novaVaga);
 
+    adicionarCardVaga(novaVaga);
 
-    adicionarCardVaga(
-        novaVaga
-    );
+    modal.remove();
 
-
-    document.querySelector(
-        ".nextwork-modal"
-    ).remove();
-
-
-    mostrarMensagem(
-        "Vaga criada com sucesso!"
-    );
-
+    mostrarMensagem("Vaga publicada com sucesso!");
 }
 
-
-/* =========================================================
-   ADICIONAR CARD DA NOVA VAGA
-   ========================================================= */
-
 function adicionarCardVaga(vaga) {
+    const container = document.querySelector(".cards-vagas");
 
-    const container =
-        document.querySelector(
-            ".cards-vagas"
-        );
+    if (!container) {
+        return;
+    }
 
-    const card =
-        document.createElement("article");
+    const card = document.createElement("article");
 
-    card.className =
-        "card-vaga";
-
+    card.className = "card-vaga";
 
     card.innerHTML = `
-
         <div class="card-vaga-topo">
-
             <div class="card-empresa-icone">
                 <i class="fa-solid fa-briefcase"></i>
             </div>
 
-            <span>
-                ${vaga.empresa}
-            </span>
+            <span>${vaga.empresa}</span>
 
             <button class="favorito">
                 <i class="fa-regular fa-bookmark"></i>
             </button>
-
         </div>
 
-        <h3>
-            ${vaga.titulo}
-        </h3>
+        <h3>${vaga.titulo}</h3>
 
         <div class="card-informacoes">
-
             <span>
                 <i class="fa-solid fa-location-dot"></i>
                 ${vaga.local}
@@ -576,173 +325,72 @@ function adicionarCardVaga(vaga) {
                 <i class="fa-solid fa-route"></i>
                 ${vaga.distancia}
             </span>
-
         </div>
 
         <div class="card-tags">
-
             ${vaga.requisitos.map(function (item) {
-
                 return `<span>${item}</span>`;
-
             }).join("")}
-
         </div>
 
         <button class="botao-card">
-
             <i class="fa-solid fa-arrow-right"></i>
-
         </button>
-
     `;
-
 
     container.appendChild(card);
 
-
-    /* Faz o botão da nova vaga funcionar */
-
-    const botao =
-        card.querySelector(
-            ".botao-card"
-        );
-
-    botao.addEventListener(
-        "click",
-        function () {
-
-            mostrarVaga(vaga);
-
-        }
-    );
-
-
-    /* Faz o favorito funcionar */
-
-    const favorito =
-        card.querySelector(
-            ".favorito"
-        );
-
-    favorito.addEventListener(
-        "click",
-        function () {
-
-            favorito.classList.toggle(
-                "favoritado"
-            );
-
-            const icone =
-                favorito.querySelector("i");
-
-            icone.classList.toggle(
-                "fa-regular"
-            );
-
-            icone.classList.toggle(
-                "fa-solid"
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   FAVORITOS
-   ========================================================= */
-
-function ativarFavoritos() {
-
-    const botoes =
-        document.querySelectorAll(
-            ".favorito"
-        );
-
-    botoes.forEach(function (botao) {
-
-        botao.addEventListener(
-            "click",
-            function () {
-
-                botao.classList.toggle(
-                    "favoritado"
-                );
-
-                const icone =
-                    botao.querySelector("i");
-
-                icone.classList.toggle(
-                    "fa-regular"
-                );
-
-                icone.classList.toggle(
-                    "fa-solid"
-                );
-
-            }
-        );
-
+    card.querySelector(".botao-card").addEventListener("click", function () {
+        mostrarVaga(vaga);
     });
 
+    card.querySelector(".favorito").addEventListener("click", function () {
+        const favorito = this;
+        const icone = favorito.querySelector("i");
+
+        favorito.classList.toggle("favoritado");
+        icone.classList.toggle("fa-regular");
+        icone.classList.toggle("fa-solid");
+    });
 }
-
-
-/* =========================================================
-   PESQUISA
-   ========================================================= */
 
 function ativarPesquisa() {
+    const campo = document.querySelector(".campo-busca");
 
-    const campo =
-        document.querySelector(
-            ".campo-busca"
-        );
+    if (!campo) {
+        return;
+    }
 
-    if (!campo) return;
+    campo.addEventListener("input", function () {
+        const texto = campo.value.toLowerCase();
 
+        const cards = document.querySelectorAll(".card-vaga");
 
-    campo.addEventListener(
-        "input",
-        function () {
+        cards.forEach(function (card) {
+            const conteudo = card.textContent.toLowerCase();
 
-            const texto =
-                campo.value.toLowerCase();
-
-
-            const cards =
-                document.querySelectorAll(
-                    ".card-vaga"
-                );
-
-
-            cards.forEach(function (card) {
-
-                const conteudo =
-                    card.textContent.toLowerCase();
-
-
-                if (
-                    conteudo.includes(texto)
-                ) {
-
-                    card.style.display =
-                        "block";
-
-                } else {
-
-                    card.style.display =
-                        "none";
-
-                }
-
-            });
-
-        }
-    );
-
+            if (conteudo.includes(texto)) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
 }
 
+function mostrarMensagem(texto) {
+    const mensagem = document.createElement("div");
 
+    mensagem.className = "nextwork-mensagem";
+    mensagem.textContent = texto;
+
+    document.body.appendChild(mensagem);
+
+    setTimeout(function () {
+        mensagem.classList.add("visivel");
+    }, 50);
+
+    setTimeout(function () {
+        mensagem.remove();
+    }, 2500);
+}
