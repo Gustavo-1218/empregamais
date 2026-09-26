@@ -400,34 +400,39 @@ main {
    VARREDURA DO RADAR
    ========================================================= */
 
+/* =========================================================
+   LINHA DE VARREDURA DO RADAR
+   ========================================================= */
+
 .radar-varredura {
     position: absolute;
 
     width: 50%;
-    height: 50%;
+    height: 2px;
 
     left: 50%;
-    top: 50%;
+    top: calc(50% - 1px);
 
-    transform-origin: 0 0;
-
-    background:
-        conic-gradient(
-            from 0deg,
-            rgba(0, 225, 255, 0.30),
-            rgba(0, 225, 255, 0.04),
-            transparent 65%
-        );
-
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        100% 100%
+    background: linear-gradient(
+        90deg,
+        #00e1ff 0%,
+        rgba(0, 225, 255, 0.85) 25%,
+        rgba(0, 225, 255, 0.35) 70%,
+        transparent 100%
     );
+
+    box-shadow:
+        0 0 5px #00e1ff,
+        0 0 12px rgba(0, 225, 255, 0.75),
+        0 0 25px rgba(0, 225, 255, 0.25);
+
+    transform-origin: left center;
 
     animation: radarVarredura 4s linear infinite;
 
     pointer-events: none;
+
+    z-index: 20;
 }
 
 
@@ -442,8 +447,6 @@ main {
     }
 
 }
-
-
 /* =========================================================
    PONTOS DO RADAR
    ========================================================= */
