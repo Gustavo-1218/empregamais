@@ -2918,21 +2918,34 @@ select {
 
 
 /* =========================================================
-   CORREÇÃO DOS CARDS FLUTUANTES DO HERO
+   CORREÇÃO DOS ÍCONES DOS CARDS FLUTUANTES
    ========================================================= */
 
-.elemento-flutuante {
-    transform-origin: center center;
+.elemento-flutuante-icone {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 38px !important;
+    height: 38px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    flex-shrink: 0;
+
+    line-height: 1 !important;
 }
 
-@keyframes flutuar {
+.elemento-flutuante-icone i {
+    display: block !important;
 
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
+    margin: 0 !important;
+    padding: 0 !important;
 
-    50% {
-        transform: translateY(-12px) rotate(0deg);
-    }
+    line-height: 1 !important;
+
+    transform: none !important;
+
+    position: static !important;
 }
