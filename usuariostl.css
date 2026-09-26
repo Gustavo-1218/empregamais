@@ -1041,3 +1041,53 @@ main {
     }
 
 }
+
+
+
+/* =========================================================
+   BACKGROUND OFICIAL — NEXT WORK
+   ========================================================= */
+
+html {
+    background: #02030a;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    background: transparent !important;
+}
+
+/* Fundo fixo da página inteira */
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("plano de fundo.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    z-index: -2;
+
+    pointer-events: none;
+}
+
+/* Camada escura para manter a leitura do conteúdo */
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(1, 5, 18, 0.38);
+
+    z-index: -1;
+
+    pointer-events: none;
+}
