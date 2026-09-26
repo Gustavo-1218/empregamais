@@ -2225,3 +2225,9 @@ main {
     pointer-events: none;
 }
  
+
+.radar::before,
+.radar::after {
+    z-index: 0;
+    pointer-events: none;
+}
