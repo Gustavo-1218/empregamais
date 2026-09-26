@@ -2915,3 +2915,24 @@ select {
         transform: translateY(-3px);
     }
 }
+
+
+/* =========================================================
+   CORREÇÃO DOS CARDS FLUTUANTES DO HERO
+   ========================================================= */
+
+.elemento-flutuante {
+    transform-origin: center center;
+}
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(0deg);
+    }
+}
