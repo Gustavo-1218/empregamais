@@ -1,0 +1,197 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    // ==========================================
+    // 1. DADOS DAS VAGAS
+    // ==========================================
+
+    const vagas = [
+        {
+            titulo: "Desenvolvedor Front-End",
+            empresa: "Tech Solutions",
+            localizacao: "Natal - RN",
+            salario: "A combinar",
+            habilidades: ["HTML", "CSS", "JavaScript"],
+            imagem: "paper.png"
+        },
+        {
+            titulo: "Analista de Marketing",
+            empresa: "Agência Criativa",
+            localizacao: "Remoto",
+            salario: "A combinar",
+            habilidades: ["Marketing", "Comunicação", "SEO"],
+            imagem: "lamp.png"
+        },
+        {
+            titulo: "Assistente Administrativo",
+            empresa: "Empresa Parceira",
+            localizacao: "Extremoz - RN",
+            salario: "A combinar",
+            habilidades: ["Office", "Organização", "Atendimento"],
+            imagem: "dados.png"
+        },
+        {
+            titulo: "Designer Gráfico",
+            empresa: "Studio Criativo",
+            localizacao: "Natal - RN",
+            salario: "A combinar",
+            habilidades: ["Photoshop", "Illustrator", "Design"],
+            imagem: "empresas.png"
+        }
+    ];
+
+
+    // ==========================================
+    // 2. DADOS DOS PROFISSIONAIS
+    // ==========================================
+
+    const profissionais = [
+        {
+            nome: "Gaby",
+            profissao: "Designer",
+            localizacao: "Natal - RN",
+            habilidades: ["UI/UX", "Figma", "Photoshop"],
+            foto: "gabyfoto.jpeg"
+        },
+        {
+            nome: "Henry",
+            profissao: "Desenvolvedor Full Stack",
+            localizacao: "Natal - RN",
+            habilidades: ["JavaScript", "React", "Node.js"],
+            foto: "henryfoto.jpeg"
+        },
+        {
+            nome: "Eduarda",
+            profissao: "Assistente Virtual",
+            localizacao: "Natal - RN",
+            habilidades: ["Administração", "Office", "Comunicação"],
+            foto: "eduardafoto.jpeg"
+        },
+        {
+            nome: "Julya Mizraim",
+            profissao: "Analista de Dados",
+            localizacao: "Natal - RN",
+            habilidades: ["Python", "SQL", "Power BI"],
+            foto: "julyafoto.jpeg"
+        }
+    ];
+
+
+    // ==========================================
+    // 3. ELEMENTOS DA PÁGINA
+    // ==========================================
+
+    const campoBusca = document.getElementById("campo-busca");
+    const campoLocalizacao = document.getElementById("campo-localizacao");
+    const botaoBusca = document.getElementById("botao-busca");
+
+    const totalOportunidades = document.getElementById("total-oportunidades");
+
+
+    // ==========================================
+    // 4. BUSCA DE VAGAS
+    // ==========================================
+
+    function buscarVagas() {
+
+        if (!campoBusca) return;
+
+        const termo = campoBusca.value
+            .trim()
+            .toLowerCase();
+
+        const localizacao = campoLocalizacao
+            ? campoLocalizacao.value.toLowerCase()
+            : "";
+
+        const resultados = vagas.filter(function (vaga) {
+
+            const textoVaga = `
+                ${vaga.titulo}
+                ${vaga.empresa}
+                ${vaga.localizacao}
+                ${vaga.habilidades.join(" ")}
+            `.toLowerCase();
+
+            const correspondeTexto =
+                termo === "" ||
+                textoVaga.includes(termo);
+
+            const correspondeLocal =
+                localizacao === "" ||
+                vaga.localizacao.toLowerCase() === localizacao;
+
+            return correspondeTexto && correspondeLocal;
+        });
+
+        console.log("Vagas encontradas:", resultados);
+    }
+
+
+    // ==========================================
+    // 5. BOTÃO DE BUSCA
+    // ==========================================
+
+    if (botaoBusca) {
+        botaoBusca.addEventListener("click", buscarVagas);
+    }
+
+
+    // ==========================================
+    // 6. ENTER NA BUSCA
+    // ==========================================
+
+    if (campoBusca) {
+        campoBusca.addEventListener("keydown", function (evento) {
+
+            if (evento.key === "Enter") {
+                buscarVagas();
+            }
+
+        });
+    }
+
+
+    // ==========================================
+    // 7. CONTADOR DE OPORTUNIDADES
+    // ==========================================
+
+    if (totalOportunidades) {
+
+        let numeroAtual = 0;
+        const numeroFinal = 10000;
+        const duracao = 1800;
+        const intervalo = 20;
+
+        const quantidadePassos =
+            duracao / intervalo;
+
+        const aumento =
+            numeroFinal / quantidadePassos;
+
+        const contador = setInterval(function () {
+
+            numeroAtual += aumento;
+
+            if (numeroAtual >= numeroFinal) {
+
+                numeroAtual = numeroFinal;
+
+                clearInterval(contador);
+            }
+
+            totalOportunidades.textContent =
+                "+" + Math.floor(numeroAtual).toLocaleString("pt-BR");
+
+        }, intervalo);
+    }
+
+
+    // ==========================================
+    // 8. LOG INICIAL
+    // ==========================================
+
+    console.log("NEXT WORK carregado.");
+    console.log("Vagas disponíveis:", vagas);
+    console.log("Profissionais disponíveis:", profissionais);
+
+});
