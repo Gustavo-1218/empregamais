@@ -782,16 +782,519 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================================
-       12. SUGESTÕES AUTOMÁTICAS
+       13. FILTRAGEM DAS VAGAS
        ========================================================= */
 
-    let caixaSugestoes = null;
+    function buscarVagas() {
+
+        if (!campoBusca) return;
+
+        const termo =
+            campoBusca.value
+                .trim()
+                .toLowerCase();
+
+        const localizacao =
+            campoLocalizacao
+                ? campoLocalizacao.value
+                    .trim()
+                    .toLowerCase()
+                : "";
+
+
+        salvarHistorico(termo);
+
+
+        const cardsVagas =
+            document.querySelectorAll(
+                ".card-vaga"
+            );
+
+
+        if (!cardsVagas.length) {
+
+            console.log(
+                "Busca realizada:",
+                termo
+            );
+
+            return;
+
+        }
+
+
+        let encontrados = 0;
+
+
+        cardsVagas.forEach(function (card, indice) {
+
+            const vaga =
+                vagas[indice];
+
+
+            if (!vaga) return;
+
+
+            const texto =
+                (
+                    vaga.titulo +
+                    " " +
+                    vaga.empresa +
+                    " " +
+                    vaga.localizacao +
+                    " " +
+                    vaga.habilidades.join(" ")
+                ).toLowerCase();
+
+
+            const correspondeTexto =
+                !termo ||
+                texto.includes(termo);
+
+
+            const correspondeLocal =
+                !localizacao ||
+                vaga.localizacao
+                    .toLowerCase()
+                    .includes(localizacao);
+
+
+            const mostrar =
+                correspondeTexto &&
+                correspondeLocal;
+
+
+            if (mostrar) {
+
+                card.style.display = "";
+
+                setTimeout(function () {
+                    card.classList.add(
+                        "nw-card-ativo"
+                    );
+                }, 10);
+
+                encontrados++;
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+
+        mostrarMensagemResultado(
+            encontrados,
+            cardsVagas.length
+        );
+
+
+        if (caixaSugestoes) {
+            caixaSugestoes.classList.remove(
+                "visivel"
+            );
+        }
+
+    }
+
+
+    if (botaoBusca) {
+
+        botaoBusca.addEventListener(
+            "click",
+            buscarVagas
+        );
+
+    }
+
 
     if (campoBusca) {
 
-        const campoPai =
-            campoBusca.closest(
-                ".campo-palavra-chave"
-            ) || campoBusca.parentElement;
+        campoBusca.addEventListener(
+            "keydown",
+            function (evento) {
 
-     
+                if (evento.key === "Enter") {
+                    evento.preventDefault();
+                    buscarVagas();
+                }
+
+            }
+        );
+
+    }
+
+
+    if (campoLocalizacao) {
+
+        campoLocalizacao.addEventListener(
+            "change",
+            function () {
+
+                if (
+                    campoBusca &&
+                    campoBusca.value.trim()
+                ) {
+                    buscarVagas();
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       14. MENSAGEM DE NENHUM RESULTADO
+       ========================================================= */
+
+    function mostrarMensagemResultado(
+        encontrados,
+        total
+    ) {
+
+        const container =
+            document.querySelector(
+                ".lista-vagas, .vagas-grid, .grid-vagas, .cards-vagas"
+            );
+
+
+        if (!container) return;
+
+
+        const mensagemExistente =
+            container.querySelector(
+                ".nw-resultado-vazio"
+            );
+
+
+        if (encontrados === 0 && total > 0) {
+
+            if (mensagemExistente) return;
+
+
+            const mensagem =
+                document.createElement("div");
+
+            mensagem.className =
+                "nw-resultado-vazio";
+
+            mensagem.innerHTML = `
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <strong>
+                    Nenhuma oportunidade encontrada
+                </strong>
+
+                <span>
+                    Tente outro cargo, palavra-chave
+                    ou localização.
+                </span>
+            `;
+
+            container.appendChild(
+                mensagem
+            );
+
+        } else {
+
+            if (mensagemExistente) {
+                mensagemExistente.remove();
+            }
+
+        }
+
+    }
+
+
+    /* =========================================================
+       15. HISTÓRICO DE BUSCAS
+       ========================================================= */
+
+    const CHAVE_HISTORICO =
+        "nextwork_historico_buscas";
+
+
+    function obterHistorico() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    CHAVE_HISTORICO
+                )
+            ) || [];
+
+        } catch (erro) {
+
+            return [];
+
+        }
+
+    }
+
+
+    function salvarHistorico(termo) {
+
+        if (!termo) return;
+
+
+        let historico =
+            obterHistorico();
+
+
+        historico =
+            historico.filter(function (item) {
+                return item !== termo;
+            });
+
+
+        historico.unshift(
+            termo
+        );
+
+
+        historico =
+            historico.slice(0, 5);
+
+
+        localStorage.setItem(
+            CHAVE_HISTORICO,
+            JSON.stringify(historico)
+        );
+
+    }
+
+
+    /* =========================================================
+       16. FECHAR SUGESTÕES AO CLICAR FORA
+       ========================================================= */
+
+    document.addEventListener(
+        "click",
+        function (evento) {
+
+            if (
+                caixaSugestoes &&
+                !caixaSugestoes.contains(
+                    evento.target
+                ) &&
+                evento.target !== campoBusca
+            ) {
+
+                caixaSugestoes.classList.remove(
+                    "visivel"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       17. FAVORITOS
+       ========================================================= */
+
+    let favoritos = 0;
+
+    const botoesFavorito =
+        document.querySelectorAll(
+            ".botao-favorito, .favoritar, [data-favorito]"
+        );
+
+
+    botoesFavorito.forEach(function (botao) {
+
+        botao.addEventListener(
+            "click",
+            function () {
+
+                const ativo =
+                    botao.classList.toggle(
+                        "favorito-ativo"
+                    );
+
+
+                if (ativo) {
+
+                    favoritos++;
+
+                } else {
+
+                    favoritos =
+                        Math.max(
+                            0,
+                            favoritos - 1
+                        );
+
+                }
+
+
+                botao.classList.add(
+                    "nw-favorito-ativo"
+                );
+
+
+                setTimeout(function () {
+
+                    botao.classList.remove(
+                        "nw-favorito-ativo"
+                    );
+
+                }, 350);
+
+
+                atualizarContadorFavoritos();
+
+            }
+        );
+
+    });
+
+
+    function atualizarContadorFavoritos() {
+
+        const elementos =
+            document.querySelectorAll(
+                ".contador-favoritos, [data-contador-favoritos]"
+            );
+
+
+        elementos.forEach(function (elemento) {
+
+            elemento.textContent =
+                favoritos;
+
+        });
+
+    }
+
+
+    /* =========================================================
+       18. FOTO DE PERFIL / PREVIEW
+       ========================================================= */
+
+    const inputFoto =
+        document.querySelector(
+            "#foto-perfil, #input-foto-perfil, .input-foto-perfil"
+        );
+
+
+    const previewFoto =
+        document.querySelector(
+            "#preview-foto, .preview-foto, .foto-preview"
+        );
+
+
+    if (inputFoto && previewFoto) {
+
+        inputFoto.addEventListener(
+            "change",
+            function () {
+
+                const arquivo =
+                    inputFoto.files[0];
+
+
+                if (!arquivo) return;
+
+
+                if (
+                    !arquivo.type.startsWith(
+                        "image/"
+                    )
+                ) {
+                    return;
+                }
+
+
+                const leitor =
+                    new FileReader();
+
+
+                leitor.onload =
+                    function (evento) {
+
+                        previewFoto.src =
+                            evento.target.result;
+
+                        previewFoto.classList.add(
+                            "nw-preview-foto"
+                        );
+
+                    };
+
+
+                leitor.readAsDataURL(
+                    arquivo
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       19. ESCONDER SUGESTÕES COM ESC
+       ========================================================= */
+
+    document.addEventListener(
+        "keydown",
+        function (evento) {
+
+            if (
+                evento.key === "Escape" &&
+                caixaSugestoes
+            ) {
+
+                caixaSugestoes.classList.remove(
+                    "visivel"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       20. MOVIMENTO SUTIL DOS PONTOS DO HERO
+       ========================================================= */
+
+    const pontosHero =
+        document.querySelectorAll(
+            ".hero-ponto-decorativo"
+        );
+
+
+    pontosHero.forEach(function (ponto, indice) {
+
+        ponto.style.animationDelay =
+            (indice * 0.6) + "s";
+
+    });
+
+
+    /* =========================================================
+       21. INICIALIZAÇÃO
+       ========================================================= */
+
+    console.log(
+        "NEXT WORK — sistema visual carregado."
+    );
+
+    console.log(
+        "Vagas:",
+        vagas.length
+    );
+
+    console.log(
+        "Profissionais:",
+        profissionais.length
+    );
+
+});
