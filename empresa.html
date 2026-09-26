@@ -3,647 +3,1479 @@
 
 <head>
 
+    <!-- Configurações básicas da página -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+    <!-- Título exibido na aba do navegador -->
+    <title>NEXT WORK - Radar</title>
+
+    <!-- CSS do menu universal -->
+    <link rel="stylesheet" href="menu.css">
+
+    <!-- CSS específico desta página -->
+    <link rel="stylesheet" href="vagas.css">
+
+    <!-- Fonte utilizada no projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
     >
 
-    <title>Emprega Mais - Vagas</title>
+    <!-- Biblioteca de ícones -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    >
 
-    <link rel="stylesheet" href="empresastl.css">
-<link rel="stylesheet" href="menu.css">
 </head>
+
 
 <body>
 
+    <!-- =========================================================
+         MENU UNIVERSAL
+         O menu é carregado pelo menu.js dentro desta div.
+         ========================================================= -->
 
-    <header>
-
-<div id="menu"></div>
-
-    </header>
+    <div id="menu"></div>
 
 
-    <nav
-        class="menu-mobile"
-        id="menu-mobile"
-    >
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL DA PÁGINA
+         ========================================================= -->
 
-        <ul class="lista-menu-mobile">
+    <main>
 
-            <li>
-                <a href="index.html">
-                    Início
+
+        <!-- =====================================================
+             INTRODUÇÃO DO RADAR
+             Título e pequena explicação da página.
+             ===================================================== -->
+
+        <section class="radar-introducao">
+
+            <!-- Pequena identificação da seção -->
+            <div class="radar-etiqueta">
+
+                <span class="radar-etiqueta-ponto"></span>
+
+                RADAR NEXT WORK
+
+            </div>
+
+
+            <!-- Título principal -->
+            <h1>
+
+                Descubra o que está acontecendo
+
+                <span>ao seu redor.</span>
+
+            </h1>
+
+
+            <!-- Texto explicativo -->
+            <p>
+
+                Conecte-se com vagas, empresas, profissionais e serviços
+                próximos a você.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PAINEL PRINCIPAL
+             
+             Aqui ficam:
+             - Radar
+             - Filtros
+             - Região
+             - Conexões ativas
+             - Explorar radar
+             ===================================================== -->
+
+        <section class="radar-painel">
+
+
+            <!-- =================================================
+                 ÁREA DO RADAR
+                 ================================================= -->
+
+            <div class="radar-area">
+
+
+                <!-- Cabeçalho do radar -->
+                <div class="radar-cabecalho">
+
+
+                    <!-- Ícone circular luminoso -->
+                    <div class="icone-circular icone-radar">
+
+                        <i class="fa-solid fa-satellite-dish"></i>
+
+                    </div>
+
+
+                    <!-- Título e descrição -->
+                    <div>
+
+                        <h2>Radar de oportunidades</h2>
+
+                        <p>
+                            Descubra o que está ao seu redor.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RADAR
+                     
+                     Os círculos e linhas serão estilizados pelo CSS.
+                     Os pontos poderão ser movimentados/interagidos
+                     posteriormente pelo JavaScript.
+                     ================================================= -->
+
+                <div class="radar">
+
+
+                    <!-- Círculos concêntricos -->
+                    <div class="radar-circulo radar-circulo-1"></div>
+
+                    <div class="radar-circulo radar-circulo-2"></div>
+
+                    <div class="radar-circulo radar-circulo-3"></div>
+
+                    <div class="radar-circulo radar-circulo-4"></div>
+
+
+                    <!-- Linhas de orientação -->
+                    <div class="radar-linha radar-linha-horizontal"></div>
+
+                    <div class="radar-linha radar-linha-vertical"></div>
+
+
+                    <!-- Área responsável pela animação de varredura -->
+                    <div class="radar-varredura"></div>
+
+
+
+                    <!-- =================================================
+                         VOCÊ
+                         
+                         O usuário fica sempre no centro do radar.
+                         ================================================= -->
+
+                    <div class="radar-ponto ponto-voce">
+
+                        <div class="ponto-icone">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+                        <span>Você</span>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         PONTOS DE VAGAS
+                         ================================================= -->
+
+                    <button
+                        class="radar-ponto ponto-vaga ponto-1"
+                        data-tipo="vaga"
+                    >
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                    </button>
+
+
+                    <button
+                        class="radar-ponto ponto-vaga ponto-2"
+                        data-tipo="vaga"
+                    >
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                    </button>
+
+
+
+                    <!-- =================================================
+                         PONTOS DE EMPRESAS
+                         ================================================= -->
+
+                    <button
+                        class="radar-ponto ponto-empresa ponto-3"
+                        data-tipo="empresa"
+                    >
+
+                        <i class="fa-solid fa-building"></i>
+
+                    </button>
+
+
+                    <button
+                        class="radar-ponto ponto-empresa ponto-4"
+                        data-tipo="empresa"
+                    >
+
+                        <i class="fa-solid fa-building"></i>
+
+                    </button>
+
+
+
+                    <!-- =================================================
+                         PONTOS DE PROFISSIONAIS
+                         ================================================= -->
+
+                    <button
+                        class="radar-ponto ponto-profissional ponto-5"
+                        data-tipo="profissional"
+                    >
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </button>
+
+
+                    <button
+                        class="radar-ponto ponto-profissional ponto-6"
+                        data-tipo="profissional"
+                    >
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </button>
+
+
+
+                    <!-- =================================================
+                         PONTOS DE SERVIÇOS
+                         ================================================= -->
+
+                    <button
+                        class="radar-ponto ponto-servico ponto-7"
+                        data-tipo="servico"
+                    >
+
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                    </button>
+
+
+                    <button
+                        class="radar-ponto ponto-servico ponto-8"
+                        data-tipo="servico"
+                    >
+
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LEGENDA DO RADAR
+                     
+                     Mostra o significado de cada cor.
+                     ================================================= -->
+
+                <div class="radar-legenda">
+
+
+                    <span class="legenda-item legenda-vaga">
+
+                        <span class="legenda-ponto"></span>
+
+                        Vagas
+
+                    </span>
+
+
+                    <span class="legenda-item legenda-empresa">
+
+                        <span class="legenda-ponto"></span>
+
+                        Empresas
+
+                    </span>
+
+
+                    <span class="legenda-item legenda-profissional">
+
+                        <span class="legenda-ponto"></span>
+
+                        Profissionais
+
+                    </span>
+
+
+                    <span class="legenda-item legenda-servico">
+
+                        <span class="legenda-ponto"></span>
+
+                        Serviços
+
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RODAPÉ DO RADAR
+                     ================================================= -->
+
+                <div class="radar-rodape">
+
+
+                    <!-- Indicador de atualização -->
+                    <span>
+
+                        <span class="status-online"></span>
+
+                        Atualizando em tempo real...
+
+                    </span>
+
+
+                    <!-- Botão que futuramente poderá abrir o mapa -->
+                    <button class="botao-mapa">
+
+                        <i class="fa-solid fa-map"></i>
+
+                        Ver mapa completo
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================================
+                 PAINEL LATERAL
+                 ===================================================== -->
+
+            <aside class="radar-informacoes">
+
+
+                <!-- =================================================
+                     FILTROS
+                     ================================================= -->
+
+                <div class="painel-bloco">
+
+
+                    <!-- Título do painel -->
+                    <div class="painel-titulo">
+
+
+                        <div class="icone-circular">
+
+                            <i class="fa-solid fa-sliders"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>Filtros</h3>
+
+                            <p>
+                                O que você quer encontrar?
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Botões dos filtros -->
+                    <div class="filtros">
+
+
+                        <!-- Filtro de vagas -->
+                        <button
+                            class="filtro filtro-vaga ativo"
+                            data-filtro="vaga"
+                        >
+
+                            <span class="filtro-icone">
+
+                                <i class="fa-solid fa-briefcase"></i>
+
+                            </span>
+
+                            Vagas
+
+                        </button>
+
+
+
+                        <!-- Filtro de empresas -->
+                        <button
+                            class="filtro filtro-empresa ativo"
+                            data-filtro="empresa"
+                        >
+
+                            <span class="filtro-icone">
+
+                                <i class="fa-solid fa-building"></i>
+
+                            </span>
+
+                            Empresas
+
+                        </button>
+
+
+
+                        <!-- Filtro de profissionais -->
+                        <button
+                            class="filtro filtro-profissional ativo"
+                            data-filtro="profissional"
+                        >
+
+                            <span class="filtro-icone">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </span>
+
+                            Profissionais
+
+                        </button>
+
+
+
+                        <!-- Filtro de serviços -->
+                        <button
+                            class="filtro filtro-servico ativo"
+                            data-filtro="servico"
+                        >
+
+                            <span class="filtro-icone">
+
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                            </span>
+
+                            Serviços
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     REGIÃO DO USUÁRIO
+                     ================================================= -->
+
+                <div class="painel-bloco regiao">
+
+
+                    <div class="regiao-conteudo">
+
+
+                        <!-- Ícone de localização -->
+                        <div class="icone-circular icone-localizacao">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+
+                        <!-- Região atual -->
+                        <div>
+
+                            <span>Sua região</span>
+
+                            <strong>
+                                Extremoz - RN
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- Botão para alterar região -->
+                    <button class="botao-alterar">
+
+                        Alterar
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CONEXÕES ATIVAS
+                     ================================================= -->
+
+                <div class="painel-bloco conexoes">
+
+
+                    <!-- Cabeçalho -->
+                    <div class="painel-titulo">
+
+
+                        <div class="icone-circular icone-conexoes">
+
+                            <i class="fa-solid fa-circle-nodes"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Conexões ativas
+                            </h3>
+
+                            <p>
+                                Pessoas e oportunidades próximas de você.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Números das conexões -->
+                    <div class="conexoes-grid">
+
+
+                        <!-- Quantidade de vagas -->
+                        <div class="conexao-card conexao-vagas">
+
+                            <div class="conexao-icone">
+
+                                <i class="fa-solid fa-briefcase"></i>
+
+                            </div>
+
+                            <strong>128</strong>
+
+                            <span>Vagas</span>
+
+                        </div>
+
+
+
+                        <!-- Quantidade de empresas -->
+                        <div class="conexao-card conexao-empresas">
+
+                            <div class="conexao-icone">
+
+                                <i class="fa-solid fa-building"></i>
+
+                            </div>
+
+                            <strong>43</strong>
+
+                            <span>Empresas</span>
+
+                        </div>
+
+
+
+                        <!-- Quantidade de profissionais -->
+                        <div class="conexao-card conexao-profissionais">
+
+                            <div class="conexao-icone">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+                            <strong>67</strong>
+
+                            <span>Profissionais</span>
+
+                        </div>
+
+
+
+                        <!-- Quantidade de serviços -->
+                        <div class="conexao-card conexao-servicos">
+
+                            <div class="conexao-icone">
+
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                            </div>
+
+                            <strong>35</strong>
+
+                            <span>Serviços</span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     BOTÃO PARA EXPLORAR O RADAR
+                     ================================================= -->
+
+                <button class="painel-explorar">
+
+
+                    <span class="icone-circular">
+
+                        <i class="fa-solid fa-star"></i>
+
+                    </span>
+
+
+                    <span class="explorar-texto">
+
+                        <strong>
+                            Explore o radar
+                        </strong>
+
+                        <small>
+                            Clique nos pontos para ver mais informações
+                        </small>
+
+                    </span>
+
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+
+                </button>
+
+
+            </aside>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RESULTADOS — VAGAS PRÓXIMAS
+             ===================================================== -->
+
+        <section class="resultados">
+
+
+            <!-- Cabeçalho da seção -->
+            <div class="secao-cabecalho">
+
+
+                <div class="secao-titulo">
+
+
+                    <div class="icone-circular">
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Vagas próximas
+                        </h2>
+
+                        <p>
+                            Algumas oportunidades encontradas na sua região.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Link para todas as vagas -->
+                <a
+                    href="vagas.html"
+                    class="ver-todos"
+                >
+
+                    Ver todas as vagas
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
                 </a>
-            </li>
-
-            <li>
-                <a href="vagas.html">
-                    Vagas
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    Cursos
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    Dicas
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    Empresas
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    Sobre nós
-                </a>
-            </li>
-
-        </ul>
 
 
-        <div class="acoes-mobile">
-
-            <a href="digital.html">
-                Entrar
-            </a>
-
-            <a href="cadastro.html">
-                Cadastre-se
-            </a>
-
-        </div>
-
-    </nav>
+            </div>
 
 
-    <main class="pagina-vagas">
+
+            <!-- =================================================
+                 CARDS DE VAGAS
+                 ================================================= -->
+
+            <div class="cards-vagas">
 
 
-        <section class="introducao-vagas">
+                <!-- Vaga 1 -->
+                <article class="card-vaga">
 
-            <div class="titulo-pagina-vagas">
 
-                <span class="etiqueta-vagas">
-                    OPORTUNIDADES
-                </span>
+                    <div class="card-vaga-topo">
 
-                <h1>
-                    Encontre sua próxima oportunidade.
-                </h1>
 
-                <p>
-                    Explore as vagas disponíveis e descubra
-                    oportunidades próximas a você.
-                </p>
+                        <div class="card-empresa-icone">
+
+                            <i class="fa-solid fa-code"></i>
+
+                        </div>
+
+
+                        <span>
+                            Tech Solutions
+                        </span>
+
+
+                        <button class="favorito">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <h3>
+                        Desenvolvedor Front-End
+                    </h3>
+
+
+                    <div class="card-informacoes">
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Natal - RN
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="fa-solid fa-route"></i>
+
+                            2,4 km
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-tags">
+
+                        <span>HTML</span>
+
+                        <span>CSS</span>
+
+                        <span>JavaScript</
+                        <span>HTML</span>
+
+                        <span>CSS</span>
+
+                        <span>JavaScript</span>
+
+                    </div>
+
+
+                    <!-- Botão para abrir os detalhes da vaga -->
+                    <button class="botao-card">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </article>
+
+
+
+                <!-- =================================================
+                     VAGA 2
+                     ================================================= -->
+
+                <article class="card-vaga">
+
+
+                    <div class="card-vaga-topo">
+
+
+                        <div class="card-empresa-icone">
+
+                            <i class="fa-solid fa-bullhorn"></i>
+
+                        </div>
+
+
+                        <span>
+                            Agência Criativa
+                        </span>
+
+
+                        <!-- Botão para salvar a vaga -->
+                        <button class="favorito">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <h3>
+                        Analista de Marketing
+                    </h3>
+
+
+                    <!-- Informações básicas -->
+                    <div class="card-informacoes">
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Remoto
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="fa-solid fa-route"></i>
+
+                            5,8 km
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- Tecnologias/competências -->
+                    <div class="card-tags">
+
+                        <span>Marketing</span>
+
+                        <span>Comunicação</span>
+
+                    </div>
+
+
+                    <!-- Botão de detalhes -->
+                    <button class="botao-card">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </article>
+
+
+
+                <!-- =================================================
+                     VAGA 3
+                     ================================================= -->
+
+                <article class="card-vaga">
+
+
+                    <div class="card-vaga-topo">
+
+
+                        <div class="card-empresa-icone">
+
+                            <i class="fa-solid fa-building"></i>
+
+                        </div>
+
+
+                        <span>
+                            Empresa Parceira
+                        </span>
+
+
+                        <button class="favorito">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <h3>
+                        Assistente Administrativo
+                    </h3>
+
+
+                    <div class="card-informacoes">
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Extremoz - RN
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="fa-solid fa-route"></i>
+
+                            3,1 km
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-tags">
+
+                        <span>Office</span>
+
+                        <span>Organização</span>
+
+                    </div>
+
+
+                    <button class="botao-card">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </article>
+
+
+
+                <!-- =================================================
+                     VAGA 4
+                     ================================================= -->
+
+                <article class="card-vaga">
+
+
+                    <div class="card-vaga-topo">
+
+
+                        <div class="card-empresa-icone">
+
+                            <i class="fa-solid fa-palette"></i>
+
+                        </div>
+
+
+                        <span>
+                            Studio Criativo
+                        </span>
+
+
+                        <button class="favorito">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <h3>
+                        Designer Gráfico
+                    </h3>
+
+
+                    <div class="card-informacoes">
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Natal - RN
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="fa-solid fa-route"></i>
+
+                            4,7 km
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-tags">
+
+                        <span>Photoshop</span>
+
+                        <span>Design</span>
+
+                    </div>
+
+
+                    <button class="botao-card">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </article>
+
 
             </div>
 
         </section>
 
 
-        <section class="area-vagas">
+
+        <!-- =====================================================
+             RESULTADOS — PROFISSIONAIS PRÓXIMOS
+             
+             Esta seção mostra alguns profissionais encontrados
+             pelo radar.
+             ===================================================== -->
+
+        <section class="resultados profissionais">
 
 
-            <section class="area-radar">
-
-                <div class="cabecalho-radar">
-
-                    <div class="icone-radar">
-                        ◉
-                    </div>
-
-                    <div class="texto-cabecalho-radar">
-
-                        <h2>
-                            Radar de oportunidades
-                        </h2>
-
-                        <p>
-                            Vagas encontradas próximas a você
-                        </p>
-
-                    </div>
-
-                </div>
+            <!-- Cabeçalho da seção -->
+            <div class="secao-cabecalho">
 
 
-                <div
-                    class="radar-oportunidades"
-                    id="radar-oportunidades"
-                >
-
-                    <div
-                        class="circulo-radar circulo-radar-externo"
-                    ></div>
-
-                    <div
-                        class="circulo-radar circulo-radar-medio"
-                    ></div>
-
-                    <div
-                        class="circulo-radar circulo-radar-interno"
-                    ></div>
+                <div class="secao-titulo">
 
 
-                    <div
-                        class="linha-radar linha-radar-horizontal"
-                    ></div>
+                    <!-- Ícone da seção -->
+                    <div class="icone-circular">
 
-                    <div
-                        class="linha-radar linha-radar-vertical"
-                    ></div>
-
-
-                    <div
-                        class="varredura-radar"
-                        id="varredura-radar"
-                    ></div>
-
-
-                    <div
-                        class="localizacao-usuario"
-                        id="localizacao-usuario"
-                    >
-
-                        <span class="ponto-central"></span>
-
-                        <span class="texto-localizacao">
-                            Você
-                        </span>
+                        <i class="fa-solid fa-users"></i>
 
                     </div>
 
-
-                    <button
-                        class="ponto-oportunidade ponto-vaga-1"
-                        id="ponto-vaga-1"
-                        data-vaga="vaga-1"
-                        aria-label="Ver vaga de Empacotador"
-                    >
-
-                        <span class="brilho-ponto"></span>
-
-                    </button>
-
-
-                    <button
-                        class="ponto-oportunidade ponto-vaga-2"
-                        id="ponto-vaga-2"
-                        data-vaga="vaga-2"
-                        aria-label="Ver vaga de Atendente"
-                    >
-
-                        <span class="brilho-ponto"></span>
-
-                    </button>
-
-
-                    <button
-                        class="ponto-oportunidade ponto-vaga-3"
-                        id="ponto-vaga-3"
-                        data-vaga="vaga-3"
-                        aria-label="Ver vaga de Operador de caixa"
-                    >
-
-                        <span class="brilho-ponto"></span>
-
-                    </button>
-
-
-                    <button
-                        class="ponto-oportunidade ponto-vaga-4"
-                        id="ponto-vaga-4"
-                        data-vaga="vaga-4"
-                        aria-label="Ver vaga de Auxiliar de estoque"
-                    >
-
-                        <span class="brilho-ponto"></span>
-
-                    </button>
-
-                </div>
-
-
-                <div class="legenda-radar">
-
-                    <div class="item-legenda">
-
-                        <span class="indicador-usuario"></span>
-
-                        <span>
-                            Sua localização
-                        </span>
-
-                    </div>
-
-
-                    <div class="item-legenda">
-
-                        <span class="indicador-oportunidade"></span>
-
-                        <span>
-                            Oportunidade
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <section class="area-lista-vagas">
-
-
-                <div class="cabecalho-lista-vagas">
 
                     <div>
 
-                        <span class="etiqueta-lista">
-                            ENCONTRADAS
-                        </span>
-
                         <h2>
-                            Vagas disponíveis
+                            Profissionais próximos
                         </h2>
 
                         <p>
-                            Confira as oportunidades disponíveis
-                            na sua região.
+                            Talentos que podem interessar a você.
                         </p>
 
                     </div>
 
 
-                    <div class="contador-vagas">
+                </div>
 
-                        <strong>
-                            04
-                        </strong>
 
-                        <span>
-                            vagas
-                        </span>
+                <!-- Link para visualizar mais profissionais -->
+                <a
+                    href="perfil.html"
+                    class="ver-todos"
+                >
+
+                    Ver todos
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CARDS DE PROFISSIONAIS
+                 ================================================= -->
+
+            <div class="cards-profissionais">
+
+
+                <!-- =================================================
+                     PROFISSIONAL 1
+                     ================================================= -->
+
+                <article class="card-profissional">
+
+
+                    <!-- Foto e status -->
+                    <div class="foto-profissional">
+
+                        <!-- IMAGEM DO PROFISSIONAL -->
+                        <img
+                            src="gabyfoto.jpeg"
+                            alt="Gaby"
+                        >
+
+                        <!-- Indica que o profissional está ativo -->
+                        <span class="status-profissional"></span>
 
                     </div>
 
-                </div>
+
+                    <!-- Informações do profissional -->
+                    <div class="dados-profissional">
+
+                        <h3>
+                            Gaby
+                        </h3>
+
+                        <span>
+                            Designer
+                        </span>
 
 
-                <div
-                    class="lista-oportunidades"
-                    id="lista-oportunidades"
-                >
+                        <!-- Distância -->
+                        <div class="distancia">
 
+                            <i class="fa-solid fa-location-dot"></i>
 
-                    <article
-                        class="cartao-oportunidade"
-                        id="vaga-1"
-                        data-ponto="ponto-vaga-1"
-                    >
-
-                        <div class="cabecalho-cartao-vaga">
-
-                            <div class="identificacao-empresa">
-
-                                <div class="icone-empresa">
-                                    A
-                                </div>
-
-                                <div class="dados-empresa">
-
-                                    <span class="nome-empresa">
-                                        Atacarejo Bom Preço
-                                    </span>
-
-                                    <span class="local-empresa">
-                                        Extremoz - RN
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                            <span class="tipo-vaga">
-                                CLT
-                            </span>
+                            2,4 km
 
                         </div>
 
 
-                        <div class="informacoes-oportunidade">
+                        <!-- Competências -->
+                        <div class="card-tags">
 
-                            <h3>
-                                Empacotador
-                            </h3>
+                            <span>UI/UX</span>
 
-                            <p>
-                                Auxiliar no atendimento aos clientes,
-                                organização das compras e embalagem
-                                dos produtos.
-                            </p>
+                            <span>Figma</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Botão de detalhes -->
+                    <button class="botao-card">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </article>
+
+
+
+                <!-- =================================================
+                     PROFISSIONAL 2
+                     ================================================= -->
+
+                <article class="card-profissional">
+
+
+                    <div class="foto-profissional">
+
+                        <!-- IMAGEM DO PROFISSIONAL -->
+                        <img
+                            src="henryfoto.jpeg"
+                            alt="Henry"
+                        >
+
+                        <span class="status-profissional"></span>
+
+                    </div>
+
+
+                    <div class="dados-profissional">
+
+                        <h3>
+                            Henry
+                        </h3>
+
+                        <span>
+                            Desenvolvedor Full Stack
+                        </span>
+
+
+                        <div class="distancia">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            3,1 km
 
                         </div>
 
 
-                        <div class="detalhes-oportunidade">
+                        <div class="card-tags">
 
-                            <span class="detalhe-oportunidade">
-                                📍 12 km de você
-                            </span>
+                            <span>JavaScript</span>
 
-                            <span class="detalhe-oportunidade">
-                                🕐 Tempo integral
-                            </span>
+                            <span>React</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="botao-card">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </article>
+
+
+
+                <!-- =================================================
+                     PROFISSIONAL 3
+                     ================================================= -->
+
+                <article class="card-profissional">
+
+
+                    <div class="foto-profissional">
+
+                        <!-- IMAGEM DO PROFISSIONAL -->
+                        <img
+                            src="eduardafoto.jpeg"
+                            alt="Eduarda"
+                        >
+
+                        <span class="status-profissional"></span>
+
+                    </div>
+
+
+                    <div class="dados-profissional">
+
+                        <h3>
+                            Eduarda
+                        </h3>
+
+                        <span>
+                            Assistente Virtual
+                        </span>
+
+
+                        <div class="distancia">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            4,8 km
 
                         </div>
 
 
-                        <div class="rodape-cartao-vaga">
+                        <div class="card-tags">
 
-                            <span class="data-vaga">
-                                Publicada recentemente
-                            </span>
+                            <span>Office</span>
 
-                            <button
-                                class="botao-ver-vaga"
-                                data-vaga="vaga-1"
-                            >
-                                Ver oportunidade →
-                            </button>
+                            <span>Comunicação</span>
 
                         </div>
 
-                    </article>
+                    </div>
 
 
-                    <article
-                        class="cartao-oportunidade"
-                        id="vaga-2"
-                        data-ponto="ponto-vaga-2"
-                    >
+                    <button class="botao-card">
 
-                        <div class="cabecalho-cartao-vaga">
+                        <i class="fa-solid fa-arrow-right"></i>
 
-                            <div class="identificacao-empresa">
-
-                                <div class="icone-empresa">
-                                    S
-                                </div>
-
-                                <div class="dados-empresa">
-
-                                    <span class="nome-empresa">
-                                        Sushi Suki
-                                    </span>
-
-                                    <span class="local-empresa">
-                                        Extremoz - RN
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                            <span class="tipo-vaga">
-                                CLT
-                            </span>
-
-                        </div>
+                    </button>
 
 
-                        <div class="informacoes-oportunidade">
+                </article>
 
-                            <h3>
-                                Atendente
-                            </h3>
 
-                            <p>
-                                Atendimento ao público,
-                                organização do ambiente e auxílio
-                                nas atividades do estabelecimento.
-                            </p>
+
+                <!-- =================================================
+                     PROFISSIONAL 4
+                     ================================================= -->
+
+                <article class="card-profissional">
+
+
+                    <div class="foto-profissional">
+
+                        <!-- IMAGEM DO PROFISSIONAL -->
+                        <img
+                            src="julyafoto.jpeg"
+                            alt="Julya Mizraim"
+                        >
+
+                        <span class="status-profissional"></span>
+
+                    </div>
+
+
+                    <div class="dados-profissional">
+
+                        <h3>
+                            Julya Mizraim
+                        </h3>
+
+                        <span>
+                            Analista de Dados
+                        </span>
+
+
+                        <div class="distancia">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            5,6 km
 
                         </div>
 
 
-                        <div class="detalhes-oportunidade">
+                        <div class="card-tags">
 
-                            <span class="detalhe-oportunidade">
-                                📍 8 km de você
-                            </span>
+                            <span>Python</span>
 
-                            <span class="detalhe-oportunidade">
-                                🕐 Tempo integral
-                            </span>
+                            <span>SQL</span>
 
                         </div>
 
-
-                        <div class="rodape-cartao-vaga">
-
-                            <span class="data-vaga">
-                                Publicada recentemente
-                            </span>
-
-                            <button
-                                class="botao-ver-vaga"
-                                data-vaga="vaga-2"
-                            >
-                                Ver oportunidade →
-                            </button>
-
-                        </div>
-
-                    </article>
+                    </div>
 
 
-                    <article
-                        class="cartao-oportunidade"
-                        id="vaga-3"
-                        data-ponto="ponto-vaga-3"
-                    >
+                    <button class="botao-card">
 
-                        <div class="cabecalho-cartao-vaga">
+                        <i class="fa-solid fa-arrow-right"></i>
 
-                            <div class="identificacao-empresa">
-
-                                <div class="icone-empresa">
-                                    S
-                                </div>
-
-                                <div class="dados-empresa">
-
-                                    <span class="nome-empresa">
-                                        Supermercado Surreal
-                                    </span>
-
-                                    <span class="local-empresa">
-                                        Extremoz - RN
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                            <span class="tipo-vaga">
-                                CLT
-                            </span>
-
-                        </div>
+                    </button>
 
 
-                        <div class="informacoes-oportunidade">
-
-                            <h3>
-                                Operador de caixa
-                            </h3>
-
-                            <p>
-                                Atendimento aos clientes,
-                                operação do caixa e organização
-                                do estabelecimento.
-                            </p>
-
-                        </div>
+                </article>
 
 
-                        <div class="detalhes-oportunidade">
+            </div>
 
-                            <span class="detalhe-oportunidade">
-                                📍 15 km de você
-                            </span>
-
-                            <span class="detalhe-oportunidade">
-                                🕐 Tempo integral
-                            </span>
-
-                        </div>
-
-
-                        <div class="rodape-cartao-vaga">
-
-                            <span class="data-vaga">
-                                Publicada recentemente
-                            </span>
-
-                            <button
-                                class="botao-ver-vaga"
-                                data-vaga="vaga-3"
-                            >
-                                Ver oportunidade →
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="cartao-oportunidade"
-                        id="vaga-4"
-                        data-ponto="ponto-vaga-4"
-                    >
-
-                        <div class="cabecalho-cartao-vaga">
-
-                            <div class="identificacao-empresa">
-
-                                <div class="icone-empresa">
-                                    A
-                                </div>
-
-                                <div class="dados-empresa">
-
-                                    <span class="nome-empresa">
-                                        Atacadão
-                                    </span>
-
-                                    <span class="local-empresa">
-                                        Natal - RN
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                            <span class="tipo-vaga">
-                                CLT
-                            </span>
-
-                        </div>
-
-
-                        <div class="informacoes-oportunidade">
-
-                            <h3>
-                                Auxiliar de estoque
-                            </h3>
-
-                            <p>
-                                Organização de mercadorias,
-                                conferência de produtos e auxílio
-                                no controle de estoque.
-                            </p>
-
-                        </div>
-
-
-                        <div class="detalhes-oportunidade">
-
-                            <span class="detalhe-oportunidade">
-                                📍 18 km de você
-                            </span>
-
-                            <span class="detalhe-oportunidade">
-                                🕐 Tempo integral
-                            </span>
-
-                        </div>
-
-
-                        <div class="rodape-cartao-vaga">
-
-                            <span class="data-vaga">
-                                Publicada recentemente
-                            </span>
-
-                            <button
-                                class="botao-ver-vaga"
-                                data-vaga="vaga-4"
-                            >
-                                Ver oportunidade →
-                            </button>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </section>
 
         </section>
+
+
+
+        <!-- =====================================================
+             FINAL DA PÁGINA
+             
+             Uma pequena mensagem para fechar a experiência
+             do radar.
+             ===================================================== -->
+
+        <section class="radar-final">
+
+
+            <!-- Logo simplificado -->
+            <div class="radar-final-logo">
+
+                <span>NW</span>
+
+                <small>
+                    NEXT WORK
+                </small>
+
+            </div>
+
+
+            <!-- Mensagem final -->
+            <div class="radar-final-texto">
+
+                <h2>
+                    Mais que vagas, conexões reais.
+                </h2>
+
+                <p>
+                    Pessoas, empresas e oportunidades no mesmo lugar.
+                </p>
+
+            </div>
+
+
+        </section>
+
 
     </main>
 
 
-    <footer>
 
-    </footer>
+    <!-- =========================================================
+         JAVASCRIPT
+         
+         menu.js:
+         Responsável pelo menu universal.
 
-<script src="menu.js"></script>
+         vagas.js:
+         Será criado posteriormente para controlar:
+         - radar;
+         - filtros;
+         - pontos;
+         - interações;
+         - animações;
+         - resultados.
+         ========================================================= -->
+
+    <script src="menu.js"></script>
+
+    <script src="vagas.js"></script>
+
+
 </body>
 
 </html>
