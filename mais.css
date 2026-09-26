@@ -2586,3 +2586,422 @@ select {
     }
 
 }
+
+/* =========================================================
+   AJUSTES FINAIS — GLOW E PROFUNDIDADE
+   ========================================================= */
+
+
+/* =========================================================
+   FUNDO PRINCIPAL
+   ========================================================= */
+
+body {
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(0, 140, 255, 0.07),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 55%,
+            rgba(141, 92, 255, 0.06),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 45% 90%,
+            rgba(0, 200, 255, 0.045),
+            transparent 28%
+        ),
+        #010611;
+}
+
+
+/* =========================================================
+   ENCONTRE O QUE VOCÊ PRECISA
+   ========================================================= */
+
+.card-destaque {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 20, 43, 0.94),
+            rgba(3, 10, 25, 0.98)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* brilho interno */
+
+.card-destaque::before {
+    content: "";
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: -110px;
+    right: -90px;
+
+    border-radius: 50%;
+
+    filter: blur(55px);
+
+    opacity: 0.16;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* brilho inferior */
+
+.card-destaque::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 90px;
+
+    bottom: -55px;
+    left: 20%;
+
+    border-radius: 50%;
+
+    filter: blur(50px);
+
+    opacity: 0.10;
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   1 — EMPREGO
+   --------------------------------------------------------- */
+
+.card-destaque:nth-child(1) {
+    border-color: rgba(255, 166, 0, 0.24);
+
+    box-shadow:
+        0 0 18px rgba(255, 166, 0, 0.08),
+        inset 0 0 28px rgba(255, 166, 0, 0.025);
+}
+
+.card-destaque:nth-child(1)::before {
+    background: #ff9d00;
+}
+
+.card-destaque:nth-child(1)::after {
+    background: #ff9d00;
+}
+
+.card-destaque:nth-child(1):hover {
+    border-color: rgba(255, 166, 0, 0.65);
+
+    box-shadow:
+        0 0 14px rgba(255, 166, 0, 0.22),
+        0 0 38px rgba(255, 166, 0, 0.10),
+        inset 0 0 35px rgba(255, 166, 0, 0.05);
+
+    transform: translateY(-5px);
+}
+
+
+/* ---------------------------------------------------------
+   2 — EMPRESA
+   --------------------------------------------------------- */
+
+.card-destaque:nth-child(2) {
+    border-color: rgba(0, 174, 255, 0.25);
+
+    box-shadow:
+        0 0 18px rgba(0, 174, 255, 0.09),
+        inset 0 0 28px rgba(0, 174, 255, 0.025);
+}
+
+.card-destaque:nth-child(2)::before {
+    background: #00aaff;
+}
+
+.card-destaque:nth-child(2)::after {
+    background: #00aaff;
+}
+
+.card-destaque:nth-child(2):hover {
+    border-color: rgba(0, 200, 255, 0.7);
+
+    box-shadow:
+        0 0 15px rgba(0, 200, 255, 0.25),
+        0 0 40px rgba(0, 174, 255, 0.12),
+        inset 0 0 35px rgba(0, 174, 255, 0.05);
+
+    transform: translateY(-5px);
+}
+
+
+/* ---------------------------------------------------------
+   3 — OFEREÇO SERVIÇOS
+   --------------------------------------------------------- */
+
+.card-destaque:nth-child(3) {
+    border-color: rgba(0, 255, 190, 0.25);
+
+    box-shadow:
+        0 0 18px rgba(0, 255, 190, 0.08),
+        inset 0 0 28px rgba(0, 255, 190, 0.025);
+}
+
+.card-destaque:nth-child(3)::before {
+    background: #00e6b0;
+}
+
+.card-destaque:nth-child(3)::after {
+    background: #00e6b0;
+}
+
+.card-destaque:nth-child(3):hover {
+    border-color: rgba(0, 255, 190, 0.68);
+
+    box-shadow:
+        0 0 15px rgba(0, 255, 190, 0.23),
+        0 0 40px rgba(0, 255, 190, 0.11),
+        inset 0 0 35px rgba(0, 255, 190, 0.05);
+
+    transform: translateY(-5px);
+}
+
+
+/* ---------------------------------------------------------
+   4 — PRECISO DE UM SERVIÇO
+   --------------------------------------------------------- */
+
+.card-destaque:nth-child(4) {
+    border-color: rgba(141, 92, 255, 0.28);
+
+    box-shadow:
+        0 0 18px rgba(141, 92, 255, 0.09),
+        inset 0 0 28px rgba(141, 92, 255, 0.025);
+}
+
+.card-destaque:nth-child(4)::before {
+    background: #8d5cff;
+}
+
+.card-destaque:nth-child(4)::after {
+    background: #8d5cff;
+}
+
+.card-destaque:nth-child(4):hover {
+    border-color: rgba(157, 111, 255, 0.72);
+
+    box-shadow:
+        0 0 15px rgba(141, 92, 255, 0.25),
+        0 0 42px rgba(141, 92, 255, 0.12),
+        inset 0 0 35px rgba(141, 92, 255, 0.05);
+
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   ÍCONES DOS CARDS
+   ========================================================= */
+
+.card-destaque .icone-destaque {
+    position: relative;
+    z-index: 2;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.card-destaque:hover .icone-destaque {
+    transform: translateY(-2px) scale(1.04);
+}
+
+
+/* =========================================================
+   CONTEÚDO DOS CARDS
+   ========================================================= */
+
+.card-destaque .conteudo-destaque,
+.card-destaque .seta-destaque {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   PROFISSIONAIS EM DESTAQUE
+   ========================================================= */
+
+.card-profissional {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 20, 42, 0.96),
+            rgba(2, 9, 24, 0.98)
+        );
+
+    border: 1px solid rgba(0, 174, 255, 0.20);
+
+    box-shadow:
+        0 0 16px rgba(0, 150, 255, 0.08),
+        inset 0 0 30px rgba(0, 140, 255, 0.025);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* halo azul interno */
+
+.card-profissional::before {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 180px;
+
+    top: 35%;
+    right: -130px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 174, 255, 0.13);
+
+    filter: blur(65px);
+
+    pointer-events: none;
+
+    opacity: 0.55;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* pequeno brilho inferior */
+
+.card-profissional::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 70px;
+
+    left: 20%;
+    bottom: -45px;
+
+    border-radius: 50%;
+
+    background: rgba(35, 140, 255, 0.16);
+
+    filter: blur(45px);
+
+    pointer-events: none;
+}
+
+
+.card-profissional:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(0, 200, 255, 0.65);
+
+    box-shadow:
+        0 0 14px rgba(0, 190, 255, 0.22),
+        0 0 38px rgba(0, 150, 255, 0.11),
+        inset 0 0 35px rgba(0, 160, 255, 0.05);
+}
+
+
+.card-profissional:hover::before {
+    opacity: 0.9;
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   FOTOS DOS PROFISSIONAIS
+   ========================================================= */
+
+.card-profissional .foto-profissional {
+    position: relative;
+    z-index: 2;
+
+    overflow: hidden;
+
+    background: #030914;
+}
+
+
+.card-profissional .foto-profissional img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+.card-profissional:hover .foto-profissional img {
+    transform: scale(1.025);
+}
+
+
+/* conteúdo sempre acima dos halos */
+
+.card-profissional .dados-profissional,
+.card-profissional .link-perfil {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .card-destaque::before {
+        opacity: 0.12;
+    }
+
+    .card-destaque:hover {
+        transform: translateY(-3px);
+    }
+
+    .card-profissional:hover {
+        transform: translateY(-3px);
+    }
+}
