@@ -2587,119 +2587,27 @@ select {
 
 }
 
-/* =========================================================
-   AJUSTES FINAIS — GLOW E PROFUNDIDADE
-   ========================================================= */
-
-
-/* =========================================================
-   FUNDO PRINCIPAL
-   ========================================================= */
-
-body {
-    background:
-        radial-gradient(
-            circle at 15% 25%,
-            rgba(0, 140, 255, 0.07),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 55%,
-            rgba(141, 92, 255, 0.06),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 45% 90%,
-            rgba(0, 200, 255, 0.045),
-            transparent 28%
-        ),
-        #010611;
-}
-
-
-/* =========================================================
-   ENCONTRE O QUE VOCÊ PRECISA
-   ========================================================= */
-
-.card-destaque {
-    position: relative;
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(8, 20, 43, 0.94),
-            rgba(3, 10, 25, 0.98)
-        );
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-
-/* brilho interno */
-
-.card-destaque::before {
-    content: "";
-    position: absolute;
-
-    width: 220px;
-    height: 220px;
-
-    top: -110px;
-    right: -90px;
-
-    border-radius: 50%;
-
-    filter: blur(55px);
-
-    opacity: 0.16;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.35s ease,
-        transform 0.35s ease;
-}
-
-
-/* brilho inferior */
-
-.card-destaque::after {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 90px;
-
-    bottom: -55px;
-    left: 20%;
-
-    border-radius: 50%;
-
-    filter: blur(50px);
-
-    opacity: 0.10;
-
-    pointer-events: none;
-}
-
-
 /* ---------------------------------------------------------
    1 — EMPREGO
    --------------------------------------------------------- */
 
+
+.card-destaque::before {
+    width: 280px;
+    height: 280px;
+    top: -130px;
+    right: -100px;
+    filter: blur(50px);
+    opacity: 0.30;
+}
+
 .card-destaque:nth-child(1) {
-    border-color: rgba(255, 166, 0, 0.24);
+    border-color: rgba(255, 166, 0, 0.38);
 
     box-shadow:
-        0 0 18px rgba(255, 166, 0, 0.08),
-        inset 0 0 28px rgba(255, 166, 0, 0.025);
+        0 0 22px rgba(255, 166, 0, 0.18),
+        0 0 55px rgba(255, 166, 0, 0.12),
+        inset 0 0 35px rgba(255, 166, 0, 0.07);
 }
 
 .card-destaque:nth-child(1)::before {
@@ -2711,12 +2619,12 @@ body {
 }
 
 .card-destaque:nth-child(1):hover {
-    border-color: rgba(255, 166, 0, 0.65);
+    border-color: rgba(255, 166, 0, 0.80);
 
     box-shadow:
-        0 0 14px rgba(255, 166, 0, 0.22),
-        0 0 38px rgba(255, 166, 0, 0.10),
-        inset 0 0 35px rgba(255, 166, 0, 0.05);
+        0 0 18px rgba(255, 166, 0, 0.30),
+        0 0 55px rgba(255, 166, 0, 0.18),
+        inset 0 0 40px rgba(255, 166, 0, 0.08);
 
     transform: translateY(-5px);
 }
@@ -2727,11 +2635,12 @@ body {
    --------------------------------------------------------- */
 
 .card-destaque:nth-child(2) {
-    border-color: rgba(0, 174, 255, 0.25);
+    border-color: rgba(0, 174, 255, 0.38);
 
     box-shadow:
-        0 0 18px rgba(0, 174, 255, 0.09),
-        inset 0 0 28px rgba(0, 174, 255, 0.025);
+        0 0 22px rgba(0, 174, 255, 0.18),
+        0 0 55px rgba(0, 174, 255, 0.12),
+        inset 0 0 35px rgba(0, 174, 255, 0.07);
 }
 
 .card-destaque:nth-child(2)::before {
@@ -2743,12 +2652,12 @@ body {
 }
 
 .card-destaque:nth-child(2):hover {
-    border-color: rgba(0, 200, 255, 0.7);
+    border-color: rgba(0, 200, 255, 0.80);
 
     box-shadow:
-        0 0 15px rgba(0, 200, 255, 0.25),
-        0 0 40px rgba(0, 174, 255, 0.12),
-        inset 0 0 35px rgba(0, 174, 255, 0.05);
+        0 0 18px rgba(0, 200, 255, 0.30),
+        0 0 55px rgba(0, 174, 255, 0.18),
+        inset 0 0 40px rgba(0, 174, 255, 0.08);
 
     transform: translateY(-5px);
 }
@@ -2759,11 +2668,12 @@ body {
    --------------------------------------------------------- */
 
 .card-destaque:nth-child(3) {
-    border-color: rgba(0, 255, 190, 0.25);
+    border-color: rgba(0, 255, 190, 0.38);
 
     box-shadow:
-        0 0 18px rgba(0, 255, 190, 0.08),
-        inset 0 0 28px rgba(0, 255, 190, 0.025);
+        0 0 22px rgba(0, 255, 190, 0.18),
+        0 0 55px rgba(0, 255, 190, 0.12),
+        inset 0 0 35px rgba(0, 255, 190, 0.07);
 }
 
 .card-destaque:nth-child(3)::before {
@@ -2775,12 +2685,12 @@ body {
 }
 
 .card-destaque:nth-child(3):hover {
-    border-color: rgba(0, 255, 190, 0.68);
+    border-color: rgba(0, 255, 190, 0.80);
 
     box-shadow:
-        0 0 15px rgba(0, 255, 190, 0.23),
-        0 0 40px rgba(0, 255, 190, 0.11),
-        inset 0 0 35px rgba(0, 255, 190, 0.05);
+        0 0 18px rgba(0, 255, 190, 0.30),
+        0 0 55px rgba(0, 255, 190, 0.18),
+        inset 0 0 40px rgba(0, 255, 190, 0.08);
 
     transform: translateY(-5px);
 }
@@ -2791,11 +2701,12 @@ body {
    --------------------------------------------------------- */
 
 .card-destaque:nth-child(4) {
-    border-color: rgba(141, 92, 255, 0.28);
+    border-color: rgba(141, 92, 255, 0.40);
 
     box-shadow:
-        0 0 18px rgba(141, 92, 255, 0.09),
-        inset 0 0 28px rgba(141, 92, 255, 0.025);
+        0 0 22px rgba(141, 92, 255, 0.18),
+        0 0 55px rgba(141, 92, 255, 0.12),
+        inset 0 0 35px rgba(141, 92, 255, 0.07);
 }
 
 .card-destaque:nth-child(4)::before {
@@ -2807,16 +2718,15 @@ body {
 }
 
 .card-destaque:nth-child(4):hover {
-    border-color: rgba(157, 111, 255, 0.72);
+    border-color: rgba(157, 111, 255, 0.82);
 
     box-shadow:
-        0 0 15px rgba(141, 92, 255, 0.25),
-        0 0 42px rgba(141, 92, 255, 0.12),
-        inset 0 0 35px rgba(141, 92, 255, 0.05);
+        0 0 18px rgba(141, 92, 255, 0.30),
+        0 0 55px rgba(141, 92, 255, 0.18),
+        inset 0 0 40px rgba(141, 92, 255, 0.08);
 
     transform: translateY(-5px);
 }
-
 
 /* =========================================================
    ÍCONES DOS CARDS
