@@ -30,7 +30,12 @@
 
     <div id="menu"></div>
 
-    <main>
+    
+   <div class="page-layout">
+
+    <div id="menu-lateral"></div>
+
+    <main class="main-content">
 
         <!-- CABEÇALHO -->
 
@@ -60,9 +65,7 @@
                 </div>
 
                 <div>
-                    <strong id="contador-candidaturas">
-                        3
-                    </strong>
+                    <strong id="contador-candidaturas">3</strong>
 
                     <span>
                         candidaturas enviadas
@@ -78,43 +81,23 @@
 
         <section class="filtros-candidaturas">
 
-            <button
-                class="filtro ativo"
-                data-filtro="todas"
-                type="button"
-            >
+            <button class="filtro ativo" data-filtro="todas" type="button">
                 Todas
             </button>
 
-            <button
-                class="filtro"
-                data-filtro="analise"
-                type="button"
-            >
+            <button class="filtro" data-filtro="analise" type="button">
                 Em análise
             </button>
 
-            <button
-                class="filtro"
-                data-filtro="processo"
-                type="button"
-            >
+            <button class="filtro" data-filtro="processo" type="button">
                 Em processo
             </button>
 
-            <button
-                class="filtro"
-                data-filtro="entrevista"
-                type="button"
-            >
+            <button class="filtro" data-filtro="entrevista" type="button">
                 Entrevista
             </button>
 
-            <button
-                class="filtro"
-                data-filtro="encerrada"
-                type="button"
-            >
+            <button class="filtro" data-filtro="encerrada" type="button">
                 Encerradas
             </button>
 
@@ -128,6 +111,7 @@
             <div class="titulo-secao">
 
                 <div>
+
                     <span class="titulo-kicker">
                         SUAS OPORTUNIDADES
                     </span>
@@ -135,6 +119,7 @@
                     <h2>
                         Candidaturas enviadas
                     </h2>
+
                 </div>
 
                 <span class="quantidade">
@@ -144,12 +129,7 @@
             </div>
 
 
-            <div
-                class="lista-candidaturas"
-                id="lista-candidaturas"
-            >
-
-                <!-- CANDIDATURA 1 -->
+            <div class="lista-candidaturas" id="lista-candidaturas">
 
                 <article
                     class="card-candidatura"
@@ -245,8 +225,6 @@
                 </article>
 
 
-                <!-- CANDIDATURA 2 -->
-
                 <article
                     class="card-candidatura"
                     data-status="entrevista"
@@ -340,8 +318,6 @@
 
                 </article>
 
-
-                <!-- CANDIDATURA 3 -->
 
                 <article
                     class="card-candidatura"
@@ -481,8 +457,6 @@
                 id="lista-oportunidades"
             >
 
-                <!-- OPORTUNIDADE 1 -->
-
                 <article
                     class="card-oportunidade"
                     data-compatibilidade="94"
@@ -512,9 +486,7 @@
 
                     <div class="compatibilidade">
 
-                        <strong>
-                            94%
-                        </strong>
+                        <strong>94%</strong>
 
                         <span>
                             Compatibilidade
@@ -540,18 +512,15 @@
 
                     </div>
 
-                    <button
-                        class="botao-adicionar"
-                        type="button"
-                    >
+                    <button class="botao-adicionar" type="button">
+
                         <i class="fa-solid fa-plus"></i>
                         Candidatar-se
+
                     </button>
 
                 </article>
 
-
-                <!-- OPORTUNIDADE 2 -->
 
                 <article
                     class="card-oportunidade"
@@ -582,9 +551,7 @@
 
                     <div class="compatibilidade roxo">
 
-                        <strong>
-                            89%
-                        </strong>
+                        <strong>89%</strong>
 
                         <span>
                             Compatibilidade
@@ -610,18 +577,15 @@
 
                     </div>
 
-                    <button
-                        class="botao-adicionar"
-                        type="button"
-                    >
+                    <button class="botao-adicionar" type="button">
+
                         <i class="fa-solid fa-plus"></i>
                         Candidatar-se
+
                     </button>
 
                 </article>
 
-
-                <!-- OPORTUNIDADE 3 -->
 
                 <article
                     class="card-oportunidade"
@@ -652,9 +616,7 @@
 
                     <div class="compatibilidade verde">
 
-                        <strong>
-                            82%
-                        </strong>
+                        <strong>82%</strong>
 
                         <span>
                             Compatibilidade
@@ -680,12 +642,11 @@
 
                     </div>
 
-                    <button
-                        class="botao-adicionar"
-                        type="button"
-                    >
+                    <button class="botao-adicionar" type="button">
+
                         <i class="fa-solid fa-plus"></i>
                         Candidatar-se
+
                     </button>
 
                 </article>
@@ -695,6 +656,8 @@
         </section>
 
     </main>
+
+</div>
 
     <div
         class="toast"
