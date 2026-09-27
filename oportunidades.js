@@ -4,15 +4,13 @@
 
 const cards = document.querySelectorAll(".card");
 
-
 cards.forEach(card => {
 
     card.addEventListener("mouseenter", () => {
 
-        card.style.transform = "translateY(-7px)";
+        card.style.transform = "translateY(-7px");
 
     });
-
 
     card.addEventListener("mouseleave", () => {
 
@@ -30,7 +28,7 @@ cards.forEach(card => {
 function abrirCurriculo() {
 
     window.location.href = "perfil.html";
-    
+
 }
 
 
@@ -40,9 +38,8 @@ function abrirCurriculo() {
 
 function procurarOportunidades() {
 
-    alert(
-        window.location.href = "empresa.html";
-    );
+    window.location.href = "empresa.html";
+
 }
 
 
