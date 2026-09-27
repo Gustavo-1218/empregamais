@@ -2,332 +2,586 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>NEXT WORK - Habilidades</title>
 
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="habilidades.css">
+    <link
+        rel="stylesheet"
+        href="menu.css"
+    >
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="stylesheet"
+        href="menu lateral.css"
+    >
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="habilidades.css"
+    >
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    >
+
 </head>
+
 
 <body>
 
+
+    <!-- MENU SUPERIOR -->
+
     <div id="menu"></div>
 
-    <main>
 
-        <header class="cabecalho-pagina">
+    <!-- ÁREA PRINCIPAL -->
 
-            <div class="cabecalho-texto">
-
-                <span class="pagina-kicker">MEU PERFIL</span>
-
-                <h1>Minhas habilidades</h1>
-
-                <p>
-                    Adicione suas principais habilidades e mostre às empresas
-                    aquilo que você sabe fazer.
-                </p>
-
-            </div>
-
-            <div class="contador-habilidades">
-
-                <div class="contador-icone">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-
-                <div>
-                    <strong id="contador-habilidades">6</strong>
-                    <span>habilidades</span>
-                </div>
-
-            </div>
-
-        </header>
+    <div class="page-layout">
 
 
-        <section class="secao-habilidades">
+        <!-- MENU LATERAL -->
 
-            <div class="titulo-secao">
+        <div id="menu-lateral"></div>
 
-                <div>
-                    <span class="titulo-kicker">SEU PERFIL</span>
-                    <h2>Habilidades cadastradas</h2>
+
+        <!-- CONTEÚDO -->
+
+        <main class="main-content">
+
+
+            <!-- CABEÇALHO -->
+
+            <section class="cabecalho-pagina">
+
+                <div class="cabecalho-texto">
+
+                    <span class="pagina-kicker">
+                        ÁREA DO CANDIDATO
+                    </span>
+
+                    <h1>
+                        Minhas habilidades
+                    </h1>
+
                     <p>
-                        Organize suas competências de acordo com seu nível.
+                        Gerencie suas competências e destaque aquilo
+                        que você sabe fazer.
                     </p>
+
                 </div>
 
-            </div>
 
+                <div class="contador-habilidades">
 
-            <div class="lista-habilidades" id="lista-habilidades">
+                    <div class="contador-icone">
 
-
-                <article class="card-habilidade" data-nivel="Avançado">
-
-                    <div class="icone-habilidade azul">
-                        <i class="fa-brands fa-html5"></i>
-                    </div>
-
-                    <div class="habilidade-conteudo">
-
-                        <div class="habilidade-topo">
-                            <h3>HTML</h3>
-                            <span class="nivel avancado">Avançado</span>
-                        </div>
-
-                        <p>Desenvolvimento Web</p>
-
-                        <div class="barra-nivel">
-                            <span style="width: 90%;"></span>
-                        </div>
+                        <i class="fa-solid fa-star"></i>
 
                     </div>
 
-                    <button class="botao-remover" title="Remover habilidade">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
+                    <div>
 
-                </article>
+                        <strong id="contador-habilidades">
+                            6
+                        </strong>
 
-
-                <article class="card-habilidade" data-nivel="Avançado">
-
-                    <div class="icone-habilidade azul">
-                        <i class="fa-brands fa-css3-alt"></i>
-                    </div>
-
-                    <div class="habilidade-conteudo">
-
-                        <div class="habilidade-topo">
-                            <h3>CSS</h3>
-                            <span class="nivel avancado">Avançado</span>
-                        </div>
-
-                        <p>Desenvolvimento Web</p>
-
-                        <div class="barra-nivel">
-                            <span style="width: 90%;"></span>
-                        </div>
+                        <span>
+                            habilidades cadastradas
+                        </span>
 
                     </div>
 
-                    <button class="botao-remover" title="Remover habilidade">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-
-                </article>
-
-
-                <article class="card-habilidade" data-nivel="Intermediário">
-
-                    <div class="icone-habilidade amarelo">
-                        <i class="fa-brands fa-js"></i>
-                    </div>
-
-                    <div class="habilidade-conteudo">
-
-                        <div class="habilidade-topo">
-                            <h3>JavaScript</h3>
-                            <span class="nivel intermediario">Intermediário</span>
-                        </div>
-
-                        <p>Programação</p>
-
-                        <div class="barra-nivel">
-                            <span style="width: 65%;"></span>
-                        </div>
-
-                    </div>
-
-                    <button class="botao-remover" title="Remover habilidade">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-
-                </article>
-
-
-                <article class="card-habilidade" data-nivel="Intermediário">
-
-                    <div class="icone-habilidade roxo">
-                        <i class="fa-brands fa-python"></i>
-                    </div>
-
-                    <div class="habilidade-conteudo">
-
-                        <div class="habilidade-topo">
-                            <h3>Python</h3>
-                            <span class="nivel intermediario">Intermediário</span>
-                        </div>
-
-                        <p>Programação</p>
-
-                        <div class="barra-nivel">
-                            <span style="width: 60%;"></span>
-                        </div>
-
-                    </div>
-
-                    <button class="botao-remover" title="Remover habilidade">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-
-                </article>
-
-
-                <article class="card-habilidade" data-nivel="Básico">
-
-                    <div class="icone-habilidade verde">
-                        <i class="fa-solid fa-database"></i>
-                    </div>
-
-                    <div class="habilidade-conteudo">
-
-                        <div class="habilidade-topo">
-                            <h3>MySQL</h3>
-                            <span class="nivel basico">Básico</span>
-                        </div>
-
-                        <p>Banco de dados</p>
-
-                        <div class="barra-nivel">
-                            <span style="width: 40%;"></span>
-                        </div>
-
-                    </div>
-
-                    <button class="botao-remover" title="Remover habilidade">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-
-                </article>
-
-
-                <article class="card-habilidade" data-nivel="Intermediário">
-
-                    <div class="icone-habilidade rosa">
-                        <i class="fa-solid fa-people-group"></i>
-                    </div>
-
-                    <div class="habilidade-conteudo">
-
-                        <div class="habilidade-topo">
-                            <h3>Trabalho em equipe</h3>
-                            <span class="nivel intermediario">Intermediário</span>
-                        </div>
-
-                        <p>Competência profissional</p>
-
-                        <div class="barra-nivel">
-                            <span style="width: 70%;"></span>
-                        </div>
-
-                    </div>
-
-                    <button class="botao-remover" title="Remover habilidade">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <section class="secao-adicionar">
-
-            <div class="titulo-secao">
-
-                <div>
-                    <span class="titulo-kicker">NOVA HABILIDADE</span>
-                    <h2>Adicionar habilidade</h2>
-                    <p>
-                        Inclua uma nova competência ao seu perfil.
-                    </p>
                 </div>
 
-            </div>
+            </section>
 
 
-            <div class="formulario-habilidade">
+            <!-- HABILIDADES -->
 
-                <div class="campo">
+            <section class="secao-habilidades">
 
-                    <label for="nome-habilidade">Habilidade</label>
 
-                    <input
-                        type="text"
-                        id="nome-habilidade"
-                        placeholder="Ex.: React, Excel, Comunicação..."
+                <div class="titulo-secao">
+
+                    <div>
+
+                        <span class="titulo-kicker">
+                            SEU PERFIL
+                        </span>
+
+                        <h2>
+                            Suas competências
+                        </h2>
+
+                        <p>
+                            Adicione as habilidades que representam
+                            sua experiência e conhecimento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="lista-habilidades"
+                    id="lista-habilidades"
+                >
+
+
+                    <!-- HTML -->
+
+                    <article class="card-habilidade">
+
+                        <div class="icone-habilidade azul">
+
+                            <i class="fa-brands fa-html5"></i>
+
+                        </div>
+
+                        <div class="habilidade-conteudo">
+
+                            <div class="habilidade-topo">
+
+                                <h3>
+                                    HTML
+                                </h3>
+
+                                <span class="nivel avancado">
+                                    Avançado
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Desenvolvimento Web
+                            </p>
+
+                            <div class="barra-nivel">
+
+                                <span style="width:90%"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="botao-remover"
+                            title="Remover habilidade"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- CSS -->
+
+                    <article class="card-habilidade">
+
+                        <div class="icone-habilidade azul">
+
+                            <i class="fa-brands fa-css3-alt"></i>
+
+                        </div>
+
+                        <div class="habilidade-conteudo">
+
+                            <div class="habilidade-topo">
+
+                                <h3>
+                                    CSS
+                                </h3>
+
+                                <span class="nivel avancado">
+                                    Avançado
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Desenvolvimento Web
+                            </p>
+
+                            <div class="barra-nivel">
+
+                                <span style="width:90%"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="botao-remover"
+                            title="Remover habilidade"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- JAVASCRIPT -->
+
+                    <article class="card-habilidade">
+
+                        <div class="icone-habilidade azul">
+
+                            <i class="fa-brands fa-js"></i>
+
+                        </div>
+
+                        <div class="habilidade-conteudo">
+
+                            <div class="habilidade-topo">
+
+                                <h3>
+                                    JavaScript
+                                </h3>
+
+                                <span class="nivel intermediario">
+                                    Intermediário
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Programação
+                            </p>
+
+                            <div class="barra-nivel">
+
+                                <span style="width:65%"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="botao-remover"
+                            title="Remover habilidade"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- PYTHON -->
+
+                    <article class="card-habilidade">
+
+                        <div class="icone-habilidade roxo">
+
+                            <i class="fa-brands fa-python"></i>
+
+                        </div>
+
+                        <div class="habilidade-conteudo">
+
+                            <div class="habilidade-topo">
+
+                                <h3>
+                                    Python
+                                </h3>
+
+                                <span class="nivel intermediario">
+                                    Intermediário
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Programação
+                            </p>
+
+                            <div class="barra-nivel">
+
+                                <span style="width:65%"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="botao-remover"
+                            title="Remover habilidade"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- MYSQL -->
+
+                    <article class="card-habilidade">
+
+                        <div class="icone-habilidade verde">
+
+                            <i class="fa-solid fa-database"></i>
+
+                        </div>
+
+                        <div class="habilidade-conteudo">
+
+                            <div class="habilidade-topo">
+
+                                <h3>
+                                    MySQL
+                                </h3>
+
+                                <span class="nivel intermediario">
+                                    Intermediário
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Banco de dados
+                            </p>
+
+                            <div class="barra-nivel">
+
+                                <span style="width:65%"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="botao-remover"
+                            title="Remover habilidade"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- TRABALHO EM EQUIPE -->
+
+                    <article class="card-habilidade">
+
+                        <div class="icone-habilidade laranja">
+
+                            <i class="fa-solid fa-users"></i>
+
+                        </div>
+
+                        <div class="habilidade-conteudo">
+
+                            <div class="habilidade-topo">
+
+                                <h3>
+                                    Trabalho em equipe
+                                </h3>
+
+                                <span class="nivel avancado">
+                                    Avançado
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Competência profissional
+                            </p>
+
+                            <div class="barra-nivel">
+
+                                <span style="width:90%"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="botao-remover"
+                            title="Remover habilidade"
+                            type="button"
+                        >
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- ADICIONAR HABILIDADE -->
+
+            <section class="secao-adicionar">
+
+
+                <div class="titulo-secao">
+
+                    <div>
+
+                        <span class="titulo-kicker">
+                            NOVA HABILIDADE
+                        </span>
+
+                        <h2>
+                            Adicionar competência
+                        </h2>
+
+                        <p>
+                            Inclua uma nova habilidade no seu perfil.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="formulario-habilidade">
+
+
+                    <div class="campo">
+
+                        <label for="nome-habilidade">
+                            Habilidade
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome-habilidade"
+                            placeholder="Ex: Git, React, Excel..."
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="categoria-habilidade">
+                            Categoria
+                        </label>
+
+                        <input
+                            type="text"
+                            id="categoria-habilidade"
+                            placeholder="Ex: Programação"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="nivel-habilidade">
+                            Nível
+                        </label>
+
+                        <select id="nivel-habilidade">
+
+                            <option>
+                                Básico
+                            </option>
+
+                            <option>
+                                Intermediário
+                            </option>
+
+                            <option>
+                                Avançado
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        id="botao-adicionar"
+                        class="botao-adicionar"
+                        type="button"
                     >
 
-                </div>
+                        <i class="fa-solid fa-plus"></i>
 
+                        Adicionar
 
-                <div class="campo">
+                    </button>
 
-                    <label for="categoria-habilidade">Categoria</label>
-
-                    <select id="categoria-habilidade">
-
-                        <option value="Tecnologia">Tecnologia</option>
-                        <option value="Programação">Programação</option>
-                        <option value="Design">Design</option>
-                        <option value="Administração">Administração</option>
-                        <option value="Comunicação">Comunicação</option>
-                        <option value="Outra">Outra</option>
-
-                    </select>
 
                 </div>
 
-
-                <div class="campo">
-
-                    <label for="nivel-habilidade">Nível</label>
-
-                    <select id="nivel-habilidade">
-
-                        <option value="Básico">Básico</option>
-                        <option value="Intermediário">Intermediário</option>
-                        <option value="Avançado">Avançado</option>
-
-                    </select>
-
-                </div>
+            </section>
 
 
-                <button class="botao-adicionar" id="botao-adicionar">
+        </main>
 
-                    <i class="fa-solid fa-plus"></i>
-
-                    Adicionar habilidade
-
-                </button>
-
-            </div>
-
-        </section>
+    </div>
 
 
-        <div class="toast" id="toast"></div>
+    <!-- MENSAGEM -->
 
-    </main>
+    <div
+        class="toast"
+        id="toast"
+    ></div>
 
+
+    <!-- SCRIPTS -->
 
     <script src="menu.js"></script>
+
+    <script src="menu lateral.js"></script>
+
     <script src="habilidades.js"></script>
+
 
 </body>
 
