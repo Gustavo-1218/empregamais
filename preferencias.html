@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXT WORK - Preferências</title>
+
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="menu lateral.css">
+    <link rel="stylesheet" href="preferencias.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- MENU SUPERIOR -->
+    <div id="menu"></div>
+
+
+    <!-- CONTEÚDO DA PÁGINA -->
+    <div class="page-layout">
+
+        <!-- MENU LATERAL -->
+        <div id="menu-lateral"></div>
+
+
+        <!-- ÁREA PRINCIPAL -->
+        <main class="main-content">
+
+            <header class="cabecalho-pagina">
+
+                <div class="cabecalho-texto">
+
+                    <span class="pagina-kicker">
+                        PERSONALIZAÇÃO
+                    </span>
+
+                    <h1>Minhas preferências</h1>
+
+                    <p>
+                        Defina o tipo de oportunidade que você procura
+                        para receber recomendações mais alinhadas ao seu perfil.
+                    </p>
+
+                </div>
+
+                <div class="status-preferencias">
+                    <div class="status-icone">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                    <div>
+                        <strong id="status-texto">Perfil configurado</strong>
+                        <span>Preferências salvas</span>
+                    </div>
+                </div>
+
+            </header>
+
+
+            <!-- TIPO DE OPORTUNIDADE -->
+            <section class="secao-preferencias">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Tipo de oportunidade</h2>
+                        <p>Escolha as oportunidades que mais interessam a você.</p>
+                    </div>
+                </div>
+
+                <div class="opcoes-grid">
+
+                    <button class="opcao-card" data-grupo="tipo" type="button">
+                        <span class="opcao-icone">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </span>
+
+                        <strong>Emprego</strong>
+                        <small>Vagas profissionais</small>
+                    </button>
+
+                    <button class="opcao-card" data-grupo="tipo" type="button">
+                        <span class="opcao-icone">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </span>
+
+                        <strong>Estágio</strong>
+                        <small>Primeira experiência</small>
+                    </button>
+
+                    <button class="opcao-card" data-grupo="tipo" type="button">
+                        <span class="opcao-icone">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </span>
+
+                        <strong>Freelancer</strong>
+                        <small>Projetos independentes</small>
+                    </button>
+
+                    <button class="opcao-card" data-grupo="tipo" type="button">
+                        <span class="opcao-icone">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </span>
+
+                        <strong>Jovem Aprendiz</strong>
+                        <small>Entrada no mercado</small>
+                    </button>
+
+                    <button class="opcao-card" data-grupo="tipo" type="button">
+                        <span class="opcao-icone">
+                            <i class="fa-solid fa-rocket"></i>
+                        </span>
+
+                        <strong>Trainee</strong>
+                        <small>Desenvolvimento profissional</small>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- MODALIDADE -->
+            <section class="secao-preferencias">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Modalidade de trabalho</h2>
+                        <p>Selecione como você prefere trabalhar.</p>
+                    </div>
+                </div>
+
+                <div class="modalidades-grid">
+
+                    <button class="modalidade-card" data-grupo="modalidade" type="button">
+
+                        <div class="modalidade-icone">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+
+                        <div>
+                            <strong>Presencial</strong>
+                            <span>Trabalho na empresa</span>
+                        </div>
+
+                        <i class="fa-solid fa-check check"></i>
+
+                    </button>
+
+
+                    <button class="modalidade-card" data-grupo="modalidade" type="button">
+
+                        <div class="modalidade-icone">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+
+                        <div>
+                            <strong>Híbrido</strong>
+                            <span>Casa + empresa</span>
+                        </div>
+
+                        <i class="fa-solid fa-check check"></i>
+
+                    </button>
+
+
+                    <button class="modalidade-card" data-grupo="modalidade" type="button">
+
+                        <div class="modalidade-icone">
+                            <i class="fa-solid fa-house-laptop"></i>
+                        </div>
+
+                        <div>
+                            <strong>Remoto</strong>
+                            <span>Trabalho à distância</span>
+                        </div>
+
+                        <i class="fa-solid fa-check check"></i>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- LOCALIZAÇÃO -->
+            <section class="secao-preferencias">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Localização</h2>
+                        <p>Escolha onde você gostaria de encontrar oportunidades.</p>
+                    </div>
+                </div>
+
+                <div class="localizacoes">
+
+                    <button class="tag-opcao" data-grupo="localizacao" type="button">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Natal
+                    </button>
+
+                    <button class="tag-opcao" data-grupo="localizacao" type="button">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Extremoz
+                    </button>
+
+                    <button class="tag-opcao" data-grupo="localizacao" type="button">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Parnamirim
+                    </button>
+
+                    <button class="tag-opcao" data-grupo="localizacao" type="button">
+                        <i class="fa-solid fa-location-dot"></i>
+                        São Gonçalo
+                    </button>
+
+                    <button class="tag-opcao" data-grupo="localizacao" type="button">
+                        <i class="fa-solid fa-globe"></i>
+                        Remoto
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ÁREAS DE INTERESSE -->
+            <section class="secao-preferencias">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Áreas de interesse</h2>
+                        <p>Selecione as áreas profissionais que você procura.</p>
+                    </div>
+                </div>
+
+                <div class="interesses-grid">
+
+                    <button class="interesse-card" type="button">
+                        <i class="fa-solid fa-code"></i>
+                        Desenvolvimento Web
+                    </button>
+
+                    <button class="interesse-card" type="button">
+                        <i class="fa-solid fa-database"></i>
+                        Banco de Dados
+                    </button>
+
+                    <button class="interesse-card" type="button">
+                        <i class="fa-solid fa-palette"></i>
+                        Design
+                    </button>
+
+                    <button class="interesse-card" type="button">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        Marketing
+                    </button>
+
+                    <button class="interesse-card" type="button">
+                        <i class="fa-solid fa-network-wired"></i>
+                        Redes
+                    </button>
+
+                    <button class="interesse-card" type="button">
+                        <i class="fa-solid fa-headset"></i>
+                        Suporte Técnico
+                    </button>
+
+                    <button class="interesse-card" type="button">
+                        <i class="fa-solid fa-robot"></i>
+                        Inteligência Artificial
+                    </button>
+
+                    <button class="interesse-card" type="button">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Administração
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- PRETENSÃO SALARIAL -->
+            <section class="secao-preferencias">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Pretensão salarial</h2>
+                        <p>Defina uma faixa aproximada para suas oportunidades.</p>
+                    </div>
+                </div>
+
+                <div class="salario-area">
+
+                    <div class="campo-salario">
+                        <label for="salario-minimo">Mínimo</label>
+
+                        <div class="input-salario">
+                            <span>R$</span>
+                            <input
+                                type="number"
+                                id="salario-minimo"
+                                value="1500"
+                                min="0"
+                                step="100"
+                            >
+                        </div>
+                    </div>
+
+
+                    <div class="separador-salario">até</div>
+
+
+                    <div class="campo-salario">
+                        <label for="salario-maximo">Máximo</label>
+
+                        <div class="input-salario">
+                            <span>R$</span>
+                            <input
+                                type="number"
+                                id="salario-maximo"
+                                value="3000"
+                                min="0"
+                                step="100"
+                            >
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- NOTIFICAÇÕES -->
+            <section class="secao-preferencias">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Notificações</h2>
+                        <p>Escolha como o NEXT WORK pode avisar você.</p>
+                    </div>
+                </div>
+
+                <div class="notificacoes">
+
+                    <label class="configuracao">
+
+                        <div class="configuracao-icone">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+
+                        <div class="configuracao-texto">
+                            <strong>Recomendar oportunidades</strong>
+                            <span>
+                                Receber sugestões compatíveis com seu perfil.
+                            </span>
+                        </div>
+
+                        <input
+                            type="checkbox"
+                            class="toggle"
+                            id="notificar-recomendacoes"
+                            checked
+                        >
+
+                        <span class="toggle-visual"></span>
+
+                    </label>
+
+
+                    <label class="configuracao">
+
+                        <div class="configuracao-icone">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+                        <div class="configuracao-texto">
+                            <strong>Novas vagas</strong>
+                            <span>
+                                Ser avisado quando novas oportunidades aparecerem.
+                            </span>
+                        </div>
+
+                        <input
+                            type="checkbox"
+                            class="toggle"
+                            id="notificar-vagas"
+                            checked
+                        >
+
+                        <span class="toggle-visual"></span>
+
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESUMO -->
+            <section class="resumo-preferencias">
+
+                <div class="resumo-cabecalho">
+
+                    <div class="resumo-icone">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+
+                    <div>
+                        <span>SEU PERFIL DE OPORTUNIDADES</span>
+                        <h2>Preferências definidas</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="resumo-tags" id="resumo-tags">
+
+                    <span>Emprego</span>
+                    <span>Híbrido</span>
+                    <span>Natal</span>
+                    <span>Desenvolvimento Web</span>
+
+                </div>
+
+
+                <div class="resumo-rodape">
+
+                    <p>
+                        Essas informações ajudam o NEXT WORK a encontrar
+                        oportunidades mais próximas dos seus interesses.
+                    </p>
+
+                    <button id="salvar-preferencias" type="button">
+                        <i class="fa-solid fa-check"></i>
+                        Salvar preferências
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <div class="toast" id="toast"></div>
+
+
+    <script src="menu.js"></script>
+    <script src="menu lateral.js"></script>
+    <script src="preferencias.js"></script>
+
+</body>
+  </html>
