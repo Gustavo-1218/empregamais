@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desenvolvedor Front-End | Tech Solutions</title>
+
+    <link rel="stylesheet" href="vagas.css">
+</head>
+
+<body>
+
+    <main class="pagina-vaga">
+
+        <!-- BOTÃO VOLTAR -->
+        <a href="javascript:history.back()" class="voltar">
+            ← Voltar
+        </a>
+
+
+        <!-- CARD PRINCIPAL DA VAGA -->
+        <section class="vaga-container">
+
+            <!-- CABEÇALHO -->
+            <div class="cabecalho-vaga">
+
+                <div class="informacoes-vaga">
+
+                    <div class="icone-empresa">
+                        &lt;/&gt;
+                    </div>
+
+                    <div class="titulo-vaga">
+
+                        <span class="nome-empresa">
+                            Tech Solutions
+                        </span>
+
+                        <h1>
+                            Desenvolvedor Front-End
+                        </h1>
+
+                        <div class="dados-vaga">
+
+                            <span>
+                                📍 Natal - RN
+                            </span>
+
+                            <span>
+                                ♧ 2,4 km
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGEM DO LADO DIREITO -->
+                <div class="imagem-vaga">
+
+                    <img
+                        src="4543.png"
+                        alt="Imagem da vaga">
+
+                </div>
+
+            </div>
+
+
+            <!-- TECNOLOGIAS -->
+            <div class="tags-vaga">
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>JavaScript</span>
+
+            </div>
+
+
+            <!-- CONTEÚDO -->
+            <div class="conteudo-vaga">
+
+
+                <!-- INFORMAÇÕES -->
+                <div class="informacoes-texto">
+
+
+                    <!-- SOBRE -->
+                    <section class="secao-vaga">
+
+                        <h2>
+                            Sobre a vaga
+                        </h2>
+
+                        <p>
+                            A Tech Solutions está em busca de um(a)
+                            Desenvolvedor(a) Front-End para fazer parte
+                            da nossa equipe de tecnologia.
+                        </p>
+
+                        <p>
+                            O profissional será responsável pela criação
+                            e manutenção de interfaces modernas,
+                            responsivas e intuitivas, contribuindo para
+                            a experiência dos usuários em nossos
+                            produtos digitais.
+                        </p>
+
+                    </section>
+
+
+                    <!-- REQUISITOS -->
+                    <section class="secao-vaga">
+
+                        <h2>
+                            Requisitos
+                        </h2>
+
+                        <ul>
+
+                            <li>
+                                Conhecimento em HTML, CSS e JavaScript.
+                            </li>
+
+                            <li>
+                                Noções de desenvolvimento responsivo.
+                            </li>
+
+                            <li>
+                                Organização e atenção aos detalhes.
+                            </li>
+
+                            <li>
+                                Boa comunicação e trabalho em equipe.
+                            </li>
+
+                            <li>
+                                Conhecimento em React será um diferencial.
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+
+                    <!-- BENEFÍCIOS -->
+                    <section class="secao-vaga">
+
+                        <h2>
+                            Benefícios
+                        </h2>
+
+                        <div class="beneficios">
+
+                            <div class="beneficio">
+                                <span class="icone-beneficio">✓</span>
+                                <span>Vale alimentação</span>
+                            </div>
+
+                            <div class="beneficio">
+                                <span class="icone-beneficio">✓</span>
+                                <span>Plano de saúde</span>
+                            </div>
+
+                            <div class="beneficio">
+                                <span class="icone-beneficio">✓</span>
+                                <span>Vale transporte</span>
+                            </div>
+
+                            <div class="beneficio">
+                                <span class="icone-beneficio">✓</span>
+                                <span>Horário flexível</span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- LADO DIREITO -->
+                <aside class="acoes-vaga">
+
+                    <button
+                        class="btn-candidatar"
+                        data-vaga="Desenvolvedor Front-End">
+
+                        ✓
+                        <span>Candidatar-se</span>
+
+                    </button>
+
+
+                    <button class="btn-salvar">
+
+                        ♡
+                        <span>Salvar vaga</span>
+
+                    </button>
+
+
+                    <!-- INFORMAÇÕES DA EMPRESA -->
+                    <div class="card-empresa">
+
+                        <h3>
+                            Sobre a empresa
+                        </h3>
+
+                        <div class="empresa-detalhes">
+
+                            <div class="icone-empresa-pequeno">
+                                &lt;/&gt;
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Tech Solutions
+                                </strong>
+
+                                <p>
+                                    Tecnologia, inovação e
+                                    soluções digitais.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- NOTIFICAÇÃO -->
+    <div class="notificacao" id="notificacao">
+
+        <div class="notificacao-check">
+            ✓
+        </div>
+
+        <div class="notificacao-texto">
+
+            <strong>
+                Candidatura realizada!
+            </strong>
+
+            <span id="textoNotificacao">
+                Você se candidatou para a vaga.
+            </span>
+
+        </div>
+
+        <button
+            class="fechar-notificacao"
+            id="fecharNotificacao">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <script src="vagas.js"></script>
+
+</body>
+
+</html>

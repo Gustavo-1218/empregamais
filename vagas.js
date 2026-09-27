@@ -1,102 +1,133 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const pontos = document.querySelectorAll(".radar-ponto");
 
-    pontos.forEach(function (ponto) {
+    /* =====================================
+       BOTÃO DE CANDIDATURA
+    ===================================== */
 
-        if (ponto.classList.contains("ponto-voce")) {
-            return;
-        }
+    const botoesCandidatar =
+        document.querySelectorAll(".btn-candidatar");
 
-        ponto.addEventListener("click", function () {
 
-            const tipo = ponto.dataset.tipo;
+    const notificacao =
+        document.getElementById("notificacao");
 
-            let titulo = "";
-            let descricao = "";
 
-            if (tipo === "vaga") {
-                titulo = "Oportunidade encontrada";
-                descricao = "Uma vaga está disponível próxima a você.";
-            }
+    const textoNotificacao =
+        document.getElementById("textoNotificacao");
 
-            if (tipo === "empresa") {
-                titulo = "Empresa próxima";
-                descricao = "Uma empresa está conectada ao NEXT WORK.";
-            }
 
-            if (tipo === "profissional") {
-                titulo = "Profissional próximo";
-                descricao = "Um profissional está disponível na sua região.";
-            }
+    const fecharNotificacao =
+        document.getElementById("fecharNotificacao");
 
-            if (tipo === "servico") {
-                titulo = "Serviço encontrado";
-                descricao = "Um serviço está disponível próximo a você.";
-            }
 
-            const antiga = document.querySelector(".radar-popup");
+    botoesCandidatar.forEach(function (botao) {
 
-            if (antiga) {
-                antiga.remove();
-            }
+        botao.addEventListener("click", function () {
 
-            const popup = document.createElement("div");
 
-            popup.className = "radar-popup";
+            /* Pega o nome da vaga */
 
-            popup.innerHTML = `
-                <button class="radar-popup-fechar">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+            const nomeVaga =
+                botao.getAttribute("data-vaga");
 
-                <div class="radar-popup-icone">
-                    <i class="fa-solid fa-location-dot"></i>
-                </div>
 
-                <span>NEXT WORK</span>
+            /* Muda o botão */
 
-                <h3>${titulo}</h3>
+            botao.classList.add(
+                "ja-candidatou"
+            );
 
-                <p>${descricao}</p>
 
-                <button class="radar-popup-botao">
-                    Ver informações
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            `;
+            botao.innerHTML =
+                "✓ <span>Já se candidatou</span>";
 
-            document.querySelector(".radar-area").appendChild(popup);
 
-            popup.querySelector(".radar-popup-fechar").addEventListener("click", function () {
-                popup.remove();
-            });
+            botao.disabled = true;
+
+
+            /* Muda o texto da notificação */
+
+            textoNotificacao.textContent =
+                "Você se candidatou para a vaga de "
+                + nomeVaga
+                + ".";
+
+
+            /* Mostra a notificação */
+
+            notificacao.classList.add(
+                "mostrar"
+            );
+
+
+            /* Esconde automaticamente */
+
+            setTimeout(function () {
+
+                notificacao.classList.remove(
+                    "mostrar"
+                );
+
+            }, 5000);
 
         });
 
     });
 
 
-    const botoes = document.querySelectorAll(".botao-card");
+    /* =====================================
+       FECHAR NOTIFICAÇÃO
+    ===================================== */
 
-    botoes.forEach(function (botao) {
+    fecharNotificacao.addEventListener(
+        "click",
+        function () {
 
-        botao.addEventListener("click", function () {
+            notificacao.classList.remove(
+                "mostrar"
+            );
 
-            const card = botao.closest(".card-vaga");
+        }
+    );
 
-            document.querySelectorAll(".card-vaga").forEach(function (outroCard) {
-                outroCard.classList.remove("vaga-selecionada");
-            });
 
-            card.classList.add("vaga-selecionada");
+    /* =====================================
+       BOTÃO SALVAR
+    ===================================== */
 
-            card.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+    const botoesSalvar =
+        document.querySelectorAll(".btn-salvar");
 
-        });
+
+    botoesSalvar.forEach(function (botao) {
+
+        botao.addEventListener(
+            "click",
+            function () {
+
+
+                botao.classList.toggle(
+                    "salvo"
+                );
+
+
+                if (
+                    botao.classList.contains("salvo")
+                ) {
+
+                    botao.innerHTML =
+                        "♥ <span>Vaga salva</span>";
+
+                } else {
+
+                    botao.innerHTML =
+                        "♡ <span>Salvar vaga</span>";
+
+                }
+
+            }
+        );
 
     });
 

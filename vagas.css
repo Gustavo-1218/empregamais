@@ -1,0 +1,710 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo: #020817;
+    --fundo-card: #061126;
+    --azul: #08c4ff;
+    --azul-escuro: #087dff;
+    --roxo: #7135ed;
+    --branco: #f5f7ff;
+    --texto: #9aa9c2;
+    --borda: rgba(8, 196, 255, 0.20);
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0, 174, 255, 0.08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(113, 53, 237, 0.10),
+            transparent 30%
+        ),
+
+        var(--fundo);
+
+    color: var(--branco);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =========================
+   PÁGINA
+========================= */
+
+.pagina-vaga {
+    width: min(1100px, 92%);
+    margin: auto;
+    padding: 40px 0 70px;
+}
+
+
+/* =========================
+   VOLTAR
+========================= */
+
+.voltar {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: var(--azul);
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.voltar:hover {
+    color: white;
+}
+
+
+/* =========================
+   CARD DA VAGA
+========================= */
+
+.vaga-container {
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--borda);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #07162f,
+            #020b1d
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.cabecalho-vaga {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 32px;
+}
+
+.informacoes-vaga {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+.icone-empresa {
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 18px;
+
+    border:
+        1px solid
+        rgba(8, 196, 255, 0.35);
+
+    background:
+        rgba(8, 196, 255, 0.08);
+
+    color: var(--azul);
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+.nome-empresa {
+    color: #8d9cb7;
+
+    font-size: 16px;
+}
+
+.titulo-vaga h1 {
+    margin: 8px 0 14px;
+
+    font-size: clamp(28px, 4vw, 40px);
+
+    line-height: 1.1;
+}
+
+.dados-vaga {
+    display: flex;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    color: var(--texto);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   IMAGEM
+========================= */
+
+.imagem-vaga {
+    width: 220px;
+    height: 130px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    border:
+        1px solid
+        rgba(8, 196, 255, 0.25);
+
+    background: #061329;
+}
+
+.imagem-vaga img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   TAGS
+========================= */
+
+.tags-vaga {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    padding: 0 32px 30px;
+}
+
+.tags-vaga span {
+    padding: 9px 14px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid
+        rgba(8, 196, 255, 0.20);
+
+    background:
+        rgba(8, 196, 255, 0.05);
+
+    color: #93a2bb;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.conteudo-vaga {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) 290px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.informacoes-texto {
+    padding: 32px;
+}
+
+.secao-vaga {
+    margin-bottom: 35px;
+}
+
+.secao-vaga h2 {
+    margin-bottom: 13px;
+
+    color: white;
+
+    font-size: 20px;
+}
+
+.secao-vaga p {
+    margin-bottom: 10px;
+
+    color: var(--texto);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.secao-vaga ul {
+    padding-left: 20px;
+}
+
+.secao-vaga li {
+    margin-bottom: 8px;
+
+    color: var(--texto);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   BENEFÍCIOS
+========================= */
+
+.beneficios {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+}
+
+.beneficio {
+    min-height: 90px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 9px;
+
+    text-align: center;
+
+    color: #8998b1;
+
+    font-size: 12px;
+}
+
+.icone-beneficio {
+    color: var(--azul);
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+.acoes-vaga {
+    padding: 32px 25px;
+
+    border-left:
+        1px solid
+        rgba(8, 196, 255, 0.12);
+}
+
+.btn-candidatar,
+.btn-salvar {
+    width: 100%;
+    height: 52px;
+
+    border-radius: 12px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* BOTÃO CANDIDATAR */
+
+.btn-candidatar {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: none;
+
+    color: white;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--azul-escuro),
+            var(--roxo)
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(62, 76, 255, 0.20);
+}
+
+.btn-candidatar:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.1);
+}
+
+.btn-candidatar.ja-candidatou {
+    background:
+        rgba(20, 116, 170, 0.35);
+
+    border:
+        1px solid
+        rgba(8, 196, 255, 0.25);
+
+    box-shadow: none;
+
+    cursor: default;
+}
+
+
+/* BOTÃO SALVAR */
+
+.btn-salvar {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+    color: #9caac2;
+
+    border:
+        1px solid
+        rgba(8, 196, 255, 0.35);
+
+    background: transparent;
+}
+
+.btn-salvar:hover {
+    background:
+        rgba(8, 196, 255, 0.06);
+
+    color: var(--azul);
+}
+
+.btn-salvar.salvo {
+    color: var(--azul);
+}
+
+
+/* =========================
+   EMPRESA
+========================= */
+
+.card-empresa {
+    margin-top: 25px;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        rgba(8, 196, 255, 0.16);
+
+    background:
+        rgba(0, 30, 65, 0.35);
+}
+
+.card-empresa h3 {
+    margin-bottom: 15px;
+
+    font-size: 13px;
+}
+
+.empresa-detalhes {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+}
+
+.icone-empresa-pequeno {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    color: var(--azul);
+
+    border:
+        1px solid
+        rgba(8, 196, 255, 0.25);
+
+    background:
+        rgba(8, 196, 255, 0.06);
+}
+
+.empresa-detalhes strong {
+    font-size: 13px;
+}
+
+.empresa-detalhes p {
+    margin-top: 4px;
+
+    color: #7f8faa;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   NOTIFICAÇÃO
+========================= */
+
+.notificacao {
+    position: fixed;
+
+    top: 25px;
+    right: 25px;
+
+    z-index: 9999;
+
+    width: min(420px, calc(100% - 30px));
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 16px 18px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid
+        rgba(8, 196, 255, 0.7);
+
+    background:
+        rgba(3, 20, 43, 0.97);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.5);
+
+    transform: translateX(130%);
+
+    opacity: 0;
+
+    transition: 0.35s ease;
+}
+
+.notificacao.mostrar {
+    transform: translateX(0);
+
+    opacity: 1;
+}
+
+.notificacao-check {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #21e0d2;
+
+    color: #001b24;
+
+    font-weight: bold;
+}
+
+.notificacao-texto {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.notificacao-texto strong {
+    color: white;
+
+    font-size: 13px;
+}
+
+.notificacao-texto span {
+    color: #aebdd4;
+
+    font-size: 12px;
+}
+
+.fechar-notificacao {
+    margin-left: auto;
+
+    border: none;
+
+    background: transparent;
+
+    color: #9eacc2;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+    .conteudo-vaga {
+        grid-template-columns: 1fr;
+    }
+
+    .acoes-vaga {
+        border-left: none;
+
+        border-top:
+            1px solid
+            rgba(8, 196, 255, 0.12);
+    }
+
+    .beneficios {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .pagina-vaga {
+        width: 94%;
+
+        padding-top: 25px;
+    }
+
+    .cabecalho-vaga {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 23px;
+    }
+
+    .informacoes-vaga {
+        width: 100%;
+    }
+
+    .imagem-vaga {
+        width: 100%;
+
+        height: 150px;
+    }
+
+    .informacoes-texto {
+        padding: 23px;
+    }
+
+    .acoes-vaga {
+        padding: 23px;
+    }
+
+    .tags-vaga {
+        padding:
+            0 23px 23px;
+    }
+
+    .titulo-vaga h1 {
+        font-size: 28px;
+    }
+
+    .beneficios {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
