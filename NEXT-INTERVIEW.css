@@ -2107,3 +2107,48 @@ body::after {
 }
 
 
+/* =====================================================
+   IMAGENS DA NEXT IA
+===================================================== */
+
+.icone-next {
+    overflow: hidden;
+}
+
+.icone-next img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    display: block;
+}
+
+
+.avatar-mensagem {
+    overflow: hidden;
+}
+
+.avatar-mensagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+
+.frase-final {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.frase-final img {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    flex-shrink: 0;
+}
+
