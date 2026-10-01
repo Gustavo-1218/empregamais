@@ -903,6 +903,22 @@ button {
 
     animation:
         brilho-ia 2.5s ease-in-out infinite;
+
+    overflow: hidden;
+}
+
+/* IMAGEM PRINCIPAL DA NEXT IA */
+
+.icone-ia img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    display: block;
 }
 
 @keyframes brilho-ia {
@@ -1072,6 +1088,22 @@ button {
     box-shadow:
         0 0 8px #00ffff,
         0 0 15px rgba(80, 0, 255, 0.4);
+
+    overflow: hidden;
+}
+
+/* IMAGEM PEQUENA DA NEXT IA */
+
+.mini-ia img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
 }
 
 .bolha {
@@ -1124,21 +1156,6 @@ button {
 /* =========================================================
    PERGUNTAS
 ========================================================= */
-
-.perguntas {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
-
-    padding:
-        15px 27px;
-
-    border-top:
-        1px solid rgba(0, 220, 255, 0.14);
-}
 
 .perguntas {
 
@@ -1440,50 +1457,62 @@ button {
 }
 
 
-
-
 /* =========================================================
    BACKGROUND OFICIAL — NEXT WORK
-   ========================================================= */
+========================================================= */
 
 html {
+
     background: #02030a;
 }
 
 body {
+
     position: relative;
+
     isolation: isolate;
+
     background: transparent !important;
 }
 
-/* Fundo fixo da página inteira */
 body::before {
+
     content: "";
 
     position: fixed;
+
     inset: 0;
 
     width: 100%;
     height: 100%;
 
-    background-image: url("plano de fundo.png");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image:
+        url("plano de fundo.png");
+
+    background-position:
+        center center;
+
+    background-size:
+        cover;
+
+    background-repeat:
+        no-repeat;
 
     z-index: -2;
 
     pointer-events: none;
 }
 
-/* Camada escura para manter a leitura do conteúdo */
 body::after {
+
     content: "";
 
     position: fixed;
+
     inset: 0;
 
-    background: rgba(1, 5, 18, 0.38);
+    background:
+        rgba(1, 5, 18, 0.38);
 
     z-index: -1;
 
