@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
 
                     <div class="localizacao">
-                        📍 ${item.localizacao}
+                        ⚲ ${item.localizacao}
                     </div>
 
                     <div class="habilidades">
