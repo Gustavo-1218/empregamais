@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         {
             nome: "Julya Mizraim",
-            inicial: "AB",
+            inicial: "JM",
             profissao: "Desenvolvedora Front-End",
             localizacao: "Natal, RN",
             area: "tecnologia",
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         {
             nome: "Gustavo Fabregas",
-            inicial: "LH",
+            inicial: "GF",
             profissao: "Designer Gráfico",
             localizacao: "Extremoz, RN",
             area: "design",
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         {
             nome: "Maria Eduarda",
-            inicial: "MS",
+            inicial: "ME",
             profissao: "Assistente Administrativa",
             localizacao: "Natal, RN",
             area: "administracao",
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         {
-            nome: "Gabriely",
+            nome: "Gabriely Sophia",
             inicial: "GS",
             profissao: "Analista de Marketing",
             localizacao: "São Gonçalo do Amarante, RN",
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         {
             nome: "Josué Almeida",
-            inicial: "JP",
+            inicial: "JA",
             profissao: "Desenvolvedor Web",
             localizacao: "Natal, RN",
             area: "tecnologia",
@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
 
         {
-            nome: "Izabely",
-            inicial: "CA",
+            nome: "Izabely Lima",
+            inicial: "IL",
             profissao: "UX Designer",
             localizacao: "Extremoz, RN",
             area: "design",
