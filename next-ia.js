@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mensagem.innerHTML = `
 
                 <div class="mini-ia">
-                    ✦
+                    <img src="ia circulo.png" alt="NEXT IA">
                 </div>
 
                 <div class="bolha">
@@ -437,7 +437,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mensagem.innerHTML = `
 
             <div class="mini-ia">
-                ✦
+                <img src="ia circulo.png" alt="NEXT IA">
             </div>
 
             <div class="bolha">
