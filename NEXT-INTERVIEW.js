@@ -195,93 +195,181 @@ document.addEventListener("DOMContentLoaded", function () {
     let respostaSelecionada = null;
 
     function rolarChat() {
+
         if (chat) {
+
             chat.scrollTo({
                 top: chat.scrollHeight,
                 behavior: "smooth"
             });
+
         }
+
     }
 
     function atualizarProgresso() {
+
         const total = perguntas.length;
         const respondidas = perguntaAtual;
 
         if (contadorPerguntas) {
-            contadorPerguntas.textContent = respondidas + " / " + total;
+
+            contadorPerguntas.textContent =
+                respondidas + " / " + total;
+
         }
 
         if (progressoPreenchido) {
-            progressoPreenchido.style.width = ((respondidas / total) * 100) + "%";
+
+            progressoPreenchido.style.width =
+                ((respondidas / total) * 100) + "%";
+
         }
 
         document.querySelectorAll(".etapa").forEach(function (etapa, indice) {
+
             etapa.classList.remove("ativa");
             etapa.classList.remove("concluida");
 
             if (indice < respondidas) {
+
                 etapa.classList.add("concluida");
+
             }
 
             if (indice === respondidas && respondidas < total) {
+
                 etapa.classList.add("ativa");
+
             }
+
         });
+
     }
 
     function atualizarCaracteristicas() {
+
         document.querySelectorAll(".caracteristica").forEach(function (elemento) {
 
-            const nome = elemento.dataset.caracteristica;
+            const nome =
+                elemento.dataset.caracteristica;
 
-            if (!nome || caracteristicas[nome] === undefined) {
+            if (
+                !nome ||
+                caracteristicas[nome] === undefined
+            ) {
+
                 return;
+
             }
 
-            const valor = Math.min(caracteristicas[nome] * 3, 100);
+            const valor =
+                Math.min(
+                    caracteristicas[nome] * 3,
+                    100
+                );
 
-            const numero = elemento.querySelector(".valor-caracteristica");
-            const barra = elemento.querySelector(".preenchimento-caracteristica");
+            const numero =
+                elemento.querySelector(
+                    ".valor-caracteristica"
+                );
+
+            const barra =
+                elemento.querySelector(
+                    ".preenchimento-caracteristica"
+                );
 
             if (numero) {
-                numero.textContent = Math.round(valor);
+
+                numero.textContent =
+                    Math.round(valor);
+
             }
 
             if (barra) {
-                barra.style.width = valor + "%";
+
+                barra.style.width =
+                    valor + "%";
+
             }
+
         });
+
     }
 
+    /* =====================================================
+       MENSAGEM DA NEXT IA
+    ===================================================== */
+
     function adicionarMensagemIA(texto) {
-        const mensagem = document.createElement("div");
 
-        mensagem.className = "mensagem mensagem-ia";
+        const mensagem =
+            document.createElement("div");
 
-        const avatar = document.createElement("div");
-        avatar.className = "avatar-mensagem";
+        mensagem.className =
+            "mensagem mensagem-ia";
 
-        const icone = document.createElement("i");
-        icone.className = "fa-solid fa-sparkles";
 
-        avatar.appendChild(icone);
+        const avatar =
+            document.createElement("div");
 
-        const conteudo = document.createElement("div");
-        conteudo.className = "conteudo-mensagem";
+        avatar.className =
+            "avatar-mensagem";
 
-        const nome = document.createElement("span");
-        nome.className = "nome-mensagem";
-        nome.textContent = "NEXT IA";
 
-        const balao = document.createElement("div");
-        balao.className = "balao-mensagem";
+        const imagem =
+            document.createElement("img");
 
-        const textoMensagem = document.createElement("p");
-        textoMensagem.textContent = texto;
+        imagem.src =
+            "ia circulo.png";
 
-        const horario = document.createElement("span");
-        horario.className = "horario-mensagem";
-        horario.textContent = "Agora";
+        imagem.alt =
+            "NEXT IA";
+
+
+        avatar.appendChild(imagem);
+
+
+        const conteudo =
+            document.createElement("div");
+
+        conteudo.className =
+            "conteudo-mensagem";
+
+
+        const nome =
+            document.createElement("span");
+
+        nome.className =
+            "nome-mensagem";
+
+        nome.textContent =
+            "NEXT IA";
+
+
+        const balao =
+            document.createElement("div");
+
+        balao.className =
+            "balao-mensagem";
+
+
+        const textoMensagem =
+            document.createElement("p");
+
+        textoMensagem.textContent =
+            texto;
+
+
+        const horario =
+            document.createElement("span");
+
+        horario.className =
+            "horario-mensagem";
+
+        horario.textContent =
+            "Agora";
+
 
         balao.appendChild(textoMensagem);
         balao.appendChild(horario);
@@ -295,29 +383,59 @@ document.addEventListener("DOMContentLoaded", function () {
         areaDinamica.appendChild(mensagem);
 
         rolarChat();
+
     }
 
+
     function adicionarMensagemUsuario(texto) {
-        const mensagem = document.createElement("div");
 
-        mensagem.className = "mensagem mensagem-usuario";
+        const mensagem =
+            document.createElement("div");
 
-        const conteudo = document.createElement("div");
-        conteudo.className = "conteudo-mensagem";
+        mensagem.className =
+            "mensagem mensagem-usuario";
 
-        const nome = document.createElement("span");
-        nome.className = "nome-mensagem";
-        nome.textContent = "VOCÊ";
 
-        const balao = document.createElement("div");
-        balao.className = "balao-mensagem";
+        const conteudo =
+            document.createElement("div");
 
-        const textoMensagem = document.createElement("p");
-        textoMensagem.textContent = texto;
+        conteudo.className =
+            "conteudo-mensagem";
 
-        const horario = document.createElement("span");
-        horario.className = "horario-mensagem";
-        horario.textContent = "Agora";
+
+        const nome =
+            document.createElement("span");
+
+        nome.className =
+            "nome-mensagem";
+
+        nome.textContent =
+            "VOCÊ";
+
+
+        const balao =
+            document.createElement("div");
+
+        balao.className =
+            "balao-mensagem";
+
+
+        const textoMensagem =
+            document.createElement("p");
+
+        textoMensagem.textContent =
+            texto;
+
+
+        const horario =
+            document.createElement("span");
+
+        horario.className =
+            "horario-mensagem";
+
+        horario.textContent =
+            "Agora";
+
 
         balao.appendChild(textoMensagem);
         balao.appendChild(horario);
@@ -330,299 +448,585 @@ document.addEventListener("DOMContentLoaded", function () {
         areaDinamica.appendChild(mensagem);
 
         rolarChat();
+
     }
 
-    function criarAlternativas(pergunta) {
-        const container = document.createElement("div");
 
-        container.className = "alternativas-entrevista";
+    function criarAlternativas(pergunta) {
+
+        const container =
+            document.createElement("div");
+
+        container.className =
+            "alternativas-entrevista";
+
 
         Object.keys(pergunta.respostas).forEach(function (letra) {
 
-            const resposta = pergunta.respostas[letra];
+            const resposta =
+                pergunta.respostas[letra];
 
-            const botao = document.createElement("button");
 
-            botao.type = "button";
-            botao.className = "alternativa";
-            botao.dataset.resposta = letra;
+            const botao =
+                document.createElement("button");
 
-            const letraElemento = document.createElement("span");
-            letraElemento.className = "letra-alternativa";
-            letraElemento.textContent = letra;
+            botao.type =
+                "button";
 
-            const textoElemento = document.createElement("span");
-            textoElemento.className = "texto-alternativa";
-            textoElemento.textContent = resposta.texto;
+            botao.className =
+                "alternativa";
+
+            botao.dataset.resposta =
+                letra;
+
+
+            const letraElemento =
+                document.createElement("span");
+
+            letraElemento.className =
+                "letra-alternativa";
+
+            letraElemento.textContent =
+                letra;
+
+
+            const textoElemento =
+                document.createElement("span");
+
+            textoElemento.className =
+                "texto-alternativa";
+
+            textoElemento.textContent =
+                resposta.texto;
+
 
             botao.appendChild(letraElemento);
             botao.appendChild(textoElemento);
 
-            botao.addEventListener("click", function () {
-                selecionarResposta(botao, letra);
-            });
+
+            botao.addEventListener(
+                "click",
+                function () {
+
+                    selecionarResposta(
+                        botao,
+                        letra
+                    );
+
+                }
+            );
+
 
             container.appendChild(botao);
+
         });
+
 
         areaDinamica.appendChild(container);
 
         rolarChat();
+
     }
+
 
     function mostrarPergunta() {
 
         if (perguntaAtual >= perguntas.length) {
+
             finalizarEntrevista();
+
             return;
+
         }
 
-        respostaSelecionada = null;
+
+        respostaSelecionada =
+            null;
+
 
         if (botaoContinuar) {
-            botaoContinuar.disabled = true;
+
+            botaoContinuar.disabled =
+                true;
+
         }
+
 
         if (textoStatus) {
-            textoStatus.textContent = "Escolha uma alternativa para continuar.";
+
+            textoStatus.textContent =
+                "Escolha uma alternativa para continuar.";
+
         }
 
-        const pergunta = perguntas[perguntaAtual];
+
+        const pergunta =
+            perguntas[perguntaAtual];
+
 
         setTimeout(function () {
 
-            adicionarMensagemIA(pergunta.texto);
+            adicionarMensagemIA(
+                pergunta.texto
+            );
 
-            criarAlternativas(pergunta);
+            criarAlternativas(
+                pergunta
+            );
 
             atualizarProgresso();
 
         }, 500);
+
     }
 
-    function selecionarResposta(botaoSelecionado, letra) {
+
+    function selecionarResposta(
+        botaoSelecionado,
+        letra
+    ) {
 
         if (respostaSelecionada !== null) {
+
             return;
+
         }
 
-        respostaSelecionada = letra;
 
-        const botoes = areaDinamica.querySelectorAll(".alternativa");
+        respostaSelecionada =
+            letra;
+
+
+        const botoes =
+            areaDinamica.querySelectorAll(
+                ".alternativa"
+            );
+
 
         botoes.forEach(function (botao) {
-            botao.disabled = true;
+
+            botao.disabled =
+                true;
+
 
             if (botao !== botaoSelecionado) {
-                botao.style.opacity = "0.45";
+
+                botao.style.opacity =
+                    "0.45";
+
             }
+
         });
 
-        botaoSelecionado.style.opacity = "1";
 
-        const pergunta = perguntas[perguntaAtual];
-        const resposta = pergunta.respostas[letra];
+        botaoSelecionado.style.opacity =
+            "1";
 
-        Object.keys(resposta.pontos).forEach(function (caracteristica) {
-            caracteristicas[caracteristica] += resposta.pontos[caracteristica];
+
+        const pergunta =
+            perguntas[perguntaAtual];
+
+
+        const resposta =
+            pergunta.respostas[letra];
+
+
+        Object.keys(
+            resposta.pontos
+        ).forEach(function (caracteristica) {
+
+            caracteristicas[caracteristica] +=
+                resposta.pontos[caracteristica];
+
         });
 
-        adicionarMensagemUsuario(resposta.texto);
+
+        adicionarMensagemUsuario(
+            resposta.texto
+        );
+
 
         atualizarCaracteristicas();
 
+
         if (textoStatus) {
-            textoStatus.textContent = "Resposta registrada. Clique em continuar.";
+
+            textoStatus.textContent =
+                "Resposta registrada. Clique em continuar.";
+
         }
+
 
         if (botaoContinuar) {
-            botaoContinuar.disabled = false;
+
+            botaoContinuar.disabled =
+                false;
+
         }
 
+
         rolarChat();
+
     }
+
 
     function continuarEntrevista() {
 
         if (respostaSelecionada === null) {
+
             return;
+
         }
 
-        const alternativasAtuais = areaDinamica.querySelectorAll(".alternativas-entrevista");
+
+        const alternativasAtuais =
+            areaDinamica.querySelectorAll(
+                ".alternativas-entrevista"
+            );
+
 
         alternativasAtuais.forEach(function (elemento) {
+
             elemento.remove();
+
         });
+
 
         perguntaAtual++;
 
-        respostaSelecionada = null;
+
+        respostaSelecionada =
+            null;
+
 
         atualizarProgresso();
+
 
         if (perguntaAtual < perguntas.length) {
 
             if (textoStatus) {
-                textoStatus.textContent = "Preparando próxima pergunta...";
+
+                textoStatus.textContent =
+                    "Preparando próxima pergunta...";
+
             }
 
+
             if (botaoContinuar) {
-                botaoContinuar.disabled = true;
+
+                botaoContinuar.disabled =
+                    true;
+
             }
+
 
             mostrarPergunta();
 
         } else {
 
             if (botaoContinuar) {
-                botaoContinuar.disabled = true;
+
+                botaoContinuar.disabled =
+                    true;
+
             }
 
+
             finalizarEntrevista();
+
         }
+
     }
+
 
     function finalizarEntrevista() {
 
         if (textoStatus) {
-            textoStatus.textContent = "Entrevista concluída.";
+
+            textoStatus.textContent =
+                "Entrevista concluída.";
+
         }
 
+
         atualizarProgresso();
+
 
         adicionarMensagemIA(
             "Entrevista concluída. Vou analisar suas escolhas e montar seu perfil profissional."
         );
 
+
         setTimeout(function () {
+
             gerarResultado();
+
         }, 1500);
+
     }
+
 
     function gerarResultado() {
 
-        let soma = 0;
+        let soma =
+            0;
 
-        Object.keys(caracteristicas).forEach(function (chave) {
-            soma += caracteristicas[chave];
+
+        Object.keys(
+            caracteristicas
+        ).forEach(function (chave) {
+
+            soma +=
+                caracteristicas[chave];
+
         });
 
-        const pontuacaoMaxima = perguntas.length * 20;
 
-        let porcentagem = Math.round((soma / pontuacaoMaxima) * 100);
+        const pontuacaoMaxima =
+            perguntas.length * 20;
 
-        porcentagem = Math.max(0, Math.min(porcentagem, 100));
 
-        const ranking = Object.entries(caracteristicas).sort(function (a, b) {
-            return b[1] - a[1];
-        });
+        let porcentagem =
+            Math.round(
+                (soma / pontuacaoMaxima) * 100
+            );
 
-        const principais = ranking.slice(0, 3);
 
-        const principal = principais[0][0];
+        porcentagem =
+            Math.max(
+                0,
+                Math.min(
+                    porcentagem,
+                    100
+                )
+            );
 
-        let perfil = "";
+
+        const ranking =
+            Object.entries(
+                caracteristicas
+            ).sort(function (a, b) {
+
+                return b[1] - a[1];
+
+            });
+
+
+        const principais =
+            ranking.slice(0, 3);
+
+
+        const principal =
+            principais[0][0];
+
+
+        let perfil =
+            "";
+
 
         if (principal === "comunicacao") {
-            perfil = "Seu perfil demonstra facilidade para se comunicar, expressar ideias e construir conexões com outras pessoas.";
+
+            perfil =
+                "Seu perfil demonstra facilidade para se comunicar, expressar ideias e construir conexões com outras pessoas.";
+
         }
+
 
         if (principal === "proatividade") {
-            perfil = "Você demonstra iniciativa e disposição para transformar ideias em ações, assumindo responsabilidades quando necessário.";
+
+            perfil =
+                "Você demonstra iniciativa e disposição para transformar ideias em ações, assumindo responsabilidades quando necessário.";
+
         }
+
 
         if (principal === "estrategia") {
-            perfil = "Seu perfil apresenta uma forte tendência para análise, planejamento e tomada de decisões.";
+
+            perfil =
+                "Seu perfil apresenta uma forte tendência para análise, planejamento e tomada de decisões.";
+
         }
+
 
         if (principal === "adaptacao") {
-            perfil = "Você demonstra facilidade para lidar com mudanças e encontrar novos caminhos diante de situações inesperadas.";
+
+            perfil =
+                "Você demonstra facilidade para lidar com mudanças e encontrar novos caminhos diante de situações inesperadas.";
+
         }
+
 
         if (principal === "colaboracao") {
-            perfil = "Seu perfil se destaca pela capacidade de trabalhar em equipe, ouvir diferentes perspectivas e construir soluções em conjunto.";
+
+            perfil =
+                "Seu perfil se destaca pela capacidade de trabalhar em equipe, ouvir diferentes perspectivas e construir soluções em conjunto.";
+
         }
+
 
         if (principal === "aprendizado") {
-            perfil = "Você demonstra curiosidade, vontade de aprender e capacidade de transformar novas experiências em evolução.";
+
+            perfil =
+                "Você demonstra curiosidade, vontade de aprender e capacidade de transformar novas experiências em evolução.";
+
         }
 
+
         if (listaCaracteristicas) {
-            listaCaracteristicas.innerHTML = "";
+
+            listaCaracteristicas.innerHTML =
+                "";
+
 
             principais.forEach(function (item) {
 
-                const nome = item[0];
+                const nome =
+                    item[0];
 
-                const elemento = document.createElement("span");
 
-                elemento.className = "caracteristica-final";
+                const elemento =
+                    document.createElement(
+                        "span"
+                    );
 
-                const icone = document.createElement("i");
-                icone.className = "fa-solid fa-check";
+                elemento.className =
+                    "caracteristica-final";
 
-                const texto = document.createTextNode(
-                    " " + nomesCaracteristicas[nome]
+
+                const icone =
+                    document.createElement(
+                        "i"
+                    );
+
+                icone.className =
+                    "fa-solid fa-check";
+
+
+                const texto =
+                    document.createTextNode(
+                        " " +
+                        nomesCaracteristicas[nome]
+          );
+
+
+                elemento.appendChild(
+                    icone
                 );
 
-                elemento.appendChild(icone);
-                elemento.appendChild(texto);
+                elemento.appendChild(
+                    texto
+                );
 
-                listaCaracteristicas.appendChild(elemento);
+                listaCaracteristicas.appendChild(
+                    elemento
+                );
+
             });
+
         }
 
-        let frase = "";
+
+        let frase =
+            "";
+
 
         if (porcentagem >= 85) {
-            frase = "Seu perfil demonstra um alto potencial de compatibilidade. Você mostra iniciativa, capacidade de evolução e disposição para enfrentar novos desafios.";
+
+            frase =
+                "Seu perfil demonstra um alto potencial de compatibilidade. Você mostra iniciativa, capacidade de evolução e disposição para enfrentar novos desafios.";
+
         } else if (porcentagem >= 70) {
-            frase = "Você apresenta um perfil consistente, com características que podem contribuir bastante para diferentes ambientes profissionais.";
+
+            frase =
+                "Você apresenta um perfil consistente, com características que podem contribuir bastante para diferentes ambientes profissionais.";
+
         } else if (porcentagem >= 55) {
-            frase = "Seu perfil mostra boas características profissionais e espaço para continuar desenvolvendo novas habilidades.";
+
+            frase =
+                "Seu perfil mostra boas características profissionais e espaço para continuar desenvolvendo novas habilidades.";
+
         } else {
-            frase = "Cada experiência é uma oportunidade de evolução. Seu perfil ainda pode desenvolver novas habilidades e descobrir novos caminhos.";
+
+            frase =
+                "Cada experiência é uma oportunidade de evolução. Seu perfil ainda pode desenvolver novas habilidades e descobrir novos caminhos.";
+
         }
+
 
         if (porcentagemFinal) {
-            porcentagemFinal.textContent = porcentagem + "%";
+
+            porcentagemFinal.textContent =
+                porcentagem + "%";
+
         }
+
 
         if (descricaoPerfil) {
-            descricaoPerfil.textContent = perfil;
+
+            descricaoPerfil.textContent =
+                perfil;
+
         }
+
 
         if (fraseFinal) {
-            fraseFinal.textContent = frase;
+
+            fraseFinal.textContent =
+                frase;
+
         }
 
+
         if (resultado) {
-            resultado.hidden = false;
+
+            resultado.hidden =
+                false;
+
 
             resultado.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
             });
+
         }
+
 
         if (textoStatus) {
-            textoStatus.textContent = "Análise concluída.";
+
+            textoStatus.textContent =
+                "Análise concluída.";
+
         }
+
     }
+
 
     if (botaoContinuar) {
-        botaoContinuar.disabled = true;
 
-        botaoContinuar.addEventListener("click", function () {
-            continuarEntrevista();
-        });
+        botaoContinuar.disabled =
+            true;
+
+
+        botaoContinuar.addEventListener(
+            "click",
+            function () {
+
+                continuarEntrevista();
+
+            }
+        );
+
     }
+
 
     atualizarCaracteristicas();
     atualizarProgresso();
 
+
     setTimeout(function () {
+
         mostrarPergunta();
+
     }, 1000);
 
 });
