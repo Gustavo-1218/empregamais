@@ -1,290 +1,304 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 
-    /* =====================================================
-       DADOS
-    ===================================================== */
-
-    const candidatos = [
-
-        {
-            nome: "Julya Mizraim",
-            inicial: "JM",
-            profissao: "Desenvolvedora Front-End",
-            localizacao: "Natal, RN",
-            area: "tecnologia",
-            habilidades: ["HTML", "CSS", "JavaScript"]
-        },
-
-        {
-            nome: "Gustavo Fabregas",
-            inicial: "GF",
-            profissao: "Designer Gráfico",
-            localizacao: "Extremoz, RN",
-            area: "design",
-            habilidades: ["Figma", "Photoshop", "UI/UX"]
-        },
-
-        {
-            nome: "Maria Eduarda",
-            inicial: "ME",
-            profissao: "Assistente Administrativa",
-            localizacao: "Natal, RN",
-            area: "administracao",
-            habilidades: ["Excel", "Organização", "Atendimento"]
-        },
-
-        {
-            nome: "Gabriely Sophia",
-            inicial: "GS",
-            profissao: "Analista de Marketing",
-            localizacao: "São Gonçalo do Amarante, RN",
-            area: "marketing",
-            habilidades: ["Marketing", "Redes sociais", "Canva"]
-        },
-
-        {
-            nome: "Josué Almeida",
-            inicial: "JA",
-            profissao: "Desenvolvedor Web",
-            localizacao: "Natal, RN",
-            area: "tecnologia",
-            habilidades: ["HTML", "JavaScript", "Git"]
-        },
-
-        {
-            nome: "Izabely Lima",
-            inicial: "IL",
-            profissao: "UX Designer",
-            localizacao: "Extremoz, RN",
-            area: "design",
-            habilidades: ["Figma", "UX", "Prototipagem"]
-        }
-
-    ];
-
-
-    const empresas = [
-
-        {
-            nome: "TechNova",
-            inicial: "TN",
-            profissao: "Tecnologia e Desenvolvimento",
-            localizacao: "Natal, RN",
-            area: "tecnologia",
-            habilidades: ["Desenvolvimento", "Software", "Tecnologia"]
-        },
-
-        {
-            nome: "Next Design",
-            inicial: "ND",
-            profissao: "Design e Comunicação",
-            localizacao: "Natal, RN",
-            area: "design",
-            habilidades: ["Design", "Branding", "UI/UX"]
-        },
-
-        {
-            nome: "Conecta RH",
-            inicial: "CR",
-            profissao: "Recursos Humanos",
-            localizacao: "Extremoz, RN",
-            area: "administracao",
-            habilidades: ["RH", "Gestão", "Recrutamento"]
-        },
-
-        {
-            nome: "Digital Mais",
-            inicial: "DM",
-            profissao: "Marketing Digital",
-            localizacao: "Natal, RN",
-            area: "marketing",
-            habilidades: ["Marketing", "Social Media", "Publicidade"]
-        },
-
-        {
-            nome: "CodeLab",
-            inicial: "CL",
-            profissao: "Desenvolvimento de Software",
-            localizacao: "São Gonçalo do Amarante, RN",
-            area: "tecnologia",
-            habilidades: ["Programação", "Web", "Sistemas"]
-        },
+   /* =====================================================
+   DADOS
+===================================================== */
+
+const candidatos = [
+
+    {
+        nome: "Julya Mizraim",
+        inicial: "JM",
+        foto: "julyafoto.jpeg",
+        profissao: "Desenvolvedora Front-End",
+        localizacao: "Natal, RN",
+        area: "tecnologia",
+        habilidades: ["HTML", "CSS", "JavaScript"]
+    },
+
+    {
+        nome: "Gustavo Fabregas",
+        inicial: "GF",
+        foto: "gustavofoto.jpeg",
+        profissao: "Designer Gráfico",
+        localizacao: "Extremoz, RN",
+        area: "design",
+        habilidades: ["Figma", "Photoshop", "UI/UX"]
+    },
+
+    {
+        nome: "Maria Eduarda",
+        inicial: "ME",
+        foto: "eduardafoto.jpg",
+        profissao: "Assistente Administrativa",
+        localizacao: "Natal, RN",
+        area: "administracao",
+        habilidades: ["Excel", "Organização", "Atendimento"]
+    },
+
+    {
+        nome: "Gabriely Sophia",
+        inicial: "GS",
+        foto: "gabyfoto.jpeg",
+        profissao: "Analista de Marketing",
+        localizacao: "São Gonçalo do Amarante, RN",
+        area: "marketing",
+        habilidades: ["Marketing", "Redes sociais", "Canva"]
+    },
+
+    {
+        nome: "Josué Almeida",
+        inicial: "JA",
+        foto: "josuéfoto.png",
+        profissao: "Desenvolvedor Web",
+        localizacao: "Natal, RN",
+        area: "tecnologia",
+        habilidades: ["HTML", "JavaScript", "Git"]
+    },
+
+    {
+        nome: "Izabely Lima",
+        inicial: "IL",
+        foto: "izabelyfoto.jpeg",
+        profissao: "UX Designer",
+        localizacao: "Extremoz, RN",
+        area: "design",
+        habilidades: ["Figma", "UX", "Prototipagem"]
+    }
+
+];
+
+
+const empresas = [
+
+    {
+        nome: "TechNova",
+        inicial: "TN",
+        profissao: "Tecnologia e Desenvolvimento",
+        localizacao: "Natal, RN",
+        area: "tecnologia",
+        habilidades: ["Desenvolvimento", "Software", "Tecnologia"]
+    },
+
+    {
+        nome: "Next Design",
+        inicial: "ND",
+        profissao: "Design e Comunicação",
+        localizacao: "Natal, RN",
+        area: "design",
+        habilidades: ["Design", "Branding", "UI/UX"]
+    },
+
+    {
+        nome: "Conecta RH",
+        inicial: "CR",
+        profissao: "Recursos Humanos",
+        localizacao: "Extremoz, RN",
+        area: "administracao",
+        habilidades: ["RH", "Gestão", "Recrutamento"]
+    },
+
+    {
+        nome: "Digital Mais",
+        inicial: "DM",
+        profissao: "Marketing Digital",
+        localizacao: "Natal, RN",
+        area: "marketing",
+        habilidades: ["Marketing", "Social Media", "Publicidade"]
+    },
 
-        {
-            nome: "Criativa Comunicação",
-            inicial: "CC",
-            profissao: "Agência de Comunicação",
-            localizacao: "Natal, RN",
-            area: "design",
-            habilidades: ["Design", "Publicidade", "Branding"]
-        }
+    {
+        nome: "CodeLab",
+        inicial: "CL",
+        profissao: "Desenvolvimento de Software",
+        localizacao: "São Gonçalo do Amarante, RN",
+        area: "tecnologia",
+        habilidades: ["Programação", "Web", "Sistemas"]
+    },
 
-    ];
+    {
+        nome: "Criativa Comunicação",
+        inicial: "CC",
+        profissao: "Agência de Comunicação",
+        localizacao: "Natal, RN",
+        area: "design",
+        habilidades: ["Design", "Publicidade", "Branding"]
+    }
 
+];
 
-    /* =====================================================
-       ELEMENTOS
-    ===================================================== */
 
-    const lista = document.getElementById("lista-conexoes");
+/* =====================================================
+   ELEMENTOS
+===================================================== */
 
-    const pesquisa = document.getElementById("pesquisa");
+const lista =
+    document.getElementById("lista-conexoes");
 
-    const filtroArea = document.getElementById("filtro-area");
+const pesquisa =
+    document.getElementById("pesquisa");
 
-    const botaoCandidatos =
-        document.getElementById("botao-candidatos");
+const filtroArea =
+    document.getElementById("filtro-area");
 
-    const botaoEmpresas =
-        document.getElementById("botao-empresas");
+const botaoCandidatos =
+    document.getElementById("botao-candidatos");
 
-    const chat =
-        document.getElementById("chat");
+const botaoEmpresas =
+    document.getElementById("botao-empresas");
 
-    const perguntas =
-        document.querySelectorAll(".pergunta");
+const chat =
+    document.getElementById("chat");
 
+const perguntas =
+    document.querySelectorAll(".pergunta");
 
-    let tipoAtual = "candidatos";
 
+let tipoAtual = "candidatos";
 
 
-    /* =====================================================
-       RENDERIZAR LISTA
-    ===================================================== */
+/* =====================================================
+   RENDERIZAR LISTA
+===================================================== */
 
-    function renderizarLista() {
+function renderizarLista() {
 
-        const dados =
-            tipoAtual === "candidatos"
-                ? candidatos
-                : empresas;
+    const dados =
+        tipoAtual === "candidatos"
+            ? candidatos
+            : empresas;
 
 
-        const termo =
-            pesquisa.value
-                .toLowerCase()
-                .trim();
+    const termo =
+        pesquisa.value
+            .toLowerCase()
+            .trim();
 
 
-        const area =
-            filtroArea.value;
+    const area =
+        filtroArea.value;
 
 
-        const resultados = dados.filter(item => {
+    const resultados = dados.filter(item => {
 
-            const texto =
-                (
-                    item.nome +
-                    " " +
-                    item.profissao +
-                    " " +
-                    item.localizacao +
-                    " " +
-                    item.habilidades.join(" ")
-                ).toLowerCase();
+        const texto =
+            (
+                item.nome +
+                " " +
+                item.profissao +
+                " " +
+                item.localizacao +
+                " " +
+                item.habilidades.join(" ")
+            ).toLowerCase();
 
 
-            const correspondePesquisa =
-                texto.includes(termo);
+        const correspondePesquisa =
+            texto.includes(termo);
 
 
-            const correspondeArea =
-                area === "todas" ||
-                item.area === area;
+        const correspondeArea =
+            area === "todas" ||
+            item.area === area;
 
 
-            return correspondePesquisa &&
-                   correspondeArea;
+        return correspondePesquisa &&
+               correspondeArea;
 
-        });
+    });
 
 
-        lista.innerHTML = "";
+    lista.innerHTML = "";
 
 
-        if (resultados.length === 0) {
+    if (resultados.length === 0) {
 
-            lista.innerHTML = `
+        lista.innerHTML = `
 
-                <div class="nenhum-resultado">
+            <div class="nenhum-resultado">
 
-                    Nenhuma conexão encontrada.
+                Nenhuma conexão encontrada.
 
-                </div>
+            </div>
 
-            `;
+        `;
 
-            return;
-
-        }
-
-
-        resultados.forEach(item => {
-
-            const card =
-                document.createElement("div");
-
-
-            card.className =
-                "card-conexao";
-
-
-            const classeAvatar =
-                tipoAtual === "empresas"
-                    ? "avatar empresa"
-                    : "avatar";
-
-
-            card.innerHTML = `
-
-                <div class="${classeAvatar}">
-                    ${item.inicial}
-                </div>
-
-                <div class="info-conexao">
-
-                    <h3>
-                        ${item.nome}
-                    </h3>
-
-                    <div class="profissao">
-                        ${item.profissao}
-                    </div>
-
-                    <div class="localizacao">
-                        ⚲ ${item.localizacao}
-                    </div>
-
-                    <div class="habilidades">
-
-                        ${item.habilidades.map(habilidade => `
-
-                            <span class="habilidade">
-                                ${habilidade}
-                            </span>
-
-                        `).join("")}
-
-                    </div>
-
-                </div>
-
-                <button class="botao-perfil">
-                    Ver perfil
-                </button>
-
-            `;
-
-
-            lista.appendChild(card);
-
-        });
+        return;
 
     }
 
 
+    resultados.forEach(item => {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "card-conexao";
+
+
+        const classeAvatar =
+            tipoAtual === "empresas"
+                ? "avatar empresa"
+                : "avatar";
+
+
+        card.innerHTML = `
+
+            <div class="${classeAvatar}">
+
+                ${
+                    tipoAtual === "candidatos" && item.foto
+
+                        ? `<img src="${item.foto}" alt="${item.nome}">`
+
+                        : item.inicial
+                }
+
+            </div>
+
+            <div class="info-conexao">
+
+                <h3>
+                    ${item.nome}
+                </h3>
+
+                <div class="profissao">
+                    ${item.profissao}
+                </div>
+
+                <div class="localizacao">
+                    ⚲ ${item.localizacao}
+                </div>
+
+                <div class="habilidades">
+
+                    ${item.habilidades.map(habilidade => `
+
+                        <span class="habilidade">
+                            ${habilidade}
+                        </span>
+
+                    `).join("")}
+
+                </div>
+
+            </div>
+
+            <button class="botao-perfil">
+                Ver perfil
+            </button>
+
+        `;
+
+
+        lista.appendChild(card);
+
+    });
+
+}
 
     /* =====================================================
        TROCAR CANDIDATOS / EMPRESAS
