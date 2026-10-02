@@ -990,3 +990,91 @@ body {
         height: 50px;
     }
 }
+
+/* =========================================================
+   CORREÇÃO — LOGO NÃO SOBREPOR O TÍTULO
+   ========================================================= */
+
+/* Logo realmente no topo esquerdo */
+.logo-principal {
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    z-index: 10;
+}
+
+.logo-principal img {
+    display: block;
+    width: 165px;
+    height: auto;
+}
+
+
+/* Empurra o conteúdo do login para baixo da logo */
+.login-area {
+    width: 100%;
+    max-width: 680px;
+    margin: 0;
+    padding-top: 145px;
+}
+
+
+/* Mantém o título separado da logo */
+.titulo-login {
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   TELAS MENORES
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .logo-principal {
+        top: 25px;
+        left: 25px;
+    }
+
+    .logo-principal img {
+        width: 155px;
+    }
+
+    .login-area {
+        padding-top: 130px;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .logo-principal {
+        top: 22px;
+        left: 22px;
+    }
+
+    .logo-principal img {
+        width: 150px;
+    }
+
+    .login-area {
+        padding-top: 120px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .logo-principal {
+        top: 18px;
+        left: 16px;
+    }
+
+    .logo-principal img {
+        width: 135px;
+    }
+
+    .login-area {
+        padding-top: 105px;
+    }
+}
