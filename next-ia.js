@@ -761,3 +761,20 @@ function renderizarLista() {
     renderizarLista();
 
 });
+/* =========================================================
+   MENU — NÃO ALTERAR COM O TEMA
+========================================================= */
+
+/* MODO CLARO */
+html:not([data-tema="escuro"]) .cabecalho-principal {
+    background: rgba(2, 3, 13, 0.90) !important;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.16) !important;
+    box-shadow: none !important;
+}
+
+/* MODO ESCURO */
+html[data-tema="escuro"] .cabecalho-principal {
+    background: rgba(2, 3, 13, 0.90) !important;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.16) !important;
+    box-shadow: none !important;
+}
