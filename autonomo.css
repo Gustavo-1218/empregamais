@@ -933,3 +933,81 @@ html[data-tema="escuro"] .campo-busca:focus-within{
     }
 
 }
+
+.mensagem-usuario{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:14px
+}
+
+.balao-usuario{
+    max-width:80%;
+    padding:10px 12px;
+    border-radius:12px 12px 3px 12px;
+    background:linear-gradient(135deg,#087cf0,#7147e8);
+    color:#fff
+}
+
+.balao-usuario p{
+    font-size:10px;
+    line-height:1.5
+}
+
+.balao-usuario span{
+    display:block;
+    margin-top:5px;
+    color:rgba(255,255,255,.65);
+    font-size:7px;
+    text-align:right
+}
+
+.mensagem-digitando{
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+    margin-top:14px
+}
+
+.balao-digitando{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    min-width:48px;
+    padding:11px 12px;
+    border-radius:12px 12px 12px 3px;
+    background:#101f31
+}
+
+.balao-digitando span{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#00cfff;
+    animation:pontoDigitando 1s infinite ease-in-out
+}
+
+.balao-digitando span:nth-child(2){
+    animation-delay:.15s
+}
+
+.balao-digitando span:nth-child(3){
+    animation-delay:.3s
+}
+
+@keyframes pontoDigitando{
+    0%,60%,100%{
+        opacity:.3;
+        transform:translateY(0)
+    }
+
+    30%{
+        opacity:1;
+        transform:translateY(-3px)
+    }
+}
+
+.card-profissional.trocando{
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        opacity .35s ease
+}
