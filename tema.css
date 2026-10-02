@@ -1,0 +1,330 @@
+/* =========================================================
+   NEXT WORK
+   SISTEMA UNIVERSAL DE TEMAS
+   ========================================================= */
+
+
+/* =========================================================
+   MODO CLARO
+   ========================================================= */
+
+:root {
+
+    --nw-fundo: #eefaff;
+    --nw-fundo-2: #f7fcff;
+
+    --nw-superficie: #ffffff;
+    --nw-superficie-2: #f4fbff;
+
+    --nw-texto: #102b4c;
+    --nw-texto-2: #526b84;
+    --nw-texto-3: #71869c;
+
+    --nw-azul: #087cf0;
+    --nw-ciano: #00aeca;
+    --nw-roxo: #7147e8;
+
+    --nw-borda: #c9e1ed;
+    --nw-borda-hover: #8fc9df;
+
+    --nw-sombra:
+        0 10px 35px rgba(20, 80, 120, 0.10);
+
+}
+
+
+/* =========================================================
+   MODO ESCURO
+   IDENTIDADE ORIGINAL DO NEXT WORK
+   ========================================================= */
+
+html[data-tema="escuro"] {
+
+    --nw-fundo: #020713;
+    --nw-fundo-2: #071225;
+
+    --nw-superficie: #0b172b;
+    --nw-superficie-2: #101f38;
+
+    --nw-texto: #edf8ff;
+    --nw-texto-2: #a8c2d6;
+    --nw-texto-3: #7693aa;
+
+    --nw-azul: #2399ff;
+    --nw-ciano: #00ddff;
+    --nw-roxo: #8d5cff;
+
+    --nw-borda:
+        rgba(0, 221, 255, 0.16);
+
+    --nw-borda-hover:
+        rgba(0, 221, 255, 0.42);
+
+    --nw-sombra:
+        0 10px 35px rgba(0, 0, 0, 0.30);
+
+}
+
+
+/* =========================================================
+   TRANSIÇÃO
+   ========================================================= */
+
+html,
+body,
+button,
+a,
+input,
+textarea,
+select,
+.card,
+section,
+header,
+footer {
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* =========================================================
+   BASE DO SITE
+   ========================================================= */
+
+html {
+
+    background:
+        var(--nw-fundo);
+
+}
+
+
+body {
+
+    background:
+        var(--nw-fundo);
+
+    color:
+        var(--nw-texto);
+
+}
+
+
+/* =========================================================
+   MODO CLARO
+   FUNDO
+   ========================================================= */
+
+body {
+
+    background-image:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0, 174, 202, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(113, 71, 232, 0.05),
+            transparent 28%
+        );
+
+}
+
+
+/* =========================================================
+   MODO ESCURO
+   FUNDO ORIGINAL
+   ========================================================= */
+
+html[data-tema="escuro"] body {
+
+    background-image:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 221, 255, 0.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(141, 92, 255, 0.08),
+            transparent 30%
+        );
+
+}
+
+
+/* =========================================================
+   BOTÃO DE TEMA
+   ========================================================= */
+
+.botao-tema {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 40px;
+
+    padding: 8px 14px;
+
+    border:
+        1px solid
+        rgba(8, 124, 240, 0.25);
+
+    border-radius: 10px;
+
+    background:
+        rgba(8, 124, 240, 0.06);
+
+    color:
+        #09264a;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.botao-tema:hover {
+
+    background:
+        rgba(8, 124, 240, 0.11);
+
+    border-color:
+        rgba(8, 124, 240, 0.40);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.botao-tema i {
+
+    color:
+        #087cf0;
+
+}
+
+
+/* =========================================================
+   BOTÃO NO MODO ESCURO
+   ========================================================= */
+
+html[data-tema="escuro"] .botao-tema {
+
+    background:
+        rgba(0, 221, 255, 0.06);
+
+    border-color:
+        rgba(0, 221, 255, 0.18);
+
+    color:
+        #eaf9ff;
+
+}
+
+
+html[data-tema="escuro"] .botao-tema:hover {
+
+    background:
+        rgba(0, 221, 255, 0.11);
+
+    border-color:
+        rgba(0, 221, 255, 0.40);
+
+}
+
+
+html[data-tema="escuro"] .botao-tema i {
+
+    color:
+        #00ddff;
+
+}
+
+
+/* =========================================================
+   BOTÃO MOBILE
+   ========================================================= */
+
+.botao-tema-mobile {
+
+    width: 100%;
+
+    min-height: 44px;
+
+}
+
+
+/* =========================================================
+   SELEÇÃO DE TEXTO
+   ========================================================= */
+
+::selection {
+
+    background:
+        rgba(0, 174, 202, 0.25);
+
+    color:
+        var(--nw-texto);
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+
+    outline:
+        3px solid
+        rgba(0, 174, 202, 0.45);
+
+    outline-offset: 3px;
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html,
+    body,
+    button,
+    a,
+    input,
+    textarea,
+    select,
+    .card,
+    section,
+    header,
+    footer {
+
+        transition: none !important;
+
+    }
+
+}
