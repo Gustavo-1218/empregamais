@@ -2285,3 +2285,601 @@ body::after {
 
     pointer-events: none;
 }
+
+
+/* =========================================================
+   NEXT WORK — MODO CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) {
+    background: #eefaff;
+}
+
+html:not([data-tema="escuro"]) body {
+    color: #102b4c;
+
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(0, 140, 255, 0.07),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 55%,
+            rgba(113, 71, 232, 0.05),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 45% 90%,
+            rgba(0, 200, 255, 0.045),
+            transparent 28%
+        ),
+        #eefaff !important;
+}
+
+
+/* =========================================================
+   INTRODUÇÃO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .radar-etiqueta {
+    border-color: rgba(8, 124, 240, 0.18);
+    background: rgba(8, 124, 240, 0.06);
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .radar-introducao h1 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .radar-introducao h1 span {
+    color: #087cf0;
+    text-shadow: none;
+}
+
+html:not([data-tema="escuro"]) .radar-introducao p {
+    color: #526b84;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL DO RADAR
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .radar-area {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbff
+        );
+
+    box-shadow:
+        0 20px 60px rgba(20, 80, 120, 0.10),
+        inset 0 0 45px rgba(0, 125, 255, 0.025);
+}
+
+html:not([data-tema="escuro"]) .radar-area::before {
+    background: rgba(0, 150, 255, 0.06);
+}
+
+
+/* =========================================================
+   CABEÇALHO DO RADAR
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .radar-cabecalho h2 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .radar-cabecalho p {
+    color: #71869c;
+}
+
+
+/* =========================================================
+   ÍCONE
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .icone-circular {
+    border-color: rgba(8, 124, 240, 0.22);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 174, 202, 0.10),
+            rgba(8, 124, 240, 0.035)
+        );
+
+    color: #087cf0;
+
+    box-shadow:
+        0 0 18px rgba(0, 180, 255, 0.08),
+        inset 0 0 15px rgba(0, 180, 255, 0.04);
+}
+
+
+/* =========================================================
+   RADAR
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .radar {
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 190, 255, 0.075) 0%,
+            rgba(0, 110, 190, 0.035) 40%,
+            rgba(0, 20, 45, 0.015) 70%,
+            transparent 100%
+        );
+
+    border-color: rgba(0, 160, 220, 0.25);
+
+    box-shadow:
+        0 0 35px rgba(0, 180, 255, 0.06),
+        inset 0 0 55px rgba(0, 180, 255, 0.025);
+}
+
+html:not([data-tema="escuro"]) .radar-circulo {
+    border-color: rgba(0, 160, 220, 0.20);
+}
+
+html:not([data-tema="escuro"]) .radar-linha {
+    background: rgba(0, 160, 220, 0.12);
+}
+
+
+/* =========================================================
+   PONTOS
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .ponto-voce {
+    background: rgba(0, 170, 255, 0.10);
+    border-color: rgba(0, 160, 220, 0.55);
+
+    box-shadow:
+        0 0 18px rgba(0, 180, 255, 0.22),
+        0 0 45px rgba(0, 150, 255, 0.08);
+}
+
+html:not([data-tema="escuro"]) .ponto-voce .ponto-icone {
+    background: #087cf0;
+    color: #ffffff;
+
+    box-shadow:
+        0 0 12px rgba(0, 124, 240, 0.45);
+}
+
+html:not([data-tema="escuro"]) .ponto-voce span {
+    color: #087cf0;
+}
+
+
+/* =========================================================
+   LEGENDA
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .legenda-item {
+    color: #526b84;
+}
+
+
+/* =========================================================
+   RODAPÉ DO RADAR
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .radar-rodape {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .botao-mapa {
+    border-color: rgba(8, 124, 240, 0.18);
+    background: rgba(8, 124, 240, 0.05);
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .botao-mapa:hover {
+    border-color: rgba(8, 124, 240, 0.40);
+    background: rgba(8, 124, 240, 0.08);
+
+    box-shadow:
+        0 0 18px rgba(8, 124, 240, 0.10);
+}
+
+
+/* =========================================================
+   PAINÉIS LATERAIS
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .painel-bloco {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(20, 80, 120, 0.07);
+}
+
+html:not([data-tema="escuro"]) .painel-bloco:hover {
+    border-color: #8fc9df;
+
+    box-shadow:
+        0 10px 35px rgba(20, 120, 180, 0.09);
+}
+
+
+/* =========================================================
+   TÍTULOS DOS PAINÉIS
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .painel-titulo h3 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .painel-titulo p {
+    color: #71869c;
+}
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .filtro {
+    border-color: #d9eaf2;
+    background: #f7fcff;
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .filtro-icone {
+    background: rgba(8, 124, 240, 0.06);
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .filtro:hover,
+html:not([data-tema="escuro"]) .filtro.ativo {
+    color: #102b4c;
+
+    border-color: #8fc9df;
+
+    background: rgba(8, 124, 240, 0.06);
+
+    box-shadow:
+        0 0 15px rgba(8, 124, 240, 0.07);
+}
+
+
+/* =========================================================
+   REGIÃO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .regiao-conteudo span {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .regiao-conteudo strong {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .botao-alterar {
+    border-color: rgba(8, 124, 240, 0.18);
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .botao-alterar:hover {
+    background: rgba(8, 124, 240, 0.07);
+}
+
+
+/* =========================================================
+   CONEXÕES
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .conexao-card {
+    border-color: #d9eaf2;
+    background: #f7fcff;
+}
+
+html:not([data-tema="escuro"]) .conexao-card span {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .conexao-vagas {
+    border-color: rgba(0, 174, 202, 0.18);
+}
+
+html:not([data-tema="escuro"]) .conexao-empresas {
+    border-color: rgba(113, 71, 232, 0.18);
+}
+
+html:not([data-tema="escuro"]) .conexao-profissionais {
+    border-color: rgba(0, 200, 160, 0.18);
+}
+
+html:not([data-tema="escuro"]) .conexao-servicos {
+    border-color: rgba(230, 145, 0, 0.18);
+}
+
+
+/* =========================================================
+   BOTÃO EXPLORAR
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .painel-explorar {
+    border-color: rgba(8, 124, 240, 0.18);
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(8, 124, 240, 0.07),
+            rgba(113, 71, 232, 0.035)
+        );
+
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .painel-explorar:hover {
+    border-color: rgba(8, 124, 240, 0.38);
+
+    box-shadow:
+        0 0 25px rgba(8, 124, 240, 0.08);
+}
+
+html:not([data-tema="escuro"]) .explorar-texto small {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .painel-explorar > i {
+    color: #087cf0;
+}
+
+
+/* =========================================================
+   RESULTADOS
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .secao-titulo h2 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .secao-titulo p {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .ver-todos {
+    color: #087cf0;
+}
+
+
+/* =========================================================
+   CARDS DE VAGAS
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .card-vaga {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbff
+        );
+
+    box-shadow:
+        0 8px 25px rgba(20, 80, 120, 0.07);
+}
+
+html:not([data-tema="escuro"]) .card-vaga:hover {
+    border-color: #8fc9df;
+
+    box-shadow:
+        0 10px 40px rgba(8, 124, 240, 0.10);
+}
+
+html:not([data-tema="escuro"]) .card-empresa-icone {
+    background: rgba(8, 124, 240, 0.06);
+    border-color: rgba(8, 124, 240, 0.15);
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .card-vaga-topo > span {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .card-vaga h3 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .card-informacoes span {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .card-informacoes i {
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .card-tags span {
+    background: rgba(8, 124, 240, 0.05);
+    border-color: rgba(8, 124, 240, 0.10);
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .favorito {
+    background: rgba(8, 124, 240, 0.035);
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .favorito:hover {
+    color: #087cf0;
+    background: rgba(8, 124, 240, 0.07);
+}
+
+html:not([data-tema="escuro"]) .botao-card {
+    background: rgba(8, 124, 240, 0.06);
+    border-color: rgba(8, 124, 240, 0.14);
+    color: #087cf0;
+}
+
+
+/* =========================================================
+   CARDS DE PROFISSIONAIS
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .card-profissional {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbff
+        );
+
+    box-shadow:
+        0 8px 25px rgba(20, 80, 120, 0.07);
+}
+
+html:not([data-tema="escuro"]) .card-profissional:hover {
+    border-color: #8fc9df;
+
+    box-shadow:
+        0 12px 40px rgba(8, 124, 240, 0.10);
+}
+
+html:not([data-tema="escuro"]) .card-profissional h3 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .card-profissional > p {
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .profissional-localizacao {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .profissional-localizacao i {
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .profissional-tags span {
+    background: rgba(8, 124, 240, 0.045);
+    border-color: rgba(8, 124, 240, 0.10);
+    color: #526b84;
+}
+
+
+/* =========================================================
+   SEÇÃO FINAL
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .radar-final {
+    border-color: #c9e1ed;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 180, 255, 0.08),
+            transparent 55%
+        ),
+        rgba(255, 255, 255, 0.78);
+}
+
+html:not([data-tema="escuro"]) .radar-final-logo span {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 174, 202, 0.10),
+            rgba(113, 71, 232, 0.08)
+        );
+
+    border-color: rgba(8, 124, 240, 0.18);
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .radar-final-logo small {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .radar-final-texto h2 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .radar-final-texto p {
+    color: #71869c;
+}
+
+
+/* =========================================================
+   POPUP DO RADAR
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .radar-popup {
+    background: rgba(255, 255, 255, 0.97);
+
+    border-color: rgba(8, 124, 240, 0.25);
+
+    box-shadow:
+        0 15px 50px rgba(20, 80, 120, 0.15),
+        0 0 30px rgba(0, 174, 255, 0.08);
+}
+
+html:not([data-tema="escuro"]) .radar-popup-fechar {
+    background: rgba(8, 124, 240, 0.06);
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .radar-popup h3 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .radar-popup p {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .radar-popup-botao {
+    border-color: rgba(8, 124, 240, 0.20);
+    background: rgba(8, 124, 240, 0.06);
+    color: #102b4c;
+}
+
+
+/* =========================================================
+   MODO CLARO — NEXT IA
+   ========================================================= */
+
+/*
+   A NEXT IA permanece propositalmente escura
+   nos dois temas para funcionar como destaque visual.
+*/
+
+html:not([data-tema="escuro"]) .painel-next-ia {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(0, 221, 255, 0.10),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(113, 53, 237, 0.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #071225 0%,
+            #0b172b 55%,
+            #101f38 100%
+        ) !important;
+
+    border-color: rgba(0, 174, 255, 0.20) !important;
+
+    color: #ffffff !important;
+}
