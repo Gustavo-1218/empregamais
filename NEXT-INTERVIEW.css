@@ -2898,3 +2898,102 @@ html[data-tema="escuro"] body {
         ),
         #020611 !important;
 }
+
+
+/* =========================================================
+   NEXT INTERVIEW — AJUSTE DO PAINEL DA IA
+========================================================= */
+
+/* =========================================================
+   MODO CLARO
+========================================================= */
+
+html:not([data-tema="escuro"]) .painel-ia,
+html:not([data-tema="escuro"]) .container-ia,
+html:not([data-tema="escuro"]) .area-ia {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(0, 221, 255, 0.08),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #071225 0%,
+            #0b172b 50%,
+            #101f38 100%
+        ) !important;
+
+    color: #edf8ff !important;
+    border-color: rgba(0, 221, 255, 0.18) !important;
+}
+
+/* Textos dentro do painel da IA */
+html:not([data-tema="escuro"]) .painel-ia h1,
+html:not([data-tema="escuro"]) .painel-ia h2,
+html:not([data-tema="escuro"]) .painel-ia h3,
+html:not([data-tema="escuro"]) .container-ia h1,
+html:not([data-tema="escuro"]) .container-ia h2,
+html:not([data-tema="escuro"]) .container-ia h3 {
+    color: #ffffff !important;
+}
+
+html:not([data-tema="escuro"]) .painel-ia p,
+html:not([data-tema="escuro"]) .container-ia p {
+    color: #a8c2d6 !important;
+}
+
+/* =========================================================
+   MODO ESCURO — FUNDO GERAL
+========================================================= */
+
+html[data-tema="escuro"] {
+    background: #020611 !important;
+}
+
+html[data-tema="escuro"] body {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(36, 68, 180, 0.18),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(111, 32, 210, 0.14),
+            transparent 30%
+        ),
+        #020611 !important;
+
+    color: #ffffff !important;
+}
+
+/* Remove o fundo claro criado pelos pseudo-elementos */
+html[data-tema="escuro"] body::before,
+html[data-tema="escuro"] body::after {
+    display: none !important;
+}
+
+/* Garante que a área principal continue escura */
+html[data-tema="escuro"] .pagina-interview {
+    background: transparent !important;
+}
+
+/* =========================================================
+   PAINEL DA IA NO MODO ESCURO
+========================================================= */
+
+html[data-tema="escuro"] .painel-ia,
+html[data-tema="escuro"] .container-ia,
+html[data-tema="escuro"] .area-ia {
+    background:
+        linear-gradient(
+            145deg,
+            #071225 0%,
+            #0b172b 50%,
+            #101f38 100%
+        ) !important;
+
+    color: #edf8ff !important;
+    border-color: rgba(0, 221, 255, 0.16) !important;
+}
