@@ -832,3 +832,161 @@ body {
         animation: none !important;
     }
 }
+
+
+
+/* =========================================================
+   AJUSTES FINAIS — LOGO + LOGIN MAIS HORIZONTAL
+   ========================================================= */
+
+/* LOGO NO TOPO ESQUERDO */
+.logo-principal {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    z-index: 5;
+}
+
+.logo-principal img {
+    display: block;
+    width: 190px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* ÁREA DO LOGIN — MAIS LARGA */
+.login-area {
+    width: 100%;
+    max-width: 680px;
+    margin: auto 0;
+    padding-top: 35px;
+}
+
+
+/* TÍTULO */
+.titulo-login {
+    margin-bottom: 24px;
+}
+
+
+/* CARD — MAIS HORIZONTAL E MENOS ALTO */
+.card-login {
+    width: 100%;
+    padding: 25px 32px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid #d8e8f0;
+    border-radius: 18px;
+    box-shadow:
+        0 12px 35px rgba(20, 90, 130, 0.09),
+        0 0 25px rgba(50, 190, 255, 0.07);
+}
+
+
+/* CABEÇALHO MAIS COMPACTO */
+.cabecalho-login {
+    margin-bottom: 18px;
+}
+
+
+/* CAMPOS MAIS COMPACTOS */
+.campo {
+    margin-bottom: 15px;
+}
+
+
+/* INPUTS MAIS BAIXOS */
+.input-box {
+    height: 50px;
+}
+
+
+/* BOTÃO ENTRAR MAIS BAIXO */
+.btn-entrar {
+    height: 50px;
+}
+
+
+/* LEMBRAR DE MIM */
+.lembrar {
+    margin-top: -3px;
+    margin-bottom: 16px;
+}
+
+
+/* DIVISOR */
+.divisor {
+    margin: 16px 0 12px;
+}
+
+
+/* CADASTRO */
+.cadastro {
+    padding-top: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .login-area {
+        max-width: 620px;
+    }
+
+    .logo-principal {
+        left: 25px;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .login-area {
+        max-width: 600px;
+    }
+
+    .logo-principal {
+        top: 22px;
+        left: 22px;
+    }
+
+    .logo-principal img {
+        width: 175px;
+    }
+
+    .card-login {
+        padding: 25px 22px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .logo-principal {
+        top: 20px;
+        left: 16px;
+    }
+
+    .logo-principal img {
+        width: 155px;
+    }
+
+    .login-area {
+        max-width: 100%;
+    }
+
+    .card-login {
+        padding: 22px 18px;
+    }
+
+    .input-box {
+        height: 50px;
+    }
+
+    .btn-entrar {
+        height: 50px;
+    }
+}
