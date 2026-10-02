@@ -2188,3 +2188,186 @@ html[data-tema="escuro"] .painel-ia {
     }
 
 }
+
+
+/* =========================================================
+   CORREÇÃO RÁPIDA — TEMA NEXT IA
+========================================================= */
+
+/* ---------- MODO CLARO ---------- */
+
+html:not([data-tema="escuro"]) {
+    background: #eefaff;
+}
+
+html:not([data-tema="escuro"]) body {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(0,174,202,.07), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(113,71,232,.05), transparent 30%),
+        #eefaff !important;
+
+    color: #102b4c;
+}
+
+/* remove o plano de fundo neon no claro */
+html:not([data-tema="escuro"]) body::before {
+    background-image: none !important;
+}
+
+html:not([data-tema="escuro"]) body::after {
+    background: transparent !important;
+}
+
+/* header */
+html:not([data-tema="escuro"]) .cabecalho-principal {
+    background: rgba(255,255,255,.94);
+    border-bottom: 1px solid #c9e1ed;
+    box-shadow: 0 5px 25px rgba(20,80,120,.08);
+}
+
+/* textos externos */
+html:not([data-tema="escuro"]) .introducao-ia h1,
+html:not([data-tema="escuro"]) .titulo-conexoes h2,
+html:not([data-tema="escuro"]) .info-conexao h3 {
+    color: #102b4c;
+    text-shadow: none;
+}
+
+html:not([data-tema="escuro"]) .introducao-ia p {
+    color: #526b84;
+}
+
+/* painel esquerdo */
+html:not([data-tema="escuro"]) .painel-conexoes {
+    background: linear-gradient(145deg,#fff,#f5fcff);
+    border-color: #c9e1ed;
+    box-shadow: 0 10px 30px rgba(20,80,120,.08);
+}
+
+/* filtros */
+html:not([data-tema="escuro"]) .alternador,
+html:not([data-tema="escuro"]) .campo-pesquisa input,
+html:not([data-tema="escuro"]) .filtro-area {
+    background: #fff;
+    color: #102b4c;
+    border-color: #c9e1ed;
+}
+
+html:not([data-tema="escuro"]) .botao-alternador {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .botao-alternador.ativo {
+    color: #fff;
+    background: linear-gradient(100deg,#087cf0,#7147e8);
+}
+
+/* cards externos */
+html:not([data-tema="escuro"]) .card-conexao {
+    background: #fff;
+    border-color: #d5e6ed;
+    box-shadow: 0 4px 12px rgba(20,80,120,.04);
+}
+
+html:not([data-tema="escuro"]) .profissao {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .localizacao {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .habilidade {
+    color: #087ca0;
+    background: rgba(0,174,202,.07);
+    border-color: rgba(0,174,202,.22);
+    text-shadow: none;
+}
+
+/* =========================================================
+   A NEXT IA CONTINUA ESCURA
+========================================================= */
+
+html:not([data-tema="escuro"]) .painel-ia {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(4,10,31,.97),
+            rgba(4,3,20,.98)
+        );
+
+    border-color: rgba(130,0,255,.48);
+
+    box-shadow:
+        0 0 8px rgba(0,220,255,.14),
+        0 0 22px rgba(100,0,255,.16);
+}
+
+/* mantém o conteúdo interno da IA */
+html:not([data-tema="escuro"]) .cabecalho-ia h2 {
+    color: #fff;
+}
+
+html:not([data-tema="escuro"]) .cabecalho-ia p {
+    color: #737f9e;
+}
+
+html:not([data-tema="escuro"]) .bolha {
+    color: #e1faff;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,35,70,.95),
+            rgba(35,5,70,.95)
+        );
+}
+
+html:not([data-tema="escuro"]) .pergunta {
+    color: #70eaff;
+    background: rgba(0,20,45,.75);
+    border-color: rgba(0,220,255,.30);
+}
+
+
+/* =========================================================
+   MODO ESCURO
+========================================================= */
+
+html[data-tema="escuro"] body {
+    background:
+        radial-gradient(circle at 15% 20%,rgba(0,255,255,.10),transparent 27%),
+        radial-gradient(circle at 85% 25%,rgba(119,0,255,.16),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(0,102,255,.12),transparent 35%),
+        #02030d !important;
+
+    color: #fff;
+}
+
+/* volta o fundo oficial */
+html[data-tema="escuro"] body::before {
+    background-image: url("plano de fundo.png") !important;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html[data-tema="escuro"] body::after {
+    background: rgba(1,5,18,.38) !important;
+}
+
+/* header */
+html[data-tema="escuro"] .cabecalho-principal {
+    background: rgba(2,3,13,.90);
+    border-bottom: 1px solid rgba(0,255,255,.16);
+}
+
+/* painéis */
+html[data-tema="escuro"] .painel-conexoes,
+html[data-tema="escuro"] .painel-ia {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(4,10,31,.97),
+            rgba(4,3,20,.98)
+        );
+}
