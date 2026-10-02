@@ -1534,3 +1534,657 @@ body::after {
     border-radius: 50%;
     display: block;
 }
+
+
+/* =========================================================
+   NEXT IA — SISTEMA DE TEMAS
+   ========================================================= */
+
+
+/* =========================================================
+   MODO CLARO
+   ========================================================= */
+
+body {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 174, 202, 0.08),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(113, 71, 232, 0.06),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(8, 124, 240, 0.06),
+            transparent 35%
+        ),
+        #eefaff;
+
+    color: #102b4c;
+}
+
+
+/* =========================================================
+   CABEÇALHO — CLARO
+   ========================================================= */
+
+.cabecalho-principal {
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    border-bottom:
+        1px solid #c9e1ed;
+
+    box-shadow:
+        0 5px 25px rgba(20, 80, 120, 0.08);
+}
+
+
+/* =========================================================
+   INTRODUÇÃO — CLARO
+   ========================================================= */
+
+.etiqueta-ia {
+    color: #087cf0;
+
+    text-shadow: none;
+}
+
+.etiqueta-ia::before {
+    background: #087cf0;
+
+    box-shadow:
+        0 0 5px rgba(8, 124, 240, 0.45),
+        0 0 12px rgba(0, 174, 202, 0.25);
+}
+
+.introducao-ia h1 {
+    color: #102b4c;
+}
+
+.introducao-ia h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            #087cf0,
+            #00aeca,
+            #7147e8
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    filter: none;
+}
+
+.introducao-ia p {
+    color: #526b84;
+}
+
+
+/* =========================================================
+   PAINÉIS — CLARO
+   ========================================================= */
+
+.painel-conexoes,
+.painel-ia {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f5fcff
+        );
+
+    box-shadow:
+        0 12px 35px rgba(20, 80, 120, 0.09);
+}
+
+
+/* =========================================================
+   PAINEL DE CONEXÕES — CLARO
+   ========================================================= */
+
+.painel-conexoes {
+    border:
+        1px solid #c9e1ed;
+
+    box-shadow:
+        0 10px 30px rgba(20, 80, 120, 0.08);
+}
+
+.painel-conexoes::before {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00aeca,
+            #087cf0,
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px rgba(0, 174, 202, 0.25);
+}
+
+
+/* =========================================================
+   CABEÇALHO DAS CONEXÕES — CLARO
+   ========================================================= */
+
+.cabecalho-conexoes {
+    border-bottom:
+        1px solid #d7e8ef;
+}
+
+.titulo-conexoes h2 {
+    color: #102b4c;
+
+    text-shadow: none;
+}
+
+.status-conexoes {
+    color: #008f76;
+
+    border-color:
+        rgba(0, 160, 130, 0.25);
+
+    background:
+        rgba(0, 160, 130, 0.06);
+
+    box-shadow: none;
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   ALTERNADOR — CLARO
+   ========================================================= */
+
+.alternador {
+    background: #f2f9fc;
+
+    border:
+        1px solid #c9e1ed;
+}
+
+.botao-alternador {
+    color: #71869c;
+}
+
+.botao-alternador:hover {
+    color: #087cf0;
+}
+
+.botao-alternador.ativo {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            100deg,
+            #087cf0,
+            #7147e8
+        );
+
+    box-shadow:
+        0 5px 14px rgba(8, 124, 240, 0.20);
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   FILTROS — CLARO
+   ========================================================= */
+
+.campo-pesquisa span {
+    color: #087cf0;
+
+    text-shadow: none;
+}
+
+.campo-pesquisa input,
+.filtro-area {
+    color: #102b4c;
+
+    background: #ffffff;
+
+    border:
+        1px solid #c9e1ed;
+
+    box-shadow:
+        0 3px 10px rgba(20, 80, 120, 0.04);
+}
+
+.campo-pesquisa input::placeholder {
+    color: #8aa0b3;
+}
+
+.campo-pesquisa input:focus,
+.filtro-area:focus {
+    border-color: #00aeca;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 174, 202, 0.10);
+}
+
+
+/* =========================================================
+   CARDS DE CONEXÃO — CLARO
+   ========================================================= */
+
+.card-conexao {
+    background: #ffffff;
+
+    border:
+        1px solid #d5e6ed;
+
+    box-shadow:
+        0 4px 12px rgba(20, 80, 120, 0.04);
+}
+
+.card-conexao:hover,
+.card-conexao.destacado {
+    transform: translateX(4px);
+
+    border-color: #8fc9df;
+
+    background:
+        linear-gradient(
+            100deg,
+            #f5fcff,
+            #faf8ff
+        );
+
+    box-shadow:
+        0 8px 20px rgba(8, 124, 240, 0.10);
+}
+
+
+/* =========================================================
+   AVATAR — CLARO
+   ========================================================= */
+
+.avatar {
+    background:
+        linear-gradient(
+            135deg,
+            #087cf0,
+            #7147e8
+        );
+
+    border-color: #00aeca;
+
+    box-shadow:
+        0 5px 15px rgba(8, 124, 240, 0.20);
+}
+
+
+/* =========================================================
+   INFORMAÇÕES — CLARO
+   ========================================================= */
+
+.info-conexao h3 {
+    color: #102b4c;
+}
+
+.profissao {
+    color: #526b84;
+}
+
+.localizacao {
+    color: #71869c;
+}
+
+.habilidade {
+    color: #087ca0;
+
+    border-color:
+        rgba(0, 174, 202, 0.22);
+
+    background:
+        rgba(0, 174, 202, 0.07);
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   BOTÃO PERFIL — CLARO
+   ========================================================= */
+
+.botao-perfil {
+    color: #087cf0;
+
+    border-color:
+        rgba(8, 124, 240, 0.25);
+}
+
+.botao-perfil:hover {
+    color: #ffffff;
+
+    background: #087cf0;
+
+    border-color: #087cf0;
+
+    box-shadow:
+        0 5px 14px rgba(8, 124, 240, 0.20);
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   PAINEL DA IA — CLARO
+   ========================================================= */
+
+.painel-ia {
+    border:
+        1px solid #c9d8ed;
+
+    box-shadow:
+        0 10px 35px rgba(80, 60, 160, 0.10);
+}
+
+.painel-ia::before {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00aeca,
+            #7147e8,
+            #087cf0,
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px rgba(0, 174, 202, 0.25);
+}
+
+
+/* =========================================================
+   CABEÇALHO DA IA — CLARO
+   ========================================================= */
+
+.cabecalho-ia {
+    border-bottom:
+        1px solid #d7e2ef;
+}
+
+.icone-ia {
+    box-shadow:
+        0 5px 18px rgba(8, 124, 240, 0.20);
+}
+
+.cabecalho-ia h2 {
+    color: #102b4c;
+
+    text-shadow: none;
+}
+
+.cabecalho-ia p {
+    color: #71869c;
+}
+
+.status-ia {
+    color: #008f76;
+
+    text-shadow: none;
+}
+
+.status-ia::before {
+    background: #00a982;
+
+    box-shadow:
+        0 0 6px rgba(0, 169, 130, 0.35);
+}
+
+
+/* =========================================================
+   CHAT — CLARO
+   ========================================================= */
+
+.bolha {
+    color: #29445e;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f2fbff,
+            #f8f5ff
+        );
+
+    border:
+        1px solid #c9e1ed;
+
+    box-shadow:
+        0 4px 12px rgba(20, 80, 120, 0.05);
+}
+
+.mensagem.usuario .bolha {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            120deg,
+            #087cf0,
+            #7147e8
+        );
+
+    border-color:
+        rgba(8, 124, 240, 0.30);
+
+    box-shadow:
+        0 6px 18px rgba(8, 124, 240, 0.18);
+}
+
+
+/* =========================================================
+   PERGUNTAS — CLARO
+   ========================================================= */
+
+.perguntas {
+    border-top:
+        1px solid #d7e8ef;
+}
+
+.pergunta {
+    color: #087ca0;
+
+    border:
+        1px solid rgba(0, 174, 202, 0.25);
+
+    background:
+        #f2fbfd;
+
+    text-shadow: none;
+}
+
+.pergunta:hover {
+    color: #087cf0;
+
+    background:
+        rgba(8, 124, 240, 0.07);
+
+    border-color:
+        #087cf0;
+
+    box-shadow:
+        0 4px 12px rgba(8, 124, 240, 0.10);
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   RODAPÉ DA IA — CLARO
+   ========================================================= */
+
+.aviso-simulacao {
+    color: #8aa0b3;
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   SCROLLBAR — CLARO
+   ========================================================= */
+
+.lista-conexoes::-webkit-scrollbar-track,
+.chat::-webkit-scrollbar-track {
+    background: #edf5f8;
+}
+
+.lista-conexoes::-webkit-scrollbar-thumb,
+.chat::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            #00aeca,
+            #7147e8
+        );
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   =========================================================
+   MODO ESCURO
+   VOLTA PARA A IDENTIDADE ORIGINAL
+   =========================================================
+   ========================================================= */
+
+html[data-tema="escuro"] body {
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 255, 255, 0.10),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(119, 0, 255, 0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(0, 102, 255, 0.12),
+            transparent 35%
+        ),
+        #02030d;
+}
+
+
+/* =========================================================
+   CABEÇALHO — ESCURO
+   ========================================================= */
+
+html[data-tema="escuro"] .cabecalho-principal {
+    background:
+        rgba(2, 3, 13, 0.90);
+
+    border-bottom:
+        1px solid rgba(0, 255, 255, 0.16);
+
+    box-shadow:
+        0 0 25px rgba(0, 180, 255, 0.05);
+}
+
+
+/* =========================================================
+   INTRODUÇÃO — ESCURO
+   ========================================================= */
+
+html[data-tema="escuro"] .etiqueta-ia {
+    color: #00ffff;
+
+    text-shadow:
+        0 0 7px #00ffff,
+        0 0 17px rgba(0, 255, 255, 0.6);
+}
+
+html[data-tema="escuro"] .introducao-ia h1 {
+    color: #ffffff;
+}
+
+html[data-tema="escuro"] .introducao-ia p {
+    color: #7885a6;
+}
+
+html[data-tema="escuro"] .introducao-ia h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            #00ffff,
+            #008cff,
+            #7b00ff,
+            #ff00e6
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    filter:
+        drop-shadow(0 0 6px rgba(0, 255, 255, 0.55))
+        drop-shadow(0 0 15px rgba(100, 0, 255, 0.55));
+}
+
+
+/* =========================================================
+   PAINÉIS — ESCURO
+   ========================================================= */
+
+html[data-tema="escuro"] .painel-conexoes,
+html[data-tema="escuro"] .painel-ia {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(4, 10, 31, 0.97),
+            rgba(4, 3, 20, 0.98)
+        );
+}
+
+
+/* =========================================================
+   MOBILE — ESCURO
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    html[data-tema="escuro"] .menu-mobile.aberto {
+        background:
+            rgba(2, 3, 13, 0.98);
+
+        border-bottom:
+            1px solid rgba(0, 255, 255, 0.25);
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.5),
+            0 0 25px rgba(0, 180, 255, 0.08);
+    }
+
+    html[data-tema="escuro"] .menu-mobile a {
+        color: #7885a5;
+    }
+
+    html[data-tema="escuro"] .menu-mobile a:hover,
+    html[data-tema="escuro"] .menu-mobile a.ativo {
+        color: #ffffff;
+
+        background:
+            rgba(0, 220, 255, 0.08);
+
+        text-shadow:
+            0 0 8px #00ffff;
+    }
+
+}
