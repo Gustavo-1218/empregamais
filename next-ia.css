@@ -2688,3 +2688,171 @@ html[data-tema="escuro"] .painel-ia {
     }
 
 }
+
+
+/* =========================================================
+   MENU — PADRÃO ORIGINAL NEXT WORK
+   O MENU PERMANECE ESCURO NOS DOIS TEMAS
+========================================================= */
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+.cabecalho-principal {
+
+    background:
+        rgba(2, 3, 13, 0.90) !important;
+
+    border-bottom:
+        1px solid rgba(0, 255, 255, 0.16) !important;
+
+    box-shadow:
+        0 0 25px rgba(0, 180, 255, 0.05) !important;
+
+    backdrop-filter:
+        blur(18px);
+}
+
+
+/* logo */
+
+.logo-site img {
+
+    filter:
+        drop-shadow(0 0 5px rgba(0, 200, 255, 0.35))
+        drop-shadow(0 0 12px rgba(90, 0, 255, 0.20));
+}
+
+
+/* =========================================================
+   MENU DESKTOP
+========================================================= */
+
+.lista-menu a {
+
+    color: #7885a5 !important;
+}
+
+.lista-menu a:hover,
+.lista-menu a.ativo {
+
+    color: #ffffff !important;
+
+    text-shadow:
+        0 0 8px #00ffff;
+}
+
+
+/* =========================================================
+   BOTÕES DO MENU
+========================================================= */
+
+.acoes-usuario {
+
+    color: #ffffff;
+}
+
+
+/* botão modo */
+
+.botao-tema {
+
+    color: #7885a5 !important;
+
+    background:
+        transparent !important;
+
+    border-color:
+        rgba(0, 220, 255, 0.25) !important;
+}
+
+.botao-tema:hover {
+
+    color: #ffffff !important;
+
+    border-color:
+        #00ffff !important;
+
+    box-shadow:
+        0 0 8px rgba(0, 255, 255, 0.25);
+}
+
+
+/* botão entrar */
+
+.botao-entrar {
+
+    color: #ffffff !important;
+
+    background:
+        rgba(255,255,255,0.04) !important;
+
+    border-color:
+        rgba(0,220,255,0.25) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .menu-mobile.aberto {
+
+        background:
+            rgba(2, 3, 13, 0.98) !important;
+
+        border-bottom:
+            1px solid rgba(0, 255, 255, 0.25) !important;
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.5),
+            0 0 25px rgba(0, 180, 255, 0.08) !important;
+
+        backdrop-filter:
+            blur(18px);
+    }
+
+    .menu-mobile a {
+
+        color: #7885a5 !important;
+    }
+
+    .menu-mobile a:hover,
+    .menu-mobile a.ativo {
+
+        color: #ffffff !important;
+
+        background:
+            rgba(0, 220, 255, 0.08) !important;
+
+        text-shadow:
+            0 0 8px #00ffff;
+    }
+
+    .acoes-mobile button {
+
+        color: #ffffff !important;
+
+        background:
+            transparent !important;
+
+        border:
+            1px solid rgba(0, 220, 255, 0.25) !important;
+    }
+
+    .acoes-mobile .cadastro-mobile {
+
+        background:
+            linear-gradient(
+                100deg,
+                #006eff,
+                #8500ff
+            ) !important;
+
+        border: none !important;
+    }
+}
