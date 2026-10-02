@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             marcarPaginaAtual();
 
+            ativarTema();
+
         })
 
         .catch(function (erro) {
@@ -198,5 +200,187 @@ function marcarPaginaAtual() {
         }
 
     });
+
+}
+
+
+/* =========================================================
+   TEMA CLARO / ESCURO
+   ========================================================= */
+
+function ativarTema() {
+
+    const botaoTema =
+        document.getElementById("botao-tema");
+
+
+    if (!botaoTema) {
+        return;
+    }
+
+
+    /* Verifica se o usuário já escolheu um tema */
+
+    const temaSalvo =
+        localStorage.getItem("nextwork-tema");
+
+
+    if (temaSalvo === "escuro") {
+
+        document.documentElement.setAttribute(
+            "data-tema",
+            "escuro"
+        );
+
+    }
+
+
+    atualizarBotaoTema();
+
+
+    /* Quando clicar no botão */
+
+    botaoTema.addEventListener(
+        "click",
+        function () {
+
+            const temaAtual =
+                document.documentElement
+                    .getAttribute("data-tema");
+
+
+            if (temaAtual === "escuro") {
+
+                /* Volta para o tema claro */
+
+                document.documentElement
+                    .removeAttribute("data-tema");
+
+
+                localStorage.setItem(
+                    "nextwork-tema",
+                    "claro"
+                );
+
+
+            } else {
+
+                /* Ativa o tema escuro */
+
+                document.documentElement
+                    .setAttribute(
+                        "data-tema",
+                        "escuro"
+                    );
+
+
+                localStorage.setItem(
+                    "nextwork-tema",
+                    "escuro"
+                );
+
+            }
+
+
+            atualizarBotaoTema();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ATUALIZAR BOTÃO DO TEMA
+   ========================================================= */
+
+function atualizarBotaoTema() {
+
+    const botaoTema =
+        document.getElementById("botao-tema");
+
+
+    if (!botaoTema) {
+        return;
+    }
+
+
+    const icone =
+        botaoTema.querySelector("i");
+
+
+    const texto =
+        botaoTema.querySelector("span");
+
+
+    const estaEscuro =
+        document.documentElement
+            .getAttribute("data-tema") === "escuro";
+
+
+    if (estaEscuro) {
+
+        /* Botão mostra opção de voltar ao claro */
+
+        if (icone) {
+
+            icone.className =
+                "fa-solid fa-sun";
+
+        }
+
+
+        if (texto) {
+
+            texto.textContent =
+                "Modo claro";
+
+        }
+
+
+        botaoTema.setAttribute(
+            "aria-label",
+            "Ativar modo claro"
+        );
+
+
+        botaoTema.setAttribute(
+            "aria-pressed",
+            "true"
+        );
+
+
+    } else {
+
+        /* Botão mostra opção de ativar escuro */
+
+        if (icone) {
+
+            icone.className =
+                "fa-solid fa-moon";
+
+        }
+
+
+        if (texto) {
+
+            texto.textContent =
+                "Modo escuro";
+
+        }
+
+
+        botaoTema.setAttribute(
+            "aria-label",
+            "Ativar modo escuro"
+        );
+
+
+        botaoTema.setAttribute(
+            "aria-pressed",
+            "false"
+        );
+
+    }
 
 }
