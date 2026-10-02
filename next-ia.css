@@ -2856,3 +2856,11 @@ html[data-tema="escuro"] .painel-ia {
         border: none !important;
     }
 }
+
+
+
+.card-conexao.destacado {
+    border-color: #35e88b !important;
+    background: rgba(53, 232, 139, 0.07) !important;
+    box-shadow: 0 0 20px rgba(53, 232, 139, 0.14) !important;
+}
