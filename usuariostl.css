@@ -10,8 +10,70 @@
 
 
 /* =====================================================
+   VARIÁVEIS — NEXT WORK
+===================================================== */
+
+:root {
+
+    /* Página clara */
+    --fundo-pagina: #eefaff;
+    --fundo-pagina-2: #f7fcff;
+
+    /* Textos */
+    --texto-principal: #102b4c;
+    --texto-secundario: #526b84;
+    --texto-terciario: #71869c;
+
+    /* Identidade */
+    --azul: #087cf0;
+    --ciano: #00aeca;
+    --roxo: #7147e8;
+
+    /* Bordas */
+    --borda: #c9e1ed;
+    --borda-hover: #8fc9df;
+
+    /* Cards escuros */
+    --card-fundo: #0b172b;
+    --card-fundo-2: #101f38;
+    --card-texto: #edf8ff;
+    --card-texto-2: #a8c2d6;
+    --card-texto-3: #7693aa;
+
+    --sombra:
+        0 10px 35px rgba(20, 80, 120, 0.10);
+}
+
+
+html[data-tema="escuro"] {
+
+    --fundo-pagina: #020713;
+    --fundo-pagina-2: #071225;
+
+    --texto-principal: #edf8ff;
+    --texto-secundario: #a8c2d6;
+    --texto-terciario: #7693aa;
+
+    --azul: #2399ff;
+    --ciano: #00ddff;
+    --roxo: #8d5cff;
+
+    --borda: rgba(0, 221, 255, 0.16);
+    --borda-hover: rgba(0, 221, 255, 0.42);
+
+    --sombra:
+        0 10px 35px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =====================================================
    BODY
 ===================================================== */
+
+html {
+    background: var(--fundo-pagina);
+}
+
 
 body {
 
@@ -19,33 +81,35 @@ body {
 
     font-family: "Poppins", Arial, sans-serif;
 
-    color: #ffffff;
+    color: var(--texto-principal);
 
     background:
-
         radial-gradient(
-            circle at 20% 20%,
-            rgba(80, 70, 180, 0.16),
+            circle at 15% 10%,
+            rgba(0, 174, 202, 0.08),
             transparent 30%
         ),
 
         radial-gradient(
-            circle at 80% 60%,
-            rgba(40, 120, 220, 0.10),
-            transparent 30%
+            circle at 85% 50%,
+            rgba(113, 71, 232, 0.07),
+            transparent 32%
         ),
 
-        #030719;
+        linear-gradient(
+            180deg,
+            var(--fundo-pagina),
+            var(--fundo-pagina-2)
+        );
+
+    overflow-x: hidden;
 }
 
 
 a {
-
     text-decoration: none;
-
     color: inherit;
 }
-
 
 
 /* =====================================================
@@ -53,7 +117,6 @@ a {
 ===================================================== */
 
 main {
-
     width: 100%;
 }
 
@@ -80,7 +143,7 @@ main {
 
     margin-bottom: 15px;
 
-    color: #8e82ff;
+    color: var(--roxo);
 
     font-size: 10px;
 
@@ -91,6 +154,8 @@ main {
 
 
 .introducao h1 {
+
+    color: var(--texto-principal);
 
     font-size:
         clamp(35px, 5vw, 58px);
@@ -108,11 +173,10 @@ main {
     display: block;
 
     background:
-
         linear-gradient(
             90deg,
-            #168cff,
-            #8b4cff,
+            var(--azul),
+            var(--roxo),
             #b45cff
         );
 
@@ -128,7 +192,7 @@ main {
 
     margin: 22px auto 0;
 
-    color: #999caf;
+    color: var(--texto-secundario);
 
     font-size: 14px;
 
@@ -179,7 +243,6 @@ main {
 
 
 .texto-quem-somos .etiqueta {
-
     margin-bottom: 15px;
 }
 
@@ -189,6 +252,8 @@ main {
     max-width: 750px;
 
     margin-bottom: 25px;
+
+    color: var(--texto-principal);
 
     font-size: 36px;
 
@@ -206,7 +271,7 @@ main {
 
     margin-bottom: 18px;
 
-    color: #9296a9;
+    color: var(--texto-secundario);
 
     font-size: 14px;
 
@@ -229,12 +294,13 @@ main {
 
 
 .titulo-equipe {
-
     margin-bottom: 45px;
 }
 
 
 .titulo-equipe h2 {
+
+    color: var(--texto-principal);
 
     font-size: 32px;
 
@@ -246,7 +312,7 @@ main {
 
 .titulo-equipe p {
 
-    color: #8f93a7;
+    color: var(--texto-secundario);
 
     font-size: 13px;
 }
@@ -269,6 +335,7 @@ main {
 
 /* =====================================================
    CARDS
+   Mantidos escuros nos dois temas
 ===================================================== */
 
 .pessoa {
@@ -280,17 +347,28 @@ main {
     padding: 18px;
 
     border:
-        1px solid rgba(140, 140, 190, 0.13);
+        1px solid rgba(140, 140, 190, 0.16);
 
     border-radius: 18px;
 
     background:
-        rgba(13, 17, 40, 0.65);
+        linear-gradient(
+            145deg,
+            rgba(14, 27, 52, 0.98),
+            rgba(7, 15, 31, 0.98)
+        );
+
+    color: #ffffff;
 
     overflow: hidden;
 
+    box-shadow:
+        0 12px 35px rgba(0, 20, 50, 0.14);
+
     transition:
-        0.4s ease;
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
 
@@ -301,6 +379,10 @@ main {
     grid-column: 2;
 }
 
+
+/* =====================================================
+   BRILHO DOS CARDS
+===================================================== */
 
 .pessoa::before {
 
@@ -320,32 +402,32 @@ main {
 
     filter: blur(45px);
 
-    opacity: 0.25;
+    opacity: 0.22;
 
-    transition: 0.4s;
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+
+    pointer-events: none;
 }
 
 
 .pessoa-azul::before {
-
     background: #168cff;
 }
 
 
 .pessoa-roxa::before {
-
     background: #8b4cff;
 }
 
 
 .pessoa-ciano::before {
-
     background: #24b9ff;
 }
 
 
 .pessoa-violeta::before {
-
     background: #b04cff;
 }
 
@@ -356,13 +438,19 @@ main {
         translateY(-7px);
 
     border-color:
-        rgba(130, 100, 255, 0.4);
+        rgba(90, 165, 255, 0.45);
+
+    box-shadow:
+        0 18px 45px rgba(20, 90, 180, 0.18);
 }
 
 
 .pessoa:hover::before {
 
-    opacity: 0.55;
+    opacity: 0.48;
+
+    transform:
+        scale(1.12);
 }
 
 
@@ -380,7 +468,8 @@ main {
 
     overflow: hidden;
 
-    background: #10152f;
+    background:
+        #101a31;
 }
 
 
@@ -394,9 +483,12 @@ main {
 
     display: block;
 
-    filter: saturate(0.9);
+    filter:
+        saturate(0.9);
 
-    transition: 0.5s ease;
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
 }
 
 
@@ -404,6 +496,9 @@ main {
 
     transform:
         scale(1.05);
+
+    filter:
+        saturate(1);
 }
 
 
@@ -420,6 +515,8 @@ main {
 
 .informacoes-pessoa h3 {
 
+    color: #ffffff;
+
     font-size: 16px;
 
     font-weight: 600;
@@ -431,7 +528,7 @@ main {
 .informacoes-pessoa span,
 .descricao-pessoa span {
 
-    color: #85899d;
+    color: #8fa4b8;
 
     font-size: 11px;
 }
@@ -456,12 +553,20 @@ main {
     border-radius: 13px;
 
     background:
-        rgba(7, 10, 28, 0.94);
+        linear-gradient(
+            145deg,
+            rgba(7, 17, 35, 0.97),
+            rgba(7, 10, 28, 0.97)
+        );
 
     border:
-        1px solid rgba(140, 120, 255, 0.22);
+        1px solid rgba(100, 170, 255, 0.22);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
 
     transform:
         translateY(120%);
@@ -469,7 +574,10 @@ main {
     opacity: 0;
 
     transition:
-        0.4s ease;
+        transform 0.4s ease,
+        opacity 0.4s ease;
+
+    z-index: 5;
 }
 
 
@@ -484,6 +592,8 @@ main {
 
 .descricao-pessoa h3 {
 
+    color: #ffffff;
+
     font-size: 15px;
 
     margin-bottom: 8px;
@@ -492,7 +602,7 @@ main {
 
 .descricao-pessoa p {
 
-    color: #a1a5b7;
+    color: #a8b8c8;
 
     font-size: 11px;
 
@@ -521,10 +631,13 @@ main {
     gap: 15px;
 
     border-top:
-        1px solid rgba(150, 140, 255, 0.1);
+        1px solid var(--borda);
 
     background:
-        rgba(2, 5, 20, 0.7);
+        rgba(255, 255, 255, 0.45);
+
+    backdrop-filter:
+        blur(12px);
 }
 
 
@@ -536,9 +649,108 @@ main {
 
 .rodape p {
 
-    color: #686c7d;
+    color: var(--texto-terciario);
 
     font-size: 10px;
+}
+
+
+/* =====================================================
+   MODO ESCURO — PÁGINA
+===================================================== */
+
+html[data-tema="escuro"] body {
+
+    background:
+        transparent;
+
+    color: #ffffff;
+}
+
+
+/* Fundo oficial somente no escuro */
+
+html[data-tema="escuro"] body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        url("plano de fundo.png");
+
+    background-position:
+        center center;
+
+    background-size:
+        cover;
+
+    background-repeat:
+        no-repeat;
+
+    z-index: -2;
+
+    pointer-events: none;
+}
+
+
+html[data-tema="escuro"] body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(1, 5, 18, 0.38);
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   RODAPÉ — ESCURO
+===================================================== */
+
+html[data-tema="escuro"] .rodape {
+
+    background:
+        rgba(2, 5, 20, 0.72);
+
+    border-top:
+        1px solid rgba(150, 140, 255, 0.12);
+}
+
+
+/* =====================================================
+   REDUÇÃO DE MOVIMENTO
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior: auto !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+    }
 }
 
 
@@ -547,28 +759,6 @@ main {
 ===================================================== */
 
 @media (max-width: 900px) {
-
-
-    .cabecalho {
-
-        height: 72px;
-
-        padding: 0 5%;
-    }
-
-
-    .menu,
-    .acoes {
-
-        display: none;
-    }
-
-
-    .menu-mobile {
-
-        display: block;
-    }
-
 
     .introducao {
 
@@ -617,9 +807,9 @@ main {
         width:
             calc(50% - 15px);
 
-        justify-self: center;
+        justify-self:
+            center;
     }
-
 }
 
 
@@ -628,13 +818,6 @@ main {
 ===================================================== */
 
 @media (max-width: 600px) {
-
-
-    .logo img {
-
-        width: 125px;
-    }
-
 
     .introducao {
 
@@ -726,7 +909,8 @@ main {
         width:
             calc(50% - 7px);
 
-        justify-self: center;
+        justify-self:
+            center;
     }
 
 
@@ -790,7 +974,6 @@ main {
         padding:
             30px 15px;
     }
-
 }
 
 
@@ -799,7 +982,6 @@ main {
 ===================================================== */
 
 @media (max-width: 380px) {
-
 
     .introducao h1 {
 
@@ -836,55 +1018,21 @@ main {
         width:
             calc(50% - 5px);
     }
-
 }
 
 
+/* =====================================================
+   CELULAR — DESCRIÇÃO DOS INTEGRANTES
+   Permite tocar no card sem depender apenas do hover
+===================================================== */
 
-/* =========================================================
-   BACKGROUND OFICIAL — NEXT WORK
-   ========================================================= */
+@media (hover: none) and (pointer: coarse) {
 
-html {
-    background: #02030a;
-}
+    .pessoa:active .descricao-pessoa {
 
-body {
-    position: relative;
-    isolation: isolate;
-    background: transparent !important;
-}
+        transform:
+            translateY(0);
 
-/* Fundo fixo da página inteira */
-body::before {
-    content: "";
-
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background-image: url("plano de fundo.png");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    z-index: -2;
-
-    pointer-events: none;
-}
-
-/* Camada escura para manter a leitura do conteúdo */
-body::after {
-    content: "";
-
-    position: fixed;
-    inset: 0;
-
-    background: rgba(1, 5, 18, 0.38);
-
-    z-index: -1;
-
-    pointer-events: none;
+        opacity: 1;
+    }
 }
