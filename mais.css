@@ -2949,3 +2949,742 @@ select {
 
     position: static !important;
 }
+
+
+
+/* =========================================================
+   NEXT WORK — NOVA IDENTIDADE VISUAL
+   Profissional + tecnológica + acessível
+   ========================================================= */
+
+:root {
+    --nw-fundo: #eefaff;
+    --nw-fundo-2: #f7fcff;
+
+    --nw-branco: #ffffff;
+
+    --nw-azul-escuro: #09264a;
+    --nw-azul: #087cf0;
+    --nw-ciano: #00aeca;
+    --nw-ciano-claro: #18bfff;
+
+    --nw-roxo: #7147e8;
+
+    --nw-texto: #102b4c;
+    --nw-texto-2: #526b84;
+    --nw-texto-3: #71869c;
+
+    --nw-borda: #c9e1ed;
+    --nw-borda-hover: #8fc9df;
+
+    --nw-sombra: 0 10px 30px rgba(18, 82, 120, 0.08);
+    --nw-sombra-hover: 0 16px 36px rgba(18, 82, 120, 0.13);
+
+    --nw-raio: 18px;
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html {
+    background: var(--nw-fundo) !important;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 85% 8%,
+            rgba(0, 190, 235, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 45%,
+            rgba(113, 71, 232, 0.055),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #eefaff 0%,
+            #f7fcff 48%,
+            #ffffff 100%
+        ) !important;
+
+    color: var(--nw-texto) !important;
+}
+
+
+/* Impede o fundo antigo de continuar aparecendo */
+
+body::before {
+    display: none !important;
+}
+
+body::after {
+    display: none !important;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 82% 30%,
+            rgba(0, 190, 235, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f5fdff 0%,
+            #eefaff 55%,
+            #f8fbff 100%
+        ) !important;
+
+    border-bottom: 1px solid rgba(143, 201, 223, 0.35);
+}
+
+
+/* Luzes antigas deixam de parecer neon */
+
+.hero-camada-luz {
+    opacity: 0.25 !important;
+    filter: blur(70px) !important;
+}
+
+.hero-luz-azul {
+    background: rgba(0, 174, 202, 0.12) !important;
+}
+
+.hero-luz-roxa {
+    background: rgba(113, 71, 232, 0.07) !important;
+}
+
+
+/* =========================================================
+   TEXTO DO HERO
+   ========================================================= */
+
+.hero-etiqueta {
+    color: var(--nw-azul) !important;
+
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.ponto-etiqueta {
+    background: var(--nw-ciano) !important;
+
+    box-shadow:
+        0 0 0 4px rgba(0, 174, 202, 0.10) !important;
+}
+
+
+.hero-texto h1 {
+    color: var(--nw-azul-escuro) !important;
+
+    letter-spacing: -1.8px;
+}
+
+.hero-texto h1 span {
+    color: var(--nw-azul) !important;
+
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+
+.hero-texto > p {
+    color: var(--nw-texto-2) !important;
+}
+
+
+/* =========================================================
+   BUSCA
+   ========================================================= */
+
+.barra-busca {
+    background: var(--nw-branco) !important;
+
+    border: 1px solid var(--nw-borda) !important;
+
+    border-radius: 16px !important;
+
+    box-shadow:
+        0 8px 28px rgba(12, 84, 120, 0.08) !important;
+}
+
+
+.campo-busca {
+    background: transparent !important;
+}
+
+.campo-busca i {
+    color: var(--nw-azul) !important;
+}
+
+.campo-busca input,
+.campo-busca select {
+    color: var(--nw-texto) !important;
+}
+
+.campo-busca input::placeholder {
+    color: var(--nw-texto-3) !important;
+}
+
+
+.botao-busca {
+    background: var(--nw-azul) !important;
+    color: white !important;
+
+    border: none !important;
+
+    box-shadow:
+        0 7px 18px rgba(8, 124, 240, 0.20) !important;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease !important;
+}
+
+.botao-busca:hover {
+    background: #066bd1 !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(8, 124, 240, 0.25) !important;
+}
+
+
+/* =========================================================
+   INDICADOR
+   ========================================================= */
+
+.indicador-oportunidades {
+    color: var(--nw-texto-2) !important;
+}
+
+.indicador-oportunidades strong {
+    color: var(--nw-azul-escuro) !important;
+}
+
+.indicador-ponto {
+    background: #18b875 !important;
+    box-shadow:
+        0 0 0 4px rgba(24, 184, 117, 0.10) !important;
+}
+
+
+/* =========================================================
+   IMAGEM DO HERO
+   ========================================================= */
+
+.imagem-hero {
+    opacity: 0.92 !important;
+
+    filter: none !important;
+
+    max-width: 470px;
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+}
+
+.imagem-hero:hover {
+    transform: translateY(-4px);
+    opacity: 1 !important;
+}
+
+
+/* =========================================================
+   ELEMENTOS FLUTUANTES
+   ========================================================= */
+
+.elemento-flutuante {
+    background: rgba(255, 255, 255, 0.94) !important;
+
+    border: 1px solid var(--nw-borda) !important;
+
+    box-shadow:
+        0 10px 25px rgba(20, 80, 110, 0.10) !important;
+
+    backdrop-filter: blur(10px);
+
+    color: var(--nw-texto) !important;
+}
+
+.elemento-flutuante strong {
+    color: var(--nw-azul-escuro) !important;
+}
+
+.elemento-flutuante span:not(.elemento-flutuante-icone) {
+    color: var(--nw-texto-3) !important;
+}
+
+
+.elemento-flutuante-icone {
+    background: #e8f9ff !important;
+
+    color: var(--nw-azul) !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+.secao {
+    background: transparent !important;
+}
+
+
+/* =========================================================
+   CABEÇALHOS
+   ========================================================= */
+
+.etiqueta-secao {
+    color: var(--nw-azul) !important;
+
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.cabecalho-secao h2 {
+    color: var(--nw-azul-escuro) !important;
+
+    letter-spacing: -0.8px;
+}
+
+.cabecalho-secao p {
+    color: var(--nw-texto-2) !important;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.link-ver-todos {
+    color: var(--nw-azul) !important;
+}
+
+.link-ver-todos:hover {
+    color: var(--nw-ciano) !important;
+}
+
+
+/* =========================================================
+   CARDS DE VAGAS
+   ========================================================= */
+
+.card-vaga {
+    position: relative;
+
+    background: var(--nw-branco) !important;
+
+    border: 1px solid var(--nw-borda) !important;
+
+    border-radius: var(--nw-raio) !important;
+
+    box-shadow: var(--nw-sombra) !important;
+
+    color: var(--nw-texto) !important;
+
+    overflow: hidden;
+
+    transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease !important;
+}
+
+
+/* Remove os brilhos antigos */
+
+.card-vaga,
+.card-vaga:hover,
+.card-vaga .efeito-card {
+    filter: none !important;
+}
+
+.card-vaga .efeito-card {
+    opacity: 0 !important;
+}
+
+
+.card-vaga:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--nw-borda-hover) !important;
+
+    box-shadow: var(--nw-sombra-hover) !important;
+}
+
+
+/* Linha superior discreta */
+
+.card-vaga::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        var(--nw-ciano),
+        var(--nw-azul)
+    );
+
+    opacity: 0;
+
+    transition: opacity .2s ease;
+}
+
+.card-vaga:hover::before {
+    opacity: 1;
+}
+
+
+.icone-vaga {
+    background: #edfaff !important;
+
+    border: 1px solid #d3edf5 !important;
+
+    box-shadow: none !important;
+}
+
+.icone-vaga img {
+    filter: none !important;
+}
+
+
+.tipo-vaga {
+    background: #edf7ff !important;
+
+    color: var(--nw-azul) !important;
+
+    border: 1px solid #d5eafb !important;
+}
+
+
+.card-vaga h3 {
+    color: var(--nw-azul-escuro) !important;
+}
+
+.empresa-vaga {
+    color: var(--nw-texto-2) !important;
+}
+
+.informacao-vaga {
+    color: var(--nw-texto-2) !important;
+}
+
+.informacao-vaga i {
+    color: var(--nw-azul) !important;
+}
+
+
+.habilidades-vaga span {
+    background: #f0f8fc !important;
+
+    color: #41627d !important;
+
+    border: 1px solid #d9eaf2 !important;
+}
+
+
+.link-vaga {
+    color: var(--nw-azul) !important;
+}
+
+.link-vaga:hover {
+    color: var(--nw-ciano) !important;
+}
+
+
+/* =========================================================
+   ENCONTRE O QUE PRECISA
+   ========================================================= */
+
+.encontre {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(235, 250, 255, 0.35),
+            rgba(255, 255, 255, 0.7)
+        ) !important;
+}
+
+
+.card-destaque {
+    position: relative;
+
+    background: var(--nw-branco) !important;
+
+    border: 1px solid var(--nw-borda) !important;
+
+    box-shadow: var(--nw-sombra) !important;
+
+    color: var(--nw-texto) !important;
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease !important;
+}
+
+
+/* Remove o neon gigantesco */
+
+.card-destaque,
+.card-destaque:hover,
+.card-destaque .efeito-card {
+    filter: none !important;
+}
+
+.card-destaque .efeito-card {
+    opacity: 0 !important;
+}
+
+
+.card-destaque:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--nw-sombra-hover) !important;
+}
+
+
+/* As quatro cores continuam existindo,
+   mas agora como identidade secundária */
+
+.card-destaque.verde:hover {
+    border-color: #61c995 !important;
+}
+
+.card-destaque.azul:hover {
+    border-color: #70b8f5 !important;
+}
+
+.card-destaque.laranja:hover {
+    border-color: #f2a15e !important;
+}
+
+.card-destaque.roxo:hover {
+    border-color: #a58ce9 !important;
+}
+
+
+.card-destaque.verde .icone-destaque {
+    background: #eafaf2 !important;
+    color: #15945b !important;
+}
+
+.card-destaque.azul .icone-destaque {
+    background: #eaf5ff !important;
+    color: var(--nw-azul) !important;
+}
+
+.card-destaque.laranja .icone-destaque {
+    background: #fff5e9 !important;
+    color: #e88a2c !important;
+}
+
+.card-destaque.roxo .icone-destaque {
+    background: #f3efff !important;
+    color: var(--nw-roxo) !important;
+}
+
+
+.card-destaque h3 {
+    color: var(--nw-azul-escuro) !important;
+}
+
+.card-destaque p {
+    color: var(--nw-texto-2) !important;
+}
+
+
+/* =========================================================
+   PROFISSIONAIS
+   ========================================================= */
+
+.card-profissional {
+    background: var(--nw-branco) !important;
+
+    border: 1px solid var(--nw-borda) !important;
+
+    border-radius: var(--nw-raio) !important;
+
+    box-shadow: var(--nw-sombra) !important;
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease !important;
+}
+
+
+.card-profissional:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--nw-borda-hover) !important;
+
+    box-shadow: var(--nw-sombra-hover) !important;
+}
+
+
+.foto-profissional {
+    background: #eaf8fd !important;
+
+    border-color: #cce7f0 !important;
+}
+
+
+.dados-profissional h3 {
+    color: var(--nw-azul-escuro) !important;
+}
+
+.dados-profissional .profissao {
+    color: var(--nw-azul) !important;
+}
+
+.local-profissional {
+    color: var(--nw-texto-2) !important;
+}
+
+.local-profissional i {
+    color: var(--nw-azul) !important;
+}
+
+
+.habilidades-profissional span {
+    background: #f0f8fc !important;
+
+    color: #41627d !important;
+
+    border: 1px solid #d9eaf2 !important;
+}
+
+
+.link-perfil {
+    color: var(--nw-azul) !important;
+}
+
+.link-perfil:hover {
+    color: var(--nw-ciano) !important;
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+footer {
+    background: #09264a !important;
+
+    color: #d9edf7 !important;
+
+    border-top: 1px solid rgba(0, 174, 202, 0.20);
+}
+
+.rodape-final {
+    color: #c7dfeb !important;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+/* Foco visível para teclado */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(0, 174, 202, 0.45) !important;
+    outline-offset: 3px;
+}
+
+
+/* Redução de movimento */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .imagem-hero {
+        max-width: 390px;
+    }
+
+    .barra-busca {
+        flex-wrap: wrap;
+    }
+
+    .botao-busca {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-texto h1 {
+        font-size: clamp(2.2rem, 9vw, 3.3rem) !important;
+        letter-spacing: -1px;
+    }
+
+    .hero-texto > p {
+        font-size: 0.95rem;
+    }
+
+    .elemento-flutuante {
+        transform: scale(.88);
+    }
+
+    .imagem-hero {
+        max-width: 320px;
+    }
+
+    .card-vaga,
+    .card-destaque,
+    .card-profissional {
+        box-shadow:
+            0 7px 20px rgba(18, 82, 120, 0.07) !important;
+    }
+}
