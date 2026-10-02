@@ -7,6 +7,14 @@
 
     <title>Next Work - Login</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="loginpage.css">
 </head>
 
@@ -14,54 +22,201 @@
 
     <main class="pagina-login">
 
-        <!-- ==============================
+        <!-- =====================================================
              LADO ESQUERDO
-        =============================== -->
+        ====================================================== -->
 
         <section class="lado-esquerdo">
 
+            <!-- LOGO -->
+
             <div class="logo-principal">
-                <img src="nova logo.png" alt="Logo Next Work">
+
+                <img
+                    src="nova logo.png"
+                    alt="Next Work"
+                >
+
             </div>
 
-            <div class="conteudo-esquerdo">
 
-                <span class="etiqueta">
-                    BEM-VINDO À NEXT WORK
-                </span>
+            <!-- =================================================
+                 ÁREA DE LOGIN
+            ================================================== -->
 
-                <h1>
-                    Seu próximo passo
-                    <span>começa aqui.</span>
-                </h1>
+            <div class="login-area">
 
-                <p>
-                    Conecte-se à sua conta e continue sua jornada
-                    em busca de novas oportunidades, talentos e
-                    possibilidades profissionais.
-                </p>
+                <div class="titulo-login">
 
-                <div class="card-oportunidades">
+                    <h1>
+                        Seu próximo passo
+                        <span>começa aqui.</span>
+                    </h1>
 
-                    <div class="espaco-icone">
-                        <span>✦</span>
-                    </div>
+                </div>
 
-                    <div class="linha-card"></div>
 
-                    <div class="texto-card">
+                <!-- =================================================
+                     CARD DE LOGIN
+                ================================================== -->
 
-                        <h3>
-                            Grandes oportunidades
-                            <br>
-                            te esperam!
-                        </h3>
+                <div class="card-login">
+
+                    <div class="cabecalho-login">
+
+                        <h2>
+                            Entrar na sua conta
+                        </h2>
 
                         <p>
-                            Seja um talento em busca do seu futuro
-                            ou uma empresa em busca dos melhores
-                            profissionais.
+                            Acesse sua conta para continuar.
                         </p>
+
+                    </div>
+
+
+                    <form id="formLogin">
+
+                        <!-- E-MAIL OU CPF -->
+
+                        <div class="campo">
+
+                            <label for="email">
+                                E-mail ou CPF
+                            </label>
+
+                            <div class="input-box">
+
+                                <span class="icone icone-email"></span>
+
+                                <input
+                                    type="text"
+                                    id="email"
+                                    placeholder="Digite seu e-mail ou CPF"
+                                    autocomplete="username"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SENHA -->
+
+                        <div class="campo">
+
+                            <div class="linha-senha">
+
+                                <label for="senha">
+                                    Senha
+                                </label>
+
+                                <button
+                                    type="button"
+                                    id="esqueciSenha"
+                                    class="link-senha"
+                                >
+                                    Esqueceu a senha?
+                                </button>
+
+                            </div>
+
+
+                            <div class="input-box">
+
+                                <span class="icone icone-senha"></span>
+
+                                <input
+                                    type="password"
+                                    id="senha"
+                                    placeholder="Digite sua senha"
+                                    autocomplete="current-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    id="mostrarSenha"
+                                    class="mostrar-senha"
+                                    aria-label="Mostrar senha"
+                                >
+                                    ◉
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- LEMBRAR DE MIM -->
+
+                        <label class="lembrar">
+
+                            <input
+                                type="checkbox"
+                                id="lembrar"
+                            >
+
+                            <span class="checkbox-personalizado"></span>
+
+                            <span>
+                                Lembrar de mim
+                            </span>
+
+                        </label>
+
+
+                        <!-- BOTÃO ENTRAR -->
+
+                        <button
+                            type="submit"
+                            class="btn-entrar"
+                        >
+
+                            <span>
+                                Entrar
+                            </span>
+
+                            <strong>
+                                →
+                            </strong>
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- =================================================
+                         DIVISOR
+                    ================================================== -->
+
+                    <div class="divisor">
+
+                        <span></span>
+
+                        <p>
+                            ou
+                        </p>
+
+                        <span></span>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         CADASTRO
+                    ================================================== -->
+
+                    <div class="cadastro">
+
+                        <p>
+                            Ainda não tem uma conta?
+                        </p>
+
+                        <a href="cadastroo.html">
+                            Se candidatar →
+                        </a>
 
                     </div>
 
@@ -72,222 +227,20 @@
         </section>
 
 
-        <!-- ==============================
+        <!-- =====================================================
              LADO DIREITO
-        =============================== -->
+        ====================================================== -->
 
         <section class="lado-direito">
-
-            <div class="card-login">
-
-                <div class="logo-card">
-                    <img src="next work.png" alt="Next Work">
-                </div>
-
-
-                <div class="titulo-card">
-
-                    <span class="etiqueta">
-                        ACESSAR CONTA
-                    </span>
-
-                    <h2>
-                        Bem-vindo de volta!
-                    </h2>
-
-                    <p>
-                        Entre com seus dados para continuar.
-                    </p>
-
-                </div>
-
-
-                <!-- ==============================
-                     FORMULÁRIO DE LOGIN
-                =============================== -->
-
-                <form id="formLogin">
-
-                    <div class="campo">
-
-                        <label for="email">
-                            E-mail
-                        </label>
-
-                        <div class="input-box">
-
-                            <span class="icone">
-                                
-                            </span>
-
-                            <input
-                                type="email"
-                                id="email"
-                                placeholder="Digite seu e-mail"
-                                autocomplete="email"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="campo">
-
-                        <div class="linha-senha">
-
-                            <label for="senha">
-                                Senha
-                            </label>
-
-                            <button
-                                type="button"
-                                id="esqueciSenha"
-                                class="link-senha"
-                            >
-                                Esqueceu a senha?
-                            </button>
-
-                        </div>
-
-
-                        <div class="input-box">
-
-                            <span class="icone">
-                                
-                            </span>
-
-                            <input
-                                type="password"
-                                id="senha"
-                                placeholder="Digite sua senha"
-                                autocomplete="current-password"
-                                required
-                            >
-
-                            <button
-                                type="button"
-                                id="mostrarSenha"
-                                class="mostrar-senha"
-                                aria-label="Mostrar senha"
-                            >
-                                ◉
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- LEMBRAR DE MIM -->
-
-                    <label class="lembrar">
-
-                        <input
-                            type="checkbox"
-                            id="lembrar"
-                        >
-
-                        <span class="checkbox-personalizado"></span>
-
-                        <span>
-                            Lembrar de mim
-                        </span>
-
-                    </label>
-
-
-                    <!-- BOTÃO ENTRAR -->
-
-                    <button
-                        type="submit"
-                        class="btn-entrar"
-                    >
-
-                        <span>
-                            Entrar
-                        </span>
-
-                        <strong>
-                            →
-                        </strong>
-
-                    </button>
-
-                </form>
-
-
-                <!-- ==============================
-                     DIVISOR
-                =============================== -->
-
-                <div class="divisor">
-
-                    <span></span>
-
-                    <p>
-                        ou
-                    </p>
-
-                    <span></span>
-
-                </div>
-
-
-                <!-- ==============================
-                     GOOGLE
-                =============================== -->
-
-                <button
-                    type="button"
-                    id="btnGoogle"
-                    class="btn-google"
-                >
-
-                    <span class="google-logo">
-                        G
-                    </span>
-
-                    <span>
-                        Entrar com o Google
-                    </span>
-
-                </button>
-
-
-                <!-- MENSAGEM DO GOOGLE -->
-
-                <div
-                    id="mensagemGoogle"
-                    class="mensagem"
-                ></div>
-
-
-                <!-- ==============================
-                     CADASTRO
-                =============================== -->
-
-                <div class="cadastro">
-
-                    <p>
-                        Ainda não possui uma conta?
-                    </p>
-
-                    <a href="cadastroo.html">
-                        Criar minha conta
-                    </a>
-
-                </div>
-
-            </div>
 
         </section>
 
     </main>
 
 
-    <!-- MENSAGENS GERAIS DO LOGIN -->
+    <!-- =========================================================
+         MENSAGEM DO LOGIN
+    ========================================================== -->
 
     <div
         id="mensagem"
