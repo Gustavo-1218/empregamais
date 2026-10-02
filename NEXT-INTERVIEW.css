@@ -2170,3 +2170,731 @@ body::after {
     border-radius: inherit;
     display: block;
 }
+
+/* =========================================================
+   NEXT INTERVIEW — SISTEMA DE TEMAS
+   ========================================================= */
+
+
+/* =========================================================
+   MODO CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) {
+    background: #eefaff !important;
+}
+
+html:not([data-tema="escuro"]) body {
+    color: #102b4c !important;
+
+    background:
+        radial-gradient(
+            circle at 80% 15%,
+            rgba(0, 190, 235, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(113, 71, 232, 0.055),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #eefaff 0%,
+            #f7fcff 50%,
+            #ffffff 100%
+        ) !important;
+}
+
+
+/* Fundo decorativo */
+
+html:not([data-tema="escuro"]) .pagina-interview::before {
+    border-color: rgba(0, 174, 255, 0.10);
+
+    box-shadow:
+        0 0 80px rgba(0, 110, 255, 0.05),
+        inset 0 0 80px rgba(85, 0, 255, 0.03);
+}
+
+html:not([data-tema="escuro"]) .pagina-interview::after {
+    background: rgba(80, 0, 255, 0.035);
+}
+
+
+/* =========================================================
+   HERO — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .mini-titulo {
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .textos-hero-interview h1 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .textos-hero-interview h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            #00aeca,
+            #087cf0,
+            #7147e8
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html:not([data-tema="escuro"]) .textos-hero-interview h2 {
+    color: #31516f;
+}
+
+html:not([data-tema="escuro"]) .textos-hero-interview p {
+    color: #526b84;
+}
+
+
+/* Ícone principal */
+
+html:not([data-tema="escuro"]) .icone-hero-interview {
+    border-color: #8fc9df;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 174, 202, 0.10),
+            rgba(113, 71, 232, 0.07)
+        );
+
+    box-shadow:
+        0 8px 25px rgba(18, 82, 120, 0.10),
+        inset 0 0 20px rgba(0, 174, 202, 0.04);
+}
+
+html:not([data-tema="escuro"]) .icone-hero-interview i {
+    color: #087cf0;
+
+    filter: none;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DA VAGA — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .informacoes-vaga {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(18, 82, 120, 0.08),
+        inset 0 0 20px rgba(0, 174, 202, 0.025);
+}
+
+html:not([data-tema="escuro"]) .icone-vaga {
+    border-color: #8fc9df;
+
+    color: #087cf0;
+
+    box-shadow:
+        0 0 10px rgba(0, 174, 202, 0.12);
+}
+
+html:not([data-tema="escuro"]) .dados-vaga span {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .dados-vaga strong {
+    color: #102b4c;
+}
+
+
+/* =========================================================
+   ENTREVISTA — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .container-entrevista {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbff
+        );
+
+    box-shadow:
+        0 10px 35px rgba(18, 82, 120, 0.08);
+}
+
+html:not([data-tema="escuro"]) .cabecalho-entrevista {
+    border-bottom-color: #d8e9f1;
+}
+
+html:not([data-tema="escuro"]) .titulo-entrevista strong {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .titulo-entrevista span {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .icone-next {
+    color: #087cf0;
+
+    text-shadow: none;
+}
+
+
+/* Status */
+
+html:not([data-tema="escuro"]) .numero-entrevista {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .status-ao-vivo {
+    border-color: #c9e1ed;
+
+    color: #526b84;
+
+    background: #f4fbff;
+}
+
+
+/* =========================================================
+   CHAT — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .chat-entrevista {
+    scrollbar-color: #8fc9df transparent;
+}
+
+html:not([data-tema="escuro"]) .avatar-mensagem {
+    border-color: #8fc9df;
+
+    color: #087cf0;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 174, 202, 0.10),
+            #eefaff
+        );
+
+    box-shadow:
+        0 5px 15px rgba(18, 82, 120, 0.08);
+}
+
+html:not([data-tema="escuro"]) .avatar-mensagem i {
+    filter: none;
+}
+
+html:not([data-tema="escuro"]) .avatar-usuario {
+    color: #7147e8;
+    border-color: #a58ce9;
+
+    box-shadow:
+        0 5px 15px rgba(113, 71, 232, 0.10);
+}
+
+html:not([data-tema="escuro"]) .nome-mensagem {
+    color: #526b84;
+}
+
+
+/* Balões */
+
+html:not([data-tema="escuro"]) .balão-mensagem {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4fbff,
+            #f3efff
+        );
+
+    box-shadow:
+        0 6px 18px rgba(18, 82, 120, 0.06);
+}
+
+html:not([data-tema="escuro"]) .mensagem-usuario .balão-mensagem {
+    border-color: #b9a6ed;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf7ff,
+            #f3efff
+        );
+}
+
+html:not([data-tema="escuro"]) .balão-mensagem p {
+    color: #31516f;
+}
+
+html:not([data-tema="escuro"]) .horario-mensagem {
+    color: #71869c;
+}
+
+
+/* =========================================================
+   ALTERNATIVAS — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .alternativa {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f7fcff,
+            #f7f4ff
+        );
+
+    color: #31516f;
+}
+
+html:not([data-tema="escuro"]) .alternativa:hover {
+    transform: translateX(5px);
+
+    border-color: #00aeca;
+
+    background:
+        linear-gradient(
+            90deg,
+            #eefaff,
+            #f5f0ff
+        );
+
+    box-shadow:
+        0 5px 18px rgba(0, 174, 202, 0.10);
+}
+
+html:not([data-tema="escuro"]) .alternativa.selecionada {
+    border-color: #8d6ce8;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e9f7ff,
+            #f0eaff
+        );
+
+    box-shadow:
+        0 6px 20px rgba(113, 71, 232, 0.12);
+}
+
+html:not([data-tema="escuro"]) .letra-alternativa {
+    background:
+        linear-gradient(
+            135deg,
+            #087cf0,
+            #7147e8
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 12px rgba(8, 124, 240, 0.18);
+}
+
+
+/* =========================================================
+   RODAPÉ DO CHAT — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .rodape-chat {
+    border-top-color: #d8e9f1;
+}
+
+html:not([data-tema="escuro"]) .campo-status {
+    border-color: #c9e1ed;
+
+    background: #f4fbff;
+}
+
+html:not([data-tema="escuro"]) #texto-status {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .icone-status {
+    background:
+        linear-gradient(
+            135deg,
+            #087cf0,
+            #7147e8
+        );
+}
+
+
+/* Botão continuar */
+
+html:not([data-tema="escuro"]) .botao-continuar {
+    border-color: #8fc9df;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8, 124, 240, 0.08),
+            rgba(113, 71, 232, 0.10)
+        );
+
+    color: #087cf0;
+
+    box-shadow:
+        0 5px 15px rgba(18, 82, 120, 0.08);
+}
+
+html:not([data-tema="escuro"]) .botao-continuar:hover {
+    border-color: #00aeca;
+
+    color: #087cf0;
+
+    box-shadow:
+        0 8px 20px rgba(0, 174, 202, 0.16);
+}
+
+
+/* =========================================================
+   PAINEL DE PROGRESSO — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .painel-progresso {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbff
+        );
+
+    box-shadow:
+        0 10px 35px rgba(18, 82, 120, 0.08);
+}
+
+html:not([data-tema="escuro"]) .titulo-painel strong {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .titulo-painel span {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .barra-progresso {
+    border-color: #c9e1ed;
+    background: #e5f1f6;
+}
+
+html:not([data-tema="escuro"]) .progresso-preenchido {
+    background:
+        linear-gradient(
+            90deg,
+            #00aeca,
+            #087cf0,
+            #7147e8
+        );
+
+    box-shadow:
+        0 0 8px rgba(8, 124, 240, 0.25);
+}
+
+
+/* =========================================================
+   ETAPAS — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .etapas-entrevista {
+    border-bottom-color: #d8e9f1;
+}
+
+html:not([data-tema="escuro"]) .etapa span {
+    border-color: #c9e1ed;
+
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .etapa p {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .etapa.ativa span {
+    border-color: #087cf0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cf0,
+            #7147e8
+        );
+}
+
+html:not([data-tema="escuro"]) .etapa.ativa p {
+    color: #102b4c;
+}
+
+
+/* =========================================================
+   CARACTERÍSTICAS — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .caracteristicas h3 {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .icone-caracteristica {
+    border-color: #c9e1ed;
+
+    color: #087cf0;
+
+    background: #f0faff;
+
+    box-shadow: none;
+}
+
+html:not([data-tema="escuro"]) .dados-caracteristica span {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .dados-caracteristica strong {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .barra-caracteristica {
+    background: #e5f1f6;
+}
+
+html:not([data-tema="escuro"]) .preenchimento-caracteristica {
+    background:
+        linear-gradient(
+            90deg,
+            #00aeca,
+            #7147e8
+        );
+
+    box-shadow:
+        0 0 7px rgba(8, 124, 240, 0.22);
+}
+
+
+/* =========================================================
+   AVISO — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .aviso-escolhas {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4fbff,
+            #f7f3ff
+        );
+}
+
+html:not([data-tema="escuro"]) .icone-aviso {
+    color: #087cf0;
+
+    text-shadow: none;
+}
+
+html:not([data-tema="escuro"]) .aviso-escolhas h3 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .aviso-escolhas p {
+    color: #71869c;
+}
+
+
+/* =========================================================
+   RESULTADO FINAL — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .resultado-interview {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4faff
+        );
+
+    box-shadow:
+        0 15px 40px rgba(18, 82, 120, 0.09);
+}
+
+html:not([data-tema="escuro"]) .resultado-interview::before {
+    border-color: rgba(0, 174, 202, 0.10);
+
+    box-shadow:
+        0 0 50px rgba(0, 174, 255, 0.05);
+}
+
+html:not([data-tema="escuro"]) .resultado-label {
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .resultado-conteudo h2 {
+    color: #102b4c;
+}
+
+
+/* Círculo */
+
+html:not([data-tema="escuro"]) .circulo-resultado {
+    box-shadow:
+        0 0 20px rgba(0, 174, 255, 0.10),
+        0 0 45px rgba(111, 43, 255, 0.07);
+}
+
+html:not([data-tema="escuro"]) .circulo-resultado::before {
+    background: #ffffff;
+}
+
+html:not([data-tema="escuro"]) .circulo-resultado span {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .resultado-porcentagem > div:last-child span {
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .resultado-porcentagem > div:last-child strong {
+    color: #31516f;
+}
+
+
+/* Perfil */
+
+html:not([data-tema="escuro"]) .perfil-identificado {
+    border-color: #c9e1ed;
+
+    background: rgba(244, 251, 255, 0.85);
+}
+
+html:not([data-tema="escuro"]) .perfil-identificado h3 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .perfil-identificado > p {
+    color: #71869c;
+}
+
+
+/* Características finais */
+
+html:not([data-tema="escuro"]) .caracteristica-final {
+    border-color: #c9e1ed;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4fbff,
+            #f7f3ff
+        );
+}
+
+html:not([data-tema="escuro"]) .caracteristica-final h4 {
+    color: #087cf0;
+}
+
+html:not([data-tema="escuro"]) .caracteristica-final p {
+    color: #71869c;
+}
+
+
+/* Frase */
+
+html:not([data-tema="escuro"]) .frase-final {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .frase-final i {
+    color: #7147e8;
+
+    filter: none;
+}
+
+
+/* Botão */
+
+html:not([data-tema="escuro"]) .botao-explorar-oportunidades {
+    border-color: #087cf0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cf0,
+            #7147e8
+        );
+
+    box-shadow:
+        0 7px 18px rgba(8, 124, 240, 0.18);
+}
+
+
+/* =========================================================
+   RODAPÉ — CLARO
+   ========================================================= */
+
+html:not([data-tema="escuro"]) .rodape-principal {
+    border-top-color: #d8e9f1;
+
+    color: #71869c;
+}
+
+html:not([data-tema="escuro"]) .rodape-principal strong {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .rodape-principal i {
+    color: #087cf0;
+
+    filter: none;
+}
+
+
+/* =========================================================
+   MODO ESCURO
+   ========================================================= */
+
+/*
+   O CSS original da NEXT INTERVIEW já foi desenvolvido
+   para o modo escuro.
+
+   Aqui apenas garantimos que o tema escuro preserve
+   exatamente a identidade tecnológica original.
+*/
+
+html[data-tema="escuro"] {
+    background: #020611 !important;
+}
+
+html[data-tema="escuro"] body {
+    color: #ffffff !important;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(36, 68, 180, 0.18),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(111, 32, 210, 0.14),
+            transparent 30%
+        ),
+        #020611 !important;
+}
