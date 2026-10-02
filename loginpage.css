@@ -1,6 +1,6 @@
-/* =========================================
-   CONFIGURAÇÕES GERAIS
-========================================= */
+/* =========================================================
+   NEXT WORK — TELA INICIAL / LOGIN
+   ========================================================= */
 
 * {
     margin: 0;
@@ -8,1304 +8,778 @@
     box-sizing: border-box;
 }
 
-:root {
-
-    --papel-de-parede: url("fundo\ azul.png");
-
-    --azul: #168cff;
-    --azul-claro: #239eff;
-
-    --roxo: #704cff;
-    --roxo-claro: #974cff;
-
-    --fundo-card: rgba(5, 15, 38, 0.88);
-
-    --branco: #ffffff;
-    --texto: #aab6d6;
-
-    --borda: rgba(58, 126, 220, 0.65);
+html,
+body {
+    width: 100%;
+    min-height: 100%;
 }
 
-
-/* =========================================
-   BODY
-========================================= */
-
 body {
-
-    min-height: 100vh;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    color: var(--branco);
-
-    background-color: #020716;
-
+    font-family: "Poppins", Arial, sans-serif;
+    background: #f8fcff;
+    color: #102b4c;
     overflow-x: hidden;
 }
 
-
-/* =========================================
-   PAPEL DE PAREDE
-========================================= */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: -3;
-
-    background-image:
-
-        linear-gradient(
-            rgba(2, 7, 25, 0.28),
-            rgba(2, 7, 25, 0.38)
-        ),
-
-        var(--papel-de-parede);
-
-    background-size: cover;
-
-    background-position: center;
-
-    background-repeat: no-repeat;
-
-    transform: scale(1.02);
-}
-
-
-/* =========================================
-   CAMADA ESCURA / EFEITO DO FUNDO
-========================================= */
-
-body::after {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: -2;
-
-    background:
-
-        radial-gradient(
-            circle at 10% 20%,
-            rgba(40, 70, 220, 0.18),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 90% 80%,
-            rgba(110, 50, 230, 0.15),
-            transparent 35%
-        );
-
-    pointer-events: none;
-}
-
-
-/* =========================================
+/* =========================================================
    PÁGINA
-========================================= */
+   ========================================================= */
 
 .pagina-login {
-
     min-height: 100vh;
-
     width: 100%;
-
     display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(520px, 0.78fr);
-
-    gap: 50px;
-
-    padding:
-        25px
-        5vw
-        40px;
+    grid-template-columns: 46% 54%;
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            rgba(105, 211, 255, 0.10),
+            transparent 35%
+        ),
+        #f8fcff;
 }
 
-
-/* =========================================
+/* =========================================================
    LADO ESQUERDO
-========================================= */
+   ========================================================= */
 
 .lado-esquerdo {
-
-    position: relative;
-
     min-width: 0;
-
+    padding: 34px 6vw 45px 7vw;
     display: flex;
-
     flex-direction: column;
-
-    /*
-       LOGO MAIS PARA O ALTO
-       E MAIS PRÓXIMA DO CANTO
-    */
-
-    padding-top: 5px;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
-
-/* =========================================
-   LOGO ESQUERDA
-========================================= */
+/* =========================================================
+   LOGO
+   ========================================================= */
 
 .logo-principal {
-
-    width: 100%;
-
+    position: absolute;
+    top: 28px;
+    left: 7vw;
     display: flex;
-
-    align-items: flex-start;
-
-    justify-content: flex-start;
-
-    padding-left: 0;
-
-    /*
-       NÃO DEIXA A LOGO EMPURRAR
-       O RESTO DO CONTEÚDO
-    */
-
-    margin: 0;
+    align-items: center;
 }
-
 
 .logo-principal img {
-
-    /*
-       LOGO MENOR
-    */
-
-    width: 235px;
-
-    max-width: 85%;
-
+    width: 205px;
     height: auto;
-
     display: block;
-
     object-fit: contain;
-
-    filter:
-        drop-shadow(
-            0 8px 25px rgba(30, 100, 255, 0.14)
-        );
 }
 
-
-/* =========================================
-   CONTEÚDO ESQUERDO
-========================================= */
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
 
 .conteudo-esquerdo {
-
-    width: min(700px, 100%);
-
-    /*
-       ANTES ESTAVA 155px.
-       AGORA FICA BEM MAIS PRÓXIMO DA LOGO.
-    */
-
-    margin-top: 42px;
-
-    padding-left: 0;
+    width: 100%;
+    max-width: 570px;
+    margin-top: 70px;
 }
 
-
-/* =========================================
-   ETIQUETA
-========================================= */
+/* etiqueta */
 
 .etiqueta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 6px 12px;
 
-    display: block;
+    border-radius: 999px;
 
-    color: #8e78ff;
+    background: #e8f7ff;
+    border: 1px solid #c9eaf8;
 
-    font-size: 13px;
+    color: #347ca5;
 
+    font-size: 10px;
     font-weight: 700;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 22px;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
 }
 
-
-/* =========================================
+/* =========================================================
    TÍTULO
-========================================= */
+   ========================================================= */
 
 .conteudo-esquerdo h1 {
+    margin-top: 15px;
 
-    font-size:
-        clamp(48px, 5vw, 76px);
+    max-width: 590px;
 
-    line-height: 1.02;
+    font-size: clamp(40px, 4.1vw, 67px);
+    line-height: 0.98;
+    letter-spacing: -2.7px;
 
-    letter-spacing: -2.8px;
+    font-weight: 800;
 
-    font-weight: 700;
-
-    margin-bottom: 28px;
+    color: #102d56;
 }
-
 
 .conteudo-esquerdo h1 span {
-
     display: block;
 
-    background:
-
-        linear-gradient(
-            90deg,
-            #1598ff,
-            #4c72ff,
-            #944cff
-        );
+    background: linear-gradient(
+        90deg,
+        #087cf0 0%,
+        #168fff 42%,
+        #7147e8 100%
+    );
 
     -webkit-background-clip: text;
-
     background-clip: text;
-
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
-
-/* =========================================
-   TEXTO
-========================================= */
+/* =========================================================
+   DESCRIÇÃO
+   ========================================================= */
 
 .conteudo-esquerdo > p {
-
-    max-width: 650px;
-
-    color: #b2c0e2;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-    margin-bottom: 38px;
-}
-
-
-/* =========================================
-   CARD DE OPORTUNIDADES
-========================================= */
-
-.card-oportunidades {
-
-    width: min(625px, 100%);
-
-    min-height: 125px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 22px;
-
-    padding: 20px 25px;
-
-    border: 1px solid rgba(
-        53,
-        132,
-        230,
-        0.75
-    );
-
-    border-radius: 14px;
-
-    background:
-        rgba(
-            5,
-            18,
-            48,
-            0.55
-        );
-
-    backdrop-filter: blur(8px);
-
-    box-shadow:
-        0 15px 40px
-        rgba(0, 0, 0, 0.18);
-}
-
-
-/* =========================================
-   ESPAÇO PARA SEU ÍCONE
-========================================= */
-
-.espaco-icone {
-
-    width: 78px;
-
-    height: 78px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    border: 1px solid
-        rgba(60, 130, 255, 0.5);
-
-    background:
-        rgba(25, 65, 140, 0.18);
-
-    color: #8c6cff;
-
-    font-size: 30px;
-}
-
-
-.linha-card {
-
-    width: 1px;
-
-    height: 70px;
-
-    background:
-        rgba(110, 145, 220, 0.55);
-}
-
-
-.texto-card h3 {
-
-    font-size: 18px;
-
-    line-height: 1.25;
-
-    margin-bottom: 8px;
-}
-
-
-.texto-card p {
-
-    color: #99a9cd;
-
-    font-size: 13px;
-
-    line-height: 1.55;
-
-    max-width: 330px;
-}
-
-
-/* =========================================
-   LADO DIREITO
-========================================= */
-
-.lado-direito {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 0;
-}
-
-
-/* =========================================
-   CARD LOGIN
-========================================= */
-
-.card-login {
-
-    width: min(
-        100%,
-        650px
-    );
-
-    padding:
-        48px
-        48px
-        35px;
-
-    border-radius: 20px;
-
-    border: 1px solid
-        rgba(
-            56,
-            126,
-            220,
-            0.78
-        );
-
-    background:
-        var(--fundo-card);
-
-    backdrop-filter:
-        blur(16px);
-
-    box-shadow:
-        0 25px 80px
-        rgba(0, 0, 0, 0.38);
-}
-
-
-/* =========================================
-   LOGO DENTRO DO CARD
-========================================= */
-
-.logo-card {
-
-    width: 100%;
-
-    display: flex;
-
-    justify-content: center;
-
-    margin-bottom: 35px;
-}
-
-
-.logo-card img {
-
-    width: 215px;
-
-    height: auto;
-
-    max-width: 70%;
-
-    object-fit: contain;
-}
-
-
-/* =========================================
-   TÍTULO DO CARD
-========================================= */
-
-.titulo-card .etiqueta {
-
-    margin-bottom: 12px;
-
-    font-size: 11px;
-
-    letter-spacing: 5px;
-}
-
-
-.titulo-card h2 {
-
-    font-size:
-        clamp(34px, 3vw, 48px);
-
-    line-height: 1.1;
-
-    letter-spacing: -1.5px;
-
-    margin-bottom: 12px;
-}
-
-
-.titulo-card p {
-
-    color: #a9b8da;
-
-    font-size: 16px;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================================
-   CAMPOS
-========================================= */
-
-.campo {
-
-    margin-bottom: 25px;
-}
-
-
-.campo label {
-
-    display: block;
-
-    color: #ffffff;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    margin-bottom: 10px;
-}
-
-
-.input-box {
-
-    width: 100%;
-
-    height: 59px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    padding:
-        0 16px;
-
-    border-radius: 12px;
-
-    border: 1px solid
-        rgba(
-            55,
-            121,
-            215,
-            0.8
-        );
-
-    background:
-        rgba(
-            2,
-            10,
-            29,
-            0.68
-        );
-
-    transition: 0.25s;
-}
-
-
-.input-box:focus-within {
-
-    border-color: #568cff;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(
-            40,
-            110,
-            255,
-            0.08
-        );
-}
-
-
-.input-box input {
-
-    flex: 1;
-
-    min-width: 0;
-
-    height: 100%;
-
-    border: none;
-
-    outline: none;
-
-    background: transparent;
-
-    color: #ffffff;
+    max-width: 520px;
+    margin-top: 20px;
 
     font-size: 15px;
+    line-height: 1.7;
+
+    color: #607991;
 }
 
+/* =========================================================
+   LOGIN
+   ========================================================= */
 
-.input-box input::placeholder {
+.card-login {
+    width: 100%;
+    max-width: 500px;
 
-    color: #7184ad;
+    margin-top: 28px;
+
+    padding: 25px 28px 23px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid #d7e8f1;
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(36, 112, 151, 0.08),
+        0 0 24px rgba(69, 190, 255, 0.08);
 }
 
+/* esconder logo antigo dentro do card */
 
-.icone {
-
-    color: #88a2d4;
-
-    font-size: 22px;
-
-    width: 25px;
-
-    text-align: center;
-}
-
-
-/* =========================================
-   ESQUECEU A SENHA
-========================================= */
-
-.linha-senha {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-}
-
-
-.link-senha {
-
-    border: none;
-
-    background: transparent;
-
-    color: #9b6cff;
-
-    font-size: 13px;
-
-    cursor: pointer;
-
-    transition: 0.25s;
-}
-
-
-.link-senha:hover {
-
-    color: #c19bff;
-
-    text-decoration: underline;
-}
-
-
-/* =========================================
-   MOSTRAR SENHA
-========================================= */
-
-.mostrar-senha {
-
-    border: none;
-
-    background: transparent;
-
-    color: #91a6d1;
-
-    cursor: pointer;
-
-    font-size: 18px;
-
-    padding: 4px;
-}
-
-
-/* =========================================
-   LEMBRAR DE MIM
-========================================= */
-
-.lembrar {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    cursor: pointer;
-
-    color: #ffffff;
-
-    font-size: 14px;
-
-    margin-bottom: 28px;
-}
-
-
-.lembrar input {
-
+.logo-card {
     display: none;
 }
 
+/* esconder título antigo */
 
-.checkbox-personalizado {
-
-    width: 30px;
-
-    height: 30px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 7px;
-
-    border: 1px solid
-        rgba(
-            100,
-            120,
-            180,
-            0.7
-        );
-
-    background:
-        rgba(
-            10,
-            20,
-            45,
-            0.7
-        );
-
-    transition: 0.25s;
+.titulo-card {
+    margin-bottom: 20px;
 }
 
-
-.lembrar input:checked
-+ .checkbox-personalizado {
-
-    background:
-        linear-gradient(
-            135deg,
-            #218dff,
-            #744cff
-        );
-
-    border-color: transparent;
+.titulo-card .etiqueta {
+    display: none;
 }
 
-
-.lembrar input:checked
-+ .checkbox-personalizado::after {
-
-    content: "✓";
-
-    color: white;
-
-    font-size: 18px;
-
-    font-weight: bold;
+.titulo-card h2 {
+    font-size: 21px;
+    color: #17385f;
+    margin-bottom: 4px;
 }
 
+.titulo-card p {
+    font-size: 12px;
+    color: #71869c;
+}
 
-/* =========================================
-   BOTÃO ENTRAR
-========================================= */
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
 
-.btn-entrar {
-
+#formLogin {
     width: 100%;
+}
 
-    height: 60px;
+.campo {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.campo label,
+.linha-senha label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #274866;
+}
+
+.linha-senha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.linha-senha label {
+    margin-bottom: 7px;
+}
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-box {
+    width: 100%;
+    height: 46px;
 
     display: flex;
-
     align-items: center;
 
+    position: relative;
+
+    border: 1px solid #d2e2eb;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.input-box:focus-within {
+    border-color: #39a9ef;
+
+    box-shadow:
+        0 0 0 3px rgba(57, 169, 239, 0.10);
+}
+
+.input-box .icone {
+    width: 40px;
+    min-width: 40px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
     justify-content: center;
 
-    gap: 30px;
+    color: #7c9bb1;
+}
 
-    border: none;
+.input-box .icone::before {
+    content: "✉";
+    font-size: 14px;
+}
 
-    border-radius: 11px;
+.campo:nth-of-type(2) .input-box .icone::before {
+    content: "⌑";
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    color: #193a5d;
+
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.input-box input::placeholder {
+    color: #a1b3c1;
+}
+
+/* =========================================================
+   MOSTRAR SENHA
+   ========================================================= */
+
+.mostrar-senha {
+    width: 42px;
+    height: 100%;
+
+    border: 0;
+    background: transparent;
+
+    color: #7993a7;
 
     cursor: pointer;
-
-    color: white;
-
-    font-size: 18px;
-
-    font-weight: 700;
-
-    background:
-        linear-gradient(
-            90deg,
-            #198cf0,
-            #426ce8,
-            #9347db
-        );
-
-    box-shadow:
-        0 8px 25px
-        rgba(
-            60,
-            90,
-            220,
-            0.18
-        );
-
-    transition: 0.3s;
-}
-
-
-.btn-entrar strong {
-
-    font-size: 28px;
-
-    font-weight: 400;
-
-    line-height: 1;
-}
-
-
-.btn-entrar:hover {
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 12px 30px
-        rgba(
-            75,
-            90,
-            230,
-            0.3
-        );
-}
-
-
-/* =========================================
-   DIVISOR
-========================================= */
-
-.divisor {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    margin: 30px 0;
-}
-
-
-.divisor span {
-
-    flex: 1;
-
-    height: 1px;
-
-    background:
-        rgba(
-            100,
-            125,
-            180,
-            0.45
-        );
-}
-
-
-.divisor p {
-
-    color: #a3b0cc;
 
     font-size: 13px;
 }
 
+/* =========================================================
+   ESQUECI SENHA
+   ========================================================= */
 
-/* =========================================
-   GOOGLE
-========================================= */
+.link-senha {
+    border: 0;
+    background: transparent;
 
-.btn-google {
+    color: #4779bb;
 
-    width: 100%;
-
-    height: 58px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    border-radius: 11px;
-
-    border: 1px solid
-        rgba(
-            80,
-            125,
-            220,
-            0.85
-        );
-
-    background:
-        rgba(
-            3,
-            12,
-            33,
-            0.65
-        );
-
-    color: white;
-
-    font-size: 15px;
-
+    font-family: inherit;
+    font-size: 10px;
     font-weight: 600;
 
     cursor: pointer;
 
-    transition: 0.3s;
+    white-space: nowrap;
 }
 
+.link-senha:hover {
+    color: #7147e8;
+}
 
-.btn-google:hover {
+/* =========================================================
+   LEMBRAR
+   ========================================================= */
+
+.lembrar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 4px 0 16px;
+
+    color: #6d8295;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.lembrar input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.checkbox-personalizado {
+    width: 15px;
+    height: 15px;
+
+    border: 1px solid #c7d9e4;
+    border-radius: 4px;
+
+    background: #ffffff;
+
+    position: relative;
+}
+
+.lembrar input:checked + .checkbox-personalizado {
+    border-color: #158fea;
+    background: #158fea;
+}
+
+.lembrar input:checked + .checkbox-personalizado::after {
+    content: "✓";
+
+    position: absolute;
+    left: 2px;
+    top: -1px;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   BOTÃO ENTRAR
+   ========================================================= */
+
+.btn-entrar {
+    width: 100%;
+    height: 46px;
+
+    border: 0;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
 
     background:
-        rgba(
-            25,
-            50,
-            100,
-            0.45
+        linear-gradient(
+            100deg,
+            #079de7 0%,
+            #168bf3 45%,
+            #7425e8 100%
         );
 
-    border-color: #7b65ff;
+    color: #ffffff;
 
-    transform: translateY(-2px);
-}
-
-
-.google-logo {
-
-    font-size: 21px;
-
+    font-family: inherit;
+    font-size: 12px;
     font-weight: 700;
 
-    color: #4285f4;
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 18px rgba(50, 123, 231, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+.btn-entrar strong {
+    font-size: 17px;
+    font-weight: 400;
+}
 
-/* =========================================
+.btn-entrar:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 24px rgba(74, 91, 224, 0.28);
+}
+
+/* =========================================================
+   DIVISOR
+   ========================================================= */
+
+.divisor {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 17px 0 13px;
+}
+
+.divisor span {
+    flex: 1;
+    height: 1px;
+    background: #e2ebf0;
+}
+
+.divisor p {
+    color: #9aabb8;
+    font-size: 10px;
+}
+
+/* =========================================================
+   GOOGLE
+   ========================================================= */
+
+.btn-google {
+    display: none;
+}
+
+/* =========================================================
+   MENSAGEM
+   ========================================================= */
+
+.mensagemGoogle {
+    display: none;
+}
+
+.mensagem {
+    margin-top: 10px;
+
+    font-size: 11px;
+    color: #607991;
+}
+
+/* =========================================================
    CADASTRO
-========================================= */
+   ========================================================= */
 
 .cadastro {
+    margin-top: 15px;
 
-    border-top: 1px solid
-        rgba(
-            100,
-            125,
-            180,
-            0.25
-        );
+    padding-top: 15px;
 
-    margin-top: 30px;
+    border-top: 1px solid #edf2f5;
 
-    padding-top: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    flex-wrap: wrap;
+
+    font-size: 10px;
 }
-
 
 .cadastro p {
-
-    color: #a2b0ce;
-
-    font-size: 14px;
-
-    margin-bottom: 7px;
+    color: #7b8d9c;
 }
 
-
 .cadastro a {
-
-    color: #a66cff;
-
-    font-size: 15px;
+    color: #2178d1;
 
     font-weight: 700;
 
     text-decoration: none;
-
-    transition: 0.25s;
 }
-
 
 .cadastro a:hover {
-
-    color: #c19aff;
-
-    text-decoration: underline;
+    color: #7147e8;
 }
 
+/* =========================================================
+   LADO DIREITO / IMAGEM
+   ========================================================= */
 
-/* =========================================
-   MENSAGEM
-========================================= */
+.lado-direito {
+    min-width: 0;
+    min-height: 100vh;
 
-.mensagem {
+    position: relative;
 
-    position: fixed;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
 
-    left: 50%;
-
-    bottom: 25px;
-
-    transform:
-        translate(-50%, 100px);
-
-    padding:
-        14px 22px;
-
-    border-radius: 10px;
+    overflow: hidden;
 
     background:
-        rgba(
-            8,
-            20,
-            50,
-            0.95
+        linear-gradient(
+            90deg,
+            #f8fcff 0%,
+            rgba(248, 252, 255, 0.25) 18%,
+            rgba(248, 252, 255, 0) 38%
         );
+}
 
-    border: 1px solid
-        rgba(
-            80,
-            140,
-            255,
-            0.7
+/*
+    A imagem fica como fundo para conseguir ocupar
+    toda a área direita, como na referência.
+*/
+
+.lado-direito::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url("fotopessoas.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+
+    z-index: 0;
+}
+
+/* fade lateral para integrar a imagem ao lado esquerdo */
+
+.lado-direito::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f8fcff 0%,
+            rgba(248, 252, 255, 0.88) 5%,
+            rgba(248, 252, 255, 0.25) 20%,
+            rgba(248, 252, 255, 0) 38%
         );
-
-    color: white;
-
-    font-size: 14px;
-
-    opacity: 0;
 
     pointer-events: none;
 
-    transition: 0.35s;
-
-    z-index: 1000;
+    z-index: 1;
 }
 
+/*
+    O card antigo fica sobre o lado esquerdo.
+    A imagem ocupa o lado direito.
+*/
 
-.mensagem.mostrar {
+.lado-direito .card-login {
+    position: absolute;
 
-    opacity: 1;
+    left: -1px;
+    bottom: 8vh;
 
-    transform:
-        translate(-50%, 0);
+    z-index: 3;
+
+    width: min(500px, 92%);
+
+    margin: 0;
 }
 
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
 
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1100px) {
+@media (max-width: 1150px) {
 
     .pagina-login {
-
-        grid-template-columns:
-            1fr;
-
-        padding:
-            30px 6%;
+        grid-template-columns: 48% 52%;
     }
-
 
     .lado-esquerdo {
-
-        align-items: center;
-
-        text-align: center;
-
-        padding-top: 0;
+        padding-left: 5vw;
+        padding-right: 3vw;
     }
-
 
     .logo-principal {
-
-        justify-content: center;
-
-        padding: 0;
+        left: 5vw;
     }
 
-
-    .logo-principal img {
-
-        width: 230px;
-
-        max-width: 85%;
+    .conteudo-esquerdo h1 {
+        font-size: clamp(38px, 4.2vw, 55px);
     }
 
-
-    .conteudo-esquerdo {
-
-        margin-top: 40px;
-
-        padding: 0;
+    .lado-direito .card-login {
+        width: min(460px, 94%);
     }
-
-
-    .conteudo-esquerdo > p {
-
-        margin-left: auto;
-
-        margin-right: auto;
-    }
-
-
-    .card-oportunidades {
-
-        margin:
-            0 auto;
-    }
-
-
-    .lado-direito {
-
-        padding-bottom: 30px;
-    }
-
 }
 
-
-/* =========================================
-   CELULAR
-========================================= */
-
-@media (max-width: 650px) {
+@media (max-width: 850px) {
 
     .pagina-login {
+        display: block;
+        min-height: 100vh;
+    }
+
+    .lado-esquerdo {
+        min-height: auto;
 
         padding:
-            25px 18px 35px;
-
-        gap: 50px;
+            105px 25px 30px;
     }
 
+    .logo-principal {
+        top: 25px;
+        left: 25px;
+    }
 
     .logo-principal img {
-
-        width: 200px;
-
-        max-width: 90%;
+        width: 175px;
     }
-
 
     .conteudo-esquerdo {
-
-        margin-top: 35px;
+        max-width: 620px;
+        margin: 0 auto;
     }
-
-
-    .conteudo-esquerdo .etiqueta {
-
-        font-size: 9px;
-
-        letter-spacing: 3px;
-    }
-
 
     .conteudo-esquerdo h1 {
-
-        font-size: 43px;
-
-        letter-spacing: -1.5px;
+        font-size: clamp(38px, 9vw, 58px);
+        letter-spacing: -2px;
     }
-
 
     .conteudo-esquerdo > p {
-
-        font-size: 14px;
+        max-width: 600px;
     }
 
-
-    .card-oportunidades {
-
-        padding: 16px;
-
-        gap: 14px;
+    .lado-direito {
+        min-height: 650px;
     }
 
-
-    .espaco-icone {
-
-        width: 58px;
-
-        height: 58px;
-
-        font-size: 22px;
+    .lado-direito::before {
+        background-size: cover;
+        background-position: center;
     }
 
+    .lado-direito .card-login {
+        position: relative;
 
-    .linha-card {
+        left: auto;
+        bottom: auto;
 
-        height: 55px;
+        margin: 30px auto 50px;
+
+        width: min(500px, calc(100% - 40px));
     }
-
-
-    .texto-card h3 {
-
-        font-size: 14px;
-    }
-
-
-    .texto-card p {
-
-        font-size: 10px;
-    }
-
-
-    .card-login {
-
-        padding:
-            30px 22px 25px;
-
-        border-radius: 16px;
-    }
-
-
-    .logo-card img {
-
-        width: 180px;
-    }
-
-
-    .titulo-card h2 {
-
-        font-size: 32px;
-    }
-
-
-    .titulo-card p {
-
-        font-size: 14px;
-    }
-
 }
 
+@media (max-width: 520px) {
 
-/* =========================================
-   CELULAR PEQUENO
-========================================= */
-
-@media (max-width: 400px) {
-
-    .conteudo-esquerdo h1 {
-
-        font-size: 36px;
+    .lado-esquerdo {
+        padding:
+            95px 18px 25px;
     }
 
+    .logo-principal {
+        left: 18px;
+        top: 22px;
+    }
 
     .logo-principal img {
-
-        width: 185px;
+        width: 155px;
     }
 
+    .conteudo-esquerdo h1 {
+        font-size: 39px;
+        line-height: 1;
+        letter-spacing: -1.8px;
+    }
+
+    .conteudo-esquerdo > p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
 
     .card-login {
-
-        padding:
-            25px 17px;
+        padding: 21px 18px 20px;
+        border-radius: 15px;
     }
 
+    .lado-direito {
+        min-height: 600px;
+    }
+
+    .lado-direito .card-login {
+        width: calc(100% - 28px);
+    }
+
+    .campo label,
+    .linha-senha label {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .conteudo-esquerdo h1 {
+        font-size: 34px;
+    }
+
+    .lado-direito {
+        min-height: 570px;
+    }
+
+    .cadastro {
+        flex-direction: column;
+        gap: 3px;
+    }
+}
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
 }
