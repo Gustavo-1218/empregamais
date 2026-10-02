@@ -971,3 +971,64 @@ html[data-tema="escuro"] .empresa-info p {
         border-radius: 12px;
     }
 }
+
+
+/* GLOW AZUL CLARO — MAPA E CARDS */
+
+.mapa-container {
+    box-shadow:
+        0 0 18px rgba(65, 190, 255, 0.16),
+        0 10px 35px rgba(20, 100, 150, 0.08);
+    border-color: rgba(65, 190, 255, 0.30);
+}
+
+.mapa-container:hover {
+    border-color: rgba(65, 190, 255, 0.48);
+    box-shadow:
+        0 0 24px rgba(65, 190, 255, 0.22),
+        0 12px 38px rgba(20, 100, 150, 0.10);
+}
+
+.empresa {
+    border-color: rgba(65, 190, 255, 0.22);
+    box-shadow:
+        0 0 14px rgba(65, 190, 255, 0.10),
+        0 8px 25px rgba(20, 100, 150, 0.06);
+}
+
+.empresa:hover {
+    transform: translateY(-3px);
+    border-color: rgba(65, 190, 255, 0.48);
+    box-shadow:
+        0 0 22px rgba(65, 190, 255, 0.18),
+        0 12px 30px rgba(20, 100, 150, 0.10);
+}
+
+/* MODO ESCURO */
+
+html[data-tema="escuro"] .mapa-container {
+    border-color: rgba(0, 221, 255, 0.24);
+    box-shadow:
+        0 0 22px rgba(0, 190, 255, 0.14),
+        0 15px 40px rgba(0, 0, 0, 0.30);
+}
+
+html[data-tema="escuro"] .mapa-container:hover {
+    border-color: rgba(0, 221, 255, 0.42);
+    box-shadow:
+        0 0 28px rgba(0, 210, 255, 0.20),
+        0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+html[data-tema="escuro"] .empresa {
+    border-color: rgba(0, 190, 255, 0.18);
+    box-shadow:
+        0 0 14px rgba(0, 190, 255, 0.08);
+}
+
+html[data-tema="escuro"] .empresa:hover {
+    border-color: rgba(0, 221, 255, 0.40);
+    box-shadow:
+        0 0 24px rgba(0, 210, 255, 0.16),
+        0 12px 30px rgba(0, 0, 0, 0.30);
+}
