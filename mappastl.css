@@ -1,6 +1,6 @@
-/* ============================= */
-/* CONFIGURAÇÕES GERAIS */
-/* ============================= */
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
 
 * {
     margin: 0;
@@ -8,168 +8,334 @@
     box-sizing: border-box;
 }
 
-body {
-    min-height: 100vh;
-    overflow-x: hidden;
+:root {
+    --fundo-claro: #eefaff;
+    --fundo-claro-2: #f7fcff;
 
-    color: #fff;
+    --texto-claro: #102b4c;
+    --texto-claro-2: #526b84;
+    --texto-claro-3: #71869c;
 
-    background:
-        linear-gradient(
-            rgba(2, 6, 17, .35),
-            rgba(2, 6, 17, .35)
-        ),
-        url("plano\ de\ fundo.png");
+    --azul: #087cf0;
+    --ciano: #00aeca;
+    --roxo: #7147e8;
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    --borda-clara: #c9e1ed;
 
-    font-family: Arial, Helvetica, sans-serif;
+    --card-claro: #ffffff;
 }
 
 
+/* =====================================================
+   BODY
+===================================================== */
 
-/* ============================= */
-/* HEADER */
-/* ============================= */
+html {
+    background: var(--fundo-claro);
+}
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: var(--texto-claro);
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(0, 174, 202, 0.08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 55%,
+            rgba(113, 71, 232, 0.07),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            180deg,
+            var(--fundo-claro),
+            var(--fundo-claro-2)
+        );
+}
+
+
+/* =====================================================
+   MODO ESCURO
+===================================================== */
+
+html[data-tema="escuro"] body {
+
+    color: #ffffff;
+
+    background: transparent;
+}
+
+
+/* Fundo oficial somente no modo escuro */
+
+html[data-tema="escuro"] body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        url("plano de fundo.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    z-index: -2;
+
+    pointer-events: none;
+}
+
+
+/* Camada escura */
+
+html[data-tema="escuro"] body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(2, 6, 17, 0.35);
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .cabecalho {
+
     width: 100%;
+
     height: 100px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     padding: 0 42px;
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom:
+        1px solid var(--borda-clara);
 }
 
 
-/* LOGO */
+/* =====================================================
+   LOGO
+===================================================== */
 
 .logo {
+
     display: flex;
+
     align-items: center;
+
     gap: 12px;
 }
 
+
 .logo span {
+
     font-size: 30px;
+
     font-weight: bold;
 
-    background: linear-gradient(
-        90deg,
-        #1683ff,
-        #9b3dff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul),
+            var(--roxo)
+        );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     color: transparent;
 }
 
+
 .logo strong {
+
     font-size: 19px;
+
     font-weight: 500;
+
+    color: var(--texto-claro);
 }
+
 
 .logo b {
-    color: #1683ff;
+    color: var(--azul);
 }
 
 
-/* MENU */
+/* =====================================================
+   MENU
+===================================================== */
 
 .menu {
+
     display: flex;
+
     align-items: center;
+
     gap: 34px;
 }
 
+
 .menu a {
+
     position: relative;
 
-    color: #ddd;
+    color: var(--texto-claro-2);
 
     text-decoration: none;
 
     font-size: 15px;
 
     padding: 30px 0;
+
+    transition: 0.25s ease;
 }
+
 
 .menu a:hover {
-    color: white;
+
+    color: var(--azul);
 }
+
 
 .menu a.ativo {
-    color: white;
+
+    color: var(--azul);
 }
 
+
 .menu a.ativo::after {
+
     content: "";
 
     position: absolute;
 
     left: 0;
     right: 0;
+
     bottom: 0;
 
     height: 2px;
 
-    background: linear-gradient(
-        90deg,
-        #1683ff,
-        #a33cff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul),
+            var(--roxo)
+        );
 }
 
 
-/* AÇÕES */
+/* =====================================================
+   AÇÕES
+===================================================== */
 
 .acoes {
+
     display: flex;
+
     align-items: center;
+
     gap: 14px;
 }
 
+
 .entrar {
-    color: #ddd;
+
+    color: var(--texto-claro-2);
+
     text-decoration: none;
 
     padding: 10px 16px;
+
+    transition: 0.25s;
 }
 
+
+.entrar:hover {
+    color: var(--azul);
+}
+
+
 .cadastrar {
-    color: white;
+
+    color: #ffffff;
+
     text-decoration: none;
 
     padding: 12px 25px;
 
     border-radius: 8px;
 
-    background: linear-gradient(
-        90deg,
-        #1683ff,
-        #7b2cff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul),
+            var(--roxo)
+        );
 
     box-shadow:
-        0 0 18px rgba(80, 70, 255, 0.25);
+        0 0 18px rgba(80, 70, 255, 0.20);
+
+    transition: 0.3s ease;
 }
 
 
-/* ============================= */
-/* PÁGINA */
-/* ============================= */
+.cadastrar:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 28px rgba(80, 70, 255, 0.32);
+}
+
+
+/* =====================================================
+   PÁGINA
+===================================================== */
 
 .pagina {
+
     width: 100%;
+
     max-width: 1450px;
 
     margin: 0 auto;
@@ -178,29 +344,38 @@ body {
 }
 
 
-/* ============================= */
-/* PARTE SUPERIOR */
-/* ============================= */
+/* =====================================================
+   PARTE SUPERIOR
+===================================================== */
 
 .introducao {
+
     width: 38%;
 
     min-height: 480px;
 
-    display: flex;
+    display: inline-flex;
+
+    vertical-align: top;
+
     flex-direction: column;
+
     justify-content: center;
 
     padding-right: 45px;
 }
 
 
-/* TÍTULO PEQUENO */
+/* =====================================================
+   TÍTULO PEQUENO
+===================================================== */
 
 .pequeno-titulo {
-    color: #668cff;
+
+    color: var(--roxo);
 
     font-size: 13px;
+
     font-weight: bold;
 
     letter-spacing: 1px;
@@ -209,9 +384,14 @@ body {
 }
 
 
-/* TÍTULO */
+/* =====================================================
+   TÍTULO
+===================================================== */
 
 .introducao h1 {
+
+    color: var(--texto-claro);
+
     font-size: 52px;
 
     line-height: 1.05;
@@ -219,46 +399,58 @@ body {
     margin-bottom: 20px;
 }
 
+
 .introducao h1 strong {
+
     display: block;
 
-    background: linear-gradient(
-        90deg,
-        #1683ff,
-        #a33cff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul),
+            var(--roxo)
+        );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     color: transparent;
 }
 
 
-/* LINHA */
+/* =====================================================
+   LINHA
+===================================================== */
 
 .linha {
+
     width: 60px;
+
     height: 3px;
 
     margin-bottom: 28px;
 
     border-radius: 10px;
 
-    background: linear-gradient(
-        90deg,
-        #1683ff,
-        #a33cff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul),
+            var(--roxo)
+        );
 }
 
 
-/* TEXTO */
+/* =====================================================
+   TEXTO
+===================================================== */
 
 .introducao p {
+
     max-width: 480px;
 
-    color: #9ca3b3;
+    color: var(--texto-claro-2);
 
     font-size: 16px;
 
@@ -268,16 +460,20 @@ body {
 }
 
 
-/* ============================= */
-/* BOTÕES */
-/* ============================= */
+/* =====================================================
+   BOTÕES
+===================================================== */
 
 .botoes {
+
     display: flex;
+
     gap: 15px;
 }
 
+
 .botoes button {
+
     height: 52px;
 
     padding: 0 25px;
@@ -285,6 +481,7 @@ body {
     border-radius: 8px;
 
     font-size: 14px;
+
     font-weight: bold;
 
     cursor: pointer;
@@ -293,106 +490,115 @@ body {
 }
 
 
-/* PRINCIPAL */
+/* =====================================================
+   BOTÃO PRINCIPAL
+===================================================== */
 
 .botao-principal {
+
     border: none;
 
-    color: white;
+    color: #ffffff;
 
-    background: linear-gradient(
-        90deg,
-        #1683ff,
-        #782cff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul),
+            var(--roxo)
+        );
 
     box-shadow:
-        0 0 20px rgba(52, 84, 255, 0.3);
+        0 0 20px rgba(52, 84, 255, 0.20);
 }
+
 
 .botao-principal:hover {
-    transform: translateY(-2px);
+
+    transform:
+        translateY(-2px);
 
     box-shadow:
-        0 0 30px rgba(52, 84, 255, 0.5);
+        0 0 30px rgba(52, 84, 255, 0.35);
 }
 
 
-/* SECUNDÁRIO */
+/* =====================================================
+   MAPA
+===================================================== */
 
-.botao-secundario {
-    color: white;
-
-    background: transparent;
-
-    border: 1px solid #3a4050;
-}
-
-.botao-secundario:hover {
-    border-color: #1683ff;
-}
-
-
-/* ============================= */
-/* MAPA + INTRODUÇÃO */
-/* ============================= */
-
-/*
-   Coloca a introdução e o mapa lado a lado.
-*/
-
-.pagina::before {
-    content: "";
-}
-
-
-/* Criamos o posicionamento usando
-   o conteúdo principal */
-
-.introducao,
 .mapa-container {
+
+    width: 61%;
+
+    height: 480px;
+
     display: inline-flex;
 
     vertical-align: top;
-}
-
-
-/* MAPA */
-
-.mapa-container {
-    width: 61%;
-    height: 480px;
 
     overflow: hidden;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
-    border: 1px solid rgba(80, 120, 255, 0.35);
+    padding: 8px;
 
-    background: #080d18;
+    background: #ffffff;
+
+    border:
+        1px solid var(--borda-clara);
 
     box-shadow:
-        0 0 35px rgba(22, 131, 255, 0.08);
+        0 12px 35px rgba(20, 80, 120, 0.10);
 }
 
+
 .mapa-container iframe {
+
     width: 100%;
+
     height: 100%;
 
     border: none;
 
     display: block;
+
+    border-radius: 14px;
 }
 
 
+/* =====================================================
+   MAPA — MODO ESCURO
+===================================================== */
+
+html[data-tema="escuro"] .mapa-container {
+
+    background:
+        #0b172b;
+
+    border:
+        1px solid rgba(0, 221, 255, 0.20);
+
+    box-shadow:
+        0 0 35px rgba(22, 131, 255, 0.10);
+}
+
+
+/* =====================================================
+   EMPRESAS
+===================================================== */
 
 .empresas {
+
     width: 100%;
 
     margin-top: 38px;
 }
 
+
 .empresas h2 {
+
+    color: var(--texto-claro);
+
     font-size: 22px;
 
     font-weight: 500;
@@ -401,8 +607,12 @@ body {
 }
 
 
+/* =====================================================
+   LISTA DE EMPRESAS
+===================================================== */
 
 .lista-empresas {
+
     width: 100%;
 
     display: grid;
@@ -414,70 +624,125 @@ body {
 }
 
 
+/* =====================================================
+   CARD EMPRESA
+===================================================== */
+
 .empresa {
+
     min-height: 165px;
 
     padding: 20px;
 
-    border-radius: 12px;
+    border-radius: 14px;
 
-    border: 1px solid #202838;
+    border:
+        1px solid var(--borda-clara);
 
-    background: rgba(5, 10, 23, 0.75);
+    background:
+        rgba(255, 255, 255, 0.86);
+
+    color: var(--texto-claro);
 
     display: flex;
+
     flex-direction: column;
 
-    transition: 0.3s;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.empresa:hover {
-    transform: translateY(-3px);
 
-    border-color: rgba(105, 80, 255, 0.6);
+.empresa:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--borda-hover, #8fc9df);
+
+    box-shadow:
+        0 10px 30px rgba(20, 80, 120, 0.10);
+}
+
+
+/* =====================================================
+   EMPRESA — MODO ESCURO
+===================================================== */
+
+html[data-tema="escuro"] .empresa {
+
+    border:
+        1px solid #202838;
+
+    background:
+        rgba(5, 10, 23, 0.82);
+
+    color: #ffffff;
+}
+
+
+html[data-tema="escuro"] .empresa:hover {
+
+    border-color:
+        rgba(105, 80, 255, 0.6);
 
     box-shadow:
         0 0 20px rgba(70, 60, 255, 0.08);
 }
 
 
-
+/* =====================================================
+   ÍCONE
+===================================================== */
 
 .icone {
+
     width: 42px;
+
     height: 42px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     margin-bottom: 12px;
 
     border-radius: 9px;
 
-    border: 1px solid rgba(100, 70, 255, 0.35);
+    border:
+        1px solid rgba(100, 70, 255, 0.28);
 
-    color: #934cff;
+    color: var(--roxo);
 
-    background: rgba(80, 50, 255, 0.06);
+    background:
+        rgba(80, 50, 255, 0.06);
 
     font-size: 20px;
 }
 
 
-
+/* =====================================================
+   INFORMAÇÕES DA EMPRESA
+===================================================== */
 
 .empresa-info h3 {
+
+    color: var(--texto-claro);
+
     font-size: 16px;
 
     margin-bottom: 7px;
 }
 
 
-
-
 .empresa-info p {
-    color: #8f96a6;
+
+    color: var(--texto-claro-3);
 
     font-size: 12px;
 
@@ -485,14 +750,31 @@ body {
 }
 
 
-/* LINK */
+/* =====================================================
+   INFORMAÇÕES — MODO ESCURO
+===================================================== */
+
+html[data-tema="escuro"] .empresa-info h3 {
+    color: #ffffff;
+}
+
+
+html[data-tema="escuro"] .empresa-info p {
+    color: #8f96a6;
+}
+
+
+/* =====================================================
+   LINK VER NO MAPA
+===================================================== */
 
 .ver-mapa {
+
     margin-top: auto;
 
     padding-top: 14px;
 
-    color: #8d63ff;
+    color: var(--roxo);
 
     text-decoration: none;
 
@@ -503,56 +785,85 @@ body {
     justify-content: space-between;
 
     align-items: center;
+
+    transition: 0.25s ease;
 }
+
 
 .ver-mapa:hover {
-    color: #b79cff;
+
+    color: var(--azul);
 }
 
 
+/* =====================================================
+   RESPONSIVIDADE — 1000px
+===================================================== */
 
 @media (max-width: 1000px) {
 
     .cabecalho {
-        padding: 0 25px;
+
+        padding:
+            0 25px;
     }
 
+
     .menu {
+
         gap: 15px;
     }
 
+
     .menu a {
+
         font-size: 13px;
     }
 
+
     .pagina {
-        padding: 35px 25px;
+
+        padding:
+            35px 25px;
     }
 
+
     .introducao {
+
         width: 40%;
     }
 
+
     .introducao h1 {
+
         font-size: 40px;
     }
 
+
     .mapa-container {
+
         width: 59%;
+
         height: 430px;
     }
 
+
     .lista-empresas {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 }
 
 
-
+/* =====================================================
+   RESPONSIVIDADE — 750px
+===================================================== */
 
 @media (max-width: 750px) {
 
     .cabecalho {
+
         height: auto;
 
         padding: 20px;
@@ -562,22 +873,31 @@ body {
         gap: 20px;
     }
 
+
     .menu {
+
         display: none;
     }
 
+
     .pagina {
-        padding: 30px 20px;
+
+        padding:
+            30px 20px;
     }
+
 
     .introducao,
     .mapa-container {
+
         display: flex;
 
         width: 100%;
     }
 
+
     .introducao {
+
         min-height: auto;
 
         padding-right: 0;
@@ -585,15 +905,69 @@ body {
         margin-bottom: 25px;
     }
 
+
     .introducao h1 {
+
         font-size: 36px;
     }
 
+
     .mapa-container {
+
         height: 350px;
     }
 
+
     .lista-empresas {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .introducao h1 {
+
+        font-size: 31px;
+    }
+
+
+    .introducao p {
+
+        font-size: 14px;
+    }
+
+
+    .botoes {
+
+        width: 100%;
+    }
+
+
+    .botao-principal {
+
+        width: 100%;
+    }
+
+
+    .mapa-container {
+
+        height: 300px;
+
+        padding: 5px;
+
+        border-radius: 16px;
+    }
+
+
+    .mapa-container iframe {
+
+        border-radius: 12px;
     }
 }
