@@ -3688,3 +3688,454 @@ select:focus-visible {
             0 7px 20px rgba(18, 82, 120, 0.07) !important;
     }
 }
+
+
+/* =========================================================
+   NEXT WORK — MODO ESCURO
+   ========================================================= */
+
+html[data-tema="escuro"] {
+    background: #020713 !important;
+
+    --nw-fundo: #020713;
+    --nw-fundo-2: #071225;
+
+    --nw-branco: #0b172b;
+
+    --nw-azul-escuro: #edf8ff;
+    --nw-azul: #2399ff;
+    --nw-ciano: #00ddff;
+    --nw-ciano-claro: #18cfff;
+
+    --nw-roxo: #8d5cff;
+
+    --nw-texto: #edf8ff;
+    --nw-texto-2: #a8c2d6;
+    --nw-texto-3: #7693aa;
+
+    --nw-borda: rgba(0, 221, 255, 0.16);
+    --nw-borda-hover: rgba(0, 221, 255, 0.42);
+
+    --nw-sombra: 0 10px 35px rgba(0, 0, 0, 0.30);
+    --nw-sombra-hover: 0 15px 40px rgba(0, 130, 255, 0.15);
+}
+
+
+/* =========================================================
+   FUNDO
+   ========================================================= */
+
+html[data-tema="escuro"] body {
+    background:
+        radial-gradient(
+            circle at 85% 8%,
+            rgba(0, 221, 255, 0.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 45%,
+            rgba(141, 92, 255, 0.07),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #020713 0%,
+            #071225 50%,
+            #020713 100%
+        ) !important;
+
+    color: #edf8ff !important;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+html[data-tema="escuro"] .hero {
+    background:
+        radial-gradient(
+            circle at 82% 30%,
+            rgba(0, 221, 255, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #020713 0%,
+            #071225 55%,
+            #08172d 100%
+        ) !important;
+
+    border-bottom: 1px solid rgba(0, 221, 255, 0.16) !important;
+}
+
+
+/* Luzes do hero voltam a aparecer */
+
+html[data-tema="escuro"] .hero-camada-luz {
+    opacity: 0.65 !important;
+}
+
+html[data-tema="escuro"] .hero-luz-azul {
+    background: rgba(0, 221, 255, 0.16) !important;
+}
+
+html[data-tema="escuro"] .hero-luz-roxa {
+    background: rgba(141, 92, 255, 0.12) !important;
+}
+
+
+/* =========================================================
+   TEXTOS DO HERO
+   ========================================================= */
+
+html[data-tema="escuro"] .hero-etiqueta {
+    color: #2399ff !important;
+}
+
+html[data-tema="escuro"] .ponto-etiqueta {
+    background: #00ddff !important;
+
+    box-shadow:
+        0 0 0 4px rgba(0, 221, 255, 0.10),
+        0 0 12px rgba(0, 221, 255, 0.45) !important;
+}
+
+html[data-tema="escuro"] .hero-texto h1 {
+    color: #edf8ff !important;
+}
+
+html[data-tema="escuro"] .hero-texto h1 span {
+    color: #00ddff !important;
+
+    background: none !important;
+    -webkit-text-fill-color: #00ddff !important;
+}
+
+html[data-tema="escuro"] .hero-texto > p {
+    color: #a8c2d6 !important;
+}
+
+
+/* =========================================================
+   BUSCA
+   ========================================================= */
+
+html[data-tema="escuro"] .barra-busca {
+    background: #0b172b !important;
+
+    border-color: rgba(0, 221, 255, 0.16) !important;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.30) !important;
+}
+
+html[data-tema="escuro"] .campo-busca {
+    background: transparent !important;
+}
+
+html[data-tema="escuro"] .campo-busca i {
+    color: #00ddff !important;
+}
+
+html[data-tema="escuro"] .campo-busca input,
+html[data-tema="escuro"] .campo-busca select {
+    color: #edf8ff !important;
+
+    background: transparent !important;
+}
+
+html[data-tema="escuro"] .campo-busca input::placeholder {
+    color: #7693aa !important;
+}
+
+
+/* Botão pesquisar */
+
+html[data-tema="escuro"] .botao-busca {
+    background: #2399ff !important;
+    color: white !important;
+
+    box-shadow:
+        0 7px 20px rgba(35, 153, 255, 0.25) !important;
+}
+
+html[data-tema="escuro"] .botao-busca:hover {
+    background: #00ddff !important;
+    color: #020713 !important;
+}
+
+
+/* =========================================================
+   INDICADOR
+   ========================================================= */
+
+html[data-tema="escuro"] .indicador-oportunidades {
+    color: #a8c2d6 !important;
+}
+
+html[data-tema="escuro"] .indicador-oportunidades strong {
+    color: #edf8ff !important;
+}
+
+html[data-tema="escuro"] .indicador-ponto {
+    background: #18b875 !important;
+}
+
+
+/* =========================================================
+   ELEMENTOS FLUTUANTES
+   ========================================================= */
+
+html[data-tema="escuro"] .elemento-flutuante {
+    background: rgba(11, 23, 43, 0.92) !important;
+
+    border-color: rgba(0, 221, 255, 0.16) !important;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.30) !important;
+
+    color: #edf8ff !important;
+}
+
+html[data-tema="escuro"] .elemento-flutuante strong {
+    color: #edf8ff !important;
+}
+
+html[data-tema="escuro"] .elemento-flutuante span:not(.elemento-flutuante-icone) {
+    color: #7693aa !important;
+}
+
+html[data-tema="escuro"] .elemento-flutuante-icone {
+    background: rgba(0, 221, 255, 0.10) !important;
+
+    color: #00ddff !important;
+}
+
+
+/* =========================================================
+   TÍTULOS DAS SEÇÕES
+   ========================================================= */
+
+html[data-tema="escuro"] .etiqueta-secao {
+    color: #2399ff !important;
+}
+
+html[data-tema="escuro"] .cabecalho-secao h2 {
+    color: #edf8ff !important;
+}
+
+html[data-tema="escuro"] .cabecalho-secao p {
+    color: #a8c2d6 !important;
+}
+
+html[data-tema="escuro"] .link-ver-todos {
+    color: #00ddff !important;
+}
+
+html[data-tema="escuro"] .link-ver-todos:hover {
+    color: #2399ff !important;
+}
+
+
+/* =========================================================
+   CARDS DE VAGAS
+   ========================================================= */
+
+html[data-tema="escuro"] .card-vaga {
+    background: #0b172b !important;
+
+    border-color: rgba(0, 221, 255, 0.16) !important;
+
+    color: #edf8ff !important;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.30) !important;
+}
+
+html[data-tema="escuro"] .card-vaga:hover {
+    border-color: rgba(0, 221, 255, 0.42) !important;
+
+    box-shadow:
+        0 15px 40px rgba(0, 130, 255, 0.15) !important;
+}
+
+html[data-tema="escuro"] .icone-vaga {
+    background: rgba(0, 221, 255, 0.08) !important;
+
+    border-color: rgba(0, 221, 255, 0.18) !important;
+}
+
+html[data-tema="escuro"] .tipo-vaga {
+    background: rgba(35, 153, 255, 0.10) !important;
+
+    color: #2399ff !important;
+
+    border-color: rgba(35, 153, 255, 0.20) !important;
+}
+
+html[data-tema="escuro"] .card-vaga h3 {
+    color: #edf8ff !important;
+}
+
+html[data-tema="escuro"] .empresa-vaga,
+html[data-tema="escuro"] .informacao-vaga {
+    color: #a8c2d6 !important;
+}
+
+html[data-tema="escuro"] .informacao-vaga i {
+    color: #00ddff !important;
+}
+
+html[data-tema="escuro"] .habilidades-vaga span {
+    background: #101f38 !important;
+
+    color: #a8c2d6 !important;
+
+    border-color: rgba(0, 221, 255, 0.12) !important;
+}
+
+html[data-tema="escuro"] .link-vaga {
+    color: #00ddff !important;
+}
+
+
+/* =========================================================
+   ENCONTRE O QUE PRECISA
+   ========================================================= */
+
+html[data-tema="escuro"] .encontre {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(2, 7, 19, 0.40),
+            rgba(7, 18, 37, 0.65)
+        ) !important;
+}
+
+html[data-tema="escuro"] .card-destaque {
+    background: #0b172b !important;
+
+    border-color: rgba(0, 221, 255, 0.16) !important;
+
+    color: #edf8ff !important;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.30) !important;
+}
+
+html[data-tema="escuro"] .card-destaque:hover {
+    box-shadow:
+        0 15px 40px rgba(0, 130, 255, 0.15) !important;
+}
+
+html[data-tema="escuro"] .card-destaque h3 {
+    color: #edf8ff !important;
+}
+
+html[data-tema="escuro"] .card-destaque p {
+    color: #a8c2d6 !important;
+}
+
+
+/* Ícones */
+
+html[data-tema="escuro"] .card-destaque.verde .icone-destaque {
+    background: rgba(21, 148, 91, 0.12) !important;
+}
+
+html[data-tema="escuro"] .card-destaque.azul .icone-destaque {
+    background: rgba(35, 153, 255, 0.12) !important;
+}
+
+html[data-tema="escuro"] .card-destaque.laranja .icone-destaque {
+    background: rgba(232, 138, 44, 0.12) !important;
+}
+
+html[data-tema="escuro"] .card-destaque.roxo .icone-destaque {
+    background: rgba(141, 92, 255, 0.12) !important;
+}
+
+
+/* =========================================================
+   PROFISSIONAIS
+   ========================================================= */
+
+html[data-tema="escuro"] .card-profissional {
+    background: #0b172b !important;
+
+    border-color: rgba(0, 221, 255, 0.16) !important;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.30) !important;
+}
+
+html[data-tema="escuro"] .card-profissional:hover {
+    border-color: rgba(0, 221, 255, 0.42) !important;
+
+    box-shadow:
+        0 15px 40px rgba(0, 130, 255, 0.15) !important;
+}
+
+html[data-tema="escuro"] .foto-profissional {
+    background: #101f38 !important;
+
+    border-color: rgba(0, 221, 255, 0.16) !important;
+}
+
+html[data-tema="escuro"] .dados-profissional h3 {
+    color: #edf8ff !important;
+}
+
+html[data-tema="escuro"] .dados-profissional .profissao {
+    color: #2399ff !important;
+}
+
+html[data-tema="escuro"] .local-profissional {
+    color: #a8c2d6 !important;
+}
+
+html[data-tema="escuro"] .local-profissional i {
+    color: #00ddff !important;
+}
+
+html[data-tema="escuro"] .habilidades-profissional span {
+    background: #101f38 !important;
+
+    color: #a8c2d6 !important;
+
+    border-color: rgba(0, 221, 255, 0.12) !important;
+}
+
+html[data-tema="escuro"] .link-perfil {
+    color: #00ddff !important;
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+html[data-tema="escuro"] footer {
+    background: #020713 !important;
+
+    color: #d9edf7 !important;
+
+    border-top-color: rgba(0, 221, 255, 0.16) !important;
+}
+
+html[data-tema="escuro"] .rodape-final {
+    color: #a8c2d6 !important;
+}
+
+
+/* =========================================================
+   FOCO
+   ========================================================= */
+
+html[data-tema="escuro"] a:focus-visible,
+html[data-tema="escuro"] button:focus-visible,
+html[data-tema="escuro"] input:focus-visible,
+html[data-tema="escuro"] select:focus-visible {
+    outline-color: rgba(0, 221, 255, 0.55) !important;
+}
