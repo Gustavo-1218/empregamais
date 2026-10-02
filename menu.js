@@ -140,8 +140,6 @@ function marcarPaginaAtual() {
             .pop();
 
 
-    /* Caso esteja na página inicial */
-
     if (
         paginaAtual === "" ||
         paginaAtual === "/"
@@ -210,16 +208,19 @@ function marcarPaginaAtual() {
 
 function ativarTema() {
 
-    const botaoTema =
+    const botaoDesktop =
         document.getElementById("botao-tema");
 
+    const botaoMobile =
+        document.getElementById("botao-tema-mobile");
 
-    if (!botaoTema) {
+
+    if (!botaoDesktop && !botaoMobile) {
         return;
     }
 
 
-    /* Verifica se o usuário já escolheu um tema */
+    /* Verifica se existe um tema salvo */
 
     const temaSalvo =
         localStorage.getItem("nextwork-tema");
@@ -235,152 +236,162 @@ function ativarTema() {
     }
 
 
-    atualizarBotaoTema();
+    atualizarBotoesTema();
 
 
-    /* Quando clicar no botão */
+    /* Botão desktop */
 
-    botaoTema.addEventListener(
-        "click",
-        function () {
+    if (botaoDesktop) {
 
-            const temaAtual =
-                document.documentElement
-                    .getAttribute("data-tema");
+        botaoDesktop.addEventListener(
+            "click",
+            alternarTema
+        );
 
-
-            if (temaAtual === "escuro") {
-
-                /* Volta para o tema claro */
-
-                document.documentElement
-                    .removeAttribute("data-tema");
+    }
 
 
-                localStorage.setItem(
-                    "nextwork-tema",
-                    "claro"
-                );
+    /* Botão mobile */
 
+    if (botaoMobile) {
 
-            } else {
+        botaoMobile.addEventListener(
+            "click",
+            alternarTema
+        );
 
-                /* Ativa o tema escuro */
-
-                document.documentElement
-                    .setAttribute(
-                        "data-tema",
-                        "escuro"
-                    );
-
-
-                localStorage.setItem(
-                    "nextwork-tema",
-                    "escuro"
-                );
-
-            }
-
-
-            atualizarBotaoTema();
-
-        }
-    );
+    }
 
 }
 
 
 /* =========================================================
-   ATUALIZAR BOTÃO DO TEMA
+   ALTERNAR TEMA
    ========================================================= */
 
-function atualizarBotaoTema() {
+function alternarTema() {
 
-    const botaoTema =
-        document.getElementById("botao-tema");
-
-
-    if (!botaoTema) {
-        return;
-    }
-
-
-    const icone =
-        botaoTema.querySelector("i");
-
-
-    const texto =
-        botaoTema.querySelector("span");
-
-
-    const estaEscuro =
-        document.documentElement
-            .getAttribute("data-tema") === "escuro";
-
-
-    if (estaEscuro) {
-
-        /* Botão mostra opção de voltar ao claro */
-
-        if (icone) {
-
-            icone.className =
-                "fa-solid fa-sun";
-
-        }
-
-
-        if (texto) {
-
-            texto.textContent =
-                "Modo claro";
-
-        }
-
-
-        botaoTema.setAttribute(
-            "aria-label",
-            "Ativar modo claro"
+    const temaAtual =
+        document.documentElement.getAttribute(
+            "data-tema"
         );
 
 
-        botaoTema.setAttribute(
-            "aria-pressed",
-            "true"
+    if (temaAtual === "escuro") {
+
+        /* Modo claro */
+
+        document.documentElement.removeAttribute(
+            "data-tema"
+        );
+
+        localStorage.setItem(
+            "nextwork-tema",
+            "claro"
         );
 
 
     } else {
 
-        /* Botão mostra opção de ativar escuro */
+        /* Modo escuro */
 
-        if (icone) {
-
-            icone.className =
-                "fa-solid fa-moon";
-
-        }
-
-
-        if (texto) {
-
-            texto.textContent =
-                "Modo escuro";
-
-        }
-
-
-        botaoTema.setAttribute(
-            "aria-label",
-            "Ativar modo escuro"
+        document.documentElement.setAttribute(
+            "data-tema",
+            "escuro"
         );
 
-
-        botaoTema.setAttribute(
-            "aria-pressed",
-            "false"
+        localStorage.setItem(
+            "nextwork-tema",
+            "escuro"
         );
 
     }
+
+
+    atualizarBotoesTema();
+
+}
+
+
+/* =========================================================
+   ATUALIZAR OS BOTÕES
+   ========================================================= */
+
+function atualizarBotoesTema() {
+
+    const botoes = [
+        document.getElementById("botao-tema"),
+        document.getElementById("botao-tema-mobile")
+    ];
+
+
+    const estaEscuro =
+        document.documentElement.getAttribute(
+            "data-tema"
+        ) === "escuro";
+
+
+    botoes.forEach(function (botao) {
+
+        if (!botao) {
+            return;
+        }
+
+
+        const icone =
+            botao.querySelector("i");
+
+        const texto =
+            botao.querySelector("span");
+
+
+        if (estaEscuro) {
+
+            if (icone) {
+                icone.className =
+                    "fa-solid fa-sun";
+            }
+
+            if (texto) {
+                texto.textContent =
+                    "Modo claro";
+            }
+
+            botao.setAttribute(
+                "aria-label",
+                "Ativar modo claro"
+            );
+
+            botao.setAttribute(
+                "aria-pressed",
+                "true"
+            );
+
+
+        } else {
+
+            if (icone) {
+                icone.className =
+                    "fa-solid fa-moon";
+            }
+
+            if (texto) {
+                texto.textContent =
+                    "Modo escuro";
+            }
+
+            botao.setAttribute(
+                "aria-label",
+                "Ativar modo escuro"
+            );
+
+            botao.setAttribute(
+                "aria-pressed",
+                "false"
+            );
+
+        }
+
+    });
 
 }
