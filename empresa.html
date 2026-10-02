@@ -1,1072 +1,1070 @@
-<!DOCTYPE html>  <html lang="pt-BR">  <head>  <!-- Configurações básicas da página -->    <meta charset="UTF-8">    
-<meta name="viewport" content="width=device-width, initial-scale=1.0">    <!-- Título exibido na aba do navegador -->    <title>NEXT WORK - Radar</title>    <!-- CSS do menu universal -->    <link rel="stylesheet" href="menu.css">    <!-- CSS específico desta página -->    <link rel="stylesheet" href="empresastl.css">    <!-- Fonte utilizada no projeto -->    <link rel="preconnect" href="https://fonts.googleapis.com">    
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link    
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"    
-    rel="stylesheet"    
->    <!-- Biblioteca de ícones -->    <link    
-    rel="stylesheet"    
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"    
->  </head>  <body>  <!-- =========================================================    
-     MENU UNIVERSAL    
-     O menu é carregado pelo menu.js dentro desta div.    
-     ========================================================= -->    <div id="menu"></div>    <!-- =========================================================    
-     CONTEÚDO PRINCIPAL DA PÁGINA    
-     ========================================================= -->    <main>    <!-- =====================================================    
-     INTRODUÇÃO DO RADAR    
-     Título e pequena explicação da página.    
-     ===================================================== -->    
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-<section class="radar-introducao">    
+<head>
 
-    <!-- Pequena identificação da seção -->    
-    <div class="radar-etiqueta">    
+    <!-- Configurações básicas da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <span class="radar-etiqueta-ponto"></span>    
+    <!-- Título exibido na aba do navegador -->
+    <title>NEXT WORK - Radar</title>
 
-        RADAR NEXT WORK    
+    <!-- CSS do menu universal -->
+    <link rel="stylesheet" href="menu.css">
 
-    </div>    
+    <!-- CSS específico desta página -->
+    <link rel="stylesheet" href="empresastl.css">
 
+    <!-- Fonte utilizada no projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Título principal -->    
-    <h1>    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-        Descubra o que está acontecendo    
+    <!-- Biblioteca de ícones -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    >
 
-        <span>ao seu redor.</span>    
+</head>
 
-    </h1>    
 
+<body>
 
-    <!-- Texto explicativo -->    
-    <p>    
+    <!-- =========================================================
+         MENU UNIVERSAL
+         ========================================================= -->
 
-        Conecte-se com vagas, empresas, profissionais e serviços    
-        próximos a você.    
+    <div id="menu"></div>
 
-    </p>    
 
-</section>    
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL
+         ========================================================= -->
 
+    <main>
 
 
-<!-- =====================================================    
-     PAINEL PRINCIPAL    
-         
-     Aqui ficam:    
-     - Radar    
-     - Filtros    
-     - Região    
-     - Conexões ativas    
-     - Explorar radar    
-     ===================================================== -->    
+        <!-- =====================================================
+             INTRODUÇÃO DO RADAR
+             ===================================================== -->
 
-<section class="radar-painel">    
+        <section class="radar-introducao">
 
+            <div class="radar-etiqueta">
 
-    <!-- =================================================    
-         ÁREA DO RADAR    
-         ================================================= -->    
+                <span class="radar-etiqueta-ponto"></span>
 
-    <div class="radar-area">    
-
-
-        <!-- Cabeçalho do radar -->    
-        <div class="radar-cabecalho">    
-
-
-            <!-- Ícone circular luminoso -->    
-            <div class="icone-circular icone-radar">    
-
-                <i class="fa-solid fa-satellite-dish"></i>    
-
-            </div>    
-
-
-            <!-- Título e descrição -->    
-            <div>    
-
-                <h2>Radar de oportunidades</h2>    
-
-                <p>    
-                    Descubra o que está ao seu redor.    
-                </p>    
-
-            </div>    
-
-        </div>    
-
-
-
-        <!-- =================================================    
-             RADAR    
-                 
-             Os círculos e linhas serão estilizados pelo CSS.    
-             Os pontos poderão ser movimentados/interagidos    
-             posteriormente pelo JavaScript.    
-             ================================================= -->    
-
-        <div class="radar">    
-
-
-            <!-- Círculos concêntricos -->    
-            <div class="radar-circulo radar-circulo-1"></div>    
-
-            <div class="radar-circulo radar-circulo-2"></div>    
-
-            <div class="radar-circulo radar-circulo-3"></div>    
-
-            <div class="radar-circulo radar-circulo-4"></div>    
-
-
-            <!-- Linhas de orientação -->    
-            <div class="radar-linha radar-linha-horizontal"></div>    
-
-            <div class="radar-linha radar-linha-vertical"></div>    
-
-
-            <!-- Área responsável pela animação de varredura -->    
-            <div class="radar-varredura"></div>    
-
-
-
-            <!-- =================================================    
-                 VOCÊ    
-                     
-                 O usuário fica sempre no centro do radar.    
-                 ================================================= -->    
-
-            <div class="radar-ponto ponto-voce">    
-
-                <div class="ponto-icone">    
-
-                    <i class="fa-solid fa-location-dot"></i>    
-
-                </div>    
-
-                <span>Você</span>    
-
-            </div>    
-
-
-
-            <!-- =================================================    
-                 PONTOS DE VAGAS    
-                 ================================================= -->    
-
-            <button    
-                class="radar-ponto ponto-vaga ponto-1"    
-                data-tipo="vaga"    
-            >    
-
-
-            </button>    
-
-
-            <button    
-                class="radar-ponto ponto-vaga ponto-2"    
-                data-tipo="vaga"    
-            >    
-
-
-            </button>    
-
-
-
-            <!-- =================================================    
-                 PONTOS DE EMPRESAS    
-                 ================================================= -->    
-
-            <button    
-                class="radar-ponto ponto-empresa ponto-3"    
-                data-tipo="empresa"    
-            >    
-
-
-
-            </button>    
-
-
-            <button    
-                class="radar-ponto ponto-empresa ponto-4"    
-                data-tipo="empresa"    
-            >    
-
-
-
-            </button>    
-
-
-
-            <!-- =================================================    
-                 PONTOS DE PROFISSIONAIS    
-                 ================================================= -->    
-
-            <button    
-                class="radar-ponto ponto-profissional ponto-5"    
-                data-tipo="profissional"    
-            >    
-
-
-            </button>    
-
-
-            <button    
-                class="radar-ponto ponto-profissional ponto-6"    
-                data-tipo="profissional"    
-            >    
-
-
-            </button>    
-
-
-
-            <!-- =================================================    
-                 PONTOS DE SERVIÇOS    
-                 ================================================= -->    
-
-            <button    
-                class="radar-ponto ponto-servico ponto-7"    
-                data-tipo="servico"    
-            >    
-
-
-            </button>    
-
-
-            <button    
-                class="radar-ponto ponto-servico ponto-8"    
-                data-tipo="servico"    
-            >    
-
-
-            </button>    
-
-
-        </div>    
-
-
-
-        <!-- =================================================    
-             LEGENDA DO RADAR    
-                 
-             Mostra o significado de cada cor.    
-             ================================================= -->    
-
-        <div class="radar-legenda">    
-
-
-            <span class="legenda-item legenda-vaga">    
-
-                <span class="legenda-ponto"></span>    
-
-                Vagas    
-
-            </span>    
-
-
-            <span class="legenda-item legenda-empresa">    
-
-                <span class="legenda-ponto"></span>    
-
-                Empresas    
-
-            </span>    
-
-
-            <span class="legenda-item legenda-profissional">    
-
-                <span class="legenda-ponto"></span>    
-
-                Profissionais    
-
-            </span>    
-
-
-            <span class="legenda-item legenda-servico">    
-
-                <span class="legenda-ponto"></span>    
-
-                Serviços    
-
-            </span>    
-
-
-        </div>    
-
-
-
-        <!-- =================================================    
-             RODAPÉ DO RADAR    
-             ================================================= -->    
-
-        <div class="radar-rodape">    
-
-
-            <!-- Indicador de atualização -->    
-            <span>    
-
-                <span class="status-online"></span>    
-
-                Atualizando em tempo real...    
-
-            </span>    
-
-
-            <!-- Botão que futuramente poderá abrir o mapa -->    
-            <button class="botao-mapa">    
-
-                <i class="fa-solid fa-map"></i>    
-
-               <a href="mappa.html" >Ver mapa completo</a>     
-
-            </button>    
-
-
-        </div>    
-
-
-    </div>    
-
-
-
-    <!-- =====================================================    
-         PAINEL LATERAL    
-         ===================================================== -->    
-
-    <aside class="radar-informacoes">    
-
-
-        <!-- =================================================    
-             FILTROS    
-             ================================================= -->    
-
-        <div class="painel-bloco">    
-
-
-            <!-- Título do painel -->    
-            <div class="painel-titulo">    
-
-
-                <div class="icone-circular">    
-
-                    <i class="fa-solid fa-sliders"></i>    
-
-                </div>    
-
-
-                <div>    
-
-                    <h3>Filtros</h3>    
-
-                    <p>    
-                        O que você quer encontrar?    
-                    </p>    
-
-                </div>    
-
-
-            </div>    
-
-
-
-            <!-- Botões dos filtros -->    
-            <div class="filtros">    
-
-
-                <!-- Filtro de vagas -->    
-                <button    
-                    class="filtro filtro-vaga ativo"    
-                    data-filtro="vaga"    
-                >    
-
-                    <span class="filtro-icone">    
-
-                        <i class="fa-solid fa-briefcase"></i>    
-
-                    </span>    
-
-                    Vagas    
-
-                </button>    
-
-
-
-                <!-- Filtro de empresas -->    
-                <button    
-                    class="filtro filtro-empresa ativo"    
-                    data-filtro="empresa"    
-                >    
-
-                    <span class="filtro-icone">    
-
-                        <i class="fa-solid fa-building"></i>    
-
-                    </span>    
-
-                    Empresas    
-
-                </button>    
-
-
-
-                <!-- Filtro de profissionais -->    
-                <button    
-                    class="filtro filtro-profissional ativo"    
-                    data-filtro="profissional"    
-                >    
-
-                    <span class="filtro-icone">    
-
-                        <i class="fa-solid fa-user"></i>    
-
-                    </span>    
-
-                    Profissionais    
-
-                </button>    
-
-
-
-                <!-- Filtro de serviços -->    
-                <button    
-                    class="filtro filtro-servico ativo"    
-                    data-filtro="servico"    
-                >    
-
-                    <span class="filtro-icone">    
-
-                        <i class="fa-solid fa-screwdriver-wrench"></i>    
-
-                    </span>    
-
-                    Serviços    
-
-                </button>    
-
-
-            </div>    
-
-
-        </div>    
-
-
-
-        <!-- =================================================    
-             REGIÃO DO USUÁRIO    
-             ================================================= -->    
-
-        <div class="painel-bloco regiao">    
-
-
-            <div class="regiao-conteudo">    
-
-
-                <!-- Ícone de localização -->    
-                <div class="icone-circular icone-localizacao">    
-
-                    <i class="fa-solid fa-location-dot"></i>    
-
-                </div>    
-
-
-                <!-- Região atual -->    
-                <div>    
-
-                    <span>Sua região</span>    
-
-                    <strong>    
-                        Extremoz - RN    
-                    </strong>    
-
-                </div>    
-
-
-            </div>    
-
-
-            <!-- Botão para alterar região -->    
-            <button class="botao-alterar">    
-
-                Alterar    
-
-            </button>    
-
-
-        </div>    
-
-
-
-        <!-- =================================================    
-             CONEXÕES ATIVAS    
-             ================================================= -->    
-
-        <div class="painel-bloco conexoes">    
-
-
-            <!-- Cabeçalho -->    
-            <div class="painel-titulo">    
-
-
-                <div class="icone-circular icone-conexoes">    
-
-                    <i class="fa-solid fa-circle-nodes"></i>    
-
-                </div>    
-
-
-                <div>    
-
-                    <h3>    
-                        Conexões ativas    
-                    </h3>    
-
-                    <p>    
-                        Pessoas e oportunidades próximas de você.    
-                    </p>    
-
-                </div>    
-
-
-            </div>    
-
-
-
-            <!-- Números das conexões -->    
-            <div class="conexoes-grid">    
-
-
-                <!-- Quantidade de vagas -->    
-                <div class="conexao-card conexao-vagas">    
-
-                    <div class="conexao-icone">    
-
-                        <i class="fa-solid fa-briefcase"></i>    
-
-                    </div>    
-
-                    <strong>128</strong>    
-
-                    <span>Vagas</span>    
-
-                </div>    
-
-
-
-                <!-- Quantidade de empresas -->    
-                <div class="conexao-card conexao-empresas">    
-
-                    <div class="conexao-icone">    
-
-                        <i class="fa-solid fa-building"></i>    
-
-                    </div>    
-
-                    <strong>43</strong>    
-
-                    <span>Empresas</span>    
-
-                </div>    
-
-
-
-                <!-- Quantidade de profissionais -->    
-                <div class="conexao-card conexao-profissionais">    
-
-                    <div class="conexao-icone">    
-
-                        <i class="fa-solid fa-user"></i>    
-
-                    </div>    
-
-                    <strong>67</strong>    
-
-                    <span>Profissionais</span>    
-
-                </div>    
-
-
-
-                <!-- Quantidade de serviços -->    
-                <div class="conexao-card conexao-servicos">    
-
-                    <div class="conexao-icone">    
-
-                        <i class="fa-solid fa-screwdriver-wrench"></i>    
-
-                    </div>    
-
-                    <strong>35</strong>    
-
-                    <span>Serviços</span>    
-
-                </div>    
-
-
-            </div>    
-
-
-        </div>
-
-<!-- =================================================    
-     BOTÃO PARA EXPLORAR O RADAR    
-     ================================================= -->  <a href="#radar" class="painel-explorar">  <span class="icone-circular">    <i class="fa-solid fa-star"></i>
-
-</span>    <span class="explorar-texto">    <strong>    
-    Explore o radar    
-</strong>    
-
-<small>    
-    Clique nos pontos para ver mais informações    
-</small>
-
-</span>    <i class="fa-solid fa-arrow-right"></i>
-
-</a>  </aside>  </section> 
-
-<!-- =====================================================
-     RESULTADOS — VAGAS PRÓXIMAS
-     ===================================================== -->
-
-<section class="resultados" id="vagas-proximas">
-
-
-    <!-- Cabeçalho da seção -->
-    <div class="secao-cabecalho">
-
-
-        <div class="secao-titulo">
-
-
-            <div class="icone-circular">
-
-                <i class="fa-solid fa-briefcase"></i>
+                RADAR NEXT WORK
 
             </div>
 
 
-            <div>
+            <h1>
+
+                Descubra o que está acontecendo
+
+                <span>ao seu redor.</span>
+
+            </h1>
+
+
+            <p>
+
+                Conecte-se com vagas, empresas, profissionais e serviços
+                próximos a você.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PAINEL PRINCIPAL
+             ===================================================== -->
+
+        <section class="radar-painel">
+
+
+            <!-- =================================================
+                 ÁREA DO RADAR
+                 ================================================= -->
+
+            <div class="radar-area">
+
+
+                <!-- Cabeçalho do radar -->
+
+                <div class="radar-cabecalho">
+
+                    <div class="icone-circular icone-radar">
+
+                        <i class="fa-solid fa-satellite-dish"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>Radar de oportunidades</h2>
+
+                        <p>
+                            Descubra o que está ao seu redor.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RADAR
+                     ================================================= -->
+
+                <div class="radar">
+
+
+                    <!-- Círculos concêntricos -->
+
+                    <div class="radar-circulo radar-circulo-1"></div>
+
+                    <div class="radar-circulo radar-circulo-2"></div>
+
+                    <div class="radar-circulo radar-circulo-3"></div>
+
+                    <div class="radar-circulo radar-circulo-4"></div>
+
+
+                    <!-- Linhas de orientação -->
+
+                    <div class="radar-linha radar-linha-horizontal"></div>
+
+                    <div class="radar-linha radar-linha-vertical"></div>
+
+
+                    <!-- Área responsável pela animação -->
+
+                    <div class="radar-varredura"></div>
+
+
+
+                    <!-- =================================================
+                         VOCÊ
+                         ================================================= -->
+
+                    <div class="radar-ponto ponto-voce">
+
+                        <div class="ponto-icone">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+                        <span>Você</span>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         PONTOS DE VAGAS
+                         ================================================= -->
+
+                    <button
+                        class="radar-ponto ponto-vaga ponto-1"
+                        data-tipo="vaga"
+                    ></button>
+
+
+                    <button
+                        class="radar-ponto ponto-vaga ponto-2"
+                        data-tipo="vaga"
+                    ></button>
+
+
+
+                    <!-- =================================================
+                         PONTOS DE EMPRESAS
+                         ================================================= -->
+
+                    <button
+                        class="radar-ponto ponto-empresa ponto-3"
+                        data-tipo="empresa"
+                    ></button>
+
+
+                    <button
+                        class="radar-ponto ponto-empresa ponto-4"
+                        data-tipo="empresa"
+                    ></button>
+
+
+
+                    <!-- =================================================
+                         PONTOS DE PROFISSIONAIS
+                         ================================================= -->
+
+                    <button
+                        class="radar-ponto ponto-profissional ponto-5"
+                        data-tipo="profissional"
+                    ></button>
+
+
+                    <button
+                        class="radar-ponto ponto-profissional ponto-6"
+                        data-tipo="profissional"
+                    ></button>
+
+
+
+                    <!-- =================================================
+                         PONTOS DE SERVIÇOS
+                         ================================================= -->
+
+                    <button
+                        class="radar-ponto ponto-servico ponto-7"
+                        data-tipo="servico"
+                    ></button>
+
+
+                    <button
+                        class="radar-ponto ponto-servico ponto-8"
+                        data-tipo="servico"
+                    ></button>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LEGENDA DO RADAR
+                     ================================================= -->
+
+                <div class="radar-legenda">
+
+
+                    <span class="legenda-item legenda-vaga">
+
+                        <span class="legenda-ponto"></span>
+
+                        Vagas
+
+                    </span>
+
+
+                    <span class="legenda-item legenda-empresa">
+
+                        <span class="legenda-ponto"></span>
+
+                        Empresas
+
+                    </span>
+
+
+                    <span class="legenda-item legenda-profissional">
+
+                        <span class="legenda-ponto"></span>
+
+                        Profissionais
+
+                    </span>
+
+
+                    <span class="legenda-item legenda-servico">
+
+                        <span class="legenda-ponto"></span>
+
+                        Serviços
+
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RODAPÉ DO RADAR
+                     ================================================= -->
+
+                <div class="radar-rodape">
+
+
+                    <span>
+
+                        <span class="status-online"></span>
+
+                        Atualizando em tempo real...
+
+                    </span>
+
+
+                    <a
+                        href="mappa.html"
+                        class="botao-mapa"
+                    >
+
+                        <i class="fa-solid fa-map"></i>
+
+                        Ver mapa completo
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================================
+                 PAINEL LATERAL
+                 ===================================================== -->
+
+            <aside class="radar-informacoes">
+
+
+                <!-- =================================================
+                     FILTROS
+                     ================================================= -->
+
+                <div class="painel-bloco">
+
+
+                    <div class="painel-titulo">
+
+                        <div class="icone-circular">
+
+                            <i class="fa-solid fa-sliders"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>Filtros</h3>
+
+                            <p>
+                                O que você quer encontrar?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="filtros">
+
+
+                        <button
+                            class="filtro filtro-vaga ativo"
+                            data-filtro="vaga"
+                        >
+
+                            <span class="filtro-icone">
+
+                                <i class="fa-solid fa-briefcase"></i>
+
+                            </span>
+
+                            Vagas
+
+                        </button>
+
+
+
+                        <button
+                            class="filtro filtro-empresa ativo"
+                            data-filtro="empresa"
+                        >
+
+                            <span class="filtro-icone">
+
+                                <i class="fa-solid fa-building"></i>
+
+                            </span>
+
+                            Empresas
+
+                        </button>
+
+
+
+                        <button
+                            class="filtro filtro-profissional ativo"
+                            data-filtro="profissional"
+                        >
+
+                            <span class="filtro-icone">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </span>
+
+                            Profissionais
+
+                        </button>
+
+
+
+                        <button
+                            class="filtro filtro-servico ativo"
+                            data-filtro="servico"
+                        >
+
+                            <span class="filtro-icone">
+
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                            </span>
+
+                            Serviços
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     REGIÃO DO USUÁRIO
+                     ================================================= -->
+
+                <div class="painel-bloco regiao">
+
+
+                    <div class="regiao-conteudo">
+
+
+                        <div class="icone-circular icone-localizacao">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>Sua região</span>
+
+                            <strong>
+                                Extremoz - RN
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button class="botao-alterar">
+
+                        Alterar
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     NEXT IA
+                     Substitui o antigo bloco "Conexões ativas"
+                     ================================================= -->
+
+                <div class="painel-bloco painel-next-ia">
+
+
+                    <!-- Cabeçalho -->
+
+                    <div class="next-ia-cabecalho">
+
+
+                        <div class="next-ia-logo">
+
+                            <img
+                                src="ia circulo.png"
+                                alt="NEXT IA"
+                            >
+
+                        </div>
+
+
+                        <div class="next-ia-titulo">
+
+                            <h3>NEXT IA</h3>
+
+                            <span>
+                                Assistente de conexões
+                            </span>
+
+                        </div>
+
+
+                        <span class="next-ia-status">
+
+                            <span class="next-ia-status-ponto"></span>
+
+                            Ativa
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- Conteúdo -->
+
+                    <div class="next-ia-conteudo">
+
+
+                        <div class="next-ia-logo-grande">
+
+                            <img
+                                src="ia quadrado.png"
+                                alt="NEXT IA"
+                            >
+
+                        </div>
+
+
+                        <h4>
+                            Encontre sua próxima oportunidade.
+                        </h4>
+
+
+                        <p>
+
+                            A NEXT IA pode ajudar você a entender
+                            as conexões encontradas no radar e
+                            descobrir oportunidades compatíveis
+                            com o que procura.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- Ação -->
+
+                    <a
+                        href="NEXT-IA.html"
+                        class="botao-next-ia"
+                    >
+
+                        <span>
+                            Conversar com a NEXT IA
+                        </span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     EXPLORAR RADAR
+                     ================================================= -->
+
+                <a
+                    href="#radar"
+                    class="painel-explorar"
+                >
+
+                    <span class="icone-circular">
+
+                        <i class="fa-solid fa-star"></i>
+
+                    </span>
+
+
+                    <span class="explorar-texto">
+
+                        <strong>
+                            Explore o radar
+                        </strong>
+
+                        <small>
+                            Clique nos pontos para ver mais informações
+                        </small>
+
+                    </span>
+
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+
+            </aside>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RESULTADOS — VAGAS PRÓXIMAS
+             ===================================================== -->
+
+        <section
+            class="resultados"
+            id="vagas-proximas"
+        >
+
+
+            <div class="secao-cabecalho">
+
+
+                <div class="secao-titulo">
+
+
+                    <div class="icone-circular">
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Vagas próximas
+                        </h2>
+
+                        <p>
+                            Algumas oportunidades encontradas na sua região.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <a
+                    href="#vagas-proximas"
+                    class="ver-todos"
+                >
+
+                    Ver todas as vagas
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CARDS DE VAGAS
+                 ================================================= -->
+
+            <div class="cards-vagas">
+
+
+                <!-- VAGA 1 -->
+
+                <article class="card-vaga">
+
+
+                    <div class="card-vaga-topo">
+
+
+                        <div class="card-empresa-icone">
+
+                            <i class="fa-solid fa-code"></i>
+
+                        </div>
+
+
+                        <span>
+                            Tech Solutions
+                        </span>
+
+
+                        <button class="favorito">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <h3>
+                        Desenvolvedor Front-End
+                    </h3>
+
+
+                    <div class="card-informacoes">
+
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Natal - RN
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="fa-solid fa-route"></i>
+
+                            2,4 km
+
+                        </span>
+
+
+                    </div>
+
+
+                    <div class="card-tags">
+
+                        <span>HTML</span>
+
+                        <span>CSS</span>
+
+                        <span>JavaScript</span>
+
+                    </div>
+
+
+                    <a
+                        href="Minhas-candidaturas.html"
+                        class="botao-card"
+                    >
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                </article>
+
+
+
+                <!-- VAGA 2 -->
+
+                <article class="card-vaga">
+
+
+                    <div class="card-vaga-topo">
+
+
+                        <div class="card-empresa-icone">
+
+                            <i class="fa-solid fa-bullhorn"></i>
+
+                        </div>
+
+
+                        <span>
+                            Agência Criativa
+                        </span>
+
+
+                        <button class="favorito">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <h3>
+                        Analista de Marketing
+                    </h3>
+
+
+                    <div class="card-informacoes">
+
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Remoto
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="fa-solid fa-route"></i>
+
+                            5,8 km
+
+                        </span>
+
+
+                    </div>
+
+
+                    <div class="card-tags">
+
+                        <span>Marketing</span>
+
+                        <span>Comunicação</span>
+
+                    </div>
+
+
+                    <a
+                        href="Minhas-candidaturas.html"
+                        class="botao-card"
+                    >
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                </article>
+
+
+
+                <!-- VAGA 3 -->
+
+                <article class="card-vaga">
+
+
+                    <div class="card-vaga-topo">
+
+
+                        <div class="card-empresa-icone">
+
+                            <i class="fa-solid fa-building"></i>
+
+                        </div>
+
+
+                        <span>
+                            Empresa Parceira
+                        </span>
+
+
+                        <button class="favorito">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <h3>
+                        Assistente Administrativo
+                    </h3>
+
+
+                    <div class="card-informacoes">
+
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Extremoz - RN
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="fa-solid fa-route"></i>
+
+                            3,1 km
+
+                        </span>
+
+
+                    </div>
+
+
+                    <div class="card-tags">
+
+                        <span>Office</span>
+
+                        <span>Organização</span>
+
+                    </div>
+
+
+                    <a
+                        href="Minhas-candidaturas.html"
+                        class="botao-card"
+                    >
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                </article>
+
+
+
+                <!-- VAGA 4 -->
+
+                <article class="card-vaga">
+
+
+                    <div class="card-vaga-topo">
+
+
+                        <div class="card-empresa-icone">
+
+                            <i class="fa-solid fa-palette"></i>
+
+                        </div>
+
+
+                        <span>
+                            Studio Criativo
+                        </span>
+
+
+                        <button class="favorito">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <h3>
+                        Designer Gráfico
+                    </h3>
+
+
+                    <div class="card-informacoes">
+
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Natal - RN
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="fa-solid fa-route"></i>
+
+                            4,7 km
+
+                        </span>
+
+
+                    </div>
+
+
+                    <div class="card-tags">
+
+                        <span>Photoshop</span>
+
+                        <span>Design</span>
+
+                    </div>
+
+
+                    <a
+                        href="Minhas-candidaturas.html"
+                        class="botao-card"
+                    >
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FINAL DA PÁGINA
+             ===================================================== -->
+
+        <section class="radar-final">
+
+
+            <div class="radar-final-logo">
+
+                <span>NW</span>
+
+                <small>
+                    NEXT WORK
+                </small>
+
+            </div>
+
+
+            <div class="radar-final-texto">
 
                 <h2>
-                    Vagas próximas
+                    Mais que vagas, conexões reais.
                 </h2>
 
                 <p>
-                    Algumas oportunidades encontradas na sua região.
+                    Pessoas, empresas e oportunidades no mesmo lugar.
                 </p>
 
             </div>
 
 
-        </div>
+        </section>
 
 
-        <!-- Link para todas as vagas -->
-        <a
-            href="#vagas-proximas"
-            class="ver-todos"
-        >
+    </main>
 
-            Ver todas as vagas
 
-            <i class="fa-solid fa-arrow-right"></i>
 
-        </a>
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
 
+    <script src="menu.js"></script>
 
-    </div>
-
-
-
-    <!-- =================================================
-         CARDS DE VAGAS
-         ================================================= -->
-
-    <div class="cards-vagas">
-
-
-        <!-- Vaga 1 -->
-        <article class="card-vaga">
-
-
-            <div class="card-vaga-topo">
-
-
-                <div class="card-empresa-icone">
-
-                    <i class="fa-solid fa-code"></i>
-
-                </div>
-
-
-                <span>
-                    Tech Solutions
-                </span>
-
-
-                <button class="favorito">
-
-                    <i class="fa-regular fa-bookmark"></i>
-
-                </button>
-
-
-            </div>
-
-
-            <h3>
-                Desenvolvedor Front-End
-            </h3>
-
-
-            <div class="card-informacoes">
-
-                <span>
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    Natal - RN
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-route"></i>
-
-                    2,4 km
-
-                </span>
-
-            </div>
-
-
-            <div class="card-tags">
-
-                <span>HTML</span>
-
-                <span>CSS</span>
-
-                <span>JavaScript</span>
-
-            </div>
-
-
-            <!-- Link para a área de candidaturas -->
-            <a
-                href="Minhas-candidaturas.html"
-                class="botao-card"
-            >
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-
-        </article>
-
-
-
-        <!-- =================================================
-             VAGA 2
-             ================================================= -->
-
-        <article class="card-vaga">
-
-
-            <div class="card-vaga-topo">
-
-
-                <div class="card-empresa-icone">
-
-                    <i class="fa-solid fa-bullhorn"></i>
-
-                </div>
-
-
-                <span>
-                    Agência Criativa
-                </span>
-
-
-                <button class="favorito">
-
-                    <i class="fa-regular fa-bookmark"></i>
-
-                </button>
-
-
-            </div>
-
-
-            <h3>
-                Analista de Marketing
-            </h3>
-
-
-            <div class="card-informacoes">
-
-                <span>
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    Remoto
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-route"></i>
-
-                    5,8 km
-
-                </span>
-
-            </div>
-
-
-            <div class="card-tags">
-
-                <span>Marketing</span>
-
-                <span>Comunicação</span>
-
-            </div>
-
-
-            <!-- Link para a área de candidaturas -->
-            <a
-                href="Minhas-candidaturas.html"
-                class="botao-card"
-            >
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-
-        </article>
-
-
-
-        <!-- =================================================
-             VAGA 3
-             ================================================= -->
-
-        <article class="card-vaga">
-
-
-            <div class="card-vaga-topo">
-
-
-                <div class="card-empresa-icone">
-
-                    <i class="fa-solid fa-building"></i>
-
-                </div>
-
-
-                <span>
-                    Empresa Parceira
-                </span>
-
-
-                <button class="favorito">
-
-                    <i class="fa-regular fa-bookmark"></i>
-
-                </button>
-
-
-            </div>
-
-
-            <h3>
-                Assistente Administrativo
-            </h3>
-
-
-            <div class="card-informacoes">
-
-                <span>
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    Extremoz - RN
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-route"></i>
-
-                    3,1 km
-
-                </span>
-
-            </div>
-
-
-            <div class="card-tags">
-
-                <span>Office</span>
-
-                <span>Organização</span>
-
-            </div>
-
-
-            <!-- Link para a área de candidaturas -->
-            <a
-                href="Minhas-candidaturas.html"
-                class="botao-card"
-            >
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-
-        </article>
-
-
-
-        <!-- =================================================
-             VAGA 4
-             ================================================= -->
-
-        <article class="card-vaga">
-
-
-            <div class="card-vaga-topo">
-
-
-                <div class="card-empresa-icone">
-
-                    <i class="fa-solid fa-palette"></i>
-
-                </div>
-
-
-                <span>
-                    Studio Criativo
-                </span>
-
-
-                <button class="favorito">
-
-                    <i class="fa-regular fa-bookmark"></i>
-
-                </button>
-
-
-            </div>
-
-
-            <h3>
-                Designer Gráfico
-            </h3>
-
-
-            <div class="card-informacoes">
-
-                <span>
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    Natal - RN
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-route"></i>
-
-                    4,7 km
-
-                </span>
-
-            </div>
-
-
-            <div class="card-tags">
-
-                <span>Photoshop</span>
-
-                <span>Design</span>
-
-            </div>
-
-
-            <!-- Link para a área de candidaturas -->
-            <a
-                href="Minhas-candidaturas.html"
-                class="botao-card"
-            >
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FINAL DA PÁGINA
-     ===================================================== -->
-
-<section class="radar-final">
-
-
-    <div class="radar-final-logo">
-
-        <span>NW</span>
-
-        <small>
-            NEXT WORK
-        </small>
-
-    </div>
-
-
-    <div class="radar-final-texto">
-
-        <h2>
-            Mais que vagas, conexões reais.
-        </h2>
-
-        <p>
-            Pessoas, empresas e oportunidades no mesmo lugar.
-        </p>
-
-    </div>
-
-
-</section>
-
-
-</main>
-
-
-
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
-
-<script src="menu.js"></script>
-
-<script src="vagas.js"></script>
-
+    <script src="vagas.js"></script>
 
 </body>
 
