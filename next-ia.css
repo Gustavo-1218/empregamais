@@ -2354,20 +2354,3 @@ html[data-tema="escuro"] body::before {
 html[data-tema="escuro"] body::after {
     background: rgba(1,5,18,.38) !important;
 }
-
-/* header */
-html[data-tema="escuro"] .cabecalho-principal {
-    background: rgba(2,3,13,.90);
-    border-bottom: 1px solid rgba(0,255,255,.16);
-}
-
-/* painéis */
-html[data-tema="escuro"] .painel-conexoes,
-html[data-tema="escuro"] .painel-ia {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(4,10,31,.97),
-            rgba(4,3,20,.98)
-        );
-}
