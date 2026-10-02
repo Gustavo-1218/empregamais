@@ -8,23 +8,20 @@
     <title>Emprega Mais - Empresas</title>
 
     <link rel="stylesheet" href="mappastl.css">
-<link rel="stylesheet" href="menu.css">
-
+    <link rel="stylesheet" href="menu.css">
 </head>
 
 <body>
 
-
-
     <header>
-
         <div id="menu"></div>
-
     </header>
 
-
-
     <main class="pagina">
+
+        <!-- =====================================================
+             INTRODUÇÃO
+        ====================================================== -->
 
         <section class="introducao">
 
@@ -47,12 +44,13 @@
 
             <div class="botoes">
 
-                <button class="botao-principal">
-                    ◉ &nbsp; Ver no mapa
-                </button>
+                <button
+                    type="button"
+                    class="botao-principal"
+                    id="botao-ver-mapa">
 
-                <button class="botao-secundario">
-                    Conhecer mais &nbsp; →
+                    ◉ &nbsp; Ver no mapa
+
                 </button>
 
             </div>
@@ -60,18 +58,25 @@
         </section>
 
 
-
+        <!-- =====================================================
+             MAPA
+        ====================================================== -->
 
         <section class="mapa-container">
 
-
-
-            <iframe src="https://www.google.com/maps/embed" loading="lazy" allowfullscreen>
+            <iframe
+                id="mapa"
+                src="https://www.google.com/maps?q=Extremoz%20RN%20Brasil&output=embed"
+                loading="lazy"
+                allowfullscreen>
             </iframe>
 
         </section>
 
 
+        <!-- =====================================================
+             EMPRESAS
+        ====================================================== -->
 
         <section class="empresas">
 
@@ -80,6 +85,7 @@
             <div class="lista-empresas">
 
 
+                <!-- EMPRESA 1 -->
 
                 <div class="empresa">
 
@@ -98,17 +104,21 @@
 
                     </div>
 
-                    <a class="ver-mapa"
+                    <a
+                        href="#"
+                        class="ver-mapa"
                         data-endereco="Atacarejo Bom Preço, R. Pedro Vasconcelos, 39 - Chácaras de Extremoz, Extremoz - RN, 59575-000, Brasil">
 
                         ◉ Ver no mapa
                         <span>→</span>
 
-                </a>
+                    </a>
 
                 </div>
 
+
                 <!-- EMPRESA 2 -->
+
                 <div class="empresa">
 
                     <div class="icone">
@@ -126,13 +136,15 @@
 
                     </div>
 
-                    <a class="ver-mapa"
+                    <a
+                        href="#"
+                        class="ver-mapa"
                         data-endereco="Sushi Suki - Culinária Oriental Extremoz, R. Pinho, N° 393 - Village de Extremoz, Extremoz - RN, 59575-000, Brasil">
 
                         ◉ Ver no mapa
                         <span>→</span>
 
-                </a>
+                    </a>
 
                 </div>
 
@@ -156,15 +168,18 @@
 
                     </div>
 
-                    <a class="ver-mapa"
+                    <a
+                        href="#"
+                        class="ver-mapa"
                         data-endereco="Supermercado Surreal, R. do Futebol, 989 - Central Parque Clube, Extremoz - RN, 59575-000, Brasil">
 
                         ◉ Ver no mapa
                         <span>→</span>
 
-                </a>
+                    </a>
 
                 </div>
+
 
                 <!-- EMPRESA 4 -->
 
@@ -185,15 +200,18 @@
 
                     </div>
 
-                    <a class="ver-mapa"
+                    <a
+                        href="#"
+                        class="ver-mapa"
                         data-endereco="Potiguar Supermercado - Filial 6, R. Pedro Vasconcelos, 309 A - Centro, Extremoz - RN, 59575-000, Brasil">
 
                         ◉ Ver no mapa
                         <span>→</span>
 
-                    </>
+                    </a>
 
                 </div>
+
             </div>
 
         </section>
@@ -201,36 +219,65 @@
     </main>
 
 
+    <!-- =====================================================
+         JAVASCRIPT DO MAPA
+    ====================================================== -->
+
     <script>
 
-    const botoesMapa = document.querySelectorAll(".ver-mapa");
+        const mapa = document.getElementById("mapa");
 
-    const mapa = document.querySelector(
-        ".mapa-container iframe"
-    );
+        const botaoVerMapa =
+            document.getElementById("botao-ver-mapa");
+
+        const botoesEmpresas =
+            document.querySelectorAll(".ver-mapa");
 
 
-    botoesMapa.forEach(botao => {
+        /*
+         * BOTÃO PRINCIPAL
+         * Centraliza o mapa em Extremoz - RN.
+         */
 
-        botao.addEventListener("click", function(event) {
-
-            event.preventDefault();
-
-            const endereco = this.dataset.endereco;
-
+        botaoVerMapa.addEventListener("click", function () {
 
             mapa.src =
                 "https://www.google.com/maps?q=" +
-                encodeURIComponent(endereco) +
+                encodeURIComponent("Extremoz, RN, Brasil") +
                 "&output=embed";
 
         });
 
-    });
 
-</script> 
+        /*
+         * BOTÕES DAS EMPRESAS
+         * Mostram a localização específica
+         * da empresa selecionada.
+         */
 
-<script src="menu.js"></script>
+        botoesEmpresas.forEach(function (botao) {
+
+            botao.addEventListener("click", function (evento) {
+
+                evento.preventDefault();
+
+                const endereco =
+                    this.dataset.endereco;
+
+                mapa.src =
+                    "https://www.google.com/maps?q=" +
+                    encodeURIComponent(endereco) +
+                    "&output=embed";
+
+            });
+
+        });
+
+    </script>
+
+
+    <script src="menu.js"></script>
+
 </body>
 
 </html>
