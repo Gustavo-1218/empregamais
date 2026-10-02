@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXT WORK - Autônomos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="tema.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="autonomo.css">
+</head>
+
+<body>
+
+    <div id="menu"></div>
+
+    <main class="pagina-autonomos">
+
+        <section class="cabecalho-autonomos">
+
+            <div class="titulo-area">
+                <span class="etiqueta">PRESTADORES DE SERVIÇOS</span>
+                <h1>Encontre quem pode <span>resolver para você.</span></h1>
+                <p>
+                    Encontre profissionais autônomos próximos, conheça seus serviços
+                    e converse diretamente com quem pode ajudar.
+                </p>
+            </div>
+
+            <div class="busca-area">
+                <div class="campo-busca">
+                    <span>⌕</span>
+                    <input
+                        type="text"
+                        id="buscaAutonomos"
+                        placeholder="Buscar profissional ou serviço..."
+                    >
+                </div>
+            </div>
+
+        </section>
+
+        <section class="filtros-area">
+
+            <button class="filtro ativo" data-filtro="todos">
+                Todos
+            </button>
+
+            <button class="filtro" data-filtro="encanamento">
+                Encanamento
+            </button>
+
+            <button class="filtro" data-filtro="eletrica">
+                Elétrica
+            </button>
+
+            <button class="filtro" data-filtro="limpeza">
+                Limpeza
+            </button>
+
+            <button class="filtro" data-filtro="manutencao">
+                Manutenção
+            </button>
+
+            <button class="filtro" data-filtro="pintura">
+                Pintura
+            </button>
+
+        </section>
+
+        <section class="area-principal">
+
+            <div class="profissionais-area">
+
+                <div class="titulo-profissionais">
+                    <div>
+                        <span>PROFISSIONAIS</span>
+                        <h2>Encontre seu próximo profissional</h2>
+                    </div>
+
+                    <p>Explore os profissionais disponíveis</p>
+                </div>
+
+                <div class="carrossel-profissionais" id="carrosselProfissionais">
+
+                    <article
+                        class="card-profissional card-esquerda"
+                        data-indice="0"
+                        data-profissional="joao"
+                    >
+
+                        <div class="imagem-profissional">
+                            <img src="autonomos/joao.jpg" alt="João realizando serviço de encanamento">
+
+                            <span class="status-online">
+                                <i></i>
+                                Disponível
+                            </span>
+                        </div>
+
+                        <div class="info-profissional">
+
+                            <span class="categoria">ENCANAMENTO</span>
+
+                            <h3>João Silva</h3>
+
+                            <p class="profissao">
+                                Encanador profissional
+                            </p>
+
+                            <p class="localizacao">
+                                📍 Extremoz, RN
+                            </p>
+
+                            <div class="rodape-card">
+                                <span class="avaliacao">★ 4.9</span>
+
+                                <button
+                                    type="button"
+                                    class="botao-perfil"
+                                    data-profissional="joao"
+                                >
+                                    Ver perfil
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="card-profissional card-centro"
+                        data-indice="1"
+                        data-profissional="maria"
+                    >
+
+                        <div class="imagem-profissional">
+
+                            <img src="autonomos/maria.jpg" alt="Maria realizando serviço de limpeza">
+
+                            <span class="status-online">
+                                <i></i>
+                                Disponível
+                            </span>
+
+                        </div>
+
+                        <div class="info-profissional">
+
+                            <span class="categoria">LIMPEZA</span>
+
+                            <h3>Maria Santos</h3>
+
+                            <p class="profissao">
+                                Profissional de limpeza
+                            </p>
+
+                            <p class="localizacao">
+                                📍 Natal, RN
+                            </p>
+
+                            <div class="rodape-card">
+
+                                <span class="avaliacao">★ 5.0</span>
+
+                                <button
+                                    type="button"
+                                    class="botao-perfil"
+                                    data-profissional="maria"
+                                >
+                                    Ver perfil
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="card-profissional card-direita"
+                        data-indice="2"
+                        data-profissional="carlos"
+                    >
+
+                        <div class="imagem-profissional">
+
+                            <img src="autonomos/carlos.jpg" alt="Carlos realizando serviço elétrico">
+
+                            <span class="status-online">
+                                <i></i>
+                                Disponível
+                            </span>
+
+                        </div>
+
+                        <div class="info-profissional">
+
+                            <span class="categoria">ELÉTRICA</span>
+
+                            <h3>Carlos Oliveira</h3>
+
+                            <p class="profissao">
+                                Eletricista residencial
+                            </p>
+
+                            <p class="localizacao">
+                                📍 Parnamirim, RN
+                            </p>
+
+                            <div class="rodape-card">
+
+                                <span class="avaliacao">★ 4.8</span>
+
+                                <button
+                                    type="button"
+                                    class="botao-perfil"
+                                    data-profissional="carlos"
+                                >
+                                    Ver perfil
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <div class="indicadores-profissionais">
+
+                    <button
+                        type="button"
+                        class="indicador ativo"
+                        data-indice="0"
+                        aria-label="Mostrar João"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="indicador"
+                        data-indice="1"
+                        aria-label="Mostrar Maria"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="indicador"
+                        data-indice="2"
+                        aria-label="Mostrar Carlos"
+                    ></button>
+
+                </div>
+
+            </div>
+
+
+            <aside class="chat-area">
+
+                <div class="chat-cabecalho">
+
+                    <div class="chat-titulo">
+                        <span class="icone-chat">✦</span>
+
+                        <div>
+                            <span>CONVERSA DIRETA</span>
+                            <h2>Fale com o profissional</h2>
+                        </div>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="botao-fechar-chat"
+                        aria-label="Fechar conversa"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="perfil-chat">
+
+                    <div class="foto-chat">
+                        <img
+                            id="fotoChat"
+                            src="autonomos/maria.jpg"
+                            alt="Foto de Maria Santos"
+                        >
+
+                        <span class="status-chat"></span>
+                    </div>
+
+                    <div class="dados-chat">
+
+                        <h3 id="nomeChat">
+                            Maria Santos
+                        </h3>
+
+                        <p id="profissaoChat">
+                            Profissional de limpeza
+                        </p>
+
+                        <span id="statusTextoChat">
+                            ● Disponível agora
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mensagens-chat" id="mensagensChat">
+
+                    <div class="mensagem-profissional">
+
+                        <div class="avatar-mensagem">
+                            MS
+                        </div>
+
+                        <div class="balao-mensagem">
+                            <p>
+                                Olá! 😊 Como posso ajudar você?
+                            </p>
+
+                            <span>
+                                14:32
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="mensagem-sistema">
+                        <span>
+                            Converse diretamente com este profissional.
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="sugestoes-chat">
+
+                    <button type="button">
+                        Quanto custa o serviço?
+                    </button>
+
+                    <button type="button">
+                        Você atende na minha região?
+                    </button>
+
+                    <button type="button">
+                        Quando você está disponível?
+                    </button>
+
+                </div>
+
+
+                <form class="campo-mensagem" id="formChat">
+
+                    <input
+                        type="text"
+                        id="mensagemChat"
+                        placeholder="Digite uma mensagem..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="submit"
+                        aria-label="Enviar mensagem"
+                    >
+                        →
+                    </button>
+
+                </form>
+
+            </aside>
+
+        </section>
+
+
+        <section class="como-funciona">
+
+            <div class="titulo-secao">
+
+                <span>COMO FUNCIONA</span>
+
+                <h2>Encontre. Converse. Resolva.</h2>
+
+                <p>
+                    Tudo o que você precisa para encontrar o profissional certo
+                    para o seu serviço.
+                </p>
+
+            </div>
+
+            <div class="passos">
+
+                <div class="passo">
+
+                    <span class="numero-passo">01</span>
+
+                    <div>
+                        <h3>Encontre</h3>
+                        <p>
+                            Pesquise pelo serviço que você precisa
+                            ou explore os profissionais disponíveis.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="passo">
+
+                    <span class="numero-passo">02</span>
+
+                    <div>
+                        <h3>Conheça</h3>
+                        <p>
+                            Veja o perfil, os serviços e as informações
+                            de cada profissional.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="passo">
+
+                    <span class="numero-passo">03</span>
+
+                    <div>
+                        <h3>Converse</h3>
+                        <p>
+                            Entre em contato diretamente para combinar
+                            os detalhes do serviço.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="menu.js"></script>
+    <script src="autonomo.js"></script>
+
+</body>
+</html>
