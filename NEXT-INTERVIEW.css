@@ -2997,3 +2997,134 @@ html[data-tema="escuro"] .area-ia {
     color: #edf8ff !important;
     border-color: rgba(0, 221, 255, 0.16) !important;
 }
+
+
+/* =========================================================
+   NEXT INTERVIEW — PAINEL DA IA
+========================================================= */
+
+/* =========================================================
+   PAINEL DA IA — SEMPRE ESCURO
+========================================================= */
+
+.painel-ia,
+.container-ia,
+.area-ia {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(0, 221, 255, 0.08),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #071225 0%,
+            #0b172b 50%,
+            #101f38 100%
+        ) !important;
+
+    color: #ffffff !important;
+    border-color: rgba(0, 221, 255, 0.18) !important;
+}
+
+
+/* =========================================================
+   FONTES DO PAINEL DA IA
+========================================================= */
+
+.painel-ia h1,
+.painel-ia h2,
+.painel-ia h3,
+.painel-ia h4,
+.painel-ia strong,
+.container-ia h1,
+.container-ia h2,
+.container-ia h3,
+.container-ia h4,
+.container-ia strong {
+    color: #ffffff !important;
+}
+
+.painel-ia p,
+.painel-ia span,
+.painel-ia label,
+.container-ia p,
+.container-ia span,
+.container-ia label {
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   MODO ESCURO — FUNDO
+========================================================= */
+
+html[data-tema="escuro"] {
+    background: #020611 !important;
+}
+
+html[data-tema="escuro"] body {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(36, 68, 180, 0.18),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(111, 32, 210, 0.14),
+            transparent 30%
+        ),
+        #020611 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* Remove os pseudo-elementos claros */
+html[data-tema="escuro"] body::before,
+html[data-tema="escuro"] body::after {
+    display: none !important;
+}
+
+
+/* =========================================================
+   "NEXT" — PRETO NO MODO ESCURO
+========================================================= */
+
+/*
+   Ajuste o seletor abaixo caso o seu HTML use
+   uma classe específica para a palavra NEXT.
+*/
+
+html[data-tema="escuro"] .next {
+    color: #000000 !important;
+}
+
+html[data-tema="escuro"] .nome-next {
+    color: #000000 !important;
+}
+
+html[data-tema="escuro"] .texto-next {
+    color: #000000 !important;
+}
+
+
+/* =========================================================
+   FONTES GERAIS DO MODO ESCURO
+========================================================= */
+
+html[data-tema="escuro"] .painel-ia,
+html[data-tema="escuro"] .container-ia,
+html[data-tema="escuro"] .area-ia {
+    color: #ffffff !important;
+}
+
+html[data-tema="escuro"] .painel-ia h1,
+html[data-tema="escuro"] .painel-ia h2,
+html[data-tema="escuro"] .painel-ia h3,
+html[data-tema="escuro"] .painel-ia p,
+html[data-tema="escuro"] .painel-ia span,
+html[data-tema="escuro"] .painel-ia strong {
+    color: #ffffff !important;
+}
