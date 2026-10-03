@@ -190,3 +190,23 @@
     }
 
 }
+
+
+.sidebar{
+    min-height:100vh;
+    padding:28px 18px 20px;
+    position:sticky;
+    top:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    background:#071225;
+
+    border-right:1px solid rgba(0,221,255,.18);
+
+    box-shadow:
+        8px 0 30px rgba(0,80,140,.10);
+
+    z-index:10;
+}
