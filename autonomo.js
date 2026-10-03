@@ -1,33 +1,26 @@
 /* =====================================================
    NEXT WORK — AUTÔNOMOS
+   STORIES + CHAT + FILTROS
 ===================================================== */
 
 
 /* =====================================================
-   DADOS DOS PROFISSIONAIS
+   DADOS
 ===================================================== */
 
 const profissionais = [
 
     {
         id: "joao",
-
         nome: "João Silva",
-
         profissao: "Encanador profissional",
-
         categoria: "ENCANAMENTO",
-
         filtro: "encanamento",
-
         localizacao: "Extremoz, RN",
-
         avaliacao: "4.9",
-
         iniciais: "JS",
 
         fotoPerfil: "João Silva.png",
-
         storyImagem: "joaotrabalhando.png",
 
         mensagem: "Olá! Como posso ajudar você?"
@@ -35,23 +28,15 @@ const profissionais = [
 
     {
         id: "maria",
-
         nome: "Maria Santos",
-
         profissao: "Profissional de limpeza",
-
         categoria: "LIMPEZA",
-
         filtro: "limpeza",
-
         localizacao: "Natal, RN",
-
         avaliacao: "5.0",
-
         iniciais: "MS",
 
         fotoPerfil: "Maria Santos.png",
-
         storyImagem: "mariatraabalhando.png",
 
         mensagem: "Olá! Posso ajudar com o serviço que você precisa."
@@ -59,23 +44,15 @@ const profissionais = [
 
     {
         id: "carlos",
-
         nome: "Carlos Oliveira",
-
         profissao: "Eletricista residencial",
-
         categoria: "ELÉTRICA",
-
         filtro: "eletrica",
-
         localizacao: "Parnamirim, RN",
-
         avaliacao: "4.8",
-
         iniciais: "CO",
 
         fotoPerfil: "Carlos Oliveira.png",
-
         storyImagem: "carlostrabalhando.png",
 
         mensagem: "Olá! Me conte um pouco sobre o serviço."
@@ -83,23 +60,15 @@ const profissionais = [
 
     {
         id: "rafael",
-
         nome: "Rafael Costa",
-
         profissao: "Profissional de manutenção",
-
         categoria: "MANUTENÇÃO",
-
         filtro: "manutencao",
-
         localizacao: "Natal, RN",
-
         avaliacao: "4.9",
-
         iniciais: "RC",
 
         fotoPerfil: "Rafael Costa.png",
-
         storyImagem: "rafaeltrabalhando.png",
 
         mensagem: "Olá! Estou disponível para ajudar."
@@ -107,23 +76,15 @@ const profissionais = [
 
     {
         id: "ana",
-
         nome: "Ana Beatriz",
-
         profissao: "Profissional de pintura",
-
         categoria: "PINTURA",
-
         filtro: "pintura",
-
         localizacao: "Extremoz, RN",
-
         avaliacao: "4.9",
-
         iniciais: "AB",
 
         fotoPerfil: "Ana Beatriz.png",
-
         storyImagem: "anatrabalhando.png",
 
         mensagem: "Olá! Podemos conversar sobre o serviço."
@@ -133,42 +94,16 @@ const profissionais = [
 
 
 /* =====================================================
-   ESTADO
+   VARIÁVEIS
 ===================================================== */
 
 let indiceCentral = 1;
 
 let filtroAtual = "todos";
 
-let temporizadorStory = null;
+let temporizadorHover = null;
 
 let trocaEmAndamento = false;
-
-
-/* =====================================================
-   ELEMENTOS
-===================================================== */
-
-const listaStories =
-    document.querySelector(".stories-lista");
-
-const indicadores =
-    document.querySelectorAll(".indicador");
-
-const fotoChat =
-    document.getElementById("fotoChat");
-
-const nomeChat =
-    document.getElementById("nomeChat");
-
-const profissaoChat =
-    document.getElementById("profissaoChat");
-
-const mensagensChat =
-    document.getElementById("mensagensChat");
-
-const buscaAutonomos =
-    document.getElementById("buscaAutonomos");
 
 
 /* =====================================================
@@ -176,6 +111,13 @@ const buscaAutonomos =
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    iniciarPagina();
+
+});
+
+
+function iniciarPagina() {
 
     renderizarStories();
 
@@ -187,51 +129,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ativarChat();
 
+    ativarIndicadores();
+
     ativarBotoesPerfil();
 
-});
-
-
-/* =====================================================
-   PROFISSIONAIS FILTRADOS
-===================================================== */
-
-function obterProfissionaisVisiveis() {
-
-    if (filtroAtual === "todos") {
-
-        return profissionais;
-
-    }
-
-    return profissionais.filter(function (profissional) {
-
-        return profissional.filtro === filtroAtual;
-
-    });
+    aplicarFiltro();
 
 }
 
 
 /* =====================================================
-   ÍNDICES DOS STORIES
+   ELEMENTOS
 ===================================================== */
 
-function obterIndicesStories() {
+function obterElemento(seletor) {
 
-    const quantidade = profissionais.length;
-
-    const esquerda =
-        (indiceCentral - 1 + quantidade) % quantidade;
-
-    const direita =
-        (indiceCentral + 1) % quantidade;
-
-    return {
-        esquerda: esquerda,
-        centro: indiceCentral,
-        direita: direita
-    };
+    return document.querySelector(seletor);
 
 }
 
@@ -242,63 +155,81 @@ function obterIndicesStories() {
 
 function renderizarStories() {
 
-    if (!listaStories) return;
+    const lista =
+        obterElemento(".stories-lista");
+
+    if (!lista) {
+
+        console.warn(
+            "NEXT WORK: .stories-lista não foi encontrada."
+        );
+
+        return;
+    }
 
 
-    const indices =
-        obterIndicesStories();
+    const quantidade =
+        profissionais.length;
 
 
-    const profissionaisStories = [
+    const indiceEsquerda =
+        (indiceCentral - 1 + quantidade) % quantidade;
+
+
+    const indiceDireita =
+        (indiceCentral + 1) % quantidade;
+
+
+    const stories = [
 
         {
-            indice: indices.esquerda,
+            profissional: profissionais[indiceEsquerda],
             classe: "story-esquerda"
         },
 
         {
-            indice: indices.centro,
+            profissional: profissionais[indiceCentral],
             classe: "story-centro"
         },
 
         {
-            indice: indices.direita,
+            profissional: profissionais[indiceDireita],
             classe: "story-direita"
         }
 
     ];
 
 
-    listaStories.innerHTML = "";
+    lista.innerHTML = "";
 
 
-    profissionaisStories.forEach(function (item) {
+    stories.forEach(function (item) {
 
         const profissional =
-            profissionais[item.indice];
+            item.profissional;
 
 
-        const botao =
+        const story =
             document.createElement("button");
 
 
-        botao.type = "button";
+        story.type = "button";
 
-        botao.className =
+        story.className =
             "story-profissional " + item.classe;
 
 
-        botao.dataset.profissional =
+        story.dataset.profissional =
             profissional.id;
 
 
-        botao.setAttribute(
+        story.setAttribute(
             "aria-label",
             "Mostrar " + profissional.nome
         );
 
 
-        botao.innerHTML = `
+        story.innerHTML = `
 
             <span class="story-imagem">
 
@@ -310,99 +241,156 @@ function renderizarStories() {
             </span>
 
             <span class="story-nome">
-                ${profissional.nome.split(" ")[0]}
+                ${primeiroNome(profissional.nome)}
             </span>
 
         `;
 
 
-        listaStories.appendChild(botao);
+        lista.appendChild(story);
 
     });
 
 
     atualizarIndicadores();
 
-    ativarHoverStories();
+}
+
+
+/* =====================================================
+   PRIMEIRO NOME
+===================================================== */
+
+function primeiroNome(nome) {
+
+    return nome.split(" ")[0];
 
 }
 
 
 /* =====================================================
-   HOVER DOS STORIES
+   EVENTO DOS STORIES
+   USANDO DELEGAÇÃO DE EVENTOS
 ===================================================== */
 
-function ativarHoverStories() {
+document.addEventListener("mouseover", function (evento) {
 
-    const stories =
-        document.querySelectorAll(".story-profissional");
-
-
-    stories.forEach(function (story) {
+    const story =
+        evento.target.closest(".story-profissional");
 
 
-        story.addEventListener(
-            "mouseenter",
-            function () {
-
-                clearTimeout(temporizadorStory);
+    if (!story) return;
 
 
-                const id =
-                    story.dataset.profissional;
+    /*
+     * Se o mouse apenas passou de um
+     * elemento interno para outro elemento
+     * do mesmo Story, não reinicia o contador.
+     */
+
+    const relacionado =
+        evento.relatedTarget;
 
 
-                const novoIndice =
-                    profissionais.findIndex(
-                        function (profissional) {
+    if (
+        relacionado &&
+        story.contains(relacionado)
+    ) {
 
-                            return profissional.id === id;
+        return;
 
-                        }
-                    );
-
-
-                if (novoIndice === -1) return;
+    }
 
 
-                if (novoIndice === indiceCentral) {
-
-                    return;
-
-                }
+    limparTemporizador();
 
 
-                /*
-                 * O Story cresce primeiro.
-                 *
-                 * Só depois de 550ms
-                 * ele vai para o centro.
-                 */
+    const id =
+        story.dataset.profissional;
 
-                temporizadorStory =
-                    setTimeout(
-                        function () {
 
-                            trocarStory(novoIndice);
+    const indice =
+        profissionais.findIndex(
+            function (profissional) {
 
-                        },
-                        550
-                    );
+                return profissional.id === id;
 
             }
         );
 
 
-        story.addEventListener(
-            "mouseleave",
-            function () {
+    if (indice === -1) return;
 
-                clearTimeout(temporizadorStory);
 
-            }
-        );
+    /*
+     * Se já está no centro, não faz nada.
+     */
 
-    });
+    if (indice === indiceCentral) return;
+
+
+    /*
+     * Primeiro deixa o CSS mostrar o crescimento
+     * pelo hover.
+     *
+     * Depois troca para o centro.
+     */
+
+    temporizadorHover =
+        setTimeout(function () {
+
+            trocarStory(indice);
+
+        }, 550);
+
+});
+
+
+/* =====================================================
+   SAÍDA DO MOUSE
+===================================================== */
+
+document.addEventListener("mouseout", function (evento) {
+
+    const story =
+        evento.target.closest(".story-profissional");
+
+
+    if (!story) return;
+
+
+    const relacionado =
+        evento.relatedTarget;
+
+
+    if (
+        relacionado &&
+        story.contains(relacionado)
+    ) {
+
+        return;
+
+    }
+
+
+    limparTemporizador();
+
+});
+
+
+/* =====================================================
+   LIMPAR TEMPORIZADOR
+===================================================== */
+
+function limparTemporizador() {
+
+    if (temporizadorHover !== null) {
+
+        clearTimeout(temporizadorHover);
+
+        temporizadorHover = null;
+
+    }
 
 }
 
@@ -418,14 +406,30 @@ function trocarStory(novoIndice) {
     if (novoIndice === indiceCentral) return;
 
 
+    if (
+        novoIndice < 0 ||
+        novoIndice >= profissionais.length
+    ) {
+
+        return;
+
+    }
+
+
     trocaEmAndamento = true;
 
 
-    const storiesAtuais =
-        document.querySelectorAll(".story-profissional");
+    const stories =
+        document.querySelectorAll(
+            ".story-profissional"
+        );
 
 
-    storiesAtuais.forEach(function (story) {
+    /*
+     * Adiciona a animação de troca.
+     */
+
+    stories.forEach(function (story) {
 
         story.classList.add("trocando");
 
@@ -433,33 +437,32 @@ function trocarStory(novoIndice) {
 
 
     /*
-     * Pequeno tempo para a animação
-     * começar antes da mudança.
+     * Espera um pequeno momento para
+     * a animação começar.
      */
 
-    setTimeout(
-        function () {
+    setTimeout(function () {
 
-            indiceCentral = novoIndice;
-
-
-            renderizarStories();
-
-            atualizarChat();
+        indiceCentral =
+            novoIndice;
 
 
-            setTimeout(
-                function () {
+        renderizarStories();
 
-                    trocaEmAndamento = false;
+        atualizarChat();
 
-                },
-                120
-            );
 
-        },
-        180
-    );
+        /*
+         * Libera uma nova troca.
+         */
+
+        setTimeout(function () {
+
+            trocaEmAndamento = false;
+
+        }, 100);
+
+    }, 180);
 
 }
 
@@ -468,9 +471,59 @@ function trocarStory(novoIndice) {
    INDICADORES
 ===================================================== */
 
+function ativarIndicadores() {
+
+    document.addEventListener(
+        "click",
+        function (evento) {
+
+            const indicador =
+                evento.target.closest(".indicador");
+
+
+            if (!indicador) return;
+
+
+            const indice =
+                Number(indicador.dataset.indice);
+
+
+            if (
+                Number.isNaN(indice) ||
+                indice < 0 ||
+                indice >= profissionais.length
+            ) {
+
+                return;
+
+            }
+
+
+            limparTemporizador();
+
+            trocarStory(indice);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ATUALIZAR INDICADORES
+===================================================== */
+
 function atualizarIndicadores() {
 
-    indicadores.forEach(function (indicador, indice) {
+    const indicadores =
+        document.querySelectorAll(".indicador");
+
+
+    indicadores.forEach(function (indicador) {
+
+        const indice =
+            Number(indicador.dataset.indice);
+
 
         indicador.classList.toggle(
             "ativo",
@@ -480,39 +533,6 @@ function atualizarIndicadores() {
     });
 
 }
-
-
-/* =====================================================
-   CLIQUE NOS INDICADORES
-===================================================== */
-
-indicadores.forEach(function (indicador) {
-
-    indicador.addEventListener(
-        "click",
-        function () {
-
-            const novoIndice =
-                Number(indicador.dataset.indice);
-
-
-            if (
-                Number.isNaN(novoIndice) ||
-                novoIndice < 0 ||
-                novoIndice >= profissionais.length
-            ) {
-
-                return;
-
-            }
-
-
-            trocarStory(novoIndice);
-
-        }
-    );
-
-});
 
 
 /* =====================================================
@@ -528,78 +548,84 @@ function atualizarChat() {
     if (!profissional) return;
 
 
-    if (fotoChat) {
+    const foto =
+        document.getElementById("fotoChat");
 
-        fotoChat.src =
+
+    const nome =
+        document.getElementById("nomeChat");
+
+
+    const profissao =
+        document.getElementById("profissaoChat");
+
+
+    const mensagens =
+        document.getElementById("mensagensChat");
+
+
+    if (foto) {
+
+        foto.src =
             profissional.fotoPerfil;
 
-        fotoChat.alt =
+        foto.alt =
             "Foto de " + profissional.nome;
 
     }
 
 
-    if (nomeChat) {
+    if (nome) {
 
-        nomeChat.textContent =
+        nome.textContent =
             profissional.nome;
 
     }
 
 
-    if (profissaoChat) {
+    if (profissao) {
 
-        profissaoChat.textContent =
+        profissao.textContent =
             profissional.profissao;
 
     }
 
 
-    atualizarMensagemInicial(profissional);
+    if (mensagens) {
 
-}
+        mensagens.innerHTML = `
 
+            <div class="mensagem-profissional">
 
-/* =====================================================
-   MENSAGEM INICIAL DO CHAT
-===================================================== */
+                <div class="avatar-mensagem">
+                    ${profissional.iniciais}
+                </div>
 
-function atualizarMensagemInicial(profissional) {
+                <div class="balao-mensagem">
 
-    if (!mensagensChat) return;
+                    <p>
+                        ${profissional.mensagem}
+                    </p>
 
+                    <span>
+                        agora
+                    </span>
 
-    mensagensChat.innerHTML = `
+                </div>
 
-        <div class="mensagem-profissional">
-
-            <div class="avatar-mensagem">
-                ${profissional.iniciais}
             </div>
 
-            <div class="balao-mensagem">
-
-                <p>
-                    ${profissional.mensagem}
-                </p>
+            <div class="mensagem-sistema">
 
                 <span>
-                    agora
+                    Converse diretamente com este profissional.
                 </span>
 
             </div>
 
-        </div>
+        `;
 
-        <div class="mensagem-sistema">
-
-            <span>
-                Converse diretamente com este profissional.
-            </span>
-
-        </div>
-
-    `;
+    }
 
 }
 
@@ -610,28 +636,29 @@ function atualizarMensagemInicial(profissional) {
 
 function ativarFiltros() {
 
-    const botoes =
+    const filtros =
         document.querySelectorAll(".filtro");
 
 
-    botoes.forEach(function (botao) {
+    filtros.forEach(function (filtro) {
 
-        botao.addEventListener(
+        filtro.addEventListener(
             "click",
             function () {
 
-                botoes.forEach(function (item) {
+                filtros.forEach(function (item) {
 
                     item.classList.remove("ativo");
 
                 });
 
 
-                botao.classList.add("ativo");
+                filtro.classList.add("ativo");
 
 
                 filtroAtual =
-                    botao.dataset.filtro;
+                    filtro.dataset.filtro ||
+                    "todos";
 
 
                 aplicarFiltro();
@@ -650,10 +677,16 @@ function ativarFiltros() {
 
 function ativarBusca() {
 
-    if (!buscaAutonomos) return;
+    const campo =
+        document.getElementById(
+            "buscaAutonomos"
+        );
 
 
-    buscaAutonomos.addEventListener(
+    if (!campo) return;
+
+
+    campo.addEventListener(
         "input",
         function () {
 
@@ -671,11 +704,15 @@ function ativarBusca() {
 
 function aplicarFiltro() {
 
+    const campo =
+        document.getElementById(
+            "buscaAutonomos"
+        );
+
+
     const termo =
-        buscaAutonomos
-            ? buscaAutonomos.value
-                .trim()
-                .toLowerCase()
+        campo
+            ? campo.value.trim().toLowerCase()
             : "";
 
 
@@ -687,56 +724,49 @@ function aplicarFiltro() {
 
     cards.forEach(function (card) {
 
-        const profissional =
+        const id =
             card.dataset.profissional;
 
 
-        const dados =
+        const profissional =
             profissionais.find(
                 function (item) {
 
-                    return item.id === profissional;
+                    return item.id === id;
 
                 }
             );
 
 
-        if (!dados) return;
+        if (!profissional) return;
 
 
-        const correspondeFiltro =
+        const pertenceAoFiltro =
             filtroAtual === "todos" ||
-            dados.filtro === filtroAtual;
+            profissional.filtro === filtroAtual;
 
 
-        const textoBusca =
+        const texto =
             (
-                dados.nome +
+                profissional.nome +
                 " " +
-                dados.profissao +
+                profissional.profissao +
                 " " +
-                dados.categoria +
+                profissional.categoria +
                 " " +
-                dados.localizacao
+                profissional.localizacao
             ).toLowerCase();
 
 
-        const correspondeBusca =
-            textoBusca.includes(termo);
+        const pertenceABusca =
+            texto.includes(termo);
 
 
-        if (
-            correspondeFiltro &&
-            correspondeBusca
-        ) {
-
-            card.style.display = "";
-
-        } else {
-
-            card.style.display = "none";
-
-        }
+        card.style.display =
+            pertenceAoFiltro &&
+            pertenceABusca
+                ? ""
+                : "none";
 
     });
 
@@ -749,85 +779,106 @@ function aplicarFiltro() {
 
 function ativarChat() {
 
-    const form =
-        document.getElementById("formChat");
-
-
-    const campo =
-        document.getElementById("mensagemChat");
-
-
-    if (!form || !campo) return;
-
-
-    form.addEventListener(
-        "submit",
-        function (evento) {
-
-            evento.preventDefault();
-
-
-            const texto =
-                campo.value.trim();
-
-
-            if (!texto) return;
-
-
-            adicionarMensagemUsuario(texto);
-
-
-            campo.value = "";
-
-        }
-    );
-
-
-    const sugestoes =
-        document.querySelectorAll(
-            ".sugestoes-chat button"
+    const formulario =
+        document.getElementById(
+            "formChat"
         );
 
 
-    sugestoes.forEach(function (botao) {
+    const campo =
+        document.getElementById(
+            "mensagemChat"
+        );
 
-        botao.addEventListener(
-            "click",
-            function () {
+
+    if (formulario && campo) {
+
+        formulario.addEventListener(
+            "submit",
+            function (evento) {
+
+                evento.preventDefault();
+
 
                 const texto =
-                    botao.textContent.trim();
+                    campo.value.trim();
 
 
                 if (!texto) return;
 
 
-                adicionarMensagemUsuario(texto);
+                enviarMensagem(texto);
+
+
+                campo.value = "";
 
             }
         );
 
-    });
+    }
+
+
+    /*
+     * Botões de sugestão.
+     */
+
+    document.addEventListener(
+        "click",
+        function (evento) {
+
+            const botao =
+                evento.target.closest(
+                    ".sugestoes-chat button"
+                );
+
+
+            if (!botao) return;
+
+
+            const texto =
+                botao.textContent.trim();
+
+
+            if (!texto) return;
+
+
+            enviarMensagem(texto);
+
+        }
+    );
 
 }
 
 
 /* =====================================================
-   ADICIONAR MENSAGEM DO USUÁRIO
+   ENVIAR MENSAGEM
 ===================================================== */
 
-function adicionarMensagemUsuario(texto) {
+function enviarMensagem(texto) {
 
-    if (!mensagensChat) return;
+    const mensagens =
+        document.getElementById(
+            "mensagensChat"
+        );
+
+
+    if (!mensagens) return;
 
 
     const mensagem =
         document.createElement("div");
 
 
-    mensagem.style.display = "flex";
+    mensagem.className =
+        "mensagem-usuario";
 
-    mensagem.style.justifyContent = "flex-end";
+
+    mensagem.style.display =
+        "flex";
+
+
+    mensagem.style.justifyContent =
+        "flex-end";
 
 
     mensagem.innerHTML = `
@@ -851,11 +902,11 @@ function adicionarMensagemUsuario(texto) {
     `;
 
 
-    mensagensChat.appendChild(mensagem);
+    mensagens.appendChild(mensagem);
 
 
-    mensagensChat.scrollTop =
-        mensagensChat.scrollHeight;
+    mensagens.scrollTop =
+        mensagens.scrollHeight;
 
 }
 
@@ -870,7 +921,8 @@ function escaparHTML(texto) {
         document.createElement("div");
 
 
-    elemento.textContent = texto;
+    elemento.textContent =
+        texto;
 
 
     return elemento.innerHTML;
@@ -882,56 +934,60 @@ function escaparHTML(texto) {
    BOTÕES "VER PERFIL"
 ===================================================== */
 
-function ativarBotoesPerfil() {
+document.addEventListener(
+    "click",
+    function (evento) {
 
-    const botoes =
-        document.querySelectorAll(
-            ".botao-perfil"
-        );
-
-
-    botoes.forEach(function (botao) {
-
-        botao.addEventListener(
-            "click",
-            function () {
-
-                const id =
-                    botao.dataset.profissional;
+        const botao =
+            evento.target.closest(
+                ".botao-perfil"
+            );
 
 
-                const indice =
-                    profissionais.findIndex(
-                        function (profissional) {
-
-                            return profissional.id === id;
-
-                        }
-                    );
+        if (!botao) return;
 
 
-                if (indice === -1) return;
+        const id =
+            botao.dataset.profissional;
 
 
-                trocarStory(indice);
+        const indice =
+            profissionais.findIndex(
+                function (profissional) {
 
-
-                const stories =
-                    document.querySelector(".stories-area");
-
-
-                if (stories) {
-
-                    stories.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
+                    return profissional.id === id;
 
                 }
+            );
 
-            }
-        );
 
-    });
+        if (indice === -1) return;
 
-}
+
+        limparTemporizador();
+
+
+        trocarStory(indice);
+
+
+        const storiesArea =
+            document.querySelector(
+                ".stories-area"
+            );
+
+
+        if (storiesArea) {
+
+            setTimeout(function () {
+
+                storiesArea.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }, 250);
+
+        }
+
+    }
+);
