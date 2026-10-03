@@ -855,3 +855,203 @@ body {
     }
 
 }
+
+
+
+/* =====================================================
+   NEXT WORK — MODO CLARO
+   PERFIL DA EMPRESA
+   SIDEBAR PERMANECE SEMPRE ESCURO
+===================================================== */
+
+html:not([data-tema="escuro"]) body {
+    background: #eefaff;
+    color: #102b4c;
+}
+
+/* =====================================================
+   PARTE PRINCIPAL
+===================================================== */
+
+html:not([data-tema="escuro"]) .main {
+    color: #102b4c;
+}
+
+/* Cabeçalho */
+
+html:not([data-tema="escuro"]) .page-header h1 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .page-header > div > p:last-child {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .breadcrumb {
+    color: #087cf0;
+}
+
+/* =====================================================
+   CARD PRINCIPAL DA EMPRESA
+===================================================== */
+
+html:not([data-tema="escuro"]) .company-card {
+    background: #ffffff;
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 10px 35px rgba(20, 80, 120, 0.10);
+}
+
+/* =====================================================
+   CABEÇALHO DA EMPRESA
+===================================================== */
+
+html:not([data-tema="escuro"]) .company-header-text h2 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .company-header-text p {
+    color: #526b84;
+}
+
+/* =====================================================
+   LINHAS
+===================================================== */
+
+html:not([data-tema="escuro"]) .line {
+    background: #c9e1ed;
+}
+
+/* =====================================================
+   TÍTULOS DAS SEÇÕES
+===================================================== */
+
+html:not([data-tema="escuro"]) .section-title h3,
+html:not([data-tema="escuro"]) .information-title {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .section-title p {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .about-text {
+    color: #526b84;
+}
+
+/* =====================================================
+   CAIXAS DE INFORMAÇÃO
+===================================================== */
+
+html:not([data-tema="escuro"]) .info-box {
+    background: #f4fbff;
+    border-color: #c9e1ed;
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .info-box span {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .info-box strong {
+    color: #102b4c;
+}
+
+/* =====================================================
+   BOTÃO EDITAR
+===================================================== */
+
+html:not([data-tema="escuro"]) .btn-edit {
+    background: #ffffff;
+    color: #087cf0;
+    border-color: #8fc9df;
+}
+
+html:not([data-tema="escuro"]) .btn-edit:hover {
+    background: #f0faff;
+    border-color: #087cf0;
+}
+
+/* =====================================================
+   FORMULÁRIOS
+===================================================== */
+
+html:not([data-tema="escuro"]) .form-section label {
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .form-section input,
+html:not([data-tema="escuro"]) .form-section textarea {
+    background: #ffffff;
+    color: #102b4c;
+    border-color: #c9e1ed;
+}
+
+html:not([data-tema="escuro"]) .form-section input:focus,
+html:not([data-tema="escuro"]) .form-section textarea:focus {
+    border-color: #087cf0;
+
+    box-shadow:
+        0 0 0 3px rgba(8, 124, 240, 0.10);
+}
+
+/* =====================================================
+   EDIÇÃO DO LOGO
+===================================================== */
+
+html:not([data-tema="escuro"]) .edit-logo-section h3 {
+    color: #102b4c;
+}
+
+html:not([data-tema="escuro"]) .edit-logo-section p {
+    color: #526b84;
+}
+
+/* =====================================================
+   ÁREA DOS BOTÕES DE EDIÇÃO
+===================================================== */
+
+html:not([data-tema="escuro"]) .edit-actions {
+    border-color: #c9e1ed;
+}
+
+html:not([data-tema="escuro"]) .btn-cancel {
+    background: #f4fbff;
+    color: #526b84;
+    border-color: #c9e1ed;
+}
+
+/* =====================================================
+   GARANTIA DO SIDEBAR
+   NÃO ALTERA O MENU LATERAL
+===================================================== */
+
+html:not([data-tema="escuro"]) .sidebar {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(4, 12, 32, 0.94),
+            rgba(3, 7, 23, 0.92)
+        );
+
+    color: #edf3ff;
+}
+
+html:not([data-tema="escuro"]) .sidebar .nav-item {
+    color: #c5cde2;
+}
+
+html:not([data-tema="escuro"]) .sidebar .nav-item:hover {
+    color: white;
+}
+
+html:not([data-tema="escuro"]) .sidebar .nav-item.active {
+    color: white;
+}
+
+html:not([data-tema="escuro"]) .sidebar .switch-profile {
+    color: var(--cyan);
+}
