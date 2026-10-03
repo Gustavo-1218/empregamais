@@ -5044,3 +5044,578 @@ html[data-tema="escuro"] .cards-grupo .card-destaque:hover .seta-card {
     }
 
 }
+
+
+
+/* =========================================================
+   RESPONSIVIDADE GLOBAL — NEXT WORK
+   Não altera a estrutura da página.
+   Apenas adapta todos os elementos à largura disponível.
+   ========================================================= */
+
+
+/* =========================================================
+   1. BASE GLOBAL
+   ========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
+main,
+section,
+footer {
+    width: 100%;
+    max-width: 100%;
+}
+
+
+/* Evita elementos com largura fixa
+   criarem uma segunda tela */
+
+main > *,
+section > *,
+.secao > *,
+.hero > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   2. HERO
+   ========================================================= */
+
+.hero {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.hero-conteudo {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+
+    min-width: 0;
+}
+
+.hero-texto,
+.hero-visual {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.imagem-hero {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================================================
+   3. BARRA DE BUSCA
+   ========================================================= */
+
+.barra-busca {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+.campo-busca {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.campo-busca input,
+.campo-busca select {
+    min-width: 0;
+    max-width: 100%;
+
+    box-sizing: border-box;
+}
+
+.botao-busca {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   4. SEÇÕES
+   ========================================================= */
+
+.secao {
+    width: 100%;
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+    min-width: 0;
+}
+
+.cabecalho-secao {
+    width: 100%;
+    max-width: 100%;
+
+    min-width: 0;
+}
+
+.cabecalho-secao > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   5. VAGAS
+   ========================================================= */
+
+.grade-vagas {
+    width: 100%;
+    max-width: 100%;
+
+    min-width: 0;
+}
+
+.card-vaga {
+    min-width: 0;
+    max-width: 100%;
+
+    box-sizing: border-box;
+}
+
+.card-vaga h3,
+.card-vaga p,
+.card-vaga span {
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   6. CARD DA IA
+   ========================================================= */
+
+.card-ia {
+    width: min(900px, calc(100% - 32px));
+
+    max-width: 900px;
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+.card-ia .conteudo-ia {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.card-ia h2,
+.card-ia p,
+.card-ia span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   7. GRUPOS DE OPORTUNIDADES
+   ========================================================= */
+
+.grade-tipos-oportunidades {
+    width: min(1100px, calc(100% - 32px));
+
+    max-width: 1100px;
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+.grupo-oportunidades {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.cards-grupo {
+    width: 100%;
+    min-width: 0;
+}
+
+.cards-grupo .card-destaque {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+.cards-grupo .conteudo-destaque {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.cards-grupo h3,
+.cards-grupo p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   8. PROFISSIONAIS
+   ========================================================= */
+
+.grade-profissionais {
+    width: 100%;
+    max-width: 100%;
+
+    min-width: 0;
+}
+
+.card-profissional {
+    min-width: 0;
+    max-width: 100%;
+
+    box-sizing: border-box;
+}
+
+.card-profissional .dados-profissional {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.card-profissional h3,
+.card-profissional p,
+.card-profissional span {
+    overflow-wrap: anywhere;
+}
+
+.foto-profissional {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   9. RODAPÉ
+   ========================================================= */
+
+footer {
+    width: 100%;
+    max-width: 100%;
+
+    overflow: hidden;
+}
+
+.rodape-final {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   10. TABLETS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero-conteudo {
+        width: calc(100% - 40px);
+    }
+
+    .cabecalho-secao {
+        width: calc(100% - 40px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .grade-vagas,
+    .grade-profissionais {
+        width: calc(100% - 40px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+
+/* =========================================================
+   11. CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+
+        overflow-x: hidden;
+    }
+
+
+    main {
+        width: 100%;
+        max-width: 100%;
+
+        overflow: hidden;
+    }
+
+
+    /* -------------------------
+       HERO
+       ------------------------- */
+
+    .hero-conteudo {
+        width: calc(100% - 28px);
+        max-width: none;
+    }
+
+    .hero-texto {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-visual {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    .imagem-hero {
+        width: auto;
+        max-width: 90%;
+        height: auto;
+    }
+
+
+    /* -------------------------
+       BUSCA
+       ------------------------- */
+
+    .barra-busca {
+        width: 100%;
+        max-width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .campo-busca {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .campo-busca input,
+    .campo-busca select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .botao-busca {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* -------------------------
+       CABEÇALHOS
+       ------------------------- */
+
+    .cabecalho-secao {
+        width: calc(100% - 28px);
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .cabecalho-secao h2 {
+        max-width: 100%;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* -------------------------
+       VAGAS
+       ------------------------- */
+
+    .grade-vagas {
+        width: calc(100% - 28px);
+
+        margin-left: auto;
+        margin-right: auto;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .card-vaga {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* -------------------------
+       IA
+       ------------------------- */
+
+    .card-ia {
+        width: calc(100% - 28px);
+
+        max-width: none;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* -------------------------
+       OPORTUNIDADES
+       ------------------------- */
+
+    .grade-tipos-oportunidades {
+        width: calc(100% - 28px);
+
+        max-width: none;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .grupo-oportunidades {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    .cards-grupo .card-destaque {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* -------------------------
+       PROFISSIONAIS
+       ------------------------- */
+
+    .grade-profissionais {
+        width: calc(100% - 28px);
+
+        margin-left: auto;
+        margin-right: auto;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .card-profissional {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* -------------------------
+       ELEMENTOS FLUTUANTES
+       ------------------------- */
+
+    .elemento-flutuante {
+        max-width: calc(100% - 20px);
+
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* =========================================================
+   12. CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-conteudo,
+    .cabecalho-secao,
+    .grade-vagas,
+    .grade-profissionais,
+    .card-ia,
+    .grade-tipos-oportunidades {
+        width: calc(100% - 20px);
+    }
+
+
+    .hero-texto h1 {
+        max-width: 100%;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    .imagem-hero {
+        max-width: 85%;
+    }
+
+
+    .card-vaga,
+    .card-profissional,
+    .cards-grupo .card-destaque {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   13. TELAS MUITO ESTREITAS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .hero-conteudo,
+    .cabecalho-secao,
+    .grade-vagas,
+    .grade-profissionais,
+    .card-ia,
+    .grade-tipos-oportunidades {
+        width: calc(100% - 16px);
+    }
+
+
+    .cards-grupo .card-destaque {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+
+    .card-ia {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+}
