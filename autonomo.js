@@ -1,3 +1,6 @@
+
+alert("AUTONOMO.JS FOI CARREGADO");
+
 /* =====================================================
    NEXT WORK — AUTÔNOMOS
    STORIES + CHAT + FILTROS
