@@ -1,12 +1,11 @@
-/* =========================================================
-   NEXT WORK - AUTÔNOMOS
-   Stories + Chat + Busca + Filtros + Cards
-========================================================= */
+/* =====================================================
+   NEXT WORK — AUTÔNOMOS
+===================================================== */
 
 
-/* =========================================================
+/* =====================================================
    DADOS DOS PROFISSIONAIS
-========================================================= */
+===================================================== */
 
 const profissionais = [
 
@@ -15,17 +14,11 @@ const profissionais = [
 
         nome: "João Silva",
 
-        nomeCurto: "João",
-
-        fotoPerfil: "João Silva.png",
-
-        fotoTrabalho: "joaotrabalhando.png",
-
         profissao: "Encanador profissional",
 
-        categoria: "encanamento",
+        categoria: "ENCANAMENTO",
 
-        categoriaNome: "ENCANAMENTO",
+        filtro: "encanamento",
 
         localizacao: "Extremoz, RN",
 
@@ -33,27 +26,23 @@ const profissionais = [
 
         iniciais: "JS",
 
-        mensagem:
-            "Olá! Como posso ajudar você?"
-    },
+        fotoPerfil: "João Silva.png",
 
+        storyImagem: "joaotrabalhando.png",
+
+        mensagem: "Olá! Como posso ajudar você?"
+    },
 
     {
         id: "maria",
 
         nome: "Maria Santos",
 
-        nomeCurto: "Maria",
-
-        fotoPerfil: "Maria Santos.png",
-
-        fotoTrabalho: "mariatraabalhando.png",
-
         profissao: "Profissional de limpeza",
 
-        categoria: "limpeza",
+        categoria: "LIMPEZA",
 
-        categoriaNome: "LIMPEZA",
+        filtro: "limpeza",
 
         localizacao: "Natal, RN",
 
@@ -61,27 +50,23 @@ const profissionais = [
 
         iniciais: "MS",
 
-        mensagem:
-            "Olá! Como posso ajudar você?"
-    },
+        fotoPerfil: "Maria Santos.png",
 
+        storyImagem: "mariatraabalhando.png",
+
+        mensagem: "Olá! Posso ajudar com o serviço que você precisa."
+    },
 
     {
         id: "carlos",
 
         nome: "Carlos Oliveira",
 
-        nomeCurto: "Carlos",
-
-        fotoPerfil: "Carlos Oliveira.png",
-
-        fotoTrabalho: "carlostrabalhando.png",
-
         profissao: "Eletricista residencial",
 
-        categoria: "eletrica",
+        categoria: "ELÉTRICA",
 
-        categoriaNome: "ELÉTRICA",
+        filtro: "eletrica",
 
         localizacao: "Parnamirim, RN",
 
@@ -89,27 +74,23 @@ const profissionais = [
 
         iniciais: "CO",
 
-        mensagem:
-            "Olá! Como posso ajudar você?"
-    },
+        fotoPerfil: "Carlos Oliveira.png",
 
+        storyImagem: "carlostrabalhando.png",
+
+        mensagem: "Olá! Me conte um pouco sobre o serviço."
+    },
 
     {
         id: "rafael",
 
         nome: "Rafael Costa",
 
-        nomeCurto: "Rafael",
+        profissao: "Profissional de manutenção",
 
-        fotoPerfil: "Rafael Costa.png",
+        categoria: "MANUTENÇÃO",
 
-        fotoTrabalho: "rafaeltrabalhando.png",
-
-        profissao: "Técnico em manutenção",
-
-        categoria: "manutencao",
-
-        categoriaNome: "MANUTENÇÃO",
+        filtro: "manutencao",
 
         localizacao: "Natal, RN",
 
@@ -117,27 +98,23 @@ const profissionais = [
 
         iniciais: "RC",
 
-        mensagem:
-            "Olá! Como posso ajudar você?"
-    },
+        fotoPerfil: "Rafael Costa.png",
 
+        storyImagem: "rafaeltrabalhando.png",
+
+        mensagem: "Olá! Estou disponível para ajudar."
+    },
 
     {
         id: "ana",
 
         nome: "Ana Beatriz",
 
-        nomeCurto: "Ana",
-
-        fotoPerfil: "Ana Beatriz.png",
-
-        fotoTrabalho: "anatrabalhando.png",
-
         profissao: "Profissional de pintura",
 
-        categoria: "pintura",
+        categoria: "PINTURA",
 
-        categoriaNome: "PINTURA",
+        filtro: "pintura",
 
         localizacao: "Extremoz, RN",
 
@@ -145,73 +122,38 @@ const profissionais = [
 
         iniciais: "AB",
 
-        mensagem:
-            "Olá! Como posso ajudar você?"
+        fotoPerfil: "Ana Beatriz.png",
+
+        storyImagem: "anatrabalhando.png",
+
+        mensagem: "Olá! Podemos conversar sobre o serviço."
     }
 
 ];
 
 
-
-/* =========================================================
+/* =====================================================
    ESTADO
-========================================================= */
-
-/*
-   Este índice representa quem está no centro.
-
-   0 = João
-   1 = Maria
-   2 = Carlos
-   3 = Rafael
-   4 = Ana
-*/
+===================================================== */
 
 let indiceCentral = 1;
 
-
-
-/*
-   Profissionais atualmente permitidos pelos filtros.
-*/
-
-let profissionaisVisiveis = [...profissionais];
-
-
-
-/*
-   Profissional atualmente aberto no chat.
-*/
-
-let profissionalChat = profissionais[indiceCentral];
-
-
-
-/*
-   Controle da busca.
-*/
-
-let termoBusca = "";
-
-
-
-/*
-   Filtro atual.
-*/
-
 let filtroAtual = "todos";
 
+let temporizadorStory = null;
+
+let trocaEmAndamento = false;
 
 
-/* =========================================================
+/* =====================================================
    ELEMENTOS
-========================================================= */
+===================================================== */
 
-const storiesLista =
-    document.getElementById("storiesLista");
+const listaStories =
+    document.querySelector(".stories-lista");
 
-const stories =
-    document.querySelectorAll(".story-profissional");
+const indicadores =
+    document.querySelectorAll(".indicador");
 
 const fotoChat =
     document.getElementById("fotoChat");
@@ -222,326 +164,240 @@ const nomeChat =
 const profissaoChat =
     document.getElementById("profissaoChat");
 
-const statusTextoChat =
-    document.getElementById("statusTextoChat");
-
-const avatarMensagem =
-    document.getElementById("avatarMensagem");
-
-const mensagemInicial =
-    document.getElementById("mensagemInicial");
-
 const mensagensChat =
     document.getElementById("mensagensChat");
-
-const formChat =
-    document.getElementById("formChat");
-
-const mensagemChat =
-    document.getElementById("mensagemChat");
 
 const buscaAutonomos =
     document.getElementById("buscaAutonomos");
 
-const cards =
-    document.querySelectorAll(".card-profissional");
 
-const botoesFiltro =
-    document.querySelectorAll(".filtro");
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
 
-const botoesPerfil =
-    document.querySelectorAll(".botao-perfil");
+document.addEventListener("DOMContentLoaded", function () {
 
-const fecharChat =
-    document.getElementById("fecharChat");
+    renderizarStories();
+
+    atualizarChat();
+
+    ativarFiltros();
+
+    ativarBusca();
+
+    ativarChat();
+
+    ativarBotoesPerfil();
+
+});
 
 
+/* =====================================================
+   PROFISSIONAIS FILTRADOS
+===================================================== */
 
-/* =========================================================
-   ENCONTRAR PROFISSIONAL
-========================================================= */
+function obterProfissionaisVisiveis() {
 
-function obterProfissional(id) {
+    if (filtroAtual === "todos") {
 
-    return profissionais.find(function (profissional) {
+        return profissionais;
 
-        return profissional.id === id;
+    }
+
+    return profissionais.filter(function (profissional) {
+
+        return profissional.filtro === filtroAtual;
 
     });
 
 }
 
 
+/* =====================================================
+   ÍNDICES DOS STORIES
+===================================================== */
 
-/* =========================================================
-   ÍNDICE CIRCULAR
-========================================================= */
+function obterIndicesStories() {
 
-/*
-   Isso permite que a lista continue infinitamente.
+    const quantidade = profissionais.length;
 
-   Exemplo:
+    const esquerda =
+        (indiceCentral - 1 + quantidade) % quantidade;
 
-   Ana → João → Maria → Carlos → Rafael → Ana...
-*/
+    const direita =
+        (indiceCentral + 1) % quantidade;
 
-function indiceCircular(indice, tamanho) {
-
-    return (indice + tamanho) % tamanho;
-
-}
-
-
-
-/* =========================================================
-   OBTER PROFISSIONAL VISÍVEL
-========================================================= */
-
-function obterProfissionalVisivel(indice) {
-
-    if (profissionaisVisiveis.length === 0) {
-        return null;
-    }
-
-    const indiceReal =
-        indiceCircular(
-            indice,
-            profissionaisVisiveis.length
-        );
-
-    return profissionaisVisiveis[indiceReal];
+    return {
+        esquerda: esquerda,
+        centro: indiceCentral,
+        direita: direita
+    };
 
 }
 
 
+/* =====================================================
+   RENDERIZAR STORIES
+===================================================== */
 
-/* =========================================================
-   ATUALIZAR STORY
-========================================================= */
+function renderizarStories() {
 
-function atualizarStory(
-    story,
-    profissional,
-    posicao
-) {
-
-    if (!story || !profissional) {
-        return;
-    }
+    if (!listaStories) return;
 
 
-    const imagem =
-        story.querySelector(".story-imagem img");
-
-    const nome =
-        story.querySelector(".story-nome");
+    const indices =
+        obterIndicesStories();
 
 
-    /*
-       Atualiza a imagem de trabalho.
-    */
+    const profissionaisStories = [
 
-    imagem.src =
-        profissional.fotoTrabalho;
+        {
+            indice: indices.esquerda,
+            classe: "story-esquerda"
+        },
 
-    imagem.alt =
-        profissional.nome +
-        " trabalhando";
+        {
+            indice: indices.centro,
+            classe: "story-centro"
+        },
 
+        {
+            indice: indices.direita,
+            classe: "story-direita"
+        }
 
-    /*
-       Atualiza o nome.
-    */
-
-    nome.textContent =
-        profissional.nomeCurto;
-
-
-    /*
-       Guarda qual profissional está
-       naquele Story.
-    */
-
-    story.dataset.profissional =
-        profissional.id;
+    ];
 
 
-    /*
-       Guarda o índice atual.
-    */
-
-    story.dataset.indice =
-        profissionais.indexOf(profissional);
+    listaStories.innerHTML = "";
 
 
-    /*
-       Classes visuais.
-    */
+    profissionaisStories.forEach(function (item) {
 
-    story.classList.remove(
-        "story-esquerda",
-        "story-centro",
-        "story-direita"
-    );
+        const profissional =
+            profissionais[item.indice];
 
 
-    story.classList.add(
-        "story-" + posicao
-    );
+        const botao =
+            document.createElement("button");
 
 
-    /*
-       O Story central recebe destaque.
-    */
+        botao.type = "button";
 
-    if (posicao === "centro") {
+        botao.className =
+            "story-profissional " + item.classe;
 
-        story.classList.add("ativo");
 
-    } else {
+        botao.dataset.profissional =
+            profissional.id;
 
-        story.classList.remove("ativo");
 
-    }
+        botao.setAttribute(
+            "aria-label",
+            "Mostrar " + profissional.nome
+        );
+
+
+        botao.innerHTML = `
+
+            <span class="story-imagem">
+
+                <img
+                    src="${profissional.storyImagem}"
+                    alt="${profissional.nome} trabalhando"
+                >
+
+            </span>
+
+            <span class="story-nome">
+                ${profissional.nome.split(" ")[0]}
+            </span>
+
+        `;
+
+
+        listaStories.appendChild(botao);
+
+    });
+
+
+    atualizarIndicadores();
+
+    ativarHoverStories();
 
 }
 
 
+/* =====================================================
+   HOVER DOS STORIES
+===================================================== */
 
-/* =========================================================
-   ATUALIZAR OS 3 STORIES
-========================================================= */
+function ativarHoverStories() {
 
-function atualizarStories() {
+    const stories =
+        document.querySelectorAll(".story-profissional");
 
-    if (profissionaisVisiveis.length === 0) {
-        return;
-    }
-
-
-    /*
-       Garante que o índice central
-       continue válido depois de um filtro.
-    */
-
-    indiceCentral =
-        indiceCircular(
-            indiceCentral,
-            profissionaisVisiveis.length
-        );
-
-
-    const profissionalEsquerda =
-        obterProfissionalVisivel(
-            indiceCentral - 1
-        );
-
-
-    const profissionalCentro =
-        obterProfissionalVisivel(
-            indiceCentral
-        );
-
-
-    const profissionalDireita =
-        obterProfissionalVisivel(
-            indiceCentral + 1
-        );
-
-
-    /*
-       Atualiza cada posição.
-    */
-
-    atualizarStory(
-        document.querySelector(".story-esquerda"),
-        profissionalEsquerda,
-        "esquerda"
-    );
-
-
-    atualizarStory(
-        document.querySelector(".story-centro"),
-        profissionalCentro,
-        "centro"
-    );
-
-
-    atualizarStory(
-        document.querySelector(".story-direita"),
-        profissionalDireita,
-        "direita"
-    );
-
-
-    /*
-       O profissional central
-       passa a ser o do chat.
-    */
-
-    atualizarChat(
-        profissionalCentro
-    );
-
-}
-
-
-
-/* =========================================================
-   SELECIONAR STORY
-========================================================= */
-
-function selecionarStory(id) {
-
-    const indice =
-        profissionaisVisiveis.findIndex(
-            function (profissional) {
-
-                return profissional.id === id;
-
-            }
-        );
-
-
-    if (indice === -1) {
-        return;
-    }
-
-
-    /*
-       Esse profissional passa
-       para o centro.
-    */
-
-    indiceCentral = indice;
-
-
-    atualizarStories();
-
-}
-
-
-
-/* =========================================================
-   EVENTOS DOS STORIES
-========================================================= */
-
-function ativarStories() {
 
     stories.forEach(function (story) {
 
+
         story.addEventListener(
-            "click",
+            "mouseenter",
             function () {
+
+                clearTimeout(temporizadorStory);
+
 
                 const id =
                     story.dataset.profissional;
 
-                if (!id) {
+
+                const novoIndice =
+                    profissionais.findIndex(
+                        function (profissional) {
+
+                            return profissional.id === id;
+
+                        }
+                    );
+
+
+                if (novoIndice === -1) return;
+
+
+                if (novoIndice === indiceCentral) {
+
                     return;
+
                 }
 
-                selecionarStory(id);
+
+                /*
+                 * O Story cresce primeiro.
+                 *
+                 * Só depois de 550ms
+                 * ele vai para o centro.
+                 */
+
+                temporizadorStory =
+                    setTimeout(
+                        function () {
+
+                            trocarStory(novoIndice);
+
+                        },
+                        550
+                    );
+
+            }
+        );
+
+
+        story.addEventListener(
+            "mouseleave",
+            function () {
+
+                clearTimeout(temporizadorStory);
 
             }
         );
@@ -551,343 +407,107 @@ function ativarStories() {
 }
 
 
+/* =====================================================
+   TROCAR STORY
+===================================================== */
 
-/* =========================================================
-   ATUALIZAR CHAT
-========================================================= */
+function trocarStory(novoIndice) {
 
-function atualizarChat(profissional) {
+    if (trocaEmAndamento) return;
 
-    if (!profissional) {
-        return;
-    }
-
-
-    profissionalChat =
-        profissional;
+    if (novoIndice === indiceCentral) return;
 
 
-    /*
-       Foto de perfil.
-    */
+    trocaEmAndamento = true;
 
-    fotoChat.src =
-        profissional.fotoPerfil;
 
-    fotoChat.alt =
-        "Foto de " +
-        profissional.nome;
+    const storiesAtuais =
+        document.querySelectorAll(".story-profissional");
+
+
+    storiesAtuais.forEach(function (story) {
+
+        story.classList.add("trocando");
+
+    });
 
 
     /*
-       Informações.
-    */
+     * Pequeno tempo para a animação
+     * começar antes da mudança.
+     */
 
-    nomeChat.textContent =
-        profissional.nome;
+    setTimeout(
+        function () {
 
-    profissaoChat.textContent =
-        profissional.profissao;
+            indiceCentral = novoIndice;
 
-    statusTextoChat.textContent =
-        "● Disponível agora";
 
+            renderizarStories();
 
-    /*
-       Avatar da mensagem.
-    */
+            atualizarChat();
 
-    avatarMensagem.textContent =
-        profissional.iniciais;
 
+            setTimeout(
+                function () {
 
-    /*
-       Mensagem inicial.
-    */
+                    trocaEmAndamento = false;
 
-    mensagemInicial.textContent =
-        profissional.mensagem;
-
-}
-
-
-
-/* =========================================================
-   LIMPAR CHAT
-========================================================= */
-
-function limparMensagens() {
-
-    mensagensChat.innerHTML = "";
-
-
-    const mensagemProfissional =
-        document.createElement("div");
-
-    mensagemProfissional.className =
-        "mensagem-profissional";
-
-
-    const avatar =
-        document.createElement("div");
-
-    avatar.className =
-        "avatar-mensagem";
-
-    avatar.textContent =
-        profissionalChat.iniciais;
-
-
-    const balao =
-        document.createElement("div");
-
-    balao.className =
-        "balao-mensagem";
-
-
-    const texto =
-        document.createElement("p");
-
-    texto.textContent =
-        profissionalChat.mensagem;
-
-
-    const horario =
-        document.createElement("span");
-
-    horario.textContent =
-        "14:32";
-
-
-    balao.appendChild(texto);
-    balao.appendChild(horario);
-
-
-    mensagemProfissional.appendChild(avatar);
-    mensagemProfissional.appendChild(balao);
-
-
-    mensagensChat.appendChild(
-        mensagemProfissional
-    );
-
-
-    const sistema =
-        document.createElement("div");
-
-    sistema.className =
-        "mensagem-sistema";
-
-
-    const textoSistema =
-        document.createElement("span");
-
-    textoSistema.textContent =
-        "Converse diretamente com este profissional.";
-
-
-    sistema.appendChild(textoSistema);
-
-
-    mensagensChat.appendChild(
-        sistema
-    );
-
-}
-
-
-
-/* =========================================================
-   ENVIAR MENSAGEM
-========================================================= */
-
-function enviarMensagem(texto) {
-
-    if (!texto.trim()) {
-        return;
-    }
-
-
-    /*
-       Mensagem do usuário.
-    */
-
-    const mensagemUsuario =
-        document.createElement("div");
-
-    mensagemUsuario.className =
-        "mensagem-usuario";
-
-
-    const balao =
-        document.createElement("div");
-
-    balao.className =
-        "balao-usuario";
-
-
-    const textoMensagem =
-        document.createElement("p");
-
-    textoMensagem.textContent =
-        texto;
-
-
-    const horario =
-        document.createElement("span");
-
-    horario.textContent =
-        "agora";
-
-
-    balao.appendChild(
-        textoMensagem
-    );
-
-    balao.appendChild(
-        horario
-    );
-
-
-    mensagemUsuario.appendChild(
-        balao
-    );
-
-
-    mensagensChat.appendChild(
-        mensagemUsuario
-    );
-
-
-    /*
-       Scroll para a última mensagem.
-    */
-
-    mensagensChat.scrollTop =
-        mensagensChat.scrollHeight;
-
-
-    mensagemChat.value = "";
-
-
-    /*
-       Simula resposta.
-    */
-
-    setTimeout(function () {
-
-        const resposta =
-            document.createElement("div");
-
-        resposta.className =
-            "mensagem-profissional";
-
-
-        const avatar =
-            document.createElement("div");
-
-        avatar.className =
-            "avatar-mensagem";
-
-        avatar.textContent =
-            profissionalChat.iniciais;
-
-
-        const balaoResposta =
-            document.createElement("div");
-
-        balaoResposta.className =
-            "balao-mensagem";
-
-
-        const textoResposta =
-            document.createElement("p");
-
-        textoResposta.textContent =
-            "Claro! Posso ajudar você com isso.";
-
-
-        const horarioResposta =
-            document.createElement("span");
-
-        horarioResposta.textContent =
-            "agora";
-
-
-        balaoResposta.appendChild(
-            textoResposta
-        );
-
-        balaoResposta.appendChild(
-            horarioResposta
-        );
-
-
-        resposta.appendChild(
-            avatar
-        );
-
-        resposta.appendChild(
-            balaoResposta
-        );
-
-
-        mensagensChat.appendChild(
-            resposta
-        );
-
-
-        mensagensChat.scrollTop =
-            mensagensChat.scrollHeight;
-
-    }, 800);
-
-}
-
-
-
-/* =========================================================
-   FORMULÁRIO DO CHAT
-========================================================= */
-
-if (formChat) {
-
-    formChat.addEventListener(
-        "submit",
-        function (evento) {
-
-            evento.preventDefault();
-
-            enviarMensagem(
-                mensagemChat.value
+                },
+                120
             );
 
-        }
+        },
+        180
     );
 
 }
 
 
+/* =====================================================
+   INDICADORES
+===================================================== */
 
-/* =========================================================
-   SUGESTÕES DO CHAT
-========================================================= */
+function atualizarIndicadores() {
 
-const sugestoes =
-    document.querySelectorAll(
-        ".sugestoes-chat button"
-    );
+    indicadores.forEach(function (indicador, indice) {
+
+        indicador.classList.toggle(
+            "ativo",
+            indice === indiceCentral
+        );
+
+    });
+
+}
 
 
-sugestoes.forEach(function (botao) {
+/* =====================================================
+   CLIQUE NOS INDICADORES
+===================================================== */
 
-    botao.addEventListener(
+indicadores.forEach(function (indicador) {
+
+    indicador.addEventListener(
         "click",
         function () {
 
-            enviarMensagem(
-                botao.textContent.trim()
-            );
+            const novoIndice =
+                Number(indicador.dataset.indice);
+
+
+            if (
+                Number.isNaN(novoIndice) ||
+                novoIndice < 0 ||
+                novoIndice >= profissionais.length
+            ) {
+
+                return;
+
+            }
+
+
+            trocarStory(novoIndice);
 
         }
     );
@@ -895,52 +515,149 @@ sugestoes.forEach(function (botao) {
 });
 
 
+/* =====================================================
+   ATUALIZAR CHAT
+===================================================== */
 
-/* =========================================================
-   FECHAR CHAT
-========================================================= */
+function atualizarChat() {
 
-if (fecharChat) {
+    const profissional =
+        profissionais[indiceCentral];
 
-    fecharChat.addEventListener(
-        "click",
-        function () {
 
-            const chat =
-                document.getElementById("chatArea");
+    if (!profissional) return;
 
-            if (!chat) {
-                return;
-            }
 
-            chat.classList.toggle(
-                "chat-fechado"
-            );
+    if (fotoChat) {
 
-        }
-    );
+        fotoChat.src =
+            profissional.fotoPerfil;
+
+        fotoChat.alt =
+            "Foto de " + profissional.nome;
+
+    }
+
+
+    if (nomeChat) {
+
+        nomeChat.textContent =
+            profissional.nome;
+
+    }
+
+
+    if (profissaoChat) {
+
+        profissaoChat.textContent =
+            profissional.profissao;
+
+    }
+
+
+    atualizarMensagemInicial(profissional);
 
 }
 
 
+/* =====================================================
+   MENSAGEM INICIAL DO CHAT
+===================================================== */
 
-/* =========================================================
+function atualizarMensagemInicial(profissional) {
+
+    if (!mensagensChat) return;
+
+
+    mensagensChat.innerHTML = `
+
+        <div class="mensagem-profissional">
+
+            <div class="avatar-mensagem">
+                ${profissional.iniciais}
+            </div>
+
+            <div class="balao-mensagem">
+
+                <p>
+                    ${profissional.mensagem}
+                </p>
+
+                <span>
+                    agora
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="mensagem-sistema">
+
+            <span>
+                Converse diretamente com este profissional.
+            </span>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   FILTROS
+===================================================== */
+
+function ativarFiltros() {
+
+    const botoes =
+        document.querySelectorAll(".filtro");
+
+
+    botoes.forEach(function (botao) {
+
+        botao.addEventListener(
+            "click",
+            function () {
+
+                botoes.forEach(function (item) {
+
+                    item.classList.remove("ativo");
+
+                });
+
+
+                botao.classList.add("ativo");
+
+
+                filtroAtual =
+                    botao.dataset.filtro;
+
+
+                aplicarFiltro();
+
+            }
+        );
+
+    });
+
+}
+
+
+/* =====================================================
    BUSCA
-========================================================= */
+===================================================== */
 
-if (buscaAutonomos) {
+function ativarBusca() {
+
+    if (!buscaAutonomos) return;
+
 
     buscaAutonomos.addEventListener(
         "input",
         function () {
 
-            termoBusca =
-                buscaAutonomos.value
-                    .toLowerCase()
-                    .trim();
-
-
-            aplicarFiltros();
+            aplicarFiltro();
 
         }
     );
@@ -948,207 +665,68 @@ if (buscaAutonomos) {
 }
 
 
+/* =====================================================
+   APLICAR FILTRO
+===================================================== */
 
-/* =========================================================
-   FILTROS
-========================================================= */
+function aplicarFiltro() {
 
-botoesFiltro.forEach(function (botao) {
+    const termo =
+        buscaAutonomos
+            ? buscaAutonomos.value
+                .trim()
+                .toLowerCase()
+            : "";
 
-    botao.addEventListener(
-        "click",
-        function () {
 
-            /*
-               Remove o estado ativo
-               dos outros botões.
-            */
+    const cards =
+        document.querySelectorAll(
+            ".card-profissional"
+        );
 
-            botoesFiltro.forEach(
-                function (outroBotao) {
 
-                    outroBotao.classList.remove(
-                        "ativo"
-                    );
+    cards.forEach(function (card) {
+
+        const profissional =
+            card.dataset.profissional;
+
+
+        const dados =
+            profissionais.find(
+                function (item) {
+
+                    return item.id === profissional;
 
                 }
             );
 
 
-            /*
-               Ativa o botão selecionado.
-            */
-
-            botao.classList.add(
-                "ativo"
-            );
+        if (!dados) return;
 
 
-            filtroAtual =
-                botao.dataset.filtro;
-
-
-            aplicarFiltros();
-
-        }
-    );
-
-});
-
-
-
-/* =========================================================
-   APLICAR FILTROS
-========================================================= */
-
-function aplicarFiltros() {
-
-    profissionaisVisiveis =
-        profissionais.filter(
-            function (profissional) {
-
-
-                /*
-                   Verificação do filtro.
-                */
-
-                const correspondeCategoria =
-                    filtroAtual === "todos" ||
-                    profissional.categoria === filtroAtual;
-
-
-                /*
-                   Verificação da busca.
-                */
-
-                const textoProfissional =
-                    (
-                        profissional.nome +
-                        " " +
-                        profissional.profissao +
-                        " " +
-                        profissional.categoriaNome +
-                        " " +
-                        profissional.localizacao
-                    ).toLowerCase();
-
-
-                const correspondeBusca =
-                    textoProfissional.includes(
-                        termoBusca
-                    );
-
-
-                return (
-                    correspondeCategoria &&
-                    correspondeBusca
-                );
-
-            }
-        );
-
-
-    /*
-       Se não houver profissionais,
-       não tenta atualizar os Stories.
-    */
-
-    if (
-        profissionaisVisiveis.length === 0
-    ) {
-
-        mostrarNenhumResultado();
-
-        return;
-
-    }
-
-
-    /*
-       Reinicia o centro para um profissional
-       válido da lista filtrada.
-    */
-
-    const profissionalAtual =
-        profissionaisVisiveis.find(
-            function (profissional) {
-
-                return (
-                    profissional.id ===
-                    profissionalChat.id
-                );
-
-            }
-        );
-
-
-    if (profissionalAtual) {
-
-        indiceCentral =
-            profissionaisVisiveis.indexOf(
-                profissionalAtual
-            );
-
-    } else {
-
-        indiceCentral = 0;
-
-    }
-
-
-    atualizarStories();
-
-    atualizarCards();
-
-}
-
-
-
-/* =========================================================
-   ATUALIZAR CARDS
-========================================================= */
-
-function atualizarCards() {
-
-    cards.forEach(function (card) {
-
-        const id =
-            card.dataset.profissional;
-
-        const profissional =
-            obterProfissional(id);
-
-
-        if (!profissional) {
-            return;
-        }
-
-
-        const correspondeCategoria =
+        const correspondeFiltro =
             filtroAtual === "todos" ||
-            profissional.categoria === filtroAtual;
+            dados.filtro === filtroAtual;
 
 
-        const textoProfissional =
+        const textoBusca =
             (
-                profissional.nome +
+                dados.nome +
                 " " +
-                profissional.profissao +
+                dados.profissao +
                 " " +
-                profissional.categoriaNome +
+                dados.categoria +
                 " " +
-                profissional.localizacao
+                dados.localizacao
             ).toLowerCase();
 
 
         const correspondeBusca =
-            textoProfissional.includes(
-                termoBusca
-            );
+            textoBusca.includes(termo);
 
 
         if (
-            correspondeCategoria &&
+            correspondeFiltro &&
             correspondeBusca
         ) {
 
@@ -1165,135 +743,195 @@ function atualizarCards() {
 }
 
 
+/* =====================================================
+   CHAT
+===================================================== */
 
-/* =========================================================
-   NENHUM RESULTADO
-========================================================= */
+function ativarChat() {
 
-function mostrarNenhumResultado() {
-
-    stories.forEach(function (story) {
-
-        const imagem =
-            story.querySelector(
-                ".story-imagem img"
-            );
-
-        const nome =
-            story.querySelector(
-                ".story-nome"
-            );
+    const form =
+        document.getElementById("formChat");
 
 
-        imagem.removeAttribute("src");
-
-        imagem.alt = "";
-
-        nome.textContent =
-            "Nenhum resultado";
-
-    });
+    const campo =
+        document.getElementById("mensagemChat");
 
 
-    nomeChat.textContent =
-        "Nenhum profissional";
-
-    profissaoChat.textContent =
-        "Tente outro filtro ou busca";
-
-    fotoChat.removeAttribute(
-        "src"
-    );
-
-    avatarMensagem.textContent =
-        "—";
+    if (!form || !campo) return;
 
 
-    cards.forEach(function (card) {
+    form.addEventListener(
+        "submit",
+        function (evento) {
 
-        card.style.display = "none";
-
-    });
-
-}
+            evento.preventDefault();
 
 
-
-/* =========================================================
-   BOTÕES "VER PERFIL"
-========================================================= */
-
-botoesPerfil.forEach(function (botao) {
-
-    botao.addEventListener(
-        "click",
-        function () {
-
-            const id =
-                botao.dataset.profissional;
-
-            const profissional =
-                obterProfissional(id);
+            const texto =
+                campo.value.trim();
 
 
-            if (!profissional) {
-                return;
-            }
+            if (!texto) return;
 
 
-            /*
-               Por enquanto é uma simulação.
-               Depois podemos conectar cada perfil
-               a uma página real.
-            */
+            adicionarMensagemUsuario(texto);
 
-            alert(
-                "Perfil de " +
-                profissional.nome
-            );
+
+            campo.value = "";
 
         }
     );
 
-});
+
+    const sugestoes =
+        document.querySelectorAll(
+            ".sugestoes-chat button"
+        );
 
 
+    sugestoes.forEach(function (botao) {
 
-/* =========================================================
-   INICIALIZAÇÃO
-========================================================= */
+        botao.addEventListener(
+            "click",
+            function () {
 
-function iniciarAutonomos() {
-
-    /*
-       Ativa os cliques dos Stories.
-    */
-
-    ativarStories();
+                const texto =
+                    botao.textContent.trim();
 
 
-    /*
-       Mostra os Stories iniciais.
-    */
-
-    atualizarStories();
+                if (!texto) return;
 
 
-    /*
-       Mostra os cards iniciais.
-    */
+                adicionarMensagemUsuario(texto);
 
-    atualizarCards();
+            }
+        );
+
+    });
 
 }
 
 
+/* =====================================================
+   ADICIONAR MENSAGEM DO USUÁRIO
+===================================================== */
 
-/* =========================================================
-   INICIAR
-========================================================= */
+function adicionarMensagemUsuario(texto) {
 
-document.addEventListener(
-    "DOMContentLoaded",
-    iniciarAutonomos
-);
+    if (!mensagensChat) return;
+
+
+    const mensagem =
+        document.createElement("div");
+
+
+    mensagem.style.display = "flex";
+
+    mensagem.style.justifyContent = "flex-end";
+
+
+    mensagem.innerHTML = `
+
+        <div
+            style="
+                max-width:78%;
+                padding:10px 12px;
+                border-radius:13px 13px 3px 13px;
+                background:var(--nw-azul);
+                color:#fff;
+                font-size:10px;
+                line-height:1.5;
+            "
+        >
+
+            ${escaparHTML(texto)}
+
+        </div>
+
+    `;
+
+
+    mensagensChat.appendChild(mensagem);
+
+
+    mensagensChat.scrollTop =
+        mensagensChat.scrollHeight;
+
+}
+
+
+/* =====================================================
+   ESCAPAR HTML
+===================================================== */
+
+function escaparHTML(texto) {
+
+    const elemento =
+        document.createElement("div");
+
+
+    elemento.textContent = texto;
+
+
+    return elemento.innerHTML;
+
+}
+
+
+/* =====================================================
+   BOTÕES "VER PERFIL"
+===================================================== */
+
+function ativarBotoesPerfil() {
+
+    const botoes =
+        document.querySelectorAll(
+            ".botao-perfil"
+        );
+
+
+    botoes.forEach(function (botao) {
+
+        botao.addEventListener(
+            "click",
+            function () {
+
+                const id =
+                    botao.dataset.profissional;
+
+
+                const indice =
+                    profissionais.findIndex(
+                        function (profissional) {
+
+                            return profissional.id === id;
+
+                        }
+                    );
+
+
+                if (indice === -1) return;
+
+
+                trocarStory(indice);
+
+
+                const stories =
+                    document.querySelector(".stories-area");
+
+
+                if (stories) {
+
+                    stories.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }
+
+            }
+        );
+
+    });
+
+}
