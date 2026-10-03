@@ -28,15 +28,15 @@
 .etiqueta {
     display: inline-block;
     margin-bottom: 10px;
-    font-size: 10px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 800;
     letter-spacing: 2px;
     color: var(--nw-ciano);
 }
 
 .titulo-area h1 {
     margin: 0;
-    font-size: clamp(30px, 4vw, 48px);
+    font-size: clamp(32px, 4vw, 50px);
     line-height: 1.08;
     font-weight: 800;
     color: var(--nw-texto);
@@ -49,8 +49,9 @@
 .titulo-area p {
     max-width: 650px;
     margin: 15px 0 0;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.7;
+    font-weight: 500;
     color: var(--nw-texto-2);
 }
 
@@ -91,7 +92,7 @@
 }
 
 .campo-busca > span {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1;
     color: var(--nw-ciano);
 }
@@ -104,11 +105,13 @@
     background: transparent;
     color: var(--nw-texto);
     font-family: "Poppins", sans-serif;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .campo-busca input::placeholder {
     color: var(--nw-texto-3);
+    font-weight: 500;
 }
 
 /* =========================================================
@@ -134,8 +137,8 @@
     color: var(--nw-texto-2);
 
     font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
 
     cursor: pointer;
 
@@ -190,8 +193,8 @@
     display: block;
     margin-bottom: 5px;
 
-    font-size: 10px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 800;
     letter-spacing: 2px;
 
     color: var(--nw-ciano);
@@ -200,9 +203,9 @@
 .stories-cabecalho h2 {
     margin: 0;
 
-    font-size: 23px;
+    font-size: 25px;
     line-height: 1.25;
-    font-weight: 700;
+    font-weight: 800;
 
     color: var(--nw-texto);
 }
@@ -405,8 +408,8 @@
 
     padding: 0 16px 17px;
 
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 800;
 
     text-align: left;
 
@@ -478,7 +481,7 @@
 
     color: var(--nw-ciano);
 
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .chat-titulo span:not(.icone-chat) {
@@ -486,8 +489,8 @@
 
     margin-bottom: 2px;
 
-    font-size: 8px;
-    font-weight: 700;
+    font-size: 10px;
+    font-weight: 800;
     letter-spacing: 1.6px;
 
     color: var(--nw-ciano);
@@ -496,8 +499,8 @@
 .chat-titulo h2 {
     margin: 0;
 
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 800;
 
     color: var(--nw-texto);
 }
@@ -516,7 +519,7 @@
 
     color: var(--nw-texto-2);
 
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1;
 
     cursor: pointer;
@@ -592,8 +595,8 @@
 .dados-chat h3 {
     margin: 0;
 
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
 
     color: var(--nw-texto);
 }
@@ -601,14 +604,15 @@
 .dados-chat p {
     margin: 2px 0 4px;
 
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 500;
 
     color: var(--nw-texto-2);
 }
 
 .dados-chat span {
-    font-size: 9px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 700;
 
     color: #32a66b;
 }
@@ -674,8 +678,8 @@
 
     color: #fff;
 
-    font-size: 9px;
-    font-weight: 700;
+    font-size: 10px;
+    font-weight: 800;
 }
 
 .balao-mensagem {
@@ -691,8 +695,9 @@
 .balao-mensagem p {
     margin: 0;
 
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.55;
+    font-weight: 500;
 
     color: var(--nw-texto);
 }
@@ -702,7 +707,8 @@
 
     margin-top: 5px;
 
-    font-size: 8px;
+    font-size: 9px;
+    font-weight: 500;
 
     color: var(--nw-texto-3);
 }
@@ -722,7 +728,8 @@
 
     border: 1px solid var(--nw-borda);
 
-    font-size: 8px;
+    font-size: 10px;
+    font-weight: 500;
 
     color: var(--nw-texto-3);
 
@@ -757,7 +764,8 @@
     color: var(--nw-texto-2);
 
     font-family: "Poppins", sans-serif;
-    font-size: 8px;
+    font-size: 10px;
+    font-weight: 600;
 
     cursor: pointer;
 
@@ -803,7 +811,8 @@
     color: var(--nw-texto);
 
     font-family: "Poppins", sans-serif;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 500;
 
     transition: .25s ease;
 }
@@ -814,6 +823,7 @@
 
 .campo-mensagem input::placeholder {
     color: var(--nw-texto-3);
+    font-weight: 500;
 }
 
 .campo-mensagem button {
@@ -834,7 +844,8 @@
 
     color: #fff;
 
-    font-size: 19px;
+    font-size: 21px;
+    font-weight: 700;
 
     cursor: pointer;
 
@@ -886,8 +897,8 @@
 
     margin-bottom: 6px;
 
-    font-size: 10px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 800;
     letter-spacing: 2px;
 
     color: var(--nw-ciano);
@@ -898,9 +909,9 @@
 
     margin: 0;
 
-    font-size: 24px;
+    font-size: 27px;
     line-height: 1.25;
-    font-weight: 700;
+    font-weight: 800;
 
     color: var(--nw-texto);
 }
@@ -910,8 +921,9 @@
 
     margin: 7px 0 0;
 
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.6;
+    font-weight: 500;
 
     color: var(--nw-texto-2);
 }
@@ -981,8 +993,8 @@
 .card-profissional h3 {
     margin: 0 0 4px;
 
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
 
     color: var(--nw-texto);
 }
@@ -990,22 +1002,24 @@
 .card-profissional p {
     margin: 0 0 7px;
 
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.5;
+    font-weight: 500;
 
     color: var(--nw-texto-2);
 }
 
 .card-profissional .localizacao {
-    font-size: 9px;
+    font-size: 11px;
+    font-weight: 500;
     color: var(--nw-texto-3);
 }
 
 .card-profissional .avaliacao {
     margin-top: 10px;
 
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
 
     color: var(--nw-texto);
 }
@@ -1033,8 +1047,8 @@
     color: var(--nw-azul);
 
     font-family: "Poppins", sans-serif;
-    font-size: 9px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
 
     cursor: pointer;
 
@@ -1112,7 +1126,8 @@
 
     color: var(--nw-texto);
 
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 800;
 }
 
 .modal-perfil-autonomo p {
@@ -1120,7 +1135,8 @@
 
     color: var(--nw-texto-2);
 
-    font-size: 11px;
+    font-size: 13px;
+    font-weight: 500;
     line-height: 1.6;
 }
 
@@ -1144,8 +1160,8 @@
     color: #fff;
 
     font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
 
     cursor: pointer;
 }
@@ -1196,6 +1212,18 @@
     .cards-profissionais {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
+    }
+
+    .titulo-area p {
+        font-size: 14px;
+    }
+
+    .campo-busca input {
+        font-size: 13px;
+    }
+
+    .filtro {
+        font-size: 11px;
     }
 }
 
@@ -1254,11 +1282,47 @@
     .story-nome {
         padding-left: 12px;
         padding-right: 12px;
-        font-size: 10px;
+        font-size: 13px;
     }
 
     .cards-profissionais {
         grid-template-columns: 1fr;
+    }
+
+    .titulo-area p {
+        font-size: 14px;
+    }
+
+    .chat-titulo h2 {
+        font-size: 16px;
+    }
+
+    .dados-chat h3 {
+        font-size: 14px;
+    }
+
+    .dados-chat p {
+        font-size: 11px;
+    }
+
+    .balao-mensagem p {
+        font-size: 12px;
+    }
+
+    .sugestoes-chat button {
+        font-size: 10px;
+    }
+
+    .campo-mensagem input {
+        font-size: 12px;
+    }
+
+    .card-profissional h3 {
+        font-size: 15px;
+    }
+
+    .card-profissional p {
+        font-size: 12px;
     }
 }
 
@@ -1273,11 +1337,20 @@
     }
 
     .titulo-area h1 {
-        font-size: 30px;
+        font-size: 31px;
     }
 
     .titulo-area p {
-        font-size: 12px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .etiqueta {
+        font-size: 11px;
+    }
+
+    .campo-busca input {
+        font-size: 13px;
     }
 
     .filtros-area {
@@ -1286,11 +1359,16 @@
 
     .filtro {
         padding: 0 11px;
-        font-size: 9px;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .stories-cabecalho span {
+        font-size: 11px;
     }
 
     .stories-cabecalho h2 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .stories-lista {
@@ -1331,6 +1409,11 @@
         transform: scale(1.04);
     }
 
+    .story-nome {
+        font-size: 12px;
+        font-weight: 800;
+    }
+
     .chat-area {
         min-height: 500px;
         border-radius: 18px;
@@ -1340,8 +1423,28 @@
         padding: 15px;
     }
 
+    .chat-titulo span:not(.icone-chat) {
+        font-size: 9px;
+    }
+
+    .chat-titulo h2 {
+        font-size: 15px;
+    }
+
     .perfil-chat {
         padding: 15px;
+    }
+
+    .dados-chat h3 {
+        font-size: 14px;
+    }
+
+    .dados-chat p {
+        font-size: 11px;
+    }
+
+    .dados-chat span {
+        font-size: 10px;
     }
 
     .mensagens-chat {
@@ -1349,16 +1452,61 @@
         padding: 15px;
     }
 
+    .balao-mensagem p {
+        font-size: 12px;
+    }
+
+    .mensagem-sistema {
+        font-size: 9px;
+    }
+
     .sugestoes-chat {
         padding: 12px 15px;
+    }
+
+    .sugestoes-chat button {
+        font-size: 9px;
+        font-weight: 600;
     }
 
     .campo-mensagem {
         padding: 12px;
     }
 
+    .campo-mensagem input {
+        font-size: 11px;
+    }
+
+    .titulo-outros span {
+        font-size: 11px;
+    }
+
     .titulo-outros h2 {
-        font-size: 21px;
+        font-size: 22px;
+    }
+
+    .titulo-outros p {
+        font-size: 13px;
+    }
+
+    .card-profissional h3 {
+        font-size: 15px;
+    }
+
+    .card-profissional p {
+        font-size: 12px;
+    }
+
+    .card-profissional .localizacao {
+        font-size: 11px;
+    }
+
+    .card-profissional .avaliacao {
+        font-size: 12px;
+    }
+
+    .card-profissional button {
+        font-size: 11px;
     }
 }
 
