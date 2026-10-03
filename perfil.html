@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="menu lateral.css">
     <link rel="stylesheet" href="perfil.css">
 <link rel="stylesheet" href="tema.css">
     <link rel="stylesheet" href="menu.css">
@@ -20,75 +21,8 @@
 
 <div class="page-layout">
 
-    <aside class="sidebar">
 
-        <div>
-            <div class="profile-photo">
-                <div class="photo-circle" id="photoCircle">♙</div>
-                <button type="button" class="change-photo" id="changePhotoBtn">Alterar foto</button>
-                <input type="file" id="photoInput" accept="image/*" hidden>
-            </div>
-
-            <div class="sidebar-profile">
-                <h3 id="sideName">João da Silva</h3>
-                <p id="sideProfession">Desenvolvedor Web</p>
-            </div>
-
-            <nav class="sidebar-menu">
-
-                <a href="perfil.html" class="sidebar-link active">
-                    <span class="menu-icon">⌂</span>
-                    <div>
-                        <strong>Meu perfil</strong>
-                        <small>Visão geral</small>
-                    </div>
-                </a>
-
-                <a href="minhas-candidaturas.html" class="sidebar-link">
-                    <span class="menu-icon">▣</span>
-                    <div>
-                        <strong>Minhas candidaturas</strong>
-                        <small>Acompanhe suas vagas</small>
-                    </div>
-                </a>
-
-                <a href="habilidades.html" class="sidebar-link">
-                    <span class="menu-icon">☆</span>
-                    <div>
-                        <strong>Habilidades</strong>
-                        <small>Suas competências</small>
-                    </div>
-                </a>
-
-                <a href="cursos.html" class="sidebar-link">
-                    <span class="menu-icon">▤</span>
-                    <div>
-                        <strong>Cursos e certificações</strong>
-                        <small>Formação complementar</small>
-                    </div>
-                </a>
-
-                <a href="preferencias.html" class="sidebar-link">
-                    <span class="menu-icon">♡</span>
-                    <div>
-                        <strong>Preferências</strong>
-                        <small>Oportunidades ideais</small>
-                    </div>
-                </a>
-
-            </nav>
-        </div>
-
-        <button type="button" class="switch-profile" onclick="alternarParaEmpresa()">
-            <span class="switch-icon">⇄</span>
-            <span class="switch-text">
-                <strong>Alternar para<br>perfil de empresa</strong>
-                <small>Acessar área empresarial</small>
-            </span>
-            <span class="switch-arrow">›</span>
-        </button>
-
-    </aside>
+<div id="menu-lateral"></div>
 
     <main class="main-content">
 
@@ -444,6 +378,8 @@
 
 <script src="perfil.js"></script>
 <script src="menu.js"></script>
+<script src="menu lateral.js"></script>
+
 
 </body>
 </html>
