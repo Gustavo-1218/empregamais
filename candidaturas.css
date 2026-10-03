@@ -97,3 +97,815 @@ main{width:min(1180px,92%);margin:auto;padding:72px 0 90px}
     .botao-expandir{width:100%}
     .toast{left:15px;right:15px;bottom:15px;text-align:center}
 }
+
+
+:root{
+    --fundo:#eefaff;
+    --painel:rgba(255,255,255,.92);
+    --azul:#008fc7;
+    --azul2:#087cf0;
+    --roxo:#7147e8;
+    --verde:#00a878;
+    --laranja:#e78a12;
+    --vermelho:#e74668;
+    --texto:#102b4c;
+    --suave:#526b84;
+    --fraco:#71869c;
+    --borda:rgba(0,145,200,.20);
+    --trans:.3s ease;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--texto);
+    font-family:"Poppins",sans-serif;
+    background:
+        radial-gradient(circle at 12% 18%,rgba(0,180,255,.10),transparent 27%),
+        radial-gradient(circle at 88% 70%,rgba(113,71,232,.07),transparent 30%),
+        var(--fundo);
+    overflow-x:hidden;
+    position:relative;
+    isolation:isolate;
+}
+
+/* =========================================================
+   FUNDO
+   ========================================================= */
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(
+            rgba(238,250,255,.78),
+            rgba(238,250,255,.88)
+        ),
+        url("plano de fundo.png") center/cover no-repeat;
+    z-index:-2;
+    pointer-events:none;
+}
+
+body:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0,190,255,.09),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(113,71,232,.08),
+            transparent 30%
+        );
+    z-index:-1;
+    pointer-events:none;
+}
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
+main{
+    width:min(1180px,92%);
+    margin:auto;
+    padding:72px 0 90px;
+}
+
+.cabecalho-pagina{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+    margin-bottom:30px;
+}
+
+.pagina-kicker,
+.titulo-kicker{
+    display:block;
+    color:var(--azul2);
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.18em;
+    margin-bottom:9px;
+}
+
+.cabecalho-texto h1{
+    font-size:clamp(2rem,4vw,3rem);
+    line-height:1.1;
+    margin-bottom:10px;
+}
+
+.cabecalho-texto p{
+    color:var(--suave);
+    line-height:1.7;
+    max-width:680px;
+}
+
+/* =========================================================
+   CONTADOR
+   ========================================================= */
+
+.contador-candidaturas{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:14px 18px;
+    border:1px solid var(--borda);
+    border-radius:16px;
+    background:rgba(255,255,255,.78);
+    box-shadow:
+        0 0 22px rgba(0,170,230,.10),
+        0 10px 30px rgba(20,80,120,.06);
+    white-space:nowrap;
+}
+
+.contador-icone{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    color:var(--azul2);
+    background:rgba(0,174,230,.09);
+    border:1px solid rgba(0,174,230,.20);
+    box-shadow:0 0 14px rgba(0,174,230,.10);
+}
+
+.contador-candidaturas strong,
+.contador-candidaturas span{
+    display:block;
+}
+
+.contador-candidaturas strong{
+    font-size:1.2rem;
+}
+
+.contador-candidaturas span{
+    color:var(--suave);
+    font-size:.7rem;
+}
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+.filtros-candidaturas{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:25px;
+}
+
+.filtro{
+    padding:9px 15px;
+    border-radius:999px;
+    border:1px solid rgba(0,145,200,.16);
+    background:rgba(255,255,255,.78);
+    color:var(--suave);
+    font:500 .77rem "Poppins";
+    cursor:pointer;
+    transition:var(--trans);
+}
+
+.filtro:hover,
+.filtro.ativo{
+    color:#0875a8;
+    border-color:rgba(0,170,230,.38);
+    background:rgba(0,200,255,.09);
+    box-shadow:0 0 15px rgba(0,180,255,.10);
+}
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+.secao-candidaturas,
+.secao-oportunidades{
+    margin-top:30px;
+}
+
+.titulo-secao{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:18px;
+}
+
+.titulo-secao h2{
+    font-size:1.35rem;
+    margin-bottom:5px;
+}
+
+.titulo-secao p{
+    color:var(--suave);
+    font-size:.78rem;
+    line-height:1.6;
+}
+
+.quantidade{
+    color:var(--fraco);
+    font-size:.75rem;
+}
+
+/* =========================================================
+   CANDIDATURAS
+   ========================================================= */
+
+.lista-candidaturas{
+    display:grid;
+    gap:15px;
+}
+
+.card-candidatura{
+    display:flex;
+    gap:18px;
+    padding:22px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.96),
+        rgba(244,251,255,.94)
+    );
+    border:1px solid var(--borda);
+    border-radius:20px;
+    transition:var(--trans);
+    box-shadow:
+        0 0 18px rgba(0,170,230,.08),
+        0 10px 30px rgba(20,80,120,.06);
+}
+
+.card-candidatura:hover{
+    transform:translateY(-3px);
+    border-color:rgba(0,170,230,.42);
+    box-shadow:
+        0 0 30px rgba(0,180,255,.15),
+        0 14px 35px rgba(20,80,120,.09);
+}
+
+.empresa-logo{
+    width:52px;
+    height:52px;
+    min-width:52px;
+    display:grid;
+    place-items:center;
+    border-radius:14px;
+    color:var(--azul2);
+    background:rgba(0,180,230,.08);
+    border:1px solid rgba(0,180,230,.20);
+    box-shadow:0 0 14px rgba(0,180,230,.10);
+}
+
+.empresa-logo.roxo{
+    color:#7147e8;
+    background:rgba(113,71,232,.08);
+    border-color:rgba(113,71,232,.20);
+}
+
+.empresa-logo.verde{
+    color:#00a878;
+    background:rgba(0,168,120,.08);
+    border-color:rgba(0,168,120,.20);
+}
+
+.candidatura-conteudo{
+    flex:1;
+    min-width:0;
+}
+
+.candidatura-topo{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:12px;
+}
+
+.candidatura-topo h3{
+    font-size:1rem;
+    margin-bottom:4px;
+}
+
+.empresa{
+    color:var(--suave);
+    font-size:.78rem;
+}
+
+.status{
+    padding:6px 10px;
+    height:max-content;
+    border-radius:999px;
+    font-size:.68rem;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.status-analise{
+    color:#087fa5;
+    background:rgba(0,190,230,.08);
+    border:1px solid rgba(0,190,230,.20);
+}
+
+.status-entrevista{
+    color:#008b69;
+    background:rgba(0,190,140,.08);
+    border:1px solid rgba(0,190,140,.20);
+}
+
+.status-processo{
+    color:#b96b00;
+    background:rgba(255,157,36,.09);
+    border:1px solid rgba(255,157,36,.20);
+}
+
+/* =========================================================
+   INFORMAÇÕES
+   ========================================================= */
+
+.informacoes-vaga{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px 18px;
+    color:var(--suave);
+    font-size:.72rem;
+}
+
+.informacoes-vaga span{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.informacoes-vaga i{
+    color:var(--azul2);
+}
+
+/* =========================================================
+   PROGRESSO
+   ========================================================= */
+
+.progresso-candidatura{
+    margin:19px 0 16px;
+}
+
+.progresso-linha{
+    display:flex;
+    gap:6px;
+}
+
+.progresso-linha span{
+    height:4px;
+    flex:1;
+    border-radius:99px;
+    background:rgba(0,100,150,.10);
+}
+
+.progresso-linha span.progresso-ativo{
+    background:var(--azul2);
+    box-shadow:0 0 10px rgba(0,170,240,.50);
+}
+
+.progresso-legendas{
+    display:flex;
+    justify-content:space-between;
+    color:var(--fraco);
+    font-size:.59rem;
+    margin-top:6px;
+}
+
+/* =========================================================
+   RODAPÉ DOS CARDS
+   ========================================================= */
+
+.candidatura-rodape{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    color:var(--fraco);
+    font-size:.68rem;
+}
+
+.botao-detalhes,
+.botao-adicionar,
+.botao-expandir{
+    border:0;
+    border-radius:11px;
+    padding:10px 14px;
+    color:#fff;
+    font:600 .73rem "Poppins";
+    cursor:pointer;
+    transition:var(--trans);
+}
+
+.botao-detalhes{
+    background:rgba(0,150,210,.08);
+    border:1px solid rgba(0,170,230,.20);
+    color:#087aa5;
+}
+
+.botao-detalhes:hover,
+.botao-detalhes.destaque{
+    background:rgba(0,180,230,.12);
+    border-color:rgba(0,180,230,.42);
+    color:#006f9c;
+    box-shadow:0 0 18px rgba(0,180,255,.10);
+}
+
+.botao-detalhes i{
+    margin-left:5px;
+}
+
+.botao-expandir{
+    background:rgba(0,160,220,.08);
+    border:1px solid rgba(0,180,230,.22);
+    color:#087aa5;
+}
+
+.botao-expandir:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(0,190,255,.13);
+}
+
+/* =========================================================
+   OPORTUNIDADES
+   ========================================================= */
+
+.lista-oportunidades{
+    display:grid;
+    gap:12px;
+}
+
+.card-oportunidade{
+    display:grid;
+    grid-template-columns:1.15fr .55fr 1.25fr auto;
+    align-items:center;
+    gap:20px;
+    padding:18px 20px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.96),
+        rgba(247,252,255,.94)
+    );
+    border:1px solid rgba(113,71,232,.17);
+    border-radius:18px;
+    transition:var(--trans);
+    box-shadow:
+        0 0 18px rgba(113,71,232,.06),
+        0 10px 28px rgba(20,80,120,.05);
+}
+
+.card-oportunidade:hover{
+    transform:translateY(-3px);
+    border-color:rgba(113,71,232,.38);
+    box-shadow:
+        0 0 28px rgba(113,71,232,.12),
+        0 14px 32px rgba(20,80,120,.08);
+}
+
+.oportunidade-empresa{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.oportunidade-empresa h3{
+    font-size:.88rem;
+    margin-bottom:3px;
+}
+
+.oportunidade-empresa span{
+    font-size:.68rem;
+    color:var(--suave);
+}
+
+.compatibilidade{
+    text-align:center;
+    color:var(--azul2);
+}
+
+.compatibilidade.roxo{
+    color:#7147e8;
+}
+
+.compatibilidade.verde{
+    color:#00a878;
+}
+
+.compatibilidade strong{
+    display:block;
+    font-size:1.25rem;
+}
+
+.compatibilidade span{
+    font-size:.62rem;
+    color:var(--fraco);
+}
+
+.oportunidade-info{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:7px 14px;
+    color:var(--suave);
+    font-size:.68rem;
+}
+
+.oportunidade-info strong{
+    width:100%;
+    color:var(--texto);
+    font-size:.82rem;
+}
+
+.oportunidade-info span{
+    display:flex;
+    gap:5px;
+    align-items:center;
+}
+
+.oportunidade-info i{
+    color:var(--azul2);
+}
+
+.botao-adicionar{
+    background:linear-gradient(
+        135deg,
+        #00bfe8,
+        #087cf0
+    );
+    box-shadow:
+        0 0 18px rgba(0,170,240,.18);
+    white-space:nowrap;
+}
+
+.botao-adicionar:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 0 27px rgba(0,180,255,.28);
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    padding:13px 17px;
+    border:1px solid rgba(0,170,130,.28);
+    border-radius:13px;
+    background:rgba(247,255,252,.97);
+    color:#008361;
+    box-shadow:0 0 25px rgba(0,180,140,.12);
+    transform:translateY(20px);
+    opacity:0;
+    pointer-events:none;
+    transition:.3s ease;
+    font-size:.78rem;
+    z-index:100;
+}
+
+.toast.mostrar{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* =========================================================
+   MODO ESCURO
+   Mantém a identidade original
+   ========================================================= */
+
+html[data-tema="escuro"]{
+    --fundo:#010611;
+    --painel:rgba(5,18,42,.86);
+    --azul:#00d9ff;
+    --azul2:#1684ff;
+    --roxo:#8d5cff;
+    --verde:#00e6a8;
+    --laranja:#ff9d24;
+    --vermelho:#ff5577;
+    --texto:#f5f8ff;
+    --suave:#9caac4;
+    --fraco:#66738d;
+    --borda:rgba(0,205,255,.18);
+}
+
+html[data-tema="escuro"] body{
+    background:var(--fundo);
+}
+
+html[data-tema="escuro"] body:before{
+    background:
+        linear-gradient(
+            rgba(1,5,18,.72),
+            rgba(1,5,18,.72)
+        ),
+        url("plano de fundo.png") center/cover no-repeat;
+}
+
+html[data-tema="escuro"] body:after{
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0,190,255,.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(141,92,255,.08),
+            transparent 30%
+        );
+}
+
+html[data-tema="escuro"] .contador-candidaturas{
+    background:rgba(5,18,42,.72);
+    box-shadow:none;
+}
+
+html[data-tema="escuro"] .filtro{
+    border-color:rgba(255,255,255,.08);
+    background:rgba(5,18,42,.70);
+    color:var(--suave);
+}
+
+html[data-tema="escuro"] .filtro:hover,
+html[data-tema="escuro"] .filtro.ativo{
+    color:#fff;
+    border-color:rgba(0,210,255,.35);
+    background:rgba(0,210,255,.08);
+    box-shadow:none;
+}
+
+html[data-tema="escuro"] .card-candidatura{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7,21,45,.92),
+            rgba(2,9,23,.94)
+        );
+    box-shadow:none;
+}
+
+html[data-tema="escuro"] .card-candidatura:hover{
+    border-color:rgba(0,210,255,.35);
+    box-shadow:0 0 28px rgba(0,180,255,.08);
+}
+
+html[data-tema="escuro"] .card-oportunidade{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7,21,45,.90),
+            rgba(2,9,23,.94)
+        );
+    box-shadow:none;
+}
+
+html[data-tema="escuro"] .card-oportunidade:hover{
+    border-color:rgba(141,92,255,.35);
+    box-shadow:0 0 28px rgba(141,92,255,.07);
+}
+
+html[data-tema="escuro"] .botao-detalhes{
+    background:rgba(0,200,255,.06);
+    border-color:rgba(0,210,255,.17);
+    color:#6deaff;
+}
+
+html[data-tema="escuro"] .botao-expandir{
+    background:rgba(0,200,255,.08);
+    border-color:rgba(0,210,255,.20);
+    color:#6deaff;
+}
+
+html[data-tema="escuro"] .oportunidade-info strong{
+    color:#fff;
+}
+
+html[data-tema="escuro"] .toast{
+    background:rgba(3,18,25,.96);
+    color:#9ff8db;
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media(max-width:900px){
+
+    main{
+        padding:55px 0 70px;
+    }
+
+    .cabecalho-pagina{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .card-oportunidade{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .oportunidade-info{
+        grid-column:1/-1;
+    }
+
+    .botao-adicionar{
+        grid-column:1/-1;
+        width:100%;
+    }
+}
+
+@media(max-width:600px){
+
+    main{
+        width:94%;
+        padding:38px 0 60px;
+    }
+
+    .cabecalho-texto h1{
+        font-size:1.9rem;
+    }
+
+    .contador-candidaturas{
+        width:100%;
+    }
+
+    .titulo-secao{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .card-candidatura{
+        padding:17px;
+        gap:12px;
+    }
+
+    .empresa-logo{
+        width:44px;
+        height:44px;
+        min-width:44px;
+    }
+
+    .candidatura-topo{
+        align-items:flex-start;
+    }
+
+    .status{
+        font-size:.6rem;
+        padding:5px 8px;
+    }
+
+    .informacoes-vaga{
+        gap:7px 12px;
+    }
+
+    .candidatura-rodape{
+        align-items:flex-end;
+    }
+
+    .candidatura-rodape>span{
+        max-width:55%;
+    }
+
+    .card-oportunidade{
+        grid-template-columns:1fr;
+    }
+
+    .oportunidade-info,
+    .botao-adicionar{
+        grid-column:auto;
+    }
+
+    .compatibilidade{
+        text-align:left;
+    }
+
+    .botao-adicionar{
+        width:100%;
+    }
+
+    .botao-expandir{
+        width:100%;
+    }
+
+    .toast{
+        left:15px;
+        right:15px;
+        bottom:15px;
+        text-align:center;
+    }
+}
