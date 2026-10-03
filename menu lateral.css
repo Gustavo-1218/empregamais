@@ -10,6 +10,11 @@
     grid-template-columns:280px minmax(0,1fr);
 }
 
+/* =========================================================
+   MENU LATERAL
+   Mantém o menu escuro nos dois temas
+   ========================================================= */
+
 .sidebar{
     min-height:calc(100vh - 76px);
     padding:28px 18px 20px;
@@ -18,8 +23,16 @@
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-    background:rgba(3,10,25,.76);
-    border-right:1px solid var(--line);
+
+    /* Fundo sólido */
+    background:#071225;
+
+    border-right:1px solid rgba(0,221,255,.18);
+
+    box-shadow:
+        8px 0 30px rgba(0,80,140,.10);
+
+    z-index:10;
 }
 
 .profile-photo{
@@ -37,7 +50,11 @@
     border:1px solid var(--cyan);
     color:var(--cyan);
     font-size:34px;
-    background:radial-gradient(circle,rgba(0,221,255,.15),rgba(40,30,100,.04));
+    background:radial-gradient(
+        circle,
+        rgba(0,221,255,.15),
+        rgba(40,30,100,.04)
+    );
     box-shadow:0 0 25px rgba(0,210,255,.18);
     overflow:hidden;
 }
@@ -66,6 +83,7 @@
 .sidebar-profile h3{
     font-size:15px;
     font-weight:600;
+    color:#f5f8ff;
 }
 
 .sidebar-profile p{
@@ -107,7 +125,9 @@
         rgba(90,80,255,.05)
     );
     border-color:rgba(0,221,255,.24);
-    box-shadow:inset 3px 0 0 var(--cyan);
+    box-shadow:
+        inset 3px 0 0 var(--cyan),
+        0 0 18px rgba(0,200,255,.06);
 }
 
 .menu-icon{
@@ -140,6 +160,10 @@
 }
 
 
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
 @media(max-width:900px){
 
     .page-layout{
@@ -153,8 +177,12 @@
         width:100%;
         min-height:auto;
         padding:20px 15px;
+
         border-right:0;
-        border-bottom:1px solid var(--line);
+        border-bottom:1px solid rgba(0,221,255,.18);
+
+        box-shadow:
+            0 8px 25px rgba(0,80,140,.12);
     }
 
     .main-content{
