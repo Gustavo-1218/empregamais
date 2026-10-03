@@ -2147,3 +2147,8 @@ html:not([data-tema="escuro"]) .main .see-all {
    O .sidebar NÃO recebe nenhuma regra de tema.
    Ele continua utilizando o visual escuro original.
 ===================================================== */
+
+
+html:not([data-tema="escuro"]) .main .candidate-name {
+    color: #111111;
+}
