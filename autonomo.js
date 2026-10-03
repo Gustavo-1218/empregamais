@@ -1,550 +1,1122 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* =====================================================
-       ELEMENTOS DA PÁGINA
-    ===================================================== */
-
-    const carrossel = document.getElementById("carrosselProfissionais");
-    const busca = document.getElementById("buscaAutonomos");
-    const filtros = document.querySelectorAll(".filtro");
-    const indicadores = document.querySelectorAll(".indicador");
-
-    const formChat = document.getElementById("formChat");
-    const mensagemChat = document.getElementById("mensagemChat");
-    const mensagensChat = document.getElementById("mensagensChat");
-    const sugestoes = document.querySelectorAll(".sugestoes-chat button");
-
-    const fotoChat = document.getElementById("fotoChat");
-    const nomeChat = document.getElementById("nomeChat");
-    const profissaoChat = document.getElementById("profissaoChat");
-    const statusTextoChat = document.getElementById("statusTextoChat");
-
-    const cardEsquerda = document.querySelector(".card-esquerda");
-    const cardCentro = document.querySelector(".card-centro");
-    const cardDireita = document.querySelector(".card-direita");
+/* =========================================================
+   NEXT WORK - AUTÔNOMOS
+   Stories + Chat + Busca + Filtros + Cards
+========================================================= */
 
 
-    /* =====================================================
-       ESTADO
-    ===================================================== */
+/* =========================================================
+   DADOS DOS PROFISSIONAIS
+========================================================= */
 
-    let indiceCentral = 1;
-    let categoriaAtual = "todos";
-    let termoBusca = "";
+const profissionais = [
 
-    let profissionaisVisiveis = [];
+    {
+        id: "joao",
 
-    let trocaEmAndamento = false;
-    let tempoTroca = null;
+        nome: "João Silva",
 
+        nomeCurto: "João",
 
-    /* =====================================================
-       DADOS DOS PROFISSIONAIS
-    ===================================================== */
+        fotoPerfil: "João Silva.png",
 
-    const profissionais = [
+        fotoTrabalho: "joaotrabalhando.png",
 
-        {
-            id: "joao",
-            nome: "João Silva",
-            profissao: "Encanador profissional",
-            categoria: "encanamento",
-            categoriaTexto: "ENCANAMENTO",
-            localizacao: "📍 Extremoz, RN",
-            imagem: "João Silva.png",
-            iniciais: "JS",
-            avaliacao: "4.9",
-            status: "Disponível agora",
+        profissao: "Encanador profissional",
 
-            mensagemInicial:
-                "Olá! 😊 Como posso ajudar você?",
+        categoria: "encanamento",
 
-            respostas: {
-                custo:
-                    "O valor depende do tipo de serviço. Se você me explicar o problema, consigo passar uma estimativa antes de começarmos.",
+        categoriaNome: "ENCANAMENTO",
 
-                regiao:
-                    "Sim! Atendo em Extremoz e em algumas regiões próximas de Natal.",
+        localizacao: "Extremoz, RN",
 
-                disponibilidade:
-                    "Tenho alguns horários disponíveis durante a semana. Podemos combinar o melhor horário por aqui."
-            }
-        },
+        avaliacao: "4.9",
+
+        iniciais: "JS",
+
+        mensagem:
+            "Olá! Como posso ajudar você?"
+    },
 
 
-        {
-            id: "maria",
-            nome: "Maria Santos",
-            profissao: "Profissional de limpeza",
-            categoria: "limpeza",
-            categoriaTexto: "LIMPEZA",
-            localizacao: "📍 Natal, RN",
-            imagem: "Maria Santos.png",
-            iniciais: "MS",
-            avaliacao: "5.0",
-            status: "Disponível agora",
+    {
+        id: "maria",
 
-            mensagemInicial:
-                "Olá! 😊 Como posso ajudar você?",
+        nome: "Maria Santos",
 
-            respostas: {
-                custo:
-                    "O valor depende do tamanho do local e do tipo de limpeza. Posso entender o que você precisa e combinar um orçamento.",
+        nomeCurto: "Maria",
 
-                regiao:
-                    "Atendo principalmente Natal e algumas regiões próximas.",
+        fotoPerfil: "Maria Santos.png",
 
-                disponibilidade:
-                    "Tenho disponibilidade durante a semana e também alguns horários aos finais de semana."
-            }
-        },
+        fotoTrabalho: "mariatraabalhando.png",
 
+        profissao: "Profissional de limpeza",
 
-        {
-            id: "carlos",
-            nome: "Carlos Oliveira",
-            profissao: "Eletricista residencial",
-            categoria: "eletrica",
-            categoriaTexto: "ELÉTRICA",
-            localizacao: "📍 Parnamirim, RN",
-            imagem: "Carlos Oliveira.png",
-            iniciais: "CO",
-            avaliacao: "4.8",
-            status: "Disponível agora",
+        categoria: "limpeza",
 
-            mensagemInicial:
-                "Olá! ⚡ Posso ajudar com seu serviço elétrico.",
+        categoriaNome: "LIMPEZA",
 
-            respostas: {
-                custo:
-                    "O orçamento depende do serviço. Posso avaliar o problema e explicar o que precisa ser feito antes de iniciar.",
+        localizacao: "Natal, RN",
 
-                regiao:
-                    "Atendo Parnamirim, Natal e algumas regiões próximas.",
+        avaliacao: "5.0",
 
-                disponibilidade:
-                    "Tenho alguns horários disponíveis. Podemos combinar o atendimento diretamente por aqui."
-            }
-        },
+        iniciais: "MS",
+
+        mensagem:
+            "Olá! Como posso ajudar você?"
+    },
 
 
-        {
-            id: "rafael",
-            nome: "Rafael Costa",
-            profissao: "Eletricista",
-            categoria: "eletrica",
-            categoriaTexto: "ELÉTRICA",
-            localizacao: "📍 Extremoz, RN",
-            imagem: "Rafael Costa.png",
-            iniciais: "RC",
-            avaliacao: "4.7",
-            status: "Disponível agora",
+    {
+        id: "carlos",
 
-            mensagemInicial:
-                "Olá! ⚡ Estou disponível para conversar.",
+        nome: "Carlos Oliveira",
 
-            respostas: {
-                custo:
-                    "Depende do serviço elétrico necessário. Posso entender o problema e passar uma estimativa.",
+        nomeCurto: "Carlos",
 
-                regiao:
-                    "Atendo Extremoz e algumas regiões próximas.",
+        fotoPerfil: "Carlos Oliveira.png",
 
-                disponibilidade:
-                    "Tenho horários disponíveis durante a semana e podemos combinar o atendimento."
-            }
-        },
+        fotoTrabalho: "carlostrabalhando.png",
 
+        profissao: "Eletricista residencial",
 
-        {
-            id: "ana",
-            nome: "Ana Beatriz",
-            profissao: "Pintora residencial",
-            categoria: "pintura",
-            categoriaTexto: "PINTURA",
-            localizacao: "📍 Natal, RN",
-            imagem: "Ana Beatriz.png",
-            iniciais: "AB",
-            avaliacao: "4.9",
-            status: "Disponível agora",
+        categoria: "eletrica",
 
-            mensagemInicial:
-                "Olá! 🎨 Quer conversar sobre seu projeto?",
+        categoriaNome: "ELÉTRICA",
 
-            respostas: {
-                custo:
-                    "O preço depende do tamanho do ambiente, quantidade de paredes e tipo de tinta. Posso fazer uma estimativa.",
+        localizacao: "Parnamirim, RN",
 
-                regiao:
-                    "Atendo principalmente Natal e regiões próximas.",
+        avaliacao: "4.8",
 
-                disponibilidade:
-                    "Posso verificar meus horários disponíveis e combinar uma data com você."
-            }
-        }
+        iniciais: "CO",
 
-    ];
+        mensagem:
+            "Olá! Como posso ajudar você?"
+    },
 
 
-    /* =====================================================
-       OBTER PROFISSIONAL
-    ===================================================== */
+    {
+        id: "rafael",
 
-    function obterProfissional(indice) {
+        nome: "Rafael Costa",
 
-        if (profissionaisVisiveis.length === 0) {
-            return null;
-        }
+        nomeCurto: "Rafael",
 
-        const total = profissionaisVisiveis.length;
+        fotoPerfil: "Rafael Costa.png",
 
-        indice = (indice + total) % total;
+        fotoTrabalho: "rafaeltrabalhando.png",
 
-        return profissionaisVisiveis[indice];
+        profissao: "Técnico em manutenção",
+
+        categoria: "manutencao",
+
+        categoriaNome: "MANUTENÇÃO",
+
+        localizacao: "Natal, RN",
+
+        avaliacao: "4.9",
+
+        iniciais: "RC",
+
+        mensagem:
+            "Olá! Como posso ajudar você?"
+    },
+
+
+    {
+        id: "ana",
+
+        nome: "Ana Beatriz",
+
+        nomeCurto: "Ana",
+
+        fotoPerfil: "Ana Beatriz.png",
+
+        fotoTrabalho: "anatrabalhando.png",
+
+        profissao: "Profissional de pintura",
+
+        categoria: "pintura",
+
+        categoriaNome: "PINTURA",
+
+        localizacao: "Extremoz, RN",
+
+        avaliacao: "4.9",
+
+        iniciais: "AB",
+
+        mensagem:
+            "Olá! Como posso ajudar você?"
+    }
+
+];
+
+
+
+/* =========================================================
+   ESTADO
+========================================================= */
+
+/*
+   Este índice representa quem está no centro.
+
+   0 = João
+   1 = Maria
+   2 = Carlos
+   3 = Rafael
+   4 = Ana
+*/
+
+let indiceCentral = 1;
+
+
+
+/*
+   Profissionais atualmente permitidos pelos filtros.
+*/
+
+let profissionaisVisiveis = [...profissionais];
+
+
+
+/*
+   Profissional atualmente aberto no chat.
+*/
+
+let profissionalChat = profissionais[indiceCentral];
+
+
+
+/*
+   Controle da busca.
+*/
+
+let termoBusca = "";
+
+
+
+/*
+   Filtro atual.
+*/
+
+let filtroAtual = "todos";
+
+
+
+/* =========================================================
+   ELEMENTOS
+========================================================= */
+
+const storiesLista =
+    document.getElementById("storiesLista");
+
+const stories =
+    document.querySelectorAll(".story-profissional");
+
+const fotoChat =
+    document.getElementById("fotoChat");
+
+const nomeChat =
+    document.getElementById("nomeChat");
+
+const profissaoChat =
+    document.getElementById("profissaoChat");
+
+const statusTextoChat =
+    document.getElementById("statusTextoChat");
+
+const avatarMensagem =
+    document.getElementById("avatarMensagem");
+
+const mensagemInicial =
+    document.getElementById("mensagemInicial");
+
+const mensagensChat =
+    document.getElementById("mensagensChat");
+
+const formChat =
+    document.getElementById("formChat");
+
+const mensagemChat =
+    document.getElementById("mensagemChat");
+
+const buscaAutonomos =
+    document.getElementById("buscaAutonomos");
+
+const cards =
+    document.querySelectorAll(".card-profissional");
+
+const botoesFiltro =
+    document.querySelectorAll(".filtro");
+
+const botoesPerfil =
+    document.querySelectorAll(".botao-perfil");
+
+const fecharChat =
+    document.getElementById("fecharChat");
+
+
+
+/* =========================================================
+   ENCONTRAR PROFISSIONAL
+========================================================= */
+
+function obterProfissional(id) {
+
+    return profissionais.find(function (profissional) {
+
+        return profissional.id === id;
+
+    });
+
+}
+
+
+
+/* =========================================================
+   ÍNDICE CIRCULAR
+========================================================= */
+
+/*
+   Isso permite que a lista continue infinitamente.
+
+   Exemplo:
+
+   Ana → João → Maria → Carlos → Rafael → Ana...
+*/
+
+function indiceCircular(indice, tamanho) {
+
+    return (indice + tamanho) % tamanho;
+
+}
+
+
+
+/* =========================================================
+   OBTER PROFISSIONAL VISÍVEL
+========================================================= */
+
+function obterProfissionalVisivel(indice) {
+
+    if (profissionaisVisiveis.length === 0) {
+        return null;
+    }
+
+    const indiceReal =
+        indiceCircular(
+            indice,
+            profissionaisVisiveis.length
+        );
+
+    return profissionaisVisiveis[indiceReal];
+
+}
+
+
+
+/* =========================================================
+   ATUALIZAR STORY
+========================================================= */
+
+function atualizarStory(
+    story,
+    profissional,
+    posicao
+) {
+
+    if (!story || !profissional) {
+        return;
     }
 
 
-    /* =====================================================
-       ATUALIZAR CARD
-    ===================================================== */
+    const imagem =
+        story.querySelector(".story-imagem img");
 
-    function atualizarCard(card, profissional, indice) {
-
-        if (!card || !profissional) {
-            return;
-        }
-
-        /*
-         * Agora o índice acompanha o profissional.
-         * Isso corrige o problema antigo do carrossel.
-         */
-
-        card.dataset.profissional = profissional.id;
-        card.dataset.indice = indice;
+    const nome =
+        story.querySelector(".story-nome");
 
 
-        const imagem =
-            card.querySelector(".imagem-profissional img");
+    /*
+       Atualiza a imagem de trabalho.
+    */
 
-        const categoria =
-            card.querySelector(".categoria");
+    imagem.src =
+        profissional.fotoTrabalho;
 
-        const nome =
-            card.querySelector(".info-profissional h3");
-
-        const profissao =
-            card.querySelector(".profissao");
-
-        const localizacao =
-            card.querySelector(".localizacao");
-
-        const avaliacao =
-            card.querySelector(".avaliacao");
-
-        const botao =
-            card.querySelector(".botao-perfil");
+    imagem.alt =
+        profissional.nome +
+        " trabalhando";
 
 
-        if (imagem) {
+    /*
+       Atualiza o nome.
+    */
 
-            imagem.src = profissional.imagem;
-
-            imagem.alt =
-                `Foto de ${profissional.nome}`;
-
-        }
+    nome.textContent =
+        profissional.nomeCurto;
 
 
-        if (categoria) {
-            categoria.textContent =
-                profissional.categoriaTexto;
-        }
+    /*
+       Guarda qual profissional está
+       naquele Story.
+    */
+
+    story.dataset.profissional =
+        profissional.id;
 
 
-        if (nome) {
-            nome.textContent =
-                profissional.nome;
-        }
+    /*
+       Guarda o índice atual.
+    */
+
+    story.dataset.indice =
+        profissionais.indexOf(profissional);
 
 
-        if (profissao) {
-            profissao.textContent =
-                profissional.profissao;
-        }
+    /*
+       Classes visuais.
+    */
+
+    story.classList.remove(
+        "story-esquerda",
+        "story-centro",
+        "story-direita"
+    );
 
 
-        if (localizacao) {
-            localizacao.textContent =
-                profissional.localizacao;
-        }
+    story.classList.add(
+        "story-" + posicao
+    );
 
 
-        if (avaliacao) {
+    /*
+       O Story central recebe destaque.
+    */
 
-            avaliacao.textContent =
-                `★ ${profissional.avaliacao}`;
+    if (posicao === "centro") {
 
-        }
+        story.classList.add("ativo");
 
+    } else {
 
-        if (botao) {
-
-            botao.dataset.profissional =
-                profissional.id;
-
-        }
+        story.classList.remove("ativo");
 
     }
 
-
-    /* =====================================================
-       ATUALIZAR CHAT
-    ===================================================== */
-
-    function atualizarChat(profissional) {
-
-        if (!profissional) {
-            return;
-        }
+}
 
 
-        if (fotoChat) {
 
-            fotoChat.src =
-                profissional.imagem;
+/* =========================================================
+   ATUALIZAR OS 3 STORIES
+========================================================= */
 
-            fotoChat.alt =
-                `Foto de ${profissional.nome}`;
+function atualizarStories() {
 
-        }
-
-
-        if (nomeChat) {
-
-            nomeChat.textContent =
-                profissional.nome;
-
-        }
+    if (profissionaisVisiveis.length === 0) {
+        return;
+    }
 
 
-        if (profissaoChat) {
+    /*
+       Garante que o índice central
+       continue válido depois de um filtro.
+    */
 
-            profissaoChat.textContent =
-                profissional.profissao;
-
-        }
-
-
-        if (statusTextoChat) {
-
-            statusTextoChat.textContent =
-                `● ${profissional.status}`;
-
-        }
-
-
-        if (!mensagensChat) {
-            return;
-        }
-
-
-        mensagensChat.innerHTML = "";
-
-
-        adicionarMensagemProfissional(
-            profissional.iniciais,
-            profissional.mensagemInicial,
-            "agora"
+    indiceCentral =
+        indiceCircular(
+            indiceCentral,
+            profissionaisVisiveis.length
         );
 
 
-        const sistema =
-            document.createElement("div");
-
-        sistema.className =
-            "mensagem-sistema";
-
-        sistema.innerHTML = `
-            <span>
-                Converse diretamente com este profissional.
-            </span>
-        `;
+    const profissionalEsquerda =
+        obterProfissionalVisivel(
+            indiceCentral - 1
+        );
 
 
-        mensagensChat.appendChild(sistema);
+    const profissionalCentro =
+        obterProfissionalVisivel(
+            indiceCentral
+        );
 
+
+    const profissionalDireita =
+        obterProfissionalVisivel(
+            indiceCentral + 1
+        );
+
+
+    /*
+       Atualiza cada posição.
+    */
+
+    atualizarStory(
+        document.querySelector(".story-esquerda"),
+        profissionalEsquerda,
+        "esquerda"
+    );
+
+
+    atualizarStory(
+        document.querySelector(".story-centro"),
+        profissionalCentro,
+        "centro"
+    );
+
+
+    atualizarStory(
+        document.querySelector(".story-direita"),
+        profissionalDireita,
+        "direita"
+    );
+
+
+    /*
+       O profissional central
+       passa a ser o do chat.
+    */
+
+    atualizarChat(
+        profissionalCentro
+    );
+
+}
+
+
+
+/* =========================================================
+   SELECIONAR STORY
+========================================================= */
+
+function selecionarStory(id) {
+
+    const indice =
+        profissionaisVisiveis.findIndex(
+            function (profissional) {
+
+                return profissional.id === id;
+
+            }
+        );
+
+
+    if (indice === -1) {
+        return;
     }
 
 
-    /* =====================================================
-       MENSAGEM DO PROFISSIONAL
-    ===================================================== */
+    /*
+       Esse profissional passa
+       para o centro.
+    */
 
-    function adicionarMensagemProfissional(
-        iniciais,
-        texto,
+    indiceCentral = indice;
+
+
+    atualizarStories();
+
+}
+
+
+
+/* =========================================================
+   EVENTOS DOS STORIES
+========================================================= */
+
+function ativarStories() {
+
+    stories.forEach(function (story) {
+
+        story.addEventListener(
+            "click",
+            function () {
+
+                const id =
+                    story.dataset.profissional;
+
+                if (!id) {
+                    return;
+                }
+
+                selecionarStory(id);
+
+            }
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   ATUALIZAR CHAT
+========================================================= */
+
+function atualizarChat(profissional) {
+
+    if (!profissional) {
+        return;
+    }
+
+
+    profissionalChat =
+        profissional;
+
+
+    /*
+       Foto de perfil.
+    */
+
+    fotoChat.src =
+        profissional.fotoPerfil;
+
+    fotoChat.alt =
+        "Foto de " +
+        profissional.nome;
+
+
+    /*
+       Informações.
+    */
+
+    nomeChat.textContent =
+        profissional.nome;
+
+    profissaoChat.textContent =
+        profissional.profissao;
+
+    statusTextoChat.textContent =
+        "● Disponível agora";
+
+
+    /*
+       Avatar da mensagem.
+    */
+
+    avatarMensagem.textContent =
+        profissional.iniciais;
+
+
+    /*
+       Mensagem inicial.
+    */
+
+    mensagemInicial.textContent =
+        profissional.mensagem;
+
+}
+
+
+
+/* =========================================================
+   LIMPAR CHAT
+========================================================= */
+
+function limparMensagens() {
+
+    mensagensChat.innerHTML = "";
+
+
+    const mensagemProfissional =
+        document.createElement("div");
+
+    mensagemProfissional.className =
+        "mensagem-profissional";
+
+
+    const avatar =
+        document.createElement("div");
+
+    avatar.className =
+        "avatar-mensagem";
+
+    avatar.textContent =
+        profissionalChat.iniciais;
+
+
+    const balao =
+        document.createElement("div");
+
+    balao.className =
+        "balao-mensagem";
+
+
+    const texto =
+        document.createElement("p");
+
+    texto.textContent =
+        profissionalChat.mensagem;
+
+
+    const horario =
+        document.createElement("span");
+
+    horario.textContent =
+        "14:32";
+
+
+    balao.appendChild(texto);
+    balao.appendChild(horario);
+
+
+    mensagemProfissional.appendChild(avatar);
+    mensagemProfissional.appendChild(balao);
+
+
+    mensagensChat.appendChild(
+        mensagemProfissional
+    );
+
+
+    const sistema =
+        document.createElement("div");
+
+    sistema.className =
+        "mensagem-sistema";
+
+
+    const textoSistema =
+        document.createElement("span");
+
+    textoSistema.textContent =
+        "Converse diretamente com este profissional.";
+
+
+    sistema.appendChild(textoSistema);
+
+
+    mensagensChat.appendChild(
+        sistema
+    );
+
+}
+
+
+
+/* =========================================================
+   ENVIAR MENSAGEM
+========================================================= */
+
+function enviarMensagem(texto) {
+
+    if (!texto.trim()) {
+        return;
+    }
+
+
+    /*
+       Mensagem do usuário.
+    */
+
+    const mensagemUsuario =
+        document.createElement("div");
+
+    mensagemUsuario.className =
+        "mensagem-usuario";
+
+
+    const balao =
+        document.createElement("div");
+
+    balao.className =
+        "balao-usuario";
+
+
+    const textoMensagem =
+        document.createElement("p");
+
+    textoMensagem.textContent =
+        texto;
+
+
+    const horario =
+        document.createElement("span");
+
+    horario.textContent =
+        "agora";
+
+
+    balao.appendChild(
+        textoMensagem
+    );
+
+    balao.appendChild(
         horario
-    ) {
-
-        if (!mensagensChat) {
-            return;
-        }
+    );
 
 
-        const mensagem =
+    mensagemUsuario.appendChild(
+        balao
+    );
+
+
+    mensagensChat.appendChild(
+        mensagemUsuario
+    );
+
+
+    /*
+       Scroll para a última mensagem.
+    */
+
+    mensagensChat.scrollTop =
+        mensagensChat.scrollHeight;
+
+
+    mensagemChat.value = "";
+
+
+    /*
+       Simula resposta.
+    */
+
+    setTimeout(function () {
+
+        const resposta =
             document.createElement("div");
 
-        mensagem.className =
+        resposta.className =
             "mensagem-profissional";
 
 
-        mensagem.innerHTML = `
-            <div class="avatar-mensagem">
-                ${escaparHTML(iniciais)}
-            </div>
-
-            <div class="balao-mensagem">
-
-                <p>
-                    ${escaparHTML(texto)}
-                </p>
-
-                <span>
-                    ${escaparHTML(horario)}
-                </span>
-
-            </div>
-        `;
-
-
-        mensagensChat.appendChild(mensagem);
-
-        mensagensChat.scrollTop =
-            mensagensChat.scrollHeight;
-
-    }
-
-
-    /* =====================================================
-       MENSAGEM DO USUÁRIO
-    ===================================================== */
-
-    function adicionarMensagemUsuario(texto) {
-
-        if (!mensagensChat) {
-            return;
-        }
-
-
-        const mensagem =
+        const avatar =
             document.createElement("div");
 
-        mensagem.className =
-            "mensagem-usuario";
+        avatar.className =
+            "avatar-mensagem";
+
+        avatar.textContent =
+            profissionalChat.iniciais;
 
 
-        mensagem.innerHTML = `
-            <div class="balao-usuario">
-
-                <p>
-                    ${escaparHTML(texto)}
-                </p>
-
-                <span>
-                    agora
-                </span>
-
-            </div>
-        `;
-
-
-        mensagensChat.appendChild(mensagem);
-
-        mensagensChat.scrollTop =
-            mensagensChat.scrollHeight;
-
-    }
-
-
-    /* =====================================================
-       DIGITANDO
-    ===================================================== */
-
-    function mostrarDigitando() {
-
-        if (!mensagensChat) {
-            return;
-        }
-
-
-        const profissional =
-            obterProfissional(indiceCentral);
-
-        if (!profissional) {
-            return;
-        }
-
-
-        const digitando =
+        const balaoResposta =
             document.createElement("div");
 
-        digitando.className =
-            "mensagem-digitando";
-
-        digitando.id =
-            "mensagemDigitando";
+        balaoResposta.className =
+            "balao-mensagem";
 
 
-        digitando.innerHTML = `
-            <div class="avatar-mensagem">
-                ${escaparHTML(profissional.iniciais)}
-            </div>
+        const textoResposta =
+            document.createElement("p");
 
-            <div class="balao-digitando">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </div>
-        `;
+        textoResposta.textContent =
+            "Claro! Posso ajudar você com isso.";
 
 
-        mensagensChat.appendChild(digitando);
+        const horarioResposta =
+            document.createElement("span");
+
+        horarioResposta.textContent =
+            "agora";
+
+
+        balaoResposta.appendChild(
+            textoResposta
+        );
+
+        balaoResposta.appendChild(
+            horarioResposta
+        );
+
+
+        resposta.appendChild(
+            avatar
+        );
+
+        resposta.appendChild(
+            balaoResposta
+        );
+
+
+        mensagensChat.appendChild(
+            resposta
+        );
+
 
         mensagensChat.scrollTop =
             mensagensChat.scrollHeight;
 
-    }
+    }, 800);
+
+}
 
 
-    /* =====================================================
-       REMOVER DIGITANDO
-    ===================================================== */
 
-    function removerDigitando() {
+/* =========================================================
+   FORMULÁRIO DO CHAT
+========================================================= */
 
-        const digitando =
-            document.getElementById(
-                "mensagemDigitando"
+if (formChat) {
+
+    formChat.addEventListener(
+        "submit",
+        function (evento) {
+
+            evento.preventDefault();
+
+            enviarMensagem(
+                mensagemChat.value
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   SUGESTÕES DO CHAT
+========================================================= */
+
+const sugestoes =
+    document.querySelectorAll(
+        ".sugestoes-chat button"
+    );
+
+
+sugestoes.forEach(function (botao) {
+
+    botao.addEventListener(
+        "click",
+        function () {
+
+            enviarMensagem(
+                botao.textContent.trim()
+            );
+
+        }
+    );
+
+});
+
+
+
+/* =========================================================
+   FECHAR CHAT
+========================================================= */
+
+if (fecharChat) {
+
+    fecharChat.addEventListener(
+        "click",
+        function () {
+
+            const chat =
+                document.getElementById("chatArea");
+
+            if (!chat) {
+                return;
+            }
+
+            chat.classList.toggle(
+                "chat-fechado"
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   BUSCA
+========================================================= */
+
+if (buscaAutonomos) {
+
+    buscaAutonomos.addEventListener(
+        "input",
+        function () {
+
+            termoBusca =
+                buscaAutonomos.value
+                    .toLowerCase()
+                    .trim();
+
+
+            aplicarFiltros();
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+botoesFiltro.forEach(function (botao) {
+
+    botao.addEventListener(
+        "click",
+        function () {
+
+            /*
+               Remove o estado ativo
+               dos outros botões.
+            */
+
+            botoesFiltro.forEach(
+                function (outroBotao) {
+
+                    outroBotao.classList.remove(
+                        "ativo"
+                    );
+
+                }
             );
 
 
-        if (digitando) {
-            digitando.remove();
+            /*
+               Ativa o botão selecionado.
+            */
+
+            botao.classList.add(
+                "ativo"
+            );
+
+
+            filtroAtual =
+                botao.dataset.filtro;
+
+
+            aplicarFiltros();
+
         }
+    );
+
+});
+
+
+
+/* =========================================================
+   APLICAR FILTROS
+========================================================= */
+
+function aplicarFiltros() {
+
+    profissionaisVisiveis =
+        profissionais.filter(
+            function (profissional) {
+
+
+                /*
+                   Verificação do filtro.
+                */
+
+                const correspondeCategoria =
+                    filtroAtual === "todos" ||
+                    profissional.categoria === filtroAtual;
+
+
+                /*
+                   Verificação da busca.
+                */
+
+                const textoProfissional =
+                    (
+                        profissional.nome +
+                        " " +
+                        profissional.profissao +
+                        " " +
+                        profissional.categoriaNome +
+                        " " +
+                        profissional.localizacao
+                    ).toLowerCase();
+
+
+                const correspondeBusca =
+                    textoProfissional.includes(
+                        termoBusca
+                    );
+
+
+                return (
+                    correspondeCategoria &&
+                    correspondeBusca
+                );
+
+            }
+        );
+
+
+    /*
+       Se não houver profissionais,
+       não tenta atualizar os Stories.
+    */
+
+    if (
+        profissionaisVisiveis.length === 0
+    ) {
+
+        mostrarNenhumResultado();
+
+        return;
 
     }
 
 
-    /* =====================================================
-       RESPOSTA DO CHAT
-    ===================================================== */
+    /*
+       Reinicia o centro para um profissional
+       válido da lista filtrada.
+    */
 
-    function responderMensagem(texto) {
+    const profissionalAtual =
+        profissionaisVisiveis.find(
+            function (profissional) {
+
+                return (
+                    profissional.id ===
+                    profissionalChat.id
+                );
+
+            }
+        );
+
+
+    if (profissionalAtual) {
+
+        indiceCentral =
+            profissionaisVisiveis.indexOf(
+                profissionalAtual
+            );
+
+    } else {
+
+        indiceCentral = 0;
+
+    }
+
+
+    atualizarStories();
+
+    atualizarCards();
+
+}
+
+
+
+/* =========================================================
+   ATUALIZAR CARDS
+========================================================= */
+
+function atualizarCards() {
+
+    cards.forEach(function (card) {
+
+        const id =
+            card.dataset.profissional;
 
         const profissional =
-            obterProfissional(indiceCentral);
+            obterProfissional(id);
 
 
         if (!profissional) {
@@ -552,855 +1124,176 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        const textoNormalizado =
-            texto
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(
-                    /[\u0300-\u036f]/g,
-                    ""
-                );
+        const correspondeCategoria =
+            filtroAtual === "todos" ||
+            profissional.categoria === filtroAtual;
 
 
-        let resposta = "";
+        const textoProfissional =
+            (
+                profissional.nome +
+                " " +
+                profissional.profissao +
+                " " +
+                profissional.categoriaNome +
+                " " +
+                profissional.localizacao
+            ).toLowerCase();
 
 
-        /*
-         * PREÇO
-         */
+        const correspondeBusca =
+            textoProfissional.includes(
+                termoBusca
+            );
+
 
         if (
-            textoNormalizado.includes("quanto") ||
-            textoNormalizado.includes("preco") ||
-            textoNormalizado.includes("valor") ||
-            textoNormalizado.includes("custa") ||
-            textoNormalizado.includes("orcamento")
+            correspondeCategoria &&
+            correspondeBusca
         ) {
 
-            resposta =
-                profissional.respostas.custo;
+            card.style.display = "";
+
+        } else {
+
+            card.style.display = "none";
 
         }
 
+    });
 
-        /*
-         * REGIÃO
-         */
-
-        else if (
-            textoNormalizado.includes("regiao") ||
-            textoNormalizado.includes("atende") ||
-            textoNormalizado.includes("local") ||
-            textoNormalizado.includes("onde")
-        ) {
-
-            resposta =
-                profissional.respostas.regiao;
-
-        }
+}
 
 
-        /*
-         * DISPONIBILIDADE
-         */
 
-        else if (
-            textoNormalizado.includes("disponivel") ||
-            textoNormalizado.includes("horario") ||
-            textoNormalizado.includes("quando") ||
-            textoNormalizado.includes("agenda")
-        ) {
+/* =========================================================
+   NENHUM RESULTADO
+========================================================= */
 
-            resposta =
-                profissional.respostas.disponibilidade;
+function mostrarNenhumResultado() {
 
-        }
+    stories.forEach(function (story) {
 
+        const imagem =
+            story.querySelector(
+                ".story-imagem img"
+            );
 
-        /*
-         * SAUDAÇÃO
-         */
-
-        else if (
-            textoNormalizado.includes("ola") ||
-            textoNormalizado.includes("oi") ||
-            textoNormalizado.includes("bom dia") ||
-            textoNormalizado.includes("boa tarde") ||
-            textoNormalizado.includes("boa noite")
-        ) {
-
-            resposta =
-                `Olá! 😊 É um prazer falar com você. Estou disponível para ajudar com ${profissional.profissao.toLowerCase()}.`;
-
-        }
+        const nome =
+            story.querySelector(
+                ".story-nome"
+            );
 
 
-        /*
-         * EXPERIÊNCIA
-         */
+        imagem.removeAttribute("src");
 
-        else if (
-            textoNormalizado.includes("curriculo") ||
-            textoNormalizado.includes("experiencia")
-        ) {
+        imagem.alt = "";
 
-            resposta =
-                "Tenho experiência na área e posso explicar melhor meu trabalho através do meu perfil.";
+        nome.textContent =
+            "Nenhum resultado";
 
-        }
+    });
 
 
-        /*
-         * RESPOSTA GENÉRICA
-         */
+    nomeChat.textContent =
+        "Nenhum profissional";
 
-        else {
+    profissaoChat.textContent =
+        "Tente outro filtro ou busca";
 
-            resposta =
-                "Claro! Me conte um pouco mais sobre o que você precisa e vou tentar ajudar da melhor forma possível.";
+    fotoChat.removeAttribute(
+        "src"
+    );
 
-        }
-
-
-        mostrarDigitando();
-
-
-        setTimeout(function () {
-
-            removerDigitando();
+    avatarMensagem.textContent =
+        "—";
 
 
-            /*
-             * Confere se o profissional ainda é
-             * o mesmo antes de responder.
-             */
+    cards.forEach(function (card) {
 
-            const profissionalAtual =
-                obterProfissional(indiceCentral);
+        card.style.display = "none";
+
+    });
+
+}
 
 
-            if (!profissionalAtual) {
+
+/* =========================================================
+   BOTÕES "VER PERFIL"
+========================================================= */
+
+botoesPerfil.forEach(function (botao) {
+
+    botao.addEventListener(
+        "click",
+        function () {
+
+            const id =
+                botao.dataset.profissional;
+
+            const profissional =
+                obterProfissional(id);
+
+
+            if (!profissional) {
                 return;
             }
 
 
-            adicionarMensagemProfissional(
-                profissionalAtual.iniciais,
-                resposta,
-                "agora"
+            /*
+               Por enquanto é uma simulação.
+               Depois podemos conectar cada perfil
+               a uma página real.
+            */
+
+            alert(
+                "Perfil de " +
+                profissional.nome
             );
 
-        }, 1300);
-
-    }
-
-
-    /* =====================================================
-       ATUALIZAR CARDS VISÍVEIS
-    ===================================================== */
-
-    function atualizarCardsVisiveis() {
-
-        if (
-            profissionaisVisiveis.length === 0
-        ) {
-            return;
         }
-
-
-        const total =
-            profissionaisVisiveis.length;
-
-
-        const indiceEsquerda =
-            (indiceCentral - 1 + total) % total;
-
-
-        const indiceDireita =
-            (indiceCentral + 1) % total;
-
-
-        const esquerda =
-            profissionaisVisiveis[indiceEsquerda];
-
-        const centro =
-            profissionaisVisiveis[indiceCentral];
-
-        const direita =
-            profissionaisVisiveis[indiceDireita];
-
-
-        atualizarCard(
-            cardEsquerda,
-            esquerda,
-            indiceEsquerda
-        );
-
-
-        atualizarCard(
-            cardCentro,
-            centro,
-            indiceCentral
-        );
-
-
-        atualizarCard(
-            cardDireita,
-            direita,
-            indiceDireita
-        );
-
-    }
-
-
-    /* =====================================================
-       INDICADORES
-    ===================================================== */
-
-    function atualizarIndicadores() {
-
-        indicadores.forEach(function (indicador) {
-
-            indicador.classList.remove("ativo");
-
-        });
-
-
-        const profissionalCentral =
-            obterProfissional(indiceCentral);
-
-
-        if (!profissionalCentral) {
-            return;
-        }
-
-
-        const indiceOriginal =
-            profissionais.findIndex(
-                function (profissional) {
-
-                    return (
-                        profissional.id ===
-                        profissionalCentral.id
-                    );
-
-                }
-            );
-
-
-        indicadores.forEach(function (indicador) {
-
-            if (
-                Number(indicador.dataset.indice) ===
-                indiceOriginal
-            ) {
-
-                indicador.classList.add("ativo");
-
-            }
-
-        });
-
-    }
-
-
-    /* =====================================================
-       INICIAR TROCA
-    ===================================================== */
-
-    function iniciarTroca(indiceDestino) {
-
-        if (trocaEmAndamento) {
-            return;
-        }
-
-
-        if (
-            profissionaisVisiveis.length < 2
-        ) {
-            return;
-        }
-
-
-        const total =
-            profissionaisVisiveis.length;
-
-
-        indiceDestino =
-            (indiceDestino + total) % total;
-
-
-        if (
-            indiceDestino === indiceCentral
-        ) {
-            return;
-        }
-
-
-        trocaEmAndamento = true;
-
-
-        if (cardCentro) {
-            cardCentro.classList.add("trocando");
-        }
-
-        if (cardEsquerda) {
-            cardEsquerda.classList.add("trocando");
-        }
-
-        if (cardDireita) {
-            cardDireita.classList.add("trocando");
-        }
-
-
-        setTimeout(function () {
-
-            indiceCentral =
-                indiceDestino;
-
-
-            atualizarCardsVisiveis();
-
-
-            const profissional =
-                obterProfissional(indiceCentral);
-
-
-            atualizarChat(profissional);
-
-            atualizarIndicadores();
-
-        }, 450);
-
-
-        setTimeout(function () {
-
-            if (cardCentro) {
-                cardCentro.classList.remove(
-                    "trocando"
-                );
-            }
-
-            if (cardEsquerda) {
-                cardEsquerda.classList.remove(
-                    "trocando"
-                );
-            }
-
-            if (cardDireita) {
-                cardDireita.classList.remove(
-                    "trocando"
-                );
-            }
-
-
-            trocaEmAndamento = false;
-
-        }, 700);
-
-    }
-
-
-    /* =====================================================
-       TROCA AUTOMÁTICA AO PASSAR O MOUSE
-    ===================================================== */
-
-    function agendarTroca(indiceDestino) {
-
-        if (trocaEmAndamento) {
-            return;
-        }
-
-
-        cancelarTroca();
-
-
-        tempoTroca =
-            setTimeout(function () {
-
-                iniciarTroca(
-                    indiceDestino
-                );
-
-            }, 3000);
-
-    }
-
-
-    /* =====================================================
-       CANCELAR TROCA
-    ===================================================== */
-
-    function cancelarTroca() {
-
-        if (tempoTroca) {
-
-            clearTimeout(
-                tempoTroca
-            );
-
-            tempoTroca = null;
-
-        }
-
-    }
-
-
-    /* =====================================================
-       EVENTOS DOS CARDS
-    ===================================================== */
-
-    function adicionarEventosCards() {
-
-        if (!cardEsquerda ||
-            !cardCentro ||
-            !cardDireita) {
-
-            return;
-
-        }
-
-
-        /*
-         * CARD ESQUERDO
-         */
-
-        cardEsquerda.addEventListener(
-            "mouseenter",
-            function () {
-
-                if (trocaEmAndamento) {
-                    return;
-                }
-
-
-                const indice =
-                    Number(
-                        cardEsquerda.dataset.indice
-                    );
-
-
-                agendarTroca(indice);
-
-            }
-        );
-
-
-        cardEsquerda.addEventListener(
-            "mouseleave",
-            function () {
-
-                cancelarTroca();
-
-            }
-        );
-
-
-        /*
-         * CARD DIREITO
-         */
-
-        cardDireita.addEventListener(
-            "mouseenter",
-            function () {
-
-                if (trocaEmAndamento) {
-                    return;
-                }
-
-
-                const indice =
-                    Number(
-                        cardDireita.dataset.indice
-                    );
-
-
-                agendarTroca(indice);
-
-            }
-        );
-
-
-        cardDireita.addEventListener(
-            "mouseleave",
-            function () {
-
-                cancelarTroca();
-
-            }
-        );
-
-
-        /*
-         * CARD CENTRAL
-         */
-
-        cardCentro.addEventListener(
-            "mouseenter",
-            function () {
-
-                cancelarTroca();
-
-            }
-        );
-
-
-        /*
-         * BOTÃO "VER PERFIL"
-         */
-
-        carrossel.addEventListener(
-            "click",
-            function (evento) {
-
-                const botao =
-                    evento.target.closest(
-                        ".botao-perfil"
-                    );
-
-
-                if (!botao) {
-                    return;
-                }
-
-
-                const id =
-                    botao.dataset.profissional;
-
-
-                abrirPerfil(id);
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       ABRIR PERFIL
-    ===================================================== */
-
-    function abrirPerfil(id) {
-
-        const profissional =
-            profissionais.find(
-                function (item) {
-
-                    return item.id === id;
-
-                }
-            );
-
-
-        if (!profissional) {
-            return;
-        }
-
-
-        alert(
-            `Perfil de ${profissional.nome}\n\n` +
-            `${profissional.profissao}\n` +
-            `${profissional.localizacao}\n\n` +
-            `Avaliação: ★ ${profissional.avaliacao}`
-        );
-
-    }
-
-
-    /* =====================================================
-       FILTROS + BUSCA
-    ===================================================== */
-
-    function aplicarFiltros() {
-
-        profissionaisVisiveis =
-            profissionais.filter(
-                function (profissional) {
-
-                    const correspondeCategoria =
-                        categoriaAtual === "todos" ||
-                        profissional.categoria ===
-                        categoriaAtual;
-
-
-                    const texto =
-                        `${profissional.nome} ${profissional.profissao} ${profissional.localizacao} ${profissional.categoriaTexto}`
-                            .toLowerCase();
-
-
-                    const correspondeBusca =
-                        termoBusca === "" ||
-                        texto.includes(
-                            termoBusca.toLowerCase()
-                        );
-
-
-                    return (
-                        correspondeCategoria &&
-                        correspondeBusca
-                    );
-
-                }
-            );
-
-
-        cancelarTroca();
-
-
-        /*
-         * Mantém o segundo profissional
-         * como destaque quando houver
-         * mais de uma opção.
-         */
-
-        indiceCentral =
-            profissionaisVisiveis.length > 1
-                ? 1
-                : 0;
-
-
-        atualizarCardsVisiveis();
-
-        atualizarIndicadores();
-
-
-        const profissional =
-            obterProfissional(indiceCentral);
-
-
-        atualizarChat(profissional);
-
-    }
-
-
-    /* =====================================================
-       BOTÕES DE FILTRO
-    ===================================================== */
-
-    filtros.forEach(function (filtro) {
-
-        filtro.addEventListener(
-            "click",
-            function () {
-
-                filtros.forEach(
-                    function (item) {
-
-                        item.classList.remove(
-                            "ativo"
-                        );
-
-                    }
-                );
-
-
-                filtro.classList.add(
-                    "ativo"
-                );
-
-
-                categoriaAtual =
-                    filtro.dataset.filtro;
-
-
-                aplicarFiltros();
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       BUSCA
-    ===================================================== */
-
-    if (busca) {
-
-        busca.addEventListener(
-            "input",
-            function () {
-
-                termoBusca =
-                    busca.value.trim();
-
-
-                aplicarFiltros();
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       INDICADORES
-    ===================================================== */
-
-    indicadores.forEach(function (indicador) {
-
-        indicador.addEventListener(
-            "click",
-            function () {
-
-                const indiceOriginal =
-                    Number(
-                        indicador.dataset.indice
-                    );
-
-
-                const profissional =
-                    profissionais[
-                        indiceOriginal
-                    ];
-
-
-                if (!profissional) {
-                    return;
-                }
-
-
-                const indiceFiltrado =
-                    profissionaisVisiveis.findIndex(
-                        function (item) {
-
-                            return (
-                                item.id ===
-                                profissional.id
-                            );
-
-                        }
-                    );
-
-
-                if (
-                    indiceFiltrado !== -1
-                ) {
-
-                    cancelarTroca();
-
-
-                    iniciarTroca(
-                        indiceFiltrado
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       SUGESTÕES DO CHAT
-    ===================================================== */
-
-    sugestoes.forEach(function (botao) {
-
-        botao.addEventListener(
-            "click",
-            function () {
-
-                const pergunta =
-                    botao.textContent.trim();
-
-
-                adicionarMensagemUsuario(
-                    pergunta
-                );
-
-
-                responderMensagem(
-                    pergunta
-                );
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       ENVIO DE MENSAGEM
-    ===================================================== */
-
-    if (formChat) {
-
-        formChat.addEventListener(
-            "submit",
-            function (evento) {
-
-                evento.preventDefault();
-
-
-                const texto =
-                    mensagemChat.value.trim();
-
-
-                if (!texto) {
-                    return;
-                }
-
-
-                adicionarMensagemUsuario(
-                    texto
-                );
-
-
-                mensagemChat.value = "";
-
-
-                responderMensagem(
-                    texto
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       ESCAPAR HTML
-    ===================================================== */
-
-    function escaparHTML(texto) {
-
-        const div =
-            document.createElement("div");
-
-
-        div.textContent =
-            texto;
-
-
-        return div.innerHTML;
-
-    }
-
-
-    /* =====================================================
-       INICIALIZAÇÃO
-    ===================================================== */
-
-    profissionaisVisiveis =
-        [...profissionais];
-
-
-    atualizarCardsVisiveis();
-
-
-    atualizarChat(
-        obterProfissional(
-            indiceCentral
-        )
     );
 
-
-    atualizarIndicadores();
-
-
-    adicionarEventosCards();
-
 });
+
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+function iniciarAutonomos() {
+
+    /*
+       Ativa os cliques dos Stories.
+    */
+
+    ativarStories();
+
+
+    /*
+       Mostra os Stories iniciais.
+    */
+
+    atualizarStories();
+
+
+    /*
+       Mostra os cards iniciais.
+    */
+
+    atualizarCards();
+
+}
+
+
+
+/* =========================================================
+   INICIAR
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    iniciarAutonomos
+);
