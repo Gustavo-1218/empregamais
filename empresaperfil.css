@@ -2036,3 +2036,114 @@ body::after {
     pointer-events: none;
 }
 
+/* =====================================================
+   NEXT WORK — MODO CLARO
+   PERFIL DA EMPRESA
+   O sidebar permanece sempre escuro.
+===================================================== */
+
+html:not([data-tema="escuro"]) body {
+    background: #eefaff !important;
+    color: #102b4c;
+}
+
+/* Área principal */
+html:not([data-tema="escuro"]) .main {
+    color: #102b4c;
+}
+
+/* Perfil principal da empresa */
+html:not([data-tema="escuro"]) .hero-card,
+html:not([data-tema="escuro"]) .panel,
+html:not([data-tema="escuro"]) .stat-card {
+    background: #ffffff;
+    color: #102b4c;
+    border-color: #c9e1ed;
+    box-shadow: 0 10px 35px rgba(20, 80, 120, 0.10);
+}
+
+/* Títulos */
+html:not([data-tema="escuro"]) .main h1,
+html:not([data-tema="escuro"]) .main h2,
+html:not([data-tema="escuro"]) .main h3 {
+    color: #102b4c;
+}
+
+/* Textos secundários */
+html:not([data-tema="escuro"]) .main p,
+html:not([data-tema="escuro"]) .main .hero-meta,
+html:not([data-tema="escuro"]) .main .hero-meta span,
+html:not([data-tema="escuro"]) .main .info-list span {
+    color: #526b84;
+}
+
+/* Informações destacadas */
+html:not([data-tema="escuro"]) .main strong {
+    color: #123b5d;
+}
+
+/* Lista de informações */
+html:not([data-tema="escuro"]) .main .info-list > div {
+    background: #f4fbff;
+    border-color: #c9e1ed;
+}
+
+/* Tabela de candidatos */
+html:not([data-tema="escuro"]) .main .candidate-table {
+    background: #ffffff;
+    border-color: #c9e1ed;
+}
+
+html:not([data-tema="escuro"]) .main .table-header {
+    background: #f4fbff;
+    color: #526b84;
+}
+
+html:not([data-tema="escuro"]) .main .candidate-row {
+    border-color: #d8e8f0;
+    color: #102b4c;
+}
+
+/* Campos de edição */
+html:not([data-tema="escuro"]) .main input,
+html:not([data-tema="escuro"]) .main textarea {
+    background: #ffffff;
+    color: #102b4c;
+    border-color: #c9e1ed;
+}
+
+html:not([data-tema="escuro"]) .main input:focus,
+html:not([data-tema="escuro"]) .main textarea:focus {
+    border-color: #087cf0;
+    box-shadow: 0 0 0 3px rgba(8, 124, 240, 0.10);
+}
+
+/* Área de vagas vazia */
+html:not([data-tema="escuro"]) .main .no-jobs {
+    background: #f4fbff;
+    color: #526b84;
+    border-color: #c9e1ed;
+}
+
+/* Botões de edição */
+html:not([data-tema="escuro"]) .main .btn-outline {
+    background: #ffffff;
+    color: #087cf0;
+    border-color: #8fc9df;
+}
+
+html:not([data-tema="escuro"]) .main .btn-outline:hover {
+    background: #f0faff;
+    border-color: #087cf0;
+}
+
+/* Links "Ver todos" */
+html:not([data-tema="escuro"]) .main .see-all {
+    color: #087cf0;
+}
+
+/* =====================================================
+   IMPORTANTE:
+   O .sidebar NÃO recebe nenhuma regra de tema.
+   Ele continua utilizando o visual escuro original.
+===================================================== */
