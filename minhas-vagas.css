@@ -961,3 +961,324 @@ body {
         );
 
 }
+
+
+
+/* =========================================================
+   NEXT WORK — MODO CLARO
+   MINHAS VAGAS
+   BACKGROUND E SIDEBAR PERMANECEM ESCUROS
+   SOMENTE CONTEÚDO / CARDS FICAM CLAROS
+========================================================= */
+
+
+/* =========================================================
+   BUSCA
+========================================================= */
+
+html:not([data-tema="escuro"]) .search-box {
+
+    background: #ffffff;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 6px 20px rgba(20, 80, 120, 0.07);
+
+}
+
+
+html:not([data-tema="escuro"]) .search-box input {
+
+    color: #102b4c;
+
+}
+
+
+html:not([data-tema="escuro"]) .search-box input::placeholder {
+
+    color: #8aa0b5;
+
+}
+
+
+html:not([data-tema="escuro"]) .search-icon {
+
+    color: #087cf0;
+
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+html:not([data-tema="escuro"]) .jobs-info p {
+
+    color: #526b84;
+
+}
+
+
+/* =========================================================
+   CARD DA VAGA
+========================================================= */
+
+html:not([data-tema="escuro"]) .job-card {
+
+    background: #ffffff;
+
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 10px 30px rgba(20, 80, 120, 0.08);
+
+}
+
+
+html:not([data-tema="escuro"]) .job-card:hover {
+
+    border-color: #8fc9df;
+
+    box-shadow:
+        0 12px 32px rgba(20, 80, 120, 0.12);
+
+}
+
+
+/* =========================================================
+   TÍTULO E EMPRESA
+========================================================= */
+
+html:not([data-tema="escuro"]) .job-title {
+
+    color: #102b4c;
+
+}
+
+
+html:not([data-tema="escuro"]) .job-company {
+
+    color: #526b84;
+
+}
+
+
+/* =========================================================
+   LINHA DO CARD
+========================================================= */
+
+html:not([data-tema="escuro"]) .job-line {
+
+    background: #d8e8f0;
+
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DA VAGA
+========================================================= */
+
+html:not([data-tema="escuro"]) .job-detail {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .job-detail strong {
+
+    color: #102b4c;
+
+}
+
+
+/* =========================================================
+   RODAPÉ DO CARD
+========================================================= */
+
+html:not([data-tema="escuro"]) .job-date {
+
+    color: #71869c;
+
+}
+
+
+html:not([data-tema="escuro"]) .job-candidates {
+
+    color: #087cf0;
+
+}
+
+
+/* =========================================================
+   STATUS — VAGA ATIVA
+========================================================= */
+
+html:not([data-tema="escuro"]) .status-active {
+
+    color: #087a58;
+
+    background: rgba(0, 190, 120, 0.10);
+
+    border-color: rgba(0, 170, 105, 0.25);
+
+}
+
+
+/* =========================================================
+   STATUS — VAGA EXPIRADA
+========================================================= */
+
+html:not([data-tema="escuro"]) .status-expired {
+
+    color: #d94b57;
+
+    background: rgba(255, 80, 80, 0.08);
+
+    border-color: rgba(220, 70, 80, 0.22);
+
+}
+
+
+/* =========================================================
+   BOTÃO EXCLUIR
+========================================================= */
+
+html:not([data-tema="escuro"]) .btn-delete-job {
+
+    background: rgba(255, 70, 90, 0.06);
+
+    color: #d94b57;
+
+    border-color: rgba(220, 70, 90, 0.30);
+
+}
+
+
+html:not([data-tema="escuro"]) .btn-delete-job:hover {
+
+    background: rgba(255, 70, 90, 0.12);
+
+    border-color: #d94b57;
+
+}
+
+
+/* =========================================================
+   VAGA NÃO ENCONTRADA
+========================================================= */
+
+html:not([data-tema="escuro"]) .not-found {
+
+    background: #ffffff;
+
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 10px 30px rgba(20, 80, 120, 0.08);
+
+}
+
+
+html:not([data-tema="escuro"]) .not-found h2 {
+
+    color: #102b4c;
+
+}
+
+
+html:not([data-tema="escuro"]) .not-found p {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .not-found-icon {
+
+    color: #087cf0;
+
+}
+
+
+/* =========================================================
+   SEM VAGAS
+========================================================= */
+
+html:not([data-tema="escuro"]) .empty-jobs {
+
+    background: #ffffff;
+
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 10px 30px rgba(20, 80, 120, 0.08);
+
+}
+
+
+html:not([data-tema="escuro"]) .empty-jobs h2 {
+
+    color: #102b4c;
+
+}
+
+
+html:not([data-tema="escuro"]) .empty-jobs p {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .empty-icon {
+
+    color: #087cf0;
+
+}
+
+
+/* =========================================================
+   GARANTIA — SIDEBAR CONTINUA ESCURO
+========================================================= */
+
+html:not([data-tema="escuro"]) .sidebar {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(4, 12, 32, 0.94),
+            rgba(3, 7, 23, 0.92)
+        );
+
+    color: #edf3ff;
+
+}
+
+
+html:not([data-tema="escuro"]) .sidebar .nav-item {
+
+    color: #c5cde2;
+
+}
+
+
+html:not([data-tema="escuro"]) .sidebar .nav-item:hover {
+
+    color: white;
+
+}
+
+
+html:not([data-tema="escuro"]) .sidebar .nav-item.active {
+
+    color: white;
+
+}
