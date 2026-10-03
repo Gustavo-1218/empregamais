@@ -1,12 +1,18 @@
 /* =========================================================
-   RESET
-========================================================= */
+   NEXT WORK — TELA INICIAL
+   Baseada visualmente na tela de login
+   ========================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* =========================================================
+   BASE
+========================================================= */
 
 html,
 body {
@@ -15,22 +21,29 @@ body {
 }
 
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
+
+    background: #ffffff;
+
+    color: #102b4c;
+
     overflow: hidden;
 }
 
 
 /* =========================================================
-   ESTRUTURA PRINCIPAL
+   PÁGINA PRINCIPAL
 ========================================================= */
 
 .pagina-login {
     width: 100%;
     height: 100vh;
-    min-height: 600px;
 
     display: grid;
-    grid-template-columns: 52% 48%;
+
+    grid-template-columns: 48% 52%;
+
+    background: #ffffff;
 
     overflow: hidden;
 }
@@ -43,18 +56,23 @@ body {
 .lado-esquerdo {
     position: relative;
 
-    height: 100%;
     min-width: 0;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
 
-    padding: 70px 7vw 70px 8vw;
+    padding: 38px 6vw 45px;
 
-    background: #f2fbff;
+    background:
+        radial-gradient(
+            circle at 82% 48%,
+            rgba(0, 184, 255, 0.07),
+            transparent 38%
+        ),
+        #ffffff;
 
-    z-index: 2;
+    z-index: 5;
 }
 
 
@@ -65,38 +83,47 @@ body {
 .logo-principal {
     position: absolute;
 
-    top: 45px;
-    left: 8vw;
+    top: 25px;
+    left: 35px;
 
-    z-index: 5;
+    z-index: 10;
 }
 
 .logo-principal img {
-    width: 175px;
-    height: auto;
     display: block;
+
+    width: 190px;
+
+    height: auto;
+
+    object-fit: contain;
 }
 
 
 /* =========================================================
-   CONTEÚDO
+   ÁREA INICIAL
 ========================================================= */
 
 .inicio-area {
     width: 100%;
-    max-width: 720px;
 
-    margin-top: 35px;
+    max-width: 700px;
+
+    margin: auto 0;
+
+    padding-top: 70px;
 }
 
 
 /* =========================================================
-   TAG
+   ETIQUETA
 ========================================================= */
 
 .tag {
     display: flex;
+
     align-items: center;
+
     gap: 9px;
 
     margin-bottom: 22px;
@@ -104,8 +131,10 @@ body {
     color: #087cf0;
 
     font-size: 15px;
+
     font-weight: 700;
-    letter-spacing: 1.8px;
+
+    letter-spacing: 1.7px;
 }
 
 .tag span {
@@ -117,21 +146,41 @@ body {
    TÍTULO
 ========================================================= */
 
+.titulo-inicio {
+    width: 100%;
+}
+
 .titulo-inicio h1 {
-    max-width: 720px;
+    margin: 0;
 
-    font-size: clamp(48px, 4.6vw, 78px);
+    max-width: 700px;
 
-    line-height: 1.05;
-    letter-spacing: -2.5px;
+    color: #102f58;
 
-    font-weight: 700;
+    font-size: clamp(46px, 4.3vw, 72px);
 
-    color: #102b4c;
+    line-height: 1.04;
+
+    letter-spacing: -2.8px;
+
+    font-weight: 800;
 }
 
 .titulo-inicio h1 span {
-    color: #087cf0;
+    display: inline;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087cf0 0%,
+            #168fff 45%,
+            #7147e8 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
 }
 
 
@@ -142,11 +191,12 @@ body {
 .description {
     max-width: 620px;
 
-    margin-top: 27px;
+    margin-top: 25px;
 
-    color: #526b84;
+    color: #71869c;
 
-    font-size: clamp(17px, 1.25vw, 21px);
+    font-size: 17px;
+
     line-height: 1.65;
 
     font-weight: 400;
@@ -159,71 +209,98 @@ body {
 
 .buttons {
     display: flex;
-    align-items: center;
-    gap: 17px;
 
-    margin-top: 38px;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 34px;
 }
 
 .button {
-    min-height: 56px;
+    min-height: 55px;
 
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
-    padding: 0 29px;
+    padding: 0 28px;
 
-    border-radius: 10px;
+    border-radius: 11px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 700;
 
     text-decoration: none;
 
-    font-size: 16px;
-    font-weight: 600;
-
     transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        background .25s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
 
 .button.primary {
     color: #ffffff;
 
-    background: linear-gradient(
-        135deg,
-        #087cf0,
-        #2399ff
-    );
+    background:
+        linear-gradient(
+            100deg,
+            #0aa7e8 0%,
+            #168cf3 48%,
+            #7427e8 100%
+        );
 
     box-shadow:
-        0 10px 25px rgba(8, 124, 240, .22);
+        0 9px 22px rgba(43, 118, 229, 0.22);
 }
 
 .button.primary span {
-    margin-left: 14px;
+    margin-left: 13px;
+
     font-size: 20px;
-}
 
-.button.secondary {
-    color: #087cf0;
-
-    background: transparent;
-
-    border: 1px solid rgba(8, 124, 240, .30);
-}
-
-.button:hover {
-    transform: translateY(-3px);
+    font-weight: 400;
 }
 
 .button.primary:hover {
+    transform: translateY(-2px);
+
     box-shadow:
-        0 14px 32px rgba(8, 124, 240, .30);
+        0 12px 27px rgba(76, 91, 224, 0.28);
+}
+
+
+/* =========================================================
+   BOTÃO SECUNDÁRIO
+========================================================= */
+
+.button.secondary {
+    color: #227bd1;
+
+    background: #ffffff;
+
+    border: 1px solid #cfe1eb;
+
+    box-shadow:
+        0 5px 16px rgba(20, 90, 130, 0.05);
 }
 
 .button.secondary:hover {
-    background: rgba(8, 124, 240, .06);
+    transform: translateY(-2px);
+
+    border-color: #8fc9df;
+
+    background: #f7fcff;
 }
 
 
@@ -234,66 +311,59 @@ body {
 .lado-direito {
     position: relative;
 
-    height: 100%;
+    min-width: 0;
+
+    height: 100vh;
 
     overflow: hidden;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(0, 221, 255, .10),
-            transparent 55%
-        ),
-        #020713;
+    background: #edf8ff;
 
     z-index: 1;
 }
 
 
 /* =========================================================
-   PNG DA MULHER
+   ÁREA VISUAL
 ========================================================= */
 
 /*
-   IMPORTANTE:
-   O PNG deve ser transparente.
-   NÃO usamos object-fit: cover.
+   Aqui a mulher NÃO é um background.
+
+   O elemento .imagem-inicio precisa ser um PNG
+   com fundo transparente.
 */
 
 .imagem-inicio {
     position: absolute;
 
-    width: min(700px, 58vw);
-    height: auto;
+    display: block;
 
-    max-height: 94vh;
+    width: auto;
+
+    height: 94%;
+
+    max-width: none;
+
+    right: -5%;
+
+    bottom: 0;
 
     object-fit: contain;
 
-    right: -25px;
-    bottom: 0;
-
     z-index: 2;
 
-    display: block;
-
-    /* NÃO coloque background aqui */
     background: transparent;
 
-    /* Evita qualquer aparência de caixa */
-    mix-blend-mode: normal;
-
     filter:
-        drop-shadow(0 0 30px rgba(0, 190, 255, .08));
+        drop-shadow(
+            0 15px 35px rgba(20, 90, 130, 0.10)
+        );
 }
 
 
 /* =========================================================
-   EFEITO DE DIVISÃO
+   TRANSIÇÃO DA DIVISÃO
 ========================================================= */
 
 .lado-direito::before {
@@ -301,18 +371,20 @@ body {
 
     position: absolute;
 
-    left: -90px;
     top: 0;
+    left: 0;
 
-    width: 180px;
+    width: 32%;
+
     height: 100%;
 
     background:
         linear-gradient(
             90deg,
-            #f2fbff 0%,
-            rgba(242, 251, 255, .90) 25%,
-            rgba(242, 251, 255, 0) 100%
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.94) 16%,
+            rgba(255, 255, 255, 0.58) 40%,
+            rgba(255, 255, 255, 0) 100%
         );
 
     z-index: 3;
@@ -322,7 +394,7 @@ body {
 
 
 /* =========================================================
-   BRILHO DISCRETO
+   LUZ AZUL DISCRETA
 ========================================================= */
 
 .lado-direito::after {
@@ -330,19 +402,23 @@ body {
 
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 450px;
 
-    right: -180px;
+    height: 450px;
+
+    right: -160px;
+
     top: 50%;
 
     transform: translateY(-50%);
 
-    background: rgba(0, 221, 255, .08);
+    border-radius: 50%;
+
+    background: rgba(0, 184, 255, 0.08);
 
     filter: blur(100px);
 
-    border-radius: 50%;
+    z-index: 1;
 
     pointer-events: none;
 }
@@ -354,17 +430,25 @@ body {
 
 @media (max-width: 1100px) {
 
+    .pagina-login {
+        grid-template-columns: 47% 53%;
+    }
+
     .lado-esquerdo {
-        padding-left: 6vw;
+        padding-left: 5vw;
         padding-right: 4vw;
     }
 
     .logo-principal {
-        left: 6vw;
+        left: 30px;
+    }
+
+    .logo-principal img {
+        width: 175px;
     }
 
     .titulo-inicio h1 {
-        font-size: clamp(43px, 5vw, 62px);
+        font-size: clamp(42px, 4.5vw, 62px);
     }
 
     .description {
@@ -372,55 +456,55 @@ body {
     }
 
     .imagem-inicio {
-        width: min(620px, 62vw);
-        right: -60px;
+        height: 90%;
+
+        right: -8%;
     }
 }
 
 
 /* =========================================================
-   TABLET
+   NOTEBOOK / ALTURA MENOR
 ========================================================= */
 
-@media (max-width: 800px) {
-
-    .pagina-login {
-        grid-template-columns: 1fr;
-        height: auto;
-        min-height: 100vh;
-
-        overflow-y: auto;
-    }
-
-    .lado-esquerdo {
-        min-height: 620px;
-
-        padding:
-            120px
-            8vw
-            70px;
-    }
+@media (max-height: 720px) and (min-width: 761px) {
 
     .logo-principal {
-        top: 35px;
-        left: 8vw;
+        top: 20px;
     }
 
-    .lado-direito {
-        min-height: 520px;
+    .logo-principal img {
+        width: 165px;
     }
 
-    .lado-direito::before {
-        display: none;
+    .inicio-area {
+        padding-top: 45px;
+    }
+
+    .tag {
+        margin-bottom: 15px;
+    }
+
+    .titulo-inicio h1 {
+        font-size: clamp(40px, 4vw, 58px);
+    }
+
+    .description {
+        margin-top: 18px;
+
+        font-size: 15px;
+    }
+
+    .buttons {
+        margin-top: 25px;
+    }
+
+    .button {
+        min-height: 50px;
     }
 
     .imagem-inicio {
-        width: min(600px, 95vw);
-
-        right: 50%;
-        transform: translateX(50%);
-
-        bottom: 0;
+        height: 88%;
     }
 }
 
@@ -429,68 +513,177 @@ body {
    CELULAR
 ========================================================= */
 
-@media (max-width: 520px) {
+@media (max-width: 760px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .pagina-login {
+        height: auto;
+
+        min-height: 100vh;
+
+        display: flex;
+
+        flex-direction: column;
+
+        overflow: visible;
+    }
 
     .lado-esquerdo {
-        min-height: 590px;
+        height: auto;
+
+        min-height: 650px;
 
         padding:
-            105px
-            24px
+            115px
+            25px
             55px;
     }
 
     .logo-principal {
-        top: 28px;
-        left: 24px;
+        top: 23px;
+
+        left: 25px;
+    }
+
+    .logo-principal img {
+        width: 165px;
+    }
+
+    .inicio-area {
+        max-width: 650px;
+
+        margin: 0 auto;
+
+        padding-top: 0;
+    }
+
+    .titulo-inicio h1 {
+        font-size: clamp(40px, 9vw, 58px);
+
+        letter-spacing: -2px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .lado-direito {
+        height: 500px;
+
+        min-height: 500px;
+    }
+
+    .imagem-inicio {
+        height: 95%;
+
+        right: 50%;
+
+        transform: translateX(50%);
+    }
+
+    .lado-direito::before {
+        width: 100%;
+
+        height: 25%;
+
+        background:
+            linear-gradient(
+                180deg,
+                #ffffff 0%,
+                rgba(255, 255, 255, 0.55) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+    }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .lado-esquerdo {
+        min-height: 620px;
+
+        padding:
+            100px
+            18px
+            45px;
+    }
+
+    .logo-principal {
+        top: 20px;
+
+        left: 18px;
     }
 
     .logo-principal img {
         width: 145px;
     }
 
-    .inicio-area {
-        margin-top: 25px;
-    }
-
     .tag {
         font-size: 12px;
-        letter-spacing: 1.3px;
+
+        letter-spacing: 1.2px;
+
+        margin-bottom: 17px;
     }
 
     .titulo-inicio h1 {
-        font-size: 43px;
-        line-height: 1.08;
-        letter-spacing: -1.7px;
+        font-size: 38px;
+
+        letter-spacing: -1.5px;
     }
 
     .description {
-        margin-top: 22px;
+        margin-top: 20px;
 
-        font-size: 15px;
+        font-size: 14px;
+
         line-height: 1.6;
     }
 
     .buttons {
         flex-direction: column;
+
         align-items: stretch;
 
-        margin-top: 30px;
+        margin-top: 27px;
     }
 
     .button {
         width: 100%;
+
+        min-height: 53px;
     }
 
     .lado-direito {
+        height: 430px;
+
         min-height: 430px;
     }
 
     .imagem-inicio {
-        width: 125vw;
-        max-width: none;
+        height: 92%;
+    }
+}
 
-        right: 50%;
-        transform: translateX(50%);
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+
+        animation: none !important;
     }
 }
