@@ -935,3 +935,375 @@ body {
     }
 
 }
+
+
+/* =========================================================
+   NEXT WORK — MODO CLARO
+   CANDIDATOS
+   BACKGROUND E SIDEBAR PERMANECEM ESCUROS
+   CARDS E ÁREAS DE INFORMAÇÃO FICAM CLAROS
+========================================================= */
+
+
+/* =========================================================
+   ESTATÍSTICAS
+========================================================= */
+
+html:not([data-tema="escuro"]) .stat-card {
+
+    background: #ffffff;
+
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 10px 30px rgba(20, 80, 120, 0.08);
+
+}
+
+
+html:not([data-tema="escuro"]) .stat-label {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .stat-number {
+
+    color: #102b4c;
+
+}
+
+
+/* =========================================================
+   CORES DAS ESTATÍSTICAS
+========================================================= */
+
+html:not([data-tema="escuro"]) .stat-number.cyan,
+html:not([data-tema="escuro"]) .cyan {
+
+    color: #087cf0;
+
+}
+
+
+html:not([data-tema="escuro"]) .stat-number.purple,
+html:not([data-tema="escuro"]) .purple {
+
+    color: #7147e8;
+
+}
+
+
+html:not([data-tema="escuro"]) .stat-number.green,
+html:not([data-tema="escuro"]) .green {
+
+    color: #079b69;
+
+}
+
+
+/* =========================================================
+   BUSCA
+========================================================= */
+
+html:not([data-tema="escuro"]) .search-box {
+
+    background: #ffffff;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 6px 20px rgba(20, 80, 120, 0.07);
+
+}
+
+
+html:not([data-tema="escuro"]) .search-box input {
+
+    color: #102b4c;
+
+}
+
+
+html:not([data-tema="escuro"]) .search-box input::placeholder {
+
+    color: #8aa0b5;
+
+}
+
+
+html:not([data-tema="escuro"]) .search-icon {
+
+    color: #087cf0;
+
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+html:not([data-tema="escuro"]) .candidates-info p {
+
+    color: #526b84;
+
+}
+
+
+/* =========================================================
+   CARD DO CANDIDATO
+========================================================= */
+
+html:not([data-tema="escuro"]) .candidate-card {
+
+    background: #ffffff;
+
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 10px 30px rgba(20, 80, 120, 0.08);
+
+}
+
+
+html:not([data-tema="escuro"]) .candidate-card:hover {
+
+    border-color: #8fc9df;
+
+    box-shadow:
+        0 12px 32px rgba(20, 80, 120, 0.12);
+
+}
+
+
+/* =========================================================
+   NOME DO CANDIDATO
+========================================================= */
+
+html:not([data-tema="escuro"]) .candidate-name {
+
+    color: #111111;
+
+}
+
+
+/* =========================================================
+   PROFISSÃO
+========================================================= */
+
+html:not([data-tema="escuro"]) .candidate-profession {
+
+    color: #526b84;
+
+}
+
+
+/* =========================================================
+   VAGA
+========================================================= */
+
+html:not([data-tema="escuro"]) .candidate-job {
+
+    color: #71869c;
+
+}
+
+
+/* =========================================================
+   LINHA DO CARD
+========================================================= */
+
+html:not([data-tema="escuro"]) .candidate-line {
+
+    background: #d8e8f0;
+
+}
+
+
+/* =========================================================
+   DETALHES DO CANDIDATO
+========================================================= */
+
+html:not([data-tema="escuro"]) .candidate-detail {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .candidate-detail strong {
+
+    color: #102b4c;
+
+}
+
+
+/* =========================================================
+   FOTO DO CANDIDATO
+========================================================= */
+
+html:not([data-tema="escuro"]) .candidate-photo {
+
+    background: #eefaff;
+
+    border-color: rgba(8, 124, 240, 0.45);
+
+}
+
+
+/* =========================================================
+   STATUS — EM ANÁLISE
+========================================================= */
+
+html:not([data-tema="escuro"]) .status-analysis {
+
+    color: #087cf0;
+
+    background: rgba(8, 124, 240, 0.08);
+
+    border-color: rgba(8, 124, 240, 0.22);
+
+}
+
+
+/* =========================================================
+   STATUS — ENTREVISTA
+========================================================= */
+
+html:not([data-tema="escuro"]) .status-interview {
+
+    color: #7147e8;
+
+    background: rgba(113, 71, 232, 0.08);
+
+    border-color: rgba(113, 71, 232, 0.22);
+
+}
+
+
+/* =========================================================
+   STATUS — CONCLUÍDO
+========================================================= */
+
+html:not([data-tema="escuro"]) .status-completed {
+
+    color: #087a58;
+
+    background: rgba(0, 190, 120, 0.09);
+
+    border-color: rgba(0, 170, 105, 0.22);
+
+}
+
+
+/* =========================================================
+   STATUS — REPROVADO
+========================================================= */
+
+html:not([data-tema="escuro"]) .status-rejected {
+
+    color: #d94b57;
+
+    background: rgba(255, 70, 70, 0.08);
+
+    border-color: rgba(220, 70, 80, 0.22);
+
+}
+
+
+/* =========================================================
+   STATUS — NOVO
+========================================================= */
+
+html:not([data-tema="escuro"]) .status-new {
+
+    color: #b06a00;
+
+    background: rgba(255, 180, 70, 0.10);
+
+    border-color: rgba(220, 150, 50, 0.25);
+
+}
+
+
+/* =========================================================
+   NÃO ENCONTRADO
+========================================================= */
+
+html:not([data-tema="escuro"]) .not-found {
+
+    background: #ffffff;
+
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 10px 30px rgba(20, 80, 120, 0.08);
+
+}
+
+
+html:not([data-tema="escuro"]) .not-found h2 {
+
+    color: #102b4c;
+
+}
+
+
+html:not([data-tema="escuro"]) .not-found p {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .not-found-icon {
+
+    color: #087cf0;
+
+}
+
+
+/* =========================================================
+   GARANTIA — SIDEBAR PERMANECE ESCURO
+========================================================= */
+
+html:not([data-tema="escuro"]) .sidebar {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(4, 12, 32, 0.94),
+            rgba(3, 7, 23, 0.92)
+        );
+
+    color: #edf3ff;
+
+}
+
+
+html:not([data-tema="escuro"]) .sidebar .nav-item {
+
+    color: #c5cde2;
+
+}
+
+
+html:not([data-tema="escuro"]) .sidebar .nav-item:hover {
+
+    color: white;
+
+}
+
+
+html:not([data-tema="escuro"]) .sidebar .nav-item.active {
+
+    color: white;
+
+}
