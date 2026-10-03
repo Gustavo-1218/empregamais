@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* =====================================================
+       ELEMENTOS DA PÁGINA
+    ===================================================== */
+
     const carrossel = document.getElementById("carrosselProfissionais");
     const busca = document.getElementById("buscaAutonomos");
     const filtros = document.querySelectorAll(".filtro");
@@ -19,15 +23,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardCentro = document.querySelector(".card-centro");
     const cardDireita = document.querySelector(".card-direita");
 
+
+    /* =====================================================
+       ESTADO
+    ===================================================== */
+
     let indiceCentral = 1;
     let categoriaAtual = "todos";
     let termoBusca = "";
 
     let profissionaisVisiveis = [];
-    let trocaPendente = null;
+
     let trocaEmAndamento = false;
     let tempoTroca = null;
-    let contadorTroca = null;
+
+
+    /* =====================================================
+       DADOS DOS PROFISSIONAIS
+    ===================================================== */
 
     const profissionais = [
 
@@ -38,17 +51,26 @@ document.addEventListener("DOMContentLoaded", function () {
             categoria: "encanamento",
             categoriaTexto: "ENCANAMENTO",
             localizacao: "📍 Extremoz, RN",
-            imagem: "autonomos/joao.jpg",
+            imagem: "João Silva.png",
             iniciais: "JS",
             avaliacao: "4.9",
             status: "Disponível agora",
-            mensagemInicial: "Olá! 😊 Como posso ajudar você?",
+
+            mensagemInicial:
+                "Olá! 😊 Como posso ajudar você?",
+
             respostas: {
-                custo: "O valor depende do tipo de serviço. Se você me explicar o problema, consigo passar uma estimativa antes de começarmos.",
-                regiao: "Sim! Atendo em Extremoz e em algumas regiões próximas de Natal.",
-                disponibilidade: "Tenho alguns horários disponíveis durante a semana. Podemos combinar o melhor horário por aqui."
+                custo:
+                    "O valor depende do tipo de serviço. Se você me explicar o problema, consigo passar uma estimativa antes de começarmos.",
+
+                regiao:
+                    "Sim! Atendo em Extremoz e em algumas regiões próximas de Natal.",
+
+                disponibilidade:
+                    "Tenho alguns horários disponíveis durante a semana. Podemos combinar o melhor horário por aqui."
             }
         },
+
 
         {
             id: "maria",
@@ -57,17 +79,26 @@ document.addEventListener("DOMContentLoaded", function () {
             categoria: "limpeza",
             categoriaTexto: "LIMPEZA",
             localizacao: "📍 Natal, RN",
-            imagem: "autonomos/maria.jpg",
+            imagem: "Maria Santos.png",
             iniciais: "MS",
             avaliacao: "5.0",
             status: "Disponível agora",
-            mensagemInicial: "Olá! 😊 Como posso ajudar você?",
+
+            mensagemInicial:
+                "Olá! 😊 Como posso ajudar você?",
+
             respostas: {
-                custo: "O valor depende do tamanho do local e do tipo de limpeza. Posso entender o que você precisa e combinar um orçamento.",
-                regiao: "Atendo principalmente Natal e algumas regiões próximas.",
-                disponibilidade: "Tenho disponibilidade durante a semana e também alguns horários aos finais de semana."
+                custo:
+                    "O valor depende do tamanho do local e do tipo de limpeza. Posso entender o que você precisa e combinar um orçamento.",
+
+                regiao:
+                    "Atendo principalmente Natal e algumas regiões próximas.",
+
+                disponibilidade:
+                    "Tenho disponibilidade durante a semana e também alguns horários aos finais de semana."
             }
         },
+
 
         {
             id: "carlos",
@@ -76,74 +107,26 @@ document.addEventListener("DOMContentLoaded", function () {
             categoria: "eletrica",
             categoriaTexto: "ELÉTRICA",
             localizacao: "📍 Parnamirim, RN",
-            imagem: "autonomos/carlos.jpg",
+            imagem: "Carlos Oliveira.png",
             iniciais: "CO",
             avaliacao: "4.8",
             status: "Disponível agora",
-            mensagemInicial: "Olá! ⚡ Posso ajudar com seu serviço elétrico.",
+
+            mensagemInicial:
+                "Olá! ⚡ Posso ajudar com seu serviço elétrico.",
+
             respostas: {
-                custo: "O orçamento depende do serviço. Posso avaliar o problema e explicar o que precisa ser feito antes de iniciar.",
-                regiao: "Atendo Parnamirim, Natal e algumas regiões próximas.",
-                disponibilidade: "Tenho alguns horários disponíveis. Podemos combinar o atendimento diretamente por aqui."
+                custo:
+                    "O orçamento depende do serviço. Posso avaliar o problema e explicar o que precisa ser feito antes de iniciar.",
+
+                regiao:
+                    "Atendo Parnamirim, Natal e algumas regiões próximas.",
+
+                disponibilidade:
+                    "Tenho alguns horários disponíveis. Podemos combinar o atendimento diretamente por aqui."
             }
         },
 
-        {
-            id: "ana",
-            nome: "Ana Beatriz",
-            profissao: "Pintora residencial",
-            categoria: "pintura",
-            categoriaTexto: "PINTURA",
-            localizacao: "📍 Natal, RN",
-            imagem: "autonomos/ana.jpg",
-            iniciais: "AB",
-            avaliacao: "4.9",
-            status: "Disponível agora",
-            mensagemInicial: "Olá! 🎨 Quer conversar sobre seu projeto?",
-            respostas: {
-                custo: "O preço depende do tamanho do ambiente, quantidade de paredes e tipo de tinta. Posso fazer uma estimativa.",
-                regiao: "Atendo principalmente Natal e regiões próximas.",
-                disponibilidade: "Posso verificar meus horários disponíveis e combinar uma data com você."
-            }
-        },
-
-        {
-            id: "lucas",
-            nome: "Lucas Ferreira",
-            profissao: "Técnico de manutenção",
-            categoria: "manutencao",
-            categoriaTexto: "MANUTENÇÃO",
-            localizacao: "📍 São Gonçalo do Amarante, RN",
-            imagem: "autonomos/lucas.jpg",
-            iniciais: "LF",
-            avaliacao: "4.8",
-            status: "Disponível agora",
-            mensagemInicial: "Olá! 🔧 Posso ajudar com sua manutenção.",
-            respostas: {
-                custo: "Preciso entender qual equipamento ou problema você possui para conseguir estimar o valor.",
-                regiao: "Atendo São Gonçalo do Amarante e algumas regiões próximas.",
-                disponibilidade: "Tenho alguns horários disponíveis durante a semana. Podemos combinar o melhor horário."
-            }
-        },
-
-        {
-            id: "beatriz",
-            nome: "Beatriz Lima",
-            profissao: "Profissional de limpeza",
-            categoria: "limpeza",
-            categoriaTexto: "LIMPEZA",
-            localizacao: "📍 Natal, RN",
-            imagem: "autonomos/beatriz.jpg",
-            iniciais: "BL",
-            avaliacao: "4.9",
-            status: "Disponível agora",
-            mensagemInicial: "Olá! Posso explicar como funciona meu serviço.",
-            respostas: {
-                custo: "O orçamento depende do tamanho do espaço e do serviço necessário.",
-                regiao: "Atendo Natal e algumas regiões próximas.",
-                disponibilidade: "Podemos combinar um horário de acordo com sua necessidade."
-            }
-        },
 
         {
             id: "rafael",
@@ -152,19 +135,60 @@ document.addEventListener("DOMContentLoaded", function () {
             categoria: "eletrica",
             categoriaTexto: "ELÉTRICA",
             localizacao: "📍 Extremoz, RN",
-            imagem: "autonomos/rafael.jpg",
+            imagem: "Rafael Costa.png",
             iniciais: "RC",
             avaliacao: "4.7",
             status: "Disponível agora",
-            mensagemInicial: "Olá! ⚡ Estou disponível para conversar.",
+
+            mensagemInicial:
+                "Olá! ⚡ Estou disponível para conversar.",
+
             respostas: {
-                custo: "Depende do serviço elétrico necessário. Posso entender o problema e passar uma estimativa.",
-                regiao: "Atendo Extremoz e algumas regiões próximas.",
-                disponibilidade: "Tenho horários disponíveis durante a semana e podemos combinar o atendimento."
+                custo:
+                    "Depende do serviço elétrico necessário. Posso entender o problema e passar uma estimativa.",
+
+                regiao:
+                    "Atendo Extremoz e algumas regiões próximas.",
+
+                disponibilidade:
+                    "Tenho horários disponíveis durante a semana e podemos combinar o atendimento."
+            }
+        },
+
+
+        {
+            id: "ana",
+            nome: "Ana Beatriz",
+            profissao: "Pintora residencial",
+            categoria: "pintura",
+            categoriaTexto: "PINTURA",
+            localizacao: "📍 Natal, RN",
+            imagem: "Ana Beatriz.png",
+            iniciais: "AB",
+            avaliacao: "4.9",
+            status: "Disponível agora",
+
+            mensagemInicial:
+                "Olá! 🎨 Quer conversar sobre seu projeto?",
+
+            respostas: {
+                custo:
+                    "O preço depende do tamanho do ambiente, quantidade de paredes e tipo de tinta. Posso fazer uma estimativa.",
+
+                regiao:
+                    "Atendo principalmente Natal e regiões próximas.",
+
+                disponibilidade:
+                    "Posso verificar meus horários disponíveis e combinar uma data com você."
             }
         }
 
     ];
+
+
+    /* =====================================================
+       OBTER PROFISSIONAL
+    ===================================================== */
 
     function obterProfissional(indice) {
 
@@ -179,51 +203,103 @@ document.addEventListener("DOMContentLoaded", function () {
         return profissionaisVisiveis[indice];
     }
 
-    function atualizarCard(card, profissional) {
+
+    /* =====================================================
+       ATUALIZAR CARD
+    ===================================================== */
+
+    function atualizarCard(card, profissional, indice) {
 
         if (!card || !profissional) {
             return;
         }
 
-        card.dataset.profissional = profissional.id;
+        /*
+         * Agora o índice acompanha o profissional.
+         * Isso corrige o problema antigo do carrossel.
+         */
 
-        const imagem = card.querySelector(".imagem-profissional img");
-        const categoria = card.querySelector(".categoria");
-        const nome = card.querySelector(".info-profissional h3");
-        const profissao = card.querySelector(".profissao");
-        const localizacao = card.querySelector(".localizacao");
-        const avaliacao = card.querySelector(".avaliacao");
-        const botao = card.querySelector(".botao-perfil");
+        card.dataset.profissional = profissional.id;
+        card.dataset.indice = indice;
+
+
+        const imagem =
+            card.querySelector(".imagem-profissional img");
+
+        const categoria =
+            card.querySelector(".categoria");
+
+        const nome =
+            card.querySelector(".info-profissional h3");
+
+        const profissao =
+            card.querySelector(".profissao");
+
+        const localizacao =
+            card.querySelector(".localizacao");
+
+        const avaliacao =
+            card.querySelector(".avaliacao");
+
+        const botao =
+            card.querySelector(".botao-perfil");
+
 
         if (imagem) {
+
             imagem.src = profissional.imagem;
-            imagem.alt = `${profissional.nome} realizando serviço`;
+
+            imagem.alt =
+                `Foto de ${profissional.nome}`;
+
         }
+
 
         if (categoria) {
-            categoria.textContent = profissional.categoriaTexto;
+            categoria.textContent =
+                profissional.categoriaTexto;
         }
+
 
         if (nome) {
-            nome.textContent = profissional.nome;
+            nome.textContent =
+                profissional.nome;
         }
+
 
         if (profissao) {
-            profissao.textContent = profissional.profissao;
+            profissao.textContent =
+                profissional.profissao;
         }
+
 
         if (localizacao) {
-            localizacao.textContent = profissional.localizacao;
+            localizacao.textContent =
+                profissional.localizacao;
         }
+
 
         if (avaliacao) {
-            avaliacao.textContent = `★ ${profissional.avaliacao}`;
+
+            avaliacao.textContent =
+                `★ ${profissional.avaliacao}`;
+
         }
 
+
         if (botao) {
-            botao.dataset.profissional = profissional.id;
+
+            botao.dataset.profissional =
+                profissional.id;
+
         }
+
     }
+
+
+    /* =====================================================
+       ATUALIZAR CHAT
+    ===================================================== */
 
     function atualizarChat(profissional) {
 
@@ -231,14 +307,49 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fotoChat.src = profissional.imagem;
-        fotoChat.alt = `Foto de ${profissional.nome}`;
 
-        nomeChat.textContent = profissional.nome;
-        profissaoChat.textContent = profissional.profissao;
-        statusTextoChat.textContent = `● ${profissional.status}`;
+        if (fotoChat) {
+
+            fotoChat.src =
+                profissional.imagem;
+
+            fotoChat.alt =
+                `Foto de ${profissional.nome}`;
+
+        }
+
+
+        if (nomeChat) {
+
+            nomeChat.textContent =
+                profissional.nome;
+
+        }
+
+
+        if (profissaoChat) {
+
+            profissaoChat.textContent =
+                profissional.profissao;
+
+        }
+
+
+        if (statusTextoChat) {
+
+            statusTextoChat.textContent =
+                `● ${profissional.status}`;
+
+        }
+
+
+        if (!mensagensChat) {
+            return;
+        }
+
 
         mensagensChat.innerHTML = "";
+
 
         adicionarMensagemProfissional(
             profissional.iniciais,
@@ -246,9 +357,12 @@ document.addEventListener("DOMContentLoaded", function () {
             "agora"
         );
 
-        const sistema = document.createElement("div");
 
-        sistema.className = "mensagem-sistema";
+        const sistema =
+            document.createElement("div");
+
+        sistema.className =
+            "mensagem-sistema";
 
         sistema.innerHTML = `
             <span>
@@ -256,14 +370,33 @@ document.addEventListener("DOMContentLoaded", function () {
             </span>
         `;
 
+
         mensagensChat.appendChild(sistema);
+
     }
 
-    function adicionarMensagemProfissional(iniciais, texto, horario) {
 
-        const mensagem = document.createElement("div");
+    /* =====================================================
+       MENSAGEM DO PROFISSIONAL
+    ===================================================== */
 
-        mensagem.className = "mensagem-profissional";
+    function adicionarMensagemProfissional(
+        iniciais,
+        texto,
+        horario
+    ) {
+
+        if (!mensagensChat) {
+            return;
+        }
+
+
+        const mensagem =
+            document.createElement("div");
+
+        mensagem.className =
+            "mensagem-profissional";
+
 
         mensagem.innerHTML = `
             <div class="avatar-mensagem">
@@ -271,6 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
 
             <div class="balao-mensagem">
+
                 <p>
                     ${escaparHTML(texto)}
                 </p>
@@ -278,79 +412,162 @@ document.addEventListener("DOMContentLoaded", function () {
                 <span>
                     ${escaparHTML(horario)}
                 </span>
+
             </div>
         `;
 
+
         mensagensChat.appendChild(mensagem);
 
-        mensagensChat.scrollTop = mensagensChat.scrollHeight;
+        mensagensChat.scrollTop =
+            mensagensChat.scrollHeight;
+
     }
+
+
+    /* =====================================================
+       MENSAGEM DO USUÁRIO
+    ===================================================== */
 
     function adicionarMensagemUsuario(texto) {
 
-        const mensagem = document.createElement("div");
+        if (!mensagensChat) {
+            return;
+        }
 
-        mensagem.className = "mensagem-usuario";
+
+        const mensagem =
+            document.createElement("div");
+
+        mensagem.className =
+            "mensagem-usuario";
+
 
         mensagem.innerHTML = `
             <div class="balao-usuario">
-                <p>${escaparHTML(texto)}</p>
-                <span>agora</span>
+
+                <p>
+                    ${escaparHTML(texto)}
+                </p>
+
+                <span>
+                    agora
+                </span>
+
             </div>
         `;
+
 
         mensagensChat.appendChild(mensagem);
 
-        mensagensChat.scrollTop = mensagensChat.scrollHeight;
+        mensagensChat.scrollTop =
+            mensagensChat.scrollHeight;
+
     }
+
+
+    /* =====================================================
+       DIGITANDO
+    ===================================================== */
 
     function mostrarDigitando() {
 
-        const digitando = document.createElement("div");
-
-        digitando.className = "mensagem-digitando";
-        digitando.id = "mensagemDigitando";
-
-        digitando.innerHTML = `
-            <div class="avatar-mensagem">
-                ${escaparHTML(obterProfissional(indiceCentral).iniciais)}
-            </div>
-
-            <div class="balao-digitando">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        `;
-
-        mensagensChat.appendChild(digitando);
-
-        mensagensChat.scrollTop = mensagensChat.scrollHeight;
-    }
-
-    function removerDigitando() {
-
-        const digitando = document.getElementById("mensagemDigitando");
-
-        if (digitando) {
-            digitando.remove();
+        if (!mensagensChat) {
+            return;
         }
-    }
 
-    function responderMensagem(texto) {
 
-        const profissional = obterProfissional(indiceCentral);
+        const profissional =
+            obterProfissional(indiceCentral);
 
         if (!profissional) {
             return;
         }
 
-        const textoNormalizado = texto
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
+
+        const digitando =
+            document.createElement("div");
+
+        digitando.className =
+            "mensagem-digitando";
+
+        digitando.id =
+            "mensagemDigitando";
+
+
+        digitando.innerHTML = `
+            <div class="avatar-mensagem">
+                ${escaparHTML(profissional.iniciais)}
+            </div>
+
+            <div class="balao-digitando">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+        `;
+
+
+        mensagensChat.appendChild(digitando);
+
+        mensagensChat.scrollTop =
+            mensagensChat.scrollHeight;
+
+    }
+
+
+    /* =====================================================
+       REMOVER DIGITANDO
+    ===================================================== */
+
+    function removerDigitando() {
+
+        const digitando =
+            document.getElementById(
+                "mensagemDigitando"
+            );
+
+
+        if (digitando) {
+            digitando.remove();
+        }
+
+    }
+
+
+    /* =====================================================
+       RESPOSTA DO CHAT
+    ===================================================== */
+
+    function responderMensagem(texto) {
+
+        const profissional =
+            obterProfissional(indiceCentral);
+
+
+        if (!profissional) {
+            return;
+        }
+
+
+        const textoNormalizado =
+            texto
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(
+                    /[\u0300-\u036f]/g,
+                    ""
+                );
+
 
         let resposta = "";
+
+
+        /*
+         * PREÇO
+         */
 
         if (
             textoNormalizado.includes("quanto") ||
@@ -360,27 +577,51 @@ document.addEventListener("DOMContentLoaded", function () {
             textoNormalizado.includes("orcamento")
         ) {
 
-            resposta = profissional.respostas.custo;
+            resposta =
+                profissional.respostas.custo;
 
-        } else if (
+        }
+
+
+        /*
+         * REGIÃO
+         */
+
+        else if (
             textoNormalizado.includes("regiao") ||
             textoNormalizado.includes("atende") ||
             textoNormalizado.includes("local") ||
             textoNormalizado.includes("onde")
         ) {
 
-            resposta = profissional.respostas.regiao;
+            resposta =
+                profissional.respostas.regiao;
 
-        } else if (
+        }
+
+
+        /*
+         * DISPONIBILIDADE
+         */
+
+        else if (
             textoNormalizado.includes("disponivel") ||
             textoNormalizado.includes("horario") ||
             textoNormalizado.includes("quando") ||
             textoNormalizado.includes("agenda")
         ) {
 
-            resposta = profissional.respostas.disponibilidade;
+            resposta =
+                profissional.respostas.disponibilidade;
 
-        } else if (
+        }
+
+
+        /*
+         * SAUDAÇÃO
+         */
+
+        else if (
             textoNormalizado.includes("ola") ||
             textoNormalizado.includes("oi") ||
             textoNormalizado.includes("bom dia") ||
@@ -388,35 +629,184 @@ document.addEventListener("DOMContentLoaded", function () {
             textoNormalizado.includes("boa noite")
         ) {
 
-            resposta = `Olá! 😊 É um prazer falar com você. Estou disponível para ajudar com ${profissional.profissao.toLowerCase()}.`;
+            resposta =
+                `Olá! 😊 É um prazer falar com você. Estou disponível para ajudar com ${profissional.profissao.toLowerCase()}.`;
 
-        } else if (
+        }
+
+
+        /*
+         * EXPERIÊNCIA
+         */
+
+        else if (
             textoNormalizado.includes("curriculo") ||
-            textoNormalizado.includes("experiencia") ||
             textoNormalizado.includes("experiencia")
         ) {
 
-            resposta = "Tenho experiência na área e posso explicar melhor meu trabalho através do meu perfil.";
+            resposta =
+                "Tenho experiência na área e posso explicar melhor meu trabalho através do meu perfil.";
 
-        } else {
-
-            resposta = `Claro! Me conte um pouco mais sobre o que você precisa e vou tentar ajudar da melhor forma possível.`;
         }
 
+
+        /*
+         * RESPOSTA GENÉRICA
+         */
+
+        else {
+
+            resposta =
+                "Claro! Me conte um pouco mais sobre o que você precisa e vou tentar ajudar da melhor forma possível.";
+
+        }
+
+
         mostrarDigitando();
+
 
         setTimeout(function () {
 
             removerDigitando();
 
+
+            /*
+             * Confere se o profissional ainda é
+             * o mesmo antes de responder.
+             */
+
+            const profissionalAtual =
+                obterProfissional(indiceCentral);
+
+
+            if (!profissionalAtual) {
+                return;
+            }
+
+
             adicionarMensagemProfissional(
-                profissional.iniciais,
+                profissionalAtual.iniciais,
                 resposta,
                 "agora"
             );
 
         }, 1300);
+
     }
+
+
+    /* =====================================================
+       ATUALIZAR CARDS VISÍVEIS
+    ===================================================== */
+
+    function atualizarCardsVisiveis() {
+
+        if (
+            profissionaisVisiveis.length === 0
+        ) {
+            return;
+        }
+
+
+        const total =
+            profissionaisVisiveis.length;
+
+
+        const indiceEsquerda =
+            (indiceCentral - 1 + total) % total;
+
+
+        const indiceDireita =
+            (indiceCentral + 1) % total;
+
+
+        const esquerda =
+            profissionaisVisiveis[indiceEsquerda];
+
+        const centro =
+            profissionaisVisiveis[indiceCentral];
+
+        const direita =
+            profissionaisVisiveis[indiceDireita];
+
+
+        atualizarCard(
+            cardEsquerda,
+            esquerda,
+            indiceEsquerda
+        );
+
+
+        atualizarCard(
+            cardCentro,
+            centro,
+            indiceCentral
+        );
+
+
+        atualizarCard(
+            cardDireita,
+            direita,
+            indiceDireita
+        );
+
+    }
+
+
+    /* =====================================================
+       INDICADORES
+    ===================================================== */
+
+    function atualizarIndicadores() {
+
+        indicadores.forEach(function (indicador) {
+
+            indicador.classList.remove("ativo");
+
+        });
+
+
+        const profissionalCentral =
+            obterProfissional(indiceCentral);
+
+
+        if (!profissionalCentral) {
+            return;
+        }
+
+
+        const indiceOriginal =
+            profissionais.findIndex(
+                function (profissional) {
+
+                    return (
+                        profissional.id ===
+                        profissionalCentral.id
+                    );
+
+                }
+            );
+
+
+        indicadores.forEach(function (indicador) {
+
+            if (
+                Number(indicador.dataset.indice) ===
+                indiceOriginal
+            ) {
+
+                indicador.classList.add("ativo");
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       INICIAR TROCA
+    ===================================================== */
 
     function iniciarTroca(indiceDestino) {
 
@@ -424,48 +814,96 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        if (profissionaisVisiveis.length < 2) {
+
+        if (
+            profissionaisVisiveis.length < 2
+        ) {
             return;
         }
 
-        indiceDestino =
-            (indiceDestino + profissionaisVisiveis.length) %
+
+        const total =
             profissionaisVisiveis.length;
 
-        if (indiceDestino === indiceCentral) {
+
+        indiceDestino =
+            (indiceDestino + total) % total;
+
+
+        if (
+            indiceDestino === indiceCentral
+        ) {
             return;
         }
+
 
         trocaEmAndamento = true;
 
-        const profissionalDestino = obterProfissional(indiceDestino);
 
-        cardCentro.classList.add("trocando");
-        cardEsquerda.classList.add("trocando");
-        cardDireita.classList.add("trocando");
+        if (cardCentro) {
+            cardCentro.classList.add("trocando");
+        }
+
+        if (cardEsquerda) {
+            cardEsquerda.classList.add("trocando");
+        }
+
+        if (cardDireita) {
+            cardDireita.classList.add("trocando");
+        }
+
 
         setTimeout(function () {
 
-            indiceCentral = indiceDestino;
+            indiceCentral =
+                indiceDestino;
+
 
             atualizarCardsVisiveis();
 
-            atualizarChat(profissionalDestino);
+
+            const profissional =
+                obterProfissional(indiceCentral);
+
+
+            atualizarChat(profissional);
 
             atualizarIndicadores();
 
         }, 450);
 
+
         setTimeout(function () {
 
-            cardCentro.classList.remove("trocando");
-            cardEsquerda.classList.remove("trocando");
-            cardDireita.classList.remove("trocando");
+            if (cardCentro) {
+                cardCentro.classList.remove(
+                    "trocando"
+                );
+            }
+
+            if (cardEsquerda) {
+                cardEsquerda.classList.remove(
+                    "trocando"
+                );
+            }
+
+            if (cardDireita) {
+                cardDireita.classList.remove(
+                    "trocando"
+                );
+            }
+
 
             trocaEmAndamento = false;
 
         }, 700);
+
     }
+
+
+    /* =====================================================
+       TROCA AUTOMÁTICA AO PASSAR O MOUSE
+    ===================================================== */
 
     function agendarTroca(indiceDestino) {
 
@@ -473,142 +911,191 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+
         cancelarTroca();
 
-        trocaPendente = indiceDestino;
 
-        tempoTroca = setTimeout(function () {
+        tempoTroca =
+            setTimeout(function () {
 
-            iniciarTroca(indiceDestino);
+                iniciarTroca(
+                    indiceDestino
+                );
 
-            trocaPendente = null;
-
-        }, 3000);
+            }, 3000);
 
     }
+
+
+    /* =====================================================
+       CANCELAR TROCA
+    ===================================================== */
 
     function cancelarTroca() {
 
         if (tempoTroca) {
-            clearTimeout(tempoTroca);
+
+            clearTimeout(
+                tempoTroca
+            );
+
             tempoTroca = null;
+
         }
 
-        if (contadorTroca) {
-            clearInterval(contadorTroca);
-            contadorTroca = null;
-        }
-
-        trocaPendente = null;
     }
 
-    function atualizarCardsVisiveis() {
 
-        if (profissionaisVisiveis.length === 0) {
-            return;
-        }
-
-        const esquerda = obterProfissional(indiceCentral - 1);
-        const centro = obterProfissional(indiceCentral);
-        const direita = obterProfissional(indiceCentral + 1);
-
-        atualizarCard(cardEsquerda, esquerda);
-        atualizarCard(cardCentro, centro);
-        atualizarCard(cardDireita, direita);
-    }
-
-    function atualizarIndicadores() {
-
-        indicadores.forEach(function (indicador) {
-            indicador.classList.remove("ativo");
-        });
-
-        const profissionalCentral = obterProfissional(indiceCentral);
-
-        if (!profissionalCentral) {
-            return;
-        }
-
-        const indiceOriginal = profissionais.findIndex(function (profissional) {
-            return profissional.id === profissionalCentral.id;
-        });
-
-        indicadores.forEach(function (indicador) {
-
-            if (Number(indicador.dataset.indice) === indiceOriginal) {
-                indicador.classList.add("ativo");
-            }
-
-        });
-    }
+    /* =====================================================
+       EVENTOS DOS CARDS
+    ===================================================== */
 
     function adicionarEventosCards() {
 
-        cardEsquerda.addEventListener("mouseenter", function () {
+        if (!cardEsquerda ||
+            !cardCentro ||
+            !cardDireita) {
 
-            if (trocaEmAndamento) {
-                return;
+            return;
+
+        }
+
+
+        /*
+         * CARD ESQUERDO
+         */
+
+        cardEsquerda.addEventListener(
+            "mouseenter",
+            function () {
+
+                if (trocaEmAndamento) {
+                    return;
+                }
+
+
+                const indice =
+                    Number(
+                        cardEsquerda.dataset.indice
+                    );
+
+
+                agendarTroca(indice);
+
             }
+        );
 
-            const indice = Number(
-                cardEsquerda.dataset.indice
-            );
 
-            agendarTroca(indice);
+        cardEsquerda.addEventListener(
+            "mouseleave",
+            function () {
 
-        });
+                cancelarTroca();
 
-        cardEsquerda.addEventListener("mouseleave", function () {
-            cancelarTroca();
-        });
-
-        cardDireita.addEventListener("mouseenter", function () {
-
-            if (trocaEmAndamento) {
-                return;
             }
+        );
 
-            const indice = Number(
-                cardDireita.dataset.indice
-            );
 
-            agendarTroca(indice);
+        /*
+         * CARD DIREITO
+         */
 
-        });
+        cardDireita.addEventListener(
+            "mouseenter",
+            function () {
 
-        cardDireita.addEventListener("mouseleave", function () {
-            cancelarTroca();
-        });
+                if (trocaEmAndamento) {
+                    return;
+                }
 
-        cardCentro.addEventListener("mouseenter", function () {
-            cancelarTroca();
-        });
 
-        carrossel.addEventListener("click", function (evento) {
+                const indice =
+                    Number(
+                        cardDireita.dataset.indice
+                    );
 
-            const botao = evento.target.closest(".botao-perfil");
 
-            if (!botao) {
-                return;
+                agendarTroca(indice);
+
             }
+        );
 
-            const id = botao.dataset.profissional;
 
-            abrirPerfil(id);
+        cardDireita.addEventListener(
+            "mouseleave",
+            function () {
 
-        });
+                cancelarTroca();
+
+            }
+        );
+
+
+        /*
+         * CARD CENTRAL
+         */
+
+        cardCentro.addEventListener(
+            "mouseenter",
+            function () {
+
+                cancelarTroca();
+
+            }
+        );
+
+
+        /*
+         * BOTÃO "VER PERFIL"
+         */
+
+        carrossel.addEventListener(
+            "click",
+            function (evento) {
+
+                const botao =
+                    evento.target.closest(
+                        ".botao-perfil"
+                    );
+
+
+                if (!botao) {
+                    return;
+                }
+
+
+                const id =
+                    botao.dataset.profissional;
+
+
+                abrirPerfil(id);
+
+            }
+        );
 
     }
 
+
+    /* =====================================================
+       ABRIR PERFIL
+    ===================================================== */
+
     function abrirPerfil(id) {
 
-        const profissional = profissionais.find(function (item) {
-            return item.id === id;
-        });
+        const profissional =
+            profissionais.find(
+                function (item) {
+
+                    return item.id === id;
+
+                }
+            );
+
 
         if (!profissional) {
             return;
         }
+
 
         alert(
             `Perfil de ${profissional.nome}\n\n` +
@@ -616,143 +1103,303 @@ document.addEventListener("DOMContentLoaded", function () {
             `${profissional.localizacao}\n\n` +
             `Avaliação: ★ ${profissional.avaliacao}`
         );
+
     }
+
+
+    /* =====================================================
+       FILTROS + BUSCA
+    ===================================================== */
 
     function aplicarFiltros() {
 
-        profissionaisVisiveis = profissionais.filter(function (profissional) {
+        profissionaisVisiveis =
+            profissionais.filter(
+                function (profissional) {
 
-            const correspondeCategoria =
-                categoriaAtual === "todos" ||
-                profissional.categoria === categoriaAtual;
+                    const correspondeCategoria =
+                        categoriaAtual === "todos" ||
+                        profissional.categoria ===
+                        categoriaAtual;
 
-            const texto =
-                `${profissional.nome} ${profissional.profissao} ${profissional.localizacao} ${profissional.categoriaTexto}`
-                    .toLowerCase();
 
-            const correspondeBusca =
-                termoBusca === "" ||
-                texto.includes(termoBusca.toLowerCase());
+                    const texto =
+                        `${profissional.nome} ${profissional.profissao} ${profissional.localizacao} ${profissional.categoriaTexto}`
+                            .toLowerCase();
 
-            return correspondeCategoria && correspondeBusca;
 
-        });
+                    const correspondeBusca =
+                        termoBusca === "" ||
+                        texto.includes(
+                            termoBusca.toLowerCase()
+                        );
+
+
+                    return (
+                        correspondeCategoria &&
+                        correspondeBusca
+                    );
+
+                }
+            );
+
 
         cancelarTroca();
 
-        indiceCentral = profissionaisVisiveis.length > 1 ? 1 : 0;
+
+        /*
+         * Mantém o segundo profissional
+         * como destaque quando houver
+         * mais de uma opção.
+         */
+
+        indiceCentral =
+            profissionaisVisiveis.length > 1
+                ? 1
+                : 0;
+
 
         atualizarCardsVisiveis();
+
         atualizarIndicadores();
 
-        const profissional = obterProfissional(indiceCentral);
+
+        const profissional =
+            obterProfissional(indiceCentral);
+
 
         atualizarChat(profissional);
+
     }
+
+
+    /* =====================================================
+       BOTÕES DE FILTRO
+    ===================================================== */
 
     filtros.forEach(function (filtro) {
 
-        filtro.addEventListener("click", function () {
+        filtro.addEventListener(
+            "click",
+            function () {
 
-            filtros.forEach(function (item) {
-                item.classList.remove("ativo");
-            });
+                filtros.forEach(
+                    function (item) {
 
-            filtro.classList.add("ativo");
+                        item.classList.remove(
+                            "ativo"
+                        );
 
-            categoriaAtual = filtro.dataset.filtro;
+                    }
+                );
 
-            aplicarFiltros();
 
-        });
+                filtro.classList.add(
+                    "ativo"
+                );
+
+
+                categoriaAtual =
+                    filtro.dataset.filtro;
+
+
+                aplicarFiltros();
+
+            }
+        );
 
     });
 
-    busca.addEventListener("input", function () {
 
-        termoBusca = busca.value.trim();
+    /* =====================================================
+       BUSCA
+    ===================================================== */
 
-        aplicarFiltros();
+    if (busca) {
 
-    });
+        busca.addEventListener(
+            "input",
+            function () {
+
+                termoBusca =
+                    busca.value.trim();
+
+
+                aplicarFiltros();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       INDICADORES
+    ===================================================== */
 
     indicadores.forEach(function (indicador) {
 
-        indicador.addEventListener("click", function () {
+        indicador.addEventListener(
+            "click",
+            function () {
 
-            const indiceOriginal = Number(
-                indicador.dataset.indice
-            );
+                const indiceOriginal =
+                    Number(
+                        indicador.dataset.indice
+                    );
 
-            const profissional = profissionais[indiceOriginal];
 
-            if (!profissional) {
-                return;
+                const profissional =
+                    profissionais[
+                        indiceOriginal
+                    ];
+
+
+                if (!profissional) {
+                    return;
+                }
+
+
+                const indiceFiltrado =
+                    profissionaisVisiveis.findIndex(
+                        function (item) {
+
+                            return (
+                                item.id ===
+                                profissional.id
+                            );
+
+                        }
+                    );
+
+
+                if (
+                    indiceFiltrado !== -1
+                ) {
+
+                    cancelarTroca();
+
+
+                    iniciarTroca(
+                        indiceFiltrado
+                    );
+
+                }
+
             }
-
-            const indiceFiltrado =
-                profissionaisVisiveis.findIndex(function (item) {
-                    return item.id === profissional.id;
-                });
-
-            if (indiceFiltrado !== -1) {
-
-                cancelarTroca();
-
-                iniciarTroca(indiceFiltrado);
-
-            }
-
-        });
+        );
 
     });
+
+
+    /* =====================================================
+       SUGESTÕES DO CHAT
+    ===================================================== */
 
     sugestoes.forEach(function (botao) {
 
-        botao.addEventListener("click", function () {
+        botao.addEventListener(
+            "click",
+            function () {
 
-            const pergunta = botao.textContent.trim();
+                const pergunta =
+                    botao.textContent.trim();
 
-            adicionarMensagemUsuario(pergunta);
 
-            responderMensagem(pergunta);
+                adicionarMensagemUsuario(
+                    pergunta
+                );
 
-        });
 
-    });
+                responderMensagem(
+                    pergunta
+                );
 
-    formChat.addEventListener("submit", function (evento) {
-
-        evento.preventDefault();
-
-        const texto = mensagemChat.value.trim();
-
-        if (!texto) {
-            return;
-        }
-
-        adicionarMensagemUsuario(texto);
-
-        mensagemChat.value = "";
-
-        responderMensagem(texto);
+            }
+        );
 
     });
+
+
+    /* =====================================================
+       ENVIO DE MENSAGEM
+    ===================================================== */
+
+    if (formChat) {
+
+        formChat.addEventListener(
+            "submit",
+            function (evento) {
+
+                evento.preventDefault();
+
+
+                const texto =
+                    mensagemChat.value.trim();
+
+
+                if (!texto) {
+                    return;
+                }
+
+
+                adicionarMensagemUsuario(
+                    texto
+                );
+
+
+                mensagemChat.value = "";
+
+
+                responderMensagem(
+                    texto
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       ESCAPAR HTML
+    ===================================================== */
 
     function escaparHTML(texto) {
 
-        const div = document.createElement("div");
+        const div =
+            document.createElement("div");
 
-        div.textContent = texto;
+
+        div.textContent =
+            texto;
+
 
         return div.innerHTML;
+
     }
 
-    profissionaisVisiveis = [...profissionais];
+
+    /* =====================================================
+       INICIALIZAÇÃO
+    ===================================================== */
+
+    profissionaisVisiveis =
+        [...profissionais];
+
 
     atualizarCardsVisiveis();
-    atualizarChat(obterProfissional(indiceCentral));
+
+
+    atualizarChat(
+        obterProfissional(
+            indiceCentral
+        )
+    );
+
+
     atualizarIndicadores();
+
 
     adicionarEventosCards();
 
