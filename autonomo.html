@@ -2,10 +2,15 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>NEXT WORK - Autônomos</title>
+
+    <!-- =====================================================
+         FONTES
+    ====================================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,20 +20,35 @@
         rel="stylesheet"
     >
 
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
     <link rel="stylesheet" href="tema.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="autonomo.css">
+
 </head>
+
 
 <body>
 
+
+    <!-- =====================================================
+         MENU SUPERIOR
+    ====================================================== -->
+
     <div id="menu"></div>
+
+
 
     <main class="pagina-autonomos">
 
-        <!-- =====================================================
+
+        <!-- =================================================
              CABEÇALHO
-        ====================================================== -->
+        ================================================== -->
 
         <section class="cabecalho-autonomos">
 
@@ -44,23 +64,26 @@
                 </h1>
 
                 <p>
-                    Encontre profissionais autônomos próximos, conheça seus
+                    Encontre profissionais autônomos, conheça seus
                     serviços e converse diretamente com quem pode ajudar.
                 </p>
 
             </div>
 
 
+            <!-- BUSCA -->
+
             <div class="busca-area">
 
                 <div class="campo-busca">
 
-                    <span>⌕</span>
+                    <span aria-hidden="true">⌕</span>
 
                     <input
                         type="text"
                         id="buscaAutonomos"
                         placeholder="Buscar profissional ou serviço..."
+                        autocomplete="off"
                     >
 
                 </div>
@@ -70,9 +93,10 @@
         </section>
 
 
-        <!-- =====================================================
+
+        <!-- =================================================
              FILTROS
-        ====================================================== -->
+        ================================================== -->
 
         <section class="filtros-area">
 
@@ -127,432 +151,135 @@
         </section>
 
 
-        <!-- =====================================================
-             STORIES DOS PROFISSIONAIS
-        ====================================================== -->
 
-        <section class="stories-area">
+        <!-- =================================================
+             ÁREA DE STORIES + CHAT
+        ================================================== -->
 
-            <div class="stories-cabecalho">
-
-                <div>
-                    <span>PROFISSIONAIS</span>
-                    <h2>Conheça quem trabalha perto de você</h2>
-                </div>
-
-            </div>
-
-
-            <div class="stories-lista">
-
-                <!-- RAFAEL -->
-
-                <button
-                    type="button"
-                    class="story-profissional"
-                    data-profissional="rafael"
-                >
-
-                    <span class="story-imagem">
-
-                        <img
-                            src="rafaeltrabalhando.png"
-                            alt="Rafael trabalhando"
-                        >
-
-                    </span>
-
-                    <span class="story-nome">
-                        Rafael
-                    </span>
-
-                </button>
-
-
-                <!-- JOÃO -->
-
-                <button
-                    type="button"
-                    class="story-profissional"
-                    data-profissional="joao"
-                >
-
-                    <span class="story-imagem">
-
-                        <img
-                            src="joaotrabalhando.png"
-                            alt="João trabalhando"
-                        >
-
-                    </span>
-
-                    <span class="story-nome">
-                        João
-                    </span>
-
-                </button>
-
-
-                <!-- MARIA -->
-
-                <button
-                    type="button"
-                    class="story-profissional"
-                    data-profissional="maria"
-                >
-
-                    <span class="story-imagem">
-
-                        <img
-                            src="mariatraabalhando.png"
-                            alt="Maria trabalhando"
-                        >
-
-                    </span>
-
-                    <span class="story-nome">
-                        Maria
-                    </span>
-
-                </button>
-
-
-                <!-- CARLOS -->
-
-                <button
-                    type="button"
-                    class="story-profissional"
-                    data-profissional="carlos"
-                >
-
-                    <span class="story-imagem">
-
-                        <img
-                            src="carlostrabalhando.png"
-                            alt="Carlos trabalhando"
-                        >
-
-                    </span>
-
-                    <span class="story-nome">
-                        Carlos
-                    </span>
-
-                </button>
-
-
-                <!-- ANA -->
-
-                <button
-                    type="button"
-                    class="story-profissional"
-                    data-profissional="ana"
-                >
-
-                    <span class="story-imagem">
-
-                        <img
-                            src="anatrabalhando.png"
-                            alt="Ana trabalhando"
-                        >
-
-                    </span>
-
-                    <span class="story-nome">
-                        Ana
-                    </span>
-
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             ÁREA PRINCIPAL
-        ====================================================== -->
-
-        <section class="area-principal">
+        <section class="area-destaque">
 
 
             <!-- =================================================
-                 PROFISSIONAIS
+                 STORIES
             ================================================== -->
 
-            <div class="profissionais-area">
+            <div class="stories-area">
 
-                <div class="titulo-profissionais">
+                <div class="stories-cabecalho">
 
-                    <div>
+                    <span>
+                        STORIES
+                    </span>
 
-                        <span>
-                            PROFISSIONAIS
-                        </span>
-
-                        <h2>
-                            Encontre seu próximo profissional
-                        </h2>
-
-                    </div>
+                    <h2>
+                        Veja os profissionais em ação
+                    </h2>
 
                 </div>
 
 
+                <!--
+                    O JavaScript controla estes três espaços.
+
+                    Esquerda  = profissional anterior
+                    Centro    = profissional selecionado
+                    Direita   = próximo profissional
+                -->
+
                 <div
-                    class="carrossel-profissionais"
-                    id="carrosselProfissionais"
+                    class="stories-lista"
+                    id="storiesLista"
                 >
 
 
-                    <!-- =========================================
-                         JOÃO
-                    ========================================== -->
+                    <!-- STORY ESQUERDA -->
 
-                    <article
-                        class="card-profissional card-esquerda"
-                        data-indice="0"
-                        data-profissional="joao"
+                    <button
+                        type="button"
+                        class="story-profissional story-esquerda"
+                        data-posicao="esquerda"
                     >
 
-                        <div class="imagem-profissional">
+                        <span class="story-imagem">
 
                             <img
-                                src="João Silva.png"
-                                alt="Foto de João Silva"
+                                src=""
+                                alt=""
                             >
 
-                            <span class="status-online">
-                                <i></i>
-                                Disponível
-                            </span>
+                        </span>
 
-                        </div>
+                        <span class="story-nome">
+                            —
+                        </span>
 
-
-                        <div class="info-profissional">
-
-                            <span class="categoria">
-                                ENCANAMENTO
-                            </span>
-
-                            <h3>
-                                João Silva
-                            </h3>
-
-                            <p class="profissao">
-                                Encanador profissional
-                            </p>
-
-                            <p class="localizacao">
-                                📍 Extremoz, RN
-                            </p>
+                    </button>
 
 
-                            <div class="rodape-card">
 
-                                <span class="avaliacao">
-                                    ★ 4.9
-                                </span>
+                    <!-- STORY CENTRO -->
 
-                                <button
-                                    type="button"
-                                    class="botao-perfil"
-                                    data-profissional="joao"
-                                >
-                                    Ver perfil
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =========================================
-                         MARIA
-                    ========================================== -->
-
-                    <article
-                        class="card-profissional card-centro"
-                        data-indice="1"
-                        data-profissional="maria"
+                    <button
+                        type="button"
+                        class="story-profissional story-centro ativo"
+                        data-posicao="centro"
                     >
 
-                        <div class="imagem-profissional">
+                        <span class="story-imagem">
 
                             <img
-                                src="Maria Santos.png"
-                                alt="Foto de Maria Santos"
+                                src=""
+                                alt=""
                             >
 
-                            <span class="status-online">
-                                <i></i>
-                                Disponível
-                            </span>
+                        </span>
 
-                        </div>
+                        <span class="story-nome">
+                            —
+                        </span>
 
-
-                        <div class="info-profissional">
-
-                            <span class="categoria">
-                                LIMPEZA
-                            </span>
-
-                            <h3>
-                                Maria Santos
-                            </h3>
-
-                            <p class="profissao">
-                                Profissional de limpeza
-                            </p>
-
-                            <p class="localizacao">
-                                📍 Natal, RN
-                            </p>
+                    </button>
 
 
-                            <div class="rodape-card">
 
-                                <span class="avaliacao">
-                                    ★ 5.0
-                                </span>
+                    <!-- STORY DIREITA -->
 
-                                <button
-                                    type="button"
-                                    class="botao-perfil"
-                                    data-profissional="maria"
-                                >
-                                    Ver perfil
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- =========================================
-                         CARLOS
-                    ========================================== -->
-
-                    <article
-                        class="card-profissional card-direita"
-                        data-indice="2"
-                        data-profissional="carlos"
+                    <button
+                        type="button"
+                        class="story-profissional story-direita"
+                        data-posicao="direita"
                     >
 
-                        <div class="imagem-profissional">
+                        <span class="story-imagem">
 
                             <img
-                                src="Carlos Oliveira.png"
-                                alt="Foto de Carlos Oliveira"
+                                src=""
+                                alt=""
                             >
 
-                            <span class="status-online">
-                                <i></i>
-                                Disponível
-                            </span>
+                        </span>
 
-                        </div>
+                        <span class="story-nome">
+                            —
+                        </span>
 
-
-                        <div class="info-profissional">
-
-                            <span class="categoria">
-                                ELÉTRICA
-                            </span>
-
-                            <h3>
-                                Carlos Oliveira
-                            </h3>
-
-                            <p class="profissao">
-                                Eletricista residencial
-                            </p>
-
-                            <p class="localizacao">
-                                📍 Parnamirim, RN
-                            </p>
-
-
-                            <div class="rodape-card">
-
-                                <span class="avaliacao">
-                                    ★ 4.8
-                                </span>
-
-                                <button
-                                    type="button"
-                                    class="botao-perfil"
-                                    data-profissional="carlos"
-                                >
-                                    Ver perfil
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </article>
+                    </button>
 
                 </div>
 
-
-                <!-- =============================================
-                     INDICADORES
-                ============================================== -->
-
-                <div class="indicadores-profissionais">
-
-                    <button
-                        type="button"
-                        class="indicador ativo"
-                        data-indice="0"
-                        aria-label="Mostrar João"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="indicador"
-                        data-indice="1"
-                        aria-label="Mostrar Maria"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="indicador"
-                        data-indice="2"
-                        aria-label="Mostrar Carlos"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="indicador"
-                        data-indice="3"
-                        aria-label="Mostrar Rafael"
-                    ></button>
-
-                    <button
-                        type="button"
-                        class="indicador"
-                        data-indice="4"
-                        aria-label="Mostrar Ana"
-                    ></button>
-
-                </div>
 
             </div>
+
 
 
             <!-- =================================================
                  CHAT
             ================================================== -->
 
-            <aside class="chat-area">
+            <aside class="chat-area" id="chatArea">
+
+
+                <!-- CABEÇALHO -->
 
                 <div class="chat-cabecalho">
 
@@ -580,6 +307,7 @@
                     <button
                         type="button"
                         class="botao-fechar-chat"
+                        id="fecharChat"
                         aria-label="Fechar conversa"
                     >
                         ×
@@ -588,7 +316,8 @@
                 </div>
 
 
-                <!-- PERFIL DO PROFISSIONAL NO CHAT -->
+
+                <!-- PERFIL NO CHAT -->
 
                 <div class="perfil-chat">
 
@@ -596,8 +325,8 @@
 
                         <img
                             id="fotoChat"
-                            src="Maria Santos.png"
-                            alt="Foto de Maria Santos"
+                            src=""
+                            alt=""
                         >
 
                         <span class="status-chat"></span>
@@ -608,11 +337,11 @@
                     <div class="dados-chat">
 
                         <h3 id="nomeChat">
-                            Maria Santos
+                            —
                         </h3>
 
                         <p id="profissaoChat">
-                            Profissional de limpeza
+                            —
                         </p>
 
                         <span id="statusTextoChat">
@@ -624,7 +353,10 @@
                 </div>
 
 
-                <!-- MENSAGENS -->
+
+                <!-- =================================================
+                     MENSAGENS
+                ================================================== -->
 
                 <div
                     class="mensagens-chat"
@@ -633,13 +365,16 @@
 
                     <div class="mensagem-profissional">
 
-                        <div class="avatar-mensagem">
-                            MS
+                        <div
+                            class="avatar-mensagem"
+                            id="avatarMensagem"
+                        >
+                            —
                         </div>
 
                         <div class="balao-mensagem">
 
-                            <p>
+                            <p id="mensagemInicial">
                                 Olá! Como posso ajudar você?
                             </p>
 
@@ -663,7 +398,10 @@
                 </div>
 
 
-                <!-- SUGESTÕES -->
+
+                <!-- =================================================
+                     SUGESTÕES
+                ================================================== -->
 
                 <div class="sugestoes-chat">
 
@@ -682,7 +420,10 @@
                 </div>
 
 
-                <!-- CAMPO DE MENSAGEM -->
+
+                <!-- =================================================
+                     CAMPO DE MENSAGEM
+                ================================================== -->
 
                 <form
                     class="campo-mensagem"
@@ -705,12 +446,317 @@
 
                 </form>
 
+
             </aside>
+
 
         </section>
 
+
+
+        <!-- =================================================
+             OUTROS PROFISSIONAIS
+        ================================================== -->
+
+        <section class="outros-profissionais">
+
+
+            <div class="titulo-outros">
+
+                <span>
+                    MAIS PROFISSIONAIS
+                </span>
+
+                <h2>
+                    Conheça outros profissionais
+                </h2>
+
+                <p>
+                    Veja alguns dos profissionais disponíveis na plataforma.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 4 CARDS
+            ================================================== -->
+
+            <div
+                class="cards-profissionais"
+                id="cardsProfissionais"
+            >
+
+
+                <!-- JOÃO -->
+
+                <article
+                    class="card-profissional"
+                    data-profissional="joao"
+                    data-categoria="encanamento"
+                >
+
+                    <div class="imagem-profissional">
+
+                        <img
+                            src="João Silva.png"
+                            alt="Foto de João Silva"
+                        >
+
+                        <span class="status-online">
+                            <i></i>
+                            Disponível
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-profissional">
+
+                        <span class="categoria">
+                            ENCANAMENTO
+                        </span>
+
+                        <h3>
+                            João Silva
+                        </h3>
+
+                        <p class="profissao">
+                            Encanador profissional
+                        </p>
+
+                        <p class="localizacao">
+                            📍 Extremoz, RN
+                        </p>
+
+
+                        <div class="rodape-card">
+
+                            <span class="avaliacao">
+                                ★ 4.9
+                            </span>
+
+                            <button
+                                type="button"
+                                class="botao-perfil"
+                                data-profissional="joao"
+                            >
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MARIA -->
+
+                <article
+                    class="card-profissional"
+                    data-profissional="maria"
+                    data-categoria="limpeza"
+                >
+
+                    <div class="imagem-profissional">
+
+                        <img
+                            src="Maria Santos.png"
+                            alt="Foto de Maria Santos"
+                        >
+
+                        <span class="status-online">
+                            <i></i>
+                            Disponível
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-profissional">
+
+                        <span class="categoria">
+                            LIMPEZA
+                        </span>
+
+                        <h3>
+                            Maria Santos
+                        </h3>
+
+                        <p class="profissao">
+                            Profissional de limpeza
+                        </p>
+
+                        <p class="localizacao">
+                            📍 Natal, RN
+                        </p>
+
+
+                        <div class="rodape-card">
+
+                            <span class="avaliacao">
+                                ★ 5.0
+                            </span>
+
+                            <button
+                                type="button"
+                                class="botao-perfil"
+                                data-profissional="maria"
+                            >
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARLOS -->
+
+                <article
+                    class="card-profissional"
+                    data-profissional="carlos"
+                    data-categoria="eletrica"
+                >
+
+                    <div class="imagem-profissional">
+
+                        <img
+                            src="Carlos Oliveira.png"
+                            alt="Foto de Carlos Oliveira"
+                        >
+
+                        <span class="status-online">
+                            <i></i>
+                            Disponível
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-profissional">
+
+                        <span class="categoria">
+                            ELÉTRICA
+                        </span>
+
+                        <h3>
+                            Carlos Oliveira
+                        </h3>
+
+                        <p class="profissao">
+                            Eletricista residencial
+                        </p>
+
+                        <p class="localizacao">
+                            📍 Parnamirim, RN
+                        </p>
+
+
+                        <div class="rodape-card">
+
+                            <span class="avaliacao">
+                                ★ 4.8
+                            </span>
+
+                            <button
+                                type="button"
+                                class="botao-perfil"
+                                data-profissional="carlos"
+                            >
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- RAFAEL -->
+
+                <article
+                    class="card-profissional"
+                    data-profissional="rafael"
+                    data-categoria="manutencao"
+                >
+
+                    <div class="imagem-profissional">
+
+                        <img
+                            src="Rafael Costa.png"
+                            alt="Foto de Rafael Costa"
+                        >
+
+                        <span class="status-online">
+                            <i></i>
+                            Disponível
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-profissional">
+
+                        <span class="categoria">
+                            MANUTENÇÃO
+                        </span>
+
+                        <h3>
+                            Rafael Costa
+                        </h3>
+
+                        <p class="profissao">
+                            Técnico em manutenção
+                        </p>
+
+                        <p class="localizacao">
+                            📍 Natal, RN
+                        </p>
+
+
+                        <div class="rodape-card">
+
+                            <span class="avaliacao">
+                                ★ 4.9
+                            </span>
+
+                            <button
+                                type="button"
+                                class="botao-perfil"
+                                data-profissional="rafael"
+                            >
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+
     </main>
 
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script src="menu.js"></script>
     <script src="autonomo.js"></script>
