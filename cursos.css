@@ -1,1 +1,311 @@
 :root{--fundo:#010611;--azul:#00d9ff;--roxo:#8d5cff;--verde:#00e6a8;--texto:#f5f8ff;--suave:#9caac4;--fraco:#66738d;--borda:rgba(0,205,255,.18);--trans:.3s ease}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{min-height:100vh;color:var(--texto);font-family:"Poppins",sans-serif;background:var(--fundo);overflow-x:hidden;position:relative;isolation:isolate}body:before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(1,5,18,.72),rgba(1,5,18,.72)),url("plano de fundo.png") center/cover no-repeat;z-index:-2;pointer-events:none}body:after{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,rgba(0,190,255,.07),transparent 28%),radial-gradient(circle at 85% 65%,rgba(141,92,255,.08),transparent 30%);z-index:-1;pointer-events:none}.cabecalho-pagina{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-bottom:32px}.pagina-kicker,.titulo-kicker{display:block;color:var(--azul);font-size:.7rem;font-weight:700;letter-spacing:.18em;margin-bottom:9px}.cabecalho-texto h1{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin-bottom:10px}.cabecalho-texto p{color:var(--suave);line-height:1.7;max-width:680px}.contador-cursos{display:flex;align-items:center;gap:13px;padding:14px 18px;border:1px solid var(--borda);border-radius:16px;background:rgba(5,18,42,.72);white-space:nowrap}.contador-icone{width:43px;height:43px;display:grid;place-items:center;border-radius:12px;color:var(--azul);background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.16)}.contador-cursos strong,.contador-cursos span{display:block}.contador-cursos strong{font-size:1.2rem}.contador-cursos span{color:var(--suave);font-size:.7rem}.secao-cursos,.secao-curriculo{margin-top:30px}.titulo-secao{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:18px}.titulo-secao h2{font-size:1.35rem;margin-bottom:5px}.titulo-secao p{color:var(--suave);font-size:.78rem;line-height:1.6}.lista-cursos{display:grid;gap:13px}.card-curso{display:flex;align-items:center;gap:16px;padding:18px 20px;background:linear-gradient(145deg,rgba(7,21,45,.92),rgba(2,9,23,.95));border:1px solid var(--borda);border-radius:18px;transition:var(--trans)}.card-curso:hover{transform:translateY(-3px);border-color:rgba(0,210,255,.35);box-shadow:0 0 28px rgba(0,180,255,.08)}.icone-curso{width:50px;height:50px;min-width:50px;display:grid;place-items:center;border-radius:14px;color:var(--azul);background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.17);font-size:1.15rem}.icone-curso.roxo{color:#c2a8ff;background:rgba(141,92,255,.08);border-color:rgba(141,92,255,.18)}.icone-curso.verde{color:#69f4c7;background:rgba(0,230,168,.08);border-color:rgba(0,230,168,.18)}.curso-conteudo{flex:1;min-width:0}.curso-conteudo h3{font-size:.9rem;margin-bottom:4px}.curso-conteudo p{color:var(--suave);font-size:.7rem}.curso-informacoes{display:flex;gap:16px;margin-top:8px;color:var(--fraco);font-size:.63rem}.curso-informacoes span{display:flex;align-items:center;gap:5px}.curso-informacoes i{color:var(--azul)}.curso-status{padding:6px 10px;border-radius:999px;color:#69f4c7;background:rgba(0,230,168,.07);border:1px solid rgba(0,230,168,.18);font-size:.6rem;white-space:nowrap}.botao-curriculo{display:flex;align-items:center;gap:7px;padding:10px 14px;border-radius:10px;text-decoration:none;color:#6deaff;background:rgba(0,200,255,.07);border:1px solid rgba(0,210,255,.2);font:600 .7rem "Poppins";transition:var(--trans);white-space:nowrap}.botao-curriculo:hover{background:rgba(0,200,255,.13);border-color:rgba(0,210,255,.4);box-shadow:0 0 20px rgba(0,210,255,.08);transform:translateY(-2px)}.visualizador-curriculo{width:100%;height:850px;padding:10px;background:linear-gradient(145deg,rgba(7,21,45,.92),rgba(2,9,23,.96));border:1px solid var(--borda);border-radius:20px;box-shadow:0 0 35px rgba(0,150,255,.06);overflow:hidden}.visualizador-curriculo iframe{width:100%;height:100%;display:block;border:0;border-radius:13px;background:#fff}@media(max-width:700px){.cabecalho-pagina{align-items:flex-start;flex-direction:column}.contador-cursos{width:100%}.titulo-secao{align-items:flex-start;flex-direction:column}.card-curso{align-items:flex-start;padding:16px}.curso-status{margin-left:auto}.visualizador-curriculo{height:650px;padding:6px}.botao-curriculo{width:100%;justify-content:center}}@media(max-width:500px){.card-curso{display:grid;grid-template-columns:auto 1fr}.curso-status{grid-column:2;margin-left:0;width:max-content}.curso-informacoes{flex-wrap:wrap;gap:7px 12px}.visualizador-curriculo{height:550px}.cabecalho-texto h1{font-size:1.9rem}}
+
+
+
+
+:root{
+    --fundo:#eefaff;
+    --azul:#008fc7;
+    --roxo:#7147e8;
+    --verde:#00a878;
+    --texto:#102b4c;
+    --suave:#526b84;
+    --fraco:#71869c;
+    --borda:rgba(0,145,200,.20);
+    --trans:.3s ease;
+}
+
+/* =========================================================
+   MODO CLARO
+   ========================================================= */
+
+body{
+    background:
+        radial-gradient(
+            circle at 12% 18%,
+            rgba(0,180,255,.10),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 88% 70%,
+            rgba(113,71,232,.07),
+            transparent 30%
+        ),
+        var(--fundo);
+}
+
+body:before{
+    background:
+        linear-gradient(
+            rgba(238,250,255,.80),
+            rgba(238,250,255,.90)
+        ),
+        url("plano de fundo.png") center/cover no-repeat;
+}
+
+body:after{
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0,190,255,.09),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(113,71,232,.08),
+            transparent 30%
+        );
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.pagina-kicker,
+.titulo-kicker{
+    color:#087cf0;
+}
+
+.cabecalho-texto h1{
+    color:var(--texto);
+}
+
+.cabecalho-texto p{
+    color:var(--suave);
+}
+
+/* =========================================================
+   CONTADOR
+   ========================================================= */
+
+.contador-cursos{
+    background:rgba(255,255,255,.82);
+    border-color:var(--borda);
+
+    box-shadow:
+        0 0 22px rgba(0,170,230,.10),
+        0 10px 30px rgba(20,80,120,.06);
+}
+
+.contador-icone{
+    color:#087cf0;
+    background:rgba(0,174,230,.09);
+    border-color:rgba(0,174,230,.20);
+
+    box-shadow:
+        0 0 14px rgba(0,174,230,.10);
+}
+
+.contador-cursos strong{
+    color:var(--texto);
+}
+
+.contador-cursos span{
+    color:var(--suave);
+}
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+.titulo-secao h2{
+    color:var(--texto);
+}
+
+.titulo-secao p{
+    color:var(--suave);
+}
+
+/* =========================================================
+   CARDS DE CURSOS
+   ========================================================= */
+
+.card-curso{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.97),
+            rgba(244,251,255,.94)
+        );
+
+    border-color:var(--borda);
+
+    box-shadow:
+        0 0 18px rgba(0,170,230,.08),
+        0 10px 30px rgba(20,80,120,.06);
+}
+
+.card-curso:hover{
+    border-color:rgba(0,170,230,.42);
+
+    box-shadow:
+        0 0 30px rgba(0,180,255,.15),
+        0 14px 35px rgba(20,80,120,.09);
+}
+
+.icone-curso{
+    color:#087cf0;
+    background:rgba(0,180,230,.08);
+    border-color:rgba(0,180,230,.20);
+
+    box-shadow:
+        0 0 14px rgba(0,180,230,.10);
+}
+
+.icone-curso.roxo{
+    color:#7147e8;
+    background:rgba(113,71,232,.08);
+    border-color:rgba(113,71,232,.20);
+}
+
+.icone-curso.verde{
+    color:#00a878;
+    background:rgba(0,168,120,.08);
+    border-color:rgba(0,168,120,.20);
+}
+
+.curso-conteudo h3{
+    color:var(--texto);
+}
+
+.curso-conteudo p{
+    color:var(--suave);
+}
+
+.curso-informacoes{
+    color:var(--fraco);
+}
+
+.curso-informacoes i{
+    color:#087cf0;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.curso-status{
+    color:#008b69;
+    background:rgba(0,190,140,.08);
+    border-color:rgba(0,190,140,.20);
+}
+
+/* =========================================================
+   BOTÃO DO CURRÍCULO
+   ========================================================= */
+
+.botao-curriculo{
+    color:#087aa5;
+    background:rgba(0,170,220,.08);
+    border-color:rgba(0,170,230,.22);
+}
+
+.botao-curriculo:hover{
+    color:#006f9c;
+    background:rgba(0,180,230,.12);
+    border-color:rgba(0,180,230,.42);
+
+    box-shadow:
+        0 0 22px rgba(0,180,255,.12);
+}
+
+/* =========================================================
+   VISUALIZADOR DO CURRÍCULO
+   ========================================================= */
+
+.visualizador-curriculo{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.97),
+            rgba(244,251,255,.94)
+        );
+
+    border-color:var(--borda);
+
+    box-shadow:
+        0 0 25px rgba(0,170,230,.10),
+        0 12px 35px rgba(20,80,120,.07);
+}
+
+.visualizador-curriculo iframe{
+    background:#fff;
+}
+
+
+/* =========================================================
+   MODO ESCURO
+   Restaura a aparência original
+   ========================================================= */
+
+html[data-tema="escuro"]{
+    --fundo:#010611;
+    --azul:#00d9ff;
+    --roxo:#8d5cff;
+    --verde:#00e6a8;
+    --texto:#f5f8ff;
+    --suave:#9caac4;
+    --fraco:#66738d;
+    --borda:rgba(0,205,255,.18);
+}
+
+html[data-tema="escuro"] body{
+    background:var(--fundo);
+}
+
+html[data-tema="escuro"] body:before{
+    background:
+        linear-gradient(
+            rgba(1,5,18,.72),
+            rgba(1,5,18,.72)
+        ),
+        url("plano de fundo.png") center/cover no-repeat;
+}
+
+html[data-tema="escuro"] body:after{
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0,190,255,.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(141,92,255,.08),
+            transparent 30%
+        );
+}
+
+html[data-tema="escuro"] .contador-cursos{
+    background:rgba(5,18,42,.72);
+    box-shadow:none;
+}
+
+html[data-tema="escuro"] .card-curso{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7,21,45,.92),
+            rgba(2,9,23,.95)
+        );
+
+    box-shadow:none;
+}
+
+html[data-tema="escuro"] .card-curso:hover{
+    border-color:rgba(0,210,255,.35);
+    box-shadow:
+        0 0 28px rgba(0,180,255,.08);
+}
+
+html[data-tema="escuro"] .visualizador-curriculo{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7,21,45,.92),
+            rgba(2,9,23,.96)
+        );
+
+    box-shadow:
+        0 0 35px rgba(0,150,255,.06);
+}
