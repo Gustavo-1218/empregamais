@@ -1,1 +1,421 @@
 :root{--fundo:#010611;--painel:rgba(5,18,42,.88);--azul:#00d9ff;--roxo:#8d5cff;--verde:#00e6a8;--laranja:#ff9d24;--texto:#f5f8ff;--suave:#9caac4;--fraco:#66738d;--borda:rgba(0,205,255,.18);--trans:.3s ease}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{min-height:100vh;color:var(--texto);font-family:"Poppins",sans-serif;background:var(--fundo);overflow-x:hidden;position:relative;isolation:isolate}body:before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(1,5,18,.72),rgba(1,5,18,.72)),url("plano de fundo.png") center/cover no-repeat;z-index:-2;pointer-events:none}body:after{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 20%,rgba(0,190,255,.07),transparent 28%),radial-gradient(circle at 85% 65%,rgba(141,92,255,.08),transparent 30%);z-index:-1;pointer-events:none}.cabecalho-pagina{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-bottom:32px}.pagina-kicker,.titulo-kicker{display:block;color:var(--azul);font-size:.7rem;font-weight:700;letter-spacing:.18em;margin-bottom:9px}.cabecalho-texto h1{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin-bottom:10px}.cabecalho-texto p{color:var(--suave);line-height:1.7;max-width:680px}.contador-habilidades{display:flex;align-items:center;gap:13px;padding:14px 18px;border:1px solid var(--borda);border-radius:16px;background:rgba(5,18,42,.72);white-space:nowrap}.contador-icone{width:43px;height:43px;display:grid;place-items:center;border-radius:12px;color:var(--azul);background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.16)}.contador-habilidades strong,.contador-habilidades span{display:block}.contador-habilidades strong{font-size:1.2rem}.contador-habilidades span{color:var(--suave);font-size:.7rem}.secao-habilidades,.secao-adicionar{margin-top:30px}.titulo-secao{margin-bottom:18px}.titulo-secao h2{font-size:1.35rem;margin-bottom:5px}.titulo-secao p{color:var(--suave);font-size:.78rem;line-height:1.6}.lista-habilidades{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card-habilidade{display:flex;align-items:center;gap:15px;padding:18px;background:linear-gradient(145deg,rgba(7,21,45,.92),rgba(2,9,23,.95));border:1px solid var(--borda);border-radius:18px;transition:var(--trans)}.card-habilidade:hover{transform:translateY(-3px);border-color:rgba(0,210,255,.35);box-shadow:0 0 28px rgba(0,180,255,.08)}.icone-habilidade{width:48px;height:48px;min-width:48px;display:grid;place-items:center;border-radius:13px;color:var(--azul);background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.17);font-size:1.15rem}.icone-habilidade.roxo{color:#c0a4ff;background:rgba(141,92,255,.08);border-color:rgba(141,92,255,.18)}.icone-habilidade.verde{color:#69f4c7;background:rgba(0,230,168,.08);border-color:rgba(0,230,168,.18)}.icone-habilidade.laranja{color:#ffc16b;background:rgba(255,157,36,.08);border-color:rgba(255,157,36,.18)}.habilidade-conteudo{flex:1;min-width:0}.habilidade-topo{display:flex;align-items:center;justify-content:space-between;gap:10px}.habilidade-topo h3{font-size:.9rem}.habilidade-conteudo p{margin-top:3px;color:var(--suave);font-size:.68rem}.nivel{padding:4px 8px;border-radius:999px;font-size:.58rem;white-space:nowrap}.nivel.avancado{color:#69e7ff;background:rgba(0,210,255,.08);border:1px solid rgba(0,210,255,.18)}.nivel.intermediario{color:#c2a8ff;background:rgba(141,92,255,.08);border:1px solid rgba(141,92,255,.18)}.nivel.basico{color:#ffc16b;background:rgba(255,157,36,.08);border:1px solid rgba(255,157,36,.18)}.barra-nivel{height:4px;margin-top:10px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}.barra-nivel span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--azul),var(--roxo));box-shadow:0 0 8px rgba(0,210,255,.45)}.botao-remover{width:34px;height:34px;border:1px solid rgba(255,85,119,.15);border-radius:9px;background:rgba(255,85,119,.05);color:#ff6685;cursor:pointer;transition:var(--trans)}.botao-remover:hover{background:rgba(255,85,119,.12);border-color:rgba(255,85,119,.35)}.formulario-habilidade{display:grid;grid-template-columns:1.2fr 1fr .7fr auto;align-items:end;gap:13px;padding:22px;background:linear-gradient(145deg,rgba(7,21,45,.9),rgba(2,9,23,.95));border:1px solid var(--borda);border-radius:18px}.campo label{display:block;color:var(--suave);font-size:.68rem;margin-bottom:7px}.campo input,.campo select{width:100%;height:43px;padding:0 12px;border:1px solid rgba(255,255,255,.09);border-radius:10px;outline:none;background:rgba(1,8,22,.8);color:var(--texto);font:400 .72rem "Poppins";transition:var(--trans)}.campo input:focus,.campo select:focus{border-color:rgba(0,210,255,.4);box-shadow:0 0 15px rgba(0,210,255,.07)}.botao-adicionar{height:43px;padding:0 18px;border:0;border-radius:10px;background:linear-gradient(135deg,#00cfff,#1684ff);color:#fff;font:600 .72rem "Poppins";cursor:pointer;box-shadow:0 0 18px rgba(0,200,255,.12);transition:var(--trans);white-space:nowrap}.botao-adicionar:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(0,200,255,.22)}.toast{position:fixed;right:22px;bottom:22px;padding:13px 17px;border:1px solid rgba(0,230,168,.25);border-radius:13px;background:rgba(3,18,25,.96);color:#9ff8db;box-shadow:0 0 25px rgba(0,230,168,.1);transform:translateY(20px);opacity:0;pointer-events:none;transition:.3s ease;font-size:.78rem;z-index:100}.toast.mostrar{transform:translateY(0);opacity:1}@media(max-width:900px){.cabecalho-pagina{align-items:flex-start;flex-direction:column}.lista-habilidades{grid-template-columns:1fr}.formulario-habilidade{grid-template-columns:1fr 1fr}.botao-adicionar{grid-column:1/-1;width:100%}}@media(max-width:600px){.cabecalho-texto h1{font-size:1.9rem}.contador-habilidades{width:100%}.card-habilidade{padding:15px}.habilidade-topo{align-items:flex-start;flex-direction:column;gap:5px}.formulario-habilidade{grid-template-columns:1fr;padding:18px}.botao-adicionar{grid-column:auto}.toast{left:15px;right:15px;bottom:15px;text-align:center}}
+
+
+
+/* =========================================================
+   NEXT WORK — HABILIDADES
+   ADAPTAÇÃO PARA MODO CLARO
+   ========================================================= */
+
+:root{
+    --fundo:#eefaff;
+    --painel:rgba(255,255,255,.94);
+    --azul:#008fc7;
+    --roxo:#7147e8;
+    --verde:#00a878;
+    --laranja:#e78a12;
+    --texto:#102b4c;
+    --suave:#526b84;
+    --fraco:#71869c;
+    --borda:rgba(0,145,200,.20);
+    --trans:.3s ease;
+}
+
+/* =========================================================
+   FUNDO
+   ========================================================= */
+
+body{
+    background:
+        radial-gradient(
+            circle at 12% 18%,
+            rgba(0,180,255,.10),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 88% 70%,
+            rgba(113,71,232,.07),
+            transparent 30%
+        ),
+        var(--fundo);
+}
+
+body:before{
+    background:
+        linear-gradient(
+            rgba(238,250,255,.80),
+            rgba(238,250,255,.90)
+        ),
+        url("plano de fundo.png") center/cover no-repeat;
+}
+
+body:after{
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0,190,255,.09),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(113,71,232,.08),
+            transparent 30%
+        );
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.pagina-kicker,
+.titulo-kicker{
+    color:#087cf0;
+}
+
+.cabecalho-texto h1{
+    color:var(--texto);
+}
+
+.cabecalho-texto p{
+    color:var(--suave);
+}
+
+/* =========================================================
+   CONTADOR
+   ========================================================= */
+
+.contador-habilidades{
+    background:rgba(255,255,255,.82);
+    border-color:var(--borda);
+    box-shadow:
+        0 0 22px rgba(0,170,230,.10),
+        0 10px 30px rgba(20,80,120,.06);
+}
+
+.contador-icone{
+    color:#087cf0;
+    background:rgba(0,174,230,.09);
+    border-color:rgba(0,174,230,.20);
+    box-shadow:0 0 14px rgba(0,174,230,.10);
+}
+
+.contador-habilidades strong{
+    color:var(--texto);
+}
+
+.contador-habilidades span{
+    color:var(--suave);
+}
+
+/* =========================================================
+   TÍTULOS DAS SEÇÕES
+   ========================================================= */
+
+.titulo-secao h2{
+    color:var(--texto);
+}
+
+.titulo-secao p{
+    color:var(--suave);
+}
+
+/* =========================================================
+   CARDS DE HABILIDADES
+   ========================================================= */
+
+.card-habilidade{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.97),
+            rgba(244,251,255,.94)
+        );
+
+    border-color:var(--borda);
+
+    box-shadow:
+        0 0 18px rgba(0,170,230,.08),
+        0 10px 30px rgba(20,80,120,.06);
+}
+
+.card-habilidade:hover{
+    border-color:rgba(0,170,230,.42);
+
+    box-shadow:
+        0 0 30px rgba(0,180,255,.15),
+        0 14px 35px rgba(20,80,120,.09);
+}
+
+.icone-habilidade{
+    color:#087cf0;
+    background:rgba(0,180,230,.08);
+    border-color:rgba(0,180,230,.20);
+
+    box-shadow:
+        0 0 14px rgba(0,180,230,.10);
+}
+
+.icone-habilidade.roxo{
+    color:#7147e8;
+    background:rgba(113,71,232,.08);
+    border-color:rgba(113,71,232,.20);
+}
+
+.icone-habilidade.verde{
+    color:#00a878;
+    background:rgba(0,168,120,.08);
+    border-color:rgba(0,168,120,.20);
+}
+
+.icone-habilidade.laranja{
+    color:#d67d00;
+    background:rgba(231,138,18,.08);
+    border-color:rgba(231,138,18,.20);
+}
+
+.habilidade-topo h3{
+    color:var(--texto);
+}
+
+.habilidade-conteudo p{
+    color:var(--suave);
+}
+
+/* =========================================================
+   NÍVEIS
+   ========================================================= */
+
+.nivel.avancado{
+    color:#087fa5;
+    background:rgba(0,190,230,.08);
+    border-color:rgba(0,190,230,.20);
+}
+
+.nivel.intermediario{
+    color:#7147e8;
+    background:rgba(113,71,232,.08);
+    border-color:rgba(113,71,232,.20);
+}
+
+.nivel.basico{
+    color:#b96b00;
+    background:rgba(255,157,36,.09);
+    border-color:rgba(255,157,36,.20);
+}
+
+/* =========================================================
+   BARRA DE NÍVEL
+   ========================================================= */
+
+.barra-nivel{
+    background:rgba(0,100,150,.10);
+}
+
+.barra-nivel span{
+    background:
+        linear-gradient(
+            90deg,
+            #00aeca,
+            #7147e8
+        );
+
+    box-shadow:
+        0 0 9px rgba(0,170,240,.45);
+}
+
+/* =========================================================
+   BOTÃO REMOVER
+   ========================================================= */
+
+.botao-remover{
+    border-color:rgba(231,70,104,.18);
+    background:rgba(231,70,104,.06);
+    color:#d83e62;
+}
+
+.botao-remover:hover{
+    background:rgba(231,70,104,.12);
+    border-color:rgba(231,70,104,.35);
+}
+
+/* =========================================================
+   FORMULÁRIO DE ADICIONAR
+   ========================================================= */
+
+.formulario-habilidade{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.97),
+            rgba(244,251,255,.94)
+        );
+
+    border-color:var(--borda);
+
+    box-shadow:
+        0 0 18px rgba(0,170,230,.07),
+        0 10px 30px rgba(20,80,120,.06);
+}
+
+.campo label{
+    color:var(--suave);
+}
+
+.campo input,
+.campo select{
+    background:#ffffff;
+    border-color:rgba(0,100,150,.16);
+    color:var(--texto);
+
+    box-shadow:
+        inset 0 1px 2px rgba(20,80,120,.03);
+}
+
+.campo input::placeholder{
+    color:#8ba0b4;
+}
+
+.campo input:focus,
+.campo select:focus{
+    border-color:rgba(0,170,230,.45);
+
+    box-shadow:
+        0 0 17px rgba(0,190,255,.11);
+}
+
+/* =========================================================
+   BOTÃO ADICIONAR
+   ========================================================= */
+
+.botao-adicionar{
+    background:
+        linear-gradient(
+            135deg,
+            #00bfe8,
+            #087cf0
+        );
+
+    box-shadow:
+        0 0 18px rgba(0,170,240,.18);
+}
+
+.botao-adicionar:hover{
+    box-shadow:
+        0 0 27px rgba(0,180,255,.28);
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast{
+    background:rgba(247,255,252,.97);
+    border-color:rgba(0,170,130,.28);
+    color:#008361;
+
+    box-shadow:
+        0 0 25px rgba(0,180,140,.12);
+}
+
+
+/* =========================================================
+   MODO ESCURO
+   Restaura a identidade original
+   ========================================================= */
+
+html[data-tema="escuro"]{
+    --fundo:#010611;
+    --painel:rgba(5,18,42,.88);
+    --azul:#00d9ff;
+    --roxo:#8d5cff;
+    --verde:#00e6a8;
+    --laranja:#ff9d24;
+    --texto:#f5f8ff;
+    --suave:#9caac4;
+    --fraco:#66738d;
+    --borda:rgba(0,205,255,.18);
+}
+
+html[data-tema="escuro"] body{
+    background:var(--fundo);
+}
+
+html[data-tema="escuro"] body:before{
+    background:
+        linear-gradient(
+            rgba(1,5,18,.72),
+            rgba(1,5,18,.72)
+        ),
+        url("plano de fundo.png") center/cover no-repeat;
+}
+
+html[data-tema="escuro"] body:after{
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0,190,255,.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(141,92,255,.08),
+            transparent 30%
+        );
+}
+
+/* Cards */
+
+html[data-tema="escuro"] .card-habilidade{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7,21,45,.92),
+            rgba(2,9,23,.95)
+        );
+
+    box-shadow:none;
+}
+
+html[data-tema="escuro"] .card-habilidade:hover{
+    border-color:rgba(0,210,255,.35);
+    box-shadow:
+        0 0 28px rgba(0,180,255,.08);
+}
+
+/* Contador */
+
+html[data-tema="escuro"] .contador-habilidades{
+    background:rgba(5,18,42,.72);
+    box-shadow:none;
+}
+
+/* Formulário */
+
+html[data-tema="escuro"] .formulario-habilidade{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7,21,45,.90),
+            rgba(2,9,23,.95)
+        );
+
+    box-shadow:none;
+}
+
+html[data-tema="escuro"] .campo input,
+html[data-tema="escuro"] .campo select{
+    background:rgba(1,8,22,.8);
+    border-color:rgba(255,255,255,.09);
+    color:var(--texto);
+}
+
+html[data-tema="escuro"] .campo input::placeholder{
+    color:#66738d;
+}
+
+/* Toast */
+
+html[data-tema="escuro"] .toast{
+    background:rgba(3,18,25,.96);
+    color:#9ff8db;
+}
