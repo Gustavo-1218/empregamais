@@ -1371,3 +1371,361 @@ body {
     }
 
 }
+
+
+/* =====================================================
+   NEXT WORK — MODO CLARO
+   PUBLICAR VAGA
+   SOMENTE OS CARDS FICAM CLAROS
+   BACKGROUND E SIDEBAR PERMANECEM ESCUROS
+===================================================== */
+
+
+/* =====================================================
+   CARD PRINCIPAL DO FORMULÁRIO
+===================================================== */
+
+html:not([data-tema="escuro"]) .form-card {
+
+    background: #ffffff;
+
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 10px 35px rgba(20, 80, 120, 0.10);
+
+}
+
+
+/* =====================================================
+   CABEÇALHO DO CARD
+===================================================== */
+
+html:not([data-tema="escuro"]) .card-header {
+
+    border-color: #c9e1ed;
+
+}
+
+
+html:not([data-tema="escuro"]) .card-header h2 {
+
+    color: #102b4c;
+
+}
+
+
+html:not([data-tema="escuro"]) .card-header p {
+
+    color: #526b84;
+
+}
+
+
+/* =====================================================
+   CAMPOS DO FORMULÁRIO
+===================================================== */
+
+html:not([data-tema="escuro"]) .form-grid label {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .form-grid input,
+html:not([data-tema="escuro"]) .form-grid select,
+html:not([data-tema="escuro"]) .form-grid textarea {
+
+    background: #f7fcff;
+
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+}
+
+
+html:not([data-tema="escuro"]) .form-grid input::placeholder,
+html:not([data-tema="escuro"]) .form-grid textarea::placeholder {
+
+    color: #8aa0b5;
+
+}
+
+
+html:not([data-tema="escuro"]) .form-grid input:focus,
+html:not([data-tema="escuro"]) .form-grid select:focus,
+html:not([data-tema="escuro"]) .form-grid textarea:focus {
+
+    border-color: #087cf0;
+
+    box-shadow:
+        0 0 0 3px rgba(8, 124, 240, 0.10);
+
+}
+
+
+/* =====================================================
+   ÁREA DOS BOTÕES DO CARD
+===================================================== */
+
+html:not([data-tema="escuro"]) .form-actions {
+
+    border-color: #c9e1ed;
+
+}
+
+
+html:not([data-tema="escuro"]) .btn-secondary {
+
+    background: #f4fbff;
+
+    color: #526b84;
+
+    border-color: #c9e1ed;
+
+}
+
+
+/* =====================================================
+   CARD DE PRÉVIA DA VAGA
+===================================================== */
+
+html:not([data-tema="escuro"]) .job-preview {
+
+    background: #ffffff;
+
+    color: #102b4c;
+
+    border-color: #c9e1ed;
+
+    box-shadow:
+        0 10px 35px rgba(20, 80, 120, 0.10);
+
+}
+
+
+/* =====================================================
+   INFORMAÇÕES DA EMPRESA NA PRÉVIA
+===================================================== */
+
+html:not([data-tema="escuro"]) .preview-company span {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .preview-company strong {
+
+    color: #102b4c;
+
+}
+
+
+html:not([data-tema="escuro"]) .preview-line {
+
+    background: #c9e1ed;
+
+}
+
+
+html:not([data-tema="escuro"]) .job-preview h2 {
+
+    color: #102b4c;
+
+}
+
+
+/* =====================================================
+   TAGS
+===================================================== */
+
+html:not([data-tema="escuro"]) .preview-tags span {
+
+    background: #eefaff;
+
+    border-color: #b9ddec;
+
+    color: #087cf0;
+
+}
+
+
+/* =====================================================
+   INFORMAÇÕES INTERNAS DA PRÉVIA
+===================================================== */
+
+html:not([data-tema="escuro"]) .preview-info div {
+
+    background: #f4fbff;
+
+    border-color: #c9e1ed;
+
+}
+
+
+html:not([data-tema="escuro"]) .preview-info span {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .preview-info strong {
+
+    color: #102b4c;
+
+}
+
+
+/* =====================================================
+   DESCRIÇÃO DA VAGA
+===================================================== */
+
+html:not([data-tema="escuro"]) .preview-description span {
+
+    color: #087cf0;
+
+}
+
+
+html:not([data-tema="escuro"]) .preview-description p {
+
+    color: #526b84;
+
+}
+
+
+/* =====================================================
+   RODAPÉ DA PRÉVIA
+===================================================== */
+
+html:not([data-tema="escuro"]) .preview-footer {
+
+    border-color: #c9e1ed;
+
+}
+
+
+html:not([data-tema="escuro"]) .preview-footer span {
+
+    color: #087cf0;
+
+}
+
+
+html:not([data-tema="escuro"]) .preview-footer small {
+
+    color: #71869c;
+
+}
+
+
+/* =====================================================
+   CARD DE REVISÃO
+===================================================== */
+
+html:not([data-tema="escuro"]) .review-section {
+
+    border-color: #c9e1ed;
+
+}
+
+
+html:not([data-tema="escuro"]) .review-section h3 {
+
+    color: #087cf0;
+
+}
+
+
+/* =====================================================
+   CAIXAS DE INFORMAÇÃO DA REVISÃO
+===================================================== */
+
+html:not([data-tema="escuro"]) .review-grid > div {
+
+    background: #f4fbff;
+
+    border-color: #c9e1ed;
+
+}
+
+
+html:not([data-tema="escuro"]) .review-grid span {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .review-grid strong {
+
+    color: #102b4c;
+
+}
+
+
+/* =====================================================
+   TEXTO DA REVISÃO
+===================================================== */
+
+html:not([data-tema="escuro"]) .review-text > span {
+
+    color: #526b84;
+
+}
+
+
+html:not([data-tema="escuro"]) .review-text p {
+
+    background: #f4fbff;
+
+    color: #526b84;
+
+    border: 1px solid #c9e1ed;
+
+}
+
+
+/* =====================================================
+   GARANTIA DO SIDEBAR ESCURO
+===================================================== */
+
+html:not([data-tema="escuro"]) .sidebar {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(4, 12, 32, 0.94),
+            rgba(3, 7, 23, 0.92)
+        );
+
+    color: #edf3ff;
+
+}
+
+
+html:not([data-tema="escuro"]) .sidebar .nav-item {
+
+    color: #c5cde2;
+
+}
+
+
+html:not([data-tema="escuro"]) .sidebar .nav-item:hover {
+
+    color: white;
+
+}
+
+
+html:not([data-tema="escuro"]) .sidebar .nav-item.active {
+
+    color: white;
+
+}
