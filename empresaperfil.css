@@ -2037,39 +2037,73 @@ body::after {
 }
 
 /* =====================================================
-   NEXT WORK — MODO CLARO
-   PERFIL DA EMPRESA
-   O sidebar permanece sempre escuro.
+   NEXT WORK — PERFIL DA EMPRESA
+   MODO CLARO
+   FUNDO AZUL ESCURO + CARDS CLAROS
+===================================================== */
+
+
+/* =====================================================
+   FUNDO PRINCIPAL
 ===================================================== */
 
 html:not([data-tema="escuro"]) body {
-    background: #eefaff !important;
-    color: #102b4c;
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(58, 20, 150, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 90%,
+            rgba(0, 160, 255, 0.12),
+            transparent 30%
+        ),
+        #020611 !important;
+
+    color: #edf3ff;
 }
 
-/* Área principal */
+
+/* =====================================================
+   ÁREA PRINCIPAL
+===================================================== */
+
 html:not([data-tema="escuro"]) .main {
     color: #102b4c;
 }
 
-/* Perfil principal da empresa */
-html:not([data-tema="escuro"]) .hero-card,
-html:not([data-tema="escuro"]) .panel,
-html:not([data-tema="escuro"]) .stat-card {
+
+/* =====================================================
+   CARDS PRINCIPAIS
+   ESTES FICAM CLAROS
+===================================================== */
+
+html:not([data-tema="escuro"]) .main .hero-card,
+html:not([data-tema="escuro"]) .main .panel,
+html:not([data-tema="escuro"]) .main .stat-card {
     background: #ffffff;
     color: #102b4c;
-    border-color: #c9e1ed;
+    border: 1px solid #c9e1ed;
     box-shadow: 0 10px 35px rgba(20, 80, 120, 0.10);
 }
 
-/* Títulos */
+
+/* =====================================================
+   TÍTULOS
+===================================================== */
+
 html:not([data-tema="escuro"]) .main h1,
 html:not([data-tema="escuro"]) .main h2,
 html:not([data-tema="escuro"]) .main h3 {
     color: #102b4c;
 }
 
-/* Textos secundários */
+
+/* =====================================================
+   TEXTOS
+===================================================== */
+
 html:not([data-tema="escuro"]) .main p,
 html:not([data-tema="escuro"]) .main .hero-meta,
 html:not([data-tema="escuro"]) .main .hero-meta span,
@@ -2077,21 +2111,30 @@ html:not([data-tema="escuro"]) .main .info-list span {
     color: #526b84;
 }
 
-/* Informações destacadas */
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
 html:not([data-tema="escuro"]) .main strong {
-    color: #123b5d;
+    color: #102b4c;
 }
 
-/* Lista de informações */
 html:not([data-tema="escuro"]) .main .info-list > div {
     background: #f4fbff;
-    border-color: #c9e1ed;
+    border: 1px solid #c9e1ed;
+    color: #102b4c;
 }
 
-/* Tabela de candidatos */
+
+/* =====================================================
+   TABELA DE CANDIDATOS
+===================================================== */
+
 html:not([data-tema="escuro"]) .main .candidate-table {
     background: #ffffff;
-    border-color: #c9e1ed;
+    border: 1px solid #c9e1ed;
+    box-shadow: 0 10px 35px rgba(20, 80, 120, 0.10);
 }
 
 html:not([data-tema="escuro"]) .main .table-header {
@@ -2100,55 +2143,81 @@ html:not([data-tema="escuro"]) .main .table-header {
 }
 
 html:not([data-tema="escuro"]) .main .candidate-row {
+    background: #ffffff;
     border-color: #d8e8f0;
     color: #102b4c;
 }
 
-/* Campos de edição */
+html:not([data-tema="escuro"]) .main .candidate-row:hover {
+    background: #f7fcff;
+}
+
+html:not([data-tema="escuro"]) .main .candidate-name {
+    color: #102b4c;
+}
+
+
+/* =====================================================
+   CAMPOS
+===================================================== */
+
 html:not([data-tema="escuro"]) .main input,
 html:not([data-tema="escuro"]) .main textarea {
-    background: #ffffff;
+    background: #f7fcff;
     color: #102b4c;
-    border-color: #c9e1ed;
+    border: 1px solid #c9e1ed;
 }
 
 html:not([data-tema="escuro"]) .main input:focus,
 html:not([data-tema="escuro"]) .main textarea:focus {
     border-color: #087cf0;
     box-shadow: 0 0 0 3px rgba(8, 124, 240, 0.10);
+    outline: none;
 }
 
-/* Área de vagas vazia */
+
+/* =====================================================
+   ÁREA SEM VAGAS
+===================================================== */
+
 html:not([data-tema="escuro"]) .main .no-jobs {
     background: #f4fbff;
     color: #526b84;
     border-color: #c9e1ed;
 }
 
-/* Botões de edição */
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
 html:not([data-tema="escuro"]) .main .btn-outline {
     background: #ffffff;
     color: #087cf0;
-    border-color: #8fc9df;
+    border: 1px solid #8fc9df;
 }
 
 html:not([data-tema="escuro"]) .main .btn-outline:hover {
     background: #f0faff;
     border-color: #087cf0;
+    transform: translateY(-2px);
 }
 
-/* Links "Ver todos" */
+
+/* =====================================================
+   LINKS
+===================================================== */
+
 html:not([data-tema="escuro"]) .main .see-all {
     color: #087cf0;
 }
 
-/* =====================================================
-   IMPORTANTE:
-   O .sidebar NÃO recebe nenhuma regra de tema.
-   Ele continua utilizando o visual escuro original.
-===================================================== */
-
-
-html:not([data-tema="escuro"]) .main .candidate-name {
-    color: #111111;
+html:not([data-tema="escuro"]) .main .see-all:hover {
+    color: #0069d9;
 }
+
+
+/* =====================================================
+   SIDEBAR
+   CONTINUA COM O VISUAL ORIGINAL
+===================================================== */
