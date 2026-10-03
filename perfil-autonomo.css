@@ -1,0 +1,1082 @@
+/* =========================================================
+   NEXT WORK — PERFIL AUTÔNOMO
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+========================================================= */
+
+.main-content {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 32px 38px 50px;
+
+    background:
+        radial-gradient(
+            circle at 80% 0%,
+            rgba(0, 174, 255, 0.045),
+            transparent 30%
+        ),
+        var(--nw-fundo);
+}
+
+
+/* =========================================================
+   CABEÇALHO DO PERFIL
+========================================================= */
+
+.profile-header {
+    width: 100%;
+
+    min-height: 150px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 27px 30px;
+
+    margin-bottom: 22px;
+
+    background: var(--nw-superficie);
+
+    border: 1px solid var(--nw-borda);
+
+    border-radius: 18px;
+
+    box-shadow: var(--nw-sombra);
+}
+
+
+/* =========================================================
+   IDENTIDADE
+========================================================= */
+
+.profile-header-info {
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 21px;
+}
+
+
+/* =========================================================
+   FOTO PRINCIPAL
+========================================================= */
+
+.profile-main-photo {
+    position: relative;
+
+    width: 105px;
+
+    min-width: 105px;
+
+    height: 105px;
+}
+
+.profile-main-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid var(--nw-superficie);
+
+    outline: 2px solid var(--nw-borda-hover);
+
+    box-shadow:
+        0 8px 25px rgba(20, 90, 130, 0.14);
+}
+
+
+/* =========================================================
+   SELO VERIFICADO
+========================================================= */
+
+.verified-badge {
+    position: absolute;
+
+    right: -3px;
+
+    bottom: 3px;
+
+    width: 28px;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #087cf0;
+
+    border: 3px solid var(--nw-superficie);
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    box-shadow:
+        0 4px 12px rgba(8, 124, 240, 0.30);
+}
+
+
+/* =========================================================
+   IDENTIDADE TEXTUAL
+========================================================= */
+
+.profile-identity {
+    min-width: 0;
+}
+
+.profile-name-line {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.profile-name-line h1 {
+    margin: 0;
+
+    color: var(--nw-texto);
+
+    font-size: 28px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
+}
+
+.verified-text {
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    background: rgba(8, 124, 240, 0.08);
+
+    color: var(--nw-azul);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.profile-profession {
+    margin-top: 6px;
+
+    color: var(--nw-texto-2);
+
+    font-size: 15px;
+
+    font-weight: 500;
+}
+
+.profile-meta {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-top: 12px;
+
+    color: var(--nw-texto-3);
+
+    font-size: 12px;
+}
+
+.profile-meta span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.profile-meta i {
+    color: var(--nw-azul);
+}
+
+.profile-meta span:nth-child(2) i {
+    color: #e8a400;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.btn-solicitar {
+    flex-shrink: 0;
+
+    min-height: 50px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 0 23px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #0aa7e8,
+            #168cf3 50%,
+            #7427e8
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(43, 118, 229, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-solicitar:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 25px rgba(76, 91, 224, 0.27);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.profile-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 310px;
+
+    gap: 22px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   COLUNA PRINCIPAL
+========================================================= */
+
+.profile-main {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.content-card,
+.side-card {
+    background: var(--nw-superficie);
+
+    border: 1px solid var(--nw-borda);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 7px 25px rgba(20, 80, 120, 0.055);
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+========================================================= */
+
+.content-card {
+    padding: 25px 27px;
+}
+
+
+/* =========================================================
+   CABEÇALHO DAS SEÇÕES
+========================================================= */
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 18px;
+}
+
+.section-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--nw-azul);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    color: var(--nw-texto);
+
+    font-size: 19px;
+
+    font-weight: 700;
+}
+
+.section-link {
+    color: var(--nw-azul);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+.section-link:hover {
+    color: var(--nw-roxo);
+}
+
+
+/* =========================================================
+   SOBRE
+========================================================= */
+
+.about-text {
+    max-width: 850px;
+
+    color: var(--nw-texto-2);
+
+    font-size: 14px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   INDICADORES DE CONFIANÇA
+========================================================= */
+
+.trust-items {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--nw-borda);
+}
+
+.trust-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+}
+
+.trust-icon {
+    width: 36px;
+
+    min-width: 36px;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(8, 124, 240, 0.08);
+
+    color: var(--nw-azul);
+
+    font-size: 14px;
+}
+
+.trust-item div {
+    min-width: 0;
+}
+
+.trust-item strong {
+    display: block;
+
+    color: var(--nw-texto);
+
+    font-size: 11px;
+
+    line-height: 1.3;
+}
+
+.trust-item small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--nw-texto-3);
+
+    font-size: 9px;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   SERVIÇOS
+========================================================= */
+
+.services-list {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.service-card {
+    min-width: 0;
+
+    padding: 17px;
+
+    border: 1px solid var(--nw-borda);
+
+    border-radius: 11px;
+
+    background: var(--nw-superficie-2);
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--nw-borda-hover);
+}
+
+.service-icon {
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    border-radius: 9px;
+
+    background: rgba(8, 124, 240, 0.09);
+
+    color: var(--nw-azul);
+
+    font-size: 15px;
+}
+
+.service-info h3 {
+    margin: 0;
+
+    color: var(--nw-texto);
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+}
+
+.service-info p {
+    margin-top: 7px;
+
+    min-height: 42px;
+
+    color: var(--nw-texto-3);
+
+    font-size: 10px;
+
+    line-height: 1.55;
+}
+
+.service-info strong {
+    display: block;
+
+    margin-top: 10px;
+
+    color: var(--nw-texto);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   PORTFÓLIO
+========================================================= */
+
+.portfolio-preview {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.portfolio-placeholder {
+    min-height: 105px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border: 1px dashed var(--nw-borda-hover);
+
+    border-radius: 11px;
+
+    background: var(--nw-superficie-2);
+
+    color: var(--nw-texto-3);
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+.portfolio-placeholder i {
+    color: var(--nw-azul);
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   COLUNA LATERAL
+========================================================= */
+
+.profile-side {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.side-card {
+    padding: 21px;
+}
+
+.side-title {
+    margin-bottom: 17px;
+
+    color: var(--nw-texto);
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   AVALIAÇÃO
+========================================================= */
+
+.rating-main {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid var(--nw-borda);
+}
+
+.rating-main > strong {
+    color: var(--nw-texto);
+
+    font-size: 34px;
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+.stars {
+    color: #e8a400;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+.rating-main span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--nw-texto-3);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   BARRAS DE AVALIAÇÃO
+========================================================= */
+
+.rating-bar {
+    display: grid;
+
+    grid-template-columns: 12px 1fr 28px;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 10px;
+
+    color: var(--nw-texto-3);
+
+    font-size: 9px;
+}
+
+.rating-bar > div {
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: var(--nw-borda);
+}
+
+.rating-bar > div span {
+    display: block;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #087cf0;
+}
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.contact-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+.contact-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+}
+
+.contact-item > span {
+    width: 35px;
+
+    min-width: 35px;
+
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(8, 124, 240, 0.08);
+
+    color: var(--nw-azul);
+
+    font-size: 13px;
+}
+
+.contact-item small {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: var(--nw-texto-3);
+
+    font-size: 9px;
+}
+
+.contact-item strong {
+    display: block;
+
+    color: var(--nw-texto);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CARD DE CONFIANÇA
+========================================================= */
+
+.trust-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8, 124, 240, 0.07),
+            rgba(113, 71, 232, 0.035)
+        );
+}
+
+.trust-card-icon {
+    width: 39px;
+
+    min-width: 39px;
+
+    height: 39px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(8, 124, 240, 0.10);
+
+    color: var(--nw-azul);
+}
+
+.trust-card h3 {
+    margin: 0;
+
+    color: var(--nw-texto);
+
+    font-size: 12px;
+}
+
+.trust-card p {
+    margin-top: 5px;
+
+    color: var(--nw-texto-3);
+
+    font-size: 10px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   MENSAGEM
+========================================================= */
+
+.profile-message {
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform: translateX(-50%) translateY(20px);
+
+    padding: 11px 17px;
+
+    border-radius: 9px;
+
+    background: #102b4c;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+
+    z-index: 100;
+}
+
+.profile-message.mostrar {
+    opacity: 1;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .main-content {
+        padding: 28px 25px 45px;
+    }
+
+    .profile-grid {
+        grid-template-columns: minmax(0, 1fr) 280px;
+    }
+
+    .profile-header {
+        padding: 23px;
+    }
+
+    .services-list {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        display: flex;
+
+        align-items: flex-start;
+
+        gap: 13px;
+    }
+
+    .service-icon {
+        margin: 0;
+    }
+
+    .service-info p {
+        min-height: 0;
+    }
+}
+
+
+/* =========================================================
+   TABLET PEQUENO
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-side {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trust-card {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .main-content {
+        padding: 20px 16px 35px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 21px;
+
+        gap: 20px;
+    }
+
+    .profile-header-info {
+        align-items: flex-start;
+    }
+
+    .profile-main-photo {
+        width: 82px;
+        min-width: 82px;
+        height: 82px;
+    }
+
+    .profile-name-line h1 {
+        font-size: 22px;
+    }
+
+    .profile-profession {
+        font-size: 13px;
+    }
+
+    .profile-meta {
+        gap: 9px;
+
+        font-size: 10px;
+    }
+
+    .btn-solicitar {
+        width: 100%;
+    }
+
+    .content-card {
+        padding: 21px 18px;
+    }
+
+    .trust-items {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-preview {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-placeholder {
+        min-height: 75px;
+    }
+
+    .profile-side {
+        display: flex;
+    }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .profile-header-info {
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .profile-name-line {
+        justify-content: center;
+    }
+
+    .profile-meta {
+        justify-content: center;
+    }
+
+    .section-heading h2 {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
