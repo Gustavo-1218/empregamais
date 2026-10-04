@@ -1534,3 +1534,478 @@ a {
     }
 
 }
+
+
+
+/* =========================================================
+   NEXT WORK — CADASTRO
+   TEMA CLARO AZULADO
+   COLE ESTE BLOCO NO FINAL DO CSS
+========================================================= */
+
+/* FUNDO GERAL */
+
+body {
+    color: #102b4c;
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            rgba(0, 174, 202, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(8, 124, 240, 0.08),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #eaf8fc 0%,
+            #f5fcff 48%,
+            #e7f6fb 100%
+        );
+}
+
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.pagina-cadastro {
+    background:
+        linear-gradient(
+            135deg,
+            #eaf8fc,
+            #f5fcff,
+            #e9f8fc
+        );
+}
+
+
+/* =========================================================
+   LADO ESQUERDO
+========================================================= */
+
+.lado-esquerdo {
+    background-color: #dff4fa;
+}
+
+
+/* Mantém a imagem, mas deixa a aparência mais clara */
+
+.lado-esquerdo::after {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(235, 250, 255, 0.18),
+            rgba(225, 247, 253, 0.05)
+        );
+}
+
+
+/* =========================================================
+   TEXTOS ESQUERDOS
+========================================================= */
+
+.etiqueta {
+    color: #087cf0;
+}
+
+.conteudo-esquerdo h1 {
+    color: #102b4c;
+}
+
+.conteudo-esquerdo h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            #087cf0,
+            #2399ff,
+            #7147e8
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.conteudo-esquerdo > p {
+    color: #526b84;
+}
+
+
+/* =========================================================
+   CARD COMUNIDADE
+========================================================= */
+
+.card-comunidade {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.94),
+            rgba(240, 250, 254, 0.96)
+        );
+
+    border-color: rgba(8, 124, 240, 0.30);
+
+    box-shadow:
+        0 8px 28px rgba(8, 124, 240, 0.09),
+        0 0 22px rgba(0, 174, 202, 0.08);
+}
+
+.card-comunidade:hover {
+    border-color: rgba(8, 124, 240, 0.48);
+
+    box-shadow:
+        0 12px 32px rgba(8, 124, 240, 0.13),
+        0 0 28px rgba(0, 174, 202, 0.12);
+}
+
+.linha-card {
+    background: rgba(8, 124, 240, 0.25);
+}
+
+.texto-card h3 {
+    color: #102b4c;
+}
+
+.texto-card p {
+    color: #526b84;
+}
+
+
+/* =========================================================
+   LADO DIREITO
+========================================================= */
+
+.lado-direito {
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(8, 124, 240, 0.06),
+            transparent 45%
+        ),
+        #eefaff;
+}
+
+
+/* =========================================================
+   CARD DE CADASTRO
+========================================================= */
+
+.card-cadastro {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f5fcff
+        );
+
+    border-color: rgba(8, 124, 240, 0.28);
+
+    box-shadow:
+        0 18px 55px rgba(8, 124, 240, 0.10),
+        0 0 30px rgba(0, 174, 202, 0.07);
+}
+
+.card-cadastro:hover {
+    border-color: rgba(8, 124, 240, 0.38);
+
+    box-shadow:
+        0 20px 60px rgba(8, 124, 240, 0.13),
+        0 0 35px rgba(0, 174, 202, 0.10);
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.titulo-secao {
+    color: #087cf0;
+}
+
+.cabecalho-cadastro h2 {
+    color: #102b4c;
+}
+
+.cabecalho-cadastro p {
+    color: #526b84;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.grupo-campo label {
+    color: #294866;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.campo-input {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f5fbfe
+        );
+
+    border-color: rgba(8, 124, 240, 0.25);
+
+    box-shadow:
+        inset 0 0 12px rgba(0, 174, 202, 0.025);
+
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
+}
+
+.campo-input:hover {
+    border-color: rgba(8, 124, 240, 0.38);
+}
+
+.campo-input:focus-within {
+    background: #ffffff;
+
+    border-color: #087cf0;
+
+    box-shadow:
+        0 0 0 3px rgba(8, 124, 240, 0.08),
+        0 0 22px rgba(0, 174, 202, 0.10);
+}
+
+
+.icone-campo svg {
+    stroke: #087cf0;
+}
+
+
+.campo-input input {
+    color: #102b4c;
+}
+
+
+.campo-input input::placeholder {
+    color: #8298ad;
+}
+
+
+/* =========================================================
+   OLHO DA SENHA
+========================================================= */
+
+.botao-olho svg {
+    stroke: #087cf0;
+}
+
+
+/* =========================================================
+   TERMOS
+========================================================= */
+
+.termos {
+    color: #526b84;
+}
+
+.checkbox-custom {
+    background: #f5fbfe;
+
+    border-color: rgba(8, 124, 240, 0.30);
+}
+
+.termos input:checked + .checkbox-custom {
+    background:
+        linear-gradient(
+            135deg,
+            #087cf0,
+            #7147e8
+        );
+
+    box-shadow:
+        0 0 16px rgba(8, 124, 240, 0.18);
+}
+
+.termos a {
+    color: #087cf0;
+}
+
+.termos a:hover {
+    color: #7147e8;
+}
+
+
+/* =========================================================
+   MENSAGENS
+========================================================= */
+
+.mensagem.erro {
+    color: #c23b52;
+
+    background:
+        rgba(220, 70, 90, 0.06);
+
+    border-color:
+        rgba(220, 70, 90, 0.18);
+}
+
+.mensagem.sucesso {
+    color: #238052;
+
+    background:
+        rgba(40, 150, 100, 0.06);
+
+    border-color:
+        rgba(40, 150, 100, 0.18);
+}
+
+
+/* =========================================================
+   BOTÃO CRIAR
+========================================================= */
+
+.botao-criar {
+    background:
+        linear-gradient(
+            100deg,
+            #087cf0,
+            #2399ff 48%,
+            #7147e8
+        );
+
+    box-shadow:
+        0 8px 25px rgba(8, 124, 240, 0.20),
+        0 0 18px rgba(0, 174, 202, 0.08);
+}
+
+.botao-criar:hover {
+    box-shadow:
+        0 12px 30px rgba(8, 124, 240, 0.28),
+        0 0 28px rgba(0, 174, 202, 0.15);
+}
+
+
+/* =========================================================
+   DIVISOR
+========================================================= */
+
+.divisor span {
+    background: rgba(8, 124, 240, 0.20);
+}
+
+.divisor p {
+    color: #71869c;
+}
+
+
+/* =========================================================
+   GOOGLE
+========================================================= */
+
+.botao-google {
+    color: #294866;
+
+    background:
+        rgba(255, 255, 255, 0.80);
+
+    border-color:
+        rgba(8, 124, 240, 0.24);
+
+    box-shadow:
+        0 4px 15px rgba(8, 124, 240, 0.04);
+}
+
+.botao-google:hover {
+    color: #102b4c;
+
+    border-color:
+        rgba(8, 124, 240, 0.42);
+
+    background:
+        rgba(8, 124, 240, 0.05);
+
+    box-shadow:
+        0 0 20px rgba(8, 124, 240, 0.10);
+}
+
+.google-logo {
+    color: #4285f4;
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.login-conta p {
+    color: #71869c;
+}
+
+.login-conta a {
+    color: #087cf0;
+}
+
+.login-conta a:hover {
+    color: #7147e8;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .pagina-cadastro {
+        background:
+            linear-gradient(
+                145deg,
+                #eaf8fc,
+                #f5fcff
+            );
+    }
+
+    .lado-direito {
+        background:
+            linear-gradient(
+                145deg,
+                #eaf8fc,
+                #f5fcff
+            );
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .lado-esquerdo {
+        background-color: #e5f7fc;
+    }
+
+    .card-cadastro {
+        box-shadow:
+            0 12px 35px rgba(8, 124, 240, 0.10),
+            0 0 24px rgba(0, 174, 202, 0.08);
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .lado-direito {
+        background:
+            linear-gradient(
+                145deg,
+                #eaf8fc,
+                #f5fcff
+            );
+    }
+
+}
