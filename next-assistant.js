@@ -1,88 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    carregarNextAssistant();
+    iniciarNextAssistant();
 
 });
 
 
 /* =========================================================
-   CARREGAR O NEXT ASSISTANT
-   ========================================================= */
-
-function carregarNextAssistant() {
-
-    /*
-     * Se o Assistant já estiver carregado,
-     * não carrega novamente.
-     */
-
-    if (document.getElementById("nextAssistantContainer")) {
-        iniciarNextAssistant();
-        return;
-    }
-
-
-    /*
-     * Cria automaticamente o espaço onde
-     * o HTML do Assistant será colocado.
-     */
-
-    const container = document.createElement("div");
-
-    container.id = "next-assistant-loader";
-
-    document.body.appendChild(container);
-
-
-    /*
-     * Carrega o arquivo next-assistant.html.
-     */
-
-    fetch("next-assistant.html")
-
-        .then(function (resposta) {
-
-            if (!resposta.ok) {
-
-                throw new Error(
-                    "Não foi possível carregar o next-assistant.html"
-                );
-
-            }
-
-            return resposta.text();
-
-        })
-
-        .then(function (html) {
-
-            container.innerHTML = html;
-
-            iniciarNextAssistant();
-
-        })
-
-        .catch(function (erro) {
-
-            console.error(
-                "Erro ao carregar o Next Assistant:",
-                erro
-            );
-
-        });
-
-}
-
-
-
-/* =========================================================
-   INICIALIZAR O ASSISTANT
+   INICIALIZAÇÃO
    ========================================================= */
 
 function iniciarNextAssistant() {
-
-    const container =
-        document.getElementById("nextAssistantContainer");
 
     const botao =
         document.getElementById("nextAssistantButton");
@@ -99,29 +26,62 @@ function iniciarNextAssistant() {
     const input =
         document.getElementById("nextAssistantInput");
 
-    const mensagens =
-        document.getElementById("nextAssistantMessages");
-
     const microfone =
         document.getElementById("nextAssistantMic");
 
 
     /*
-     * Verifica se o HTML foi carregado corretamente.
+     * Verificação dos elementos.
      */
 
-    if (
-        !container ||
-        !botao ||
-        !chat ||
-        !fechar ||
-        !form ||
-        !input ||
-        !mensagens
-    ) {
+    if (!botao) {
 
         console.error(
-            "Next Assistant: algum elemento do HTML não foi encontrado."
+            "Next Assistant: botão não encontrado."
+        );
+
+        return;
+
+    }
+
+
+    if (!chat) {
+
+        console.error(
+            "Next Assistant: janela do chat não encontrada."
+        );
+
+        return;
+
+    }
+
+
+    if (!fechar) {
+
+        console.error(
+            "Next Assistant: botão fechar não encontrado."
+        );
+
+        return;
+
+    }
+
+
+    if (!form) {
+
+        console.error(
+            "Next Assistant: formulário não encontrado."
+        );
+
+        return;
+
+    }
+
+
+    if (!input) {
+
+        console.error(
+            "Next Assistant: campo de texto não encontrado."
         );
 
         return;
@@ -130,113 +90,115 @@ function iniciarNextAssistant() {
 
 
     /*
-     * O chat começa fechado.
+     * Estado inicial.
      */
 
     chat.classList.remove("aberto");
 
-    chat.setAttribute("aria-hidden", "true");
-
-    chat.style.display = "none";
-
-
-
-    /* =====================================================
-       BOTÃO PRINCIPAL
-       ===================================================== */
-
-    botao.addEventListener("click", function () {
-
-        const estaAberto =
-            chat.classList.contains("aberto");
+    chat.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
 
-        if (estaAberto) {
+    /*
+     * Clique no botão principal.
+     */
 
-            fecharNextAssistant();
-
-        } else {
+    botao.addEventListener(
+        "click",
+        function () {
 
             abrirNextAssistant();
 
         }
-
-    });
-
+    );
 
 
-    /* =====================================================
-       BOTÃO FECHAR
-       ===================================================== */
+    /*
+     * Clique no botão fechar.
+     */
 
-    fechar.addEventListener("click", function () {
+    fechar.addEventListener(
+        "click",
+        function () {
 
-        fecharNextAssistant();
+            fecharNextAssistant();
 
-    });
-
-
-
-    /* =====================================================
-       FORMULÁRIO
-       ===================================================== */
-
-    form.addEventListener("submit", function (evento) {
-
-        evento.preventDefault();
-
-        const pergunta =
-            input.value.trim();
-
-
-        if (!pergunta) {
-            return;
         }
+    );
 
 
-        enviarPergunta(pergunta);
+    /*
+     * Enviar pergunta pelo formulário.
+     */
 
-    });
+    form.addEventListener(
+        "submit",
+        function (evento) {
+
+            evento.preventDefault();
 
 
+            const pergunta =
+                input.value.trim();
 
-    /* =====================================================
-       BOTÕES DE SUGESTÃO
-       ===================================================== */
+
+            if (!pergunta) {
+                return;
+            }
+
+
+            enviarPergunta(
+                pergunta
+            );
+
+        }
+    );
+
+
+    /*
+     * Botões de sugestão.
+     */
 
     const sugestoes =
-        document.querySelectorAll(".suggestion-button");
-
-
-    sugestoes.forEach(function (botaoSugestao) {
-
-        botaoSugestao.addEventListener(
-            "click",
-            function () {
-
-                const pergunta =
-                    botaoSugestao.getAttribute(
-                        "data-question"
-                    );
-
-
-                if (!pergunta) {
-                    return;
-                }
-
-
-                enviarPergunta(pergunta);
-
-            }
+        document.querySelectorAll(
+            ".suggestion-button"
         );
 
-    });
+
+    sugestoes.forEach(
+        function (botaoSugestao) {
+
+            botaoSugestao.addEventListener(
+                "click",
+                function () {
+
+                    const pergunta =
+                        botaoSugestao.getAttribute(
+                            "data-question"
+                        );
 
 
+                    if (!pergunta) {
+                        return;
+                    }
 
-    /* =====================================================
-       MICROFONE
-       ===================================================== */
+
+                    enviarPergunta(
+                        pergunta
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /*
+     * Microfone.
+     */
 
     if (microfone) {
 
@@ -252,21 +214,18 @@ function iniciarNextAssistant() {
     }
 
 
-
-    /* =====================================================
-       ESC FECHA O ASSISTANT
-       ===================================================== */
+    /*
+     * ESC fecha o chat.
+     */
 
     document.addEventListener(
         "keydown",
         function (evento) {
 
-            if (evento.key !== "Escape") {
-                return;
-            }
-
-
-            if (chat.classList.contains("aberto")) {
+            if (
+                evento.key === "Escape" &&
+                chat.classList.contains("aberto")
+            ) {
 
                 fecharNextAssistant();
 
@@ -277,7 +236,7 @@ function iniciarNextAssistant() {
 
 
     console.log(
-        "Next Assistant carregado com sucesso."
+        "Next Assistant iniciado."
     );
 
 }
@@ -285,22 +244,27 @@ function iniciarNextAssistant() {
 
 
 /* =========================================================
-   ABRIR O ASSISTANT
+   ABRIR
    ========================================================= */
 
 function abrirNextAssistant() {
 
-    const botao =
-        document.getElementById("nextAssistantButton");
-
     const chat =
-        document.getElementById("nextAssistantChat");
+        document.getElementById(
+            "nextAssistantChat"
+        );
 
 
-    if (!botao || !chat) {
+    const botao =
+        document.getElementById(
+            "nextAssistantButton"
+        );
+
+
+    if (!chat || !botao) {
 
         console.error(
-            "Next Assistant: botão ou chat não encontrado."
+            "Next Assistant: elementos não encontrados ao abrir."
         );
 
         return;
@@ -309,10 +273,21 @@ function abrirNextAssistant() {
 
 
     /*
-     * Adiciona a classe usada pela animação/visual.
+     * Remove qualquer estado anterior.
      */
 
-    chat.classList.add("aberto");
+    chat.classList.remove(
+        "fechando"
+    );
+
+
+    /*
+     * Adiciona o estado aberto.
+     */
+
+    chat.classList.add(
+        "aberto"
+    );
 
 
     /*
@@ -332,18 +307,13 @@ function abrirNextAssistant() {
 
 
     /*
-     * Garante que o chat apareça.
-     */
-
-    chat.style.display = "flex";
-
-
-    /*
-     * Coloca o cursor no campo de pergunta.
+     * Foco no campo de texto.
      */
 
     const input =
-        document.getElementById("nextAssistantInput");
+        document.getElementById(
+            "nextAssistantInput"
+        );
 
 
     if (input) {
@@ -354,7 +324,7 @@ function abrirNextAssistant() {
                 input.focus();
 
             },
-            150
+            200
         );
 
     }
@@ -364,24 +334,31 @@ function abrirNextAssistant() {
 
 
 /* =========================================================
-   FECHAR O ASSISTANT
+   FECHAR
    ========================================================= */
 
 function fecharNextAssistant() {
 
-    const botao =
-        document.getElementById("nextAssistantButton");
-
     const chat =
-        document.getElementById("nextAssistantChat");
+        document.getElementById(
+            "nextAssistantChat"
+        );
 
 
-    if (!botao || !chat) {
+    const botao =
+        document.getElementById(
+            "nextAssistantButton"
+        );
+
+
+    if (!chat || !botao) {
         return;
     }
 
 
-    chat.classList.remove("aberto");
+    chat.classList.remove(
+        "aberto"
+    );
 
 
     chat.setAttribute(
@@ -395,13 +372,6 @@ function fecharNextAssistant() {
         "false"
     );
 
-
-    /*
-     * Esconde completamente a janela.
-     */
-
-    chat.style.display = "none";
-
 }
 
 
@@ -413,7 +383,9 @@ function fecharNextAssistant() {
 function enviarPergunta(pergunta) {
 
     const input =
-        document.getElementById("nextAssistantInput");
+        document.getElementById(
+            "nextAssistantInput"
+        );
 
 
     if (input) {
@@ -431,10 +403,6 @@ function enviarPergunta(pergunta) {
     mostrarDigitando();
 
 
-    /*
-     * Simula o pequeno tempo de processamento.
-     */
-
     setTimeout(
         function () {
 
@@ -442,7 +410,9 @@ function enviarPergunta(pergunta) {
 
 
             const resposta =
-                obterResposta(pergunta);
+                obterResposta(
+                    pergunta
+                );
 
 
             adicionarMensagemAssistant(
@@ -480,7 +450,9 @@ function adicionarMensagemUsuario(texto) {
 
 
     const mensagem =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     mensagem.className =
@@ -509,7 +481,7 @@ function adicionarMensagemUsuario(texto) {
     );
 
 
-    rolarMensagensParaBaixo();
+    rolarMensagens();
 
 }
 
@@ -533,7 +505,9 @@ function adicionarMensagemAssistant(texto) {
 
 
     const mensagem =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     mensagem.className =
@@ -543,7 +517,12 @@ function adicionarMensagemAssistant(texto) {
     mensagem.innerHTML = `
 
         <div class="message-avatar">
-            NA
+
+            <img
+                src="audio.png"
+                alt=""
+            >
+
         </div>
 
         <div class="message-content">
@@ -566,14 +545,14 @@ function adicionarMensagemAssistant(texto) {
     );
 
 
-    rolarMensagensParaBaixo();
+    rolarMensagens();
 
 }
 
 
 
 /* =========================================================
-   MOSTRAR "DIGITANDO"
+   DIGITANDO
    ========================================================= */
 
 function mostrarDigitando() {
@@ -594,12 +573,16 @@ function mostrarDigitando() {
             "nextAssistantTyping"
         )
     ) {
+
         return;
+
     }
 
 
     const digitando =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     digitando.id =
@@ -613,7 +596,12 @@ function mostrarDigitando() {
     digitando.innerHTML = `
 
         <div class="message-avatar">
-            NA
+
+            <img
+                src="audio.png"
+                alt=""
+            >
+
         </div>
 
         <div class="message-content">
@@ -638,14 +626,14 @@ function mostrarDigitando() {
     );
 
 
-    rolarMensagensParaBaixo();
+    rolarMensagens();
 
 }
 
 
 
 /* =========================================================
-   REMOVER "DIGITANDO"
+   REMOVER DIGITANDO
    ========================================================= */
 
 function removerDigitando() {
@@ -667,7 +655,7 @@ function removerDigitando() {
 
 
 /* =========================================================
-   RESPOSTAS DO NEXT ASSISTANT
+   RESPOSTAS
    ========================================================= */
 
 function obterResposta(pergunta) {
@@ -682,9 +670,9 @@ function obterResposta(pergunta) {
             );
 
 
-    /* =====================================================
-       VAGAS PRÓXIMAS
-       ===================================================== */
+    /*
+     * VAGAS PRÓXIMAS
+     */
 
     if (
         texto.includes("vaga") &&
@@ -699,10 +687,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       VAGA DE INFORMÁTICA
-       ===================================================== */
+    /*
+     * VAGAS DE INFORMÁTICA
+     */
 
     if (
         texto.includes("vaga") &&
@@ -718,10 +705,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       PROFISSIONAIS PRÓXIMOS
-       ===================================================== */
+    /*
+     * PROFISSIONAIS PRÓXIMOS
+     */
 
     if (
         (
@@ -739,10 +725,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       ENCANADOR
-       ===================================================== */
+    /*
+     * ENCANADOR
+     */
 
     if (
         texto.includes("encanador") ||
@@ -754,10 +739,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       PINTOR
-       ===================================================== */
+    /*
+     * PINTOR
+     */
 
     if (
         texto.includes("pintor") ||
@@ -769,10 +753,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       FAXINEIRO
-       ===================================================== */
+    /*
+     * FAXINEIRO
+     */
 
     if (
         texto.includes("faxineiro") ||
@@ -785,10 +768,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       PRECISO DE ALGUÉM
-       ===================================================== */
+    /*
+     * CONTRATAR SERVIÇO
+     */
 
     if (
         texto.includes("preciso de alguem") ||
@@ -801,10 +783,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       EMPRESAS PRÓXIMAS
-       ===================================================== */
+    /*
+     * EMPRESAS PRÓXIMAS
+     */
 
     if (
         texto.includes("empresa") &&
@@ -819,10 +800,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       LOCALIZAÇÃO DAS EMPRESAS
-       ===================================================== */
+    /*
+     * LOCALIZAÇÃO DAS EMPRESAS
+     */
 
     if (
         texto.includes("onde fica") ||
@@ -836,10 +816,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       CANDIDATURAS
-       ===================================================== */
+    /*
+     * CANDIDATURAS
+     */
 
     if (
         texto.includes("candidatura") ||
@@ -852,10 +831,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       PERFIL
-       ===================================================== */
+    /*
+     * PERFIL
+     */
 
     if (
         texto.includes("meu perfil") ||
@@ -868,10 +846,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       CURSOS
-       ===================================================== */
+    /*
+     * CURSOS
+     */
 
     if (
         texto.includes("curso") ||
@@ -885,10 +862,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       SAUDAÇÕES
-       ===================================================== */
+    /*
+     * SAUDAÇÕES
+     */
 
     if (
         texto === "oi" ||
@@ -903,10 +879,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       O QUE O ASSISTANT FAZ
-       ===================================================== */
+    /*
+     * AJUDA
+     */
 
     if (
         texto.includes("o que voce faz") ||
@@ -919,10 +894,9 @@ function obterResposta(pergunta) {
     }
 
 
-
-    /* =====================================================
-       RESPOSTA PADRÃO
-       ===================================================== */
+    /*
+     * RESPOSTA PADRÃO
+     */
 
     return "Ainda estou aprendendo a responder essa pergunta. Tente perguntar sobre vagas, empresas, profissionais autônomos, candidaturas, seu perfil ou cursos e certificações.";
 
@@ -992,7 +966,6 @@ function iniciarReconhecimentoDeVoz() {
     reconhecimento.start();
 
 
-
     reconhecimento.onresult =
         function (evento) {
 
@@ -1017,7 +990,6 @@ function iniciarReconhecimentoDeVoz() {
         };
 
 
-
     reconhecimento.onerror =
         function (evento) {
 
@@ -1027,7 +999,6 @@ function iniciarReconhecimentoDeVoz() {
             );
 
         };
-
 
 
     reconhecimento.onend =
@@ -1048,7 +1019,7 @@ function iniciarReconhecimentoDeVoz() {
 
 
 /* =========================================================
-   FALAR RESPOSTA
+   RESPOSTA POR VOZ
    ========================================================= */
 
 function falarResposta(texto) {
@@ -1061,10 +1032,6 @@ function falarResposta(texto) {
 
     }
 
-
-    /*
-     * Cancela uma fala anterior.
-     */
 
     window.speechSynthesis.cancel();
 
@@ -1100,10 +1067,10 @@ function falarResposta(texto) {
 
 
 /* =========================================================
-   ROLAR CHAT PARA BAIXO
+   ROLAR MENSAGENS
    ========================================================= */
 
-function rolarMensagensParaBaixo() {
+function rolarMensagens() {
 
     const mensagens =
         document.getElementById(
@@ -1131,7 +1098,7 @@ function rolarMensagensParaBaixo() {
 
 
 /* =========================================================
-   PROTEGER TEXTO INSERIDO NO HTML
+   PROTEGER HTML
    ========================================================= */
 
 function escaparHTML(texto) {
