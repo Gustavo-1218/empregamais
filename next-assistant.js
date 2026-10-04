@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =========================================================
-   CARREGAMENTO DO NEXT ASSISTANT
+   CARREGAR O NEXT ASSISTANT
    ========================================================= */
 
 function carregarNextAssistant() {
 
     /*
-     * Verifica se o Assistant já foi carregado.
-     * Isso evita carregar duas vezes na mesma página.
+     * Se o Assistant já estiver carregado,
+     * não carrega novamente.
      */
 
     if (document.getElementById("nextAssistantContainer")) {
@@ -23,7 +23,8 @@ function carregarNextAssistant() {
 
 
     /*
-     * Cria automaticamente um espaço para o Assistant.
+     * Cria automaticamente o espaço onde
+     * o HTML do Assistant será colocado.
      */
 
     const container = document.createElement("div");
@@ -34,7 +35,7 @@ function carregarNextAssistant() {
 
 
     /*
-     * Busca o HTML do Assistant.
+     * Carrega o arquivo next-assistant.html.
      */
 
     fetch("next-assistant.html")
@@ -42,9 +43,11 @@ function carregarNextAssistant() {
         .then(function (resposta) {
 
             if (!resposta.ok) {
+
                 throw new Error(
                     "Não foi possível carregar o next-assistant.html"
                 );
+
             }
 
             return resposta.text();
@@ -73,7 +76,7 @@ function carregarNextAssistant() {
 
 
 /* =========================================================
-   INICIALIZAÇÃO
+   INICIALIZAR O ASSISTANT
    ========================================================= */
 
 function iniciarNextAssistant() {
@@ -104,8 +107,7 @@ function iniciarNextAssistant() {
 
 
     /*
-     * Se alguma parte essencial não existir,
-     * interrompe a inicialização.
+     * Verifica se o HTML foi carregado corretamente.
      */
 
     if (
@@ -119,7 +121,7 @@ function iniciarNextAssistant() {
     ) {
 
         console.error(
-            "Next Assistant: estrutura HTML incompleta."
+            "Next Assistant: algum elemento do HTML não foi encontrado."
         );
 
         return;
@@ -127,19 +129,44 @@ function iniciarNextAssistant() {
     }
 
 
+    /*
+     * O chat começa fechado.
+     */
+
+    chat.classList.remove("aberto");
+
+    chat.setAttribute("aria-hidden", "true");
+
+    chat.style.display = "none";
+
+
+
     /* =====================================================
-       ABRIR ASSISTANT
+       BOTÃO PRINCIPAL
        ===================================================== */
 
     botao.addEventListener("click", function () {
 
-        abrirNextAssistant();
+        const estaAberto =
+            chat.classList.contains("aberto");
+
+
+        if (estaAberto) {
+
+            fecharNextAssistant();
+
+        } else {
+
+            abrirNextAssistant();
+
+        }
 
     });
 
 
+
     /* =====================================================
-       FECHAR ASSISTANT
+       BOTÃO FECHAR
        ===================================================== */
 
     fechar.addEventListener("click", function () {
@@ -147,6 +174,7 @@ function iniciarNextAssistant() {
         fecharNextAssistant();
 
     });
+
 
 
     /* =====================================================
@@ -157,15 +185,19 @@ function iniciarNextAssistant() {
 
         evento.preventDefault();
 
-        const pergunta = input.value.trim();
+        const pergunta =
+            input.value.trim();
+
 
         if (!pergunta) {
             return;
         }
 
+
         enviarPergunta(pergunta);
 
     });
+
 
 
     /* =====================================================
@@ -175,22 +207,31 @@ function iniciarNextAssistant() {
     const sugestoes =
         document.querySelectorAll(".suggestion-button");
 
+
     sugestoes.forEach(function (botaoSugestao) {
 
-        botaoSugestao.addEventListener("click", function () {
+        botaoSugestao.addEventListener(
+            "click",
+            function () {
 
-            const pergunta =
-                botaoSugestao.getAttribute("data-question");
+                const pergunta =
+                    botaoSugestao.getAttribute(
+                        "data-question"
+                    );
 
-            if (!pergunta) {
-                return;
+
+                if (!pergunta) {
+                    return;
+                }
+
+
+                enviarPergunta(pergunta);
+
             }
-
-            enviarPergunta(pergunta);
-
-        });
+        );
 
     });
+
 
 
     /* =====================================================
@@ -199,45 +240,52 @@ function iniciarNextAssistant() {
 
     if (microfone) {
 
-        microfone.addEventListener("click", function () {
+        microfone.addEventListener(
+            "click",
+            function () {
 
-            iniciarReconhecimentoDeVoz();
+                iniciarReconhecimentoDeVoz();
 
-        });
+            }
+        );
 
     }
 
 
+
     /* =====================================================
-       ESC PARA FECHAR
+       ESC FECHA O ASSISTANT
        ===================================================== */
 
-    document.addEventListener("keydown", function (evento) {
+    document.addEventListener(
+        "keydown",
+        function (evento) {
 
-        if (evento.key === "Escape") {
+            if (evento.key !== "Escape") {
+                return;
+            }
 
-            const estaAberto =
-                chat.classList.contains("aberto");
 
-            if (estaAberto) {
+            if (chat.classList.contains("aberto")) {
 
                 fecharNextAssistant();
 
             }
 
         }
+    );
 
-    });
 
-
-    console.log("Next Assistant carregado com sucesso.");
+    console.log(
+        "Next Assistant carregado com sucesso."
+    );
 
 }
 
 
 
 /* =========================================================
-   ABRIR
+   ABRIR O ASSISTANT
    ========================================================= */
 
 function abrirNextAssistant() {
@@ -248,29 +296,66 @@ function abrirNextAssistant() {
     const chat =
         document.getElementById("nextAssistantChat");
 
+
     if (!botao || !chat) {
+
+        console.error(
+            "Next Assistant: botão ou chat não encontrado."
+        );
+
         return;
+
     }
 
 
+    /*
+     * Adiciona a classe usada pela animação/visual.
+     */
+
     chat.classList.add("aberto");
 
-    chat.setAttribute("aria-hidden", "false");
 
-    botao.setAttribute("aria-expanded", "true");
+    /*
+     * Atualiza acessibilidade.
+     */
+
+    chat.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
 
+    botao.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+
+    /*
+     * Garante que o chat apareça.
+     */
+
+    chat.style.display = "flex";
+
+
+    /*
+     * Coloca o cursor no campo de pergunta.
+     */
 
     const input =
         document.getElementById("nextAssistantInput");
 
+
     if (input) {
 
-        setTimeout(function () {
+        setTimeout(
+            function () {
 
-            input.focus();
+                input.focus();
 
-        }, 150);
+            },
+            150
+        );
 
     }
 
@@ -279,7 +364,7 @@ function abrirNextAssistant() {
 
 
 /* =========================================================
-   FECHAR
+   FECHAR O ASSISTANT
    ========================================================= */
 
 function fecharNextAssistant() {
@@ -290,6 +375,7 @@ function fecharNextAssistant() {
     const chat =
         document.getElementById("nextAssistantChat");
 
+
     if (!botao || !chat) {
         return;
     }
@@ -297,9 +383,24 @@ function fecharNextAssistant() {
 
     chat.classList.remove("aberto");
 
-    chat.setAttribute("aria-hidden", "true");
 
-    botao.setAttribute("aria-expanded", "false");
+    chat.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    botao.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+
+    /*
+     * Esconde completamente a janela.
+     */
+
+    chat.style.display = "none";
 
 }
 
@@ -314,37 +415,48 @@ function enviarPergunta(pergunta) {
     const input =
         document.getElementById("nextAssistantInput");
 
+
     if (input) {
+
         input.value = "";
+
     }
 
 
-    adicionarMensagemUsuario(pergunta);
+    adicionarMensagemUsuario(
+        pergunta
+    );
 
-
-    /*
-     * Pequeno atraso para parecer que o Assistant
-     * está processando a pergunta.
-     */
 
     mostrarDigitando();
 
 
-    setTimeout(function () {
+    /*
+     * Simula o pequeno tempo de processamento.
+     */
 
-        removerDigitando();
+    setTimeout(
+        function () {
 
-
-        const resposta =
-            obterResposta(pergunta);
-
-
-        adicionarMensagemAssistant(resposta);
+            removerDigitando();
 
 
-        falarResposta(resposta);
+            const resposta =
+                obterResposta(pergunta);
 
-    }, 500);
+
+            adicionarMensagemAssistant(
+                resposta
+            );
+
+
+            falarResposta(
+                resposta
+            );
+
+        },
+        500
+    );
 
 }
 
@@ -357,7 +469,10 @@ function enviarPergunta(pergunta) {
 function adicionarMensagemUsuario(texto) {
 
     const mensagens =
-        document.getElementById("nextAssistantMessages");
+        document.getElementById(
+            "nextAssistantMessages"
+        );
+
 
     if (!mensagens) {
         return;
@@ -366,6 +481,7 @@ function adicionarMensagemUsuario(texto) {
 
     const mensagem =
         document.createElement("div");
+
 
     mensagem.className =
         "user-message";
@@ -379,14 +495,19 @@ function adicionarMensagemUsuario(texto) {
                 Você
             </span>
 
-            <p>${escaparHTML(texto)}</p>
+            <p>
+                ${escaparHTML(texto)}
+            </p>
 
         </div>
 
     `;
 
 
-    mensagens.appendChild(mensagem);
+    mensagens.appendChild(
+        mensagem
+    );
+
 
     rolarMensagensParaBaixo();
 
@@ -401,7 +522,10 @@ function adicionarMensagemUsuario(texto) {
 function adicionarMensagemAssistant(texto) {
 
     const mensagens =
-        document.getElementById("nextAssistantMessages");
+        document.getElementById(
+            "nextAssistantMessages"
+        );
+
 
     if (!mensagens) {
         return;
@@ -410,6 +534,7 @@ function adicionarMensagemAssistant(texto) {
 
     const mensagem =
         document.createElement("div");
+
 
     mensagem.className =
         "assistant-message";
@@ -427,14 +552,19 @@ function adicionarMensagemAssistant(texto) {
                 Next Assistant
             </span>
 
-            <p>${escaparHTML(texto)}</p>
+            <p>
+                ${escaparHTML(texto)}
+            </p>
 
         </div>
 
     `;
 
 
-    mensagens.appendChild(mensagem);
+    mensagens.appendChild(
+        mensagem
+    );
+
 
     rolarMensagensParaBaixo();
 
@@ -443,20 +573,27 @@ function adicionarMensagemAssistant(texto) {
 
 
 /* =========================================================
-   "DIGITANDO..."
+   MOSTRAR "DIGITANDO"
    ========================================================= */
 
 function mostrarDigitando() {
 
     const mensagens =
-        document.getElementById("nextAssistantMessages");
+        document.getElementById(
+            "nextAssistantMessages"
+        );
+
 
     if (!mensagens) {
         return;
     }
 
 
-    if (document.getElementById("nextAssistantTyping")) {
+    if (
+        document.getElementById(
+            "nextAssistantTyping"
+        )
+    ) {
         return;
     }
 
@@ -464,8 +601,10 @@ function mostrarDigitando() {
     const digitando =
         document.createElement("div");
 
+
     digitando.id =
         "nextAssistantTyping";
+
 
     digitando.className =
         "assistant-message";
@@ -484,7 +623,9 @@ function mostrarDigitando() {
             </span>
 
             <p>
-                <span class="typing-dots">•••</span>
+                <span class="typing-dots">
+                    •••
+                </span>
             </p>
 
         </div>
@@ -492,7 +633,10 @@ function mostrarDigitando() {
     `;
 
 
-    mensagens.appendChild(digitando);
+    mensagens.appendChild(
+        digitando
+    );
+
 
     rolarMensagensParaBaixo();
 
@@ -501,13 +645,16 @@ function mostrarDigitando() {
 
 
 /* =========================================================
-   REMOVER "DIGITANDO..."
+   REMOVER "DIGITANDO"
    ========================================================= */
 
 function removerDigitando() {
 
     const digitando =
-        document.getElementById("nextAssistantTyping");
+        document.getElementById(
+            "nextAssistantTyping"
+        );
+
 
     if (digitando) {
 
@@ -520,7 +667,7 @@ function removerDigitando() {
 
 
 /* =========================================================
-   RESPOSTAS
+   RESPOSTAS DO NEXT ASSISTANT
    ========================================================= */
 
 function obterResposta(pergunta) {
@@ -529,12 +676,15 @@ function obterResposta(pergunta) {
         pergunta
             .toLowerCase()
             .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
+            .replace(
+                /[\u0300-\u036f]/g,
+                ""
+            );
 
 
-    /* -----------------------------------------------
-       VAGAS
-       ----------------------------------------------- */
+    /* =====================================================
+       VAGAS PRÓXIMAS
+       ===================================================== */
 
     if (
         texto.includes("vaga") &&
@@ -548,6 +698,11 @@ function obterResposta(pergunta) {
 
     }
 
+
+
+    /* =====================================================
+       VAGA DE INFORMÁTICA
+       ===================================================== */
 
     if (
         texto.includes("vaga") &&
@@ -563,14 +718,15 @@ function obterResposta(pergunta) {
     }
 
 
-    /* -----------------------------------------------
-       PROFISSIONAIS
-       ----------------------------------------------- */
+
+    /* =====================================================
+       PROFISSIONAIS PRÓXIMOS
+       ===================================================== */
 
     if (
         (
-            texto.includes("profissionais") ||
-            texto.includes("profissional")
+            texto.includes("profissional") ||
+            texto.includes("profissionais")
         ) &&
         (
             texto.includes("perto") ||
@@ -583,31 +739,40 @@ function obterResposta(pergunta) {
     }
 
 
-    /* -----------------------------------------------
-       ENCANADOR
-       ----------------------------------------------- */
 
-    if (texto.includes("encanador")) {
+    /* =====================================================
+       ENCANADOR
+       ===================================================== */
+
+    if (
+        texto.includes("encanador") ||
+        texto.includes("encanamento")
+    ) {
 
         return "Sim. Há profissionais oferecendo serviços de encanamento. Para consultar os profissionais disponíveis, seus serviços e informações de contato, acesse Autônomos.";
 
     }
 
 
-    /* -----------------------------------------------
-       PINTOR
-       ----------------------------------------------- */
 
-    if (texto.includes("pintor") || texto.includes("pintura")) {
+    /* =====================================================
+       PINTOR
+       ===================================================== */
+
+    if (
+        texto.includes("pintor") ||
+        texto.includes("pintura")
+    ) {
 
         return "Sim. Há profissionais oferecendo serviços de pintura. Para consultar os profissionais disponíveis, seus serviços e informações de contato, acesse Autônomos.";
 
     }
 
 
-    /* -----------------------------------------------
+
+    /* =====================================================
        FAXINEIRO
-       ----------------------------------------------- */
+       ===================================================== */
 
     if (
         texto.includes("faxineiro") ||
@@ -620,17 +785,15 @@ function obterResposta(pergunta) {
     }
 
 
-    /* -----------------------------------------------
-       PRECISO DE UM SERVIÇO
-       ----------------------------------------------- */
+
+    /* =====================================================
+       PRECISO DE ALGUÉM
+       ===================================================== */
 
     if (
         texto.includes("preciso de alguem") ||
-        texto.includes("preciso de alguém") ||
         texto.includes("fazer um servico") ||
-        texto.includes("fazer um serviço") ||
-        texto.includes("contratar alguem") ||
-        texto.includes("contratar alguém")
+        texto.includes("contratar alguem")
     ) {
 
         return "Posso ajudar. Existem profissionais autônomos disponíveis em diferentes áreas. Para encontrar o serviço que você precisa, acesse Autônomos.";
@@ -638,9 +801,10 @@ function obterResposta(pergunta) {
     }
 
 
-    /* -----------------------------------------------
-       EMPRESAS
-       ----------------------------------------------- */
+
+    /* =====================================================
+       EMPRESAS PRÓXIMAS
+       ===================================================== */
 
     if (
         texto.includes("empresa") &&
@@ -655,6 +819,11 @@ function obterResposta(pergunta) {
     }
 
 
+
+    /* =====================================================
+       LOCALIZAÇÃO DAS EMPRESAS
+       ===================================================== */
+
     if (
         texto.includes("onde fica") ||
         texto.includes("onde ficam") ||
@@ -667,9 +836,10 @@ function obterResposta(pergunta) {
     }
 
 
-    /* -----------------------------------------------
+
+    /* =====================================================
        CANDIDATURAS
-       ----------------------------------------------- */
+       ===================================================== */
 
     if (
         texto.includes("candidatura") ||
@@ -682,14 +852,14 @@ function obterResposta(pergunta) {
     }
 
 
-    /* -----------------------------------------------
+
+    /* =====================================================
        PERFIL
-       ----------------------------------------------- */
+       ===================================================== */
 
     if (
         texto.includes("meu perfil") ||
         texto.includes("informacoes do meu perfil") ||
-        texto.includes("informacao do meu perfil") ||
         texto.includes("dados do meu perfil")
     ) {
 
@@ -698,9 +868,10 @@ function obterResposta(pergunta) {
     }
 
 
-    /* -----------------------------------------------
+
+    /* =====================================================
        CURSOS
-       ----------------------------------------------- */
+       ===================================================== */
 
     if (
         texto.includes("curso") ||
@@ -714,9 +885,10 @@ function obterResposta(pergunta) {
     }
 
 
-    /* -----------------------------------------------
+
+    /* =====================================================
        SAUDAÇÕES
-       ----------------------------------------------- */
+       ===================================================== */
 
     if (
         texto === "oi" ||
@@ -726,14 +898,15 @@ function obterResposta(pergunta) {
         texto === "boa noite"
     ) {
 
-        return "Olá! Eu sou o Next Assistant. Posso ajudar você a encontrar vagas, empresas, profissionais autônomos e informações sobre seu perfil.";
+        return "Olá! Eu sou o Next Assistant. Como posso ajudar você?";
 
     }
 
 
-    /* -----------------------------------------------
-       AJUDA
-       ----------------------------------------------- */
+
+    /* =====================================================
+       O QUE O ASSISTANT FAZ
+       ===================================================== */
 
     if (
         texto.includes("o que voce faz") ||
@@ -746,9 +919,10 @@ function obterResposta(pergunta) {
     }
 
 
-    /* -----------------------------------------------
+
+    /* =====================================================
        RESPOSTA PADRÃO
-       ----------------------------------------------- */
+       ===================================================== */
 
     return "Ainda estou aprendendo a responder essa pergunta. Tente perguntar sobre vagas, empresas, profissionais autônomos, candidaturas, seu perfil ou cursos e certificações.";
 
@@ -785,23 +959,32 @@ function iniciarReconhecimentoDeVoz() {
     reconhecimento.lang =
         "pt-BR";
 
+
     reconhecimento.interimResults =
         false;
+
 
     reconhecimento.continuous =
         false;
 
 
     const input =
-        document.getElementById("nextAssistantInput");
+        document.getElementById(
+            "nextAssistantInput"
+        );
+
 
     const microfone =
-        document.getElementById("nextAssistantMic");
+        document.getElementById(
+            "nextAssistantMic"
+        );
 
 
     if (microfone) {
 
-        microfone.classList.add("ouvindo");
+        microfone.classList.add(
+            "ouvindo"
+        );
 
     }
 
@@ -809,11 +992,14 @@ function iniciarReconhecimentoDeVoz() {
     reconhecimento.start();
 
 
+
     reconhecimento.onresult =
         function (evento) {
 
             const resultado =
-                evento.results[0][0].transcript;
+                evento
+                    .results[0][0]
+                    .transcript;
 
 
             if (input) {
@@ -824,9 +1010,12 @@ function iniciarReconhecimentoDeVoz() {
             }
 
 
-            enviarPergunta(resultado);
+            enviarPergunta(
+                resultado
+            );
 
         };
+
 
 
     reconhecimento.onerror =
@@ -840,12 +1029,15 @@ function iniciarReconhecimentoDeVoz() {
         };
 
 
+
     reconhecimento.onend =
         function () {
 
             if (microfone) {
 
-                microfone.classList.remove("ouvindo");
+                microfone.classList.remove(
+                    "ouvindo"
+                );
 
             }
 
@@ -856,82 +1048,114 @@ function iniciarReconhecimentoDeVoz() {
 
 
 /* =========================================================
-   RESPOSTA FALADA
+   FALAR RESPOSTA
    ========================================================= */
 
 function falarResposta(texto) {
 
-    if (!("speechSynthesis" in window)) {
+    if (
+        !("speechSynthesis" in window)
+    ) {
+
         return;
+
     }
 
 
     /*
-     * Cancela qualquer fala anterior.
+     * Cancela uma fala anterior.
      */
 
     window.speechSynthesis.cancel();
 
 
     const fala =
-        new SpeechSynthesisUtterance(texto);
+        new SpeechSynthesisUtterance(
+            texto
+        );
 
 
     fala.lang =
         "pt-BR";
 
+
     fala.rate =
         1;
 
+
     fala.pitch =
         1;
+
 
     fala.volume =
         1;
 
 
-    window.speechSynthesis.speak(fala);
+    window.speechSynthesis.speak(
+        fala
+    );
 
 }
 
 
 
 /* =========================================================
-   ROLAGEM DAS MENSAGENS
+   ROLAR CHAT PARA BAIXO
    ========================================================= */
 
 function rolarMensagensParaBaixo() {
 
     const mensagens =
-        document.getElementById("nextAssistantMessages");
+        document.getElementById(
+            "nextAssistantMessages"
+        );
+
 
     if (!mensagens) {
         return;
     }
 
 
-    setTimeout(function () {
+    setTimeout(
+        function () {
 
-        mensagens.scrollTop =
-            mensagens.scrollHeight;
+            mensagens.scrollTop =
+                mensagens.scrollHeight;
 
-    }, 50);
+        },
+        50
+    );
 
 }
 
 
 
 /* =========================================================
-   SEGURANÇA BÁSICA DO TEXTO
+   PROTEGER TEXTO INSERIDO NO HTML
    ========================================================= */
 
 function escaparHTML(texto) {
 
     return texto
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
