@@ -18,12 +18,20 @@ body {
 
     font-family: Arial, Helvetica, sans-serif;
 
-    color: white;
+    color: var(--nw-texto);
 
-    /* FUNDO DA PÁGINA INTEIRA */
     background:
-        url("plano de fundo.png") center top / cover no-repeat fixed,
-        #020611;
+        radial-gradient(
+            circle at 15% 0%,
+            rgba(0, 174, 202, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(8, 124, 240, 0.07),
+            transparent 30%
+        ),
+        var(--nw-fundo);
 }
 
 a {
@@ -57,6 +65,7 @@ button {
     margin: 0 auto;
 
     display: grid;
+
     grid-template-columns: 1fr 1fr;
 
     align-items: center;
@@ -76,19 +85,21 @@ button {
 .tag {
     display: inline-flex;
     align-items: center;
+
     gap: 10px;
 
     padding: 9px 16px;
 
-    border: 1px solid rgba(130, 110, 255, 0.35);
+    border: 1px solid rgba(8, 124, 240, 0.22);
 
     border-radius: 50px;
 
-    background: rgba(45, 40, 110, 0.25);
+    background: rgba(8, 124, 240, 0.07);
 
-    color: #aaa3ff;
+    color: var(--nw-azul);
 
     font-size: 12px;
+
     font-weight: bold;
 
     letter-spacing: 1.5px;
@@ -101,6 +112,8 @@ button {
 }
 
 .texto-hero h1 {
+    color: var(--nw-texto);
+
     font-size: clamp(45px, 5vw, 76px);
 
     line-height: 1.02;
@@ -113,18 +126,19 @@ button {
 .texto-hero h1 span {
     display: block;
 
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #aaa0ff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #087cf0,
+            #7147e8
+        );
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .texto-hero p {
-    color: #a8adbf;
+    color: var(--nw-texto-2);
 
     font-size: 17px;
 
@@ -164,27 +178,43 @@ button {
 }
 
 .botao-principal {
-    background: #635bff;
+    background:
+        linear-gradient(
+            100deg,
+            #087cf0,
+            #00aeca
+        );
+
+    color: #fff;
 
     box-shadow:
-        0 10px 35px rgba(99, 91, 255, 0.25);
+        0 10px 30px rgba(8, 124, 240, 0.22),
+        0 0 20px rgba(0, 174, 202, 0.10);
 }
 
 .botao-principal:hover {
     transform: translateY(-3px);
 
     box-shadow:
-        0 15px 40px rgba(99, 91, 255, 0.40);
+        0 15px 35px rgba(8, 124, 240, 0.30),
+        0 0 25px rgba(0, 174, 202, 0.15);
 }
 
 .botao-secundario {
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--nw-borda);
 
-    color: #d9dbea;
+    color: var(--nw-texto);
+
+    background: var(--nw-superficie);
 }
 
 .botao-secundario:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--nw-superficie-2);
+
+    border-color: var(--nw-borda-hover);
+
+    box-shadow:
+        0 0 18px rgba(8, 124, 240, 0.08);
 }
 
 
@@ -202,12 +232,6 @@ button {
     align-items: flex-end;
     justify-content: center;
 
-    /*
-       O FUNDO FOI RETIRADO DAQUI.
-       Agora ele fica no body,
-       ocupando a página inteira.
-    */
-
     background: transparent;
 }
 
@@ -221,10 +245,6 @@ button {
 
     z-index: 2;
 
-    /*
-       Aumentei de 560px para 650px
-       para deixar a mulher um pouco maior.
-    */
     width: min(100%, 650px);
 
     max-height: 720px;
@@ -233,7 +253,7 @@ button {
 
     filter:
         drop-shadow(
-            0 25px 50px rgba(0, 0, 0, 0.45)
+            0 25px 40px rgba(20, 80, 120, 0.16)
         );
 
     transition: transform 0.2s ease;
@@ -253,6 +273,7 @@ button {
     z-index: 5;
 
     display: flex;
+
     align-items: center;
 
     gap: 12px;
@@ -261,14 +282,16 @@ button {
 
     border-radius: 14px;
 
-    background: rgba(11, 13, 31, 0.90);
+    background: rgba(255, 255, 255, 0.94);
 
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border:
+        1px solid rgba(8, 124, 240, 0.18);
 
     backdrop-filter: blur(15px);
 
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.35);
+        0 15px 40px rgba(20, 80, 120, 0.12),
+        0 0 22px rgba(8, 124, 240, 0.08);
 }
 
 .icone-flutuante {
@@ -276,18 +299,31 @@ button {
     height: 38px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border-radius: 10px;
 
-    background: #655cff;
+    background:
+        linear-gradient(
+            135deg,
+            #087cf0,
+            #00aeca
+        );
+
+    color: #fff;
 
     font-size: 18px;
+
+    box-shadow:
+        0 5px 15px rgba(8, 124, 240, 0.22);
 }
 
 .cartao-flutuante strong {
     display: block;
+
+    color: var(--nw-texto);
 
     font-size: 13px;
 
@@ -295,7 +331,7 @@ button {
 }
 
 .cartao-flutuante small {
-    color: #9297aa;
+    color: var(--nw-texto-3);
 
     font-size: 11px;
 }
@@ -312,7 +348,7 @@ button {
 }
 
 .titulo-secao > span {
-    color: #817aff;
+    color: var(--nw-azul);
 
     font-size: 11px;
 
@@ -322,6 +358,8 @@ button {
 }
 
 .titulo-secao h2 {
+    color: var(--nw-texto);
+
     font-size: clamp(32px, 4vw, 52px);
 
     line-height: 1.1;
@@ -334,7 +372,7 @@ button {
 .titulo-secao h2 strong {
     display: block;
 
-    color: #817aff;
+    color: var(--nw-azul);
 }
 
 .centralizado {
@@ -371,14 +409,19 @@ button {
 
     border-radius: 18px;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border:
+        1px solid rgba(8, 124, 240, 0.16);
 
     background:
         linear-gradient(
             145deg,
-            rgba(24, 27, 57, 0.85),
-            rgba(8, 10, 25, 0.75)
+            #ffffff,
+            #f3fbff
         );
+
+    box-shadow:
+        0 8px 28px rgba(20, 80, 120, 0.07),
+        0 0 18px rgba(8, 124, 240, 0.045);
 
     transition: 0.3s;
 }
@@ -387,7 +430,11 @@ button {
     transform: translateY(-7px);
 
     border-color:
-        rgba(110, 101, 255, 0.35);
+        rgba(8, 124, 240, 0.38);
+
+    box-shadow:
+        0 15px 35px rgba(20, 80, 120, 0.10),
+        0 0 25px rgba(8, 124, 240, 0.12);
 }
 
 .icone-beneficio {
@@ -395,20 +442,18 @@ button {
     height: auto;
 
     display: flex;
+
     align-items: center;
     justify-content: flex-start;
 
     margin-bottom: 24px;
 
     background: transparent;
+
     border: none;
+
     border-radius: 0;
 }
-
-
-/* =========================
-   IMAGEM DOS ÍCONES
-========================= */
 
 .icone-beneficio img {
     width: 58px;
@@ -417,16 +462,23 @@ button {
     object-fit: contain;
 
     display: block;
+
+    filter:
+        drop-shadow(
+            0 5px 12px rgba(8, 124, 240, 0.18)
+        );
 }
 
 .beneficio h3 {
+    color: var(--nw-texto);
+
     font-size: 18px;
 
     margin-bottom: 12px;
 }
 
 .beneficio p {
-    color: #9196aa;
+    color: var(--nw-texto-2);
 
     font-size: 14px;
 
@@ -465,13 +517,13 @@ button {
     border-radius: 25px;
 
     border:
-        1px solid rgba(255, 255, 255, 0.09);
+        1px solid rgba(8, 124, 240, 0.16);
 
     background:
         linear-gradient(
             145deg,
-            #12172e,
-            #080b19
+            #ffffff,
+            #f2faff
         );
 
     display: grid;
@@ -481,14 +533,34 @@ button {
     align-items: center;
 
     gap: 30px;
+
+    box-shadow:
+        0 12px 35px rgba(20, 80, 120, 0.08),
+        0 0 22px rgba(8, 124, 240, 0.05);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.card-publico:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(8, 124, 240, 0.35);
+
+    box-shadow:
+        0 18px 40px rgba(20, 80, 120, 0.11),
+        0 0 28px rgba(8, 124, 240, 0.12);
 }
 
 .card-empresa {
     background:
         linear-gradient(
             145deg,
-            #17152e,
-            #09091a
+            #ffffff,
+            #f7f5ff
         );
 }
 
@@ -519,12 +591,16 @@ button {
     background:
         linear-gradient(
             145deg,
-            rgba(96, 85, 255, 0.25),
-            rgba(17, 20, 42, 0.80)
+            rgba(8, 124, 240, 0.10),
+            rgba(113, 71, 232, 0.08)
         );
 
     border:
-        1px solid rgba(140, 130, 255, 0.20);
+        1px solid rgba(8, 124, 240, 0.20);
+
+    box-shadow:
+        0 8px 25px rgba(8, 124, 240, 0.08),
+        inset 0 0 20px rgba(8, 124, 240, 0.03);
 }
 
 .quadrado-imagem img {
@@ -544,7 +620,7 @@ button {
 .numero-card {
     display: inline-block;
 
-    color: #7169ff;
+    color: var(--nw-azul);
 
     font-size: 11px;
 
@@ -556,13 +632,15 @@ button {
 }
 
 .conteudo-card h3 {
+    color: var(--nw-texto);
+
     font-size: 29px;
 
     margin-bottom: 14px;
 }
 
 .conteudo-card p {
-    color: #9499ad;
+    color: var(--nw-texto-2);
 
     font-size: 14px;
 
@@ -584,13 +662,13 @@ button {
 }
 
 .conteudo-card li {
-    color: #c7c9d5;
+    color: var(--nw-texto-2);
 
     font-size: 13px;
 }
 
 .conteudo-card li span {
-    color: #7770ff;
+    color: var(--nw-azul);
 
     margin-right: 7px;
 }
@@ -604,22 +682,26 @@ button {
 
     cursor: pointer;
 
-    background: rgba(103, 94, 255, 0.12);
+    background:
+        rgba(8, 124, 240, 0.08);
 
     border:
-        1px solid rgba(103, 94, 255, 0.25);
+        1px solid rgba(8, 124, 240, 0.20);
 
-    color: #aaa4ff;
+    color: var(--nw-azul);
 
     transition: 0.3s;
 }
 
 .botao-card:hover {
-    background: #655cff;
+    background: var(--nw-azul);
 
     color: white;
 
     transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 20px rgba(8, 124, 240, 0.20);
 }
 
 
@@ -661,24 +743,29 @@ button {
     border-radius: 50%;
 
     background:
-        rgba(100, 91, 255, 0.12);
+        rgba(8, 124, 240, 0.08);
 
     border:
-        1px solid rgba(110, 100, 255, 0.35);
+        1px solid rgba(8, 124, 240, 0.28);
 
-    color: #817aff;
+    color: var(--nw-azul);
 
     font-weight: bold;
+
+    box-shadow:
+        0 0 18px rgba(8, 124, 240, 0.08);
 }
 
 .passo h3 {
+    color: var(--nw-texto);
+
     font-size: 17px;
 
     margin-bottom: 10px;
 }
 
 .passo p {
-    color: #858a9e;
+    color: var(--nw-texto-2);
 
     font-size: 13px;
 
@@ -696,7 +783,7 @@ button {
         linear-gradient(
             90deg,
             transparent,
-            rgba(120, 110, 255, 0.45),
+            rgba(8, 124, 240, 0.30),
             transparent
         );
 }
@@ -720,21 +807,25 @@ button {
     border-radius: 30px;
 
     border:
-        1px solid rgba(110, 100, 255, 0.18);
+        1px solid rgba(8, 124, 240, 0.18);
 
     background:
         radial-gradient(
             circle at center,
-            rgba(92, 82, 255, 0.16),
+            rgba(8, 124, 240, 0.08),
             transparent 55%
         ),
-        #090c1c;
+        #ffffff;
+
+    box-shadow:
+        0 12px 40px rgba(20, 80, 120, 0.08),
+        0 0 28px rgba(8, 124, 240, 0.06);
 }
 
 .final-caixa > span {
     display: block;
 
-    color: #7770ff;
+    color: var(--nw-azul);
 
     font-size: 25px;
 
@@ -746,19 +837,21 @@ button {
 
     margin: 0 auto 18px;
 
+    color: var(--nw-texto);
+
     font-size: clamp(30px, 4vw, 52px);
 
     line-height: 1.1;
 }
 
 .final-caixa h2 strong {
-    color: #817aff;
+    color: var(--nw-azul);
 
     display: block;
 }
 
 .final-caixa p {
-    color: #8e93a6;
+    color: var(--nw-texto-2);
 
     margin-bottom: 30px;
 }
@@ -788,7 +881,7 @@ button {
 
 
 /* =========================
-   RESPONSIVO - TABLET
+   RESPONSIVO — TABLET
 ========================= */
 
 @media (max-width: 1100px) {
@@ -822,6 +915,7 @@ button {
 
     .mulher {
         width: min(100%, 600px);
+
         max-height: 680px;
     }
 
@@ -858,8 +952,13 @@ button {
 
     body {
         background:
-            url("plano de fundo.png") center top / auto 100% no-repeat,
-            #020611;
+            radial-gradient(
+                circle at 50% 0%,
+                rgba(8, 124, 240, 0.08),
+                transparent 35%
+            ),
+            var(--nw-fundo);
+
         background-attachment: scroll;
     }
 
@@ -890,9 +989,6 @@ button {
     }
 
     .mulher {
-        /*
-           Mulher um pouco maior no celular
-        */
         max-height: 500px;
 
         width: min(100%, 430px);
@@ -926,6 +1022,7 @@ button {
 
     .quadrado-imagem {
         width: 160px;
+
         height: 205px;
     }
 
@@ -999,5 +1096,18 @@ button {
     .card-publico {
         padding: 20px;
     }
+}
 
+
+/* =========================
+   REDUÇÃO DE MOVIMENTO
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
 }
