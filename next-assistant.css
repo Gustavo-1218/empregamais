@@ -6,7 +6,7 @@
     position: fixed;
     left: 24px;
     bottom: 24px;
-    z-index: 9999;
+    z-index: 99999;
     font-family: sans-serif;
 }
 
@@ -19,19 +19,16 @@
     width: 68px;
     height: 68px;
 
-    border: 1px solid rgba(174, 112, 255, 0.75);
+    padding: 0;
+
+    border: 1px solid rgba(183, 132, 255, 0.65);
     border-radius: 50%;
 
     background:
         radial-gradient(
-            circle at 35% 30%,
-            rgba(255, 255, 255, 0.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            145deg,
-            #25133f,
-            #130b24
+            circle,
+            rgba(183, 132, 255, 0.35),
+            rgba(110, 65, 190, 0.18)
         );
 
     display: flex;
@@ -41,74 +38,45 @@
     cursor: pointer;
 
     box-shadow:
-        0 0 10px rgba(166, 92, 255, 0.65),
-        0 0 25px rgba(166, 92, 255, 0.45),
-        0 0 50px rgba(166, 92, 255, 0.25);
+        0 0 12px rgba(170, 110, 255, 0.55),
+        0 0 28px rgba(145, 80, 255, 0.35);
 
-    animation: nextAssistantPulse 2.2s ease-in-out infinite;
+    animation: nextAssistantPulse 2.8s ease-in-out infinite;
 
     transition:
         transform 0.25s ease,
-        border-color 0.25s ease;
+        box-shadow 0.25s ease;
 }
+
 
 .next-assistant-button:hover {
     transform: scale(1.08);
 
-    border-color: rgba(210, 167, 255, 0.95);
-
     box-shadow:
-        0 0 15px rgba(184, 117, 255, 0.85),
-        0 0 35px rgba(166, 92, 255, 0.65),
-        0 0 65px rgba(166, 92, 255, 0.35);
+        0 0 18px rgba(190, 135, 255, 0.75),
+        0 0 38px rgba(145, 80, 255, 0.5);
 }
 
 
-/* =========================================================
-   FOTO / ÍCONE RESERVADO
-   ========================================================= */
+.next-assistant-button:active {
+    transform: scale(0.96);
+}
 
-.next-assistant-photo {
-    width: 52px;
-    height: 52px;
+
+.next-assistant-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
 
     border-radius: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(173, 103, 255, 0.30),
-            rgba(29, 14, 49, 0.95)
-        );
-
-    border: 1px solid rgba(203, 161, 255, 0.45);
-
-    color: #d6b2ff;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    overflow: hidden;
+    display: block;
 }
 
 
-/*
-   Quando a foto real for adicionada:
-
-   .next-assistant-photo img {
-       width: 100%;
-       height: 100%;
-       object-fit: cover;
-   }
-*/
-
-
 /* =========================================================
-   ANIMAÇÃO DE PULSAÇÃO
+   ANIMAÇÃO DO BOTÃO
    ========================================================= */
 
 @keyframes nextAssistantPulse {
@@ -116,93 +84,90 @@
     0%,
     100% {
         transform: scale(1);
-
-        box-shadow:
-            0 0 10px rgba(166, 92, 255, 0.55),
-            0 0 25px rgba(166, 92, 255, 0.35),
-            0 0 45px rgba(166, 92, 255, 0.18);
     }
 
-    50% {
-        transform: scale(1.06);
-
-        box-shadow:
-            0 0 16px rgba(198, 140, 255, 0.85),
-            0 0 38px rgba(166, 92, 255, 0.65),
-            0 0 70px rgba(166, 92, 255, 0.35);
+    8% {
+        transform: scale(1.07);
     }
+
+    16% {
+        transform: scale(1);
+    }
+
+    24% {
+        transform: scale(1.05);
+    }
+
+    34% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
 }
 
 
 /* =========================================================
-   JANELA DO CHAT
+   CHAT
    ========================================================= */
 
 .next-assistant-chat {
     position: absolute;
 
     left: 0;
-    bottom: 86px;
+    bottom: 82px;
 
     width: 370px;
     max-width: calc(100vw - 32px);
 
     height: 560px;
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 110px);
 
-    display: flex;
+    display: none;
+
     flex-direction: column;
 
     overflow: hidden;
 
-    border: 1px solid rgba(166, 92, 255, 0.35);
+    border: 1px solid rgba(142, 91, 255, 0.45);
     border-radius: 20px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(12, 18, 35, 0.98),
-            rgba(9, 13, 27, 0.98)
+            #091326,
+            #0c1830 55%,
+            #101a35
         );
 
     box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.40),
-        0 0 25px rgba(166, 92, 255, 0.20);
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 28px rgba(135, 80, 255, 0.22);
 
     opacity: 0;
-    visibility: hidden;
-
-    transform: translateY(15px) scale(0.96);
-
-    pointer-events: none;
+    transform: translateY(12px) scale(0.97);
 
     transition:
         opacity 0.25s ease,
-        transform 0.25s ease,
-        visibility 0.25s ease;
+        transform 0.25s ease;
 }
 
 
-/* Chat aberto */
+/*
+ * Essa classe é adicionada pelo JavaScript
+ * quando o usuário clica no botão.
+ */
 
-.next-assistant-container.aberto .next-assistant-chat {
+.next-assistant-chat.aberto {
+    display: flex;
+
     opacity: 1;
-    visibility: visible;
 
-    transform: translateY(0) scale(1);
-
-    pointer-events: auto;
-}
-
-.next-assistant-container.aberto .next-assistant-button {
-    animation: none;
-    transform: scale(1.03);
-
-    border-color: #c99cff;
-
-    box-shadow:
-        0 0 15px rgba(198, 140, 255, 0.85),
-        0 0 35px rgba(166, 92, 255, 0.60);
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 
@@ -213,21 +178,22 @@
 .next-assistant-header {
     min-height: 72px;
 
-    padding: 12px 16px;
+    padding: 14px 16px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border-bottom: 1px solid rgba(166, 92, 255, 0.18);
+    border-bottom: 1px solid rgba(150, 110, 255, 0.18);
 
     background:
         linear-gradient(
-            90deg,
-            rgba(166, 92, 255, 0.10),
-            transparent
+            135deg,
+            rgba(116, 70, 210, 0.22),
+            rgba(0, 221, 255, 0.05)
         );
 }
+
 
 .next-assistant-header-info {
     display: flex;
@@ -235,16 +201,39 @@
     gap: 11px;
 }
 
+
+.next-assistant-mini-photo {
+    width: 42px;
+    height: 42px;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(184, 139, 255, 0.55);
+
+    box-shadow:
+        0 0 14px rgba(157, 91, 255, 0.3);
+}
+
+
+.next-assistant-mini-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
 .next-assistant-header h2 {
     margin: 0;
 
-    color: #f4edff;
+    color: #f4efff;
 
     font-size: 16px;
     font-weight: 700;
-
-    letter-spacing: 0.2px;
 }
+
 
 .next-assistant-status {
     display: flex;
@@ -253,10 +242,11 @@
 
     margin-top: 3px;
 
-    color: #9cabbc;
+    color: #aebbd0;
 
-    font-size: 11px;
+    font-size: 12px;
 }
+
 
 .status-dot {
     width: 7px;
@@ -264,32 +254,12 @@
 
     border-radius: 50%;
 
-    background: #9dffbd;
+    background: #6dffb1;
 
-    box-shadow: 0 0 8px rgba(96, 255, 150, 0.65);
+    box-shadow:
+        0 0 8px rgba(109, 255, 177, 0.8);
 }
 
-.next-assistant-mini-photo {
-    width: 38px;
-    height: 38px;
-
-    flex-shrink: 0;
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #201130;
-
-    border: 1px solid rgba(190, 135, 255, 0.45);
-
-    color: #cda5ff;
-
-    font-size: 10px;
-    font-weight: 700;
-}
 
 .next-assistant-close {
     width: 36px;
@@ -300,9 +270,9 @@
 
     background: transparent;
 
-    color: #9eacc0;
+    color: #b9c2d2;
 
-    font-size: 25px;
+    font-size: 27px;
     line-height: 1;
 
     cursor: pointer;
@@ -312,9 +282,12 @@
         color 0.2s ease;
 }
 
+
 .next-assistant-close:hover {
-    background: rgba(166, 92, 255, 0.10);
-    color: #e7d7ff;
+    color: white;
+
+    background:
+        rgba(255, 255, 255, 0.08);
 }
 
 
@@ -327,7 +300,7 @@
 
     min-height: 0;
 
-    padding: 20px 16px;
+    padding: 18px;
 
     overflow-y: auto;
 
@@ -336,17 +309,30 @@
     gap: 16px;
 }
 
-.assistant-message,
-.user-message {
+
+.next-assistant-messages::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+.next-assistant-messages::-webkit-scrollbar-thumb {
+    background: rgba(154, 105, 255, 0.4);
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   MENSAGEM DO ASSISTANT
+   ========================================================= */
+
+.assistant-message {
     display: flex;
     align-items: flex-start;
-
     gap: 9px;
+
+    max-width: 92%;
 }
 
-.user-message {
-    justify-content: flex-end;
-}
 
 .message-avatar {
     width: 30px;
@@ -354,61 +340,121 @@
 
     flex-shrink: 0;
 
+    overflow: hidden;
+
     border-radius: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: rgba(166, 92, 255, 0.14);
-
-    border: 1px solid rgba(166, 92, 255, 0.28);
-
-    color: #cda5ff;
-
-    font-size: 8px;
-    font-weight: 700;
+    border: 1px solid rgba(174, 125, 255, 0.45);
 }
+
+
+.message-avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
 
 .message-content {
-    max-width: 78%;
+    min-width: 0;
 }
+
 
 .message-name {
     display: block;
 
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 
-    color: #ad86d7;
+    color: #bda4ff;
 
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
 }
+
 
 .message-content p {
     margin: 0;
 
-    padding: 11px 13px;
+    padding: 10px 12px;
 
     border-radius: 13px;
 
-    background: rgba(255, 255, 255, 0.045);
+    background:
+        rgba(255, 255, 255, 0.06);
 
-    color: #d7e0eb;
+    border: 1px solid rgba(170, 130, 255, 0.13);
+
+    color: #e8edf7;
 
     font-size: 13px;
-    line-height: 1.55;
+    line-height: 1.5;
 }
+
+
+/* =========================================================
+   MENSAGEM DO USUÁRIO
+   ========================================================= */
+
+.user-message {
+    align-self: flex-end;
+
+    max-width: 84%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.user-message .message-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.user-message .message-name {
+    color: #76dfff;
+}
+
 
 .user-message .message-content p {
     background:
         linear-gradient(
             135deg,
-            rgba(126, 76, 194, 0.38),
-            rgba(90, 52, 147, 0.30)
+            rgba(96, 74, 190, 0.55),
+            rgba(42, 104, 180, 0.35)
         );
 
-    border: 1px solid rgba(166, 92, 255, 0.20);
+    border-color:
+        rgba(130, 119, 255, 0.28);
+}
+
+
+/* =========================================================
+   DIGITANDO
+   ========================================================= */
+
+.typing-dots {
+    letter-spacing: 3px;
+
+    color: #bda4ff;
+
+    animation: typingPulse 1s ease-in-out infinite;
+}
+
+
+@keyframes typingPulse {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
 }
 
 
@@ -417,27 +463,42 @@
    ========================================================= */
 
 .next-assistant-suggestions {
+    padding: 10px 14px;
+
     display: flex;
     gap: 7px;
 
-    padding: 0 14px 12px;
-
     overflow-x: auto;
+
+    border-top:
+        1px solid rgba(150, 110, 255, 0.12);
 }
+
+
+.next-assistant-suggestions::-webkit-scrollbar {
+    display: none;
+}
+
 
 .suggestion-button {
     flex-shrink: 0;
 
-    padding: 8px 11px;
+    min-height: 34px;
 
-    border: 1px solid rgba(166, 92, 255, 0.20);
+    padding: 7px 11px;
+
     border-radius: 20px;
 
-    background: rgba(166, 92, 255, 0.06);
+    border:
+        1px solid rgba(156, 111, 255, 0.28);
 
-    color: #c7a8e8;
+    background:
+        rgba(125, 79, 210, 0.10);
 
-    font-size: 10px;
+    color: #cfc0ff;
+
+    font-family: inherit;
+    font-size: 11px;
 
     cursor: pointer;
 
@@ -446,63 +507,78 @@
         border-color 0.2s ease;
 }
 
-.suggestion-button:hover {
-    background: rgba(166, 92, 255, 0.12);
 
-    border-color: rgba(166, 92, 255, 0.38);
+.suggestion-button:hover {
+    background:
+        rgba(135, 85, 235, 0.2);
+
+    border-color:
+        rgba(174, 125, 255, 0.48);
 }
 
 
 /* =========================================================
-   ÁREA DE ENVIO
+   ÁREA DE INPUT
    ========================================================= */
 
 .next-assistant-input-area {
-    min-height: 64px;
-
-    padding: 10px;
+    padding: 12px;
 
     display: flex;
     align-items: center;
     gap: 7px;
 
-    border-top: 1px solid rgba(166, 92, 255, 0.15);
-
-    background: rgba(5, 9, 19, 0.65);
+    border-top:
+        1px solid rgba(150, 110, 255, 0.18);
 }
 
-.next-assistant-input-area input {
-    flex: 1;
 
+.next-assistant-input-area input {
     min-width: 0;
+    flex: 1;
 
     height: 42px;
 
     padding: 0 13px;
 
-    border: 1px solid rgba(166, 92, 255, 0.18);
-    border-radius: 12px;
+    border:
+        1px solid rgba(142, 111, 220, 0.25);
+
+    border-radius: 13px;
 
     outline: none;
 
-    background: rgba(255, 255, 255, 0.045);
+    background:
+        rgba(255, 255, 255, 0.055);
 
-    color: #edf4fa;
+    color: #f1f5ff;
 
+    font-family: inherit;
     font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
 
 .next-assistant-input-area input::placeholder {
-    color: #738296;
+    color: #7e8ba3;
 }
+
 
 .next-assistant-input-area input:focus {
-    border-color: rgba(166, 92, 255, 0.55);
+    border-color:
+        rgba(164, 116, 255, 0.65);
 
     box-shadow:
-        0 0 0 3px rgba(166, 92, 255, 0.07),
-        0 0 15px rgba(166, 92, 255, 0.10);
+        0 0 0 3px rgba(139, 88, 255, 0.08);
 }
+
+
+/* =========================================================
+   BOTÃO MICROFONE
+   ========================================================= */
 
 .next-assistant-mic,
 .next-assistant-send {
@@ -511,11 +587,13 @@
 
     flex-shrink: 0;
 
-    border-radius: 12px;
+    border-radius: 13px;
 
-    border: 1px solid rgba(166, 92, 255, 0.25);
+    border: 1px solid rgba(150, 110, 255, 0.28);
 
     cursor: pointer;
+
+    font-size: 17px;
 
     transition:
         transform 0.2s ease,
@@ -523,59 +601,73 @@
         box-shadow 0.2s ease;
 }
 
+
 .next-assistant-mic {
-    background: rgba(166, 92, 255, 0.08);
+    background:
+        rgba(145, 89, 235, 0.12);
 
-    color: #d0aaff;
-
-    font-size: 17px;
+    color: #c9adff;
 }
+
+
+.next-assistant-mic:hover {
+    background:
+        rgba(145, 89, 235, 0.22);
+
+    box-shadow:
+        0 0 15px rgba(145, 89, 235, 0.22);
+}
+
+
+.next-assistant-mic.ouvindo {
+    background:
+        rgba(220, 85, 255, 0.25);
+
+    border-color:
+        rgba(220, 135, 255, 0.75);
+
+    box-shadow:
+        0 0 18px rgba(207, 101, 255, 0.45);
+
+    animation:
+        microfoneOuvindo 1s ease-in-out infinite;
+}
+
+
+@keyframes microfoneOuvindo {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
 
 .next-assistant-send {
-    background: linear-gradient(
-        135deg,
-        #8145c5,
-        #9b61df
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #7650d9,
+            #4e78d8
+        );
+
+    border-color:
+        rgba(183, 155, 255, 0.4);
 
     color: white;
-
-    font-size: 16px;
 }
 
-.next-assistant-mic:hover,
+
 .next-assistant-send:hover {
     transform: translateY(-1px);
 
     box-shadow:
-        0 0 18px rgba(166, 92, 255, 0.25);
-}
-
-
-/* =========================================================
-   ESTADO DO MICROFONE
-   ========================================================= */
-
-.next-assistant-mic.ouvindo {
-    background: rgba(184, 100, 255, 0.20);
-
-    border-color: rgba(207, 157, 255, 0.75);
-
-    animation: micPulse 1s ease-in-out infinite;
-}
-
-@keyframes micPulse {
-
-    0%,
-    100% {
-        box-shadow: 0 0 8px rgba(166, 92, 255, 0.25);
-    }
-
-    50% {
-        box-shadow:
-            0 0 18px rgba(190, 120, 255, 0.70),
-            0 0 30px rgba(166, 92, 255, 0.30);
-    }
+        0 0 18px rgba(120, 91, 235, 0.35);
 }
 
 
@@ -590,38 +682,33 @@
         bottom: 16px;
     }
 
+
     .next-assistant-button {
-        width: 62px;
-        height: 62px;
+        width: 60px;
+        height: 60px;
     }
 
-    .next-assistant-photo {
-        width: 48px;
-        height: 48px;
-    }
 
     .next-assistant-chat {
         left: 0;
-        bottom: 78px;
+        bottom: 74px;
 
         width: calc(100vw - 32px);
 
-        height: min(560px, calc(100vh - 105px));
+        height: 500px;
+        max-height: calc(100vh - 90px);
 
-        border-radius: 18px;
+        border-radius: 17px;
     }
 
 }
 
 
-/* =========================================================
-   ACESSIBILIDADE
-   ========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
 
     .next-assistant-button,
-    .next-assistant-mic {
+    .typing-dots,
+    .next-assistant-mic.ouvindo {
         animation: none;
     }
 
