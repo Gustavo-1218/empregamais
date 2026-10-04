@@ -1,200 +1,53 @@
-/* =========================================================
-   NEXT WORK — MENU LATERAL AUTÔNOMO
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const localMenu = document.getElementById("menu-lateral");
-
-    if (!localMenu) return;
-
-
-    /* =====================================================
-       CARREGAR MENU
-    ===================================================== */
-
+document.addEventListener("DOMContentLoaded",function(){
+    const localMenu=document.getElementById("menu-lateral-autonomo");
+    if(!localMenu)return;
     fetch("menu lateral autonomo.html")
-
-        .then(function (resposta) {
-
-            if (!resposta.ok) {
-                throw new Error(
-                    "Não foi possível carregar o menu lateral do autônomo."
-                );
-            }
-
+        .then(function(resposta){
+            if(!resposta.ok)throw new Error("Não foi possível carregar o menu lateral do autônomo.");
             return resposta.text();
         })
-
-        .then(function (menu) {
-
-            localMenu.innerHTML = menu;
-
+        .then(function(menu){
+            localMenu.innerHTML=menu;
             marcarPaginaAtual();
-
             ativarTrocaDeFoto();
-
         })
-
-        .catch(function (erro) {
-
-            console.error(
-                "Erro ao carregar o menu lateral do autônomo:",
-                erro
-            );
-
+        .catch(function(erro){
+            console.error("Erro ao carregar o menu lateral do autônomo:",erro);
         });
-
 });
-
-
-/* =========================================================
-   MARCAR PÁGINA ATUAL
-========================================================= */
-
-function marcarPaginaAtual() {
-
-    let paginaAtual =
-        window.location.pathname.split("/").pop();
-
-
-    if (
-        paginaAtual === "" ||
-        paginaAtual === "/"
-    ) {
-        paginaAtual = "perfil-autonomo.html";
-    }
-
-
-    const links =
-        document.querySelectorAll(
-            ".sidebar-nav a"
-        );
-
-
-    links.forEach(function (link) {
-
-        const endereco =
-            link.getAttribute("href");
-
-
-        if (endereco === paginaAtual) {
-
-            link.classList.add("ativo");
-
-        }
-
+function marcarPaginaAtual(){
+    let paginaAtual=window.location.pathname.split("/").pop();
+    if(paginaAtual===""||paginaAtual==="/")paginaAtual="perfil-autonomo.html";
+    const links=document.querySelectorAll(".sidebar-nav a");
+    links.forEach(function(link){
+        const endereco=link.getAttribute("href");
+        if(endereco===paginaAtual)link.classList.add("ativo");
     });
-
 }
-
-
-/* =========================================================
-   TROCAR FOTO
-========================================================= */
-
-function ativarTrocaDeFoto() {
-
-    const botao =
-        document.getElementById("trocarFoto");
-
-    const input =
-        document.getElementById("inputFoto");
-
-    const imagem =
-        document.getElementById("sidePhoto");
-
-
-    if (!botao || !input || !imagem) return;
-
-
-    /* =====================================================
-       RECUPERAR FOTO SALVA
-    ===================================================== */
-
-    const fotoSalva =
-        localStorage.getItem(
-            "nextwork_autonomo_photo"
-        );
-
-
-    if (fotoSalva) {
-
-        imagem.src = fotoSalva;
-
-    }
-
-
-    /* =====================================================
-       ABRIR SELEÇÃO DE ARQUIVO
-    ===================================================== */
-
-    botao.addEventListener(
-        "click",
-        function () {
-
-            input.click();
-
+function ativarTrocaDeFoto(){
+    const botao=document.getElementById("trocarFoto");
+    const input=document.getElementById("inputFoto");
+    const imagem=document.getElementById("sidePhoto");
+    if(!botao||!input||!imagem)return;
+    const fotoSalva=localStorage.getItem("nextwork_autonomo_photo");
+    if(fotoSalva)imagem.src=fotoSalva;
+    botao.addEventListener("click",function(){
+        input.click();
+    });
+    input.addEventListener("change",function(){
+        const arquivo=input.files[0];
+        if(!arquivo)return;
+        if(!arquivo.type.startsWith("image/")){
+            alert("Selecione uma imagem válida.");
+            input.value="";
+            return;
         }
-    );
-
-
-    /* =====================================================
-       NOVA FOTO
-    ===================================================== */
-
-    input.addEventListener(
-        "change",
-        function () {
-
-            const arquivo =
-                input.files[0];
-
-
-            if (!arquivo) return;
-
-
-            if (
-                !arquivo.type.startsWith("image/")
-            ) {
-
-                alert(
-                    "Selecione uma imagem válida."
-                );
-
-                input.value = "";
-
-                return;
-
-            }
-
-
-            const leitor =
-                new FileReader();
-
-
-            leitor.onload =
-                function (evento) {
-
-                    const imagemBase64 =
-                        evento.target.result;
-
-
-                    imagem.src =
-                        imagemBase64;
-
-
-                    localStorage.setItem(
-                        "nextwork_autonomo_photo",
-                        imagemBase64
-                    );
-
-                };
-
-
-            leitor.readAsDataURL(arquivo);
-
-        }
-    );
-
+        const leitor=new FileReader();
+        leitor.onload=function(evento){
+            const imagemBase64=evento.target.result;
+            imagem.src=imagemBase64;
+            localStorage.setItem("nextwork_autonomo_photo",imagemBase64);
+        };
+        leitor.readAsDataURL(arquivo);
+    });
 }
