@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Next Work - Todas as Vagas</title>
+
+    <!-- CSS DO MENU -->
+    <link rel="stylesheet" href="menu.css">
+
+    <!-- CSS DESTA PÁGINA -->
+    <link rel="stylesheet" href="todas-vagas.css">
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <div id="menu"></div>
+
+
+    <main class="pagina-vagas">
+
+        <!-- CABEÇALHO -->
+        <section class="cabecalho-vagas">
+
+            <div class="topo-vagas">
+
+                <a href="empresa.html" class="btn-voltar">
+
+                    <span class="seta-voltar">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 12H5"></path>
+                            <path d="M11 18l-6-6 6-6"></path>
+                        </svg>
+                    </span>
+
+                    Voltar
+
+                </a>
+
+            </div>
+
+
+            <div class="titulo-area">
+
+                <span class="etiqueta">
+                    OPORTUNIDADES
+                </span>
+
+                <h1>
+                    Todas as vagas
+                </h1>
+
+                <p>
+                    Encontre a oportunidade ideal para você na Tech Solutions.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FILTROS -->
+        <section class="filtros-area">
+
+            <!-- PESQUISA -->
+            <div class="campo-pesquisa">
+
+                <span class="icone-pesquisa">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="6.5"></circle>
+                        <path d="M16 16L21 21"></path>
+                    </svg>
+
+                </span>
+
+                <input
+                    type="text"
+                    id="campoPesquisa"
+                    placeholder="Pesquisar por vaga..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- FILTRO ÁREA -->
+            <div class="filtro-select">
+
+                <select id="filtroArea">
+
+                    <option value="todas">
+                        Todas as áreas
+                    </option>
+
+                    <option value="design">
+                        Design
+                    </option>
+
+                    <option value="administrativo">
+                        Administrativo
+                    </option>
+
+                    <option value="marketing">
+                        Marketing
+                    </option>
+
+                    <option value="tecnologia">
+                        Tecnologia
+                    </option>
+
+                </select>
+
+                <span class="seta-select">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+
+                </span>
+
+            </div>
+
+
+            <!-- FILTRO MODALIDADE -->
+            <div class="filtro-select">
+
+                <select id="filtroModalidade">
+
+                    <option value="todas">
+                        Todas as modalidades
+                    </option>
+
+                    <option value="presencial">
+                        Presencial
+                    </option>
+
+                    <option value="hibrido">
+                        Híbrido
+                    </option>
+
+                    <option value="remoto">
+                        Remoto
+                    </option>
+
+                </select>
+
+                <span class="seta-select">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTADOR -->
+        <div class="resultado-topo">
+
+            <span id="contadorVagas">
+                4 vagas encontradas
+            </span>
+
+            <span class="empresa-filtro">
+                Tech Solutions
+            </span>
+
+        </div>
+
+
+        <!-- LISTA DE VAGAS -->
+        <section class="lista-vagas" id="listaVagas">
+
+
+            <!-- =====================================================
+                 VAGA 1
+                 ===================================================== -->
+
+            <a
+                href="vaga-designer.html"
+                class="vaga-card"
+                data-area="design"
+                data-modalidade="hibrido"
+            >
+
+                <div class="vaga-icone design">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3a9 9 0 1 0 9 9"></path>
+                        <path d="M12 3v6h6"></path>
+                        <circle cx="12" cy="15" r="1.2"></circle>
+                        <path d="M7 19l2-3"></path>
+                    </svg>
+
+                </div>
+
+
+                <div class="vaga-conteudo">
+
+                    <div class="vaga-titulo-linha">
+
+                        <h2>
+                            Designer Gráfico
+                        </h2>
+
+                        <span class="status-vaga">
+                            Aberta
+                        </span>
+
+                    </div>
+
+
+                    <p class="empresa">
+                        Tech Solutions
+                    </p>
+
+
+                    <div class="vaga-informacoes">
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 21h16"></path>
+                                <path d="M6 21V5l6-3 6 3v16"></path>
+                                <path d="M9 8h1"></path>
+                                <path d="M14 8h1"></path>
+                                <path d="M9 12h1"></path>
+                                <path d="M14 12h1"></path>
+                            </svg>
+
+                            Design
+
+                        </span>
+
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="8"></circle>
+                                <path d="M12 7v5l3 2"></path>
+                            </svg>
+
+                            Híbrido
+
+                        </span>
+
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="4" y="6" width="16" height="13" rx="2"></rect>
+                                <path d="M9 6V4h6v2"></path>
+                            </svg>
+
+                            CLT
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vaga-seta">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 6l6 6-6 6"></path>
+                    </svg>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- =====================================================
+                 VAGA 2
+                 ===================================================== -->
+
+            <a
+                href="vaga-assistente.html"
+                class="vaga-card"
+                data-area="administrativo"
+                data-modalidade="presencial"
+            >
+
+                <div class="vaga-icone administrativo">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="5" y="3" width="14" height="18" rx="2"></rect>
+                        <path d="M8 7h8"></path>
+                        <path d="M8 11h2"></path>
+                        <path d="M14 11h2"></path>
+                        <path d="M8 15h2"></path>
+                        <path d="M14 15h2"></path>
+                    </svg>
+
+                </div>
+
+
+                <div class="vaga-conteudo">
+
+                    <div class="vaga-titulo-linha">
+
+                        <h2>
+                            Assistente Administrativo
+                        </h2>
+
+                        <span class="status-vaga">
+                            Aberta
+                        </span>
+
+                    </div>
+
+
+                    <p class="empresa">
+                        Tech Solutions
+                    </p>
+
+
+                    <div class="vaga-informacoes">
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 21h16"></path>
+                                <path d="M6 21V5l6-3 6 3v16"></path>
+                                <path d="M9 8h1"></path>
+                                <path d="M14 8h1"></path>
+                                <path d="M9 12h1"></path>
+                                <path d="M14 12h1"></path>
+                            </svg>
+
+                            Administrativo
+
+                        </span>
+
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="8"></circle>
+                                <path d="M12 7v5l3 2"></path>
+                            </svg>
+
+                            Presencial
+
+                        </span>
+
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="4" y="6" width="16" height="13" rx="2"></rect>
+                                <path d="M9 6V4h6v2"></path>
+                            </svg>
+
+                            CLT
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vaga-seta">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 6l6 6-6 6"></path>
+                    </svg>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- =====================================================
+                 VAGA 3
+                 ===================================================== -->
+
+            <a
+                href="vaga-marketing.html"
+                class="vaga-card"
+                data-area="marketing"
+                data-modalidade="remoto"
+            >
+
+                <div class="vaga-icone marketing">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 14V10"></path>
+                        <path d="M7 12h4"></path>
+                        <path d="M11 8l8-3v14l-8-3z"></path>
+                        <path d="M7 12l1 6"></path>
+                    </svg>
+
+                </div>
+
+
+                <div class="vaga-conteudo">
+
+                    <div class="vaga-titulo-linha">
+
+                        <h2>
+                            Analista de Marketing
+                        </h2>
+
+                        <span class="status-vaga">
+                            Aberta
+                        </span>
+
+                    </div>
+
+
+                    <p class="empresa">
+                        Tech Solutions
+                    </p>
+
+
+                    <div class="vaga-informacoes">
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 21h16"></path>
+                                <path d="M6 21V5l6-3 6 3v16"></path>
+                                <path d="M9 8h1"></path>
+                                <path d="M14 8h1"></path>
+                                <path d="M9 12h1"></path>
+                                <path d="M14 12h1"></path>
+                            </svg>
+
+                            Marketing
+
+                        </span>
+
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="8"></circle>
+                                <path d="M12 7v5l3 2"></path>
+                            </svg>
+
+                            Remoto
+
+                        </span>
+
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="4" y="6" width="16" height="13" rx="2"></rect>
+                                <path d="M9 6V4h6v2"></path>
+                            </svg>
+
+                            CLT
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vaga-seta">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 6l6 6-6 6"></path>
+                    </svg>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- =====================================================
+                 VAGA 4
+                 ===================================================== -->
+
+            <a
+                href="vaga-frontend.html"
+                class="vaga-card"
+                data-area="tecnologia"
+                data-modalidade="hibrido"
+            >
+
+                <div class="vaga-icone tecnologia">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 8l-4 4 4 4"></path>
+                        <path d="M16 8l4 4-4 4"></path>
+                        <path d="M14 5l-4 14"></path>
+                    </svg>
+
+                </div>
+
+
+                <div class="vaga-conteudo">
+
+                    <div class="vaga-titulo-linha">
+
+                        <h2>
+                            Desenvolvedor Front-end
+                        </h2>
+
+                        <span class="status-vaga">
+                            Aberta
+                        </span>
+
+                    </div>
+
+
+                    <p class="empresa">
+                        Tech Solutions
+                    </p>
+
+
+                    <div class="vaga-informacoes">
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 21h16"></path>
+                                <path d="M6 21V5l6-3 6 3v16"></path>
+                                <path d="M9 8h1"></path>
+                                <path d="M14 8h1"></path>
+                                <path d="M9 12h1"></path>
+                                <path d="M14 12h1"></path>
+                            </svg>
+
+                            Tecnologia
+
+                        </span>
+
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="8"></circle>
+                                <path d="M12 7v5l3 2"></path>
+                            </svg>
+
+                            Híbrido
+
+                        </span>
+
+
+                        <span>
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="4" y="6" width="16" height="13" rx="2"></rect>
+                                <path d="M9 6V4h6v2"></path>
+                            </svg>
+
+                            CLT
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vaga-seta">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 6l6 6-6 6"></path>
+                    </svg>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- SEM RESULTADOS -->
+            <div
+                class="sem-resultados"
+                id="semResultados"
+                style="display: none;"
+            >
+
+                <div class="sem-resultados-icone">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="M16 16l5 5"></path>
+                        <path d="M8 11h6"></path>
+                    </svg>
+
+                </div>
+
+                <h3>
+                    Nenhuma vaga encontrada
+                </h3>
+
+                <p>
+                    Tente pesquisar por outro termo ou alterar os filtros.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MENU -->
+    <script src="menu.js"></script>
+
+    <!-- JAVASCRIPT DAS VAGAS -->
+    <script src="todas-vagas.js"></script>
+
+</body>
+
+</html>
