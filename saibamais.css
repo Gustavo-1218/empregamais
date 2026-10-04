@@ -1111,3 +1111,384 @@ button {
         transition: none !important;
     }
 }
+
+
+/* =========================================================
+   NEXT WORK — TEMA CLARO AZULADO
+   SOBRESCREVER NO FINAL DO CSS
+========================================================= */
+
+body{
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            rgba(0,174,202,.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(8,124,240,.08),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #eaf8fc 0%,
+            #f2fbfe 45%,
+            #e7f6fb 100%
+        );
+
+    color:#102b4c;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.main-content{
+    background:
+        radial-gradient(
+            circle at 85% 0%,
+            rgba(0,174,202,.07),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #eaf8fc,
+            #f4fcff
+        );
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.beneficio,
+.card-publico,
+.content-card,
+.side-card,
+.final-caixa{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbfe
+        );
+
+    border-color:
+        rgba(8,124,240,.20);
+
+    box-shadow:
+        0 8px 28px rgba(8,124,240,.08),
+        0 0 18px rgba(0,174,202,.07);
+}
+
+
+/* =========================================================
+   GLOW MAIS VISÍVEL NOS CARDS
+========================================================= */
+
+.beneficio:hover,
+.card-publico:hover{
+    border-color:
+        rgba(8,124,240,.42);
+
+    box-shadow:
+        0 14px 35px rgba(8,124,240,.13),
+        0 0 30px rgba(0,174,202,.14);
+}
+
+.content-card:hover,
+.side-card:hover{
+    border-color:
+        rgba(8,124,240,.32);
+
+    box-shadow:
+        0 10px 30px rgba(8,124,240,.10),
+        0 0 25px rgba(0,174,202,.10);
+}
+
+
+/* =========================================================
+   CARDS INTERNOS
+========================================================= */
+
+.service-card,
+.portfolio-placeholder,
+.quadrado-imagem{
+    background:
+        linear-gradient(
+            145deg,
+            #f8fdff,
+            #eaf7fc
+        );
+
+    border-color:
+        rgba(8,124,240,.20);
+
+    box-shadow:
+        0 5px 18px rgba(8,124,240,.06),
+        inset 0 0 18px rgba(0,174,202,.025);
+}
+
+.service-card:hover{
+    border-color:
+        rgba(8,124,240,.38);
+
+    box-shadow:
+        0 8px 22px rgba(8,124,240,.10),
+        0 0 22px rgba(0,174,202,.10);
+}
+
+
+/* =========================================================
+   CABEÇALHO DO PERFIL
+========================================================= */
+
+.profile-header{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f1faff
+        );
+
+    border-color:
+        rgba(8,124,240,.20);
+
+    box-shadow:
+        0 10px 32px rgba(8,124,240,.08),
+        0 0 22px rgba(0,174,202,.07);
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.botao-principal,
+.btn-solicitar{
+    background:
+        linear-gradient(
+            100deg,
+            #087cf0,
+            #00aeca
+        );
+
+    box-shadow:
+        0 8px 25px rgba(8,124,240,.20),
+        0 0 18px rgba(0,174,202,.10);
+}
+
+.botao-principal:hover,
+.btn-solicitar:hover{
+    box-shadow:
+        0 12px 30px rgba(8,124,240,.28),
+        0 0 28px rgba(0,174,202,.18);
+}
+
+
+/* =========================================================
+   BOTÕES SECUNDÁRIOS
+========================================================= */
+
+.botao-secundario,
+.botao-card{
+    background:
+        rgba(255,255,255,.75);
+
+    border-color:
+        rgba(8,124,240,.20);
+
+    color:#087cf0;
+}
+
+.botao-secundario:hover,
+.botao-card:hover{
+    background:
+        rgba(8,124,240,.08);
+
+    border-color:
+        rgba(8,124,240,.38);
+
+    box-shadow:
+        0 0 18px rgba(8,124,240,.10);
+}
+
+
+/* =========================================================
+   ÍCONES
+========================================================= */
+
+.icone-flutuante,
+.icone-beneficio,
+.service-icon,
+.trust-icon,
+.trust-card-icon,
+.numero-passo{
+    color:#087cf0;
+}
+
+.numero-passo{
+    background:
+        rgba(8,124,240,.07);
+
+    border-color:
+        rgba(8,124,240,.25);
+
+    box-shadow:
+        0 0 18px rgba(8,124,240,.10);
+}
+
+
+/* =========================================================
+   CARTÃO FLUTUANTE
+========================================================= */
+
+.cartao-flutuante{
+    background:
+        rgba(255,255,255,.94);
+
+    border-color:
+        rgba(8,124,240,.20);
+
+    box-shadow:
+        0 15px 40px rgba(8,124,240,.10),
+        0 0 24px rgba(0,174,202,.09);
+}
+
+
+/* =========================================================
+   TEXTOS
+========================================================= */
+
+.texto-hero h1,
+.titulo-secao h2,
+.conteudo-card h3,
+.beneficio h3,
+.passo h3,
+.final-caixa h2{
+    color:#102b4c;
+}
+
+.texto-hero p,
+.beneficio p,
+.conteudo-card p,
+.conteudo-card li,
+.passo p,
+.final-caixa p{
+    color:#526b84;
+}
+
+
+/* =========================================================
+   DESTAQUES AZUIS
+========================================================= */
+
+.texto-hero h1 span,
+.titulo-secao h2 strong,
+.final-caixa h2 strong,
+.numero-card,
+.titulo-secao > span{
+    color:#087cf0;
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-caixa{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(8,124,240,.09),
+            transparent 58%
+        ),
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #edf9fd
+        );
+}
+
+
+/* =========================================================
+   LINHAS / DIVISORES
+========================================================= */
+
+.linha-passo{
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(8,124,240,.35),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   IMAGEM PRINCIPAL
+========================================================= */
+
+.mulher{
+    filter:
+        drop-shadow(
+            0 25px 45px rgba(8,124,240,.12)
+        );
+}
+
+
+/* =========================================================
+   BORDA AZUL SUAVE EM ELEMENTOS IMPORTANTES
+========================================================= */
+
+.tag{
+    background:
+        rgba(8,124,240,.06);
+
+    border-color:
+        rgba(8,124,240,.22);
+
+    color:#087cf0;
+}
+
+.verified-text{
+    background:
+        rgba(8,124,240,.07);
+
+    color:#087cf0;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media(max-width:650px){
+
+    body{
+        background:
+            radial-gradient(
+                circle at 50% 0%,
+                rgba(8,124,240,.10),
+                transparent 38%
+            ),
+            linear-gradient(
+                145deg,
+                #eaf8fc,
+                #f4fcff
+            );
+    }
+
+    .main-content{
+        background:
+            linear-gradient(
+                145deg,
+                #eaf8fc,
+                #f4fcff
+            );
+    }
+}
