@@ -1,0 +1,121 @@
+<!-- Botão flutuante do Next Assistant -->
+<div class="next-assistant-container" id="nextAssistantContainer">
+
+    <button
+        type="button"
+        class="next-assistant-button"
+        id="nextAssistantButton"
+        aria-label="Abrir Next Assistant"
+        aria-expanded="false"
+    >
+        <!-- Espaço reservado para a futura imagem do Next Assistant -->
+        <div class="next-assistant-photo">
+            <span>NA</span>
+        </div>
+    </button>
+
+    <!-- Janela do chat -->
+    <section
+        class="next-assistant-chat"
+        id="nextAssistantChat"
+        aria-hidden="true"
+    >
+
+        <header class="next-assistant-header">
+
+            <div class="next-assistant-header-info">
+
+                <div class="next-assistant-mini-photo">
+                    <span>NA</span>
+                </div>
+
+                <div>
+                    <h2>Next Assistant</h2>
+                    <span class="next-assistant-status">
+                        <span class="status-dot"></span>
+                        Online
+                    </span>
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="next-assistant-close"
+                id="nextAssistantClose"
+                aria-label="Fechar Next Assistant"
+            >
+                ×
+            </button>
+
+        </header>
+
+        <div
+            class="next-assistant-messages"
+            id="nextAssistantMessages"
+            aria-live="polite"
+        >
+
+            <div class="assistant-message">
+                <div class="message-avatar">
+                    NA
+                </div>
+
+                <div class="message-content">
+                    <span class="message-name">Next Assistant</span>
+
+                    <p>
+                        Olá! Como posso ajudar você?
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="next-assistant-suggestions">
+
+            <button type="button" class="suggestion-button" data-question="Quais vagas estão disponíveis perto de mim?">
+                Vagas próximas
+            </button>
+
+            <button type="button" class="suggestion-button" data-question="Quais profissionais estão perto de mim?">
+                Profissionais próximos
+            </button>
+
+            <button type="button" class="suggestion-button" data-question="Tem algum encanador, pintor ou faxineiro disponível?">
+                Serviços disponíveis
+            </button>
+
+        </div>
+
+        <form class="next-assistant-input-area" id="nextAssistantForm">
+
+            <input
+                type="text"
+                id="nextAssistantInput"
+                placeholder="Digite sua pergunta..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                class="next-assistant-mic"
+                id="nextAssistantMic"
+                aria-label="Falar com o Next Assistant"
+            >
+                🎙
+            </button>
+
+            <button
+                type="submit"
+                class="next-assistant-send"
+                aria-label="Enviar pergunta"
+            >
+                ➤
+            </button>
+
+        </form>
+
+    </section>
+
+</div>
