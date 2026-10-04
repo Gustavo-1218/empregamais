@@ -1,29 +1,575 @@
+/* =====================================================
+   NEXT ASSISTANT — BOTÃO
+===================================================== */
+
 #next-assistant-container {
     position: fixed;
-    bottom: 30px;
-    left: 30px;
+    left: 28px;
+    bottom: 28px;
     z-index: 99999;
+
+    font-family: "Poppins", sans-serif;
 }
 
+
+/* =====================================================
+   BOTÃO FLUTUANTE
+===================================================== */
+
 #nextAssistantButton {
-    width: 70px;
-    height: 70px;
-    border: none;
+    position: relative;
+
+    width: 68px;
+    height: 68px;
+
+    padding: 0;
+
+    border: 1px solid rgba(141, 92, 255, 0.75);
     border-radius: 50%;
-    background: #8d5cff;
-    cursor: pointer;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(141, 92, 255, 0.30),
+            rgba(2, 7, 19, 0.96)
+        );
+
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 25px rgba(141, 92, 255, 0.7);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(141, 92, 255, 0.65),
+        0 0 35px rgba(141, 92, 255, 0.25);
+
+    animation: nextAssistantPulse 2.5s infinite;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
+
+
+#nextAssistantButton:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 22px rgba(141, 92, 255, 0.85),
+        0 0 50px rgba(141, 92, 255, 0.35);
+}
+
 
 #nextAssistantButton img {
     width: 100%;
     height: 100%;
+
     object-fit: contain;
+
+    border-radius: 50%;
 }
 
+
+/* =====================================================
+   ANIMAÇÃO DO BOTÃO
+===================================================== */
+
+@keyframes nextAssistantPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 15px rgba(141, 92, 255, 0.60),
+            0 0 35px rgba(141, 92, 255, 0.22);
+    }
+
+    50% {
+        box-shadow:
+            0 0 23px rgba(141, 92, 255, 0.85),
+            0 0 50px rgba(141, 92, 255, 0.38);
+    }
+}
+
+
+/* =====================================================
+   JANELA DO ASSISTENTE
+===================================================== */
+
 #nextAssistantChat {
-    display: none;
+
+    position: absolute;
+
+    left: 0;
+    bottom: 82px;
+
+    width: 350px;
+    max-width: calc(100vw - 40px);
+
+    overflow: hidden;
+
+    border: 1px solid rgba(0, 221, 255, 0.25);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11, 23, 43, 0.98),
+            rgba(3, 10, 23, 0.98)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.50),
+        0 0 35px rgba(0, 221, 255, 0.08);
+
+    color: #edf8ff;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.next-assistant-header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 17px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.next-assistant-title {
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+
+.next-assistant-icon {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(141, 92, 255, 0.28),
+            rgba(0, 221, 255, 0.16)
+        );
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 0 15px rgba(141, 92, 255, 0.15);
+}
+
+
+.next-assistant-title strong {
+
+    display: block;
+
+    color: #edf8ff;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.next-assistant-title span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #7693aa;
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   BOTÃO FECHAR
+===================================================== */
+
+#nextAssistantClose {
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #a8c2d6;
+
+    font-size: 24px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+#nextAssistantClose:hover {
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   ÁREA DAS MENSAGENS
+===================================================== */
+
+.next-assistant-messages {
+
+    height: 280px;
+
+    padding: 16px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    scrollbar-width: thin;
+}
+
+
+.next-assistant-message {
+
+    max-width: 84%;
+
+    padding: 10px 13px;
+
+    border-radius: 14px;
+
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+
+/* RESPOSTA DO ASSISTENTE */
+
+.next-assistant-message.assistant {
+
+    align-self: flex-start;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    color: #dceef8;
+
+    border-bottom-left-radius: 4px;
+}
+
+
+/* MENSAGEM DO USUÁRIO */
+
+.next-assistant-message.usuario {
+
+    align-self: flex-end;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7147e8,
+            #2399ff
+        );
+
+    color: #ffffff;
+
+    border-bottom-right-radius: 4px;
+
+    box-shadow:
+        0 5px 18px rgba(35, 153, 255, 0.15);
+}
+
+
+/* =====================================================
+   ÁREA INFERIOR
+===================================================== */
+
+.next-assistant-input-area {
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 12px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* =====================================================
+   CAMPO DE TEXTO
+===================================================== */
+
+#nextAssistantInput {
+
+    min-width: 0;
+
+    flex: 1;
+
+    height: 42px;
+
+    padding:
+        0 13px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    color: #edf8ff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 11px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+#nextAssistantInput::placeholder {
+
+    color: #7693aa;
+}
+
+
+#nextAssistantInput:focus {
+
+    border-color:
+        rgba(0, 221, 255, 0.45);
+
+    background:
+        rgba(255, 255, 255, 0.075);
+}
+
+
+/* =====================================================
+   BOTÕES ENVIAR / VOZ
+===================================================== */
+
+#nextAssistantSend,
+#nextAssistantVoice {
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+#nextAssistantSend {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2399ff,
+            #087cf0
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 18px rgba(35, 153, 255, 0.20);
+}
+
+
+#nextAssistantVoice {
+
+    background:
+        rgba(141, 92, 255, 0.18);
+
+    color:
+        #c9b8ff;
+
+    border:
+        1px solid rgba(141, 92, 255, 0.22);
+}
+
+
+#nextAssistantSend:hover,
+#nextAssistantVoice:hover {
+
+    transform:
+        translateY(-2px);
+}
+
+
+#nextAssistantSend:hover {
+
+    box-shadow:
+        0 7px 22px rgba(35, 153, 255, 0.30);
+}
+
+
+#nextAssistantVoice:hover {
+
+    background:
+        rgba(141, 92, 255, 0.28);
+}
+
+
+/* =====================================================
+   MICROFONE OUVINDO
+===================================================== */
+
+#nextAssistantVoice.ouvindo {
+
+    background:
+        #8d5cff;
+
+    color:
+        #ffffff;
+
+    animation:
+        nextAssistantListening 1s infinite;
+}
+
+
+@keyframes nextAssistantListening {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 rgba(141, 92, 255, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 22px rgba(141, 92, 255, 0.75);
+    }
+}
+
+
+/* =====================================================
+   ROLAGEM DAS MENSAGENS
+===================================================== */
+
+.next-assistant-messages::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+.next-assistant-messages::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+}
+
+
+.next-assistant-messages::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(141, 92, 255, 0.35);
+
+    border-radius:
+        10px;
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #next-assistant-container {
+
+        left: 18px;
+        bottom: 18px;
+
+    }
+
+
+    #nextAssistantButton {
+
+        width: 60px;
+        height: 60px;
+
+    }
+
+
+    #nextAssistantChat {
+
+        width:
+            calc(100vw - 36px);
+
+        max-width:
+            none;
+
+        left: 0;
+
+        bottom: 74px;
+
+    }
+
+
+    .next-assistant-messages {
+
+        height: 240px;
+
+    }
+
 }
