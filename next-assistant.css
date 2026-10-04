@@ -1,0 +1,628 @@
+/* =========================================================
+   NEXT ASSISTANT
+   ========================================================= */
+
+.next-assistant-container {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 9999;
+    font-family: sans-serif;
+}
+
+
+/* =========================================================
+   BOTÃO FLUTUANTE
+   ========================================================= */
+
+.next-assistant-button {
+    width: 68px;
+    height: 68px;
+
+    border: 1px solid rgba(174, 112, 255, 0.75);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255, 255, 255, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #25133f,
+            #130b24
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px rgba(166, 92, 255, 0.65),
+        0 0 25px rgba(166, 92, 255, 0.45),
+        0 0 50px rgba(166, 92, 255, 0.25);
+
+    animation: nextAssistantPulse 2.2s ease-in-out infinite;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.next-assistant-button:hover {
+    transform: scale(1.08);
+
+    border-color: rgba(210, 167, 255, 0.95);
+
+    box-shadow:
+        0 0 15px rgba(184, 117, 255, 0.85),
+        0 0 35px rgba(166, 92, 255, 0.65),
+        0 0 65px rgba(166, 92, 255, 0.35);
+}
+
+
+/* =========================================================
+   FOTO / ÍCONE RESERVADO
+   ========================================================= */
+
+.next-assistant-photo {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(173, 103, 255, 0.30),
+            rgba(29, 14, 49, 0.95)
+        );
+
+    border: 1px solid rgba(203, 161, 255, 0.45);
+
+    color: #d6b2ff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    overflow: hidden;
+}
+
+
+/*
+   Quando a foto real for adicionada:
+
+   .next-assistant-photo img {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+   }
+*/
+
+
+/* =========================================================
+   ANIMAÇÃO DE PULSAÇÃO
+   ========================================================= */
+
+@keyframes nextAssistantPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 10px rgba(166, 92, 255, 0.55),
+            0 0 25px rgba(166, 92, 255, 0.35),
+            0 0 45px rgba(166, 92, 255, 0.18);
+    }
+
+    50% {
+        transform: scale(1.06);
+
+        box-shadow:
+            0 0 16px rgba(198, 140, 255, 0.85),
+            0 0 38px rgba(166, 92, 255, 0.65),
+            0 0 70px rgba(166, 92, 255, 0.35);
+    }
+}
+
+
+/* =========================================================
+   JANELA DO CHAT
+   ========================================================= */
+
+.next-assistant-chat {
+    position: absolute;
+
+    left: 0;
+    bottom: 86px;
+
+    width: 370px;
+    max-width: calc(100vw - 32px);
+
+    height: 560px;
+    max-height: calc(100vh - 120px);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(166, 92, 255, 0.35);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12, 18, 35, 0.98),
+            rgba(9, 13, 27, 0.98)
+        );
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.40),
+        0 0 25px rgba(166, 92, 255, 0.20);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(15px) scale(0.96);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+/* Chat aberto */
+
+.next-assistant-container.aberto .next-assistant-chat {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0) scale(1);
+
+    pointer-events: auto;
+}
+
+.next-assistant-container.aberto .next-assistant-button {
+    animation: none;
+    transform: scale(1.03);
+
+    border-color: #c99cff;
+
+    box-shadow:
+        0 0 15px rgba(198, 140, 255, 0.85),
+        0 0 35px rgba(166, 92, 255, 0.60);
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.next-assistant-header {
+    min-height: 72px;
+
+    padding: 12px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(166, 92, 255, 0.18);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(166, 92, 255, 0.10),
+            transparent
+        );
+}
+
+.next-assistant-header-info {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.next-assistant-header h2 {
+    margin: 0;
+
+    color: #f4edff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+.next-assistant-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 3px;
+
+    color: #9cabbc;
+
+    font-size: 11px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #9dffbd;
+
+    box-shadow: 0 0 8px rgba(96, 255, 150, 0.65);
+}
+
+.next-assistant-mini-photo {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #201130;
+
+    border: 1px solid rgba(190, 135, 255, 0.45);
+
+    color: #cda5ff;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.next-assistant-close {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #9eacc0;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.next-assistant-close:hover {
+    background: rgba(166, 92, 255, 0.10);
+    color: #e7d7ff;
+}
+
+
+/* =========================================================
+   MENSAGENS
+   ========================================================= */
+
+.next-assistant-messages {
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 20px 16px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.assistant-message,
+.user-message {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.message-avatar {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(166, 92, 255, 0.14);
+
+    border: 1px solid rgba(166, 92, 255, 0.28);
+
+    color: #cda5ff;
+
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.message-content {
+    max-width: 78%;
+}
+
+.message-name {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #ad86d7;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.message-content p {
+    margin: 0;
+
+    padding: 11px 13px;
+
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #d7e0eb;
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.user-message .message-content p {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(126, 76, 194, 0.38),
+            rgba(90, 52, 147, 0.30)
+        );
+
+    border: 1px solid rgba(166, 92, 255, 0.20);
+}
+
+
+/* =========================================================
+   SUGESTÕES
+   ========================================================= */
+
+.next-assistant-suggestions {
+    display: flex;
+    gap: 7px;
+
+    padding: 0 14px 12px;
+
+    overflow-x: auto;
+}
+
+.suggestion-button {
+    flex-shrink: 0;
+
+    padding: 8px 11px;
+
+    border: 1px solid rgba(166, 92, 255, 0.20);
+    border-radius: 20px;
+
+    background: rgba(166, 92, 255, 0.06);
+
+    color: #c7a8e8;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.suggestion-button:hover {
+    background: rgba(166, 92, 255, 0.12);
+
+    border-color: rgba(166, 92, 255, 0.38);
+}
+
+
+/* =========================================================
+   ÁREA DE ENVIO
+   ========================================================= */
+
+.next-assistant-input-area {
+    min-height: 64px;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    border-top: 1px solid rgba(166, 92, 255, 0.15);
+
+    background: rgba(5, 9, 19, 0.65);
+}
+
+.next-assistant-input-area input {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 42px;
+
+    padding: 0 13px;
+
+    border: 1px solid rgba(166, 92, 255, 0.18);
+    border-radius: 12px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #edf4fa;
+
+    font-size: 13px;
+}
+
+.next-assistant-input-area input::placeholder {
+    color: #738296;
+}
+
+.next-assistant-input-area input:focus {
+    border-color: rgba(166, 92, 255, 0.55);
+
+    box-shadow:
+        0 0 0 3px rgba(166, 92, 255, 0.07),
+        0 0 15px rgba(166, 92, 255, 0.10);
+}
+
+.next-assistant-mic,
+.next-assistant-send {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(166, 92, 255, 0.25);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.next-assistant-mic {
+    background: rgba(166, 92, 255, 0.08);
+
+    color: #d0aaff;
+
+    font-size: 17px;
+}
+
+.next-assistant-send {
+    background: linear-gradient(
+        135deg,
+        #8145c5,
+        #9b61df
+    );
+
+    color: white;
+
+    font-size: 16px;
+}
+
+.next-assistant-mic:hover,
+.next-assistant-send:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 0 18px rgba(166, 92, 255, 0.25);
+}
+
+
+/* =========================================================
+   ESTADO DO MICROFONE
+   ========================================================= */
+
+.next-assistant-mic.ouvindo {
+    background: rgba(184, 100, 255, 0.20);
+
+    border-color: rgba(207, 157, 255, 0.75);
+
+    animation: micPulse 1s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(166, 92, 255, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 0 18px rgba(190, 120, 255, 0.70),
+            0 0 30px rgba(166, 92, 255, 0.30);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .next-assistant-container {
+        left: 16px;
+        bottom: 16px;
+    }
+
+    .next-assistant-button {
+        width: 62px;
+        height: 62px;
+    }
+
+    .next-assistant-photo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .next-assistant-chat {
+        left: 0;
+        bottom: 78px;
+
+        width: calc(100vw - 32px);
+
+        height: min(560px, calc(100vh - 105px));
+
+        border-radius: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .next-assistant-button,
+    .next-assistant-mic {
+        animation: none;
+    }
+
+}
