@@ -16,21 +16,15 @@
     >
 
     <link rel="stylesheet" href="Telainicial.css">
+    <link rel="stylesheet" href="next-assistant.css">
 
-<link rel="stylesheet" href="next-assistant.css">
 </head>
 
 <body>
 
     <main class="pagina-login">
 
-        <!-- =====================================================
-             LADO ESQUERDO
-        ====================================================== -->
-
         <section class="lado-esquerdo">
-
-            <!-- LOGO -->
 
             <div class="logo-principal">
 
@@ -41,14 +35,7 @@
 
             </div>
 
-
-            <!-- =================================================
-                 APRESENTAÇÃO
-            ================================================== -->
-
             <div class="inicio-area">
-
-                <!-- ETIQUETA -->
 
                 <div class="tag">
 
@@ -57,9 +44,6 @@
                     CONECTANDO PESSOAS
 
                 </div>
-
-
-                <!-- TÍTULO -->
 
                 <div class="titulo-inicio">
 
@@ -75,9 +59,6 @@
 
                 </div>
 
-
-                <!-- DESCRIÇÃO -->
-
                 <p class="description">
 
                     Uma plataforma criada para aproximar pessoas,
@@ -85,11 +66,6 @@
                     e inteligente.
 
                 </p>
-
-
-                <!-- =================================================
-                     BOTÕES
-                ================================================== -->
 
                 <div class="buttons">
 
@@ -103,7 +79,6 @@
                         <span>→</span>
 
                     </a>
-
 
                     <a
                         href="saibamais.html"
@@ -121,11 +96,6 @@
         </section>
 
 
-        <!-- =====================================================
-             LADO DIREITO
-             SOMENTE A FOTO
-        ====================================================== -->
-
         <section class="lado-direito">
 
             <img
@@ -138,11 +108,114 @@
 
     </main>
 
-<div id="next-assistant-container"></div>
+
+    <!-- =====================================================
+         NEXT ASSISTANT
+    ====================================================== -->
+
+    <div id="next-assistant-container">
+
+        <button
+            id="nextAssistantButton"
+            class="next-assistant-button"
+            type="button"
+            aria-label="Abrir Next Assistant"
+        >
+
+            <img
+                src="áudio.png"
+                alt="Next Assistant"
+            >
+
+        </button>
 
 
+        <div
+            id="nextAssistantChat"
+            class="next-assistant-chat"
+            aria-hidden="true"
+        >
 
-<script src="next-assistant.js"></script>
+            <div class="next-assistant-header">
+
+                <div class="next-assistant-title">
+
+                    <div class="next-assistant-icon">
+                        🤖
+                    </div>
+
+                    <div>
+
+                        <strong>Next Assistant</strong>
+
+                        <span>
+                            Como posso ajudar?
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    id="nextAssistantClose"
+                    type="button"
+                    aria-label="Fechar Next Assistant"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div
+                id="nextAssistantMessages"
+                class="next-assistant-messages"
+            >
+
+                <div class="next-assistant-message assistant">
+
+                    Olá! Eu sou o Next Assistant.
+                    Como posso ajudar?
+
+                </div>
+
+            </div>
+
+
+            <div class="next-assistant-input-area">
+
+                <input
+                    id="nextAssistantInput"
+                    type="text"
+                    placeholder="Digite sua pergunta..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="nextAssistantSend"
+                    type="button"
+                    aria-label="Enviar pergunta"
+                >
+                    ➤
+                </button>
+
+                <button
+                    id="nextAssistantVoice"
+                    type="button"
+                    aria-label="Falar com o Next Assistant"
+                >
+                    🎙
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="next-assistant.js"></script>
+
 </body>
 
 </html>
