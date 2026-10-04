@@ -1,4 +1,3 @@
-
 <div class="next-assistant-container" id="nextAssistantContainer">
 
     <button
@@ -8,13 +7,14 @@
         aria-label="Abrir Next Assistant"
         aria-expanded="false"
     >
-        <!-- Espaço reservado para a futura imagem do Next Assistant -->
-        <div class="next-assistant-photo">
-            <span>NA</span>
-        </div>
+        <img
+            src="audioo.png"
+            alt=""
+            class="next-assistant-image"
+        >
     </button>
 
-    <!-- Janela do chat -->
+
     <section
         class="next-assistant-chat"
         id="nextAssistantChat"
@@ -26,11 +26,15 @@
             <div class="next-assistant-header-info">
 
                 <div class="next-assistant-mini-photo">
-                    <span>NA</span>
+                    <img
+                        src="audio.png"
+                        alt=""
+                    >
                 </div>
 
                 <div>
                     <h2>Next Assistant</h2>
+
                     <span class="next-assistant-status">
                         <span class="status-dot"></span>
                         Online
@@ -38,6 +42,7 @@
                 </div>
 
             </div>
+
 
             <button
                 type="button"
@@ -50,6 +55,7 @@
 
         </header>
 
+
         <div
             class="next-assistant-messages"
             id="nextAssistantMessages"
@@ -57,38 +63,64 @@
         >
 
             <div class="assistant-message">
+
                 <div class="message-avatar">
-                    NA
+                    <img
+                        src="audio.png"
+                        alt=""
+                    >
                 </div>
 
                 <div class="message-content">
-                    <span class="message-name">Next Assistant</span>
+
+                    <span class="message-name">
+                        Next Assistant
+                    </span>
 
                     <p>
                         Olá! Como posso ajudar você?
                     </p>
+
                 </div>
+
             </div>
 
         </div>
 
+
         <div class="next-assistant-suggestions">
 
-            <button type="button" class="suggestion-button" data-question="Quais vagas estão disponíveis perto de mim?">
+            <button
+                type="button"
+                class="suggestion-button"
+                data-question="Quais vagas estão disponíveis perto de mim?"
+            >
                 Vagas próximas
             </button>
 
-            <button type="button" class="suggestion-button" data-question="Quais profissionais estão perto de mim?">
+            <button
+                type="button"
+                class="suggestion-button"
+                data-question="Quais profissionais estão perto de mim?"
+            >
                 Profissionais próximos
             </button>
 
-            <button type="button" class="suggestion-button" data-question="Tem algum encanador, pintor ou faxineiro disponível?">
+            <button
+                type="button"
+                class="suggestion-button"
+                data-question="Tem algum encanador disponível?"
+            >
                 Serviços disponíveis
             </button>
 
         </div>
 
-        <form class="next-assistant-input-area" id="nextAssistantForm">
+
+        <form
+            class="next-assistant-input-area"
+            id="nextAssistantForm"
+        >
 
             <input
                 type="text"
