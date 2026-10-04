@@ -2009,3 +2009,730 @@ body {
     }
 
 }
+
+/* =========================================================
+   NEXT WORK — CADASTRO
+   BRANCO AZULADO + GLOW PULSANTE
+========================================================= */
+
+:root {
+    --azul-principal: #087cf0;
+    --azul-brilho: #00b8ff;
+    --azul-suave: #eaf8fc;
+    --azul-suave-2: #f4fcff;
+    --texto: #102b4c;
+    --texto-secundario: #526b84;
+}
+
+
+/* =========================================================
+   FUNDO GERAL
+========================================================= */
+
+body {
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            circle at 18% 15%,
+            rgba(0, 184, 255, 0.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 82% 75%,
+            rgba(8, 124, 240, 0.09),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #e8f8fc 0%,
+            #ffffff 48%,
+            #edf9fd 100%
+        );
+}
+
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.pagina-cadastro {
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 184, 255, 0.12),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(8, 124, 240, 0.08),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #e8f8fc,
+            #ffffff,
+            #eaf8fc
+        );
+}
+
+
+/* =========================================================
+   LADO ESQUERDO
+========================================================= */
+
+.lado-esquerdo {
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 190, 255, 0.18),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 75% 70%,
+            rgba(8, 124, 240, 0.09),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #e5f7fc 0%,
+            #f8fdff 48%,
+            #eaf8fc 100%
+        );
+
+    background-image: none;
+}
+
+
+/* remove o véu escuro da versão anterior */
+
+.lado-esquerdo::after {
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(0, 190, 255, 0.08),
+            transparent 48%
+        );
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ETIQUETA
+========================================================= */
+
+.etiqueta {
+
+    color: var(--azul-principal);
+
+    text-shadow:
+        0 0 8px rgba(8, 124, 240, 0.20),
+        0 0 18px rgba(0, 184, 255, 0.12);
+
+    animation: pulsarTexto 3.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   TÍTULO PRINCIPAL
+========================================================= */
+
+.conteudo-esquerdo h1 {
+
+    color: #102b4c;
+
+    text-shadow:
+        0 0 10px rgba(8, 124, 240, 0.08),
+        0 0 25px rgba(0, 184, 255, 0.06);
+
+    animation: pulsarTitulo 4s ease-in-out infinite;
+}
+
+
+.conteudo-esquerdo h1 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #087cf0,
+            #00aeca,
+            #7147e8
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    filter:
+        drop-shadow(0 0 8px rgba(8, 124, 240, 0.18));
+
+    animation: brilhoTitulo 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PARÁGRAFO
+========================================================= */
+
+.conteudo-esquerdo > p {
+
+    color: #526b84;
+
+    text-shadow:
+        0 0 8px rgba(8, 124, 240, 0.05);
+}
+
+
+/* =========================================================
+   CARD COMUNIDADE
+========================================================= */
+
+.card-comunidade {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.92),
+            rgba(241, 251, 255, 0.94)
+        );
+
+    border-color:
+        rgba(8, 124, 240, 0.28);
+
+    box-shadow:
+        0 8px 30px rgba(8, 124, 240, 0.08),
+        0 0 20px rgba(0, 184, 255, 0.07);
+
+    transition:
+        border-color 0.3s,
+        box-shadow 0.3s,
+        transform 0.3s;
+}
+
+
+.card-comunidade:hover {
+
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(8, 124, 240, 0.50);
+
+    box-shadow:
+        0 12px 35px rgba(8, 124, 240, 0.13),
+        0 0 32px rgba(0, 184, 255, 0.14);
+}
+
+
+.linha-card {
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(8, 124, 240, 0.45),
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px rgba(0, 184, 255, 0.20);
+}
+
+
+.texto-card h3 {
+
+    color: #102b4c;
+
+    text-shadow:
+        0 0 8px rgba(8, 124, 240, 0.08);
+}
+
+
+.texto-card p {
+
+    color: #526b84;
+}
+
+
+/* =========================================================
+   LADO DIREITO
+========================================================= */
+
+.lado-direito {
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(8, 124, 240, 0.08),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #eefaff,
+            #ffffff 55%,
+            #eaf8fc
+        );
+}
+
+
+/* =========================================================
+   CONTAINER DO CADASTRO
+   PONTO PRINCIPAL DE DESTAQUE
+========================================================= */
+
+.card-cadastro {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(242, 251, 255, 0.98)
+        );
+
+    border:
+        1px solid
+        rgba(8, 124, 240, 0.38);
+
+    box-shadow:
+        0 0 18px rgba(8, 124, 240, 0.20),
+        0 0 40px rgba(0, 184, 255, 0.16),
+        0 0 80px rgba(8, 124, 240, 0.10),
+        0 20px 70px rgba(8, 124, 240, 0.13);
+
+    animation: glowCadastro 3.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CADASTRO
+========================================================= */
+
+.titulo-secao {
+
+    color: #087cf0;
+
+    text-shadow:
+        0 0 8px rgba(8, 124, 240, 0.22),
+        0 0 18px rgba(0, 184, 255, 0.12);
+
+    animation: pulsarTexto 3s ease-in-out infinite;
+}
+
+
+.cabecalho-cadastro h2 {
+
+    color: #102b4c;
+
+    text-shadow:
+        0 0 10px rgba(8, 124, 240, 0.08);
+
+}
+
+
+.cabecalho-cadastro p {
+
+    color: #526b84;
+
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.grupo-campo label {
+
+    color: #294866;
+
+    transition: color 0.3s;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.campo-input {
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbfe
+        );
+
+    border-color:
+        rgba(8, 124, 240, 0.25);
+
+    box-shadow:
+        inset 0 0 12px rgba(0, 174, 202, 0.025);
+
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
+}
+
+
+.campo-input:hover {
+
+    border-color:
+        rgba(8, 124, 240, 0.40);
+}
+
+
+.campo-input:focus-within {
+
+    background: #ffffff;
+
+    border-color: #087cf0;
+
+    box-shadow:
+        0 0 0 3px rgba(8, 124, 240, 0.07),
+        0 0 18px rgba(8, 124, 240, 0.16),
+        0 0 30px rgba(0, 184, 255, 0.08);
+}
+
+
+.campo-input:focus-within
++ * {
+    color: #087cf0;
+}
+
+
+.icone-campo svg {
+
+    stroke: #087cf0;
+
+    filter:
+        drop-shadow(
+            0 0 4px rgba(8, 124, 240, 0.20)
+        );
+}
+
+
+.campo-input input {
+
+    color: #102b4c;
+}
+
+
+.campo-input input::placeholder {
+
+    color: #8298ad;
+}
+
+
+/* =========================================================
+   BOTÃO OLHO
+========================================================= */
+
+.botao-olho svg {
+
+    stroke: #087cf0;
+
+    filter:
+        drop-shadow(
+            0 0 4px rgba(8, 124, 240, 0.18)
+        );
+}
+
+
+/* =========================================================
+   TERMOS
+========================================================= */
+
+.termos {
+
+    color: #526b84;
+}
+
+
+.checkbox-custom {
+
+    background: #f5fbfe;
+
+    border-color:
+        rgba(8, 124, 240, 0.28);
+
+}
+
+
+.termos input:checked
++ .checkbox-custom {
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cf0,
+            #7147e8
+        );
+
+    box-shadow:
+        0 0 15px rgba(8, 124, 240, 0.22);
+}
+
+
+.termos a {
+
+    color: #087cf0;
+
+    text-shadow:
+        0 0 8px rgba(8, 124, 240, 0.15);
+}
+
+
+/* =========================================================
+   BOTÃO CRIAR
+========================================================= */
+
+.botao-criar {
+
+    background:
+        linear-gradient(
+            100deg,
+            #087cf0,
+            #00aeca 48%,
+            #7147e8
+        );
+
+    box-shadow:
+        0 8px 25px rgba(8, 124, 240, 0.22),
+        0 0 22px rgba(0, 184, 255, 0.12);
+
+}
+
+
+.botao-criar:hover {
+
+    box-shadow:
+        0 12px 30px rgba(8, 124, 240, 0.30),
+        0 0 35px rgba(0, 184, 255, 0.18);
+}
+
+
+/* =========================================================
+   GOOGLE
+========================================================= */
+
+.botao-google {
+
+    color: #294866;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    border-color:
+        rgba(8, 124, 240, 0.24);
+
+}
+
+
+.botao-google:hover {
+
+    color: #102b4c;
+
+    background:
+        rgba(8, 124, 240, 0.05);
+
+    border-color:
+        rgba(8, 124, 240, 0.45);
+
+    box-shadow:
+        0 0 22px rgba(8, 124, 240, 0.10);
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.login-conta p {
+
+    color: #71869c;
+}
+
+
+.login-conta a {
+
+    color: #087cf0;
+
+    text-shadow:
+        0 0 8px rgba(8, 124, 240, 0.12);
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+@keyframes glowCadastro {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 18px rgba(8, 124, 240, 0.20),
+            0 0 40px rgba(0, 184, 255, 0.15),
+            0 0 75px rgba(8, 124, 240, 0.08),
+            0 20px 70px rgba(8, 124, 240, 0.12);
+
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 25px rgba(8, 124, 240, 0.34),
+            0 0 55px rgba(0, 184, 255, 0.25),
+            0 0 100px rgba(8, 124, 240, 0.13),
+            0 20px 75px rgba(8, 124, 240, 0.16);
+
+    }
+}
+
+
+@keyframes pulsarTexto {
+
+    0%,
+    100% {
+
+        text-shadow:
+            0 0 7px rgba(8, 124, 240, 0.15),
+            0 0 15px rgba(0, 184, 255, 0.08);
+
+    }
+
+    50% {
+
+        text-shadow:
+            0 0 10px rgba(8, 124, 240, 0.30),
+            0 0 24px rgba(0, 184, 255, 0.18);
+
+    }
+}
+
+
+@keyframes pulsarTitulo {
+
+    0%,
+    100% {
+
+        text-shadow:
+            0 0 8px rgba(8, 124, 240, 0.06);
+
+    }
+
+    50% {
+
+        text-shadow:
+            0 0 12px rgba(8, 124, 240, 0.16),
+            0 0 28px rgba(0, 184, 255, 0.08);
+
+    }
+}
+
+
+@keyframes brilhoTitulo {
+
+    0%,
+    100% {
+
+        filter:
+            drop-shadow(
+                0 0 6px rgba(8, 124, 240, 0.12)
+            );
+
+    }
+
+    50% {
+
+        filter:
+            drop-shadow(
+                0 0 11px rgba(8, 124, 240, 0.28)
+            );
+
+    }
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .etiqueta,
+    .conteudo-esquerdo h1,
+    .conteudo-esquerdo h1 span,
+    .titulo-secao,
+    .card-cadastro {
+
+        animation: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .pagina-cadastro {
+
+        background:
+            linear-gradient(
+                145deg,
+                #eaf8fc,
+                #ffffff,
+                #edfaff
+            );
+
+    }
+
+    .lado-esquerdo {
+
+        background:
+            radial-gradient(
+                circle at 50% 10%,
+                rgba(0, 184, 255, 0.15),
+                transparent 38%
+            ),
+            linear-gradient(
+                145deg,
+                #e6f8fc,
+                #ffffff
+            );
+
+    }
+
+    .lado-direito {
+
+        background:
+            linear-gradient(
+                145deg,
+                #edfaff,
+                #ffffff
+            );
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .card-cadastro {
+
+        box-shadow:
+            0 0 16px rgba(8, 124, 240, 0.22),
+            0 0 38px rgba(0, 184, 255, 0.16),
+            0 15px 45px rgba(8, 124, 240, 0.12);
+
+    }
+
+}
