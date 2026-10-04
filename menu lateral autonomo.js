@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded",function(){
-    const localMenu=document.getElementById("menu-lateral-autonomo");
+    const localMenu=document.getElementById("menu-lateral")||document.getElementById("menu-lateral-autonomo");
     if(!localMenu)return;
     fetch("menu lateral autonomo.html")
         .then(function(resposta){
@@ -15,15 +15,18 @@ document.addEventListener("DOMContentLoaded",function(){
             console.error("Erro ao carregar o menu lateral do autônomo:",erro);
         });
 });
+
 function marcarPaginaAtual(){
     let paginaAtual=window.location.pathname.split("/").pop();
     if(paginaAtual===""||paginaAtual==="/")paginaAtual="perfil-autonomo.html";
-    const links=document.querySelectorAll(".sidebar-nav a");
-    links.forEach(function(link){
-        const endereco=link.getAttribute("href");
-        if(endereco===paginaAtual)link.classList.add("ativo");
+    document.querySelectorAll(".sidebar-nav a").forEach(function(link){
+        link.classList.remove("ativo");
+        if(link.getAttribute("href")===paginaAtual){
+            link.classList.add("ativo");
+        }
     });
 }
+
 function ativarTrocaDeFoto(){
     const botao=document.getElementById("trocarFoto");
     const input=document.getElementById("inputFoto");
@@ -44,9 +47,8 @@ function ativarTrocaDeFoto(){
         }
         const leitor=new FileReader();
         leitor.onload=function(evento){
-            const imagemBase64=evento.target.result;
-            imagem.src=imagemBase64;
-            localStorage.setItem("nextwork_autonomo_photo",imagemBase64);
+            imagem.src=evento.target.result;
+            localStorage.setItem("nextwork_autonomo_photo",evento.target.result);
         };
         leitor.readAsDataURL(arquivo);
     });
