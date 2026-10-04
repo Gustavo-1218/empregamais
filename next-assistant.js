@@ -1,64 +1,111 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    console.log("Next Assistant iniciado.");
+
+
+    /* =====================================================
+       ELEMENTOS
+    ===================================================== */
+
     const botao = document.getElementById("nextAssistantButton");
     const chat = document.getElementById("nextAssistantChat");
     const fechar = document.getElementById("nextAssistantClose");
 
     const mensagens = document.getElementById("nextAssistantMessages");
     const entrada = document.getElementById("nextAssistantInput");
+
     const enviar = document.getElementById("nextAssistantSend");
     const voz = document.getElementById("nextAssistantVoice");
 
-    if (
-        !botao ||
-        !chat ||
-        !fechar ||
-        !mensagens ||
-        !entrada ||
-        !enviar ||
-        !voz
-    ) {
-        console.error("Next Assistant: algum elemento não foi encontrado.");
+
+    /* =====================================================
+       VERIFICAÇÃO
+    ===================================================== */
+
+    if (!botao) {
+        console.error("Next Assistant: botão não encontrado.");
+        return;
+    }
+
+    if (!chat) {
+        console.error("Next Assistant: chat não encontrado.");
+        return;
+    }
+
+    if (!fechar) {
+        console.error("Next Assistant: botão fechar não encontrado.");
+        return;
+    }
+
+    if (!mensagens) {
+        console.error("Next Assistant: área de mensagens não encontrada.");
+        return;
+    }
+
+    if (!entrada) {
+        console.error("Next Assistant: campo de texto não encontrado.");
+        return;
+    }
+
+    if (!enviar) {
+        console.error("Next Assistant: botão enviar não encontrado.");
+        return;
+    }
+
+    if (!voz) {
+        console.error("Next Assistant: botão de voz não encontrado.");
         return;
     }
 
 
     /* =====================================================
-       ABRIR E FECHAR
+       ABRIR CHAT
     ===================================================== */
 
     botao.addEventListener("click", function () {
 
         chat.classList.add("aberto");
-        chat.setAttribute("aria-hidden", "false");
+
+        chat.setAttribute(
+            "aria-hidden",
+            "false"
+        );
 
         entrada.focus();
 
     });
 
 
+    /* =====================================================
+       FECHAR CHAT
+    ===================================================== */
+
     fechar.addEventListener("click", function () {
 
         chat.classList.remove("aberto");
-        chat.setAttribute("aria-hidden", "true");
+
+        chat.setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
     });
 
 
     /* =====================================================
-       BANCO DE PERGUNTAS
+       RESPOSTAS DO ASSISTENTE
     ===================================================== */
 
     const respostas = [
 
         {
-            palavras: ["vagas", "disponíveis", "perto"],
+            palavras: ["vagas", "disponiveis", "perto"],
             resposta:
                 "Encontrei algumas oportunidades próximas a você, incluindo vagas na área de informática e atendimento. Para ver todas as oportunidades e seus detalhes, acesse a aba Vagas."
         },
 
         {
-            palavras: ["vaga", "informática"],
+            palavras: ["vaga", "informatica"],
             resposta:
                 "Sim. Há oportunidades relacionadas à área de informática disponíveis no momento. Para consultar os requisitos e se candidatar, acesse Vagas."
         },
@@ -72,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             palavras: ["encanador"],
             resposta:
-                "Sim. Há profissionais autônomos que trabalham com serviços de encanamento. Para consultar os profissionais disponíveis, acesse Autônomos."
+                "Sim. Há profissionais autônomos disponíveis para serviços de encanamento. Para encontrar um profissional, acesse Autônomos."
         },
 
         {
@@ -88,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
         {
-            palavras: ["serviço", "profissional"],
+            palavras: ["servico", "profissional"],
             resposta:
                 "Posso ajudar. Existem profissionais autônomos disponíveis em diferentes áreas. Para encontrar o serviço que você precisa, acesse Autônomos."
         },
@@ -118,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
         {
-            palavras: ["cursos", "certificações"],
+            palavras: ["cursos", "certificacoes"],
             resposta:
                 "Seus cursos e certificações ficam registrados no seu perfil profissional. Para consultar todos eles, acesse Cursos e certificações."
         }
@@ -130,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
        NORMALIZAR TEXTO
     ===================================================== */
 
-    function normalizarTexto(texto) {
+    function normalizar(texto) {
 
         return texto
             .toLowerCase()
@@ -146,28 +193,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function encontrarResposta(pergunta) {
 
-        const texto = normalizarTexto(pergunta);
+        const texto = normalizar(pergunta);
 
         let melhorResposta = null;
         let maiorPontuacao = 0;
+
 
         respostas.forEach(function (item) {
 
             let pontuacao = 0;
 
+
             item.palavras.forEach(function (palavra) {
 
-                const palavraNormalizada = normalizarTexto(palavra);
+                if (
+                    texto.includes(
+                        normalizar(palavra)
+                    )
+                ) {
 
-                if (texto.includes(palavraNormalizada)) {
                     pontuacao++;
+
                 }
 
             });
 
+
             if (pontuacao > maiorPontuacao) {
 
                 maiorPontuacao = pontuacao;
+
                 melhorResposta = item.resposta;
 
             }
@@ -176,7 +231,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         if (melhorResposta) {
+
             return melhorResposta;
+
         }
 
 
@@ -191,18 +248,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function adicionarMensagem(texto, tipo) {
 
-        const mensagem = document.createElement("div");
+        const mensagem =
+            document.createElement("div");
+
 
         mensagem.classList.add(
             "next-assistant-message",
             tipo
         );
 
+
         mensagem.textContent = texto;
+
 
         mensagens.appendChild(mensagem);
 
-        mensagens.scrollTop = mensagens.scrollHeight;
+
+        mensagens.scrollTop =
+            mensagens.scrollHeight;
 
     }
 
@@ -213,17 +276,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function falar(texto) {
 
-        if (!("speechSynthesis" in window)) {
+        if (
+            !("speechSynthesis" in window)
+        ) {
+
             return;
+
         }
+
 
         window.speechSynthesis.cancel();
 
-        const fala = new SpeechSynthesisUtterance(texto);
+
+        const fala =
+            new SpeechSynthesisUtterance(texto);
+
 
         fala.lang = "pt-BR";
+
         fala.rate = 1;
+
         fala.pitch = 1;
+
 
         window.speechSynthesis.speak(fala);
 
@@ -236,10 +310,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function processarPergunta() {
 
-        const pergunta = entrada.value.trim();
+        const pergunta =
+            entrada.value.trim();
+
 
         if (!pergunta) {
+
             return;
+
         }
 
 
@@ -254,12 +332,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setTimeout(function () {
 
-            const resposta = encontrarResposta(pergunta);
+            const resposta =
+                encontrarResposta(pergunta);
+
 
             adicionarMensagem(
                 resposta,
                 "assistant"
             );
+
 
             falar(resposta);
 
@@ -269,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       BOTÃO ENVIAR
+       ENVIAR
     ===================================================== */
 
     enviar.addEventListener(
@@ -307,27 +388,34 @@ document.addEventListener("DOMContentLoaded", function () {
         window.webkitSpeechRecognition;
 
 
-    let reconhecimento = null;
-
-
     if (SpeechRecognition) {
 
-        reconhecimento = new SpeechRecognition();
+        const reconhecimento =
+            new SpeechRecognition();
 
-        reconhecimento.lang = "pt-BR";
 
-        reconhecimento.continuous = false;
+        reconhecimento.lang =
+            "pt-BR";
 
-        reconhecimento.interimResults = false;
+
+        reconhecimento.continuous =
+            false;
+
+
+        reconhecimento.interimResults =
+            false;
 
 
         reconhecimento.addEventListener(
             "start",
             function () {
 
-                voz.classList.add("ouvindo");
+                voz.classList.add(
+                    "ouvindo"
+                );
 
-                entrada.placeholder = "Estou ouvindo...";
+                entrada.placeholder =
+                    "Estou ouvindo...";
 
             }
         );
@@ -340,7 +428,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 const resultado =
                     evento.results[0][0].transcript;
 
-                entrada.value = resultado;
+
+                entrada.value =
+                    resultado;
+
 
                 processarPergunta();
 
@@ -352,7 +443,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "end",
             function () {
 
-                voz.classList.remove("ouvindo");
+                voz.classList.remove(
+                    "ouvindo"
+                );
 
                 entrada.placeholder =
                     "Digite sua pergunta...";
@@ -370,7 +463,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     evento.error
                 );
 
-                voz.classList.remove("ouvindo");
+
+                voz.classList.remove(
+                    "ouvindo"
+                );
+
 
                 entrada.placeholder =
                     "Digite sua pergunta...";
@@ -390,13 +487,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 } catch (erro) {
 
                     console.log(
-                        "Reconhecimento já está ativo."
+                        "Reconhecimento já iniciado."
                     );
 
                 }
 
             }
         );
+
 
     } else {
 
@@ -413,5 +511,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    console.log(
+        "Next Assistant funcionando corretamente."
+    );
 
 });
