@@ -1,1273 +1,724 @@
-/* =========================================================
-   NEXT WORK — PERFIL AUTÔNOMO
-========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-*{
-    box-sizing:border-box;
+:root {
+    --fundo: #eefaff;
+    --fundo-secundario: #f7fcff;
+    --branco: #ffffff;
+    --area-clara: #f4fbff;
+
+    --azul: #087cf0;
+    --ciano: #00aeca;
+    --roxo: #7147e8;
+
+    --texto: #102b4c;
+    --texto-secundario: #526b84;
+    --texto-terciario: #71869c;
+
+    --borda: #c9e1ed;
+    --borda-hover: #8fc9df;
+
+    --escuro: #071225;
+    --escuro-card: #0b172b;
+    --escuro-card-2: #101f38;
+
+    --texto-escuro: #edf8ff;
+    --texto-escuro-secundario: #a8c2d6;
+    --texto-escuro-terciario: #7693aa;
 }
 
 
-/* =========================================================
-   CONTEÚDO PRINCIPAL
-========================================================= */
+/* =========================
+   BASE
+========================= */
 
-.main-content{
-    flex:1;
-    min-width:0;
-    padding:32px 38px 50px;
+html {
+    scroll-behavior: smooth;
+}
 
-    background:
-        radial-gradient(
-            circle at 80% 0%,
-            rgba(0,174,255,.045),
-            transparent 30%
-        ),
-        var(--nw-fundo);
+body {
+    min-height: 100vh;
+
+    background: var(--fundo);
+
+    color: var(--texto);
+
+    font-family: "Poppins", sans-serif;
+
+    overflow-x: hidden;
 }
 
 
-/* =========================================================
-   CABEÇALHO DO PERFIL
-========================================================= */
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
 
-.profile-header{
-    width:100%;
-    min-height:150px;
+.pagina-perfil {
+    width: min(1120px, 92%);
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    margin: 0 auto;
 
-    gap:30px;
-
-    padding:27px 30px;
-    margin-bottom:22px;
-
-    background:var(--nw-superficie);
-
-    border:1px solid var(--nw-borda);
-    border-radius:18px;
-
-    box-shadow:var(--nw-sombra);
-}
-
-.profile-header-info{
-    min-width:0;
-
-    display:flex;
-    align-items:center;
-
-    gap:21px;
+    padding: 38px 0 65px;
 }
 
 
-/* =========================================================
-   FOTO PRINCIPAL
-========================================================= */
+/* =========================
+   BOTÃO VOLTAR
+========================= */
 
-.profile-main-photo{
-    position:relative;
+.voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 
-    width:105px;
-    min-width:105px;
-    height:105px;
-}
+    margin-bottom: 25px;
+    padding: 8px 12px;
 
-.profile-main-photo img{
-    width:100%;
-    height:100%;
+    color: var(--azul);
 
-    display:block;
+    text-decoration: none;
 
-    object-fit:cover;
+    font-size: 13px;
+    font-weight: 500;
 
-    border-radius:50%;
-
-    border:4px solid var(--nw-superficie);
-    outline:2px solid var(--nw-borda-hover);
-
-    box-shadow:
-        0 8px 25px rgba(20,90,130,.14);
-}
-
-.verified-badge{
-    position:absolute;
-
-    right:-3px;
-    bottom:3px;
-
-    width:28px;
-    height:28px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#087cf0;
-
-    border:3px solid var(--nw-superficie);
-
-    color:#fff;
-
-    font-size:11px;
-
-    box-shadow:
-        0 4px 12px rgba(8,124,240,.3);
-}
-
-
-/* =========================================================
-   IDENTIDADE
-========================================================= */
-
-.profile-identity{
-    min-width:0;
-}
-
-.profile-name-line{
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;
-
-    gap:10px;
-}
-
-.profile-name-line h1{
-    margin:0;
-
-    color:var(--nw-texto);
-
-    font-size:28px;
-    line-height:1.15;
-
-    font-weight:700;
-}
-
-.verified-text{
-    padding:4px 9px;
-
-    border-radius:20px;
-
-    background:rgba(8,124,240,.08);
-
-    color:var(--nw-azul);
-
-    font-size:10px;
-    font-weight:700;
-}
-
-.profile-profession{
-    margin-top:6px;
-
-    color:var(--nw-texto-2);
-
-    font-size:15px;
-    font-weight:500;
-}
-
-.profile-meta{
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;
-
-    gap:16px;
-
-    margin-top:12px;
-
-    color:var(--nw-texto-3);
-
-    font-size:12px;
-}
-
-.profile-meta span{
-    display:flex;
-    align-items:center;
-
-    gap:5px;
-}
-
-.profile-meta i{
-    color:var(--nw-azul);
-}
-
-.profile-meta span:nth-child(2) i{
-    color:#e8a400;
-}
-
-
-/* =========================================================
-   BOTÃO SOLICITAR
-========================================================= */
-
-.btn-solicitar{
-    flex-shrink:0;
-
-    min-height:50px;
-
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:9px;
-
-    padding:0 23px;
-
-    border:0;
-    border-radius:10px;
-
-    background:
-        linear-gradient(
-            100deg,
-            #0aa7e8,
-            #168cf3 50%,
-            #7427e8
-        );
-
-    color:#fff;
-
-    font-family:inherit;
-
-    font-size:13px;
-    font-weight:700;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 8px 20px rgba(43,118,229,.2);
+    border-radius: 9px;
 
     transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
-.btn-solicitar:hover{
-    transform:translateY(-2px);
+.voltar:hover {
+    color: var(--roxo);
+
+    background: rgba(8, 124, 240, 0.06);
+
+    transform: translateX(-3px);
+}
+
+
+/* =========================
+   TOPO DO PERFIL
+========================= */
+
+.perfil-topo {
+    display: grid;
+
+    grid-template-columns: 140px minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    gap: 28px;
+
+    padding: 30px;
+
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 22px;
 
     box-shadow:
-        0 11px 25px rgba(76,91,224,.27);
+        0 10px 35px rgba(20, 80, 120, 0.10);
 }
 
 
-/* =========================================================
-   ESTRUTURA PRINCIPAL
-========================================================= */
+/* =========================
+   FOTO
+========================= */
 
-.profile-grid{
-    width:100%;
+.foto-perfil {
+    width: 135px;
+    height: 135px;
 
-    display:grid;
+    padding: 3px;
 
-    grid-template-columns:
-        minmax(0,1fr)
-        310px;
-
-    gap:22px;
-
-    align-items:start;
-}
-
-.profile-main{
-    min-width:0;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:20px;
-}
-
-
-/* =========================================================
-   CARDS
-========================================================= */
-
-.content-card,
-.side-card{
-    background:var(--nw-superficie);
-
-    border:1px solid var(--nw-borda);
-    border-radius:15px;
-
-    box-shadow:
-        0 7px 25px rgba(20,80,120,.055);
-}
-
-.content-card{
-    padding:25px 27px;
-}
-
-
-/* =========================================================
-   TÍTULOS DAS SEÇÕES
-========================================================= */
-
-.section-heading{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:20px;
-
-    margin-bottom:18px;
-}
-
-.section-label{
-    display:block;
-
-    margin-bottom:4px;
-
-    color:var(--nw-azul);
-
-    font-size:9px;
-    font-weight:700;
-
-    letter-spacing:1.4px;
-}
-
-.section-heading h2{
-    margin:0;
-
-    color:var(--nw-texto);
-
-    font-size:19px;
-    font-weight:700;
-}
-
-.section-link{
-    color:var(--nw-azul);
-
-    font-size:11px;
-    font-weight:600;
-
-    text-decoration:none;
-
-    white-space:nowrap;
-}
-
-.section-link:hover{
-    color:var(--nw-roxo);
-}
-
-
-/* =========================================================
-   SOBRE
-========================================================= */
-
-.about-text{
-    max-width:850px;
-
-    color:var(--nw-texto-2);
-
-    font-size:14px;
-
-    line-height:1.75;
-}
-
-
-/* =========================================================
-   CONFIANÇA
-========================================================= */
-
-.trust-items{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:12px;
-
-    margin-top:22px;
-    padding-top:20px;
-
-    border-top:1px solid var(--nw-borda);
-}
-
-.trust-item{
-    display:flex;
-    align-items:center;
-
-    gap:10px;
-
-    min-width:0;
-}
-
-.trust-icon{
-    width:36px;
-    min-width:36px;
-    height:36px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:9px;
-
-    background:rgba(8,124,240,.08);
-
-    color:var(--nw-azul);
-
-    font-size:14px;
-}
-
-.trust-item div{
-    min-width:0;
-}
-
-.trust-item strong{
-    display:block;
-
-    color:var(--nw-texto);
-
-    font-size:11px;
-
-    line-height:1.3;
-}
-
-.trust-item small{
-    display:block;
-
-    margin-top:2px;
-
-    color:var(--nw-texto-3);
-
-    font-size:9px;
-
-    line-height:1.3;
-}
-
-
-/* =========================================================
-   SERVIÇOS
-========================================================= */
-
-.services-list{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:12px;
-}
-
-.service-card{
-    min-width:0;
-
-    padding:17px;
-
-    border:1px solid var(--nw-borda);
-    border-radius:11px;
-
-    background:var(--nw-superficie-2);
-
-    transition:
-        border-color .2s ease,
-        transform .2s ease;
-}
-
-.service-card:hover{
-    transform:translateY(-2px);
-
-    border-color:var(--nw-borda-hover);
-}
-
-.service-icon{
-    width:38px;
-    height:38px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    margin-bottom:12px;
-
-    border-radius:9px;
-
-    background:rgba(8,124,240,.09);
-
-    color:var(--nw-azul);
-
-    font-size:15px;
-}
-
-.service-info{
-    min-width:0;
-}
-
-.service-info h3{
-    margin:0;
-
-    color:var(--nw-texto);
-
-    font-size:12px;
-
-    line-height:1.4;
-
-    font-weight:700;
-}
-
-.service-info p{
-    margin-top:7px;
-
-    min-height:42px;
-
-    color:var(--nw-texto-3);
-
-    font-size:10px;
-
-    line-height:1.55;
-}
-
-.service-info strong{
-    display:block;
-
-    margin-top:10px;
-
-    color:var(--nw-texto);
-
-    font-size:11px;
-}
-
-
-/* =========================================================
-   PORTFÓLIO
-========================================================= */
-
-.portfolio-preview{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:12px;
-}
-
-.portfolio-placeholder{
-    min-height:105px;
-
-    display:flex;
-    flex-direction:column;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:9px;
-
-    border:1px dashed var(--nw-borda-hover);
-
-    border-radius:11px;
-
-    background:var(--nw-superficie-2);
-
-    color:var(--nw-texto-3);
-
-    font-size:10px;
-
-    text-align:center;
-}
-
-.portfolio-placeholder i{
-    color:var(--nw-azul);
-
-    font-size:20px;
-}
-
-
-/* =========================================================
-   LATERAL DO PERFIL
-========================================================= */
-
-.profile-side{
-    min-width:0;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:18px;
-}
-
-.side-card{
-    padding:21px;
-}
-
-.side-title{
-    margin-bottom:17px;
-
-    color:var(--nw-texto);
-
-    font-size:14px;
-    font-weight:700;
-}
-
-
-/* =========================================================
-   AVALIAÇÕES
-========================================================= */
-
-.rating-main{
-    display:flex;
-    align-items:center;
-
-    gap:13px;
-
-    padding-bottom:17px;
-
-    border-bottom:1px solid var(--nw-borda);
-}
-
-.rating-main>strong{
-    color:var(--nw-texto);
-
-    font-size:34px;
-    line-height:1;
-
-    font-weight:700;
-}
-
-.stars{
-    color:#e8a400;
-
-    font-size:13px;
-
-    letter-spacing:1px;
-}
-
-.rating-main span{
-    display:block;
-
-    margin-top:3px;
-
-    color:var(--nw-texto-3);
-
-    font-size:10px;
-}
-
-.rating-bar{
-    display:grid;
-
-    grid-template-columns:
-        12px
-        1fr
-        28px;
-
-    align-items:center;
-
-    gap:7px;
-
-    margin-top:10px;
-
-    color:var(--nw-texto-3);
-
-    font-size:9px;
-}
-
-.rating-bar>div{
-    height:5px;
-
-    overflow:hidden;
-
-    border-radius:10px;
-
-    background:var(--nw-borda);
-}
-
-.rating-bar>div span{
-    display:block;
-
-    height:100%;
-
-    border-radius:inherit;
-
-    background:#087cf0;
-}
-
-
-/* =========================================================
-   CONTATO
-========================================================= */
-
-.contact-list{
-    display:flex;
-    flex-direction:column;
-
-    gap:17px;
-}
-
-.contact-item{
-    display:flex;
-    align-items:center;
-
-    gap:11px;
-}
-
-.contact-item>span{
-    width:35px;
-    min-width:35px;
-    height:35px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:8px;
-
-    background:rgba(8,124,240,.08);
-
-    color:var(--nw-azul);
-
-    font-size:13px;
-}
-
-.contact-item small{
-    display:block;
-
-    margin-bottom:2px;
-
-    color:var(--nw-texto-3);
-
-    font-size:9px;
-}
-
-.contact-item strong{
-    display:block;
-
-    color:var(--nw-texto);
-
-    font-size:11px;
-    font-weight:600;
-
-    overflow-wrap:anywhere;
-}
-
-
-/* =========================================================
-   CARD DE CONFIANÇA
-========================================================= */
-
-.trust-card{
-    display:flex;
-    align-items:flex-start;
-
-    gap:12px;
+    border-radius: 50%;
 
     background:
         linear-gradient(
             135deg,
-            rgba(8,124,240,.07),
-            rgba(113,71,232,.035)
+            var(--ciano),
+            var(--azul),
+            var(--roxo)
         );
 }
 
-.trust-card-icon{
-    width:39px;
-    min-width:39px;
-    height:39px;
+.foto-perfil img {
+    display: block;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    width: 100%;
+    height: 100%;
 
-    border-radius:10px;
+    border-radius: 50%;
 
-    background:rgba(8,124,240,.1);
+    object-fit: cover;
 
-    color:var(--nw-azul);
-}
-
-.trust-card h3{
-    margin:0;
-
-    color:var(--nw-texto);
-
-    font-size:12px;
-}
-
-.trust-card p{
-    margin-top:5px;
-
-    color:var(--nw-texto-3);
-
-    font-size:10px;
-
-    line-height:1.55;
+    background: #dceefa;
 }
 
 
-/* =========================================================
-   MENSAGEM
-========================================================= */
+/* =========================
+   DADOS
+========================= */
 
-.profile-message{
-    position:fixed;
+.disponivel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 
-    left:50%;
-    bottom:25px;
+    color: #16875b;
 
-    transform:
-        translateX(-50%)
-        translateY(20px);
+    font-size: 12px;
+    font-weight: 500;
+}
 
-    padding:11px 17px;
+.dados-principais h1 {
+    margin-top: 5px;
 
-    border-radius:9px;
+    color: var(--texto);
 
-    background:#102b4c;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+}
 
-    color:#fff;
+.dados-principais h2 {
+    margin-top: 4px;
 
-    font-size:12px;
+    color: var(--azul);
 
-    opacity:0;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+}
 
-    pointer-events:none;
+.localizacao {
+    margin-top: 10px;
+
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+}
+
+.descricao {
+    max-width: 650px;
+
+    margin-top: 11px;
+
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   AVALIAÇÃO
+========================= */
+
+.avaliacao {
+    min-width: 110px;
+
+    padding: 13px 16px;
+
+    text-align: center;
+
+    background: var(--area-clara);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 14px;
+
+    transition: 0.25s ease;
+}
+
+.avaliacao:hover {
+    border-color: var(--borda-hover);
+
+    transform: translateY(-2px);
+}
+
+.avaliacao span {
+    color: #f2b51d;
+
+    font-size: 18px;
+}
+
+.avaliacao strong {
+    margin-left: 3px;
+
+    color: var(--texto);
+
+    font-size: 17px;
+}
+
+.avaliacao small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--texto-terciario);
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.informacoes {
+    display: grid;
+
+    grid-template-columns: 300px minmax(0, 1fr);
+
+    gap: 22px;
+
+    margin-top: 22px;
+}
+
+
+/* =========================
+   BLOCO ESCURO
+========================= */
+
+.informacoes-laterais {
+    padding: 22px;
+
+    background: var(--escuro);
+
+    border: 1px solid #193554;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(10, 40, 70, 0.12);
+}
+
+.info-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid rgba(150, 190, 220, 0.12);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-icone {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    color: #35a4ff;
+
+    background: rgba(35, 153, 255, 0.10);
+
+    border: 1px solid rgba(35, 153, 255, 0.13);
+
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+.info-item small {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--texto-escuro-terciario);
+
+    font-size: 10px;
+}
+
+.info-item strong {
+    display: block;
+
+    color: var(--texto-escuro);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   ÁREA DE SERVIÇOS
+========================= */
+
+.servicos-area {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    gap: 14px;
+}
+
+.servicos-card {
+    padding: 25px;
+
+    background: var(--escuro-card);
+
+    border: 1px solid #193554;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(10, 40, 70, 0.12);
+}
+
+.servicos-card h3 {
+    margin-bottom: 15px;
+
+    color: var(--texto-escuro);
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.servicos-card ul {
+    list-style: none;
+}
+
+.servicos-card li {
+    position: relative;
+
+    padding: 8px 0 8px 25px;
+
+    color: var(--texto-escuro-secundario);
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.servicos-card li::before {
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+    top: 8px;
+
+    color: #35a4ff;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.acoes-perfil {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+/* Os dois links passam a ter exatamente
+   o mesmo tamanho e alinhamento */
+
+.btn-chat,
+.btn-contratar {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+
+    padding: 12px 16px;
+
+    border-radius: 12px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
 
     transition:
-        opacity .25s ease,
-        transform .25s ease;
-
-    z-index:100;
-}
-
-.profile-message.mostrar{
-    opacity:1;
-
-    transform:
-        translateX(-50%)
-        translateY(0);
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
 }
 
 
-/* =========================================================
-   ESTRUTURA — DESKTOP
-========================================================= */
+/* CHAT */
 
-.page-layout{
-    width:100%;
+.btn-chat {
+    color: #65baff;
 
-    min-height:calc(100vh - 76px);
+    background: var(--escuro-card);
 
-    display:flex;
-
-    flex-direction:row;
-
-    align-items:stretch;
+    border: 1px solid #315371;
 }
 
-#menu-lateral-autonomo{
-    width:250px;
-    min-width:250px;
+.btn-chat:hover {
+    color: #edf8ff;
 
-    flex:0 0 250px;
-}
+    background: #101f38;
 
-.main-content{
-    flex:1;
+    border-color: #4d7698;
 
-    min-width:0;
+    transform: translateY(-2px);
 
-    width:auto;
+    box-shadow:
+        0 7px 18px rgba(10, 40, 70, 0.16);
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* CONTRATAR */
 
-@media(max-width:1100px){
+.btn-contratar {
+    color: #ffffff;
 
-    .main-content{
-        padding:28px 25px 45px;
-    }
+    background:
+        linear-gradient(
+            100deg,
+            #087cf0,
+            #7147e8
+        );
 
-    .profile-grid{
-        grid-template-columns:
-            minmax(0,1fr)
-            280px;
-    }
+    border: 1px solid transparent;
+}
 
-    .services-list{
-        grid-template-columns:1fr;
-    }
+.btn-contratar:hover {
+    color: #ffffff;
 
-    .service-card{
-        display:flex;
-        align-items:flex-start;
+    transform: translateY(-2px);
 
-        gap:13px;
-    }
+    box-shadow:
+        0 8px 20px rgba(52, 115, 220, 0.25);
+}
 
-    .service-icon{
-        margin:0;
-    }
-
-    .service-info{
-        min-width:0;
-    }
-
-    .service-info p{
-        min-height:0;
-    }
+.btn-contratar:active,
+.btn-chat:active {
+    transform: translateY(0);
 }
 
 
-/* =========================================================
-   TABLET PEQUENO
-   MENU PASSA PARA CIMA
-========================================================= */
+/* QUANDO JÁ FOI CONTRATADO */
 
-@media(max-width:800px){
+.btn-contratar.contratado {
+    color: #15825a;
 
-    .page-layout{
-        width:100%;
+    background: #dff6ec;
 
-        display:flex;
+    border-color: #b9e5d0;
 
-        flex-direction:column;
+    cursor: default;
 
-        min-height:auto;
-    }
+    box-shadow: none;
+}
 
-    #menu-lateral-autonomo{
-        width:100%;
-        min-width:0;
+.btn-contratar.contratado:hover {
+    transform: none;
 
-        flex:none;
-
-        min-height:auto;
-    }
-
-    .main-content{
-        width:100%;
-
-        flex:none;
-
-        min-width:0;
-
-        padding:25px 18px 40px;
-    }
-
-    .profile-grid{
-        grid-template-columns:1fr;
-    }
-
-    .profile-side{
-        display:flex;
-
-        flex-direction:column;
-
-        gap:18px;
-    }
-
-    .trust-card{
-        grid-column:auto;
-    }
+    box-shadow: none;
 }
 
 
-/* =========================================================
-   CELULAR
-========================================================= */
+/* =========================
+   MODO ESCURO
+========================= */
 
-@media(max-width:700px){
+html[data-tema="escuro"] body {
+    background: #020713;
 
-    .main-content{
-        padding:20px 16px 35px;
+    color: #edf8ff;
+}
+
+html[data-tema="escuro"] .perfil-topo {
+    background: #071225;
+
+    border-color: #183454;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.20);
+}
+
+html[data-tema="escuro"] .dados-principais h1 {
+    color: #edf8ff;
+}
+
+html[data-tema="escuro"] .descricao,
+html[data-tema="escuro"] .localizacao {
+    color: #a8c2d6;
+}
+
+html[data-tema="escuro"] .avaliacao {
+    background: #101f38;
+
+    border-color: #254767;
+}
+
+html[data-tema="escuro"] .avaliacao strong {
+    color: #edf8ff;
+}
+
+html[data-tema="escuro"] .btn-chat {
+    background: #101f38;
+
+    border-color: #254767;
+
+    color: #8bc9ff;
+}
+
+html[data-tema="escuro"] .btn-chat:hover {
+    background: #142743;
+
+    border-color: #3d6688;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+
+    .perfil-topo {
+        grid-template-columns: 120px minmax(0, 1fr);
+
+        gap: 22px;
     }
 
-    .profile-header{
-        flex-direction:column;
-
-        align-items:stretch;
-
-        padding:21px;
-
-        gap:20px;
+    .foto-perfil {
+        width: 115px;
+        height: 115px;
     }
 
-    .profile-header-info{
-        align-items:flex-start;
+    .avaliacao {
+        grid-column: 2;
 
-        gap:15px;
+        justify-self: start;
     }
 
-    .profile-main-photo{
-        width:82px;
-        min-width:82px;
-        height:82px;
+    .informacoes {
+        grid-template-columns: 1fr;
     }
 
-    .profile-name-line h1{
-        font-size:22px;
+    .informacoes-laterais {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 10px;
     }
 
-    .profile-profession{
-        font-size:13px;
-    }
+    .info-item {
+        border-bottom: none;
 
-    .profile-meta{
-        gap:9px;
-
-        font-size:10px;
-    }
-
-    .btn-solicitar{
-        width:100%;
-
-        min-height:48px;
-    }
-
-    .content-card{
-        padding:21px 18px;
-    }
-
-    .section-heading{
-        align-items:flex-start;
-    }
-
-    .trust-items{
-        grid-template-columns:1fr;
-    }
-
-    .portfolio-preview{
-        grid-template-columns:1fr;
-    }
-
-    .portfolio-placeholder{
-        min-height:75px;
-    }
-
-    .profile-side{
-        display:flex;
-
-        flex-direction:column;
-
-        gap:15px;
+        padding: 12px 5px;
     }
 }
 
 
-/* =========================================================
-   CELULAR PEQUENO
-========================================================= */
+@media (max-width: 650px) {
 
-@media(max-width:500px){
+    .pagina-perfil {
+        width: 94%;
 
-    .page-layout{
-        display:flex;
-
-        flex-direction:column;
-
-        width:100%;
+        padding: 25px 0 45px;
     }
 
-    #menu-lateral-autonomo{
-        width:100%;
-        min-width:0;
+    .perfil-topo {
+        grid-template-columns: 1fr;
 
-        min-height:auto;
+        padding: 25px 20px;
 
-        flex:none;
+        text-align: center;
     }
 
-    .main-content{
-        width:100%;
+    .foto-perfil {
+        width: 115px;
+        height: 115px;
 
-        padding:20px 12px 32px;
+        margin: 0 auto;
     }
 
-    .profile-header{
-        padding:18px 15px;
+    .avaliacao {
+        grid-column: auto;
+
+        justify-self: center;
     }
 
-    .profile-header-info{
-        flex-direction:column;
-
-        align-items:center;
-
-        text-align:center;
+    .dados-principais h1 {
+        font-size: 25px;
     }
 
-    .profile-name-line{
-        justify-content:center;
+    .dados-principais h2 {
+        font-size: 15px;
     }
 
-    .profile-name-line h1{
-        font-size:20px;
+    .descricao {
+        font-size: 12px;
     }
 
-    .profile-profession{
-        font-size:12px;
+    .informacoes-laterais {
+        display: block;
+
+        padding: 18px;
     }
 
-    .profile-meta{
-        justify-content:center;
+    .info-item {
+        padding: 15px 0;
 
-        gap:7px;
+        border-bottom: 1px solid rgba(150, 190, 220, 0.12);
     }
 
-    .verified-text{
-        font-size:9px;
-    }
-
-    .profile-main-photo{
-        width:76px;
-        min-width:76px;
-        height:76px;
-    }
-
-    .verified-badge{
-        width:25px;
-        height:25px;
-
-        font-size:10px;
-    }
-
-    .content-card{
-        padding:18px 15px;
-    }
-
-    .section-heading{
-        flex-direction:column;
-
-        gap:8px;
-    }
-
-    .section-heading h2{
-        font-size:17px;
-    }
-
-    .section-link{
-        font-size:10px;
-    }
-
-    .about-text{
-        font-size:12px;
-
-        line-height:1.7;
-    }
-
-    .trust-item{
-        align-items:flex-start;
-    }
-
-    .services-list{
-        grid-template-columns:1fr;
-    }
-
-    .service-card{
-        padding:14px;
-    }
-
-    .service-info h3{
-        font-size:12px;
-    }
-
-    .service-info p{
-        font-size:10px;
-    }
-
-    .portfolio-preview{
-        grid-template-columns:1fr;
-    }
-
-    .profile-side{
-        display:flex;
-
-        flex-direction:column;
-
-        gap:12px;
-    }
-
-    .side-card{
-        padding:17px;
-    }
-
-    .profile-message{
-        left:12px;
-        right:12px;
-
-        width:auto;
-
-        text-align:center;
-
-        transform:translateY(20px);
-    }
-
-    .profile-message.mostrar{
-        transform:translateY(0);
+    .servicos-card {
+        padding: 20px;
     }
 }
 
 
-/* =========================================================
-   CELULAR MUITO PEQUENO
-========================================================= */
+@media (max-width: 430px) {
 
-@media(max-width:360px){
-
-    .main-content{
-        padding:16px 10px 30px;
+    .acoes-perfil {
+        grid-template-columns: 1fr;
     }
 
-    .profile-header{
-        padding:16px 12px;
+    .btn-chat,
+    .btn-contratar {
+        min-height: 46px;
     }
 
-    .profile-name-line h1{
-        font-size:18px;
-    }
-
-    .profile-profession{
-        font-size:11px;
-    }
-
-    .profile-meta{
-        font-size:9px;
-
-        gap:5px;
-    }
-
-    .profile-main-photo{
-        width:68px;
-        min-width:68px;
-        height:68px;
-    }
-
-    .content-card{
-        padding:16px 12px;
-    }
-
-    .trust-icon{
-        width:32px;
-        min-width:32px;
-        height:32px;
-    }
-
-    .service-card{
-        gap:10px;
-    }
-
-    .service-icon{
-        width:34px;
-        min-width:34px;
-        height:34px;
-    }
-
-    .side-card{
-        padding:14px;
-    }
-}
-
-
-/* =========================================================
-   REDUÇÃO DE MOVIMENTO
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        transition:none!important;
+    .voltar {
+        margin-bottom: 18px;
     }
 }

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pagamento - Next Work</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="pagamento.css">
+
+</head>
+
+
+<body>
+
+    <main class="pagina-pagamento">
+
+        <div class="pagamento-card">
+
+            <a
+                href="#"
+                id="voltarPerfil"
+                class="voltar-pagamento"
+            >
+                ← Voltar para o perfil
+            </a>
+
+
+            <span class="etiqueta">
+                CONTRATAÇÃO
+            </span>
+
+
+            <h1>
+                Finalizar contratação
+            </h1>
+
+
+            <p class="descricao-pagamento">
+                Confira os dados do profissional e escolha uma forma
+                de pagamento para continuar.
+            </p>
+
+
+            <div class="profissional-resumo">
+
+                <div class="foto-resumo">
+
+                    <img
+                        id="fotoProfissional"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <strong id="nomeProfissional">
+                        Profissional
+                    </strong>
+
+                    <span id="profissaoProfissional">
+                        Serviço
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="pagamento-conteudo">
+
+                <h2>
+                    Forma de pagamento
+                </h2>
+
+
+                <div class="metodos">
+
+                    <button
+                        class="metodo"
+                        data-metodo="Pix"
+                    >
+
+                        <span class="metodo-icone">
+                            ▣
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Pix
+                            </strong>
+
+                            <small>
+                                Pagamento instantâneo
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="metodo"
+                        data-metodo="Cartão"
+                    >
+
+                        <span class="metodo-icone">
+                            ▤
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Cartão
+                            </strong>
+
+                            <small>
+                                Crédito ou débito
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="metodo"
+                        data-metodo="Boleto"
+                    >
+
+                        <span class="metodo-icone">
+                            ▥
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Boleto
+                            </strong>
+
+                            <small>
+                                Pagamento por boleto
+                            </small>
+
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    class="btn-pagar"
+                    id="btnPagar"
+                    disabled
+                >
+                    Continuar com o pagamento
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <div
+        class="notificacao"
+        id="notificacao"
+    >
+
+        <div class="notificacao-icone">
+            ✓
+        </div>
+
+
+        <div>
+
+            <strong id="tituloNotificacao">
+                Pagamento realizado!
+            </strong>
+
+            <p id="textoNotificacao">
+                O pagamento foi processado com sucesso.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="pagamento.js"></script>
+
+</body>
+
+</html>
