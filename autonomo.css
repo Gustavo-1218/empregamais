@@ -1527,3 +1527,23 @@
         transition: none !important;
     }
 }
+
+/* =========================================================
+   FONTE PADRÃO — NEXT WORK
+   ========================================================= */
+
+.pagina-autonomos,
+.pagina-autonomos h1,
+.pagina-autonomos h2,
+.pagina-autonomos h3,
+.pagina-autonomos h4,
+.pagina-autonomos h5,
+.pagina-autonomos h6,
+.pagina-autonomos p,
+.pagina-autonomos span,
+.pagina-autonomos a,
+.pagina-autonomos button,
+.pagina-autonomos input,
+.pagina-autonomos label {
+    font-family: "Poppins", sans-serif;
+}
