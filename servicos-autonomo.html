@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Serviços - Next Work</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="menu lateral autonomo.css">
+    <link rel="stylesheet" href="servicos-autonomo.css">
+</head>
+
+<body>
+
+    <!-- MENU PRINCIPAL DO SITE -->
+    <div id="menu"></div>
+
+    <!-- ESTRUTURA DA PÁGINA -->
+    <div class="page-layout">
+
+        <!-- MENU LATERAL DO AUTÔNOMO -->
+        <div id="menu-lateral-autonomo"></div>
+
+        <!-- CONTEÚDO -->
+        <main class="main-content">
+
+            <div class="pagina-topo">
+
+                <div>
+                    <span class="etiqueta">ÁREA DO AUTÔNOMO</span>
+
+                    <h1>Meus serviços</h1>
+
+                    <p>
+                        Gerencie os serviços que você oferece
+                        e mantenha suas informações atualizadas.
+                    </p>
+                </div>
+
+                <button class="btn-adicionar" id="abrirServico">
+                    <span>+</span>
+                    Adicionar serviço
+                </button>
+
+            </div>
+
+
+            <!-- RESUMO -->
+            <section class="resumo">
+
+                <div class="resumo-card">
+                    <div class="resumo-icone">▣</div>
+
+                    <div>
+                        <strong id="totalServicos">3</strong>
+                        <span>Serviços ativos</span>
+                    </div>
+                </div>
+
+                <div class="resumo-card">
+                    <div class="resumo-icone">★</div>
+
+                    <div>
+                        <strong>4.8</strong>
+                        <span>Avaliação média</span>
+                    </div>
+                </div>
+
+                <div class="resumo-card">
+                    <div class="resumo-icone">✓</div>
+
+                    <div>
+                        <strong>24</strong>
+                        <span>Trabalhos realizados</span>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- MEUS SERVIÇOS -->
+            <section class="secao-servicos">
+
+                <div class="titulo-secao">
+                    <div>
+                        <h2>Serviços publicados</h2>
+                        <p>Esses serviços podem ser encontrados pelos clientes.</p>
+                    </div>
+                </div>
+
+
+                <div class="servicos-grid" id="listaServicos">
+
+                    <!-- SERVIÇO 1 -->
+                    <article class="servico-card">
+
+                        <div class="servico-cabecalho">
+
+                            <div class="servico-icone">
+                                🔧
+                            </div>
+
+                            <button
+                                class="btn-opcoes"
+                                data-id="1"
+                                aria-label="Opções do serviço"
+                            >
+                                ⋮
+                            </button>
+
+                        </div>
+
+                        <div class="servico-conteudo">
+
+                            <span class="categoria">
+                                Encanamento
+                            </span>
+
+                            <h3>Manutenção hidráulica</h3>
+
+                            <p>
+                                Conserto de vazamentos, torneiras,
+                                chuveiros e pequenos reparos hidráulicos.
+                            </p>
+
+                            <div class="servico-info">
+                                <span>📍 Natal, RN</span>
+                                <span>R$ 80/h</span>
+                            </div>
+
+                        </div>
+
+                        <div class="servico-rodape">
+                            <span class="status ativo">
+                                ● Ativo
+                            </span>
+
+                            <button
+                                class="btn-editar"
+                                data-id="1"
+                            >
+                                Editar
+                            </button>
+                        </div>
+
+                    </article>
+
+
+                    <!-- SERVIÇO 2 -->
+                    <article class="servico-card">
+
+                        <div class="servico-cabecalho">
+
+                            <div class="servico-icone">
+                                🚿
+                            </div>
+
+                            <button
+                                class="btn-opcoes"
+                                data-id="2"
+                                aria-label="Opções do serviço"
+                            >
+                                ⋮
+                            </button>
+
+                        </div>
+
+                        <div class="servico-conteudo">
+
+                            <span class="categoria">
+                                Encanamento
+                            </span>
+
+                            <h3>Instalação de torneiras</h3>
+
+                            <p>
+                                Instalação e substituição de torneiras,
+                                registros e acessórios hidráulicos.
+                            </p>
+
+                            <div class="servico-info">
+                                <span>📍 Natal, RN</span>
+                                <span>A partir de R$ 60</span>
+                            </div>
+
+                        </div>
+
+                        <div class="servico-rodape">
+                            <span class="status ativo">
+                                ● Ativo
+                            </span>
+
+                            <button
+                                class="btn-editar"
+                                data-id="2"
+                            >
+                                Editar
+                            </button>
+                        </div>
+
+                    </article>
+
+
+                    <!-- SERVIÇO 3 -->
+                    <article class="servico-card">
+
+                        <div class="servico-cabecalho">
+
+                            <div class="servico-icone">
+                                🛠️
+                            </div>
+
+                            <button
+                                class="btn-opcoes"
+                                data-id="3"
+                                aria-label="Opções do serviço"
+                            >
+                                ⋮
+                            </button>
+
+                        </div>
+
+                        <div class="servico-conteudo">
+
+                            <span class="categoria">
+                                Manutenção
+                            </span>
+
+                            <h3>Pequenos reparos residenciais</h3>
+
+                            <p>
+                                Serviços de manutenção e pequenos
+                                reparos em residências.
+                            </p>
+
+                            <div class="servico-info">
+                                <span>📍 Natal, RN</span>
+                                <span>A combinar</span>
+                            </div>
+
+                        </div>
+
+                        <div class="servico-rodape">
+                            <span class="status ativo">
+                                ● Ativo
+                            </span>
+
+                            <button
+                                class="btn-editar"
+                                data-id="3"
+                            >
+                                Editar
+                            </button>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- INFORMAÇÕES DO PROFISSIONAL -->
+            <section class="informacoes-profissional">
+
+                <div class="informacoes-cabecalho">
+
+                    <div>
+                        <span class="etiqueta">SEU PERFIL</span>
+
+                        <h2>Informações profissionais</h2>
+
+                        <p>
+                            Essas informações aparecem para os clientes.
+                        </p>
+                    </div>
+
+                    <button
+                        class="btn-editar-perfil"
+                        id="abrirPerfil"
+                    >
+                        Editar informações
+                    </button>
+
+                </div>
+
+
+                <div class="informacoes-grid">
+
+                    <div class="informacao">
+                        <span>Nome completo</span>
+                        <strong id="nomePerfil">
+                            João Silva
+                        </strong>
+                    </div>
+
+                    <div class="informacao">
+                        <span>E-mail</span>
+                        <strong id="emailPerfil">
+                            joao@email.com
+                        </strong>
+                    </div>
+
+                    <div class="informacao">
+                        <span>Celular</span>
+                        <strong id="telefonePerfil">
+                            (84) 99999-9999
+                        </strong>
+                    </div>
+
+                    <div class="informacao">
+                        <span>Profissão</span>
+                        <strong id="profissaoPerfil">
+                            Encanador profissional
+                        </strong>
+                    </div>
+
+                    <div class="informacao">
+                        <span>Localização</span>
+                        <strong id="localPerfil">
+                            Natal, RN
+                        </strong>
+                    </div>
+
+                    <div class="informacao">
+                        <span>Atendimento</span>
+                        <strong>
+                            Residencial
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- MODAL — ADICIONAR / EDITAR SERVIÇO -->
+    <div class="modal" id="modalServico">
+
+        <div class="modal-conteudo">
+
+            <button
+                class="fechar-modal"
+                data-fechar="modalServico"
+            >
+                ×
+            </button>
+
+            <span class="etiqueta">MEUS SERVIÇOS</span>
+
+            <h2 id="tituloModalServico">
+                Adicionar serviço
+            </h2>
+
+            <p>
+                Informe os detalhes do serviço que você oferece.
+            </p>
+
+            <form id="formServico">
+
+                <div class="campo">
+                    <label for="nomeServico">
+                        Nome do serviço
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nomeServico"
+                        placeholder="Ex.: Instalação de torneiras"
+                        required
+                    >
+                </div>
+
+
+                <div class="campo">
+                    <label for="categoriaServico">
+                        Categoria
+                    </label>
+
+                    <select id="categoriaServico" required>
+
+                        <option value="">
+                            Selecione uma categoria
+                        </option>
+
+                        <option value="Encanamento">
+                            Encanamento
+                        </option>
+
+                        <option value="Elétrica">
+                            Elétrica
+                        </option>
+
+                        <option value="Limpeza">
+                            Limpeza
+                        </option>
+
+                        <option value="Manutenção">
+                            Manutenção
+                        </option>
+
+                        <option value="Pintura">
+                            Pintura
+                        </option>
+
+                        <option value="Outros">
+                            Outros
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="descricaoServico">
+                        Descrição
+                    </label>
+
+                    <textarea
+                        id="descricaoServico"
+                        rows="4"
+                        placeholder="Explique o que está incluído no serviço."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="campos-duplos">
+
+                    <div class="campo">
+
+                        <label for="localServico">
+                            Local
+                        </label>
+
+                        <input
+                            type="text"
+                            id="localServico"
+                            placeholder="Natal, RN"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="precoServico">
+                            Preço
+                        </label>
+
+                        <input
+                            type="text"
+                            id="precoServico"
+                            placeholder="Ex.: R$ 80/h"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-salvar"
+                >
+                    Salvar serviço
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL — EDITAR PERFIL -->
+    <div class="modal" id="modalPerfil">
+
+        <div class="modal-conteudo">
+
+            <button
+                class="fechar-modal"
+                data-fechar="modalPerfil"
+            >
+                ×
+            </button>
+
+            <span class="etiqueta">SEU PERFIL</span>
+
+            <h2>Editar informações</h2>
+
+            <p>
+                Atualize as informações exibidas para seus clientes.
+            </p>
+
+            <form id="formPerfil">
+
+                <div class="campo">
+                    <label for="nomeInput">
+                        Nome completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nomeInput"
+                        value="João Silva"
+                        required
+                    >
+                </div>
+
+
+                <div class="campo">
+                    <label for="emailInput">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="emailInput"
+                        value="joao@email.com"
+                        required
+                    >
+                </div>
+
+
+                <div class="campo">
+                    <label for="telefoneInput">
+                        Celular
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefoneInput"
+                        value="(84) 99999-9999"
+                        required
+                    >
+                </div>
+
+
+                <div class="campo">
+                    <label for="profissaoInput">
+                        Profissão
+                    </label>
+
+                    <input
+                        type="text"
+                        id="profissaoInput"
+                        value="Encanador profissional"
+                        required
+                    >
+                </div>
+
+
+                <div class="campo">
+                    <label for="localInput">
+                        Localização
+                    </label>
+
+                    <input
+                        type="text"
+                        id="localInput"
+                        value="Natal, RN"
+                        required
+                    >
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-salvar"
+                >
+                    Salvar informações
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="toast"
+        id="toast"
+        aria-live="polite"
+    ></div>
+
+
+    <script src="menu.js"></script>
+    <script src="menu lateral autonomo.js"></script>
+    <script src="servicos-autonomo.js"></script>
+
+</body>
+</html>
