@@ -1732,3 +1732,282 @@ html[data-tema="escuro"] #profileMessage {
         font-size: 8px;
     }
 }
+
+/* =========================================================
+   NEXT WORK — LAYOUT UNIVERSAL DAS PÁGINAS
+   Mantém a estrutura original e padroniza:
+   menu lateral + espaçamento + fundo
+   ========================================================= */
+
+
+/* =========================================================
+   1. FUNDO PRINCIPAL
+   ========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(0, 174, 202, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(35, 153, 255, 0.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #e8f6fc 0%,
+            #dceff8 48%,
+            #eaf6fc 100%
+        );
+
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   2. ESTRUTURA MENU + CONTEÚDO
+   ========================================================= */
+
+.page-layout {
+    width: 100%;
+    min-height: 100vh;
+
+    display: grid;
+
+    /*
+       Mantém o menu lateral ocupando
+       somente o espaço dele.
+    */
+    grid-template-columns:
+        340px
+        minmax(0, 1fr);
+
+    align-items: start;
+
+    /*
+       O conteúdo NÃO fica colado no topo.
+       Esse é o principal ajuste.
+    */
+    padding:
+        70px
+        28px
+        50px
+        0;
+
+    column-gap: 0;
+}
+
+
+/* =========================================================
+   3. MENU LATERAL
+   ========================================================= */
+
+#menu-lateral {
+    width: 100%;
+    min-width: 0;
+
+    align-self: start;
+}
+
+
+/* =========================================================
+   4. CONTEÚDO PRINCIPAL
+   ========================================================= */
+
+.main-content {
+    width: 100%;
+    min-width: 0;
+
+    /*
+       Cria o mesmo "respiro" visual da página
+       Minhas candidaturas.
+    */
+    padding:
+        15px
+        38px
+        0
+        34px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   5. CABEÇALHO DA PÁGINA
+   ========================================================= */
+
+.page-header {
+    width: 100%;
+
+    margin-bottom: 4px;
+}
+
+
+/* =========================================================
+   6. CARDS
+   ========================================================= */
+
+.content-card,
+.stat-card,
+.security-card {
+    width: 100%;
+}
+
+
+/* =========================================================
+   7. FUNDO DOS CARDS
+   ========================================================= */
+
+.content-card,
+.stat-card {
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   8. RESPONSIVIDADE — NOTEBOOK / TELAS MENORES
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .page-layout {
+        grid-template-columns:
+            300px
+            minmax(0, 1fr);
+
+        padding:
+            55px
+            20px
+            40px
+            0;
+    }
+
+    .main-content {
+        padding-left: 28px;
+        padding-right: 25px;
+    }
+}
+
+
+/* =========================================================
+   9. TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .page-layout {
+        grid-template-columns: 1fr;
+
+        padding:
+            30px
+            18px
+            40px;
+    }
+
+    #menu-lateral {
+        width: 100%;
+    }
+
+    .main-content {
+        width: 100%;
+
+        padding:
+            25px
+            0
+            0;
+
+        gap: 18px;
+    }
+}
+
+
+/* =========================================================
+   10. CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .page-layout {
+        padding:
+            20px
+            12px
+            30px;
+    }
+
+    .main-content {
+        padding:
+            20px
+            0
+            0;
+
+        gap: 14px;
+    }
+}
+
+
+/* =========================================================
+   11. MODO ESCURO
+   ========================================================= */
+
+html[data-tema="escuro"] body {
+
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            rgba(0, 174, 255, 0.08),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #020713 0%,
+            #061225 50%,
+            #020713 100%
+        );
+
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   12. CARDS NO MODO ESCURO
+   ========================================================= */
+
+html[data-tema="escuro"] .content-card,
+html[data-tema="escuro"] .stat-card {
+
+    background:
+        rgba(8, 18, 37, 0.88);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   13. CORREÇÃO PARA NÃO FICAR COLADO NO MENU
+   ========================================================= */
+
+@media (min-width: 851px) {
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .page-header {
+        padding-left: 2px;
+    }
+}
