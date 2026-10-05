@@ -1,304 +1,698 @@
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
 
-const botao=document.getElementById("nextAssistantButton");
-const chat=document.getElementById("nextAssistantChat");
-const fechar=document.getElementById("nextAssistantClose");
-const mensagens=document.getElementById("nextAssistantMessages");
-const microfone=document.getElementById("nextAssistantMic");
-const sugestoes=document.querySelectorAll(".suggestion-button");
+    /* =====================================================
+       ELEMENTOS DO NEXT ASSISTANT
+    ===================================================== */
 
-console.log("Next Assistant iniciado.");
+    const botao = document.getElementById("nextAssistantButton");
+    const chat = document.getElementById("nextAssistantChat");
+    const fechar = document.getElementById("nextAssistantClose");
 
-if(!botao||!chat||!fechar||!mensagens||!microfone){
-console.error("Next Assistant: elemento necessário não encontrado.");
-return;
-}
+    const mensagens = document.getElementById("nextAssistantMessages");
+    const entrada = document.getElementById("nextAssistantInput");
 
-/* ESTADO INICIAL — SEMPRE FECHADO */
+    const enviar = document.getElementById("nextAssistantSend");
+    const voz = document.getElementById("nextAssistantVoice");
 
-chat.style.setProperty("display","none","important");
-chat.setAttribute("aria-hidden","true");
-botao.setAttribute("aria-expanded","false");
 
-/* ABRIR */
+    /* =====================================================
+       VERIFICAÇÃO
+    ===================================================== */
 
-botao.addEventListener("click",function(){
+    console.log("Next Assistant iniciado.");
 
-console.log("Abrindo Next Assistant.");
+    console.log("Botão:", botao);
+    console.log("Chat:", chat);
+    console.log("Fechar:", fechar);
+    console.log("Mensagens:", mensagens);
+    console.log("Entrada:", entrada);
+    console.log("Enviar:", enviar);
+    console.log("Voz:", voz);
 
-chat.style.setProperty("display","block","important");
-chat.setAttribute("aria-hidden","false");
-botao.setAttribute("aria-expanded","true");
 
-});
+    if (!botao) {
+        console.error("Next Assistant: botão não encontrado.");
+        return;
+    }
 
-/* FECHAR */
+    if (!chat) {
+        console.error("Next Assistant: chat não encontrado.");
+        return;
+    }
 
-fechar.addEventListener("click",function(){
+    if (!fechar) {
+        console.error("Next Assistant: botão fechar não encontrado.");
+        return;
+    }
 
-console.log("Fechando Next Assistant.");
+    if (!mensagens) {
+        console.error("Next Assistant: área de mensagens não encontrada.");
+        return;
+    }
 
-chat.style.setProperty("display","none","important");
-chat.setAttribute("aria-hidden","true");
-botao.setAttribute("aria-expanded","false");
+    if (!entrada) {
+        console.error("Next Assistant: campo de pergunta não encontrado.");
+        return;
+    }
 
-pararFala();
+    if (!enviar) {
+        console.error("Next Assistant: botão enviar não encontrado.");
+        return;
+    }
 
-});
+    if (!voz) {
+        console.error("Next Assistant: botão de voz não encontrado.");
+        return;
+    }
 
-/* BANCO DE PERGUNTAS */
 
-const perguntas=[
+    /* =====================================================
+       ABRIR ASSISTENTE
+    ===================================================== */
 
-{palavras:["vaga de informatica","vaga informatica","vagas de informatica","vagas informatica"],resposta:"Sim. Há oportunidades relacionadas à área de informática disponíveis no momento. Para consultar os requisitos e se candidatar, acesse Vagas."},
+    botao.addEventListener("click", function () {
 
-{palavras:["vagas disponiveis","vagas","oportunidades"],resposta:"Encontrei algumas oportunidades próximas a você, incluindo vagas na área de informática e atendimento. Para ver todas as oportunidades e seus detalhes, acesse a aba Vagas."},
+        console.log("Abrindo Next Assistant.");
 
-{palavras:["profissionais perto","profissionais","autonomos"],resposta:"Na sua região há profissionais autônomos disponíveis para diferentes serviços. Alguns deles já aparecem nos destaques da página inicial. Para conhecer todos, acesse Autônomos."},
+        chat.style.display = "block";
 
-{palavras:["encanador","encanamento"],resposta:"Sim. Há profissionais autônomos disponíveis para serviços de encanamento. Para encontrar um profissional, acesse Autônomos."},
+        chat.setAttribute(
+            "aria-hidden",
+            "false"
+        );
 
-{palavras:["pintor","pintura"],resposta:"Sim. Há profissionais autônomos disponíveis para serviços de pintura. Para encontrar um profissional, acesse Autônomos."},
+        entrada.focus();
 
-{palavras:["faxineiro","faxina","limpeza"],resposta:"Há profissionais autônomos disponíveis para serviços de limpeza. Para encontrar um profissional, acesse Autônomos."},
+    });
 
-{palavras:["servico","serviço","serviços"],resposta:"Posso ajudar. Existem profissionais autônomos disponíveis em diferentes áreas. Para encontrar o serviço que você precisa, acesse Autônomos."},
 
-{palavras:["onde ficam as empresas","localizacao das empresas","localização das empresas"],resposta:"Você pode visualizar a localização das empresas diretamente no mapa. Para pesquisar e explorar as empresas próximas, acesse Empresas."},
+    /* =====================================================
+       FECHAR ASSISTENTE
+    ===================================================== */
 
-{palavras:["empresas perto","empresas","empresa"],resposta:"Encontrei empresas próximas à sua região. Algumas aparecem nos destaques da página inicial. Para visualizar todas e consultar suas localizações, acesse Empresas."},
+    fechar.addEventListener("click", function () {
 
-{palavras:["candidaturas","candidatura"],resposta:"Você pode acompanhar suas candidaturas e verificar o andamento de cada oportunidade. Para consultar os detalhes, acesse Minhas candidaturas."},
+        console.log("Fechando Next Assistant.");
 
-{palavras:["meu perfil","perfil"],resposta:"Seu perfil reúne suas informações profissionais, habilidades e currículo. Para consultar ou alterar seus dados, acesse Meu perfil."},
+        chat.style.display = "none";
 
-{palavras:["certificacoes","certificação","cursos","curso"],resposta:"Seus cursos e certificações ficam registrados no seu perfil profissional. Para consultar todos eles, acesse Cursos e certificações."}
+        chat.setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
-];
+        pararFala();
 
-/* NORMALIZAR */
+    });
 
-function normalizar(texto){
 
-return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
+    /* =====================================================
+       BANCO DE RESPOSTAS
+    ===================================================== */
 
-}
+    const perguntas = [
 
-/* ENCONTRAR RESPOSTA */
+        {
+            palavras: [
+                "vagas",
+                "disponiveis",
+                "oportunidades"
+            ],
 
-function encontrarResposta(pergunta){
+            resposta:
+                "Encontrei algumas oportunidades próximas a você, incluindo vagas na área de informática e atendimento. Para ver todas as oportunidades e seus detalhes, acesse a aba Vagas."
+        },
 
-const texto=normalizar(pergunta);
-let respostaEncontrada=null;
-let maiorPontuacao=0;
 
-perguntas.forEach(function(item){
+        {
+            palavras: [
+                "vaga de informatica",
+                "vaga informatica",
+                "vagas de informatica",
+                "vagas informatica"
+            ],
 
-let pontuacao=0;
+            resposta:
+                "Sim. Há oportunidades relacionadas à área de informática disponíveis no momento. Para consultar os requisitos e se candidatar, acesse Vagas."
+        },
 
-item.palavras.forEach(function(palavra){
 
-if(texto.includes(normalizar(palavra))){
-pontuacao++;
-}
+        {
+            palavras: [
+                "profissionais",
+                "autonomos"
+            ],
 
-});
+            resposta:
+                "Na sua região há profissionais autônomos disponíveis para diferentes serviços. Alguns deles já aparecem nos destaques da página inicial. Para conhecer todos, acesse Autônomos."
+        },
 
-if(pontuacao>maiorPontuacao){
-maiorPontuacao=pontuacao;
-respostaEncontrada=item.resposta;
-}
 
-});
+        {
+            palavras: [
+                "encanador",
+                "encanamento"
+            ],
 
-return respostaEncontrada||"Ainda não consegui encontrar uma resposta para essa pergunta. Tente perguntar sobre vagas, empresas, profissionais autônomos, candidaturas, perfil ou cursos.";
+            resposta:
+                "Sim. Há profissionais autônomos disponíveis para serviços de encanamento. Para encontrar um profissional, acesse Autônomos."
+        },
 
-}
 
-/* ADICIONAR PERGUNTA */
+        {
+            palavras: [
+                "pintor",
+                "pintura"
+            ],
 
-function adicionarPergunta(texto){
+            resposta:
+                "Sim. Há profissionais autônomos disponíveis para serviços de pintura. Para encontrar um profissional, acesse Autônomos."
+        },
 
-const mensagem=document.createElement("div");
 
-mensagem.className="usuario-mensagem";
-mensagem.textContent=texto;
+        {
+            palavras: [
+                "faxineiro",
+                "faxina",
+                "limpeza"
+            ],
 
-mensagens.appendChild(mensagem);
-mensagens.scrollTop=mensagens.scrollHeight;
+            resposta:
+                "Há profissionais autônomos disponíveis para serviços de limpeza. Para encontrar um profissional, acesse Autônomos."
+        },
 
-}
 
-/* ADICIONAR RESPOSTA */
+        {
+            palavras: [
+                "servico",
+                "serviços"
+            ],
 
-function adicionarResposta(texto){
+            resposta:
+                "Posso ajudar. Existem profissionais autônomos disponíveis em diferentes áreas. Para encontrar o serviço que você precisa, acesse Autônomos."
+        },
 
-const mensagem=document.createElement("div");
-mensagem.className="assistant-message";
 
-const avatar=document.createElement("div");
-avatar.className="message-avatar";
+        {
+            palavras: [
+                "empresas",
+                "empresa"
+            ],
 
-const imagem=document.createElement("img");
-imagem.src="ia quadrado.png";
-imagem.alt="Next Assistant";
+            resposta:
+                "Encontrei empresas próximas à sua região. Algumas aparecem nos destaques da página inicial. Para visualizar todas e consultar suas localizações, acesse Empresas."
+        },
 
-avatar.appendChild(imagem);
 
-const conteudo=document.createElement("div");
-conteudo.className="message-content";
+        {
+            palavras: [
+                "onde ficam as empresas",
+                "localizacao das empresas",
+                "localização das empresas"
+            ],
 
-const nome=document.createElement("span");
-nome.className="message-name";
-nome.textContent="Next Assistant";
+            resposta:
+                "Você pode visualizar a localização das empresas diretamente no mapa. Para pesquisar e explorar as empresas próximas, acesse Empresas."
+        },
 
-const textoResposta=document.createElement("p");
-textoResposta.textContent=texto;
 
-conteudo.appendChild(nome);
-conteudo.appendChild(textoResposta);
+        {
+            palavras: [
+                "candidaturas",
+                "candidatura"
+            ],
 
-mensagem.appendChild(avatar);
-mensagem.appendChild(conteudo);
+            resposta:
+                "Você pode acompanhar suas candidaturas e verificar o andamento de cada oportunidade. Para consultar os detalhes, acesse Minhas candidaturas."
+        },
 
-mensagens.appendChild(mensagem);
-mensagens.scrollTop=mensagens.scrollHeight;
 
-}
+        {
+            palavras: [
+                "perfil",
+                "meu perfil"
+            ],
 
-/* FALA */
+            resposta:
+                "Seu perfil reúne suas informações profissionais, habilidades e currículo. Para consultar ou alterar seus dados, acesse Meu perfil."
+        },
 
-function falar(texto){
 
-if(!window.speechSynthesis){
-console.log("Síntese de voz não disponível.");
-return;
-}
+        {
+            palavras: [
+                "cursos",
+                "curso",
+                "certificacoes",
+                "certificação"
+            ],
 
-pararFala();
+            resposta:
+                "Seus cursos e certificações ficam registrados no seu perfil profissional. Para consultar todos eles, acesse Cursos e certificações."
+        }
 
-const fala=new SpeechSynthesisUtterance(texto);
+    ];
 
-fala.lang="pt-BR";
-fala.rate=1;
-fala.pitch=1;
-fala.volume=1;
 
-window.speechSynthesis.speak(fala);
+    /* =====================================================
+       NORMALIZAR TEXTO
+    ===================================================== */
 
-}
+    function normalizar(texto) {
 
-function pararFala(){
+        return texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .trim();
 
-if(window.speechSynthesis){
-window.speechSynthesis.cancel();
-}
+    }
 
-}
 
-/* PROCESSAR PERGUNTA */
+    /* =====================================================
+       ENCONTRAR RESPOSTA
+    ===================================================== */
 
-function processarPergunta(pergunta){
+    function encontrarResposta(pergunta) {
 
-if(!pergunta)return;
+        const texto = normalizar(pergunta);
 
-console.log("Pergunta recebida:",pergunta);
+        let respostaEncontrada = null;
 
-adicionarPergunta(pergunta);
+        let maiorPontuacao = 0;
 
-setTimeout(function(){
 
-const resposta=encontrarResposta(pergunta);
+        perguntas.forEach(function (item) {
 
-console.log("Resposta:",resposta);
+            let pontuacao = 0;
 
-adicionarResposta(resposta);
-falar(resposta);
 
-},450);
+            item.palavras.forEach(function (palavra) {
 
-}
+                const palavraNormalizada =
+                    normalizar(palavra);
 
-/* RECONHECIMENTO DE VOZ */
 
-const Reconhecimento=window.SpeechRecognition||window.webkitSpeechRecognition;
+                if (
+                    texto.includes(palavraNormalizada)
+                ) {
 
-let reconhecimento=null;
+                    pontuacao++;
 
-if(Reconhecimento){
+                }
 
-reconhecimento=new Reconhecimento();
+            });
 
-reconhecimento.lang="pt-BR";
-reconhecimento.continuous=false;
-reconhecimento.interimResults=false;
 
-reconhecimento.addEventListener("start",function(){
+            if (
+                pontuacao > maiorPontuacao
+            ) {
 
-console.log("Next Assistant está ouvindo.");
+                maiorPontuacao =
+                    pontuacao;
 
-microfone.classList.add("ouvindo");
+                respostaEncontrada =
+                    item.resposta;
 
-});
+            }
 
-reconhecimento.addEventListener("result",function(evento){
+        });
 
-const texto=evento.results[0][0].transcript;
 
-console.log("Voz reconhecida:",texto);
+        if (respostaEncontrada) {
 
-processarPergunta(texto);
+            return respostaEncontrada;
 
-});
+        }
 
-reconhecimento.addEventListener("end",function(){
 
-microfone.classList.remove("ouvindo");
+        return "Ainda não consegui encontrar uma resposta para essa pergunta. Tente perguntar sobre vagas, empresas, profissionais autônomos, candidaturas, perfil ou cursos.";
 
-});
+    }
 
-reconhecimento.addEventListener("error",function(evento){
 
-console.error("Erro no reconhecimento:",evento.error);
+    /* =====================================================
+       ADICIONAR MENSAGEM
+    ===================================================== */
 
-microfone.classList.remove("ouvindo");
+    function adicionarMensagem(
+        texto,
+        tipo
+    ) {
 
-});
+        const mensagem =
+            document.createElement("div");
 
-microfone.addEventListener("click",function(){
 
-try{
-reconhecimento.start();
-}catch(erro){
-console.log("O reconhecimento já está ativo.");
-}
+        mensagem.className =
+            "next-assistant-message " + tipo;
 
-});
 
-}else{
+        mensagem.textContent =
+            texto;
 
-microfone.addEventListener("click",function(){
 
-alert("O reconhecimento de voz não está disponível neste navegador.");
+        mensagens.appendChild(
+            mensagem
+        );
 
-});
 
-}
+        mensagens.scrollTop =
+            mensagens.scrollHeight;
 
-/* SUGESTÕES */
+    }
 
-sugestoes.forEach(function(botaoSugestao){
 
-botaoSugestao.addEventListener("click",function(){
+    /* =====================================================
+       LEITURA EM VOZ ALTA
+    ===================================================== */
 
-const pergunta=botaoSugestao.dataset.question;
+    function falar(texto) {
 
-processarPergunta(pergunta);
+        if (
+            !window.speechSynthesis
+        ) {
 
-});
+            console.log(
+                "Síntese de voz não disponível."
+            );
 
-});
+            return;
 
-console.log("Next Assistant carregado com sucesso.");
+        }
+
+
+        pararFala();
+
+
+        const fala =
+            new SpeechSynthesisUtterance(
+                texto
+            );
+
+
+        fala.lang = "pt-BR";
+
+        fala.rate = 1;
+
+        fala.pitch = 1;
+
+        fala.volume = 1;
+
+
+        window.speechSynthesis.speak(
+            fala
+        );
+
+    }
+
+
+    /* =====================================================
+       PARAR VOZ
+    ===================================================== */
+
+    function pararFala() {
+
+        if (
+            window.speechSynthesis
+        ) {
+
+            window.speechSynthesis.cancel();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       PROCESSAR PERGUNTA
+    ===================================================== */
+
+    function processarPergunta() {
+
+        const pergunta =
+            entrada.value.trim();
+
+
+        if (!pergunta) {
+
+            return;
+
+        }
+
+
+        console.log(
+            "Pergunta:",
+            pergunta
+        );
+
+
+        /* MENSAGEM DO USUÁRIO */
+
+        adicionarMensagem(
+            pergunta,
+            "usuario"
+        );
+
+
+        /* LIMPAR CAMPO */
+
+        entrada.value = "";
+
+
+        /* RESPOSTA */
+
+        setTimeout(function () {
+
+            const resposta =
+                encontrarResposta(
+                    pergunta
+                );
+
+
+            console.log(
+                "Resposta:",
+                resposta
+            );
+
+
+            adicionarMensagem(
+                resposta,
+                "assistant"
+            );
+
+
+            falar(resposta);
+
+        }, 350);
+
+    }
+
+
+    /* =====================================================
+       BOTÃO ENVIAR
+    ===================================================== */
+
+    enviar.addEventListener(
+        "click",
+        function () {
+
+            processarPergunta();
+
+        }
+    );
+
+
+    /* =====================================================
+       ENTER
+    ===================================================== */
+
+    entrada.addEventListener(
+        "keydown",
+        function (evento) {
+
+            if (
+                evento.key === "Enter"
+            ) {
+
+                evento.preventDefault();
+
+                processarPergunta();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       RECONHECIMENTO DE VOZ
+    ===================================================== */
+
+    const Reconhecimento =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+
+    let reconhecimento = null;
+
+
+    if (Reconhecimento) {
+
+        reconhecimento =
+            new Reconhecimento();
+
+
+        reconhecimento.lang =
+            "pt-BR";
+
+
+        reconhecimento.continuous =
+            false;
+
+
+        reconhecimento.interimResults =
+            false;
+
+
+        /* COMEÇOU A OUVIR */
+
+        reconhecimento.addEventListener(
+            "start",
+            function () {
+
+                console.log(
+                    "Next Assistant está ouvindo."
+                );
+
+
+                voz.classList.add(
+                    "ouvindo"
+                );
+
+
+                entrada.placeholder =
+                    "Estou ouvindo...";
+
+            }
+        );
+
+
+        /* RECEBEU A VOZ */
+
+        reconhecimento.addEventListener(
+            "result",
+            function (evento) {
+
+                const texto =
+                    evento
+                        .results[0][0]
+                        .transcript;
+
+
+                console.log(
+                    "Voz reconhecida:",
+                    texto
+                );
+
+
+                entrada.value =
+                    texto;
+
+
+                processarPergunta();
+
+            }
+        );
+
+
+        /* PAROU DE OUVIR */
+
+        reconhecimento.addEventListener(
+            "end",
+            function () {
+
+                voz.classList.remove(
+                    "ouvindo"
+                );
+
+
+                entrada.placeholder =
+                    "Digite sua pergunta...";
+
+            }
+        );
+
+
+        /* ERRO */
+
+        reconhecimento.addEventListener(
+            "error",
+            function (evento) {
+
+                console.error(
+                    "Erro no reconhecimento:",
+                    evento.error
+                );
+
+
+                voz.classList.remove(
+                    "ouvindo"
+                );
+
+
+                entrada.placeholder =
+                    "Digite sua pergunta...";
+
+            }
+        );
+
+
+        /* BOTÃO DE VOZ */
+
+        voz.addEventListener(
+            "click",
+            function () {
+
+                try {
+
+                    reconhecimento.start();
+
+                } catch (erro) {
+
+                    console.log(
+                        "O reconhecimento já está ativo."
+                    );
+
+                }
+
+            }
+        );
+
+
+    } else {
+
+        /* NAVEGADOR NÃO SUPORTA VOZ */
+
+        voz.addEventListener(
+            "click",
+            function () {
+
+                alert(
+                    "O reconhecimento de voz não está disponível neste navegador."
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       FINAL
+    ===================================================== */
+
+    console.log(
+        "Next Assistant carregado com sucesso."
+    );
 
 });
