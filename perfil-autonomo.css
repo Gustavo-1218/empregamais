@@ -57,9 +57,10 @@ body {
 ========================= */
 
 .pagina-perfil {
-    width: min(1120px, 92%);
+    width: min(1120px, calc(100% - 360px));
 
-    margin: 0 auto;
+    margin-left: 330px;
+    margin-right: 30px;
 
     padding: 38px 0 65px;
 }
@@ -438,10 +439,6 @@ body {
     width: 100%;
 }
 
-
-/* Os dois links passam a ter exatamente
-   o mesmo tamanho e alinhamento */
-
 .btn-chat,
 .btn-contratar {
     display: flex;
@@ -477,7 +474,9 @@ body {
 }
 
 
-/* CHAT */
+/* =========================
+   CHAT
+========================= */
 
 .btn-chat {
     color: #65baff;
@@ -501,7 +500,9 @@ body {
 }
 
 
-/* CONTRATAR */
+/* =========================
+   CONTRATAR
+========================= */
 
 .btn-contratar {
     color: #ffffff;
@@ -531,7 +532,9 @@ body {
 }
 
 
-/* QUANDO JÁ FOI CONTRATADO */
+/* =========================
+   QUANDO JÁ FOI CONTRATADO
+========================= */
 
 .btn-contratar.contratado {
     color: #15825a;
@@ -609,7 +612,25 @@ html[data-tema="escuro"] .btn-chat:hover {
    RESPONSIVIDADE
 ========================= */
 
+@media (max-width: 1100px) {
+
+    .pagina-perfil {
+        width: calc(100% - 330px);
+
+        margin-left: 300px;
+        margin-right: 30px;
+    }
+}
+
+
 @media (max-width: 900px) {
+
+    .pagina-perfil {
+        width: 92%;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     .perfil-topo {
         grid-template-columns: 120px minmax(0, 1fr);
@@ -652,6 +673,9 @@ html[data-tema="escuro"] .btn-chat:hover {
 
     .pagina-perfil {
         width: 94%;
+
+        margin-left: auto;
+        margin-right: auto;
 
         padding: 25px 0 45px;
     }
@@ -721,14 +745,4 @@ html[data-tema="escuro"] .btn-chat:hover {
     .voltar {
         margin-bottom: 18px;
     }
-}
-/* =========================================================
-   AJUSTE — CONTEÚDO AO LADO DO MENU LATERAL
-   ========================================================= */
-
-.pagina-perfil {
-    margin-left: 303px;
-    margin-right: 0;
-    width: calc(100% - 303px);
-    max-width: none;
 }
