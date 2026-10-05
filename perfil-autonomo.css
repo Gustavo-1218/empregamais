@@ -722,12 +722,11 @@ html[data-tema="escuro"] .btn-chat:hover {
         margin-bottom: 18px;
     }
 }
-
 /* =========================================================
    AJUSTE — CONTEÚDO AO LADO DO MENU LATERAL
    ========================================================= */
 
-.pagina-autonomos {
+.pagina-perfil {
     margin-left: 303px;
     margin-right: 0;
     width: calc(100% - 303px);
