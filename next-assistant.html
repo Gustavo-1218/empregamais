@@ -1,1058 +1,663 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Next Assistant</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
+
+        :root {
+            --fundo: #020713;
+            --fundo-secundario: #071225;
+            --painel: rgba(8, 20, 40, 0.94);
+            --painel-2: rgba(12, 29, 53, 0.88);
+
+            --texto: #edf8ff;
+            --texto-secundario: #9db8cc;
+
+            --azul: #2399ff;
+            --ciano: #00ddff;
+            --roxo: #8d5cff;
+
+            --borda: rgba(0, 221, 255, 0.20);
+            --borda-hover: rgba(0, 221, 255, 0.45);
+
+            --sombra: rgba(0, 0, 0, 0.45);
+        }
 
         /* =====================================================
-           CONFIGURAÇÃO GERAL
-           ===================================================== */
+           MODO CLARO
+        ===================================================== */
+
+        body.modo-claro {
+            --fundo: #eefaff;
+            --fundo-secundario: #f7fcff;
+            --painel: rgba(255, 255, 255, 0.96);
+            --painel-2: #f4fbff;
+
+            --texto: #102b4c;
+            --texto-secundario: #526b84;
+
+            --azul: #087cf0;
+            --ciano: #00aeca;
+            --roxo: #7147e8;
+
+            --borda: rgba(8, 124, 240, 0.18);
+            --borda-hover: rgba(8, 124, 240, 0.40);
+
+            --sombra: rgba(20, 80, 120, 0.16);
+        }
+
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
 
         body {
-            margin: 0;
-            min-height: 100vh;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: "Poppins", sans-serif;
             background:
                 radial-gradient(
-                    circle at 20% 20%,
-                    rgba(35, 153, 255, 0.10),
-                    transparent 35%
+                    circle at 50% 40%,
+                    rgba(35, 153, 255, 0.09),
+                    transparent 32%
                 ),
                 radial-gradient(
-                    circle at 80% 80%,
-                    rgba(141, 92, 255, 0.12),
-                    transparent 35%
+                    circle at 80% 15%,
+                    rgba(141, 92, 255, 0.08),
+                    transparent 28%
                 ),
-                #020713;
+                var(--fundo);
 
-            color: #edf8ff;
+            color: var(--texto);
+            overflow: hidden;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
         }
 
-
         /* =====================================================
-           CONTAINER
-           ===================================================== */
+           CONTAINER PRINCIPAL
+        ===================================================== */
 
-        #nextAssistantContainer {
+        .assistant-page {
             position: relative;
-            z-index: 999999;
+
+            width: 100%;
+            height: 100%;
+
+            min-height: 500px;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
         }
 
-
         /* =====================================================
-           BOTÃO FLUTUANTE
-           ===================================================== */
+           LINHAS DECORATIVAS
+        ===================================================== */
 
-        #nextAssistantButton {
+        .background-line {
+            position: absolute;
 
-            position: fixed;
+            width: 180px;
+            height: 180px;
 
-            left: 24px;
-            bottom: 24px;
-
-            width: 68px;
-            height: 68px;
-
-            padding: 0;
-
-            border: 1px solid
-                rgba(141, 92, 255, 0.65);
+            border: 1px solid var(--borda);
 
             border-radius: 50%;
 
-            background:
-                radial-gradient(
-                    circle at 35% 30%,
-                    rgba(141, 92, 255, 0.25),
-                    rgba(2, 7, 19, 0.98)
-                );
+            pointer-events: none;
+        }
+
+        .background-line.one {
+            top: -110px;
+            right: -70px;
+        }
+
+        .background-line.two {
+            bottom: -120px;
+            left: -90px;
+        }
+
+        .background-line.three {
+            width: 90px;
+            height: 90px;
+
+            top: 18%;
+            left: 8%;
+
+            opacity: 0.35;
+        }
+
+        /* =====================================================
+           TOPO
+        ===================================================== */
+
+        .assistant-header {
+            position: relative;
+            z-index: 5;
+
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 22px;
+
+            border-bottom: 1px solid var(--borda);
+
+            background: rgba(2, 7, 19, 0.28);
+
+            backdrop-filter: blur(15px);
+        }
+
+        body.modo-claro .assistant-header {
+            background: rgba(255, 255, 255, 0.50);
+        }
+
+        .assistant-brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 12px;
 
             display: flex;
             align-items: center;
             justify-content: center;
-
-            cursor: pointer;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 0 16px
-                    rgba(141, 92, 255, 0.65),
-                0 0 38px
-                    rgba(141, 92, 255, 0.25);
-
-            animation:
-                nextAssistantPulse 2.5s infinite;
-
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease;
-        }
-
-
-        #nextAssistantButton:hover {
-
-            transform: scale(1.08);
-
-            border-color: #00ddff;
-
-            box-shadow:
-                0 0 22px
-                    rgba(0, 221, 255, 0.65),
-                0 0 45px
-                    rgba(141, 92, 255, 0.35);
-        }
-
-
-        #nextAssistantButton:active {
-            transform: scale(0.94);
-        }
-
-
-        #nextAssistantButton img {
-
-            width: 100%;
-            height: 100%;
-
-            display: block;
-
-            object-fit: cover;
-
-            border-radius: 50%;
-        }
-
-
-        @keyframes nextAssistantPulse {
-
-            0%,
-            100% {
-
-                box-shadow:
-                    0 0 16px
-                        rgba(141, 92, 255, 0.60),
-                    0 0 35px
-                        rgba(141, 92, 255, 0.22);
-            }
-
-            50% {
-
-                box-shadow:
-                    0 0 25px
-                        rgba(141, 92, 255, 0.90),
-                    0 0 55px
-                        rgba(141, 92, 255, 0.40);
-            }
-        }
-
-
-        /* =====================================================
-           CHAT
-           ===================================================== */
-
-        #nextAssistantChat {
-
-            display: none;
-
-            position: fixed;
-
-            left: 24px;
-            bottom: 105px;
-
-            width: 370px;
-            height: 540px;
-
-            max-width:
-                calc(100vw - 32px);
-
-            max-height:
-                calc(100vh - 125px);
-
-            overflow: hidden;
-
-            flex-direction: column;
-
-            border:
-                1px solid
-                rgba(0, 221, 255, 0.24);
-
-            border-radius: 22px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(8, 20, 42, 0.98),
-                    rgba(3, 10, 25, 0.99)
-                );
-
-            box-shadow:
-                0 25px 70px
-                    rgba(0, 0, 0, 0.55),
-                0 0 40px
-                    rgba(0, 221, 255, 0.08);
-
-            backdrop-filter: blur(18px);
-
-            color: #edf8ff;
-
-            z-index: 1000000;
-        }
-
-
-        /* =====================================================
-           CABEÇALHO
-           ===================================================== */
-
-        .next-assistant-header {
-
-            min-height: 78px;
-
-            padding:
-                14px 16px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            border-bottom:
-                1px solid
-                rgba(0, 221, 255, 0.12);
-
-            background:
-                rgba(4, 12, 28, 0.88);
-        }
-
-
-        .next-assistant-header-info {
-
-            display: flex;
-
-            align-items: center;
-
-            min-width: 0;
-        }
-
-
-        /* =====================================================
-           FOTO DA IA
-           ===================================================== */
-
-        .next-assistant-mini-photo {
-
-            width: 48px;
-            height: 48px;
-
-            margin-right: 11px;
-
-            flex-shrink: 0;
-
-            overflow: hidden;
-
-            border-radius: 13px;
-
-            border:
-                1px solid
-                rgba(141, 92, 255, 0.50);
-
-            box-shadow:
-                0 0 16px
-                rgba(141, 92, 255, 0.20);
-        }
-
-
-        .next-assistant-mini-photo img {
-
-            width: 100%;
-            height: 100%;
-
-            display: block;
-
-            object-fit: cover;
-        }
-
-
-        .next-assistant-header h2 {
-
-            margin: 0;
-
-            color: #ffffff;
-
-            font-size: 17px;
-
-            font-weight: 700;
-        }
-
-
-        /* =====================================================
-           STATUS
-           ===================================================== */
-
-        .next-assistant-status {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 6px;
-
-            margin-top: 4px;
-
-            color: #8ba6bc;
-
-            font-size: 12px;
-        }
-
-
-        .status-dot {
-
-            width: 7px;
-            height: 7px;
-
-            border-radius: 50%;
-
-            background: #45e89a;
-
-            box-shadow:
-                0 0 9px
-                rgba(69, 232, 154, 0.80);
-        }
-
-
-        /* =====================================================
-           FECHAR
-           ===================================================== */
-
-        .next-assistant-close {
-
-            width: 40px;
-            height: 40px;
-
-            border: 0;
-
-            border-radius: 10px;
-
-            background: transparent;
-
-            color: #8198ad;
-
-            font-size: 28px;
-
-            line-height: 1;
-
-            cursor: pointer;
-
-            transition:
-                background 0.2s ease,
-                color 0.2s ease;
-        }
-
-
-        .next-assistant-close:hover {
-
-            background:
-                rgba(255, 255, 255, 0.07);
-
-            color: #ffffff;
-        }
-
-
-        /* =====================================================
-           MENSAGENS
-           ===================================================== */
-
-        .next-assistant-messages {
-
-            flex: 1;
-
-            min-height: 0;
-
-            padding: 18px 15px;
-
-            overflow-y: auto;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 14px;
-
-            scrollbar-width: thin;
-
-            scrollbar-color:
-                rgba(0, 221, 255, 0.25)
-                transparent;
-        }
-
-
-        .next-assistant-messages::-webkit-scrollbar {
-            width: 5px;
-        }
-
-
-        .next-assistant-messages::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-
-        .next-assistant-messages::-webkit-scrollbar-thumb {
-
-            background:
-                rgba(0, 221, 255, 0.25);
-
-            border-radius: 10px;
-        }
-
-
-        /* =====================================================
-           MENSAGEM DA IA
-           ===================================================== */
-
-        .assistant-message {
-
-            display: flex;
-
-            align-items: flex-start;
-
-            gap: 9px;
-
-            max-width: 95%;
-        }
-
-
-        .message-avatar {
-
-            width: 34px;
-            height: 34px;
-
-            flex-shrink: 0;
-
-            overflow: hidden;
-
-            border-radius: 9px;
-
-            border:
-                1px solid
-                rgba(141, 92, 255, 0.38);
-        }
-
-
-        .message-avatar img {
-
-            width: 100%;
-            height: 100%;
-
-            display: block;
-
-            object-fit: cover;
-        }
-
-
-        .message-content {
-
-            min-width: 0;
-
-            padding:
-                10px 12px;
-
-            border:
-                1px solid
-                rgba(141, 92, 255, 0.17);
-
-            border-radius:
-                4px 14px 14px 14px;
-
-            background:
-                rgba(14, 28, 52, 0.90);
-        }
-
-
-        .message-name {
-
-            display: block;
-
-            margin-bottom: 4px;
-
-            color: #9e7cff;
-
-            font-size: 11px;
-
-            font-weight: 700;
-        }
-
-
-        .message-content p {
-
-            margin: 0;
-
-            color: #d8e8f5;
-
-            font-size: 13px;
-
-            line-height: 1.5;
-        }
-
-
-        /* =====================================================
-           MENSAGEM DO USUÁRIO
-           ===================================================== */
-
-        .usuario-mensagem {
-
-            align-self: flex-end;
-
-            max-width: 82%;
-
-            padding:
-                10px 13px;
-
-            border:
-                1px solid
-                rgba(0, 221, 255, 0.22);
-
-            border-radius:
-                14px 14px 4px 14px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(35, 153, 255, 0.20),
-                    rgba(113, 71, 232, 0.18)
+                    rgba(0, 221, 255, 0.16),
+                    rgba(141, 92, 255, 0.16)
                 );
 
-            color: #eaf8ff;
+            border: 1px solid var(--borda);
 
-            font-size: 13px;
+            color: var(--ciano);
 
-            line-height: 1.5;
-
-            word-break: break-word;
+            font-size: 17px;
         }
 
+        .brand-text h1 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .brand-text span {
+            display: block;
+
+            margin-top: 3px;
+
+            color: var(--texto-secundario);
+
+            font-size: 10px;
+        }
 
         /* =====================================================
-           SUGESTÕES
-           ===================================================== */
+           BOTÃO DE TEMA
+        ===================================================== */
 
-        .next-assistant-suggestions {
+        .theme-button {
+            width: 38px;
+            height: 38px;
 
-            display: flex;
+            border: 1px solid var(--borda);
+            border-radius: 50%;
 
-            gap: 8px;
+            background: var(--painel-2);
 
-            padding:
-                10px 13px;
-
-            overflow-x: auto;
-
-            border-top:
-                1px solid
-                rgba(0, 221, 255, 0.08);
-
-            scrollbar-width: none;
-        }
-
-
-        .next-assistant-suggestions::-webkit-scrollbar {
-            display: none;
-        }
-
-
-        .suggestion-button {
-
-            flex-shrink: 0;
-
-            min-height: 35px;
-
-            padding:
-                7px 13px;
-
-            border:
-                1px solid
-                rgba(0, 221, 255, 0.20);
-
-            border-radius: 999px;
-
-            background:
-                rgba(0, 221, 255, 0.05);
-
-            color: #9fdbea;
-
-            font-family: inherit;
-
-            font-size: 11px;
-
-            font-weight: 600;
+            color: var(--texto);
 
             cursor: pointer;
 
-            transition:
-                background 0.2s ease,
-                border-color 0.2s ease,
-                color 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.25s ease;
         }
 
+        .theme-button:hover {
+            border-color: var(--borda-hover);
 
-        .suggestion-button:hover {
+            color: var(--ciano);
 
-            background:
-                rgba(0, 221, 255, 0.11);
-
-            border-color:
-                rgba(0, 221, 255, 0.45);
-
-            color: #ffffff;
+            transform: translateY(-2px);
         }
-
 
         /* =====================================================
-           ÁREA DO MICROFONE
-           ===================================================== */
+           ÁREA CENTRAL
+        ===================================================== */
 
-        .next-assistant-input-area {
+        .assistant-content {
+            position: relative;
+            z-index: 2;
 
-            min-height: 88px;
-
-            padding:
-                14px;
+            flex: 1;
 
             display: flex;
-
+            flex-direction: column;
             align-items: center;
 
             justify-content: center;
 
-            border-top:
-                1px solid
-                rgba(0, 221, 255, 0.10);
+            padding: 25px 20px 20px;
 
-            background:
-                rgba(3, 10, 24, 0.82);
+            text-align: center;
         }
 
+        .assistant-photo {
+            width: 62px;
+            height: 62px;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            border: 1px solid var(--borda);
+
+            box-shadow:
+                0 0 30px rgba(0, 221, 255, 0.10);
+
+            margin-bottom: 14px;
+        }
+
+        .assistant-photo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .assistant-content h2 {
+            font-size: clamp(22px, 4vw, 30px);
+
+            font-weight: 600;
+
+            margin-bottom: 5px;
+        }
+
+        .assistant-content .description {
+            max-width: 430px;
+
+            color: var(--texto-secundario);
+
+            font-size: 12px;
+            line-height: 1.6;
+
+            margin-bottom: 28px;
+        }
 
         /* =====================================================
            MICROFONE
-           ===================================================== */
+        ===================================================== */
 
-        .next-assistant-mic {
+        .microphone-area {
+            position: relative;
 
-            width: 58px;
-            height: 58px;
-
-            padding: 0;
+            width: 150px;
+            height: 150px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
-            border:
-                1px solid
-                rgba(141, 92, 255, 0.60);
+            margin-bottom: 22px;
+        }
+
+        .microphone-ring {
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
 
             border-radius: 50%;
+
+            border: 1px solid rgba(0, 221, 255, 0.16);
+
+            transition: 0.3s ease;
+        }
+
+        .microphone-ring.two {
+            width: 125px;
+            height: 125px;
+
+            border-color: rgba(141, 92, 255, 0.18);
+        }
+
+        .microphone-ring.three {
+            width: 102px;
+            height: 102px;
+
+            border-color: rgba(35, 153, 255, 0.20);
+        }
+
+        .microphone-button {
+            position: relative;
+            z-index: 3;
+
+            width: 82px;
+            height: 82px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(0, 221, 255, 0.55);
 
             background:
                 radial-gradient(
                     circle at 35% 30%,
-                    rgba(141, 92, 255, 0.23),
-                    rgba(8, 20, 42, 0.98)
+                    rgba(0, 221, 255, 0.28),
+                    rgba(35, 153, 255, 0.10) 50%,
+                    rgba(141, 92, 255, 0.12)
                 );
+
+            box-shadow:
+                0 0 25px rgba(0, 221, 255, 0.15);
 
             cursor: pointer;
 
-            box-shadow:
-                0 0 15px
-                rgba(141, 92, 255, 0.38);
-
-            animation:
-                nextAssistantMicPulse 2.3s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             transition:
-                transform 0.2s ease,
-                border-color 0.2s ease;
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
-
-        .next-assistant-mic:hover {
-
-            transform: scale(1.07);
-
-            border-color: #00ddff;
-
-            box-shadow:
-                0 0 22px
-                rgba(0, 221, 255, 0.50);
-        }
-
-
-        .next-assistant-mic:active {
-            transform: scale(0.94);
-        }
-
-
-        .next-assistant-mic img {
-
-            width: 32px;
-            height: 32px;
-
-            display: block;
+        .microphone-button img {
+            width: 43px;
+            height: 43px;
 
             object-fit: contain;
         }
 
+        .microphone-button:hover {
+            transform: scale(1.06);
 
-        @keyframes nextAssistantMicPulse {
-
-            0%,
-            100% {
-
-                box-shadow:
-                    0 0 13px
-                    rgba(141, 92, 255, 0.32);
-            }
-
-            50% {
-
-                box-shadow:
-                    0 0 24px
-                    rgba(141, 92, 255, 0.60);
-            }
+            box-shadow:
+                0 0 35px rgba(0, 221, 255, 0.28);
         }
-
 
         /* =====================================================
            MICROFONE OUVINDO
-           ===================================================== */
+        ===================================================== */
 
-        .next-assistant-mic.ouvindo {
+        .microphone-area.ouvindo .microphone-ring {
+            animation: pulsar 1.4s infinite ease-out;
+        }
 
-            border-color: #00ddff;
+        .microphone-area.ouvindo .microphone-ring.two {
+            animation-delay: 0.25s;
+        }
 
-            background:
-                rgba(0, 221, 255, 0.10);
+        .microphone-area.ouvindo .microphone-ring.three {
+            animation-delay: 0.5s;
+        }
+
+        .microphone-area.ouvindo .microphone-button {
+            border-color: var(--ciano);
 
             box-shadow:
-                0 0 20px
-                    rgba(0, 221, 255, 0.65),
-                0 0 38px
-                    rgba(0, 221, 255, 0.22);
-
-            animation:
-                nextAssistantListening 0.9s infinite;
+                0 0 25px rgba(0, 221, 255, 0.40),
+                0 0 65px rgba(141, 92, 255, 0.18);
         }
 
+        @keyframes pulsar {
+            0% {
+                transform: scale(0.90);
+                opacity: 0.8;
+            }
 
-        @keyframes nextAssistantListening {
+            70% {
+                transform: scale(1.16);
+                opacity: 0.15;
+            }
 
-            0%,
             100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.08);
+                transform: scale(1.20);
+                opacity: 0;
             }
         }
 
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        .assistant-status {
+            min-height: 20px;
+
+            color: var(--texto-secundario);
+
+            font-size: 11px;
+        }
+
+        .assistant-status.ouvindo {
+            color: var(--ciano);
+        }
+
+        /* =====================================================
+           RESPOSTA
+        ===================================================== */
+
+        .assistant-response {
+            width: min(520px, 100%);
+
+            margin-top: 20px;
+
+            padding: 13px 16px;
+
+            border: 1px solid var(--borda);
+            border-radius: 15px;
+
+            background: var(--painel);
+
+            color: var(--texto-secundario);
+
+            font-size: 11px;
+            line-height: 1.6;
+
+            opacity: 0;
+            transform: translateY(8px);
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .assistant-response.visivel {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .assistant-response strong {
+            color: var(--ciano);
+        }
+
+        /* =====================================================
+           RODAPÉ
+        ===================================================== */
+
+        .assistant-footer {
+            position: relative;
+            z-index: 2;
+
+            padding: 13px 20px;
+
+            text-align: center;
+
+            color: var(--texto-secundario);
+
+            font-size: 9px;
+
+            border-top: 1px solid var(--borda);
+        }
 
         /* =====================================================
            RESPONSIVIDADE
-           ===================================================== */
+        ===================================================== */
 
-        @media (max-width: 600px) {
+        @media (max-width: 500px) {
 
-            #nextAssistantButton {
-
-                left: 16px;
-                bottom: 16px;
-
-                width: 58px;
-                height: 58px;
+            .assistant-header {
+                padding: 14px 16px;
             }
 
-
-            #nextAssistantChat {
-
-                left: 16px;
-                bottom: 88px;
-
-                width:
-                    calc(100vw - 32px);
-
-                height:
-                    min(540px, calc(100vh - 110px));
+            .assistant-content {
+                padding: 18px 15px;
             }
 
-
-            .next-assistant-header {
-
-                min-height: 70px;
-
-                padding:
-                    12px 13px;
+            .microphone-area {
+                width: 135px;
+                height: 135px;
             }
 
-
-            .next-assistant-mini-photo {
-
-                width: 43px;
-                height: 43px;
+            .microphone-ring {
+                width: 135px;
+                height: 135px;
             }
 
-
-            .next-assistant-messages {
-
-                padding:
-                    15px 12px;
+            .microphone-ring.two {
+                width: 112px;
+                height: 112px;
             }
 
-
-            .next-assistant-input-area {
-
-                min-height: 78px;
+            .microphone-ring.three {
+                width: 92px;
+                height: 92px;
             }
 
+            .microphone-button {
+                width: 76px;
+                height: 76px;
+            }
+
+            .assistant-content .description {
+                margin-bottom: 20px;
+            }
         }
-
-
-        /* =====================================================
-           REDUÇÃO DE MOVIMENTO
-           ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
-            #nextAssistantButton,
-            .next-assistant-mic {
-
-                animation: none;
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
+    <main class="assistant-page">
 
-    <!-- =====================================================
-         NEXT ASSISTANT
-         ===================================================== -->
+        <div class="background-line one"></div>
+        <div class="background-line two"></div>
+        <div class="background-line three"></div>
 
-    <div
-        class="next-assistant-container"
-        id="nextAssistantContainer"
-    >
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
 
+        <header class="assistant-header">
 
-        <!-- BOTÃO FLUTUANTE -->
+            <div class="assistant-brand">
 
-        <button
-            type="button"
-            class="next-assistant-button"
-            id="nextAssistantButton"
-            aria-label="Abrir Next Assistant"
-            aria-expanded="false"
-        >
-
-            <img
-                src="audioo.png"
-                alt=""
-                class="next-assistant-image"
-            >
-
-        </button>
-
-
-        <!-- JANELA -->
-
-        <section
-            class="next-assistant-chat"
-            id="nextAssistantChat"
-            aria-hidden="true"
-        >
-
-
-            <!-- CABEÇALHO -->
-
-            <header
-                class="next-assistant-header"
-            >
-
-                <div
-                    class="next-assistant-header-info"
-                >
-
-                    <div
-                        class="next-assistant-mini-photo"
-                    >
-
-                        <img
-                            src="ia quadrado.png"
-                            alt="Next Assistant"
-                        >
-
-                    </div>
-
-
-                    <div>
-
-                        <h2>
-                            Next Assistant
-                        </h2>
-
-
-                        <span
-                            class="next-assistant-status"
-                        >
-
-                            <span
-                                class="status-dot"
-                            ></span>
-
-                            Online
-
-                        </span>
-
-                    </div>
-
+                <div class="brand-icon">
+                    ✦
                 </div>
 
-
-                <button
-                    type="button"
-                    class="next-assistant-close"
-                    id="nextAssistantClose"
-                    aria-label="Fechar Next Assistant"
-                >
-
-                    ×
-
-                </button>
-
-            </header>
-
-
-            <!-- MENSAGENS -->
-
-            <div
-                class="next-assistant-messages"
-                id="nextAssistantMessages"
-                aria-live="polite"
-            >
-
-
-                <div
-                    class="assistant-message"
-                >
-
-                    <div
-                        class="message-avatar"
-                    >
-
-                        <img
-                            src="ia quadrado.png"
-                            alt="Next Assistant"
-                        >
-
-                    </div>
-
-
-                    <div
-                        class="message-content"
-                    >
-
-                        <span
-                            class="message-name"
-                        >
-                            Next Assistant
-                        </span>
-
-
-                        <p>
-                            Olá! Como posso ajudar você?
-                        </p>
-
-                    </div>
-
+                <div class="brand-text">
+                    <h1>Next Assistant</h1>
+                    <span>Assistente inteligente do NEXT WORK</span>
                 </div>
 
             </div>
 
-
-            <!-- SUGESTÕES -->
-
-            <div
-                class="next-assistant-suggestions"
+            <button
+                type="button"
+                class="theme-button"
+                id="themeButton"
+                aria-label="Alternar tema"
             >
+                ☾
+            </button>
+
+        </header>
 
 
-                <button
-                    type="button"
-                    class="suggestion-button"
-                    data-question="Quais vagas estão disponíveis perto de mim?"
+        <!-- =================================================
+             CONTEÚDO
+        ================================================== -->
+
+        <section class="assistant-content">
+
+            <div class="assistant-photo">
+                <img
+                    src="ia quadrado.png"
+                    alt="Next Assistant"
                 >
-                    Vagas próximas
-                </button>
-
-
-                <button
-                    type="button"
-                    class="suggestion-button"
-                    data-question="Quais profissionais estão perto de mim?"
-                >
-                    Profissionais próximos
-                </button>
-
-
-                <button
-                    type="button"
-                    class="suggestion-button"
-                    data-question="Tem algum encanador disponível?"
-                >
-                    Serviços disponíveis
-                </button>
-
             </div>
+
+            <h2>Como posso ajudar?</h2>
+
+            <p class="description">
+                Fale com o Next Assistant para encontrar oportunidades,
+                profissionais e serviços dentro da plataforma.
+            </p>
 
 
             <!-- MICROFONE -->
 
-            <form
-                class="next-assistant-input-area"
-                id="nextAssistantForm"
+            <div
+                class="microphone-area"
+                id="microphoneArea"
             >
+
+                <div class="microphone-ring"></div>
+                <div class="microphone-ring two"></div>
+                <div class="microphone-ring three"></div>
 
                 <button
                     type="button"
-                    class="next-assistant-mic"
-                    id="nextAssistantMic"
+                    class="microphone-button"
+                    id="microphoneButton"
                     aria-label="Falar com o Next Assistant"
                 >
 
@@ -1063,880 +668,394 @@
 
                 </button>
 
-            </form>
+            </div>
 
+
+            <div
+                class="assistant-status"
+                id="assistantStatus"
+            >
+                Toque no microfone para falar
+            </div>
+
+
+            <!-- RESPOSTA -->
+
+            <div
+                class="assistant-response"
+                id="assistantResponse"
+                aria-live="polite"
+            ></div>
 
         </section>
 
-    </div>
 
+        <!-- =================================================
+             RODAPÉ
+        ================================================== -->
 
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
+        <footer class="assistant-footer">
+            NEXT WORK • Seu próximo passo começa aqui
+        </footer>
+
+    </main>
+
 
     <script>
 
-        (function () {
+        /* =====================================================
+           ELEMENTOS
+        ===================================================== */
+
+        const themeButton =
+            document.getElementById("themeButton");
+
+        const microphoneButton =
+            document.getElementById("microphoneButton");
+
+        const microphoneArea =
+            document.getElementById("microphoneArea");
+
+        const assistantStatus =
+            document.getElementById("assistantStatus");
+
+        const assistantResponse =
+            document.getElementById("assistantResponse");
 
 
-            /* =================================================
-               ELEMENTOS
-               ================================================= */
+        /* =====================================================
+           MODO CLARO / ESCURO
+        ===================================================== */
 
-            const botao =
-                document.getElementById(
-                    "nextAssistantButton"
+        let temaSalvo =
+            localStorage.getItem("nextwork-assistente-tema");
+
+        if (temaSalvo === "claro") {
+            document.body.classList.add("modo-claro");
+            themeButton.textContent = "☀";
+        } else {
+            themeButton.textContent = "☾";
+        }
+
+
+        themeButton.addEventListener("click", function () {
+
+            document.body.classList.toggle("modo-claro");
+
+            const claro =
+                document.body.classList.contains("modo-claro");
+
+            if (claro) {
+
+                localStorage.setItem(
+                    "nextwork-assistente-tema",
+                    "claro"
                 );
 
-
-            const chat =
-                document.getElementById(
-                    "nextAssistantChat"
-                );
-
-
-            const fechar =
-                document.getElementById(
-                    "nextAssistantClose"
-                );
-
-
-            const mensagens =
-                document.getElementById(
-                    "nextAssistantMessages"
-                );
-
-
-            const microfone =
-                document.getElementById(
-                    "nextAssistantMic"
-                );
-
-
-            const sugestoes =
-                document.querySelectorAll(
-                    ".suggestion-button"
-                );
-
-
-            /* =================================================
-               VERIFICAÇÃO
-               ================================================= */
-
-            if (
-                !botao ||
-                !chat ||
-                !fechar ||
-                !mensagens ||
-                !microfone
-            ) {
-
-                console.error(
-                    "Next Assistant: algum elemento não foi encontrado."
-                );
-
-                return;
-            }
-
-
-            console.log(
-                "Next Assistant iniciado."
-            );
-
-
-            /* =================================================
-               ESTADO
-               ================================================= */
-
-            let ouvindo = false;
-
-
-            /* =================================================
-               CHAT INICIALMENTE FECHADO
-               ================================================= */
-
-            chat.style.display =
-                "none";
-
-            chat.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-            botao.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-
-            /* =================================================
-               ABRIR
-               ================================================= */
-
-            botao.addEventListener(
-                "click",
-                function () {
-
-                    chat.style.display =
-                        "flex";
-
-                    chat.setAttribute(
-                        "aria-hidden",
-                        "false"
-                    );
-
-                    botao.setAttribute(
-                        "aria-expanded",
-                        "true"
-                    );
-
-
-                    mensagens.scrollTop =
-                        mensagens.scrollHeight;
-
-                }
-            );
-
-
-            /* =================================================
-               FECHAR
-               ================================================= */
-
-            fechar.addEventListener(
-                "click",
-                function () {
-
-                    chat.style.display =
-                        "none";
-
-                    chat.setAttribute(
-                        "aria-hidden",
-                        "true"
-                    );
-
-                    botao.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-
-                    pararFala();
-
-
-                    if (
-                        reconhecimento &&
-                        ouvindo
-                    ) {
-
-                        reconhecimento.stop();
-
-                    }
-
-                }
-            );
-
-
-            /* =================================================
-               BANCO DE PERGUNTAS
-               ================================================= */
-
-            const perguntas = [
-
-
-                {
-                    palavras: [
-                        "vaga de informatica",
-                        "vaga informatica",
-                        "vagas de informatica",
-                        "vagas informatica"
-                    ],
-
-                    resposta:
-                        "Sim. Há oportunidades relacionadas à área de informática disponíveis no momento. Para consultar os requisitos e se candidatar, acesse Vagas."
-                },
-
-
-                {
-                    palavras: [
-                        "vagas disponiveis",
-                        "vagas",
-                        "oportunidades"
-                    ],
-
-                    resposta:
-                        "Encontrei algumas oportunidades próximas a você, incluindo vagas na área de informática e atendimento. Para ver todas as oportunidades e seus detalhes, acesse a aba Vagas."
-                },
-
-
-                {
-                    palavras: [
-                        "profissionais perto",
-                        "profissionais",
-                        "autonomos"
-                    ],
-
-                    resposta:
-                        "Na sua região há profissionais autônomos disponíveis para diferentes serviços. Alguns deles já aparecem nos destaques da página inicial. Para conhecer todos, acesse Autônomos."
-                },
-
-
-                {
-                    palavras: [
-                        "encanador",
-                        "encanamento"
-                    ],
-
-                    resposta:
-                        "Sim. Há profissionais autônomos disponíveis para serviços de encanamento. Para encontrar um profissional, acesse Autônomos."
-                },
-
-
-                {
-                    palavras: [
-                        "pintor",
-                        "pintura"
-                    ],
-
-                    resposta:
-                        "Sim. Há profissionais autônomos disponíveis para serviços de pintura. Para encontrar um profissional, acesse Autônomos."
-                },
-
-
-                {
-                    palavras: [
-                        "faxineiro",
-                        "faxina",
-                        "limpeza"
-                    ],
-
-                    resposta:
-                        "Há profissionais autônomos disponíveis para serviços de limpeza. Para encontrar um profissional, acesse Autônomos."
-                },
-
-
-                {
-                    palavras: [
-                        "servico",
-                        "serviço",
-                        "serviços"
-                    ],
-
-                    resposta:
-                        "Posso ajudar. Existem profissionais autônomos disponíveis em diferentes áreas. Para encontrar o serviço que você precisa, acesse Autônomos."
-                },
-
-
-                {
-                    palavras: [
-                        "onde ficam as empresas",
-                        "localizacao das empresas",
-                        "localização das empresas"
-                    ],
-
-                    resposta:
-                        "Você pode visualizar a localização das empresas diretamente no mapa. Para pesquisar e explorar as empresas próximas, acesse Empresas."
-                },
-
-
-                {
-                    palavras: [
-                        "empresas perto",
-                        "empresas",
-                        "empresa"
-                    ],
-
-                    resposta:
-                        "Encontrei empresas próximas à sua região. Algumas aparecem nos destaques da página inicial. Para visualizar todas e consultar suas localizações, acesse Empresas."
-                },
-
-
-                {
-                    palavras: [
-                        "candidaturas",
-                        "candidatura"
-                    ],
-
-                    resposta:
-                        "Você pode acompanhar suas candidaturas e verificar o andamento de cada oportunidade. Para consultar os detalhes, acesse Minhas candidaturas."
-                },
-
-
-                {
-                    palavras: [
-                        "meu perfil",
-                        "perfil"
-                    ],
-
-                    resposta:
-                        "Seu perfil reúne suas informações profissionais, habilidades e currículo. Para consultar ou alterar seus dados, acesse Meu perfil."
-                },
-
-
-                {
-                    palavras: [
-                        "certificacoes",
-                        "certificação",
-                        "cursos",
-                        "curso"
-                    ],
-
-                    resposta:
-                        "Seus cursos e certificações ficam registrados no seu perfil profissional. Para consultar todos eles, acesse Cursos e certificações."
-                }
-
-            ];
-
-
-            /* =================================================
-               NORMALIZAR
-               ================================================= */
-
-            function normalizar(texto) {
-
-                return texto
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(
-                        /[\u0300-\u036f]/g,
-                        ""
-                    )
-                    .trim();
-
-            }
-
-
-            /* =================================================
-               ENCONTRAR RESPOSTA
-               ================================================= */
-
-            function encontrarResposta(
-                pergunta
-            ) {
-
-                const texto =
-                    normalizar(
-                        pergunta
-                    );
-
-
-                let respostaEncontrada =
-                    null;
-
-
-                let maiorPontuacao =
-                    0;
-
-
-                perguntas.forEach(
-                    function (item) {
-
-                        let pontuacao =
-                            0;
-
-
-                        item.palavras.forEach(
-                            function (palavra) {
-
-                                if (
-                                    texto.includes(
-                                        normalizar(
-                                            palavra
-                                        )
-                                    )
-                                ) {
-
-                                    pontuacao++;
-
-                                }
-
-                            }
-                        );
-
-
-                        if (
-                            pontuacao >
-                            maiorPontuacao
-                        ) {
-
-                            maiorPontuacao =
-                                pontuacao;
-
-
-                            respostaEncontrada =
-                                item.resposta;
-
-                        }
-
-                    }
-                );
-
-
-                return (
-                    respostaEncontrada ||
-                    "Ainda não consegui encontrar uma resposta para essa pergunta. Tente perguntar sobre vagas, empresas, profissionais autônomos, candidaturas, perfil ou cursos."
-                );
-
-            }
-
-
-            /* =================================================
-               PERGUNTA DO USUÁRIO
-               ================================================= */
-
-            function adicionarPergunta(
-                texto
-            ) {
-
-                const mensagem =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                mensagem.className =
-                    "usuario-mensagem";
-
-
-                mensagem.textContent =
-                    texto;
-
-
-                mensagens.appendChild(
-                    mensagem
-                );
-
-
-                mensagens.scrollTop =
-                    mensagens.scrollHeight;
-
-            }
-
-
-            /* =================================================
-               RESPOSTA
-               ================================================= */
-
-            function adicionarResposta(
-                texto
-            ) {
-
-                const mensagem =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                mensagem.className =
-                    "assistant-message";
-
-
-                const avatar =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                avatar.className =
-                    "message-avatar";
-
-
-                const imagem =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                imagem.src =
-                    "ia quadrado.png";
-
-
-                imagem.alt =
-                    "Next Assistant";
-
-
-                avatar.appendChild(
-                    imagem
-                );
-
-
-                const conteudo =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                conteudo.className =
-                    "message-content";
-
-
-                const nome =
-                    document.createElement(
-                        "span"
-                    );
-
-
-                nome.className =
-                    "message-name";
-
-
-                nome.textContent =
-                    "Next Assistant";
-
-
-                const textoResposta =
-                    document.createElement(
-                        "p"
-                    );
-
-
-                textoResposta.textContent =
-                    texto;
-
-
-                conteudo.appendChild(
-                    nome
-                );
-
-
-                conteudo.appendChild(
-                    textoResposta
-                );
-
-
-                mensagem.appendChild(
-                    avatar
-                );
-
-
-                mensagem.appendChild(
-                    conteudo
-                );
-
-
-                mensagens.appendChild(
-                    mensagem
-                );
-
-
-                mensagens.scrollTop =
-                    mensagens.scrollHeight;
-
-            }
-
-
-            /* =================================================
-               VOZ
-               ================================================= */
-
-            function falar(texto) {
-
-                if (
-                    !window.speechSynthesis
-                ) {
-
-                    console.log(
-                        "Síntese de voz não disponível."
-                    );
-
-                    return;
-                }
-
-
-                pararFala();
-
-
-                const fala =
-                    new SpeechSynthesisUtterance(
-                        texto
-                    );
-
-
-                fala.lang =
-                    "pt-BR";
-
-
-                fala.rate =
-                    1;
-
-
-                fala.pitch =
-                    1;
-
-
-                fala.volume =
-                    1;
-
-
-                window.speechSynthesis.speak(
-                    fala
-                );
-
-            }
-
-
-            /* =================================================
-               PARAR VOZ
-               ================================================= */
-
-            function pararFala() {
-
-                if (
-                    window.speechSynthesis
-                ) {
-
-                    window.speechSynthesis.cancel();
-
-                }
-
-            }
-
-
-            /* =================================================
-               PROCESSAR
-               ================================================= */
-
-            function processarPergunta(
-                pergunta
-            ) {
-
-                if (
-                    !pergunta ||
-                    !pergunta.trim()
-                ) {
-
-                    return;
-                }
-
-
-                adicionarPergunta(
-                    pergunta
-                );
-
-
-                setTimeout(
-                    function () {
-
-                        const resposta =
-                            encontrarResposta(
-                                pergunta
-                            );
-
-
-                        adicionarResposta(
-                            resposta
-                        );
-
-
-                        falar(
-                            resposta
-                        );
-
-                    },
-                    450
-                );
-
-            }
-
-
-            /* =================================================
-               RECONHECIMENTO DE VOZ
-               ================================================= */
-
-            const Reconhecimento =
-                window.SpeechRecognition ||
-                window.webkitSpeechRecognition;
-
-
-            let reconhecimento =
-                null;
-
-
-            if (Reconhecimento) {
-
-                reconhecimento =
-                    new Reconhecimento();
-
-
-                reconhecimento.lang =
-                    "pt-BR";
-
-
-                reconhecimento.continuous =
-                    false;
-
-
-                reconhecimento.interimResults =
-                    false;
-
-
-                reconhecimento.addEventListener(
-                    "start",
-                    function () {
-
-                        ouvindo =
-                            true;
-
-
-                        microfone.classList.add(
-                            "ouvindo"
-                        );
-
-
-                        console.log(
-                            "Next Assistant está ouvindo."
-                        );
-
-                    }
-                );
-
-
-                reconhecimento.addEventListener(
-                    "result",
-                    function (evento) {
-
-                        if (
-                            !evento.results ||
-                            !evento.results[0]
-                        ) {
-
-                            return;
-                        }
-
-
-                        const texto =
-                            evento.results[0][0]
-                                .transcript;
-
-
-                        processarPergunta(
-                            texto
-                        );
-
-                    }
-                );
-
-
-                reconhecimento.addEventListener(
-                    "end",
-                    function () {
-
-                        ouvindo =
-                            false;
-
-
-                        microfone.classList.remove(
-                            "ouvindo"
-                        );
-
-                    }
-                );
-
-
-                reconhecimento.addEventListener(
-                    "error",
-                    function (evento) {
-
-                        ouvindo =
-                            false;
-
-
-                        microfone.classList.remove(
-                            "ouvindo"
-                        );
-
-
-                        console.error(
-                            "Erro no reconhecimento:",
-                            evento.error
-                        );
-
-                    }
-                );
-
-
-                microfone.addEventListener(
-                    "click",
-                    function () {
-
-                        if (ouvindo) {
-                            return;
-                        }
-
-
-                        try {
-
-                            reconhecimento.start();
-
-                        } catch (erro) {
-
-                            console.log(
-                                "Reconhecimento já iniciado."
-                            );
-
-                        }
-
-                    }
-                );
+                themeButton.textContent = "☀";
 
             } else {
 
-                microfone.addEventListener(
-                    "click",
-                    function () {
-
-                        alert(
-                            "O reconhecimento de voz não está disponível neste navegador."
-                        );
-
-                    }
+                localStorage.setItem(
+                    "nextwork-assistente-tema",
+                    "escuro"
                 );
 
+                themeButton.textContent = "☾";
             }
 
-
-            /* =================================================
-               SUGESTÕES
-               ================================================= */
-
-            sugestoes.forEach(
-                function (botaoSugestao) {
-
-                    botaoSugestao.addEventListener(
-                        "click",
-                        function () {
-
-                            const pergunta =
-                                botaoSugestao
-                                    .getAttribute(
-                                        "data-question"
-                                    );
+        });
 
 
-                            processarPergunta(
-                                pergunta
-                            );
+        /* =====================================================
+           RESPOSTAS DEMONSTRATIVAS
+        ===================================================== */
 
-                        }
+        const respostas = [
+
+            {
+                palavras: [
+                    "vaga",
+                    "vagas",
+                    "emprego",
+                    "empregos",
+                    "trabalho",
+                    "oportunidade"
+                ],
+
+                resposta:
+                    "Encontrei algumas oportunidades disponíveis no NEXT WORK. Você pode acessar a página de vagas para visualizar os detalhes."
+            },
+
+            {
+                palavras: [
+                    "profissional",
+                    "profissionais",
+                    "pessoa",
+                    "pessoas"
+                ],
+
+                resposta:
+                    "O NEXT WORK possui uma área para encontrar profissionais e visualizar os serviços oferecidos."
+            },
+
+            {
+                palavras: [
+                    "encanador",
+                    "eletricista",
+                    "pedreiro",
+                    "pintor",
+                    "serviço",
+                    "servicos"
+                ],
+
+                resposta:
+                    "Existem serviços cadastrados na plataforma. Você pode pesquisar pelo tipo de serviço que procura."
+            },
+
+            {
+                palavras: [
+                    "empresa",
+                    "empresas"
+                ],
+
+                resposta:
+                    "Você pode encontrar empresas cadastradas e consultar informações sobre suas oportunidades."
+            },
+
+            {
+                palavras: [
+                    "olá",
+                    "ola",
+                    "oi",
+                    "hey"
+                ],
+
+                resposta:
+                    "Olá! Eu sou o Next Assistant. Estou aqui para ajudar você a navegar pelo NEXT WORK."
+            }
+
+        ];
+
+
+        /* =====================================================
+           ENCONTRAR RESPOSTA
+        ===================================================== */
+
+        function encontrarResposta(pergunta) {
+
+            const texto =
+                pergunta.toLowerCase();
+
+            for (
+                let i = 0;
+                i < respostas.length;
+                i++
+            ) {
+
+                const grupo =
+                    respostas[i];
+
+                for (
+                    let j = 0;
+                    j < grupo.palavras.length;
+                    j++
+                ) {
+
+                    if (
+                        texto.includes(
+                            grupo.palavras[j]
+                        )
+                    ) {
+
+                        return grupo.resposta;
+                    }
+                }
+            }
+
+            return "Ainda estou aprendendo. Tente perguntar sobre vagas, empresas, profissionais ou serviços.";
+        }
+
+
+        /* =====================================================
+           FALAR A RESPOSTA
+        ===================================================== */
+
+        function falarResposta(texto) {
+
+            if (!("speechSynthesis" in window)) {
+                return;
+            }
+
+            window.speechSynthesis.cancel();
+
+            const fala =
+                new SpeechSynthesisUtterance(texto);
+
+            fala.lang = "pt-BR";
+            fala.rate = 1;
+            fala.pitch = 1;
+
+            window.speechSynthesis.speak(fala);
+        }
+
+
+        /* =====================================================
+           RECONHECIMENTO DE VOZ
+        ===================================================== */
+
+        const SpeechRecognition =
+            window.SpeechRecognition ||
+            window.webkitSpeechRecognition;
+
+        let reconhecimento = null;
+
+        let ouvindo = false;
+
+
+        if (SpeechRecognition) {
+
+            reconhecimento =
+                new SpeechRecognition();
+
+            reconhecimento.lang = "pt-BR";
+
+            reconhecimento.continuous = false;
+
+            reconhecimento.interimResults = false;
+
+
+            reconhecimento.onstart =
+                function () {
+
+                    ouvindo = true;
+
+                    microphoneArea.classList.add(
+                        "ouvindo"
                     );
 
+                    assistantStatus.classList.add(
+                        "ouvindo"
+                    );
+
+                    assistantStatus.textContent =
+                        "Estou ouvindo...";
+
+                    assistantResponse.classList.remove(
+                        "visivel"
+                    );
+                };
+
+
+            reconhecimento.onresult =
+                function (evento) {
+
+                    const texto =
+                        evento.results[0][0].transcript;
+
+                    const resposta =
+                        encontrarResposta(texto);
+
+                    assistantResponse.innerHTML =
+                        "<strong>Você:</strong> " +
+                        texto +
+                        "<br><br>" +
+                        "<strong>Next Assistant:</strong> " +
+                        resposta;
+
+                    assistantResponse.classList.add(
+                        "visivel"
+                    );
+
+                    assistantStatus.textContent =
+                        "Resposta pronta";
+
+                    falarResposta(resposta);
+                };
+
+
+            reconhecimento.onerror =
+                function (evento) {
+
+                    console.error(
+                        "Erro no reconhecimento:",
+                        evento.error
+                    );
+
+                    assistantStatus.textContent =
+                        "Não consegui entender. Tente novamente.";
+                };
+
+
+            reconhecimento.onend =
+                function () {
+
+                    ouvindo = false;
+
+                    microphoneArea.classList.remove(
+                        "ouvindo"
+                    );
+
+                    assistantStatus.classList.remove(
+                        "ouvindo"
+                    );
+
+                    if (
+                        assistantStatus.textContent ===
+                        "Estou ouvindo..."
+                    ) {
+
+                        assistantStatus.textContent =
+                            "Toque no microfone para falar";
+                    }
+                };
+
+        } else {
+
+            assistantStatus.textContent =
+                "Seu navegador não oferece reconhecimento de voz.";
+        }
+
+
+        /* =====================================================
+           BOTÃO DO MICROFONE
+        ===================================================== */
+
+        microphoneButton.addEventListener(
+            "click",
+            function () {
+
+                if (!reconhecimento) {
+
+                    alert(
+                        "O reconhecimento de voz não está disponível neste navegador."
+                    );
+
+                    return;
                 }
-            );
 
 
-            /* =================================================
-               FINAL
-               ================================================= */
+                if (ouvindo) {
 
-            console.log(
-                "Next Assistant carregado completamente."
-            );
+                    reconhecimento.stop();
 
-        })();
+                    return;
+                }
+
+
+                try {
+
+                    reconhecimento.start();
+
+                } catch (erro) {
+
+                    console.error(erro);
+                }
+
+            }
+        );
 
     </script>
 
-
 </body>
-
 </html>
