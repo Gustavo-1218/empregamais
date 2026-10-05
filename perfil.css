@@ -1733,47 +1733,22 @@ html[data-tema="escuro"] #profileMessage {
     }
 }
 /* =========================================================
-   AJUSTE FINAL — LAYOUT DO PERFIL
+   AJUSTE DO CONTEÚDO — SEM ALTERAR O MENU LATERAL
    ========================================================= */
 
-.page-layout {
-    width: 100%;
+/*
+   O menu lateral permanece sendo controlado
+   exclusivamente pelo menu lateral.css.
 
-    display: grid;
+   Aqui ajustamos SOMENTE o conteúdo do perfil.
+*/
 
-    grid-template-columns: 315px minmax(0, 1fr);
-
-    gap: 28px;
-
-    align-items: start;
-
-    padding: 25px 30px 40px;
-}
-
-
-/* Área do menu lateral */
-#menu-lateral {
-    width: 315px;
-    min-width: 315px;
-    max-width: 315px;
-
-    position: relative;
-}
-
-
-/* Faz o menu ocupar exatamente a coluna dele */
-#menu-lateral .sidebar {
-    width: 315px !important;
-    max-width: 315px !important;
-}
-
-
-/* Conteúdo do perfil */
 .main-content {
-    width: 100%;
     min-width: 0;
+    width: 100%;
 
     margin: 0;
+    padding: 0;
 
     display: flex;
     flex-direction: column;
@@ -1782,82 +1757,62 @@ html[data-tema="escuro"] #profileMessage {
 }
 
 
-/* =========================================================
-   AJUSTE DO CABEÇALHO
-   ========================================================= */
-
-.page-header {
+/* Cabeçalho ocupa toda a área disponível */
+.main-content .page-header {
     width: 100%;
 
+    margin: 0;
     padding: 5px 2px 8px;
 }
 
 
-/* =========================================================
-   AJUSTE DOS CARDS
-   ========================================================= */
-
-.content-card,
-.stat-card {
+/* Cards ocupam corretamente a área ao lado do menu */
+.main-content .content-card {
     width: 100%;
-    min-width: 0;
+    max-width: none;
+
+    margin: 0;
+}
+
+
+/* Área das informações pessoais */
+.main-content .information-grid {
+    width: 100%;
+}
+
+
+/* Sobre mim */
+.main-content .about-text {
+    width: 100%;
+}
+
+
+/* Currículo */
+.main-content .pdf-file {
+    width: 100%;
+}
+
+
+/* Candidaturas */
+.main-content .application-list {
+    width: 100%;
 }
 
 
 /* =========================================================
-   TABLET / NOTEBOOK
-   ========================================================= */
-
-@media (max-width: 1120px) {
-
-    .page-layout {
-        grid-template-columns: 280px minmax(0, 1fr);
-
-        gap: 20px;
-
-        padding-left: 22px;
-        padding-right: 22px;
-    }
-
-    #menu-lateral {
-        width: 280px;
-        min-width: 280px;
-        max-width: 280px;
-    }
-
-    #menu-lateral .sidebar {
-        width: 280px !important;
-        max-width: 280px !important;
-    }
-}
-
-
-/* =========================================================
-   TABLET / MOBILE
+   RESPONSIVO
    ========================================================= */
 
 @media (max-width: 850px) {
 
-    .page-layout {
-        grid-template-columns: 1fr;
-
-        gap: 20px;
-
-        padding: 20px 18px 40px;
-    }
-
-    #menu-lateral {
+    .main-content {
         width: 100%;
         min-width: 0;
-        max-width: none;
+
+        margin: 0;
     }
 
-    #menu-lateral .sidebar {
-        width: 100% !important;
-        max-width: none !important;
-    }
-
-    .main-content {
+    .main-content .content-card {
         width: 100%;
     }
 }
@@ -1865,9 +1820,11 @@ html[data-tema="escuro"] #profileMessage {
 
 @media (max-width: 600px) {
 
-    .page-layout {
-        padding: 15px 12px 30px;
+    .main-content {
+        width: 100%;
+    }
 
-        gap: 14px;
+    .main-content .content-card {
+        width: 100%;
     }
 }
