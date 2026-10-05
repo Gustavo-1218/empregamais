@@ -1,11 +1,5 @@
 /* =========================================================
    NEXT ASSISTANT
-   CSS adaptado ao HTML + JavaScript atual
-   ========================================================= */
-
-
-/* =========================================================
-   CONTAINER PRINCIPAL
    ========================================================= */
 
 .next-assistant-container {
@@ -27,16 +21,12 @@
     height: 64px;
 
     padding: 0;
+    margin: 0;
 
     border: 1px solid rgba(141, 92, 255, 0.65);
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            rgba(141, 92, 255, 0.22),
-            rgba(2, 7, 19, 0.96)
-        );
+    background: #071225;
 
     display: flex;
     align-items: center;
@@ -44,52 +34,42 @@
 
     cursor: pointer;
 
+    z-index: 10001;
+
     box-shadow:
         0 0 15px rgba(141, 92, 255, 0.60),
         0 0 35px rgba(141, 92, 255, 0.22);
 
     animation: nextAssistantPulse 2.5s infinite;
 
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease;
+    transition: transform 0.25s ease;
 }
 
 #nextAssistantButton:hover {
     transform: scale(1.07);
-
-    border-color: #00ddff;
-
-    box-shadow:
-        0 0 20px rgba(0, 221, 255, 0.65),
-        0 0 40px rgba(141, 92, 255, 0.35);
 }
 
 #nextAssistantButton:active {
     transform: scale(0.96);
 }
 
-
-/* IMAGEM DO BOTÃO */
-
 #nextAssistantButton img {
     width: 100%;
     height: 100%;
 
+    display: block;
+
     object-fit: cover;
 
     border-radius: 50%;
-
-    display: block;
 }
 
 
 /* =========================================================
-   ANIMAÇÃO DO BOTÃO
+   PULSAÇÃO
    ========================================================= */
 
 @keyframes nextAssistantPulse {
-
     0%,
     100% {
         box-shadow:
@@ -106,18 +86,10 @@
 
 
 /* =========================================================
-   JANELA DO ASSISTENTE
+   CHAT
    ========================================================= */
 
-/*
-   O JavaScript também controla o display.
-   O !important garante que a janela não apareça
-   automaticamente antes do clique.
-*/
-
 #nextAssistantChat {
-    display: none !important;
-
     position: fixed;
 
     left: 24px;
@@ -133,9 +105,7 @@
 
     flex-direction: column;
 
-    border:
-        1px solid rgba(0, 221, 255, 0.22);
-
+    border: 1px solid rgba(0, 221, 255, 0.22);
     border-radius: 22px;
 
     background:
@@ -157,16 +127,6 @@
 }
 
 
-/*
-   Quando o JavaScript abrir o chat, ele usa display:block.
-   Por isso transformamos o conteúdo em flex novamente.
-*/
-
-#nextAssistantChat.aberto {
-    display: flex !important;
-}
-
-
 /* =========================================================
    CABEÇALHO
    ========================================================= */
@@ -180,19 +140,14 @@
     align-items: center;
     justify-content: space-between;
 
-    border-bottom:
-        1px solid rgba(0, 221, 255, 0.12);
+    border-bottom: 1px solid rgba(0, 221, 255, 0.12);
 
-    background:
-        rgba(4, 12, 28, 0.82);
+    background: rgba(4, 12, 28, 0.82);
 }
-
 
 .next-assistant-header-info {
     display: flex;
     align-items: center;
-
-    min-width: 0;
 }
 
 
@@ -202,16 +157,13 @@
     width: 46px;
     height: 46px;
 
-    flex-shrink: 0;
-
     margin-right: 11px;
-
-    border-radius: 13px;
 
     overflow: hidden;
 
-    border:
-        1px solid rgba(141, 92, 255, 0.45);
+    border-radius: 13px;
+
+    border: 1px solid rgba(141, 92, 255, 0.45);
 
     box-shadow:
         0 0 15px rgba(141, 92, 255, 0.18);
@@ -221,9 +173,9 @@
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
+
+    object-fit: cover;
 }
 
 
@@ -236,8 +188,6 @@
 
     font-size: 16px;
     font-weight: 700;
-
-    letter-spacing: 0.2px;
 }
 
 
@@ -246,6 +196,7 @@
 .next-assistant-status {
     display: flex;
     align-items: center;
+
     gap: 6px;
 
     margin-top: 3px;
@@ -254,7 +205,6 @@
 
     font-size: 12px;
 }
-
 
 .status-dot {
     width: 7px;
@@ -270,14 +220,14 @@
 
 
 /* =========================================================
-   BOTÃO FECHAR
+   FECHAR
    ========================================================= */
 
 .next-assistant-close {
     width: 38px;
     height: 38px;
 
-    flex-shrink: 0;
+    padding: 0;
 
     border: none;
     border-radius: 10px;
@@ -290,10 +240,6 @@
     line-height: 1;
 
     cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease;
 }
 
 .next-assistant-close:hover {
@@ -304,7 +250,7 @@
 
 
 /* =========================================================
-   ÁREA DE MENSAGENS
+   MENSAGENS
    ========================================================= */
 
 .next-assistant-messages {
@@ -320,34 +266,10 @@
     flex-direction: column;
 
     gap: 15px;
-
-    scrollbar-width: thin;
-    scrollbar-color:
-        rgba(0, 221, 255, 0.25)
-        transparent;
 }
 
 
-/* SCROLLBAR CHROME */
-
-.next-assistant-messages::-webkit-scrollbar {
-    width: 5px;
-}
-
-.next-assistant-messages::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.next-assistant-messages::-webkit-scrollbar-thumb {
-    background: rgba(0, 221, 255, 0.25);
-
-    border-radius: 10px;
-}
-
-
-/* =========================================================
-   MENSAGEM DA IA
-   ========================================================= */
+/* MENSAGEM DA IA */
 
 .assistant-message {
     display: flex;
@@ -357,7 +279,6 @@
 
     max-width: 94%;
 }
-
 
 .message-avatar {
     width: 32px;
@@ -369,8 +290,7 @@
 
     border-radius: 9px;
 
-    border:
-        1px solid rgba(141, 92, 255, 0.35);
+    border: 1px solid rgba(141, 92, 255, 0.35);
 }
 
 .message-avatar img {
@@ -382,22 +302,15 @@
     object-fit: cover;
 }
 
-
 .message-content {
-    min-width: 0;
-
     padding: 10px 12px;
 
-    border:
-        1px solid rgba(141, 92, 255, 0.16);
+    border: 1px solid rgba(141, 92, 255, 0.16);
 
-    border-radius:
-        4px 14px 14px 14px;
+    border-radius: 4px 14px 14px 14px;
 
-    background:
-        rgba(14, 28, 52, 0.86);
+    background: rgba(14, 28, 52, 0.86);
 }
-
 
 .message-name {
     display: block;
@@ -410,7 +323,6 @@
     font-weight: 700;
 }
 
-
 .message-content p {
     margin: 0;
 
@@ -421,10 +333,7 @@
 }
 
 
-/* =========================================================
-   MENSAGEM DO USUÁRIO
-   Criada pelo JavaScript
-   ========================================================= */
+/* MENSAGEM DO USUÁRIO */
 
 .usuario-mensagem {
     align-self: flex-end;
@@ -433,11 +342,9 @@
 
     padding: 10px 13px;
 
-    border:
-        1px solid rgba(0, 221, 255, 0.20);
+    border: 1px solid rgba(0, 221, 255, 0.20);
 
-    border-radius:
-        14px 14px 4px 14px;
+    border-radius: 14px 14px 4px 14px;
 
     background:
         linear-gradient(
@@ -450,8 +357,6 @@
 
     font-size: 13px;
     line-height: 1.5;
-
-    word-break: break-word;
 }
 
 
@@ -468,16 +373,8 @@
 
     overflow-x: auto;
 
-    border-top:
-        1px solid rgba(0, 221, 255, 0.08);
-
-    scrollbar-width: none;
+    border-top: 1px solid rgba(0, 221, 255, 0.08);
 }
-
-.next-assistant-suggestions::-webkit-scrollbar {
-    display: none;
-}
-
 
 .suggestion-button {
     flex-shrink: 0;
@@ -486,13 +383,11 @@
 
     padding: 7px 12px;
 
-    border:
-        1px solid rgba(0, 221, 255, 0.18);
+    border: 1px solid rgba(0, 221, 255, 0.18);
 
     border-radius: 999px;
 
-    background:
-        rgba(0, 221, 255, 0.05);
+    background: rgba(0, 221, 255, 0.05);
 
     color: #9fdbea;
 
@@ -502,26 +397,19 @@
     font-weight: 600;
 
     cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease;
 }
 
 .suggestion-button:hover {
-    background:
-        rgba(0, 221, 255, 0.10);
+    background: rgba(0, 221, 255, 0.10);
 
-    border-color:
-        rgba(0, 221, 255, 0.42);
+    border-color: rgba(0, 221, 255, 0.42);
 
     color: #ffffff;
 }
 
 
 /* =========================================================
-   ÁREA DO MICROFONE
+   MICROFONE
    ========================================================= */
 
 .next-assistant-input-area {
@@ -533,17 +421,10 @@
     align-items: center;
     justify-content: center;
 
-    border-top:
-        1px solid rgba(0, 221, 255, 0.10);
+    border-top: 1px solid rgba(0, 221, 255, 0.10);
 
-    background:
-        rgba(3, 10, 24, 0.78);
+    background: rgba(3, 10, 24, 0.78);
 }
-
-
-/* =========================================================
-   BOTÃO DO MICROFONE
-   ========================================================= */
 
 .next-assistant-mic {
     width: 56px;
@@ -555,17 +436,11 @@
     align-items: center;
     justify-content: center;
 
-    border:
-        1px solid rgba(141, 92, 255, 0.55);
+    border: 1px solid rgba(141, 92, 255, 0.55);
 
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            rgba(141, 92, 255, 0.20),
-            rgba(8, 20, 42, 0.98)
-        );
+    background: #071225;
 
     cursor: pointer;
 
@@ -573,57 +448,39 @@
         0 0 14px rgba(141, 92, 255, 0.35);
 
     animation: nextAssistantMicPulse 2.3s infinite;
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
 }
 
 .next-assistant-mic:hover {
-    transform: scale(1.06);
-
     border-color: #00ddff;
 
     box-shadow:
         0 0 20px rgba(0, 221, 255, 0.40);
 }
 
-.next-assistant-mic:active {
-    transform: scale(0.94);
-}
-
-
 .next-assistant-mic img {
     width: 31px;
     height: 31px;
 
-    object-fit: contain;
-
     display: block;
+
+    object-fit: contain;
 }
 
 
-/* =========================================================
-   MICROFONE OUVINDO
-   ========================================================= */
+/* MICROFONE OUVINDO */
 
 .next-assistant-mic.ouvindo {
     border-color: #00ddff;
 
-    background:
-        rgba(0, 221, 255, 0.10);
+    background: rgba(0, 221, 255, 0.10);
 
     box-shadow:
         0 0 18px rgba(0, 221, 255, 0.60),
         0 0 35px rgba(0, 221, 255, 0.22);
-
-    animation:
-        nextAssistantListening 1s infinite;
 }
 
 
 @keyframes nextAssistantMicPulse {
-
     0%,
     100% {
         box-shadow:
@@ -637,21 +494,8 @@
 }
 
 
-@keyframes nextAssistantListening {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.08);
-    }
-}
-
-
 /* =========================================================
-   RESPONSIVIDADE
+   CELULAR
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -664,7 +508,6 @@
         height: 58px;
     }
 
-
     #nextAssistantChat {
         left: 16px;
         bottom: 88px;
@@ -676,29 +519,24 @@
         border-radius: 19px;
     }
 
-
     .next-assistant-header {
         min-height: 68px;
 
         padding: 12px 13px;
     }
 
-
     .next-assistant-mini-photo {
         width: 42px;
         height: 42px;
     }
 
-
     .next-assistant-messages {
         padding: 15px 12px;
     }
 
-
     .next-assistant-suggestions {
         padding: 9px 11px;
     }
-
 
     .next-assistant-input-area {
         min-height: 78px;
@@ -707,7 +545,7 @@
 
 
 /* =========================================================
-   ACESSIBILIDADE / REDUÇÃO DE MOVIMENTO
+   REDUÇÃO DE MOVIMENTO
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -715,12 +553,5 @@
     #nextAssistantButton,
     .next-assistant-mic {
         animation: none;
-    }
-
-    #nextAssistantButton,
-    .next-assistant-mic,
-    .suggestion-button,
-    .next-assistant-close {
-        transition: none;
     }
 }
