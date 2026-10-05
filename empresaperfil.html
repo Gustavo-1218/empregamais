@@ -653,6 +653,40 @@
     </div>
 
 
+<!-- ==========================================
+     NEXT ASSISTANT
+========================================== -->
+
+<button
+    type="button"
+    id="abrirNextAssistant"
+    class="botao-assistente"
+>
+    <img
+        src="audioo.png"
+        alt="Abrir Next Assistant"
+    >
+</button>
+
+<iframe
+    id="nextAssistantFrame"
+    src="next-assistant.html"
+    title="Next Assistant"
+></iframe>
+
+<script>
+    const botaoAssistant =
+        document.getElementById("abrirNextAssistant");
+
+    const frameAssistant =
+        document.getElementById("nextAssistantFrame");
+
+    botaoAssistant.addEventListener("click", function () {
+        frameAssistant.style.display = "block";
+    });
+</script>
+
+
     <script src="empresaperfil.js"></script>
     <script src="menu.js"></script>
 
