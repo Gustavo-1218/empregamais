@@ -1732,89 +1732,48 @@ html[data-tema="escuro"] #profileMessage {
         font-size: 8px;
     }
 }
-
 /* =========================================================
-   NEXT WORK — AJUSTE UNIVERSAL DO LAYOUT
-   NÃO ALTERA A ESTRUTURA DA PÁGINA
-   ========================================================= */
-
-
-/* FUNDO IGUAL AO PADRÃO DAS PÁGINAS CLARAS */
-
-html,
-body {
-    background:
-        linear-gradient(
-            135deg,
-            #eaf8fc 0%,
-            #e3f3fa 50%,
-            #eef8fd 100%
-        );
-}
-
-
-/* =========================================================
-   ESTRUTURA PRINCIPAL
+   AJUSTE FINAL — LAYOUT DO PERFIL
    ========================================================= */
 
 .page-layout {
     width: 100%;
-    min-height: calc(100vh - 150px);
 
     display: grid;
 
-    /*
-       Mantém o menu lateral de um lado
-       e o conteúdo do outro.
-    */
-    grid-template-columns:
-        340px
-        minmax(0, 1fr);
+    grid-template-columns: 315px minmax(0, 1fr);
+
+    gap: 28px;
 
     align-items: start;
 
-    /*
-       NÃO coloca espaço gigante em cima.
-    */
-    padding:
-        25px
-        0
-        50px
-        0;
-
-    gap: 0;
+    padding: 25px 30px 40px;
 }
 
 
-/* =========================================================
-   MENU LATERAL
-   ========================================================= */
-
+/* Área do menu lateral */
 #menu-lateral {
-    width: 100%;
-    min-width: 0;
+    width: 315px;
+    min-width: 315px;
+    max-width: 315px;
 
-    align-self: start;
+    position: relative;
 }
 
 
-/* =========================================================
-   CONTEÚDO
-   ========================================================= */
+/* Faz o menu ocupar exatamente a coluna dele */
+#menu-lateral .sidebar {
+    width: 315px !important;
+    max-width: 315px !important;
+}
 
+
+/* Conteúdo do perfil */
 .main-content {
     width: 100%;
     min-width: 0;
 
-    /*
-       Apenas um pequeno afastamento
-       entre o menu e o conteúdo.
-    */
-    padding:
-        0
-        38px
-        0
-        38px;
+    margin: 0;
 
     display: flex;
     flex-direction: column;
@@ -1824,70 +1783,57 @@ body {
 
 
 /* =========================================================
-   CABEÇALHO
+   AJUSTE DO CABEÇALHO
    ========================================================= */
 
 .page-header {
     width: 100%;
 
-    padding:
-        0
-        2px
-        8px;
+    padding: 5px 2px 8px;
 }
 
 
 /* =========================================================
-   CARDS
-   ========================================================= */
-
-.content-card,
-.stat-card,
-.security-card {
-    width: 100%;
-}
-
-
-/* =========================================================
-   FUNDO DOS CARDS
+   AJUSTE DOS CARDS
    ========================================================= */
 
 .content-card,
 .stat-card {
-    background: rgba(255, 255, 255, 0.90);
-
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    width: 100%;
+    min-width: 0;
 }
 
 
 /* =========================================================
-   NOTEBOOK
+   TABLET / NOTEBOOK
    ========================================================= */
 
-@media (max-width: 1200px) {
+@media (max-width: 1120px) {
 
     .page-layout {
-        grid-template-columns:
-            300px
-            minmax(0, 1fr);
+        grid-template-columns: 280px minmax(0, 1fr);
 
-        padding:
-            22px
-            0
-            40px
-            0;
+        gap: 20px;
+
+        padding-left: 22px;
+        padding-right: 22px;
     }
 
-    .main-content {
-        padding-left: 28px;
-        padding-right: 28px;
+    #menu-lateral {
+        width: 280px;
+        min-width: 280px;
+        max-width: 280px;
+    }
+
+    #menu-lateral .sidebar {
+        width: 280px !important;
+        max-width: 280px !important;
     }
 }
 
 
 /* =========================================================
-   TABLET
+   TABLET / MOBILE
    ========================================================= */
 
 @media (max-width: 850px) {
@@ -1895,74 +1841,33 @@ body {
     .page-layout {
         grid-template-columns: 1fr;
 
-        padding:
-            25px
-            18px
-            40px;
+        gap: 20px;
+
+        padding: 20px 18px 40px;
     }
 
     #menu-lateral {
         width: 100%;
+        min-width: 0;
+        max-width: none;
+    }
+
+    #menu-lateral .sidebar {
+        width: 100% !important;
+        max-width: none !important;
     }
 
     .main-content {
-        padding:
-            25px
-            0
-            0;
-
-        gap: 18px;
+        width: 100%;
     }
 }
 
-
-/* =========================================================
-   CELULAR
-   ========================================================= */
 
 @media (max-width: 600px) {
 
     .page-layout {
-        padding:
-            20px
-            12px
-            30px;
-    }
-
-    .main-content {
-        padding:
-            20px
-            0
-            0;
+        padding: 15px 12px 30px;
 
         gap: 14px;
     }
-}
-
-
-/* =========================================================
-   MODO ESCURO
-   ========================================================= */
-
-html[data-tema="escuro"] body {
-    background:
-        radial-gradient(
-            circle at 70% 20%,
-            rgba(0, 174, 255, 0.08),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #020713 0%,
-            #061225 50%,
-            #020713 100%
-        );
-}
-
-
-html[data-tema="escuro"] .content-card,
-html[data-tema="escuro"] .stat-card {
-
-    background:
-        rgba(8, 18, 37, 0.88);
 }
