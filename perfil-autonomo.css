@@ -1,7 +1,3 @@
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -35,9 +31,9 @@
 }
 
 
-/* =========================================================
+/* =========================
    BASE
-========================================================= */
+========================= */
 
 html {
     scroll-behavior: smooth;
@@ -56,86 +52,88 @@ body {
 }
 
 
-/* =========================================================
-   ESTRUTURA PRINCIPAL
-========================================================= */
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
 
-/*
-   O menu lateral ocupa aproximadamente 300px.
-   O conteúdo começa depois dele.
-*/
+.pagina-perfil {
+    width: min(1120px, 92%);
 
-.page-layout {
-    width: 100%;
-    min-height: 100vh;
+    margin: 0 auto;
+
+    padding: 38px 0 65px;
 }
 
 
-/*
-   CONTEÚDO PRINCIPAL
+/* =========================
+   BOTÃO VOLTAR
+========================= */
 
-   IMPORTANTE:
-   O menu lateral fica à esquerda.
-   Por isso o conteúdo recebe espaço à esquerda.
-*/
-
-.main-content {
-    width: calc(100% - 312px);
-
-    min-height: 100vh;
-
-    margin-left: 312px;
-
-    padding: 42px 42px 70px;
-
-    font-family: "Poppins", sans-serif;
-}
-
-
-/* =========================================================
-   CABEÇALHO
-========================================================= */
-
-.profile-header {
-    display: flex;
-
+.voltar {
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
 
-    gap: 30px;
+    margin-bottom: 25px;
+    padding: 8px 12px;
 
-    width: 100%;
+    color: var(--azul);
 
-    margin-bottom: 24px;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    border-radius: 9px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.voltar:hover {
+    color: var(--roxo);
+
+    background: rgba(8, 124, 240, 0.06);
+
+    transform: translateX(-3px);
 }
 
 
-/* =========================================================
-   IDENTIDADE DO PROFISSIONAL
-========================================================= */
+/* =========================
+   TOPO DO PERFIL
+========================= */
 
-.profile-header-info {
-    display: flex;
+.perfil-topo {
+    display: grid;
+
+    grid-template-columns: 140px minmax(0, 1fr) auto;
 
     align-items: center;
 
-    gap: 20px;
+    gap: 28px;
 
-    min-width: 0;
+    padding: 30px;
+
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 35px rgba(20, 80, 120, 0.10);
 }
 
 
-/* =========================================================
-   FOTO PRINCIPAL
-========================================================= */
+/* =========================
+   FOTO
+========================= */
 
-.profile-main-photo {
-    position: relative;
-
-    width: 105px;
-    height: 105px;
-
-    flex-shrink: 0;
+.foto-perfil {
+    width: 135px;
+    height: 135px;
 
     padding: 3px;
 
@@ -148,161 +146,364 @@ body {
             var(--azul),
             var(--roxo)
         );
-
-    box-shadow:
-        0 8px 25px rgba(8, 124, 240, 0.18);
 }
 
-.profile-main-photo img {
+.foto-perfil img {
     display: block;
 
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     border-radius: 50%;
+
+    object-fit: cover;
 
     background: #dceefa;
 }
 
 
-/* =========================================================
-   SELO DE VERIFICAÇÃO
-========================================================= */
+/* =========================
+   DADOS
+========================= */
 
-.verified-badge {
-    position: absolute;
-
-    right: -2px;
-    bottom: 2px;
-
-    display: flex;
-
+.disponivel {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 6px;
 
-    width: 28px;
-    height: 28px;
+    color: #16875b;
 
-    color: #ffffff;
-
-    background: var(--azul);
-
-    border: 3px solid var(--fundo);
-
-    border-radius: 50%;
-
-    font-size: 11px;
-
-    box-shadow:
-        0 5px 12px rgba(8, 124, 240, 0.25);
+    font-size: 12px;
+    font-weight: 500;
 }
 
+.dados-principais h1 {
+    margin-top: 5px;
 
-/* =========================================================
-   IDENTIDADE
-========================================================= */
-
-.profile-identity {
-    min-width: 0;
-}
-
-.profile-name-line {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    flex-wrap: wrap;
-}
-
-.profile-name-line h1 {
     color: var(--texto);
 
-    font-size: 29px;
+    font-size: 30px;
     line-height: 1.2;
     font-weight: 700;
 }
 
-.verified-text {
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 4px 9px;
+.dados-principais h2 {
+    margin-top: 4px;
 
     color: var(--azul);
 
-    background: rgba(8, 124, 240, 0.07);
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+}
 
-    border: 1px solid rgba(8, 124, 240, 0.16);
+.localizacao {
+    margin-top: 10px;
 
-    border-radius: 20px;
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+}
+
+.descricao {
+    max-width: 650px;
+
+    margin-top: 11px;
+
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   AVALIAÇÃO
+========================= */
+
+.avaliacao {
+    min-width: 110px;
+
+    padding: 13px 16px;
+
+    text-align: center;
+
+    background: var(--area-clara);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 14px;
+
+    transition: 0.25s ease;
+}
+
+.avaliacao:hover {
+    border-color: var(--borda-hover);
+
+    transform: translateY(-2px);
+}
+
+.avaliacao span {
+    color: #f2b51d;
+
+    font-size: 18px;
+}
+
+.avaliacao strong {
+    margin-left: 3px;
+
+    color: var(--texto);
+
+    font-size: 17px;
+}
+
+.avaliacao small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--texto-terciario);
 
     font-size: 10px;
-    font-weight: 600;
 }
 
-.profile-profession {
-    margin-top: 5px;
 
-    color: var(--azul);
+/* =========================
+   INFORMAÇÕES
+========================= */
 
-    font-size: 15px;
-    font-weight: 600;
+.informacoes {
+    display: grid;
+
+    grid-template-columns: 300px minmax(0, 1fr);
+
+    gap: 22px;
+
+    margin-top: 22px;
 }
 
-.profile-meta {
+
+/* =========================
+   BLOCO ESCURO
+========================= */
+
+.informacoes-laterais {
+    padding: 22px;
+
+    background: var(--escuro);
+
+    border: 1px solid #193554;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(10, 40, 70, 0.12);
+}
+
+.info-item {
     display: flex;
 
     align-items: center;
 
-    flex-wrap: wrap;
-
     gap: 14px;
 
-    margin-top: 8px;
+    padding: 17px 0;
 
-    color: var(--texto-secundario);
-
-    font-size: 12px;
+    border-bottom: 1px solid rgba(150, 190, 220, 0.12);
 }
 
-.profile-meta span {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 5px;
+.info-item:last-child {
+    border-bottom: none;
 }
 
-.profile-meta i {
-    color: var(--azul);
-}
-
-.profile-meta span:nth-child(2) i {
-    color: #f2b51d;
-}
-
-
-/* =========================================================
-   BOTÃO SOLICITAR
-========================================================= */
-
-.btn-solicitar {
-    display: inline-flex;
+.info-icone {
+    display: flex;
 
     align-items: center;
     justify-content: center;
 
-    gap: 8px;
+    width: 38px;
+    height: 38px;
 
-    min-width: 175px;
+    flex-shrink: 0;
 
-    padding: 13px 20px;
+    color: #35a4ff;
 
+    background: rgba(35, 153, 255, 0.10);
+
+    border: 1px solid rgba(35, 153, 255, 0.13);
+
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+.info-item small {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--texto-escuro-terciario);
+
+    font-size: 10px;
+}
+
+.info-item strong {
+    display: block;
+
+    color: var(--texto-escuro);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   ÁREA DE SERVIÇOS
+========================= */
+
+.servicos-area {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    gap: 14px;
+}
+
+.servicos-card {
+    padding: 25px;
+
+    background: var(--escuro-card);
+
+    border: 1px solid #193554;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(10, 40, 70, 0.12);
+}
+
+.servicos-card h3 {
+    margin-bottom: 15px;
+
+    color: var(--texto-escuro);
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.servicos-card ul {
+    list-style: none;
+}
+
+.servicos-card li {
+    position: relative;
+
+    padding: 8px 0 8px 25px;
+
+    color: var(--texto-escuro-secundario);
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.servicos-card li::before {
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+    top: 8px;
+
+    color: #35a4ff;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.acoes-perfil {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+/* Os dois links passam a ter exatamente
+   o mesmo tamanho e alinhamento */
+
+.btn-chat,
+.btn-contratar {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+
+    padding: 12px 16px;
+
+    border-radius: 12px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* CHAT */
+
+.btn-chat {
+    color: #65baff;
+
+    background: var(--escuro-card);
+
+    border: 1px solid #315371;
+}
+
+.btn-chat:hover {
+    color: #edf8ff;
+
+    background: #101f38;
+
+    border-color: #4d7698;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(10, 40, 70, 0.16);
+}
+
+
+/* CONTRATAR */
+
+.btn-contratar {
     color: #ffffff;
 
     background:
@@ -312,746 +513,48 @@ body {
             #7147e8
         );
 
-    border: none;
-
-    border-radius: 11px;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px rgba(52, 115, 220, 0.18);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    border: 1px solid transparent;
 }
 
-.btn-solicitar:hover {
+.btn-contratar:hover {
+    color: #ffffff;
+
     transform: translateY(-2px);
 
     box-shadow:
-        0 11px 25px rgba(52, 115, 220, 0.25);
+        0 8px 20px rgba(52, 115, 220, 0.25);
 }
 
-.btn-solicitar:active {
+.btn-contratar:active,
+.btn-chat:active {
     transform: translateY(0);
 }
 
 
-/* =========================================================
-   GRID PRINCIPAL
-========================================================= */
+/* QUANDO JÁ FOI CONTRATADO */
 
-.profile-grid {
-    display: grid;
+.btn-contratar.contratado {
+    color: #15825a;
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        315px;
+    background: #dff6ec;
 
-    align-items: start;
+    border-color: #b9e5d0;
 
-    gap: 22px;
+    cursor: default;
 
-    width: 100%;
+    box-shadow: none;
+}
+
+.btn-contratar.contratado:hover {
+    transform: none;
+
+    box-shadow: none;
 }
 
 
-/* =========================================================
-   COLUNA PRINCIPAL
-========================================================= */
-
-.profile-main {
-    display: flex;
-
-    flex-direction: column;
-
-    min-width: 0;
-
-    gap: 22px;
-}
-
-
-/* =========================================================
-   CARDS DE CONTEÚDO
-========================================================= */
-
-.content-card {
-    width: 100%;
-
-    padding: 25px;
-
-    background: var(--branco);
-
-    border: 1px solid var(--borda);
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 10px 30px rgba(20, 80, 120, 0.08);
-}
-
-
-/* =========================================================
-   TÍTULOS DAS SEÇÕES
-========================================================= */
-
-.section-heading {
-    display: flex;
-
-    align-items: flex-start;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-bottom: 20px;
-}
-
-.section-label {
-    display: block;
-
-    margin-bottom: 5px;
-
-    color: var(--azul);
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 2px;
-}
-
-.section-heading h2 {
-    color: var(--texto);
-
-    font-size: 21px;
-
-    line-height: 1.3;
-
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   LINK DA SEÇÃO
-========================================================= */
-
-.section-link {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    padding: 8px 12px;
-
-    color: var(--azul);
-
-    background: rgba(8, 124, 240, 0.05);
-
-    border: 1px solid rgba(8, 124, 240, 0.18);
-
-    border-radius: 9px;
-
-    text-decoration: none;
-
-    font-size: 11px;
-    font-weight: 600;
-
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.section-link:hover {
-    background: rgba(8, 124, 240, 0.09);
-
-    border-color: var(--borda-hover);
-
-    transform: translateY(-1px);
-}
-
-
-/* =========================================================
-   SOBRE
-========================================================= */
-
-.about-text {
-    color: var(--texto-secundario);
-
-    font-size: 13px;
-
-    line-height: 1.75;
-}
-
-
-/* =========================================================
-   ITENS DE CONFIANÇA
-========================================================= */
-
-.trust-items {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 12px;
-
-    margin-top: 22px;
-}
-
-.trust-item {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    min-width: 0;
-
-    padding: 12px;
-
-    background: var(--area-clara);
-
-    border: 1px solid var(--borda);
-
-    border-radius: 12px;
-}
-
-.trust-icon {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 35px;
-    height: 35px;
-
-    flex-shrink: 0;
-
-    color: var(--azul);
-
-    background: rgba(8, 124, 240, 0.07);
-
-    border: 1px solid rgba(8, 124, 240, 0.12);
-
-    border-radius: 9px;
-
-    font-size: 14px;
-}
-
-.trust-item strong {
-    display: block;
-
-    color: var(--texto);
-
-    font-size: 11px;
-
-    line-height: 1.3;
-}
-
-.trust-item small {
-    display: block;
-
-    margin-top: 3px;
-
-    color: var(--texto-terciario);
-
-    font-size: 9px;
-
-    line-height: 1.3;
-}
-
-
-/* =========================================================
-   LISTA DE SERVIÇOS
-========================================================= */
-
-.services-list {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-}
-
-.service-card {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    padding: 16px;
-
-    background: var(--area-clara);
-
-    border: 1px solid var(--borda);
-
-    border-radius: 13px;
-
-    transition:
-        border-color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.service-card:hover {
-    border-color: var(--borda-hover);
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 7px 20px rgba(20, 80, 120, 0.08);
-}
-
-
-/* =========================================================
-   ÍCONE DO SERVIÇO
-========================================================= */
-
-.service-icon {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 45px;
-    height: 45px;
-
-    flex-shrink: 0;
-
-    color: var(--azul);
-
-    background: rgba(8, 124, 240, 0.07);
-
-    border: 1px solid rgba(8, 124, 240, 0.13);
-
-    border-radius: 11px;
-
-    font-size: 17px;
-}
-
-.service-info {
-    min-width: 0;
-}
-
-.service-info h3 {
-    color: var(--texto);
-
-    font-size: 13px;
-
-    font-weight: 600;
-}
-
-.service-info p {
-    margin-top: 4px;
-
-    color: var(--texto-secundario);
-
-    font-size: 11px;
-
-    line-height: 1.5;
-}
-
-.service-info strong {
-    display: block;
-
-    margin-top: 6px;
-
-    color: var(--azul);
-
-    font-size: 11px;
-
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   PORTFÓLIO
-========================================================= */
-
-.portfolio-preview {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 12px;
-}
-
-.portfolio-placeholder {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    min-height: 125px;
-
-    padding: 15px;
-
-    color: var(--texto-secundario);
-
-    background: var(--area-clara);
-
-    border: 1px dashed var(--borda-hover);
-
-    border-radius: 13px;
-
-    text-align: center;
-
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease;
-}
-
-.portfolio-placeholder:hover {
-    background: #edf8ff;
-
-    transform: translateY(-2px);
-}
-
-.portfolio-placeholder i {
-    margin-bottom: 9px;
-
-    color: var(--azul);
-
-    font-size: 22px;
-}
-
-.portfolio-placeholder span {
-    font-size: 11px;
-
-    font-weight: 500;
-}
-
-
-/* =========================================================
-   COLUNA LATERAL
-========================================================= */
-
-.profile-side {
-    display: flex;
-
-    flex-direction: column;
-
-    min-width: 0;
-
-    gap: 18px;
-}
-
-
-/* =========================================================
-   CARDS LATERAIS
-========================================================= */
-
-.side-card {
-    width: 100%;
-
-    padding: 21px;
-
-    background: var(--branco);
-
-    border: 1px solid var(--borda);
-
-    border-radius: 17px;
-
-    box-shadow:
-        0 10px 30px rgba(20, 80, 120, 0.07);
-}
-
-.side-title {
-    margin-bottom: 17px;
-
-    color: var(--texto);
-
-    font-size: 13px;
-
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   AVALIAÇÃO
-========================================================= */
-
-.rating-main {
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    margin-bottom: 19px;
-}
-
-.rating-main > strong {
-    color: var(--azul);
-
-    font-size: 36px;
-
-    line-height: 1;
-
-    font-weight: 700;
-}
-
-.stars {
-    color: #f2b51d;
-
-    font-size: 14px;
-
-    letter-spacing: 1px;
-}
-
-.rating-main div span {
-    display: block;
-
-    margin-top: 4px;
-
-    color: var(--texto-terciario);
-
-    font-size: 10px;
-}
-
-
-/* =========================================================
-   BARRAS DE AVALIAÇÃO
-========================================================= */
-
-.rating-bar {
-    display: grid;
-
-    grid-template-columns: 12px minmax(0, 1fr) 32px;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top: 9px;
-}
-
-.rating-bar > span:first-child {
-    color: var(--texto-secundario);
-
-    font-size: 10px;
-}
-
-.rating-bar > div {
-    height: 6px;
-
-    overflow: hidden;
-
-    background: #e4f0f6;
-
-    border-radius: 10px;
-}
-
-.rating-bar > div > span {
-    display: block;
-
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--ciano),
-            var(--azul)
-        );
-
-    border-radius: 10px;
-}
-
-.rating-bar small {
-    color: var(--texto-terciario);
-
-    font-size: 9px;
-
-    text-align: right;
-}
-
-
-/* =========================================================
-   CONTATO
-========================================================= */
-
-.contact-list {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 15px;
-}
-
-.contact-item {
-    display: flex;
-
-    align-items: center;
-
-    gap: 11px;
-}
-
-.contact-item > span {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 35px;
-    height: 35px;
-
-    flex-shrink: 0;
-
-    color: var(--azul);
-
-    background: rgba(8, 124, 240, 0.07);
-
-    border: 1px solid rgba(8, 124, 240, 0.12);
-
-    border-radius: 9px;
-
-    font-size: 13px;
-}
-
-.contact-item small {
-    display: block;
-
-    margin-bottom: 2px;
-
-    color: var(--texto-terciario);
-
-    font-size: 9px;
-}
-
-.contact-item strong {
-    display: block;
-
-    color: var(--texto);
-
-    font-size: 11px;
-
-    font-weight: 600;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* =========================================================
-   CARD DE CONFIANÇA
-========================================================= */
-
-.trust-card {
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 12px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #071225,
-            #101f38
-        );
-
-    border-color: #193554;
-}
-
-.trust-card-icon {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 40px;
-    height: 40px;
-
-    flex-shrink: 0;
-
-    color: #35a4ff;
-
-    background: rgba(35, 153, 255, 0.10);
-
-    border: 1px solid rgba(35, 153, 255, 0.15);
-
-    border-radius: 10px;
-}
-
-.trust-card h3 {
-    color: var(--texto-escuro);
-
-    font-size: 12px;
-
-    font-weight: 600;
-}
-
-.trust-card p {
-    margin-top: 5px;
-
-    color: var(--texto-escuro-secundario);
-
-    font-size: 10px;
-
-    line-height: 1.55;
-}
-
-
-/* =========================================================
-   MENSAGEM
-========================================================= */
-
-.profile-message {
-    position: fixed;
-
-    left: 50%;
-
-    bottom: 25px;
-
-    z-index: 9999;
-
-    transform: translate(-50%, 20px);
-
-    padding: 12px 18px;
-
-    color: #ffffff;
-
-    background: #071225;
-
-    border: 1px solid #193554;
-
-    border-radius: 10px;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 12px;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-}
-
-.profile-message.show {
-    opacity: 1;
-
-    transform: translate(-50%, 0);
-}
-
-
-/* =========================================================
+/* =========================
    MODO ESCURO
-========================================================= */
+========================= */
 
 html[data-tema="escuro"] body {
     background: #020713;
@@ -1059,364 +562,163 @@ html[data-tema="escuro"] body {
     color: #edf8ff;
 }
 
-html[data-tema="escuro"] .main-content {
-    color: #edf8ff;
-}
-
-html[data-tema="escuro"] .profile-name-line h1,
-html[data-tema="escuro"] .section-heading h2,
-html[data-tema="escuro"] .side-title,
-html[data-tema="escuro"] .service-info h3,
-html[data-tema="escuro"] .trust-item strong,
-html[data-tema="escuro"] .contact-item strong {
-    color: #edf8ff;
-}
-
-html[data-tema="escuro"] .content-card,
-html[data-tema="escuro"] .side-card {
+html[data-tema="escuro"] .perfil-topo {
     background: #071225;
 
     border-color: #183454;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.20);
 }
 
-html[data-tema="escuro"] .about-text,
-html[data-tema="escuro"] .profile-meta,
-html[data-tema="escuro"] .service-info p {
+html[data-tema="escuro"] .dados-principais h1 {
+    color: #edf8ff;
+}
+
+html[data-tema="escuro"] .descricao,
+html[data-tema="escuro"] .localizacao {
     color: #a8c2d6;
 }
 
-html[data-tema="escuro"] .trust-item,
-html[data-tema="escuro"] .service-card,
-html[data-tema="escuro"] .portfolio-placeholder {
+html[data-tema="escuro"] .avaliacao {
     background: #101f38;
 
     border-color: #254767;
 }
 
-html[data-tema="escuro"] .rating-bar > div {
-    background: #1b3148;
+html[data-tema="escuro"] .avaliacao strong {
+    color: #edf8ff;
+}
+
+html[data-tema="escuro"] .btn-chat {
+    background: #101f38;
+
+    border-color: #254767;
+
+    color: #8bc9ff;
+}
+
+html[data-tema="escuro"] .btn-chat:hover {
+    background: #142743;
+
+    border-color: #3d6688;
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1100px) {
-
-    .main-content {
-        width: calc(100% - 280px);
-
-        margin-left: 280px;
-
-        padding: 35px 28px 60px;
-    }
-
-    .profile-grid {
-        grid-template-columns:
-            minmax(0, 1fr)
-            285px;
-    }
-
-    .profile-header {
-        gap: 20px;
-    }
-
-    .profile-name-line h1 {
-        font-size: 25px;
-    }
-
-    .trust-items {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* =========================================================
-   TABLET MENOR
-========================================================= */
+/* =========================
+   RESPONSIVIDADE
+========================= */
 
 @media (max-width: 900px) {
 
-    .main-content {
-        width: 100%;
+    .perfil-topo {
+        grid-template-columns: 120px minmax(0, 1fr);
 
-        margin-left: 0;
-
-        padding: 30px 25px 50px;
+        gap: 22px;
     }
 
-    .profile-header {
-        align-items: flex-start;
+    .foto-perfil {
+        width: 115px;
+        height: 115px;
     }
 
-    .profile-grid {
+    .avaliacao {
+        grid-column: 2;
+
+        justify-self: start;
+    }
+
+    .informacoes {
         grid-template-columns: 1fr;
     }
 
-    .profile-side {
+    .informacoes-laterais {
         display: grid;
 
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, 1fr);
 
-        align-items: start;
+        gap: 10px;
     }
 
-    .trust-card {
-        grid-column: 1 / -1;
-    }
+    .info-item {
+        border-bottom: none;
 
-    .trust-items {
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
+        padding: 12px 5px;
     }
 }
 
-
-/* =========================================================
-   CELULAR
-========================================================= */
 
 @media (max-width: 650px) {
 
-    .main-content {
-        padding: 25px 16px 45px;
+    .pagina-perfil {
+        width: 94%;
+
+        padding: 25px 0 45px;
     }
 
-    .profile-header {
-        flex-direction: column;
-
-        align-items: stretch;
-
-        gap: 18px;
-    }
-
-    .profile-header-info {
-        align-items: flex-start;
-
-        gap: 14px;
-    }
-
-    .profile-main-photo {
-        width: 82px;
-        height: 82px;
-    }
-
-    .profile-name-line h1 {
-        font-size: 21px;
-    }
-
-    .profile-profession {
-        font-size: 13px;
-    }
-
-    .profile-meta {
-        gap: 8px;
-
-        font-size: 10px;
-    }
-
-    .btn-solicitar {
-        width: 100%;
-    }
-
-    .content-card {
-        padding: 20px;
-    }
-
-    .section-heading {
-        align-items: flex-start;
-    }
-
-    .section-heading h2 {
-        font-size: 18px;
-    }
-
-    .trust-items {
+    .perfil-topo {
         grid-template-columns: 1fr;
+
+        padding: 25px 20px;
+
+        text-align: center;
     }
 
-    .portfolio-preview {
-        grid-template-columns: 1fr;
+    .foto-perfil {
+        width: 115px;
+        height: 115px;
+
+        margin: 0 auto;
     }
 
-    .profile-side {
-        grid-template-columns: 1fr;
-    }
-
-    .trust-card {
+    .avaliacao {
         grid-column: auto;
+
+        justify-self: center;
+    }
+
+    .dados-principais h1 {
+        font-size: 25px;
+    }
+
+    .dados-principais h2 {
+        font-size: 15px;
+    }
+
+    .descricao {
+        font-size: 12px;
+    }
+
+    .informacoes-laterais {
+        display: block;
+
+        padding: 18px;
+    }
+
+    .info-item {
+        padding: 15px 0;
+
+        border-bottom: 1px solid rgba(150, 190, 220, 0.12);
+    }
+
+    .servicos-card {
+        padding: 20px;
     }
 }
 
-
-/* =========================================================
-   CELULAR PEQUENO
-========================================================= */
 
 @media (max-width: 430px) {
 
-    .main-content {
-        padding-left: 12px;
-        padding-right: 12px;
+    .acoes-perfil {
+        grid-template-columns: 1fr;
     }
 
-    .profile-header-info {
-        flex-direction: column;
-
-        align-items: center;
-
-        text-align: center;
-
-        width: 100%;
+    .btn-chat,
+    .btn-contratar {
+        min-height: 46px;
     }
 
-    .profile-identity {
-        width: 100%;
-    }
-
-    .profile-name-line {
-        justify-content: center;
-    }
-
-    .profile-meta {
-        justify-content: center;
-    }
-
-    .section-heading {
-        flex-direction: column;
-    }
-
-    .section-link {
-        align-self: flex-start;
-    }
-}
-
-/* =========================================================
-   CORREÇÃO DO LAYOUT — PERFIL AO LADO DO MENU LATERAL
-========================================================= */
-
-/* Estrutura geral */
-.page-layout {
-    display: flex !important;
-    align-items: flex-start !important;
-
-    width: 100%;
-    min-height: 100vh;
-
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-
-/* Menu lateral */
-#menu-lateral {
-    flex: 0 0 312px;
-
-    width: 312px;
-    min-width: 312px;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    align-self: flex-start;
-}
-
-
-/* Conteúdo da página */
-.main-content {
-    flex: 1 1 auto;
-
-    width: calc(100% - 312px);
-    min-width: 0;
-
-    margin: 0 !important;
-
-    padding: 40px 42px 70px !important;
-
-    position: relative;
-}
-
-
-/* Garante que o cabeçalho do perfil fique
-   no topo do conteúdo e não seja empurrado */
-.profile-header {
-    margin-top: 0 !important;
-}
-
-
-/* Grid interno */
-.profile-grid {
-    width: 100%;
-    min-width: 0;
-}
-
-
-/* Evita que algum estilo do menu
-   empurre o conteúdo para baixo */
-#menu-lateral + .main-content {
-    margin-top: 0 !important;
-}
-
-
-/* =========================================================
-   DESKTOP
-========================================================= */
-
-@media (min-width: 901px) {
-
-    .page-layout {
-        display: flex !important;
-        flex-direction: row !important;
-    }
-
-    #menu-lateral {
-        position: relative !important;
-
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-
-        height: 100vh;
-
-        flex-shrink: 0;
-    }
-
-    .main-content {
-        margin-left: 0 !important;
-        margin-top: 0 !important;
-
-        flex: 1;
-    }
-}
-
-
-/* =========================================================
-   TABLET / MOBILE
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .page-layout {
-        display: block !important;
-    }
-
-    #menu-lateral {
-        width: 100%;
-        min-width: 0;
-
-        position: relative !important;
-
-        height: auto;
-    }
-
-    .main-content {
-        width: 100%;
-
-        margin: 0 !important;
-
-        padding: 30px 20px 50px !important;
+    .voltar {
+        margin-bottom: 18px;
     }
 }
