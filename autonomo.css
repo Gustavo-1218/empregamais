@@ -1536,3 +1536,14 @@
 .pagina-autonomos {
     font-family: "Poppins", sans-serif;
 }
+
+/* =========================================================
+   AJUSTE — CONTEÚDO AO LADO DO MENU LATERAL
+   ========================================================= */
+
+.pagina-autonomos {
+    margin-left: 303px;
+    margin-right: 0;
+    width: calc(100% - 303px);
+    max-width: none;
+}
