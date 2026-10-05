@@ -1,8 +1,4 @@
-/* =========================================================
-   NEXT ASSISTANT
-   ========================================================= */
-
-.next-assistant-container {
+#next-assistant-container {
     position: fixed;
     left: 28px;
     bottom: 28px;
@@ -12,11 +8,11 @@
 }
 
 
-/* =========================================================
+/* =====================================================
    BOTÃO FLUTUANTE
-   ========================================================= */
+===================================================== */
 
-.next-assistant-button {
+#nextAssistantButton {
     position: relative;
 
     width: 68px;
@@ -27,11 +23,12 @@
     border: 1px solid rgba(141, 92, 255, 0.75);
     border-radius: 50%;
 
-    background: radial-gradient(
-        circle,
-        rgba(141, 92, 255, 0.30),
-        rgba(2, 7, 19, 0.96)
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(141, 92, 255, 0.30),
+            rgba(2, 7, 19, 0.96)
+        );
 
     display: flex;
     align-items: center;
@@ -51,7 +48,7 @@
 }
 
 
-.next-assistant-button:hover {
+#nextAssistantButton:hover {
     transform: scale(1.08);
 
     box-shadow:
@@ -60,7 +57,7 @@
 }
 
 
-.next-assistant-image {
+#nextAssistantButton img {
     width: 100%;
     height: 100%;
 
@@ -72,9 +69,9 @@
 }
 
 
-/* =========================================================
-   PULSAÇÃO DO BOTÃO
-   ========================================================= */
+/* =====================================================
+   ANIMAÇÃO DO BOTÃO FLUTUANTE
+===================================================== */
 
 @keyframes nextAssistantPulse {
 
@@ -93,11 +90,12 @@
 }
 
 
-/* =========================================================
+/* =====================================================
    JANELA DO ASSISTENTE
-   ========================================================= */
+===================================================== */
 
-.next-assistant-chat {
+#nextAssistantChat {
+
     position: absolute;
 
     left: 0;
@@ -111,11 +109,12 @@
     border: 1px solid rgba(0, 221, 255, 0.25);
     border-radius: 20px;
 
-    background: linear-gradient(
-        145deg,
-        rgba(11, 23, 43, 0.98),
-        rgba(3, 10, 23, 0.98)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11, 23, 43, 0.98),
+            rgba(3, 10, 23, 0.98)
+        );
 
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.50),
@@ -125,31 +124,38 @@
 }
 
 
-/* =========================================================
+/* =====================================================
    CABEÇALHO
-   ========================================================= */
+===================================================== */
 
 .next-assistant-header {
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     padding: 15px 17px;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
 }
 
 
 .next-assistant-header-info {
+
     display: flex;
     align-items: center;
+
     gap: 11px;
 }
 
 
-/* FOTO DA NEXT IA */
+/* =====================================================
+   FOTO DA NEXT IA
+===================================================== */
 
 .next-assistant-mini-photo {
+
     width: 40px;
     height: 40px;
 
@@ -161,7 +167,8 @@
 
     background: #101f38;
 
-    border: 1px solid rgba(141, 92, 255, 0.45);
+    border:
+        1px solid rgba(141, 92, 255, 0.45);
 
     box-shadow:
         0 0 15px rgba(141, 92, 255, 0.15);
@@ -169,6 +176,7 @@
 
 
 .next-assistant-mini-photo img {
+
     width: 100%;
     height: 100%;
 
@@ -178,7 +186,12 @@
 }
 
 
+/* =====================================================
+   TÍTULO
+===================================================== */
+
 .next-assistant-header h2 {
+
     margin: 0;
 
     color: #edf8ff;
@@ -189,8 +202,10 @@
 
 
 .next-assistant-status {
+
     display: flex;
     align-items: center;
+
     gap: 5px;
 
     margin-top: 2px;
@@ -202,6 +217,7 @@
 
 
 .status-dot {
+
     width: 6px;
     height: 6px;
 
@@ -214,11 +230,12 @@
 }
 
 
-/* =========================================================
+/* =====================================================
    BOTÃO FECHAR
-   ========================================================= */
+===================================================== */
 
-.next-assistant-close {
+#nextAssistantClose {
+
     width: 34px;
     height: 34px;
 
@@ -242,18 +259,21 @@
 }
 
 
-.next-assistant-close:hover {
-    background: rgba(255, 255, 255, 0.07);
+#nextAssistantClose:hover {
+
+    background:
+        rgba(255, 255, 255, 0.07);
 
     color: #ffffff;
 }
 
 
-/* =========================================================
-   MENSAGENS
-   ========================================================= */
+/* =====================================================
+   ÁREA DAS MENSAGENS
+===================================================== */
 
 .next-assistant-messages {
+
     height: 280px;
 
     padding: 16px;
@@ -262,26 +282,32 @@
 
     display: flex;
     flex-direction: column;
+
     gap: 10px;
 
     scrollbar-width: thin;
 }
 
 
-/* Mensagem da assistente */
+/* =====================================================
+   MENSAGEM DA NEXT IA
+===================================================== */
 
 .assistant-message {
+
     display: flex;
     align-items: flex-start;
+
     gap: 9px;
 
     max-width: 90%;
 }
 
 
-/* Foto dentro da mensagem */
+/* Foto da mensagem */
 
 .message-avatar {
+
     width: 28px;
     height: 28px;
 
@@ -296,6 +322,7 @@
 
 
 .message-avatar img {
+
     width: 100%;
     height: 100%;
 
@@ -305,14 +332,19 @@
 }
 
 
+/* Conteúdo da mensagem */
+
 .message-content {
+
     padding: 9px 11px;
 
     border-radius: 13px;
 
-    background: rgba(255, 255, 255, 0.055);
+    background:
+        rgba(255, 255, 255, 0.055);
 
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
 
     color: #dceef8;
 
@@ -321,6 +353,7 @@
 
 
 .message-name {
+
     display: block;
 
     margin-bottom: 3px;
@@ -333,6 +366,7 @@
 
 
 .message-content p {
+
     margin: 0;
 
     font-size: 12px;
@@ -340,11 +374,12 @@
 }
 
 
-/* =========================================================
+/* =====================================================
    SUGESTÕES
-   ========================================================= */
+===================================================== */
 
 .next-assistant-suggestions {
+
     display: flex;
 
     gap: 6px;
@@ -356,18 +391,25 @@
 
 
 .suggestion-button {
+
     flex-shrink: 0;
 
     padding: 7px 10px;
 
-    border: 1px solid rgba(141, 92, 255, 0.25);
+    border:
+        1px solid rgba(141, 92, 255, 0.25);
+
     border-radius: 10px;
 
-    background: rgba(141, 92, 255, 0.10);
+    background:
+        rgba(141, 92, 255, 0.10);
 
     color: #c9b8ff;
 
-    font-family: "Poppins", sans-serif;
+    font-family:
+        "Poppins",
+        sans-serif;
+
     font-size: 10px;
 
     cursor: pointer;
@@ -380,47 +422,59 @@
 
 
 .suggestion-button:hover {
-    background: rgba(141, 92, 255, 0.20);
 
-    border-color: rgba(141, 92, 255, 0.45);
+    background:
+        rgba(141, 92, 255, 0.20);
 
-    transform: translateY(-1px);
+    border-color:
+        rgba(141, 92, 255, 0.45);
+
+    transform:
+        translateY(-1px);
 }
 
 
-/* =========================================================
-   ÁREA DO MICROFONE
-   ========================================================= */
+/* =====================================================
+   ÁREA INFERIOR
+===================================================== */
 
 .next-assistant-input-area {
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 16px;
+    padding: 18px;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
 }
 
 
-/* =========================================================
+/* =====================================================
    MICROFONE
-   ========================================================= */
+===================================================== */
 
 .next-assistant-mic {
-    width: 64px;
-    height: 64px;
+
+    width: 68px;
+    height: 68px;
+
+    flex-shrink: 0;
 
     padding: 0;
 
-    border: 1px solid rgba(141, 92, 255, 0.65);
+    border:
+        1px solid rgba(141, 92, 255, 0.70);
+
     border-radius: 50%;
 
-    background: radial-gradient(
-        circle,
-        rgba(141, 92, 255, 0.28),
-        rgba(2, 7, 19, 0.96)
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(141, 92, 255, 0.32),
+            rgba(2, 7, 19, 0.96)
+        );
 
     display: flex;
     align-items: center;
@@ -429,10 +483,11 @@
     cursor: pointer;
 
     box-shadow:
-        0 0 15px rgba(141, 92, 255, 0.45),
-        0 0 30px rgba(141, 92, 255, 0.18);
+        0 0 15px rgba(141, 92, 255, 0.60),
+        0 0 35px rgba(141, 92, 255, 0.22);
 
-    animation: nextAssistantMicPulse 2.5s infinite;
+    animation:
+        nextAssistantMicPulse 2.5s infinite;
 
     transition:
         transform 0.25s ease,
@@ -440,7 +495,10 @@
 }
 
 
+/* Imagem audioo.png */
+
 .next-assistant-mic img {
+
     width: 100%;
     height: 100%;
 
@@ -453,118 +511,141 @@
 
 
 .next-assistant-mic:hover {
-    transform: scale(1.08);
+
+    transform:
+        scale(1.08);
 
     box-shadow:
-        0 0 22px rgba(141, 92, 255, 0.80),
-        0 0 45px rgba(141, 92, 255, 0.30);
+        0 0 22px rgba(141, 92, 255, 0.85),
+        0 0 50px rgba(141, 92, 255, 0.35);
 }
 
 
-/* Pulsação normal */
+/* =====================================================
+   PULSAÇÃO DO MICROFONE
+===================================================== */
 
 @keyframes nextAssistantMicPulse {
 
     0%,
     100% {
         box-shadow:
-            0 0 15px rgba(141, 92, 255, 0.45),
-            0 0 30px rgba(141, 92, 255, 0.18);
+            0 0 15px rgba(141, 92, 255, 0.60),
+            0 0 35px rgba(141, 92, 255, 0.22);
     }
 
     50% {
         box-shadow:
-            0 0 23px rgba(141, 92, 255, 0.75),
-            0 0 45px rgba(141, 92, 255, 0.30);
+            0 0 23px rgba(141, 92, 255, 0.85),
+            0 0 50px rgba(141, 92, 255, 0.38);
     }
 }
 
 
-/* =========================================================
+/* =====================================================
    MICROFONE OUVINDO
-   ========================================================= */
+===================================================== */
 
 .next-assistant-mic.ouvindo {
-    background: radial-gradient(
-        circle,
-        rgba(141, 92, 255, 0.65),
-        rgba(113, 71, 232, 0.95)
-    );
 
-    animation: nextAssistantListening 1.2s infinite;
+    background:
+        #8d5cff;
+
+    animation:
+        nextAssistantMicListening 1s infinite;
 }
 
 
-@keyframes nextAssistantListening {
+@keyframes nextAssistantMicListening {
 
     0%,
     100% {
         transform: scale(1);
 
         box-shadow:
-            0 0 15px rgba(141, 92, 255, 0.55),
-            0 0 30px rgba(141, 92, 255, 0.20);
+            0 0 0 rgba(141, 92, 255, 0);
     }
 
     50% {
         transform: scale(1.10);
 
         box-shadow:
-            0 0 28px rgba(141, 92, 255, 0.90),
-            0 0 55px rgba(141, 92, 255, 0.35);
+            0 0 22px rgba(141, 92, 255, 0.75),
+            0 0 45px rgba(141, 92, 255, 0.30);
     }
 }
 
 
-/* =========================================================
-   BARRA DE ROLAGEM
-   ========================================================= */
+/* =====================================================
+   ROLAGEM
+===================================================== */
 
 .next-assistant-messages::-webkit-scrollbar {
+
     width: 5px;
 }
 
+
 .next-assistant-messages::-webkit-scrollbar-track {
-    background: transparent;
+
+    background:
+        transparent;
 }
+
 
 .next-assistant-messages::-webkit-scrollbar-thumb {
-    background: rgba(141, 92, 255, 0.35);
 
-    border-radius: 10px;
+    background:
+        rgba(141, 92, 255, 0.35);
+
+    border-radius:
+        10px;
 }
 
 
-/* =========================================================
-   RESPONSIVIDADE
-   ========================================================= */
+/* =====================================================
+   CELULAR
+===================================================== */
 
 @media (max-width: 600px) {
 
-    .next-assistant-container {
+    #next-assistant-container {
+
         left: 18px;
         bottom: 18px;
     }
 
-    .next-assistant-button {
+
+    #nextAssistantButton {
+
         width: 60px;
         height: 60px;
     }
 
-    .next-assistant-chat {
-        width: calc(100vw - 36px);
-        max-width: none;
+
+    #nextAssistantChat {
+
+        width:
+            calc(100vw - 36px);
+
+        max-width:
+            none;
 
         left: 0;
+
         bottom: 74px;
     }
 
+
     .next-assistant-messages {
+
         height: 240px;
     }
 
+
     .next-assistant-mic {
-        width: 60px;
-        height: 60px;
+
+        width: 62px;
+        height: 62px;
     }
 }
