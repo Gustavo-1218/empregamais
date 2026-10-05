@@ -1527,3 +1527,12 @@
         transition: none !important;
     }
 }
+
+
+/* =========================================================
+   FONTE PADRÃO
+   ========================================================= */
+
+.pagina-autonomos {
+    font-family: "Poppins", sans-serif;
+}
