@@ -1387,3 +1387,536 @@ html[data-tema="escuro"] .trust-card {
         max-width: none;
     }
 }
+
+```css
+/* =========================================================
+   RESPONSIVIDADE EXTRA — ADICIONAR NO FINAL DO CSS
+========================================================= */
+
+
+/* =========================================================
+   NOTEBOOK / TELAS MÉDIAS
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .main-content {
+        margin-left: 0;
+        width: auto;
+
+        padding: 30px 25px 55px;
+    }
+
+    .profile-header {
+        gap: 20px;
+        padding: 23px;
+    }
+
+    .profile-header-info {
+        gap: 18px;
+    }
+
+    .profile-main-photo {
+        width: 115px;
+        height: 115px;
+    }
+
+    .profile-name-line h1 {
+        font-size: 26px;
+    }
+
+    .profile-grid {
+        grid-template-columns:
+            minmax(0, 1fr)
+            270px;
+
+        gap: 18px;
+    }
+
+    .services-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   TABLET / NOTEBOOK PEQUENO
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+
+        padding: 28px 5% 50px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .profile-header-info {
+        width: 100%;
+    }
+
+    .btn-solicitar {
+        width: 100%;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-side {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 18px;
+    }
+
+    .trust-card {
+        grid-column: 1 / -1;
+    }
+
+    .trust-items {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .services-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   TABLET MENOR
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .main-content {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 25px 5% 45px;
+    }
+
+    .profile-header {
+        padding: 22px;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-side {
+        display: flex;
+
+        flex-direction: column;
+    }
+
+    .trust-items {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .services-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .main-content {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 20px 4% 40px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 20px 17px;
+
+        border-radius: 18px;
+
+        text-align: center;
+    }
+
+    .profile-header-info {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    .profile-main-photo {
+        width: 105px;
+        height: 105px;
+    }
+
+    .profile-name-line {
+        justify-content: center;
+    }
+
+    .profile-name-line h1 {
+        font-size: 24px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .profile-profession {
+        font-size: 14px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .profile-meta {
+        justify-content: center;
+
+        gap: 8px 14px;
+
+        font-size: 11px;
+    }
+
+    .btn-solicitar {
+        width: 100%;
+
+        min-height: 46px;
+    }
+
+
+    /* CARDS */
+
+    .content-card,
+    .side-card {
+        padding: 19px;
+
+        border-radius: 16px;
+    }
+
+
+    /* TÍTULOS */
+
+    .section-heading {
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+
+    /* CONFIANÇA */
+
+    .trust-items {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    /* SERVIÇOS */
+
+    .services-list {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .service-card {
+        flex-direction: row;
+
+        align-items: flex-start;
+
+        gap: 13px;
+    }
+
+    .service-icon {
+        margin-bottom: 0;
+
+        flex-shrink: 0;
+    }
+
+
+    /* PORTFÓLIO */
+
+    .portfolio-preview {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    /* LATERAL */
+
+    .profile-side {
+        display: flex;
+
+        flex-direction: column;
+    }
+
+
+    /* TEXTO */
+
+    .about-text {
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+    .service-info h3 {
+        font-size: 12px;
+    }
+
+    .service-info p {
+        font-size: 10px;
+    }
+
+
+    /* MENSAGEM */
+
+    .profile-message {
+        right: 15px;
+        bottom: 15px;
+        left: 15px;
+
+        max-width: none;
+
+        width: auto;
+    }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .main-content {
+        padding: 16px 3.5% 35px;
+    }
+
+    .profile-header {
+        padding: 18px 14px;
+    }
+
+    .profile-main-photo {
+        width: 95px;
+        height: 95px;
+    }
+
+    .profile-name-line {
+        flex-direction: column;
+
+        gap: 6px;
+    }
+
+    .profile-name-line h1 {
+        font-size: 22px;
+    }
+
+    .profile-profession {
+        font-size: 13px;
+    }
+
+    .profile-meta {
+        flex-direction: column;
+
+        gap: 6px;
+    }
+
+    .content-card,
+    .side-card {
+        padding: 16px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+
+        gap: 7px;
+    }
+
+    .section-link {
+        align-self: flex-start;
+    }
+
+    .section-heading h2 {
+        font-size: 17px;
+    }
+
+    .service-card {
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+    .service-icon {
+        margin-bottom: 11px;
+    }
+
+    .rating-main > strong {
+        font-size: 27px;
+    }
+
+    .profile-message {
+        right: 15px;
+        bottom: 15px;
+        left: 15px;
+
+        max-width: none;
+    }
+}
+
+
+/* =========================================================
+   CELULAR MUITO PEQUENO
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .main-content {
+        padding:
+            12px
+            10px
+            30px;
+    }
+
+    .profile-header {
+        padding: 16px 12px;
+    }
+
+    .profile-main-photo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .profile-name-line h1 {
+        font-size: 20px;
+    }
+
+    .profile-profession {
+        font-size: 12px;
+    }
+
+    .profile-meta {
+        font-size: 10px;
+    }
+
+    .btn-solicitar {
+        min-height: 44px;
+
+        padding: 10px 12px;
+
+        font-size: 12px;
+    }
+
+    .content-card,
+    .side-card {
+        padding: 14px;
+    }
+
+    .section-heading h2 {
+        font-size: 16px;
+    }
+
+    .about-text {
+        font-size: 11px;
+    }
+
+    .service-info h3 {
+        font-size: 12px;
+    }
+
+    .service-info p {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   TELAS MUITO PEQUENAS — EVITA ESTOURO HORIZONTAL
+========================================================= */
+
+@media (max-width: 320px) {
+
+    .main-content {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .profile-header {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .content-card,
+    .side-card {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .profile-name-line h1 {
+        font-size: 19px;
+    }
+
+    .profile-profession {
+        font-size: 11px;
+    }
+
+    .section-heading h2 {
+        font-size: 15px;
+    }
+
+    .btn-solicitar {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   RESPEITA USUÁRIOS QUE REDUZEM ANIMAÇÕES
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+```
