@@ -1734,57 +1734,38 @@ html[data-tema="escuro"] #profileMessage {
 }
 
 /* =========================================================
-   NEXT WORK — LAYOUT UNIVERSAL DAS PÁGINAS
-   Mantém a estrutura original e padroniza:
-   menu lateral + espaçamento + fundo
+   NEXT WORK — AJUSTE UNIVERSAL DO LAYOUT
+   NÃO ALTERA A ESTRUTURA DA PÁGINA
    ========================================================= */
 
 
-/* =========================================================
-   1. FUNDO PRINCIPAL
-   ========================================================= */
+/* FUNDO IGUAL AO PADRÃO DAS PÁGINAS CLARAS */
 
 html,
 body {
-    min-height: 100%;
-}
-
-body {
     background:
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(0, 174, 202, 0.10),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(35, 153, 255, 0.08),
-            transparent 30%
-        ),
         linear-gradient(
             135deg,
-            #e8f6fc 0%,
-            #dceff8 48%,
-            #eaf6fc 100%
+            #eaf8fc 0%,
+            #e3f3fa 50%,
+            #eef8fd 100%
         );
-
-    background-attachment: fixed;
 }
 
 
 /* =========================================================
-   2. ESTRUTURA MENU + CONTEÚDO
+   ESTRUTURA PRINCIPAL
    ========================================================= */
 
 .page-layout {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 150px);
 
     display: grid;
 
     /*
-       Mantém o menu lateral ocupando
-       somente o espaço dele.
+       Mantém o menu lateral de um lado
+       e o conteúdo do outro.
     */
     grid-template-columns:
         340px
@@ -1793,21 +1774,20 @@ body {
     align-items: start;
 
     /*
-       O conteúdo NÃO fica colado no topo.
-       Esse é o principal ajuste.
+       NÃO coloca espaço gigante em cima.
     */
     padding:
-        70px
-        28px
+        25px
+        0
         50px
         0;
 
-    column-gap: 0;
+    gap: 0;
 }
 
 
 /* =========================================================
-   3. MENU LATERAL
+   MENU LATERAL
    ========================================================= */
 
 #menu-lateral {
@@ -1819,7 +1799,7 @@ body {
 
 
 /* =========================================================
-   4. CONTEÚDO PRINCIPAL
+   CONTEÚDO
    ========================================================= */
 
 .main-content {
@@ -1827,14 +1807,14 @@ body {
     min-width: 0;
 
     /*
-       Cria o mesmo "respiro" visual da página
-       Minhas candidaturas.
+       Apenas um pequeno afastamento
+       entre o menu e o conteúdo.
     */
     padding:
-        15px
+        0
         38px
         0
-        34px;
+        38px;
 
     display: flex;
     flex-direction: column;
@@ -1844,18 +1824,21 @@ body {
 
 
 /* =========================================================
-   5. CABEÇALHO DA PÁGINA
+   CABEÇALHO
    ========================================================= */
 
 .page-header {
     width: 100%;
 
-    margin-bottom: 4px;
+    padding:
+        0
+        2px
+        8px;
 }
 
 
 /* =========================================================
-   6. CARDS
+   CARDS
    ========================================================= */
 
 .content-card,
@@ -1866,20 +1849,20 @@ body {
 
 
 /* =========================================================
-   7. FUNDO DOS CARDS
+   FUNDO DOS CARDS
    ========================================================= */
 
 .content-card,
 .stat-card {
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.90);
 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 
 /* =========================================================
-   8. RESPONSIVIDADE — NOTEBOOK / TELAS MENORES
+   NOTEBOOK
    ========================================================= */
 
 @media (max-width: 1200px) {
@@ -1890,21 +1873,21 @@ body {
             minmax(0, 1fr);
 
         padding:
-            55px
-            20px
+            22px
+            0
             40px
             0;
     }
 
     .main-content {
         padding-left: 28px;
-        padding-right: 25px;
+        padding-right: 28px;
     }
 }
 
 
 /* =========================================================
-   9. TABLET
+   TABLET
    ========================================================= */
 
 @media (max-width: 850px) {
@@ -1913,7 +1896,7 @@ body {
         grid-template-columns: 1fr;
 
         padding:
-            30px
+            25px
             18px
             40px;
     }
@@ -1923,8 +1906,6 @@ body {
     }
 
     .main-content {
-        width: 100%;
-
         padding:
             25px
             0
@@ -1936,7 +1917,7 @@ body {
 
 
 /* =========================================================
-   10. CELULAR
+   CELULAR
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -1960,11 +1941,10 @@ body {
 
 
 /* =========================================================
-   11. MODO ESCURO
+   MODO ESCURO
    ========================================================= */
 
 html[data-tema="escuro"] body {
-
     background:
         radial-gradient(
             circle at 70% 20%,
@@ -1977,37 +1957,12 @@ html[data-tema="escuro"] body {
             #061225 50%,
             #020713 100%
         );
-
-    background-attachment: fixed;
 }
 
-
-/* =========================================================
-   12. CARDS NO MODO ESCURO
-   ========================================================= */
 
 html[data-tema="escuro"] .content-card,
 html[data-tema="escuro"] .stat-card {
 
     background:
         rgba(8, 18, 37, 0.88);
-
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-
-/* =========================================================
-   13. CORREÇÃO PARA NÃO FICAR COLADO NO MENU
-   ========================================================= */
-
-@media (min-width: 851px) {
-
-    .main-content {
-        margin-left: 0;
-    }
-
-    .page-header {
-        padding-left: 2px;
-    }
 }
