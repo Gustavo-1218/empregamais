@@ -1919,4 +1919,185 @@ html[data-tema="escuro"] .trust-card {
         transition-duration: 0.01ms !important;
     }
 }
-```
+
+/* =========================================================
+   CELULAR — PERFIL EM UMA ÚNICA COLUNA
+========================================================= */
+
+@media (max-width: 650px) {
+
+    /* Conteúdo ocupa toda a largura */
+    .page-layout {
+        display: block;
+        width: 100%;
+    }
+
+    .main-content {
+        width: 100%;
+        margin: 0;
+        padding: 20px 15px 40px;
+    }
+
+    /* Cabeçalho do perfil */
+    .profile-header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 22px 18px;
+        gap: 18px;
+    }
+
+    .profile-header-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-identity {
+        width: 100%;
+    }
+
+    .profile-name-line {
+        justify-content: center;
+    }
+
+    .profile-meta {
+        justify-content: center;
+    }
+
+    /* Botão fica embaixo das informações */
+    .btn-solicitar {
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* =====================================================
+       PARTE PRINCIPAL DO PERFIL
+    ===================================================== */
+
+    .profile-grid {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 18px;
+    }
+
+    /* Informações principais primeiro */
+    .profile-main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 18px;
+    }
+
+    /* Informações laterais passam para baixo */
+    .profile-side {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 18px;
+    }
+
+    /* Todos os cards ocupam a largura */
+    .content-card,
+    .side-card {
+        width: 100%;
+    }
+
+    /* Serviços em uma coluna */
+    .services-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    /* Portfólio em uma coluna */
+    .portfolio-preview {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    /* Itens de confiança */
+    .trust-items {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    /* Cards de serviço */
+    .service-card {
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .service-icon {
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .main-content {
+        padding: 16px 12px 35px;
+    }
+
+    .profile-header {
+        padding: 20px 15px;
+    }
+
+    .profile-main-photo {
+        width: 105px;
+        height: 105px;
+    }
+
+    .profile-name-line {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .profile-name-line h1 {
+        font-size: 22px;
+    }
+
+    .profile-profession {
+        font-size: 13px;
+    }
+
+    .profile-meta {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .content-card,
+    .side-card {
+        padding: 18px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .section-heading h2 {
+        font-size: 17px;
+    }
+
+    .about-text {
+        font-size: 12px;
+    }
+
+    .service-card {
+        flex-direction: row;
+    }
+}
