@@ -28,6 +28,25 @@
         height: 115px;
     }
 
+@media (max-width: 650px) {
+    .page-layout {
+        display: block;
+        width: 100%;
+    }
+
+    #menu-lateral {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        position: relative;
+    }
+
+    .main-content {
+        width: 100%;
+        margin: 0;
+        padding: 20px 15px;
+    }
+}
     .profile-name-line h1 {
         font-size: 26px;
     }
