@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 function marcarPaginaAtual(){
     let paginaAtual=window.location.pathname.split("/").pop();
-    if(paginaAtual===""||paginaAtual==="/")paginaAtual="perfil-autonomo.html";
+    if(paginaAtual===""||paginaAtual==="/")paginaAtual="servicos-autonomo.html";
     document.querySelectorAll(".sidebar-nav a").forEach(function(link){
         link.classList.remove("ativo");
         if(link.getAttribute("href")===paginaAtual){
